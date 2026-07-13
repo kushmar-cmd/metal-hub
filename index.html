@@ -5488,7 +5488,7 @@ async function sendMsg(){
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':'YOUR_API_KEY_HERE','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      headers:{'Content-Type':'application/json','x-api-key':'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','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1500,
         system:'אתה מהנדס מכני ומומחה ייצור בכיר עם 20+ שנות ניסיון בתעשייה ביטחונית (Rafael-level). ענה תמיד בעברית, תמציתי וברור אך מקיף. התמחויות: GD&T (ISO 1101/ASME Y14.5), כוננויות וסובלנויות ISO, עיבוד מתכות (חריטה/כרסום/קידוח), ריתוך (MIG/TIG/SMAW), חומרים הנדסיים (פלדות/Al/SS/Ti/Inconel), ציפויים (MIL specs), טיפולי חום, NDT, SPC/Cpk, FAI, ומשמעות תקנים (ISO/ASME/MIL/DIN). כשאתה עונה על שאלה — תן תשובה ישירה קודם, ואחריה הרחבה אם רלוונטי. השתמש במספרים ונתונים ספציפיים כשאפשר.',
         messages:[{role:'user',content:msg}]})
