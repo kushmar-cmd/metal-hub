@@ -5486,10 +5486,10 @@ async function sendMsg(){
   msgs.innerHTML+=`<div class="msg user">${msg}</div><div class="msg bot" id="typing-ind" style="color:var(--muted)">חושב...</div>`;
   msgs.scrollTop=msgs.scrollHeight;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{
+    const r=await fetch('https://metal-hub-ai.kushmar.workers.dev',{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':'YOUR_API_KEY_HERE','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1500,
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
         system:'אתה מהנדס מכני ומומחה ייצור בכיר עם 20+ שנות ניסיון בתעשייה ביטחונית (Rafael-level). ענה תמיד בעברית, תמציתי וברור אך מקיף. התמחויות: GD&T (ISO 1101/ASME Y14.5), כוננויות וסובלנויות ISO, עיבוד מתכות (חריטה/כרסום/קידוח), ריתוך (MIG/TIG/SMAW), חומרים הנדסיים (פלדות/Al/SS/Ti/Inconel), ציפויים (MIL specs), טיפולי חום, NDT, SPC/Cpk, FAI, ומשמעות תקנים (ISO/ASME/MIL/DIN). כשאתה עונה על שאלה — תן תשובה ישירה קודם, ואחריה הרחבה אם רלוונטי. השתמש במספרים ונתונים ספציפיים כשאפשר.',
         messages:[{role:'user',content:msg}]})
     });
