@@ -1,0 +1,704 @@
+<div id="sec-gears" class="section">
+
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1a0d);border-color:var(--green)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">⚙️</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--green)">גלגלי שיניים — Gears</div>
+    <div style="font-size:12px;color:var(--muted)">סוגים · גיאומטריה · חוזק שן · חומרים · ייצור · כוכבית · תולעת · סיכה · תקנים · מחשבונים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="gear-tab active" onclick="showGear('types',this)">⚙️ סוגי גירים</button>
+  <button class="gear-tab" onclick="showGear('geometry',this)">📐 גיאומטריה</button>
+  <button class="gear-tab" onclick="showGear('strength',this)">💪 חוזק שן</button>
+  <button class="gear-tab" onclick="showGear('materials',this)">🔩 חומרים</button>
+  <button class="gear-tab" onclick="showGear('manufacturing',this)">🏭 ייצור ואיכות</button>
+  <button class="gear-tab" onclick="showGear('planetary',this)">🌍 כוכביות</button>
+  <button class="gear-tab" onclick="showGear('worm',this)">🐛 תולעת ו-Bevel</button>
+  <button class="gear-tab" onclick="showGear('lubrication',this)">💧 סיכה</button>
+  <button class="gear-tab" onclick="showGear('standards',this)">🏆 תקנים ויצרנים</button>
+  <button class="gear-tab" onclick="showGear('calc_gear',this)">🧮 מחשבונים</button>
+</div>
+
+<!-- ===== TYPES ===== -->
+<div id="gear-types" class="gear-sec active">
+<div class="card"><div class="ctitle">⚙️ סוגי גלגלי שיניים — Gear Types</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Spur Gear — גיר ישר</div>
+<div><span class="mc-badge" style="background:var(--green);color:#000">הפשוט ביותר</span><span class="mc-badge b-blue">מקביל</span></div>
+<div class="spec-row"><span class="spec-key">צירים</span><span class="spec-val">מקבילים</span></div>
+<div class="spec-row"><span class="spec-key">יחס מקסימלי</span><span class="spec-val">1:7 בשלב אחד</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">98-99%</span></div>
+<div class="spec-row"><span class="spec-key">עומסים</span><span class="spec-val">רדיאלי בלבד — ללא צירי!</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">פשוט · זול · קל לייצור ולבדיקה</span></div>
+<div class="spec-row"><span class="spec-key">חיסרון</span><span class="spec-val">רועש · מגע פתאומי · ↓יחס contact</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">תיבות הילוכים · שעונים · מדפסות · תחבורה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Helical Gear — גיר אלכסוני</div>
+<div><span class="mc-badge" style="background:var(--green);color:#000">הנפוץ בתעשייה</span><span class="mc-badge b-orange">Thrust!</span></div>
+<div class="spec-row"><span class="spec-key">זווית אלכסון β</span><span class="spec-val">15°-30° — נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">יחס מקסימלי</span><span class="spec-val">1:10 בשלב</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">97-98%</span></div>
+<div class="spec-row"><span class="spec-key">contact ratio</span><span class="spec-val">ε ≥ 1.5 — חלק יותר מ-Spur</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ עומס צירי</span><span class="spec-val">Fa = Ft × tan(β) → נדרש Thrust Bearing!</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">רכב · מנועים תעשייתיים · גיר מהירות</span></div>
+<div class="spec-row"><span class="spec-key">Double Helical</span><span class="spec-val">Herringbone — מבטל עומס צירי</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Bevel Gear — גיר חרוטי</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">שינוי כיוון 90°</span></div>
+<div class="spec-row"><span class="spec-key">Straight Bevel</span><span class="spec-val">שיניים ישרות · קל לייצור · רועש</span></div>
+<div class="spec-row"><span class="spec-key">Spiral Bevel</span><span class="spec-val">ספירלי · שקט · ↑חוזק · Gleason/Klingelnberg</span></div>
+<div class="spec-row"><span class="spec-key">Zerol Bevel</span><span class="spec-val">β=0° ספירלי · ↓עומס צירי</span></div>
+<div class="spec-row"><span class="spec-key">יחס מקסימלי</span><span class="spec-val">1:5 (ישר) · 1:8 (ספירלי)</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">96-99%</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">דיפרנציאל · הגה · גל ראשי אחורי</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.gleason.com" target="_blank" style="color:var(--blue)">Gleason</a> · <a href="https://www.klingelnberg.com" target="_blank" style="color:var(--blue)">Klingelnberg</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Hypoid Gear — היפואיד</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">רכב</span><span class="mc-badge b-red">EP Oil חובה</span></div>
+<div class="spec-row"><span class="spec-key">הבדל מBevel</span><span class="spec-val">ציר Pinion מוסט — לא נפגש עם Gear</span></div>
+<div class="spec-row"><span class="spec-key">יחס מקסימלי</span><span class="spec-val">1:10</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">92-95% — נמוכה מBevel!</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↓רכב מרכז גבוה · שקט מאוד</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ סיכה</span><span class="spec-val">EP/GL-5 חובה — מגע גבוה מאוד!</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">ציר אחורי רכב · LSD · Torsen Diff</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Worm Gear — גיר תולעת</div>
+<div><span class="mc-badge" style="background:var(--red);color:#fff">Self-Locking!</span><span class="mc-badge b-orange">ניצב</span></div>
+<div class="spec-row"><span class="spec-key">יחס מקסימלי</span><span class="spec-val">1:70 בשלב אחד!</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">30-90% — תלוי ב-Lead Angle</span></div>
+<div class="spec-row"><span class="spec-key">Self-Locking</span><span class="spec-val">Lead angle &lt; 5° → לא ניתן לסובב הפוך</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ חום</span><span class="spec-val">↓יעילות = ↑חום. נדרש קירור!</span></div>
+<div class="spec-row"><span class="spec-key">חומר Wheel</span><span class="spec-val">ברונזה C932 · נגד ספיגה</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">הרמות · שסתומים · גיר הגה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Planetary / Epicyclic — כוכבית</div>
+<div><span class="mc-badge" style="background:var(--green);color:#000">קומפקטי</span><span class="mc-badge b-blue">קואקסיאלי</span></div>
+<div class="spec-row"><span class="spec-key">רכיבים</span><span class="spec-val">Sun · Planet(s) · Ring (Annulus) · Carrier</span></div>
+<div class="spec-row"><span class="spec-key">יחס בשלב</span><span class="spec-val">1:3 עד 1:12</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">97-99%</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">קומפקטי מאוד · עומסים מחולקים · קואקסיאלי</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">סרוו · מנוע הגה · ATM · Printer · רובוט</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.neugart.com" target="_blank" style="color:var(--blue)">Neugart</a> · <a href="https://www.stober.com" target="_blank" style="color:var(--blue)">Stöber</a> · <a href="https://www.alphagetriebe.de" target="_blank" style="color:var(--blue)">Alpha</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Rack & Pinion — מסרק ופיניון</div>
+<div><span class="mc-badge b-blue">סיבוב→ליניארי</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Pinion מסתובב על מסרק → תנועה ליניארית</span></div>
+<div class="spec-row"><span class="spec-key">מהירות קידום</span><span class="spec-val">v = π × m × z × n / 60,000 (m/s)</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">97-98%</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">AGMA Q8-Q12 · DIN 4-8</span></div>
+<div class="spec-row"><span class="spec-key">Helical Rack</span><span class="spec-val">שקט יותר · מומץ לCNC מהירות גבוהה</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">CNC · הגה · מנופים · מדפסות 3D</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.hiwin.com" target="_blank" style="color:var(--blue)">HIWIN</a> · <a href="https://www.atlanta-antriebssysteme.de" target="_blank" style="color:var(--blue)">Atlanta</a> · <a href="https://www.thmcnc.com" target="_blank" style="color:var(--blue)">THK</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Internal Gear — גיר פנימי</div>
+<div><span class="mc-badge b-blue">Annulus Ring</span><span class="mc-badge b-green">קומפקטי</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">שיניים בפנים הטבעת · מסתובב אותו כיוון!</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↓מרחק מרכזים · ↑contact ratio · שקט</span></div>
+<div class="spec-row"><span class="spec-key">מינימום שיניים</span><span class="spec-val">z_ring - z_pinion ≥ 15 (למניעת Interference)</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">כוכבית (Ring Gear) · ציר אפיצקלי · ATM</span></div>
+</div>
+
+</div>
+<div style="margin-top:16px">
+<table><tr><th>סוג גיר</th><th>צירים</th><th>יחס מקסימלי</th><th>יעילות</th><th>רעש</th><th>שימוש עיקרי</th></tr>
+<tr><td>Spur</td><td>מקביל</td><td>1:7</td><td>98-99%</td><td>⭐⭐⭐</td><td>כלל שימוש</td></tr>
+<tr><td>Helical</td><td>מקביל</td><td>1:10</td><td>97-98%</td><td>⭐⭐</td><td>רכב, תעשייה</td></tr>
+<tr><td>Straight Bevel</td><td>מצטלב</td><td>1:5</td><td>96-98%</td><td>⭐⭐⭐</td><td>שינוי כיוון פשוט</td></tr>
+<tr><td>Spiral Bevel</td><td>מצטלב</td><td>1:8</td><td>97-99%</td><td>⭐</td><td>רכב, תעופה</td></tr>
+<tr><td>Hypoid</td><td>מצטלב+היסט</td><td>1:10</td><td>92-95%</td><td>⭐</td><td>ציר אחורי</td></tr>
+<tr><td>Worm</td><td>ניצב</td><td>1:70</td><td>30-90%</td><td>⭐</td><td>הרמות, Self-lock</td></tr>
+<tr><td>Planetary</td><td>קואקסיאלי</td><td>1:12</td><td>97-99%</td><td>⭐</td><td>סרוו, רובוט</td></tr>
+<tr><td>Rack & Pinion</td><td>סיבוב→ליניארי</td><td>—</td><td>97%</td><td>⭐⭐</td><td>CNC, הגה</td></tr>
+</table>
+</div>
+</div></div>
+
+<!-- ===== GEOMETRY ===== -->
+<div id="gear-geometry" class="gear-sec">
+<div class="card"><div class="ctitle">📐 גיאומטריית גיר — Gear Geometry</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">נוסחאות יסוד — Basic Formulas</div>
+<div><span class="mc-badge b-blue">ISO 54 / DIN 867</span></div>
+<div class="spec-row"><span class="spec-key">dp = m × z</span><span class="spec-val">קוטר Pitch (mm)</span></div>
+<div class="spec-row"><span class="spec-key">da = dp + 2m</span><span class="spec-val">קוטר ראש Addendum</span></div>
+<div class="spec-row"><span class="spec-key">df = dp - 2.5m</span><span class="spec-val">קוטר שורש Dedendum</span></div>
+<div class="spec-row"><span class="spec-key">db = dp × cos(α)</span><span class="spec-val">קוטר בסיס Base Circle</span></div>
+<div class="spec-row"><span class="spec-key">h = 2.25m</span><span class="spec-val">גובה שן מלא</span></div>
+<div class="spec-row"><span class="spec-key">p = π × m</span><span class="spec-val">Circular Pitch — צעד</span></div>
+<div class="spec-row"><span class="spec-key">a = m(z1+z2)/2</span><span class="spec-val">מרחק מרכזים Center Distance</span></div>
+<div class="spec-row"><span class="spec-key">i = z2/z1 = n1/n2</span><span class="spec-val">יחס העברה Gear Ratio</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Helical Gear — גיאומטריה אלכסונית</div>
+<div><span class="mc-badge b-green">Normal vs. Transverse</span></div>
+<div class="spec-row"><span class="spec-key">mn (Normal Module)</span><span class="spec-val">מודול נורמלי — מה שמציינים</span></div>
+<div class="spec-row"><span class="spec-key">mt = mn/cos(β)</span><span class="spec-val">מודול Transverse</span></div>
+<div class="spec-row"><span class="spec-key">αt = arctan(tan(αn)/cos(β))</span><span class="spec-val">זווית לחץ Transverse</span></div>
+<div class="spec-row"><span class="spec-key">dp = mn × z / cos(β)</span><span class="spec-val">קוטר Pitch</span></div>
+<div class="spec-row"><span class="spec-key">a = mn(z1+z2)/(2cos(β))</span><span class="spec-val">מרחק מרכזים</span></div>
+<div class="spec-row"><span class="spec-key">Fa = Ft × tan(β)</span><span class="spec-val">עומס צירי מ-Helix</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">β טיפוסי: 15°-30° · β>45° = Double Helical מומלץ</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Contact Ratio — יחס מגע</div>
+<div><span class="mc-badge b-orange">ε ≥ 1.2</span></div>
+<div class="spec-row"><span class="spec-key">Spur ε</span><span class="spec-val">ε = (√(ra1²-rb1²) + √(ra2²-rb2²) - a×sin(α)) / (π×m×cos(α))</span></div>
+<div class="spec-row"><span class="spec-key">ε &lt; 1.0</span><span class="spec-val">❌ אסור — חוסר מגע!</span></div>
+<div class="spec-row"><span class="spec-key">ε 1.2-1.6</span><span class="spec-val">✅ Spur רגיל</span></div>
+<div class="spec-row"><span class="spec-key">ε 1.5-2.0</span><span class="spec-val">✅ Helical — חלק יותר</span></div>
+<div class="spec-row"><span class="spec-key">כלל</span><span class="spec-val">↑ε = ↑חלקות · ↓רעש · ↑חוזק</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">מסדרות מודולים ISO 54</div>
+<div><span class="mc-badge b-green">סדרה 1 — עדיפה</span></div>
+<div class="spec-row"><span class="spec-key">סדרה 1</span><span class="spec-val">1 · 1.25 · 1.5 · 2 · 2.5 · 3 · 4 · 5 · 6 · 8 · 10 · 12 · 16 · 20</span></div>
+<div class="spec-row"><span class="spec-key">סדרה 2</span><span class="spec-val">1.75 · 2.25 · 2.75 · 3.5 · 4.5 · 5.5 · 7 · 9 · 11 · 14 · 18</span></div>
+<div class="spec-row"><span class="spec-key">בחירת מודול</span><span class="spec-val">תמיד מסדרה 1! אחרת בעיות רכש</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ DP (Diametral Pitch)</span><span class="spec-val">מערכת אמריקאית — DP=25.4/m. אינן תואמות!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">m=2 → dp=m×z=2×20=40mm. DP=12.7 ≠ m=2!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Undercutting — חיתוך תת-שן</div>
+<div><span class="mc-badge b-red">z_min = 17</span></div>
+<div class="spec-row"><span class="spec-key">z_min (20°)</span><span class="spec-val">17 שיניים ← ללא Undercutting</span></div>
+<div class="spec-row"><span class="spec-key">z_min (14.5°)</span><span class="spec-val">32 שיניים</span></div>
+<div class="spec-row"><span class="spec-key">z &lt; z_min</span><span class="spec-val">חיתוך שורש שן → ↓חוזק</span></div>
+<div class="spec-row"><span class="spec-key">פתרון</span><span class="spec-val">Profile Shift (Correction) — x &gt; 0</span></div>
+<div class="spec-row"><span class="spec-key">Profile Shift x</span><span class="spec-val">x_min = (17-z)/17 ל-z &lt; 17</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Profile Shift משנה מרחק מרכזים! חשב מחדש a</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Backlash — פרצה</div>
+<div><span class="mc-badge b-orange">0.05-0.1 × m</span></div>
+<div class="spec-row"><span class="spec-key">Backlash</span><span class="spec-val">מרווח בין שיניים מסתכות</span></div>
+<div class="spec-row"><span class="spec-key">ערך טיפוסי</span><span class="spec-val">0.05-0.1 × m (גיר רגיל)</span></div>
+<div class="spec-row"><span class="spec-key">Zero Backlash</span><span class="spec-val">גיר מפוצל (Split Gear) · Spring-loaded · Planetary מיוחד</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Backlash=0</span><span class="spec-val">בלאי מואץ! אסור בגירים רגילים</span></div>
+<div class="spec-row"><span class="spec-key">ניידות</span><span class="spec-val">Anti-Backlash Gear — CNC · מנגנוני דיוק</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Backlash קטן מדי = נעילה בחמום המערכת!</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== STRENGTH ===== -->
+<div id="gear-strength" class="gear-sec">
+<div class="card"><div class="ctitle">💪 חוזק שן — Gear Tooth Strength</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Lewis Bending Stress — כיפוף שן</div>
+<div><span class="mc-badge b-blue">נוסחת Lewis 1892</span></div>
+<div class="spec-row"><span class="spec-key">σ = Ft / (b × m × Y × Kv)</span><span class="spec-val">מאמץ כיפוף [MPa]</span></div>
+<div class="spec-row"><span class="spec-key">Ft = 1000P / V</span><span class="spec-val">P=kW, V=m/s → N</span></div>
+<div class="spec-row"><span class="spec-key">Y — Lewis Form Factor</span><span class="spec-val">z=20: Y=0.308 · z=30: Y=0.340 · z=∞: Y=0.422</span></div>
+<div class="spec-row"><span class="spec-key">Kv — Dynamic Factor</span><span class="spec-val">1.1 (מדויק) · 1.3 (רגיל) · 1.5+ (גס)</span></div>
+<div class="spec-row"><span class="spec-key">σ_allow פלדה</span><span class="spec-val">200-400 MPa לפי חומר ומצב</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Lewis = חישוב ראשוני. AGMA = מדויק יותר!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">AGMA Stress — חישוב מלא</div>
+<div><span class="mc-badge b-orange">AGMA 2001-D04</span></div>
+<div class="spec-row"><span class="spec-key">σ_b = Wt / (b × mt) × KA × KV × Ks × KH × KB × YJ</span><span class="spec-val">כיפוף</span></div>
+<div class="spec-row"><span class="spec-key">σ_c = ZE × √(Wt × KA × KV × Ks × KH / (dp1 × b × ZI))</span><span class="spec-val">מגע</span></div>
+<div class="spec-row"><span class="spec-key">KA — Application</span><span class="spec-val">1.0 (אחיד) · 1.25 (קל) · 1.75 (כבד)</span></div>
+<div class="spec-row"><span class="spec-key">KV — Dynamic</span><span class="spec-val">תלוי מהירות ודיוק AGMA Q</span></div>
+<div class="spec-row"><span class="spec-key">KH — Load Distr.</span><span class="spec-val">חלוקת עומס ← ↑b = ↑KH</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.agma.org" target="_blank" style="color:var(--blue)">AGMA.org</a> · KISSsoft לחישוב מלא</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Hertz Contact Stress — מגע</div>
+<div><span class="mc-badge b-red">↑קשה לחישוב</span></div>
+<div class="spec-row"><span class="spec-key">σ_H = ZE × √(Ft × KH / (b × d1 × ZI))</span><span class="spec-val">MPa</span></div>
+<div class="spec-row"><span class="spec-key">ZE — Elastic Coeff.</span><span class="spec-val">פלדה/פלדה: ZE=191 √MPa</span></div>
+<div class="spec-row"><span class="spec-key">ZI — Geometry Factor</span><span class="spec-val">תלוי i, α, x</span></div>
+<div class="spec-row"><span class="spec-key">σ_H,allow</span><span class="spec-val">700-1500 MPa לפי חומר</span></div>
+<div class="spec-row"><span class="spec-key">Pitting</span><span class="spec-val">כשל מגע → גבשוש על משטח שן</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Contact stress = הגורם המגביל לרוב!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">כוח משיקי Ft — Tangential Force</div>
+<div><span class="mc-badge b-green">נקודת התחלה</span></div>
+<div class="spec-row"><span class="spec-key">Ft = 2T / dp</span><span class="spec-val">T=מומנט [N·mm], dp=קוטר Pitch [mm]</span></div>
+<div class="spec-row"><span class="spec-key">T = 9550 × P / n</span><span class="spec-val">P=kW, n=RPM → T [N·m]</span></div>
+<div class="spec-row"><span class="spec-key">Ft = 1000P / V</span><span class="spec-val">V=π×dp×n/60,000 [m/s]</span></div>
+<div class="spec-row"><span class="spec-key">Fr = Ft × tan(α)</span><span class="spec-val">כוח רדיאלי Radial Force</span></div>
+<div class="spec-row"><span class="spec-key">Fa = Ft × tan(β)</span><span class="spec-val">כוח צירי Axial (Helical בלבד)</span></div>
+<div class="spec-row"><span class="spec-key">Fn = Ft / (cos(α) × cos(β))</span><span class="spec-val">כוח נורמלי כולל</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Safety Factors — מקדמי בטיחות</div>
+<div><span class="mc-badge b-orange">AGMA / ISO</span></div>
+<div class="spec-row"><span class="spec-key">SF_b (כיפוף)</span><span class="spec-val">≥ 1.2 (תעשייה) · ≥ 1.5 (בטיחות)</span></div>
+<div class="spec-row"><span class="spec-key">SF_c (מגע)</span><span class="spec-val">≥ 1.1-1.2</span></div>
+<div class="spec-row"><span class="spec-key">כלל Pinion</span><span class="spec-val">Pinion חזק ב-25% מהגיר הגדול</span></div>
+<div class="spec-row"><span class="spec-key">יחס חיים</span><span class="spec-val">z1 × N1 = z2 × N2 (סיבובי שן שווים)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Pinion מסתובב z2/z1 יותר → מגיע לכשל ראשון!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Gear Failures — כשלי גלגלי שיניים</div>
+<div><span class="mc-badge b-red">ניתוח כשלים</span></div>
+<div class="spec-row"><span class="spec-key">Bending Fatigue</span><span class="spec-val">שבר שורש שן · עומס יתר/עייפות</span></div>
+<div class="spec-row"><span class="spec-key">Pitting</span><span class="spec-val">גבשוש Hertz מגע · ↓משטח · ↑רעש</span></div>
+<div class="spec-row"><span class="spec-key">Scuffing / Scoring</span><span class="spec-val">הידבקות חומה · ↑מהירות · סיכה גרועה</span></div>
+<div class="spec-row"><span class="spec-key">Abrasive Wear</span><span class="spec-val">שחיקה שוחה · זיהום שמן</span></div>
+<div class="spec-row"><span class="spec-key">Plastic Deformation</span><span class="spec-val">שן מתכופפת · עומס חריג</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">70% כשלי גיר = בעיות סיכה! → שמן נכון + ניקיון</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== MATERIALS ===== -->
+<div id="gear-materials" class="gear-sec">
+<div class="card"><div class="ctitle">🔩 חומרים לגלגלי שיניים — Gear Materials</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">פלדה 4140 — AISI 4140 Q&T</div>
+<div><span class="mc-badge" style="background:var(--green);color:#000">הנפוץ ביותר</span></div>
+<div class="spec-row"><span class="spec-key">הרכב</span><span class="spec-val">0.40%C · 1%Cr · 0.2%Mo</span></div>
+<div class="spec-row"><span class="spec-key">HRC (Q&T)</span><span class="spec-val">28-34 HRC (280-330 HB)</span></div>
+<div class="spec-row"><span class="spec-key">σ_bend_allow</span><span class="spec-val">280-320 MPa</span></div>
+<div class="spec-row"><span class="spec-key">σ_contact_allow</span><span class="spec-val">700-800 MPa</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">גיר תעשייתי כללי · כלל שימוש</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">זמין · ניתן לריתוך · ניתן לעיבוד</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">פלדה 8620 — Case Hardened</div>
+<div><span class="mc-badge b-red">Case HRC 58-63</span><span class="mc-badge b-blue">רכב · אינטנסיבי</span></div>
+<div class="spec-row"><span class="spec-key">תהליך</span><span class="spec-val">Carburize (0.8-1.2mm) + Quench</span></div>
+<div class="spec-row"><span class="spec-key">Case</span><span class="spec-val">HRC 58-63 · ↑↑עמידות מגע</span></div>
+<div class="spec-row"><span class="spec-key">Core</span><span class="spec-val">HRC 25-35 · עיקש · ↓שבר פתאומי</span></div>
+<div class="spec-row"><span class="spec-key">σ_bend_allow</span><span class="spec-val">380-420 MPa</span></div>
+<div class="spec-row"><span class="spec-key">σ_contact_allow</span><span class="spec-val">1200-1400 MPa</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ אחרי ט"ח</span><span class="spec-val">חובה שחיקה! AGMA Q10+</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">פלדה 4340 Nitrided — ניטרוד</div>
+<div><span class="mc-badge b-orange">HV 900+ Case</span><span class="mc-badge b-green">↓עיוות</span></div>
+<div class="spec-row"><span class="spec-key">תהליך</span><span class="spec-val">Nitriding 500°C · 20-80h · 0.3-0.8mm</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↓↓עיוות אחרי ט"ח! לא נדרש שחיקה</span></div>
+<div class="spec-row"><span class="spec-key">Case</span><span class="spec-val">HV 900-1100 (≈HRC 68)</span></div>
+<div class="spec-row"><span class="spec-key">σ_bend_allow</span><span class="spec-val">350-400 MPa</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">גיר דיוק · תעופה · לא ניתן לתיקון</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">ברונזה C932 — Worm Wheel</div>
+<div><span class="mc-badge b-orange">Tin Bronze</span><span class="mc-badge b-blue">רק Worm Wheel</span></div>
+<div class="spec-row"><span class="spec-key">הרכב</span><span class="spec-val">Cu-Sn-Pb: 83%Cu · 7%Sn · 7%Pb · 3%Zn</span></div>
+<div class="spec-row"><span class="spec-key">HB</span><span class="spec-val">60-80 HB</span></div>
+<div class="spec-row"><span class="spec-key">σ_bend</span><span class="spec-val">80-100 MPa</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↓מקדם חיכוך עם פלדה · ↓Scoring</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Worm</span><span class="spec-val">Worm חייב להיות פלדה קשה! (HRC 50+)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">פלסטיק — Nylon / Acetal</div>
+<div><span class="mc-badge b-blue">שקט · קל</span><span class="mc-badge b-green">ללא סיכה</span></div>
+<div class="spec-row"><span class="spec-key">Nylon PA66</span><span class="spec-val">שקט · עמיד שחיקה · ↓עומסים</span></div>
+<div class="spec-row"><span class="spec-key">Acetal POM</span><span class="spec-val">דיוק ↑ · ↓ספיגת מים vs. Nylon</span></div>
+<div class="spec-row"><span class="spec-key">σ_bend</span><span class="spec-val">40-60 MPa</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">ללא סיכה · קל · אנטי-קורוזיה · שקט</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ חיסרון</span><span class="spec-val">↑ התפחה לחות · ↓חוזק בחמום · creep</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.igus.com" target="_blank" style="color:var(--blue)">Igus (iglidur)</a> · <a href="https://www.ensinger-online.com" target="_blank" style="color:var(--blue)">Ensinger</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Cast Iron — יצוק ברזל</div>
+<div><span class="mc-badge b-blue">GCI / SGI</span><span class="mc-badge b-green">↓רטט</span></div>
+<div class="spec-row"><span class="spec-key">GCI (Gray)</span><span class="spec-val">180-250 HB · ↓רעש · זול</span></div>
+<div class="spec-row"><span class="spec-key">SGI (Ductile)</span><span class="spec-val">250-350 HB · ↑חוזק vs. Gray</span></div>
+<div class="spec-row"><span class="spec-key">σ_bend GCI</span><span class="spec-val">120-150 MPa</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">גיר גדול איטי · מכבשים · רשתות</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↑↑בליעת רטט · ↓מחיר · עובי קיר ↓</span></div>
+</div>
+
+</div>
+<table style="margin-top:12px"><tr><th>חומר</th><th>HB/HRC</th><th>σ_bend (MPa)</th><th>σ_contact (MPa)</th><th>שימוש</th><th>ט"ח</th></tr>
+<tr><td>1045 N</td><td>170-210 HB</td><td>200</td><td>550</td><td>גיר קל</td><td>Normalizing</td></tr>
+<tr><td>4140 Q&T</td><td>280-330 HB</td><td>280-320</td><td>700-800</td><td>כלל שימוש</td><td>Q&T</td></tr>
+<tr><td>8620 Case</td><td>HRC 58-63</td><td>380-420</td><td>1200-1400</td><td>רכב, אינטנסיבי</td><td>Carburize+Q</td></tr>
+<tr><td>4340 Nitrided</td><td>HV 900+</td><td>350-400</td><td>1100-1200</td><td>דיוק, תעופה</td><td>Nitriding</td></tr>
+<tr><td>Cast Iron GCI</td><td>180-250 HB</td><td>120-150</td><td>400-500</td><td>איטי, רשתות</td><td>—</td></tr>
+<tr><td>Bronze C932</td><td>60-80 HB</td><td>80-100</td><td>280-320</td><td>Worm Wheel</td><td>—</td></tr>
+<tr><td>Nylon/Acetal</td><td>—</td><td>40-60</td><td>80-100</td><td>שקט, ללא סיכה</td><td>—</td></tr>
+</table>
+</div></div>
+
+<!-- ===== MANUFACTURING ===== -->
+<div id="gear-manufacturing" class="gear-sec">
+<div class="card"><div class="ctitle">🏭 ייצור ואיכות — Gear Manufacturing & Quality</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Hobbing — חריצה בHob</div>
+<div><span class="mc-badge" style="background:var(--green);color:#000">הנפוץ ביותר</span><span class="mc-badge b-blue">רציף</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Hob (תולעת חותכת) + גיר מסתובבים יחד</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">AGMA Q6-Q9 · DIN 7-10</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">מהיר · כלכלי לייצור המוני</span></div>
+<div class="spec-row"><span class="spec-key">מגבלה</span><span class="spec-val">אינו מתאים לגיר פנימי ישיר</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">גיר Spur, Helical, Worm · ייצור המוני</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Gear Shaping — עיצוב</div>
+<div><span class="mc-badge b-blue">Shaper Cutter</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">כלי Shaper מעצב שן-שן</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">AGMA Q5-Q8</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">גיר פנימי · גיר עם כתף · Cluster Gear</span></div>
+<div class="spec-row"><span class="spec-key">חיסרון</span><span class="spec-val">איטי יותר מHobbing</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Gear Grinding — שחיקה</div>
+<div><span class="mc-badge b-red">AGMA Q10-Q13</span><span class="mc-badge b-orange">לאחר ט"ח</span></div>
+<div class="spec-row"><span class="spec-key">שיטות</span><span class="spec-val">Form Grinding · Generative (Niles/Reishauer)</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">AGMA Q10-Q13 · DIN 3-6</span></div>
+<div class="spec-row"><span class="spec-key">Ra</span><span class="spec-val">Ra 0.4-0.8μm</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">חובה אחרי Case Hardening · גיר דיוק</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.reishauer.com" target="_blank" style="color:var(--blue)">Reishauer</a> · <a href="https://www.liebherr.com/gear" target="_blank" style="color:var(--blue)">Liebherr</a> · <a href="https://www.klingelnberg.com" target="_blank" style="color:var(--blue)">Klingelnberg</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">AGMA Quality Grades — דרגות דיוק</div>
+<div><span class="mc-badge b-blue">AGMA 2000-A88</span></div>
+<div class="spec-row"><span class="spec-key">Q3-Q5</span><span class="spec-val">גיר גס · חקלאות · קצב נמוך</span></div>
+<div class="spec-row"><span class="spec-key">Q6-Q8</span><span class="spec-val">גיר תעשייתי רגיל · Hobbing</span></div>
+<div class="spec-row"><span class="spec-key">Q9-Q11</span><span class="spec-val">גיר מהיר · Shaving/Grinding</span></div>
+<div class="spec-row"><span class="spec-key">Q12-Q15</span><span class="spec-val">דיוק גבוה · תעופה · מדידה</span></div>
+<div class="spec-row"><span class="spec-key">DIN 3962</span><span class="spec-val">DIN 1 = מדויק ביותר (הפוך מAGMA!)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ AGMA ↑ = טוב יותר. DIN ↓ = טוב יותר!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Gear Inspection — בדיקת גיר</div>
+<div><span class="mc-badge b-green">AGMA / DIN</span></div>
+<div class="spec-row"><span class="spec-key">Single Flank</span><span class="spec-val">בדיקת שגיאת מסלול פרופיל</span></div>
+<div class="spec-row"><span class="spec-key">Double Flank</span><span class="spec-val">Composite Error · מהיר</span></div>
+<div class="spec-row"><span class="spec-key">CMM Gear</span><span class="spec-val">מדידת Profile, Lead, Pitch, Runout</span></div>
+<div class="spec-row"><span class="spec-key">Span Measurement</span><span class="spec-val">מדידת רוחב W קשת → מודול</span></div>
+<div class="spec-row"><span class="spec-key">Over Pin</span><span class="spec-val">מדידת קוטר מעל Pin → Pitch Diameter</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.gleason.com" target="_blank" style="color:var(--blue)">Gleason Metrology</a> · <a href="https://www.kapp-niles.com" target="_blank" style="color:var(--blue)">Kapp-Niles</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Shot Peening — כיפוף לחץ</div>
+<div><span class="mc-badge b-orange">↑↑חוזק עייפות</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">ירי כדורים → מאמץ דחיסה בשורש שן</span></div>
+<div class="spec-row"><span class="spec-key">שיפור</span><span class="spec-val">↑20-40% חוזק עייפות שורש</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2432</span><span class="spec-val">תקן Shot Peening לתעופה</span></div>
+<div class="spec-row"><span class="spec-key">Almen Strip</span><span class="spec-val">כיוון Shot Peening — A/N/C</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">חובה בגיר תעופה · רכב מירוץ</span></div>
+</div>
+</div></div></div>
+
+<!-- ===== PLANETARY ===== -->
+<div id="gear-planetary" class="gear-sec">
+<div class="card"><div class="ctitle">🌍 גיר כוכביות — Planetary Gearbox</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">רכיבי כוכבית — Components</div>
+<div><span class="mc-badge b-blue">Sun · Planet · Ring · Carrier</span></div>
+<div class="spec-row"><span class="spec-key">Sun Gear</span><span class="spec-val">גיר שמש מרכזי — כניסה בד"כ</span></div>
+<div class="spec-row"><span class="spec-key">Planet Gears</span><span class="spec-val">3-6 גירים כוכביים — מחולקים בשווה</span></div>
+<div class="spec-row"><span class="spec-key">Ring Gear (Annulus)</span><span class="spec-val">טבעת פנימית — קבועה בד"כ</span></div>
+<div class="spec-row"><span class="spec-key">Carrier</span><span class="spec-val">מחזיק הכוכבים — יציאה בד"כ</span></div>
+<div class="spec-row"><span class="spec-key">משוואה</span><span class="spec-val">zR = zS + 2×zP · (zR + zS)/zS = i</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">i = (zR/zS) + 1 כשRing קבוע, Sun=כניסה, Carrier=יציאה</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">יחס העברה כוכבית</div>
+<div><span class="mc-badge b-orange">קביעת רכיב קבוע</span></div>
+<div class="spec-row"><span class="spec-key">Ring קבועה (נפוץ)</span><span class="spec-val">i = 1 + (zR/zS)</span></div>
+<div class="spec-row"><span class="spec-key">Sun קבועה</span><span class="spec-val">i = 1 + (zS/zR)</span></div>
+<div class="spec-row"><span class="spec-key">Carrier קבוע</span><span class="spec-val">i = -zR/zS (כיוון הפוך!)</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה טיפוסית</span><span class="spec-val">zS=20, zR=60 → i=1+60/20=4:1</span></div>
+<div class="spec-row"><span class="spec-key">יחסים טיפוסיים</span><span class="spec-val">3:1 עד 10:1 בשלב · עד 100:1 כפול</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Planetary Gearbox סרוו</div>
+<div><span class="mc-badge b-green">↑↑דיוק</span><span class="mc-badge b-blue">Arcmin</span></div>
+<div class="spec-row"><span class="spec-key">Backlash</span><span class="spec-val">≤3 Arcmin (Standard) · ≤1 (Precision)</span></div>
+<div class="spec-row"><span class="spec-key">Torsional Rigidity</span><span class="spec-val">N·m/arcmin — ↑ = ↑דיוק מיקום</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">97% לשלב · 94% לשניים</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">מנועי סרוו · רובוט · מדפסת 3D</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.neugart.com" target="_blank" style="color:var(--blue)">Neugart PSBN</a> · <a href="https://www.stober.com" target="_blank" style="color:var(--blue)">Stöber</a> · <a href="https://www.alphagetriebe.de" target="_blank" style="color:var(--blue)">Alpha SP</a> · <a href="https://www.wittenstein.de" target="_blank" style="color:var(--blue)">Wittenstein</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Harmonic Drive — גיר הרמוני</div>
+<div><span class="mc-badge b-blue">↑↑↑דיוק</span><span class="mc-badge b-red">Zero Backlash</span></div>
+<div class="spec-row"><span class="spec-key">רכיבים</span><span class="spec-val">Wave Generator · Flex Spline · Circular Spline</span></div>
+<div class="spec-row"><span class="spec-key">יחס</span><span class="spec-val">1:30 עד 1:320 בשלב אחד!</span></div>
+<div class="spec-row"><span class="spec-key">Backlash</span><span class="spec-val">≤0 Arcmin! פחות מ-1 Arcmin מובטח</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">70-85% — נמוכה יחסית</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">רובוט · תעופה · מכשור · ציר A/B</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.harmonicdrive.net" target="_blank" style="color:var(--blue)">Harmonic Drive LLC</a> · <a href="https://www.hds.co.jp" target="_blank" style="color:var(--blue)">HDS Japan</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== WORM ===== -->
+<div id="gear-worm" class="gear-sec">
+<div class="card"><div class="ctitle">🐛 גיר תולעת ו-Bevel — Worm & Bevel</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Worm Gear — פרמטרים</div>
+<div><span class="mc-badge b-red">Self-Locking</span><span class="mc-badge b-orange">חום גבוה</span></div>
+<div class="spec-row"><span class="spec-key">Number of Starts n1</span><span class="spec-val">1 (Self-lock) · 2 · 4 (↑יעילות)</span></div>
+<div class="spec-row"><span class="spec-key">Lead Angle γ</span><span class="spec-val">γ = arctan(n1 × m / d_worm)</span></div>
+<div class="spec-row"><span class="spec-key">Self-Lock</span><span class="spec-val">γ &lt; 5° → לא ניתן לסובב הפוך</span></div>
+<div class="spec-row"><span class="spec-key">יעילות η</span><span class="spec-val">η ≈ tan(γ) / tan(γ + φ) · φ = arctan(μ)</span></div>
+<div class="spec-row"><span class="spec-key">η טיפוסי</span><span class="spec-val">n1=1: 30-50% · n1=4: 70-90%</span></div>
+<div class="spec-row"><span class="spec-key">יחס i</span><span class="spec-val">i = z_wheel / n1</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ (1-η) = חום. i&gt;30 + Self-lock → חום גבוה מאוד!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Worm — ייצור וחומרים</div>
+<div><span class="mc-badge b-blue">פלדה/ברונזה</span></div>
+<div class="spec-row"><span class="spec-key">Worm (תולעת)</span><span class="spec-val">פלדה 4140 · Case HRC 55+ · Ground</span></div>
+<div class="spec-row"><span class="spec-key">Wheel (גלגל)</span><span class="spec-val">ברונזה C932 (Centrifugal cast) · HB 80</span></div>
+<div class="spec-row"><span class="spec-key">שיטת ייצור</span><span class="spec-val">Worm: Ground · Wheel: Hobbed</span></div>
+<div class="spec-row"><span class="spec-key">Running-In</span><span class="spec-val">נדרשת הרצה ← משפר מגע</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ שמן</span><span class="spec-val">ISO VG 220-460 + EP additive</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.bonfiglioli.com" target="_blank" style="color:var(--blue)">Bonfiglioli</a> · <a href="https://www.blw-coulter.com" target="_blank" style="color:var(--blue)">BLW</a> · <a href="https://www.motovario.com" target="_blank" style="color:var(--blue)">Motovario</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Spiral Bevel — Gleason System</div>
+<div><span class="mc-badge b-green">Gleason / Klingelnberg</span></div>
+<div class="spec-row"><span class="spec-key">Gleason</span><span class="spec-val">Tapered tooth depth · נפוץ בארה"ב/אסיה</span></div>
+<div class="spec-row"><span class="spec-key">Klingelnberg (Palloid)</span><span class="spec-val">Uniform depth · נפוץ באירופה</span></div>
+<div class="spec-row"><span class="spec-key">זווית ספירל β</span><span class="spec-val">35° (Gleason סטנדרט)</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ חוסר תאימות</span><span class="spec-val">Gleason ≠ Klingelnberg! לא ניתן לערבב</span></div>
+<div class="spec-row"><span class="spec-key">ייצור</span><span class="spec-val">Gleason 2/3 Face Milling · Phoenix</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.gleason.com" target="_blank" style="color:var(--blue)">Gleason</a> · <a href="https://www.klingelnberg.com" target="_blank" style="color:var(--blue)">Klingelnberg</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== LUBRICATION ===== -->
+<div id="gear-lubrication" class="gear-sec">
+<div class="card"><div class="ctitle">💧 סיכת גלגלי שיניים — Gear Lubrication</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">בחירת צמיגות — Viscosity Selection</div>
+<div><span class="mc-badge b-blue">ISO VG</span></div>
+<div class="spec-row"><span class="spec-key">V &gt; 25 m/s</span><span class="spec-val">ISO VG 46-68</span></div>
+<div class="spec-row"><span class="spec-key">V = 5-25 m/s</span><span class="spec-val">ISO VG 100-150</span></div>
+<div class="spec-row"><span class="spec-key">V = 1-5 m/s</span><span class="spec-val">ISO VG 150-220</span></div>
+<div class="spec-row"><span class="spec-key">V &lt; 1 m/s (כבד)</span><span class="spec-val">ISO VG 320-680</span></div>
+<div class="spec-row"><span class="spec-key">Worm</span><span class="spec-val">ISO VG 220-460 + EP</span></div>
+<div class="spec-row"><span class="spec-key">Hypoid</span><span class="spec-val">GL-5 · EP חובה מוחלט!</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">שיטות סיכה — Lubrication Methods</div>
+<div><span class="mc-badge b-green">Splash · Circulating</span></div>
+<div class="spec-row"><span class="spec-key">Splash (דיפ)</span><span class="spec-val">V &lt; 15 m/s · שמן עד מרכז גיר תחתון</span></div>
+<div class="spec-row"><span class="spec-key">Spray/Mist</span><span class="spec-val">15-50 m/s · חרירי ריסוס</span></div>
+<div class="spec-row"><span class="spec-key">Forced Circulation</span><span class="spec-val">V &gt; 25 m/s · גוחן + סינון + קירור</span></div>
+<div class="spec-row"><span class="spec-key">Grease</span><span class="spec-val">גיר סגור איטי · NLGI 1-2</span></div>
+<div class="spec-row"><span class="spec-key">כמות Splash</span><span class="spec-val">שמן עד מרכז גיר — לא יותר! ↑חום</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">תוספים — Additives</div>
+<div><span class="mc-badge b-red">EP חובה לכבד</span></div>
+<div class="spec-row"><span class="spec-key">EP (Extreme Pressure)</span><span class="spec-val">Sulfur-Phosphorus · נוצר שכבת מגן</span></div>
+<div class="spec-row"><span class="spec-key">GL-1</span><span class="spec-val">מינרלי בלבד · גיר ישר עומסים קלים</span></div>
+<div class="spec-row"><span class="spec-key">GL-4</span><span class="spec-val">EP בינוני · Helical/Spur בינוני</span></div>
+<div class="spec-row"><span class="spec-key">GL-5</span><span class="spec-val">EP חזק · Hypoid חובה</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ ברונזה</span><span class="spec-val">EP עם גופרית = נזק לברונזה! Worm → שמן ייעודי</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">אינטרוולי טיפול</div>
+<div><span class="mc-badge b-orange">לפי ייצרן</span></div>
+<div class="spec-row"><span class="spec-key">גיר סגור (Splash)</span><span class="spec-val">החלפה ראשונה: 500h · אחר כך: 2,000-5,000h</span></div>
+<div class="spec-row"><span class="spec-key">נקודת החלפה</span><span class="spec-val">TAN ↑3× OriginalValue · תכולת מים &gt;0.2%</span></div>
+<div class="spec-row"><span class="spec-key">Micron Filter</span><span class="spec-val">סינון &lt;10μm ← ↑3× חיי שמן</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">ניתוח שמן:</b> <a href="https://www.tribology.co.il" target="_blank" style="color:var(--blue)">Tribology Israel</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== STANDARDS ===== -->
+<div id="gear-standards" class="gear-sec">
+<div class="card"><div class="ctitle">🏆 תקנים ויצרנים — Standards & Manufacturers</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">תקנים בינלאומיים</div>
+<div><span class="mc-badge b-blue">AGMA · ISO · DIN</span></div>
+<div class="spec-row"><span class="spec-key">AGMA 2001-D04</span><span class="spec-val">Gear Tooth Strength Rating</span></div>
+<div class="spec-row"><span class="spec-key">AGMA 2000-A88</span><span class="spec-val">Gear Classification — Q Grades</span></div>
+<div class="spec-row"><span class="spec-key">ISO 1328</span><span class="spec-val">Cylindrical Gear Accuracy</span></div>
+<div class="spec-row"><span class="spec-key">ISO 6336</span><span class="spec-val">Load Capacity — Bending + Contact</span></div>
+<div class="spec-row"><span class="spec-key">DIN 3962-3967</span><span class="spec-val">Tolerances (1=מדויק, 12=גס)</span></div>
+<div class="spec-row"><span class="spec-key">ANSI/AGMA 6034</span><span class="spec-val">Practice for Worm Gears</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Siemens / Flender — גרמניה</div>
+<div><span class="mc-badge b-blue">תעשייה כבדה</span></div>
+<div class="spec-row"><span class="spec-key">מוצרים</span><span class="spec-val">Industrial Gearboxes · FLENDER · SIMOGEAR</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">מכרות · נייר · מלט · נמלים</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.flender.com" target="_blank" style="color:var(--blue)">flender.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">Neugart · Stöber · Alpha</div>
+<div><span class="mc-badge b-green">Planetary Servo</span></div>
+<div class="spec-row"><span class="spec-key">Neugart</span><span class="spec-val">PSBN · PLFE · WGN — סרוו כוכביות</span></div>
+<div class="spec-row"><span class="spec-key">Stöber</span><span class="spec-val">POSIDRIVE · Servo + Planetary</span></div>
+<div class="spec-row"><span class="spec-key">Alpha Getriebe</span><span class="spec-val">SP+ · High Precision · ≤1 arcmin</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.neugart.com" target="_blank" style="color:var(--blue)">neugart.com</a> · <a href="https://www.stober.com" target="_blank" style="color:var(--blue)">stober.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">תוכנות חישוב גיר</div>
+<div><span class="mc-badge b-orange">CAD · FEA</span></div>
+<div class="spec-row"><span class="spec-key">KISSsoft</span><span class="spec-val">ISO/AGMA/DIN · מלא · תעשייה</span></div>
+<div class="spec-row"><span class="spec-key">Romax</span><span class="spec-val">Driveline Analysis · רכב · תעופה</span></div>
+<div class="spec-row"><span class="spec-key">MASTA</span><span class="spec-val">SMT · גיר + מסב + ציר</span></div>
+<div class="spec-row"><span class="spec-key">GearTeq</span><span class="spec-val">Add-on לSW/CATIA · גיאומטריה</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.kisssoft.ag" target="_blank" style="color:var(--blue)">kisssoft.ag</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== CALC ===== -->
+<div id="gear-calc_gear" class="gear-sec">
+<div class="card"><div class="ctitle">🧮 מחשבוני גלגלי שיניים</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--green)">מחשבון גיאומטריית גיר</div>
+<div class="cg">
+<div><label>מודול m</label>
+<select id="gr-m" onchange="calcGear()">
+<option value="0.5">0.5</option><option value="0.8">0.8</option><option value="1">1</option>
+<option value="1.25">1.25</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+<option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option>
+<option value="5">5</option><option value="6">6</option><option value="8">8</option><option value="10">10</option>
+</select></div>
+<div><label>z — מספר שיניים</label><input id="gr-z" type="number" value="20" min="6" oninput="calcGear()"></div>
+<div><label>זווית לחץ α</label>
+<select id="gr-a" onchange="calcGear()">
+<option value="20" selected>20° (סטנדרט)</option>
+<option value="14.5">14.5° (ישן)</option>
+<option value="25">25° (כבד)</option>
+</select></div>
+<div><label>רוחב שיניים b (mm)</label><input id="gr-b" type="number" value="30" oninput="calcGear()"></div>
+</div>
+<div id="gr-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--green)">מחשבון זוג גירים</div>
+<div class="cg">
+<div><label>מודול m</label>
+<select id="gp-m" onchange="calcGearPair()">
+<option value="1">1</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+<option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+</select></div>
+<div><label>z₁ — Pinion</label><input id="gp-z1" type="number" value="18" min="6" oninput="calcGearPair()"></div>
+<div><label>z₂ — Gear</label><input id="gp-z2" type="number" value="54" min="6" oninput="calcGearPair()"></div>
+<div><label>n₁ — RPM כניסה</label><input id="gp-n1" type="number" value="1450" oninput="calcGearPair()"></div>
+</div>
+<div id="gp-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--green)">מחשבון חוזק שן — Lewis</div>
+<div class="cg">
+<div><label>מודול m</label><input id="gl-m" type="number" value="2" step="0.5" oninput="calcGearLewis()"></div>
+<div><label>רוחב שיניים b (mm)</label><input id="gl-b" type="number" value="30" oninput="calcGearLewis()"></div>
+<div><label>כוח משיקי Ft (N)</label><input id="gl-ft" type="number" value="2000" oninput="calcGearLewis()"></div>
+<div><label>מקדם צורה Y</label>
+<select id="gl-y" onchange="calcGearLewis()">
+<option value="0.245">z=12 → Y=0.245</option><option value="0.261">z=14 → Y=0.261</option>
+<option value="0.277">z=16 → Y=0.277</option><option value="0.290">z=18 → Y=0.290</option>
+<option value="0.308" selected>z=20 → Y=0.308</option><option value="0.322">z=25 → Y=0.322</option>
+<option value="0.340">z=30 → Y=0.340</option><option value="0.355">z=35 → Y=0.355</option>
+<option value="0.369">z=40 → Y=0.369</option><option value="0.390">z=50 → Y=0.390</option>
+<option value="0.408">z=75 → Y=0.408</option><option value="0.422">z=∞ → Y=0.422</option>
+</select></div>
+<div><label>מקדם עומס Kv</label>
+<select id="gl-kv" onchange="calcGearLewis()">
+<option value="1.1">1.1 — מהיר, דיוק גבוה</option>
+<option value="1.3" selected>1.3 — בינוני</option>
+<option value="1.5">1.5 — איטי, גס</option>
+</select></div>
+</div>
+<div id="gl-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--green)">מחשבון Rack & Pinion</div>
+<div class="cg">
+<div><label>מודול m</label>
+<select id="rp-m" onchange="calcRack()">
+<option value="1">1</option><option value="2" selected>2</option><option value="3">3</option>
+<option value="4">4</option><option value="5">5</option>
+</select></div>
+<div><label>z — שיניים Pinion</label><input id="rp-z" type="number" value="20" oninput="calcRack()"></div>
+<div><label>n — RPM</label><input id="rp-n" type="number" value="100" oninput="calcRack()"></div>
+</div>
+<div id="rp-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--green)">מחשבון כוכבית Planetary</div>
+<div class="cg">
+<div><label>zS — שיניים Sun</label><input id="pl-zs" type="number" value="20" oninput="calcPlanetary()"></div>
+<div><label>zP — שיניים Planet</label><input id="pl-zp" type="number" value="20" oninput="calcPlanetary()"></div>
+<div><label>n1 — RPM כניסה (Sun)</label><input id="pl-n" type="number" value="1450" oninput="calcPlanetary()"></div>
+</div>
+<div id="pl-result" class="res">—</div>
+</div>
+
+</div></div></div>
+</div>

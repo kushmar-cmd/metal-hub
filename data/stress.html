@@ -1,0 +1,85 @@
+<div id="sec-stress" class="section">
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--orange)">
+<div style="display:flex;align-items:center;gap:12px"><span style="font-size:32px">📊</span><div><div style="font-size:18px;font-weight:800;color:var(--orange)">ניתוח עומסים — Stress Analysis</div><div style="font-size:12px;color:var(--muted)">כיפוף · פיתול · Von Mises · Kt · מקדם בטיחות</div></div></div></div>
+<div class="grid2">
+<div class="card"><div class="ctitle">🧮 מחשבון קורה בכיפוף</div>
+<div class="cg">
+<div><label>סוג קורה</label><select id="bm-type" onchange="calcBeam()">
+<option value="ss">פשוטה — עומס מרכז (PL/4)</option>
+<option value="cant">מרותמת — עומס קצה (PL)</option>
+<option value="fix">שתי קצוות — עומס מרכז (PL/8)</option>
+</select></div>
+<div><label>P — כוח (N)</label><input id="bm-p" type="number" value="1000" oninput="calcBeam()"></div>
+<div><label>L — אורך (mm)</label><input id="bm-l" type="number" value="500" oninput="calcBeam()"></div>
+<div><label>צורה חתך</label><select id="bm-sec" onchange="calcBeam()">
+<option value="rect">מלבני b×h</option>
+<option value="circle">עגול ⌀D</option>
+<option value="hollow">צינור D/d</option>
+</select></div>
+<div><label>b / D (mm)</label><input id="bm-b" type="number" value="30" oninput="calcBeam()"></div>
+<div><label>h / d פנימי (mm)</label><input id="bm-h" type="number" value="50" oninput="calcBeam()"></div>
+</div>
+<div class="res" id="bm-result">—</div></div>
+<div class="card"><div class="ctitle">🧮 מחשבון ציר בפיתול</div>
+<div class="cg">
+<div><label>T — מומנט פיתול (N·m)</label><input id="sh-t" type="number" value="100" oninput="calcShaft()"></div>
+<div><label>D — קוטר ציר (mm)</label><input id="sh-d" type="number" value="40" oninput="calcShaft()"></div>
+<div><label>d — קוטר פנימי (mm, 0=מלא)</label><input id="sh-di" type="number" value="0" oninput="calcShaft()"></div>
+<div><label>M — מומנט כיפוף (N·m)</label><input id="sh-m" type="number" value="50" oninput="calcShaft()"></div>
+</div>
+<div class="res" id="sh-result">—</div></div>
+</div>
+<div class="card"><div class="ctitle">📐 נוסחאות מאמצים חשובות</div>
+<div class="grid3">
+<div>
+<div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text)">
+<div style="color:var(--blue)">// כיפוף</div>
+<div>σ = M×c / I</div>
+<div>M_max [קורה פשוטה] = P×L/4</div>
+<div>M_max [מרותמת] = P×L</div>
+<div>δ_max = P×L³/(48EI) [פשוטה]</div>
+<div style="color:var(--blue)">// מקטעי שטח</div>
+<div>I_rect = b×h³/12</div>
+<div>I_circle = π×D⁴/64</div>
+<div>c_rect = h/2 · c_circle = D/2</div>
+</div>
+</div>
+<div>
+<div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text)">
+<div style="color:var(--blue)">// פיתול</div>
+<div>τ = T×r / J</div>
+<div>J_solid = π×D⁴/32</div>
+<div>J_hollow = π(D⁴-d⁴)/32</div>
+<div>φ = T×L / (G×J) [rad]</div>
+<div style="color:var(--blue)">// Von Mises</div>
+<div>σ_v = √(σ²+3τ²)</div>
+<div>SF = Sy / σ_v</div>
+</div>
+</div>
+<div>
+<div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text)">
+<div style="color:var(--blue)">// ריכוז מאמצים</div>
+<div>σ_max = Kt × σ_nom</div>
+<div style="color:var(--muted)">Kt חריץ עגול ≈ 3</div>
+<div style="color:var(--muted)">Kt חריץ מפתח ≈ 2.5</div>
+<div style="color:var(--muted)">Kt חור ≈ 3 (שדה אינסופי)</div>
+<div style="color:var(--blue)">// מקדם בטיחות</div>
+<div>SF = Sy / σ_max</div>
+<div>SF מינימלי = 1.5–2.5</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card"><div class="ctitle">📊 Kt — מקדמי ריכוז מאמצים נפוצים</div>
+<table><tr><th>גיאומטריה</th><th>Kt כיפוף</th><th>Kt פיתול</th><th>Kt מתיחה</th><th>הערות</th></tr>
+<tr><td>חריץ עגול (r/d=0.1)</td><td>1.8</td><td>1.5</td><td>2.0</td><td>↑ r → ↓ Kt</td></tr>
+<tr><td>חריץ עגול (r/d=0.05)</td><td>2.3</td><td>1.8</td><td>2.5</td><td>r קטן = Kt גדול</td></tr>
+<tr><td>חריץ מפתח (Keyway)</td><td>2.0–2.5</td><td>2.5–3.0</td><td>—</td><td>End-milled keyway</td></tr>
+<tr><td>חור מעבר (עגול)</td><td>2.5</td><td>—</td><td>3.0</td><td>שדה אינסופי</td></tr>
+<tr><td>שינוי קוטר (r/d=0.1)</td><td>1.5</td><td>1.3</td><td>1.6</td><td>D/d=2</td></tr>
+<tr><td>שינוי קוטר (r/d=0.02)</td><td>2.2</td><td>1.8</td><td>2.3</td><td>r קטן — מסוכן!</td></tr>
+<tr><td>חריץ פנימי rectangular</td><td>3.0–4.0</td><td>2.5–3.5</td><td>3.5–4.5</td><td>הכי גרוע!</td></tr></table>
+<div class="note">↑ r (רדיוס מעבר) → ↓ Kt → ↑ חיי עייפות. תמיד Fillet בשינויי קוטר!</div></div>
+</div>
+
+<!-- FMEA -->

@@ -1,0 +1,832 @@
+<div id="sec-calc" class="section">
+<style>
+.calc-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.calc-tab:hover,.calc-tab.active{background:var(--yellow,#fde047);color:#000;border-color:var(--yellow,#fde047);font-weight:700}
+.calc-sec{display:none}.calc-sec.active{display:block}
+.flow-arrow{color:var(--yellow,#fde047);font-weight:700;font-size:16px;margin:0 4px}
+.flow-bar{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;font-size:12px;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.flow-step{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;color:var(--text);cursor:pointer;font-size:11px}
+.flow-step:hover{border-color:var(--yellow,#fde047);color:var(--yellow,#fde047)}
+.copy-btn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-size:10px;cursor:pointer;color:var(--muted);margin-right:6px}
+.copy-btn:hover{color:var(--yellow,#fde047);border-color:var(--yellow,#fde047)}
+</style>
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1a0d);border-color:var(--yellow,#fde047)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🧮</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--yellow,#fde047)">מחשבונים הנדסיים</div>
+    <div style="font-size:12px;color:var(--muted)">עיבוד מכני · מכניקה · גירים · מסבים · קפיצים · איכות SPC · תמחיר · נוזלים · הדבקות · קשיחים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="calc-tab active" onclick="showCalc('machining',this)">⚙️ עיבוד מכני</button>
+  <button class="calc-tab" onclick="showCalc('mechanics',this)">🔩 מכניקה ומבנה</button>
+  <button class="calc-tab" onclick="showCalc('gears',this)">⚙️ גלגלי שיניים</button>
+  <button class="calc-tab" onclick="showCalc('bearings',this)">🔵 מסבים</button>
+  <button class="calc-tab" onclick="showCalc('springs',this)">🌀 קפיצים</button>
+  <button class="calc-tab" onclick="showCalc('quality',this)">📊 איכות SPC</button>
+  <button class="calc-tab" onclick="showCalc('costs',this)">💰 תמחיר ועלויות</button>
+  <button class="calc-tab" onclick="showCalc('fluids',this)">💧 נוזלים</button>
+  <button class="calc-tab" onclick="showCalc('adhesives',this)">🔗 הדבקות</button>
+  <button class="calc-tab" onclick="showCalc('inserts',this)">🔩 קשיחים</button>
+</div>
+
+<!-- ====================== MACHINING ====================== -->
+<div id="calc-machining" class="calc-sec active">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימת חישוב: </span>
+  <span class="flow-step" onclick="document.getElementById('m-vc').focus()">1 Vc חיתוך</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('rpm-feed').focus()">2 RPM + הזנה</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('tc-len').focus()">3 זמן עיבוד</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('fc-ft').focus()">4 כוח חיתוך</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('dr-d').focus()">5 קידוח וארבל</span>
+</div>
+
+<div class="machine-grid">
+
+<!-- 1: Vc → RPM + MRR -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · מהירות חיתוך → RPM</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">הזן Vc ← קבל RPM + Vf + MRR</div>
+<div class="cg">
+  <div><label>Vc — מהירות חיתוך (m/min)</label>
+  <select id="m-vc-mat" onchange="calcMachining()">
+    <option value="80">פלדה C45 — 80</option><option value="120">פלדה 4140 Q&T — 120</option>
+    <option value="200">SS 304 — 200</option><option value="400">Al 6061 — 400</option>
+    <option value="60">Ti-6Al-4V — 60</option><option value="150">Cast Iron GCI — 150</option>
+    <option value="custom">מותאם אישית →</option>
+  </select></div>
+  <div><label>Vc מותאם (m/min)</label><input id="m-vc" type="number" value="120" oninput="calcMachining()"></div>
+  <div><label>D — קוטר כלי/חומר (mm)</label><input id="m-d" type="number" value="50" oninput="calcMachining()"></div>
+  <div><label>fn — הזנה לסיבוב (mm/rev)</label><input id="m-fn" type="number" value="0.2" step="0.05" oninput="calcMachining()"></div>
+  <div><label>ap — עומק חיתוך (mm)</label><input id="m-ap" type="number" value="2" step="0.5" oninput="calcMachining()"></div>
+</div>
+<div class="res" id="m-res1">—</div>
+</div>
+
+<!-- 2: זמן עיבוד -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · זמן עיבוד ← מ-RPM</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">RPM + הזנה ממחשבון 1 → זמן tc</div>
+<div class="cg">
+  <div><label>L — אורך עיבוד (mm)</label><input id="tc-len" type="number" value="200" oninput="calcMachiningTime()"></div>
+  <div><label>RPM (מחשבון 1 ↑)</label><input id="tc-rpm" type="number" value="764" oninput="calcMachiningTime()"></div>
+  <div><label>fn — הזנה (mm/rev)</label><input id="tc-fn" type="number" value="0.2" step="0.05" oninput="calcMachiningTime()"></div>
+  <div><label>מספר מעברים</label><input id="tc-pass" type="number" value="1" min="1" oninput="calcMachiningTime()"></div>
+</div>
+<div class="res" id="m-res2">—</div>
+<button class="copy-btn" onclick="copyRpmToTime()">⬆ קבל RPM ממחשבון 1</button>
+</div>
+
+<!-- 3: כוח חיתוך -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · כוח חיתוך וצריכת חשמל</div>
+<div class="cg">
+  <div><label>kc — כוח ספציפי (N/mm²)</label>
+  <select id="fc-kc" onchange="calcCuttingForce()">
+    <option value="1500">פלדה C45 — 1500</option><option value="2200">פלדה 4140 — 2200</option>
+    <option value="2000">SS 304 — 2000</option><option value="700">Al 6061 — 700</option>
+    <option value="1100">Ti-6Al-4V — 1100</option><option value="900">Cast Iron — 900</option>
+  </select></div>
+  <div><label>Ft — שטח חתך (mm²) = ap × fn</label><input id="fc-ft" type="number" value="0.4" step="0.05" oninput="calcCuttingForce()"></div>
+  <div><label>Vc (m/min) ← ממחשבון 1</label><input id="fc-vc" type="number" value="120" oninput="calcCuttingForce()"></div>
+  <div><label>η — יעילות ספינדל (%)</label><input id="fc-eta" type="number" value="80" oninput="calcCuttingForce()"></div>
+</div>
+<div class="res" id="m-res3">—</div>
+<button class="copy-btn" onclick="copyVcToForce()">⬆ קבל Vc ממחשבון 1</button>
+</div>
+
+<!-- 4: Sin Bar -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Sin Bar — זווית משטח</div>
+<div class="cg">
+  <div><label>L — אורך Sin Bar (mm)</label>
+  <select id="sb-l" onchange="calcSineBarNew()">
+    <option value="100">100mm</option><option value="125">125mm</option>
+    <option value="150">150mm (נפוץ)</option><option value="200">200mm</option><option value="250">250mm</option>
+  </select></div>
+  <div><label>α — זווית נדרשת (°)</label><input id="sb-a" type="number" value="30" step="0.01" oninput="calcSineBarNew()"></div>
+</div>
+<div class="res" id="m-res4">—</div>
+</div>
+
+<!-- 5: קידוח וארבל -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · קידוח וארבל — Drill & Tap</div>
+<div class="cg">
+  <div><label>מידה מטרית</label>
+  <select id="dr-size" onchange="calcDrillTap()">
+    <option value="3,0.5">M3 × 0.5</option><option value="4,0.7">M4 × 0.7</option>
+    <option value="5,0.8">M5 × 0.8</option><option value="6,1.0" selected>M6 × 1.0</option>
+    <option value="8,1.25">M8 × 1.25</option><option value="10,1.5">M10 × 1.5</option>
+    <option value="12,1.75">M12 × 1.75</option><option value="14,2.0">M14 × 2.0</option>
+    <option value="16,2.0">M16 × 2.0</option><option value="20,2.5">M20 × 2.5</option>
+    <option value="24,3.0">M24 × 3.0</option><option value="30,3.5">M30 × 3.5</option>
+  </select></div>
+  <div><label>עומק הברגה (× D)</label>
+  <select id="dr-depth" onchange="calcDrillTap()">
+    <option value="1">1D</option><option value="1.5" selected>1.5D</option>
+    <option value="2">2D</option><option value="2.5">2.5D</option>
+  </select></div>
+  <div><label>חומר</label>
+  <select id="dr-mat" onchange="calcDrillTap()">
+    <option value="al">אלומיניום</option><option value="steel" selected>פלדה</option>
+    <option value="ss">נירוסטה</option><option value="ci">ברזל יצוק</option>
+  </select></div>
+</div>
+<div class="res" id="m-res5">—</div>
+</div>
+
+<!-- 6: RPM → Vc (הפוך) -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · RPM → Vc (הפוך)</div>
+<div class="cg">
+  <div><label>RPM (סיבובים לדקה)</label><input id="rv-rpm" type="number" value="1000" oninput="calcRpmToVc()"></div>
+  <div><label>D — קוטר (mm)</label><input id="rv-d" type="number" value="50" oninput="calcRpmToVc()"></div>
+</div>
+<div class="res" id="m-res6">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== MECHANICS ====================== -->
+<div id="calc-mechanics" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 כוח/מומנט</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 מאמץ בציר/קורה</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 בחירת מידה</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 משקל</span>
+</div>
+
+<div class="machine-grid">
+
+<!-- ציר מומנט פיתול -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · ציר — מומנט וכוח</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">P → T → τ → קוטר מינימום</div>
+<div class="cg">
+  <div><label>P — הספק (kW)</label><input id="sh-p" type="number" value="7.5" step="0.5" oninput="calcShaftFull()"></div>
+  <div><label>n — סיבובים (RPM)</label><input id="sh-n" type="number" value="1450" oninput="calcShaftFull()"></div>
+  <div><label>τ_allow — מאמץ גזירה מותר (MPa)</label>
+  <select id="sh-tau" onchange="calcShaftFull()">
+    <option value="40">פלדה 1045 N — 40</option><option value="60">פלדה 4140 Q&T — 60</option>
+    <option value="80">פלדה 4340 — 80</option><option value="30">SS 304 — 30</option>
+    <option value="25">Al 6061-T6 — 25</option><option value="custom">מותאם ↓</option>
+  </select></div>
+  <div><label>τ_allow מותאם (MPa)</label><input id="sh-tau-c" type="number" value="60" oninput="calcShaftFull()"></div>
+  <div><label>SF — מקדם בטיחות</label><input id="sh-sf" type="number" value="2" step="0.5" oninput="calcShaftFull()"></div>
+</div>
+<div class="res" id="mec-res1">—</div>
+</div>
+
+<!-- קורה -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · קורה — כיפוף וסטייה</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Simply Supported · Cantilever</div>
+<div class="cg">
+  <div><label>סוג קורה</label>
+  <select id="bm-type" onchange="calcBeamFull()">
+    <option value="ss_center">Simply Supported — עומס מרכז</option>
+    <option value="ss_udl">Simply Supported — UDL</option>
+    <option value="cant_end">Cantilever — עומס קצה</option>
+    <option value="cant_udl">Cantilever — UDL</option>
+  </select></div>
+  <div><label>L — אורך (mm)</label><input id="bm-l" type="number" value="500" oninput="calcBeamFull()"></div>
+  <div><label>F — עומס (N)</label><input id="bm-f" type="number" value="1000" oninput="calcBeamFull()"></div>
+  <div><label>E — מודול Young (GPa)</label>
+  <select id="bm-e" onchange="calcBeamFull()">
+    <option value="210">פלדה — 210</option><option value="193">SS 304 — 193</option>
+    <option value="69">Al 6061 — 69</option><option value="114">Ti-6Al-4V — 114</option>
+  </select></div>
+  <div><label>I — מומנט אינרציה (mm⁴)</label><input id="bm-i" type="number" value="100000" oninput="calcBeamFull()"></div>
+  <div><label>c — מרחק ממרכז (mm) לσ</label><input id="bm-c" type="number" value="25" oninput="calcBeamFull()"></div>
+</div>
+<div class="res" id="mec-res2">—</div>
+</div>
+
+<!-- לחץ Hertz -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · לחץ Hertz — מגע</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">כדור/גלגורת על משטח/ציר</div>
+<div class="cg">
+  <div><label>סוג מגע</label>
+  <select id="hz-type" onchange="calcHertz()">
+    <option value="sphere_flat">כדור על משטח שטוח</option>
+    <option value="sphere_sphere">כדור על כדור</option>
+    <option value="cyl_flat">גלגורת על משטח שטוח</option>
+    <option value="cyl_cyl">גלגורת על גלגורת</option>
+  </select></div>
+  <div><label>F — עומס (N)</label><input id="hz-f" type="number" value="1000" oninput="calcHertz()"></div>
+  <div><label>R₁ — רדיוס 1 (mm)</label><input id="hz-r1" type="number" value="10" oninput="calcHertz()"></div>
+  <div><label>R₂ — רדיוס 2 (mm, ∞=שטוח)</label><input id="hz-r2" type="number" value="99999" oninput="calcHertz()"></div>
+  <div><label>E — חומר (GPa)</label>
+  <select id="hz-e" onchange="calcHertz()">
+    <option value="210">פלדה — 210</option><option value="193">SS — 193</option>
+    <option value="69">Al — 69</option>
+  </select></div>
+  <div><label>ν — Poisson</label><input id="hz-nu" type="number" value="0.3" step="0.01" oninput="calcHertz()"></div>
+</div>
+<div class="res" id="mec-res3">—</div>
+</div>
+
+<!-- משקל -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · משקל חומרים</div>
+<div class="cg">
+  <div><label>צורה</label>
+  <select id="wt-sh" onchange="shapeChangeCalc()">
+    <option value="bar">מוט עגול</option><option value="rect">פרופיל מלבני</option>
+    <option value="tube">צינור</option><option value="plate">לוח</option>
+    <option value="hex">שישה פינות</option><option value="ring">טבעת</option>
+  </select></div>
+  <div><label id="wt-l1">קוטר (mm)</label><input id="wt-d1" type="number" value="50" oninput="calcWtNew()"></div>
+  <div><label id="wt-l2">אורך/גובה (mm)</label><input id="wt-d2" type="number" value="100" oninput="calcWtNew()"></div>
+  <div id="wt-g3"><label>עובי דופן / רוחב (mm)</label><input id="wt-d3" type="number" value="5" oninput="calcWtNew()"></div>
+  <div id="wt-g4" style="display:none"><label>עומק (mm)</label><input id="wt-d4" type="number" value="30" oninput="calcWtNew()"></div>
+  <div><label>חומר (g/cm³)</label>
+  <select id="wt-mt" onchange="calcWtNew()">
+    <optgroup label="פלדות"><option value="7.85" selected>פלדה 1018-4340 (7.85)</option><option value="7.76">H13 Tool Steel (7.76)</option><option value="8.16">M2 HSS (8.16)</option></optgroup>
+    <optgroup label="אל-חלד"><option value="7.93">SS 304/304L (7.93)</option><option value="7.99">SS 316/316L (7.99)</option><option value="7.78">SS 17-4PH (7.78)</option><option value="7.82">SS 2205 (7.82)</option></optgroup>
+    <optgroup label="אלומיניום"><option value="2.71">Al 6061-T6 (2.71)</option><option value="2.81">Al 7075-T6 (2.81)</option><option value="2.78">Al 2024-T4 (2.78)</option><option value="2.68">Al 5052 (2.68)</option><option value="2.83">Al 7050 (2.83)</option></optgroup>
+    <optgroup label="טיטניום"><option value="4.43">Ti-6Al-4V (4.43)</option><option value="4.51">Ti Grade 2 (4.51)</option></optgroup>
+    <optgroup label="נחושת ופליז"><option value="8.96">נחושת C110 (8.96)</option><option value="8.50">פליז C260 (8.50)</option><option value="8.83">ברונזה C932 (8.83)</option></optgroup>
+    <optgroup label="ניקל וסגסוגות-על"><option value="8.19">Inconel 718 (8.19)</option><option value="8.44">Inconel 625 (8.44)</option><option value="8.44">Hastelloy C276 (8.89)</option></optgroup>
+    <optgroup label="פלסטיק"><option value="1.14">Nylon PA66 (1.14)</option><option value="1.41">POM Acetal (1.41)</option><option value="1.20">PC Polycarbonate (1.20)</option><option value="0.91">PP (0.91)</option></optgroup>
+  </select></div>
+</div>
+<div class="res" id="mec-res4">—</div>
+</div>
+
+<!-- מומנט הידוק בורג -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · מומנט הידוק בורג</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">ISO 898-1 · K·F·d</div>
+<div class="cg">
+  <div><label>מידה</label>
+  <select id="tq-size" onchange="calcTorque()">
+    <option value="3,0.5">M3</option><option value="4,0.7">M4</option><option value="5,0.8">M5</option>
+    <option value="6,1.0" selected>M6</option><option value="8,1.25">M8</option><option value="10,1.5">M10</option>
+    <option value="12,1.75">M12</option><option value="16,2.0">M16</option><option value="20,2.5">M20</option>
+    <option value="24,3.0">M24</option><option value="30,3.5">M30</option>
+  </select></div>
+  <div><label>דרגת חוזק</label>
+  <select id="tq-grade" onchange="calcTorque()">
+    <option value="400,0.9">4.6 — Fy=240MPa</option><option value="400,0.9">4.8</option>
+    <option value="640,0.9">8.8 — Fy=640MPa ★</option><option value="940,0.9">10.9 — Fy=940MPa</option>
+    <option value="1100,0.9">12.9 — Fy=1100MPa</option><option value="450,0.9">A2-70 SS</option>
+    <option value="600,0.9">A4-80 SS</option>
+  </select></div>
+  <div><label>K — גורם אום (0.15-0.20)</label>
+  <select id="tq-k" onchange="calcTorque()">
+    <option value="0.12">0.12 — MoS₂/PTFE</option><option value="0.15">0.15 — שמן קל</option>
+    <option value="0.17" selected>0.17 — יבש מטופל</option><option value="0.20">0.20 — יבש</option>
+    <option value="0.22">0.22 — חלוד/גס</option>
+  </select></div>
+  <div><label>% מהDowel Load</label><input id="tq-pct" type="number" value="70" min="50" max="90" oninput="calcTorque()"></div>
+</div>
+<div class="res" id="mec-res5">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== GEARS ====================== -->
+<div id="calc-gears" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 מודול + שיניים</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 זוג גירים + יחס</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Ft מזוג 2 ↓</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 חוזק Lewis</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">5 כוכבית / Rack</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · גיאומטריית גיר</div>
+<div class="cg">
+  <div><label>מודול m</label>
+  <select id="gr-m" onchange="calcGearNew()">
+    <option value="0.5">0.5</option><option value="0.8">0.8</option><option value="1">1</option>
+    <option value="1.25">1.25</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+    <option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option>
+    <option value="5">5</option><option value="6">6</option><option value="8">8</option><option value="10">10</option>
+  </select></div>
+  <div><label>z — מספר שיניים</label><input id="gr-z" type="number" value="20" min="6" oninput="calcGearNew()"></div>
+  <div><label>זווית לחץ α</label>
+  <select id="gr-a" onchange="calcGearNew()">
+    <option value="20" selected>20°</option><option value="14.5">14.5°</option><option value="25">25°</option>
+  </select></div>
+  <div><label>רוחב שיניים b (mm)</label><input id="gr-b" type="number" value="30" oninput="calcGearNew()"></div>
+</div>
+<div class="res" id="gr-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · זוג גירים ← מ-1</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">מחשב Ft ← ← מחשבון 3 ישתמש בו</div>
+<div class="cg">
+  <div><label>m (ממחשבון 1)</label>
+  <select id="gp-m" onchange="calcGearPairNew()">
+    <option value="1">1</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+    <option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+  </select></div>
+  <div><label>z₁ — Pinion</label><input id="gp-z1" type="number" value="18" min="6" oninput="calcGearPairNew()"></div>
+  <div><label>z₂ — Gear</label><input id="gp-z2" type="number" value="54" min="6" oninput="calcGearPairNew()"></div>
+  <div><label>P — הספק (kW)</label><input id="gp-p" type="number" value="5" step="0.5" oninput="calcGearPairNew()"></div>
+  <div><label>n₁ — RPM כניסה</label><input id="gp-n1" type="number" value="1450" oninput="calcGearPairNew()"></div>
+</div>
+<div class="res" id="gr-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · חוזק Lewis ← Ft מ-2</div>
+<div class="cg">
+  <div><label>m</label><input id="gl-m" type="number" value="2" step="0.5" oninput="calcGearLewisNew()"></div>
+  <div><label>b (mm)</label><input id="gl-b" type="number" value="30" oninput="calcGearLewisNew()"></div>
+  <div><label>Ft (N) ← ממחשבון 2</label><input id="gl-ft" type="number" value="2000" oninput="calcGearLewisNew()"></div>
+  <div><label>מקדם Y (Lewis)</label>
+  <select id="gl-y" onchange="calcGearLewisNew()">
+    <option value="0.245">z=12</option><option value="0.261">z=14</option><option value="0.277">z=16</option>
+    <option value="0.290">z=18</option><option value="0.308" selected>z=20</option><option value="0.322">z=25</option>
+    <option value="0.340">z=30</option><option value="0.369">z=40</option><option value="0.408">z=75</option>
+    <option value="0.422">z=∞ (rack)</option>
+  </select></div>
+  <div><label>Kv — מקדם עומס</label>
+  <select id="gl-kv" onchange="calcGearLewisNew()">
+    <option value="1.1">1.1 — מהיר/דיוק ↑</option><option value="1.3" selected>1.3 — רגיל</option>
+    <option value="1.5">1.5 — איטי/גס</option>
+  </select></div>
+</div>
+<div class="res" id="gr-res3">—</div>
+<button class="copy-btn" onclick="copyFtToLewis()">⬆ קבל Ft ממחשבון 2</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Rack & Pinion</div>
+<div class="cg">
+  <div><label>m</label>
+  <select id="rp-m" onchange="calcRackNew()">
+    <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option>
+    <option value="4">4</option><option value="5">5</option>
+  </select></div>
+  <div><label>z — שיניים Pinion</label><input id="rp-z" type="number" value="20" oninput="calcRackNew()"></div>
+  <div><label>n — RPM</label><input id="rp-n" type="number" value="100" oninput="calcRackNew()"></div>
+</div>
+<div class="res" id="gr-res4">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · כוכבית Planetary</div>
+<div class="cg">
+  <div><label>zS — Sun</label><input id="pl-zs" type="number" value="20" oninput="calcPlanetaryNew()"></div>
+  <div><label>zP — Planet</label><input id="pl-zp" type="number" value="20" oninput="calcPlanetaryNew()"></div>
+  <div><label>n₁ — RPM כניסה</label><input id="pl-n" type="number" value="1450" oninput="calcPlanetaryNew()"></div>
+  <div><label>P — הספק (kW)</label><input id="pl-p" type="number" value="5" oninput="calcPlanetaryNew()"></div>
+</div>
+<div class="res" id="gr-res5">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== BEARINGS ====================== -->
+<div id="calc-bearings" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 עומסים Fr + Fa</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 P שקול → L10h</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 ndm בדיקת מהירות</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 מפענח קידוד</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1+2 · L10h — חיי מסב מלא</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">מחשב P מעומסים → L10h</div>
+<div class="cg">
+  <div><label>C — עומס דינמי (kN)</label><input id="bc-c" type="number" value="25.5" step="0.1" oninput="calcBearFull2()"></div>
+  <div><label>Fr — עומס רדיאלי (N)</label><input id="bc-fr" type="number" value="5000" oninput="calcBearFull2()"></div>
+  <div><label>Fa — עומס צירי (N)</label><input id="bc-fa" type="number" value="1000" oninput="calcBearFull2()"></div>
+  <div><label>e (מcatalog)</label><input id="bc-e" type="number" value="0.30" step="0.01" oninput="calcBearFull2()"></div>
+  <div><label>Y (מcatalog)</label><input id="bc-y" type="number" value="1.8" step="0.1" oninput="calcBearFull2()"></div>
+  <div><label>n — מהירות (RPM)</label><input id="bc-n" type="number" value="1450" oninput="calcBearFull2()"></div>
+  <div><label>סוג מסב</label>
+  <select id="bc-type" onchange="calcBearFull2()">
+    <option value="3">כדורים (p=3)</option><option value="3.333">גלגורת (p=10/3)</option>
+  </select></div>
+</div>
+<div class="res" id="br-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · ndm — בדיקת מהירות</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">קבע אם גריז מספיק</div>
+<div class="cg">
+  <div><label>d — bore (mm)</label><input id="ndm-d" type="number" value="25" oninput="calcNdm2()"></div>
+  <div><label>D — OD (mm)</label><input id="ndm-D" type="number" value="52" oninput="calcNdm2()"></div>
+  <div><label>n — RPM</label><input id="ndm-n" type="number" value="12000" oninput="calcNdm2()"></div>
+</div>
+<div class="res" id="br-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · מפענח מסב</div>
+<div class="cg">
+  <div><label>מספר מסב</label><input type="text" id="bc-num2" value="6205-2RS-C3" placeholder="6205 / NU208 / 7310B" oninput="decodeBear2()"></div>
+</div>
+<div id="br-res3" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:2;color:var(--muted)">הכנס מספר מסב</div>
+</div>
+
+</div></div>
+
+<!-- ====================== SPRINGS ====================== -->
+<div id="calc-springs" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 בחר חומר → G/E</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 ממדים → k + δ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 מאמץ τ/σ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 בדיקת Wahl</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1+2+3 · קפיץ לחיצה/מתיחה</div>
+<div class="cg">
+  <div><label>d — קוטר חוט (mm)</label><input id="sp2-d" type="number" value="3" step="0.1" oninput="calcSpringComp()"></div>
+  <div><label>D — קוטר ממוצע (mm)</label><input id="sp2-D" type="number" value="25" oninput="calcSpringComp()"></div>
+  <div><label>n — כריכות פעילות</label><input id="sp2-n" type="number" value="8" min="2" oninput="calcSpringComp()"></div>
+  <div><label>G (GPa)</label>
+  <select id="sp2-G" onchange="calcSpringComp()">
+    <option value="80">פלדה C / Cr-V / Cr-Si (80)</option><option value="69">SS 302/304 (69)</option>
+    <option value="72">SS 17-7PH (72)</option><option value="77">Inconel 718 (77)</option>
+    <option value="44">Phosphor Bronze (44)</option><option value="48">Beryllium Cu (48)</option>
+  </select></div>
+  <div><label>F — עומס (N)</label><input id="sp2-f" type="number" value="100" oninput="calcSpringComp()"></div>
+  <div><label>Lf — אורך חופשי (mm)</label><input id="sp2-lf" type="number" value="80" oninput="calcSpringComp()"></div>
+</div>
+<div class="res" id="sp-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · קפיץ פיתול</div>
+<div class="cg">
+  <div><label>d (mm)</label><input id="st2-d" type="number" value="3" step="0.1" oninput="calcTorsionSprNew()"></div>
+  <div><label>D (mm)</label><input id="st2-D" type="number" value="25" oninput="calcTorsionSprNew()"></div>
+  <div><label>n — כריכות</label><input id="st2-n" type="number" value="8" oninput="calcTorsionSprNew()"></div>
+  <div><label>E (GPa)</label>
+  <select id="st2-E" onchange="calcTorsionSprNew()">
+    <option value="207">פלדה (207)</option><option value="193">SS (193)</option><option value="200">Inconel (200)</option>
+  </select></div>
+  <div><label>T — מומנט (N·mm)</label><input id="st2-T" type="number" value="500" oninput="calcTorsionSprNew()"></div>
+</div>
+<div class="res" id="sp-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Belleville Washer</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">DIN 2093 — צלחת קפיץ</div>
+<div class="cg">
+  <div><label>OD — קוטר חיצוני (mm)</label><input id="bv-od" type="number" value="50" oninput="calcBelleville()"></div>
+  <div><label>ID — קוטר פנימי (mm)</label><input id="bv-id" type="number" value="25.4" oninput="calcBelleville()"></div>
+  <div><label>t — עובי (mm)</label><input id="bv-t" type="number" value="2" step="0.1" oninput="calcBelleville()"></div>
+  <div><label>h₀ — גובה חרוט (mm)</label><input id="bv-h" type="number" value="1.8" step="0.1" oninput="calcBelleville()"></div>
+  <div><label>E (GPa)</label><input id="bv-e" type="number" value="210" oninput="calcBelleville()"></div>
+  <div><label>סידור</label>
+  <select id="bv-arr" onchange="calcBelleville()">
+    <option value="1">יחידה × 1</option><option value="2p">מקביל × 2</option>
+    <option value="2s">טורי × 2</option><option value="4p">מקביל × 4</option>
+  </select></div>
+</div>
+<div class="res" id="sp-res3">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== QUALITY ====================== -->
+<div id="calc-quality" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 מדידות → Cpk</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Cpk → DPMO/σ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 MSA/GRR</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 TUR/AQL</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">5 FMEA RPN</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Cp / Cpk — יכולת תהליך</div>
+<div class="cg">
+  <div><label>USL — גבול עליון (mm)</label><input id="cpk-usl" type="number" value="10.1" step="0.01" oninput="calcCpkFull()"></div>
+  <div><label>LSL — גבול תחתון (mm)</label><input id="cpk-lsl" type="number" value="9.9" step="0.01" oninput="calcCpkFull()"></div>
+  <div><label>x̄ — ממוצע מדידות</label><input id="cpk-mean" type="number" value="10.02" step="0.001" oninput="calcCpkFull()"></div>
+  <div><label>σ — סטיית תקן</label><input id="cpk-std" type="number" value="0.015" step="0.001" oninput="calcCpkFull()"></div>
+</div>
+<div class="res" id="qc-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · DPMO ← מ-Cpk</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Cpk ← ← ← ↑ ← העתק מ-1</div>
+<div class="cg">
+  <div><label>Cpk (ממחשבון 1)</label><input id="dpmo-cpk" type="number" value="1.33" step="0.01" oninput="calcDPMOFull()"></div>
+  <div><label>מספר הזדמנויות (DPO)</label><input id="dpmo-opp" type="number" value="1" min="1" oninput="calcDPMOFull()"></div>
+</div>
+<div class="res" id="qc-res2">—</div>
+<button class="copy-btn" onclick="copyCpkToDpmo()">⬆ קבל Cpk ממחשבון 1</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · GRR — ניתוח מדידה</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">MSA Gauge R&R</div>
+<div class="cg">
+  <div><label>EV — שונות ציוד (Equipment)</label><input id="grr-ev" type="number" value="0.03" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>AV — שונות מפעיל (Appraiser)</label><input id="grr-av" type="number" value="0.02" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>TV — שונות כוללת (Total)</label><input id="grr-tv" type="number" value="0.12" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>Tolerance — פס סובלנות</label><input id="grr-tol" type="number" value="0.2" step="0.01" oninput="calcGRRFull()"></div>
+</div>
+<div class="res" id="qc-res3">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · TUR — יחס מדידה</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Test Uncertainty Ratio</div>
+<div class="cg">
+  <div><label>Tolerance — פס (mm)</label><input id="tur-tol" type="number" value="0.1" step="0.01" oninput="calcTURFull()"></div>
+  <div><label>U — אי-ודאות מדידה (mm)</label><input id="tur-u" type="number" value="0.005" step="0.001" oninput="calcTURFull()"></div>
+</div>
+<div class="res" id="qc-res4">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · AQL — דגימה</div>
+<div class="cg">
+  <div><label>גודל מנה N</label><input id="aql-n" type="number" value="500" oninput="calcAQLFull()"></div>
+  <div><label>AQL (%)</label>
+  <select id="aql-q" onchange="calcAQLFull()">
+    <option value="0.065">0.065%</option><option value="0.1">0.1%</option><option value="0.15">0.15%</option>
+    <option value="0.25">0.25%</option><option value="0.4">0.4%</option><option value="0.65">0.65%</option>
+    <option value="1.0" selected>1.0%</option><option value="1.5">1.5%</option><option value="2.5">2.5%</option>
+    <option value="4.0">4.0%</option><option value="6.5">6.5%</option>
+  </select></div>
+  <div><label>רמת בדיקה</label>
+  <select id="aql-lvl" onchange="calcAQLFull()">
+    <option value="I">I — מופחתת</option><option value="II" selected>II — רגילה</option>
+    <option value="III">III — מוגברת</option>
+  </select></div>
+</div>
+<div class="res" id="qc-res5">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · FMEA — RPN</div>
+<div class="cg">
+  <div><label>S — חומרה (1-10)</label><input id="fm-s" type="number" value="7" min="1" max="10" oninput="calcFMEAFull()"></div>
+  <div><label>O — הסתברות (1-10)</label><input id="fm-o" type="number" value="5" min="1" max="10" oninput="calcFMEAFull()"></div>
+  <div><label>D — גילוי (1-10)</label><input id="fm-d" type="number" value="6" min="1" max="10" oninput="calcFMEAFull()"></div>
+</div>
+<div class="res" id="qc-res6">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== COSTS ====================== -->
+<div id="calc-costs" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 חומר + זמן → עלות</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 BOM → עלות כוללת</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 עלות יחידה + רווח</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · עלות חלק — תמחיר</div>
+<div class="cg">
+  <div><label>עלות חומר (₪/kg)</label><input id="pr-mat" type="number" value="25" oninput="calcPricingFull()"></div>
+  <div><label>משקל חלק (kg)</label><input id="pr-wt" type="number" value="0.5" step="0.1" oninput="calcPricingFull()"></div>
+  <div><label>זמן מכונה (דקות)</label><input id="pr-tm" type="number" value="30" oninput="calcPricingFull()"></div>
+  <div><label>עלות מכונה (₪/שעה)</label><input id="pr-mh" type="number" value="120" oninput="calcPricingFull()"></div>
+  <div><label>זמן הכנה (Setup דקות)</label><input id="pr-setup" type="number" value="20" oninput="calcPricingFull()"></div>
+  <div><label>כמות בהפקה</label><input id="pr-qty" type="number" value="50" oninput="calcPricingFull()"></div>
+  <div><label>תקורה (%)</label><input id="pr-oh" type="number" value="30" oninput="calcPricingFull()"></div>
+  <div><label>רווח (%)</label><input id="pr-mg" type="number" value="20" oninput="calcPricingFull()"></div>
+</div>
+<div class="res" id="pr-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · BOM — חמרים + עבודה</div>
+<div class="cg">
+  <div><label>עלות חומרים (₪)</label><input id="bm2-mat" type="number" value="200" oninput="calcBOMFull()"></div>
+  <div><label>עלות עבודה ישירה (₪)</label><input id="bm2-lab" type="number" value="150" oninput="calcBOMFull()"></div>
+  <div><label>חלקי רכש (₪)</label><input id="bm2-buy" type="number" value="80" oninput="calcBOMFull()"></div>
+  <div><label>תקורה (%)</label><input id="bm2-oh" type="number" value="35" oninput="calcBOMFull()"></div>
+  <div><label>% פסולת</label><input id="bm2-scr" type="number" value="3" oninput="calcBOMFull()"></div>
+</div>
+<div class="res" id="pr-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · עלות יחידה ← מ-1+2</div>
+<div class="cg">
+  <div><label>עלות ייצור (₪) ← מ-1</label><input id="uc2-prod" type="number" value="50" oninput="calcUCFull()"></div>
+  <div><label>מחיר מטרה (₪)</label><input id="uc2-tgt" type="number" value="80" oninput="calcUCFull()"></div>
+  <div><label>כמות יחידות</label><input id="uc2-qty" type="number" value="100" oninput="calcUCFull()"></div>
+  <div><label>עלות משלוח לחתיכה (₪)</label><input id="uc2-ship" type="number" value="2" oninput="calcUCFull()"></div>
+</div>
+<div class="res" id="pr-res3">—</div>
+<button class="copy-btn" onclick="copyProdToCost()">⬆ קבל עלות ממחשבון 1</button>
+</div>
+
+</div></div>
+
+<!-- ====================== FLUIDS ====================== -->
+<div id="calc-fluids" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">הידראוליקה — לחץ/זרימה</div>
+<div class="cg">
+  <div><label>סוג חישוב</label>
+  <select id="hy-type" onchange="calcHydroFull()">
+    <option value="pressure">לחץ → כוח</option><option value="flow">זרימה → מהירות</option>
+    <option value="pump">משאבה → הספק</option>
+  </select></div>
+  <div><label>לחץ P (bar)</label><input id="hy-p" type="number" value="100" oninput="calcHydroFull()"></div>
+  <div><label>קוטר בוכנה (mm)</label><input id="hy-d" type="number" value="50" oninput="calcHydroFull()"></div>
+  <div><label>זרימה Q (L/min)</label><input id="hy-q" type="number" value="20" oninput="calcHydroFull()"></div>
+  <div><label>η — יעילות (%)</label><input id="hy-eta" type="number" value="85" oninput="calcHydroFull()"></div>
+</div>
+<div class="res" id="fl-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">O-Ring — כיווץ וקידוח</div>
+<div class="cg">
+  <div><label>d — קוטר חתך חוט (mm)</label><input id="or-d" type="number" value="3.5" step="0.1" oninput="calcORingFull()"></div>
+  <div><label>ID — קוטר פנימי O-Ring (mm)</label><input id="or-id" type="number" value="50" oninput="calcORingFull()"></div>
+  <div><label>שימוש</label>
+  <select id="or-app" onchange="calcORingFull()">
+    <option value="static_face">Static Face Seal</option><option value="static_radial">Static Radial Seal</option>
+    <option value="dynamic">Dynamic Seal</option>
+  </select></div>
+  <div><label>חומר O-Ring</label>
+  <select id="or-mat" onchange="calcORingFull()">
+    <option value="NBR">NBR (Nitrile) — סטנדרט</option><option value="EPDM">EPDM — מים/אוויר</option>
+    <option value="FKM">FKM (Viton) — כימיקלים</option><option value="Silicone">Silicone — T גבוהה</option>
+  </select></div>
+</div>
+<div class="res" id="fl-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Faraday — ציפוי אלקטרוכימי</div>
+<div class="cg">
+  <div><label>I — זרם (A)</label><input id="far-i" type="number" value="10" oninput="calcFaradayFull()"></div>
+  <div><label>t — זמן (דקות)</label><input id="far-t" type="number" value="60" oninput="calcFaradayFull()"></div>
+  <div><label>תהליך ציפוי</label>
+  <select id="far-proc" onchange="calcFaradayFull()">
+    <option value="cr,52,6,6.9">כרום קשה (Cr)</option><option value="ni,58.7,2,8.9">ניקל (Ni)</option>
+    <option value="zn,65.4,2,7.1">אבץ (Zn)</option><option value="cu,63.5,2,8.9">נחושת (Cu)</option>
+    <option value="au,197,1,19.3">זהב (Au)</option><option value="ag,107.9,1,10.5">כסף (Ag)</option>
+  </select></div>
+  <div><label>שטח ציפוי (cm²)</label><input id="far-a" type="number" value="100" oninput="calcFaradayFull()"></div>
+</div>
+<div class="res" id="fl-res3">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== ADHESIVES ====================== -->
+<div id="calc-adhesives" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Loctite — מומנט שחרור</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Threadlocker Break-Loose Torque</div>
+<div class="cg">
+  <div><label>מוצר Loctite</label>
+  <select id="lt-prod" onchange="calcLoctiteFull()">
+    <option value="222,1.5">222 — Blue Low Strength</option>
+    <option value="243,2.5" selected>243 — Blue Medium Strength</option>
+    <option value="263,4.0">263 — Red High Strength</option>
+    <option value="270,5.0">270 — Red Max Strength</option>
+    <option value="290,2.0">290 — Green Wicking</option>
+  </select></div>
+  <div><label>מידת בורג</label>
+  <select id="lt-size" onchange="calcLoctiteFull()">
+    <option value="3">M3</option><option value="4">M4</option><option value="5">M5</option>
+    <option value="6" selected>M6</option><option value="8">M8</option><option value="10">M10</option>
+    <option value="12">M12</option>
+  </select></div>
+</div>
+<div class="res" id="ad-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">הדבקה — כוח ושטח</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Lap Joint Shear Strength</div>
+<div class="cg">
+  <div><label>סוג דבק</label>
+  <select id="ad-type" onchange="calcAdhesiveFull()">
+    <option value="12">Epoxy 2-Part — 12 MPa</option>
+    <option value="25">Structural Epoxy — 25 MPa</option>
+    <option value="8">Acrylic MMA — 8 MPa</option>
+    <option value="6">Polyurethane — 6 MPa</option>
+    <option value="4">Silicone RTV — 4 MPa</option>
+    <option value="15">Loctite EA 9466 — 15 MPa</option>
+    <option value="30">Henkel Hysol EA 9394 — 30 MPa</option>
+  </select></div>
+  <div><label>שטח הדבקה (mm²)</label><input id="ad-area" type="number" value="500" oninput="calcAdhesiveFull()"></div>
+  <div><label>SF — מקדם בטיחות</label><input id="ad-sf" type="number" value="3" step="0.5" oninput="calcAdhesiveFull()"></div>
+  <div><label>עומס נדרש (N)</label><input id="ad-load" type="number" value="3000" oninput="calcAdhesiveFull()"></div>
+</div>
+<div class="res" id="ad-res2">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== INSERTS ====================== -->
+<div id="calc-inserts" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">STI Drill — Helicoil</div>
+<div class="cg">
+  <div><label>מידה</label>
+  <select id="ins2-size" onchange="calcInsDrillFull()">
+    <option value="3,0.5,3.6">M3 × 0.5</option><option value="4,0.7,4.7">M4 × 0.7</option>
+    <option value="5,0.8,5.9">M5 × 0.8</option><option value="6,1.0,7.0" selected>M6 × 1.0</option>
+    <option value="8,1.25,9.2">M8 × 1.25</option><option value="10,1.5,11.3">M10 × 1.5</option>
+    <option value="12,1.75,13.5">M12 × 1.75</option><option value="16,2.0,17.7">M16 × 2.0</option>
+    <option value="20,2.5,22.0">M20 × 2.5</option>
+  </select></div>
+  <div><label>עומק</label>
+  <select id="ins2-depth" onchange="calcInsDrillFull()">
+    <option value="1">1D</option><option value="1.5" selected>1.5D</option>
+    <option value="2">2D</option><option value="2.5">2.5D</option>
+  </select></div>
+</div>
+<div class="res" id="ins-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Rivet Nut — Hole Size</div>
+<div class="cg">
+  <div><label>מידה</label>
+  <select id="rn2-size" onchange="calcRivetNutFull()">
+    <option value="3,5.4">M3</option><option value="4,6.4">M4</option><option value="5,7.7" selected>M5</option>
+    <option value="6,9.0">M6</option><option value="8,11.5">M8</option><option value="10,14.0">M10</option>
+    <option value="12,16.5">M12</option>
+  </select></div>
+  <div><label>סוג</label>
+  <select id="rn2-type" onchange="calcRivetNutFull()">
+    <option value="round">Round Body</option><option value="hex">Hex Body</option>
+  </select></div>
+  <div><label>עובי חומר (mm)</label><input id="rn2-thick" type="number" value="2.0" step="0.5" oninput="calcRivetNutFull()"></div>
+</div>
+<div class="res" id="ins-res2">—</div>
+</div>
+
+</div></div>
+</div>

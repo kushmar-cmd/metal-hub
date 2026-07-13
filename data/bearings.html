@@ -1,0 +1,680 @@
+<div id="sec-bearings" class="section">
+<style>
+.bear-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.bear-tab:hover,.bear-tab.active{background:var(--orange);color:#000;border-color:var(--orange);font-weight:700}
+.bear-sec{display:none}.bear-sec.active{display:block}
+</style>
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a2d1a);border-color:var(--orange)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">⚙️</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--orange)">מסבים — Bearings</div>
+    <div style="font-size:12px;color:var(--muted)">סוגים · בחירה · חיי מסב L10 · הרכבה · סיכה · נזקים · ליניארי · תקנים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="bear-tab active" onclick="showBear('types',this)">⚙️ סוגי מסבים</button>
+  <button class="bear-tab" onclick="showBear('selection',this)">🎯 בחירת מסב</button>
+  <button class="bear-tab" onclick="showBear('coding',this)">🔢 קידוד ISO</button>
+  <button class="bear-tab" onclick="showBear('life',this)">📊 חיי מסב L10</button>
+  <button class="bear-tab" onclick="showBear('mounting',this)">🔧 הרכבה ומושבים</button>
+  <button class="bear-tab" onclick="showBear('lubrication',this)">💧 סיכה</button>
+  <button class="bear-tab" onclick="showBear('damage',this)">⚠️ נזקים וכשלים</button>
+  <button class="bear-tab" onclick="showBear('linear',this)">📏 ליניארי ומסילות</button>
+  <button class="bear-tab" onclick="showBear('standards',this)">🏆 תקנים ויצרנים</button>
+  <button class="bear-tab" onclick="showBear('calc_bear',this)">🧮 מחשבונים</button>
+</div>
+
+<!-- ===== TYPES ===== -->
+<div id="bear-types" class="bear-sec active">
+<div class="card"><div class="ctitle">⚙️ סוגי מסבים — Bearing Types</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Deep Groove Ball — כדורים מחורץ עמוק</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">6xxx</span><span class="mc-badge b-green">הנפוץ ביותר</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">⭐⭐⭐ — טוב</span></div>
+<div class="spec-row"><span class="spec-key">עומס צירי</span><span class="spec-val">⭐⭐ — שני כיוונים, מוגבל</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">⭐⭐⭐⭐⭐ — גבוהה מאוד</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">מנועים חשמליים · משאבות · תיבות הילוכים</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">פשוט · שקט · זול · זמין בכל מקום</span></div>
+<div class="spec-row"><span class="spec-key">קידוד</span><span class="spec-val">6205 = DG · סדרה 2 · ⌀25mm bore</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">FAG (Schaeffler)</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Angular Contact Ball — קשר זוויתי</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">7xxx</span><span class="mc-badge b-blue">בזוגות!</span></div>
+<div class="spec-row"><span class="spec-key">זוויות מגע</span><span class="spec-val">15° · 25° · 40° — ↑זווית=↑צירית</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">⭐⭐⭐ — טוב</span></div>
+<div class="spec-row"><span class="spec-key">עומס צירי</span><span class="spec-val">⭐⭐⭐⭐ — כיוון אחד</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">⭐⭐⭐⭐ — גבוהה</span></div>
+<div class="spec-row"><span class="spec-key">סידורים</span><span class="spec-val">DB (גב לגב) · DF (פנים לפנים) · DT (טנדם)</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">ציר כנן · ציר CNC · גלגלי שיניים</span></div>
+<div class="spec-row"><span class="spec-key">הערה</span><span class="spec-val">תמיד בזוגות! אחד לא יעבוד לבד</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">FAG</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">NTN</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Tapered Roller — גלגורת חרוטי</div>
+<div><span class="mc-badge" style="background:var(--red);color:#fff">3xxxx</span><span class="mc-badge b-orange">Preload חובה</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">⭐⭐⭐⭐ — כבד מאוד</span></div>
+<div class="spec-row"><span class="spec-key">עומס צירי</span><span class="spec-val">⭐⭐⭐⭐⭐ — כבד מאוד</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">⭐⭐⭐ — בינונית</span></div>
+<div class="spec-row"><span class="spec-key">זווית מגע</span><span class="spec-val">10°-16° (Light) · 25°-29° (Steep)</span></div>
+<div class="spec-row"><span class="spec-key">Preload</span><span class="spec-val">חייב כיול! אחרת מתנתק מגע</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">ציר רכב · כרסמת · גיר חרוטי · גוחן</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ISO 355 · ANSI/ABMA 19.1/19.2</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.timken.com" target="_blank" style="color:var(--blue)">Timken</a> · <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">NTN</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Cylindrical Roller — גלגורת גלילי</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">NU/NJ/NF</span><span class="mc-badge b-red">רדיאל גבוה</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">⭐⭐⭐⭐⭐ — גבוה מאוד!</span></div>
+<div class="spec-row"><span class="spec-key">NU — עומס צירי</span><span class="spec-val">❌ — ללא בכלל</span></div>
+<div class="spec-row"><span class="spec-key">NJ/NF — עומס צירי</span><span class="spec-val">⭐⭐ — כיוון אחד בלבד</span></div>
+<div class="spec-row"><span class="spec-key">NNU/NN</span><span class="spec-val">שתי שורות — עומס רדיאלי כפול</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">⭐⭐⭐⭐ — גבוהה</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">תיבות הילוכים · גלי ראשיים · מנועים גדולים</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">INA/FAG</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Spherical Roller — גלגורת כדורי</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">2xxxx</span><span class="mc-badge b-green">Self-Aligning</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">⭐⭐⭐⭐⭐ — כבד מאוד</span></div>
+<div class="spec-row"><span class="spec-key">עומס צירי</span><span class="spec-val">⭐⭐⭐ — שני כיוונים</span></div>
+<div class="spec-row"><span class="spec-key">יישור עצמי</span><span class="spec-val">עד 1°-2.5° — מפצה שגיאות ציר</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">⭐⭐⭐ — בינונית-גבוהה</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">מכרות · נייר · כבל · ציוד כבד</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.timken.com" target="_blank" style="color:var(--blue)">Timken</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">NTN</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Self-Aligning Ball — כדורים מיישר עצמי</div>
+<div><span class="mc-badge" style="background:var(--blue);color:#000">1xxx/2xxx</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">⭐⭐ — נמוך-בינוני</span></div>
+<div class="spec-row"><span class="spec-key">עומס צירי</span><span class="spec-val">⭐ — מוגבל מאוד</span></div>
+<div class="spec-row"><span class="spec-key">יישור עצמי</span><span class="spec-val">עד 2°-3° — מסלול כדורי</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">חקלאות · כרית (Plummer Block) · גלי ארוכים</span></div>
+<div class="spec-row"><span class="spec-key">הערה</span><span class="spec-val">זול וקל, אבל חלש. לא לעומסים כבדים</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">FAG</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Thrust Ball — צירי כדורים</div>
+<div><span class="mc-badge" style="background:var(--red);color:#fff">5xxx</span><span class="mc-badge b-orange">צירי בלבד!</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">❌ — אסור לחלוטין!</span></div>
+<div class="spec-row"><span class="spec-key">עומס צירי</span><span class="spec-val">⭐⭐⭐⭐ — כיוון אחד (יחידי) / שניים (כפול)</span></div>
+<div class="spec-row"><span class="spec-key">סידורים</span><span class="spec-val">51xxx = יחידי · 52xxx = כפול</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">⭐⭐ — נמוכה-בינונית</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">בוכנות · שסתומים · מנגנוני הרמה · ווינגים</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">INA</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Needle Roller — מסב מחט</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">NA/NK/HK/IR</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">⭐⭐⭐⭐⭐ — גבוה מאוד לגודלו</span></div>
+<div class="spec-row"><span class="spec-key">עומס צירי</span><span class="spec-val">❌ — אפס</span></div>
+<div class="spec-row"><span class="spec-key">L/D יחס</span><span class="spec-val">3-10 (ארוך מקוטר)</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">קוטר חיצוני קטן מאוד! חיסכון במקום</span></div>
+<div class="spec-row"><span class="spec-key">NA — עם טבעת פנימית</span><span class="spec-val">ציר רגיל, קל לפירוק</span></div>
+<div class="spec-row"><span class="spec-key">NK/HK — ללא טבעת</span><span class="spec-val">ציר צריך Ra≤0.4μm, HRC58+</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">ארכובה · עמוד הגה · צמד אוניברסלי</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">INA (Schaeffler)</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">NTN</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">CARB / Toroidal — טורואידי</div>
+<div><span class="mc-badge" style="background:var(--purple,#bc8cff);color:#000">C xxx</span><span class="mc-badge b-blue">SKF פטנט</span></div>
+<div class="spec-row"><span class="spec-key">עומס רדיאלי</span><span class="spec-val">⭐⭐⭐⭐⭐ — גבוה מאוד</span></div>
+<div class="spec-row"><span class="spec-key">יישור עצמי</span><span class="spec-val">⭐⭐⭐⭐⭐ — מלא! זווית + אורך</span></div>
+<div class="spec-row"><span class="spec-key">הזזה צירית</span><span class="spec-val">⭐⭐⭐⭐⭐ — חופשי לחלוטין</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">גחנת נייר · מכרות · מנועי תעשייה גדולים</span></div>
+<div class="spec-row"><span class="spec-key">הערה</span><span class="spec-val">מחליף Spherical Roller כשצריך גם יישור עצמי</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF (בלעדי)</a></div>
+</div>
+
+</div>
+
+<div style="margin-top:16px">
+<table><tr><th>סוג מסב</th><th>קידוד</th><th>רדיאלי</th><th>צירי</th><th>מהירות</th><th>יישור עצמי</th><th>שימוש טיפוסי</th></tr>
+<tr><td>Deep Groove Ball</td><td>6xxx</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>❌</td><td>מנועים, משאבות</td></tr>
+<tr><td>Angular Contact Ball</td><td>7xxx</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>❌</td><td>ציר CNC, גיר</td></tr>
+<tr><td>Tapered Roller</td><td>3xxxx</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>❌</td><td>רכב, כרסמת</td></tr>
+<tr><td>Cylindrical Roller</td><td>NU/NJ</td><td>⭐⭐⭐⭐⭐</td><td>⭐/❌</td><td>⭐⭐⭐⭐</td><td>❌</td><td>גיר, מנועים גדולים</td></tr>
+<tr><td>Spherical Roller</td><td>2xxxx</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>מכרות, נייר</td></tr>
+<tr><td>Self-Aligning Ball</td><td>1xxx/2xxx</td><td>⭐⭐</td><td>⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>חקלאות, כרית</td></tr>
+<tr><td>Thrust Ball</td><td>5xxx</td><td>❌</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td><td>❌</td><td>הרמה, שסתומים</td></tr>
+<tr><td>Needle Roller</td><td>NA/NK/HK</td><td>⭐⭐⭐⭐⭐</td><td>❌</td><td>⭐⭐⭐</td><td>❌</td><td>ארכובה, הגה</td></tr>
+</table></div>
+</div></div>
+
+<!-- ===== SELECTION ===== -->
+<div id="bear-selection" class="bear-sec">
+<div class="card"><div class="ctitle">🎯 בחירת מסב — Selection Guide</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">שלבי בחירת מסב</div>
+<div><span class="mc-badge b-blue">6 שלבים</span></div>
+<div class="spec-row"><span class="spec-key">1. עומסים</span><span class="spec-val">Fr (רדיאלי) · Fa (צירי) · כיוון · דינמיות</span></div>
+<div class="spec-row"><span class="spec-key">2. מהירות</span><span class="spec-val">n (RPM) · ndm ≤ 500K גריז · 750K שמן</span></div>
+<div class="spec-row"><span class="spec-key">3. חיי שרות</span><span class="spec-val">L10h נדרש: 20K שעות תעשייה · 50K+ ממונה</span></div>
+<div class="spec-row"><span class="spec-key">4. ממדים</span><span class="spec-val">bore (d) ← ציר · OD (D) ← גוף · B רוחב</span></div>
+<div class="spec-row"><span class="spec-key">5. סביבה</span><span class="spec-val">טמפרטורה · לחות · זיהום · רטט</span></div>
+<div class="spec-row"><span class="spec-key">6. בחירת גודל</span><span class="spec-val">C/P ≥ (L10h × 60n / 10⁶)^(1/p)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">עומס שקול P — Equivalent Dynamic Load</div>
+<div><span class="mc-badge b-orange">P = X·Fr + Y·Fa</span></div>
+<div class="spec-row"><span class="spec-key">X — גורם רדיאלי</span><span class="spec-val">1.0 אם Fa/Fr ≤ e · 0.56 אם Fa/Fr > e</span></div>
+<div class="spec-row"><span class="spec-key">Y — גורם צירי</span><span class="spec-val">0 אם Fa/Fr ≤ e · מcatalog אם > e</span></div>
+<div class="spec-row"><span class="spec-key">e — גורם מגע</span><span class="spec-val">0.22-0.44 (תלוי מסב ועומס)</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה 6205</span><span class="spec-val">Fr=5kN, Fa=1kN, e=0.30 → P=5×1+0=5kN</span></div>
+<div class="spec-row"><span class="spec-key">Static P0</span><span class="spec-val">P0 = X0·Fr + Y0·Fa (לעומס סטטי)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">X, Y, e — מcatalog של היצרן בלבד!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Clearance — לוז פנימי</div>
+<div><span class="mc-badge b-blue">C2 · CN · C3 · C4 · C5</span></div>
+<div class="spec-row"><span class="spec-key">C2</span><span class="spec-val">לוז קטן — דיוק גבוה, Preload</span></div>
+<div class="spec-row"><span class="spec-key">CN (Normal)</span><span class="spec-val">ברירת מחדל — רוב היישומים</span></div>
+<div class="spec-row"><span class="spec-key">C3</span><span class="spec-val">לוז גדול — טמפ' גבוהה, הרכבה בלחץ</span></div>
+<div class="spec-row"><span class="spec-key">C4</span><span class="spec-val">לוז גדול מאוד — טמפ' גבוהה מאוד</span></div>
+<div class="spec-row"><span class="spec-key">כלל אצבע</span><span class="spec-val">הרכבה בלחץ → C3. טמפ' >80°C → C3</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">לוז קטן מדי = חמם = כשל. לוז גדול מדי = רטט ורעש</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">דיוק מסב — Precision Class</div>
+<div><span class="mc-badge b-green">P0-P2</span><span class="mc-badge b-blue">ISO 492</span></div>
+<div class="spec-row"><span class="spec-key">P0 (Normal)</span><span class="spec-val">ברירת מחדל · תעשייה כללית</span></div>
+<div class="spec-row"><span class="spec-key">P6</span><span class="spec-val">↑דיוק · מכונות כלליות, כרית</span></div>
+<div class="spec-row"><span class="spec-key">P5</span><span class="spec-val">↑↑דיוק · ציר CNC, שפינדל</span></div>
+<div class="spec-row"><span class="spec-key">P4</span><span class="spec-val">↑↑↑ · ציר דיוק, מדידה</span></div>
+<div class="spec-row"><span class="spec-key">P2 (Ultra)</span><span class="spec-val">גיירוסקופים, ציר שעון, חלל</span></div>
+<div class="spec-row"><span class="spec-key">מחיר יחסי</span><span class="spec-val">P0=1× · P6=3× · P5=8× · P4=20×</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">מסב לטמפרטורות קיצוניות</div>
+<div><span class="mc-badge b-red">מעל 120°C</span></div>
+<div class="spec-row"><span class="spec-key">Stabilization S1</span><span class="spec-val">עד 150°C — קידוד SN1</span></div>
+<div class="spec-row"><span class="spec-key">Stabilization S2</span><span class="spec-val">עד 200°C — קידוד SN2</span></div>
+<div class="spec-row"><span class="spec-key">Stabilization S3</span><span class="spec-val">עד 250°C — קידוד SN3</span></div>
+<div class="spec-row"><span class="spec-key">Stainless 440C</span><span class="spec-val">עד 200°C · אנטי-קורוזיה</span></div>
+<div class="spec-row"><span class="spec-key">Ceramic Si3N4</span><span class="spec-val">עד 700°C · ↑מהירות · ↓משקל</span></div>
+<div class="spec-row"><span class="spec-key">Full Ceramic</span><span class="spec-val">ZrO2/Al2O3 — חשמלי, קורוזיה</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.cerobear.com" target="_blank" style="color:var(--blue)">Cerobear (קרמי)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">מסבים בתנאים מיוחדים</div>
+<div><span class="mc-badge b-orange">Clean Room · Vacuum · Food</span></div>
+<div class="spec-row"><span class="spec-key">Clean Room</span><span class="spec-val">גריז ESD/PFPE · S/S · ISO Class 3</span></div>
+<div class="spec-row"><span class="spec-key">Vacuum</span><span class="spec-val">גריז PFPE · ← MoS2 Dry Film · UHV</span></div>
+<div class="spec-row"><span class="spec-key">מזון — USDA H1</span><span class="spec-val">גריז NSF H1 · S/S אטמים · FDA</span></div>
+<div class="spec-row"><span class="spec-key">ים/לחות</span><span class="spec-val">נירוסטה 440C · גריז אנטי-מים</span></div>
+<div class="spec-row"><span class="spec-key">מגנטי</span><span class="spec-val">מסב קרמי מלא — לא מוליך</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF Food Line</a> · <a href="https://www.igus.com" target="_blank" style="color:var(--blue)">Igus (פלסטיק)</a></div>
+</div>
+</div></div></div>
+
+<!-- ===== CODING ===== -->
+<div id="bear-coding" class="bear-sec">
+<div class="card"><div class="ctitle">🔢 קידוד מסבים ISO — Bearing Designation</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">מבנה קידוד ISO — 6-2-05-ZZ-C3</div>
+<div><span class="mc-badge b-blue">ISO 15 / ISO 355</span></div>
+<div class="spec-row"><span class="spec-key">ספרה 1 — סוג</span><span class="spec-val">1=מיישר כדורי · 2=גלגורת כדורי · 3=חרוטי · 6=DG · 7=AC · N=גלגורת · 5=צירי</span></div>
+<div class="spec-row"><span class="spec-key">ספרה 2 — סדרת קוטר</span><span class="spec-val">0=קל מיוחד · 1=קל מיוחד · 2=קל · 3=בינוני · 4=כבד</span></div>
+<div class="spec-row"><span class="spec-key">ספרות 3-4 — bore</span><span class="spec-val">00=10 · 01=12 · 02=15 · 03=17 · 04+=×5mm</span></div>
+<div class="spec-row"><span class="spec-key">אטמים</span><span class="spec-val">Z=מגן מתכת · ZZ=×2 · RS=גומי · 2RS=×2 · RZ=אטם מגע נמוך</span></div>
+<div class="spec-row"><span class="spec-key">Clearance</span><span class="spec-val">C2/CN/C3/C4/C5</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">P0(לא מסומן)/P6/P5/P4/P2</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">S=נירוסטה · W=Stainless · X=מיוחד</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">דוגמה: <b>6205-2RS-C3</b> = DG · סדרה 2 · bore 25mm · גומי×2 · לוז גדול</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Angular Contact — קידוד מיוחד</div>
+<div><span class="mc-badge b-orange">7xxx + סיומות</span></div>
+<div class="spec-row"><span class="spec-key">B</span><span class="spec-val">40° זווית מגע (7205B)</span></div>
+<div class="spec-row"><span class="spec-key">C</span><span class="spec-val">15° זווית מגע</span></div>
+<div class="spec-row"><span class="spec-key">AC</span><span class="spec-val">25° זווית מגע — הנפוץ</span></div>
+<div class="spec-row"><span class="spec-key">DB</span><span class="spec-val">זוג גב-לגב (Back-to-Back) — ↑נוקשות</span></div>
+<div class="spec-row"><span class="spec-key">DF</span><span class="spec-val">זוג פנים-לפנים (Face-to-Face) — ↑יישור</span></div>
+<div class="spec-row"><span class="spec-key">DT</span><span class="spec-val">טנדם (Tandem) — ↑צירי כיוון אחד</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">דוגמה: <b>7205BECBJ</b> = AC 40° · Universal · P4</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Tapered Roller — קידוד ABMA</div>
+<div><span class="mc-badge b-red">30xxx / L/M series</span></div>
+<div class="spec-row"><span class="spec-key">סדרה 30</span><span class="spec-val">30205 = זווית קלה ~12°</span></div>
+<div class="spec-row"><span class="spec-key">סדרה 31/32</span><span class="spec-val">זווית בינונית ~15°</span></div>
+<div class="spec-row"><span class="spec-key">סדרה 33</span><span class="spec-val">זווית תלולה ~25°</span></div>
+<div class="spec-row"><span class="spec-key">Timken L/M/LM</span><span class="spec-val">קידוד ייחודי — L44643/L44610 (Cup/Cone)</span></div>
+<div class="spec-row"><span class="spec-key">Cup</span><span class="spec-val">טבעת חיצונית</span></div>
+<div class="spec-row"><span class="spec-key">Cone</span><span class="spec-val">טבעת פנימית + גלגורות</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.timken.com" target="_blank" style="color:var(--blue)">Timken (מוביל עולמי)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">מפענח מספר מסב — Bore Decoder</div>
+<div><span class="mc-badge b-green">כלי מהיר</span></div>
+<div class="cg">
+<div><label>מספר מסב</label><input type="text" id="br-num" value="6205" placeholder="6205 / 7310B / NU208" oninput="decodeBearing()"></div>
+</div>
+<div id="br-decode" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:2;color:var(--muted)">הכנס מספר מסב לפענוח</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== LIFE ===== -->
+<div id="bear-life" class="bear-sec">
+<div class="card"><div class="ctitle">📊 חיי מסב — L10 Life Calculation</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">L10 — Basic Rating Life</div>
+<div><span class="mc-badge b-blue">ISO 281</span><span class="mc-badge b-green">90% הישרדות</span></div>
+<div class="spec-row"><span class="spec-key">L10 (מיליוני סיבובים)</span><span class="spec-val">L10 = (C/P)^p</span></div>
+<div class="spec-row"><span class="spec-key">p — מעריך</span><span class="spec-val">3 לכדורים · 10/3 לגלגורת</span></div>
+<div class="spec-row"><span class="spec-key">L10h (שעות)</span><span class="spec-val">L10h = L10 × 10⁶ / (60 × n)</span></div>
+<div class="spec-row"><span class="spec-key">C — עומס דינמי</span><span class="spec-val">מcatalog יצרן (kN)</span></div>
+<div class="spec-row"><span class="spec-key">P — עומס שקול</span><span class="spec-val">P = XFr + YFa</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">L10 = 90% מהמסבים יחיו לפחות L10 שעות</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">aISO Life — Modified Rating</div>
+<div><span class="mc-badge b-orange">ISO 281:2007</span><span class="mc-badge b-blue">מדויק יותר</span></div>
+<div class="spec-row"><span class="spec-key">Lnm = a1 × aISO × L10</span><span class="spec-val">— חיים שונים</span></div>
+<div class="spec-row"><span class="spec-key">a1 — גורם אמינות</span><span class="spec-val">90%=1.0 · 95%=0.64 · 99%=0.21</span></div>
+<div class="spec-row"><span class="spec-key">aISO — גורם תנאים</span><span class="spec-val">סיכה + זיהום + עומס</span></div>
+<div class="spec-row"><span class="spec-key">κ = ν/ν₁</span><span class="spec-val">ν=צמיגות בפועל · ν₁=נדרשת</span></div>
+<div class="spec-row"><span class="spec-key">κ≥2 + ניקיון</span><span class="spec-val">aISO עד 50! → L10m כפול עד ×50</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">כלי חישוב SKF/FAG: SKF Bearing Calculator</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">L10h מומלץ לפי יישום</div>
+<div><span class="mc-badge b-orange">ערכי ייחוס</span></div>
+<div class="spec-row"><span class="spec-key">מכשור ביתי</span><span class="spec-val">1,000-2,000 שעות</span></div>
+<div class="spec-row"><span class="spec-key">מנוע חשמלי כללי</span><span class="spec-val">20,000-30,000 שעות</span></div>
+<div class="spec-row"><span class="spec-key">תעשייה 8h/יום</span><span class="spec-val">20,000-30,000 שעות</span></div>
+<div class="spec-row"><span class="spec-key">תעשייה 24h/יום</span><span class="spec-val">40,000-50,000 שעות</span></div>
+<div class="spec-row"><span class="spec-key">ממשק כבד תמידי</span><span class="spec-val">60,000-100,000 שעות</span></div>
+<div class="spec-row"><span class="spec-key">תעופה — קריטי</span><span class="spec-val">לפי TBO ספציפי (1,500-8,000h)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">מחשבון L10h</div>
+<div class="cg">
+<div><label>C — עומס דינמי (kN)</label><input id="br-c" type="number" value="25.5" step="0.1" oninput="calcBearing()"></div>
+<div><label>Fr — רדיאלי (N)</label><input id="br-fr" type="number" value="5000" oninput="calcBearing()"></div>
+<div><label>Fa — צירי (N)</label><input id="br-fa" type="number" value="1000" oninput="calcBearing()"></div>
+<div><label>e (מ-catalog)</label><input id="br-e" type="number" value="0.30" step="0.01" oninput="calcBearing()"></div>
+<div><label>Y (מ-catalog)</label><input id="br-y" type="number" value="1.8" step="0.1" oninput="calcBearing()"></div>
+<div><label>n — מהירות (RPM)</label><input id="br-n" type="number" value="1450" oninput="calcBearing()"></div>
+<div><label>סוג</label><select id="br-type" onchange="calcBearing()"><option value="3">כדורים (p=3)</option><option value="3.333">גלגורת (p=10/3)</option></select></div>
+</div>
+<div class="res" id="br-result">—</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== MOUNTING ===== -->
+<div id="bear-mounting" class="bear-sec">
+<div class="card"><div class="ctitle">🔧 הרכבה ומושבים — Mounting & Fits</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">מושבי ציר — Shaft Fits</div>
+<div><span class="mc-badge b-blue">ISO 286</span><span class="mc-badge b-orange">סיבוב פנימי</span></div>
+<div class="spec-row"><span class="spec-key">j5, js5</span><span class="spec-val">מעבר קל — ניתן להזזה ידנית</span></div>
+<div class="spec-row"><span class="spec-key">k5, m5</span><span class="spec-val">מעבר לחץ קל — נדרש מקיש (נפוץ)</span></div>
+<div class="spec-row"><span class="spec-key">n5, p5</span><span class="spec-val">לחץ — זעזועים קלים</span></div>
+<div class="spec-row"><span class="spec-key">r5, s5</span><span class="spec-val">לחץ חזק — זעזועים כבדים</span></div>
+<div class="spec-row"><span class="spec-key">כלל אצבע</span><span class="spec-val">חוג מסתובב = לחץ · חוג קבוע = מעבר</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">טבעת פנימית סובבת ← לחץ על ציר<br>טבעת חיצונית סובבת ← לחץ על גוף</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">מושבי גוף — Housing Fits</div>
+<div><span class="mc-badge b-green">H7 — הנפוץ</span></div>
+<div class="spec-row"><span class="spec-key">H8, G7</span><span class="spec-val">מעבר חופשי — ניתן להזזה ידנית</span></div>
+<div class="spec-row"><span class="spec-key">H7 (נפוץ)</span><span class="spec-val">מעבר — סטנדרט לרוב היישומים</span></div>
+<div class="spec-row"><span class="spec-key">J7, JS7</span><span class="spec-val">מעבר לחץ קל</span></div>
+<div class="spec-row"><span class="spec-key">K7, M7</span><span class="spec-val">לחץ קל — עומסים בינוניים</span></div>
+<div class="spec-row"><span class="spec-key">N7, P7</span><span class="spec-val">לחץ — עומסים כבדים/זעזועים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">H7: טבעת חיצונית ניתנת לפירוק קל<br>P7: לא ניתן לפירוק ללא כלים</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">שיטות הרכבה — Mounting Methods</div>
+<div><span class="mc-badge b-orange">קר · חם · לחץ</span></div>
+<div class="spec-row"><span class="spec-key">מקיש + פד</span><span class="spec-val">הרכבה קרה — bore≤50mm · ↑סיכון נזק!</span></div>
+<div class="spec-row"><span class="spec-key">מכבש (Press Fit)</span><span class="spec-val">bore 50-150mm · עד 200kN · מדויק</span></div>
+<div class="spec-row"><span class="spec-key">חימום אינדוקציה</span><span class="spec-val">ΔT = Δd / (α × d) → 80-120°C טיפוסי</span></div>
+<div class="spec-row"><span class="spec-key">SKF Induction Heater</span><span class="spec-val">TMBH1/TIH030 · עד 250°C · בטוח</span></div>
+<div class="spec-row"><span class="spec-key">הקפאה (מסב קטן)</span><span class="spec-val">נוזל N2 (-196°C) → כווץ bore</span></div>
+<div class="spec-row"><span class="spec-key">כלי הרכבה SKF</span><span class="spec-val">TMFT · TMHN · TMFK — לא נזק לגלגורות!</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b>⚠️ אסור להכות על גלגורות!</b> כוח עובר דרך טבעת בלבד<br><b style="color:var(--text)">יצרן כלים:</b> <a href="https://www.skf.com/tools" target="_blank" style="color:var(--blue)">SKF Mounting Tools</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">דרישות גמר משטח — Surface Finish</div>
+<div><span class="mc-badge b-blue">ISO 1101</span></div>
+<div class="spec-row"><span class="spec-key">Ra ציר (bore ≤80mm)</span><span class="spec-val">Ra ≤ 0.8μm (N6)</span></div>
+<div class="spec-row"><span class="spec-key">Ra ציר (bore >80mm)</span><span class="spec-val">Ra ≤ 1.6μm (N7)</span></div>
+<div class="spec-row"><span class="spec-key">Ra גוף</span><span class="spec-val">Ra ≤ 1.6μm (N7)</span></div>
+<div class="spec-row"><span class="spec-key">עגוליות ציר</span><span class="spec-val">≤ IT5/2 = ~5μm ל-⌀50mm</span></div>
+<div class="spec-row"><span class="spec-key">עגוליות גוף</span><span class="spec-val">≤ IT6/2 = ~8μm ל-⌀80mm</span></div>
+<div class="spec-row"><span class="spec-key">כתף תמיכה</span><span class="spec-val">ניצבות ≤ IT4 · r ≤ r_min מסב</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">גמר גרוע = ↓חיי מסב עד 50%!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Preload — מתח מוקדם</div>
+<div><span class="mc-badge b-blue">Angular Contact · Tapered</span></div>
+<div class="spec-row"><span class="spec-key">מטרה</span><span class="spec-val">↑דיוק · ↓רטט · ↑נוקשות · ↓רעש</span></div>
+<div class="spec-row"><span class="spec-key">Spring Preload</span><span class="spec-val">קפיץ קבוע — גמיש, פחות מדויק</span></div>
+<div class="spec-row"><span class="spec-key">Rigid Preload</span><span class="spec-val">פיסה (Spacer) — מדויק, קשה לכיול</span></div>
+<div class="spec-row"><span class="spec-key">Light / Medium / Heavy</span><span class="spec-val">A/B/C — קידוד SKF</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Preload גבוה מדי</span><span class="spec-val">חמם · בלאי · כשל מוקדם!</span></div>
+<div class="spec-row"><span class="spec-key">DB — גב לגב</span><span class="spec-val">↑נוקשות מרחב ↑ · DB מומלץ לרוב</span></div>
+<div class="spec-row"><span class="spec-key">DF — פנים לפנים</span><span class="spec-val">↑יישור · מרחב קטן</span></div>
+</div>
+</div></div></div>
+
+<!-- ===== LUBRICATION ===== -->
+<div id="bear-lubrication" class="bear-sec">
+<div class="card"><div class="ctitle">💧 סיכת מסבים — Bearing Lubrication</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">גריז — Grease Lubrication</div>
+<div><span class="mc-badge b-green">70% מהמסבים</span><span class="mc-badge b-blue">NLGI 2 — ברירת מחדל</span></div>
+<div class="spec-row"><span class="spec-key">NLGI 1</span><span class="spec-val">דלילה · מהירות גבוהה · טמפ' נמוכה</span></div>
+<div class="spec-row"><span class="spec-key">NLGI 2</span><span class="spec-val">רגיל · ברירת מחדל לרוב המסבים</span></div>
+<div class="spec-row"><span class="spec-key">NLGI 3</span><span class="spec-val">סמיכה · מנח אנכי · ↓דליפה</span></div>
+<div class="spec-row"><span class="spec-key">כמות מילוי</span><span class="spec-val">30-50% מנפח חלל הפנוי (לא יותר!)</span></div>
+<div class="spec-row"><span class="spec-key">יתר גריז</span><span class="spec-val">→ חום עודף → כשל!</span></div>
+<div class="spec-row"><span class="spec-key">קצב חידוש</span><span class="spec-val">tf = 14,000/n × (dm/2)^{-0.5} שעות (SKF)</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.skf.com/lubricants" target="_blank" style="color:var(--blue)">SKF LGMT2</a> · <a href="https://www.klueberlubrication.com" target="_blank" style="color:var(--blue)">Klüber</a> · <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">שמן — Oil Lubrication</div>
+<div><span class="mc-badge b-blue">מהירות גבוהה</span><span class="mc-badge b-orange">ISO VG</span></div>
+<div class="spec-row"><span class="spec-key">Splash / Bath</span><span class="spec-val">טובל חצי קוטר · ↓rpm · פשוט</span></div>
+<div class="spec-row"><span class="spec-key">Circulating Oil</span><span class="spec-val">גוחן + קירור · מהירויות גבוהות</span></div>
+<div class="spec-row"><span class="spec-key">Oil Jet</span><span class="spec-val">חץ שמן ← ↑↑rpm · תעופה · CNC</span></div>
+<div class="spec-row"><span class="spec-key">Oil-Air (MQL)</span><span class="spec-val">≤2ml/h · Clean Room · מהירות קיצונית</span></div>
+<div class="spec-row"><span class="spec-key">ISO VG 46</span><span class="spec-val">⌀25-60mm bore · n > 3000 RPM</span></div>
+<div class="spec-row"><span class="spec-key">ISO VG 100</span><span class="spec-val">⌀60-100mm bore · n 1000-3000 RPM</span></div>
+<div class="spec-row"><span class="spec-key">ISO VG 220</span><span class="spec-val">עומסים כבדים · n < 1000 RPM</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.shell.com" target="_blank" style="color:var(--blue)">Shell Omala</a> · <a href="https://www.exxonmobil.com" target="_blank" style="color:var(--blue)">Mobil SHC</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">גריז לפי טמפרטורה</div>
+<div><span class="mc-badge b-red">חשוב!</span></div>
+<div class="spec-row"><span class="spec-key">גריז מינרלי NLGI 2</span><span class="spec-val">-20°C עד +120°C</span></div>
+<div class="spec-row"><span class="spec-key">גריז ליתיום</span><span class="spec-val">-40°C עד +150°C</span></div>
+<div class="spec-row"><span class="spec-key">גריז פוליאוריאה</span><span class="spec-val">-30°C עד +180°C · עמידות ↑</span></div>
+<div class="spec-row"><span class="spec-key">גריז סיליקון</span><span class="spec-val">-60°C עד +200°C · מזון/נקי</span></div>
+<div class="spec-row"><span class="spec-key">גריז PFPE (פרפלורו)</span><span class="spec-val">-60°C עד +250°C · ואקום · קורוזיה</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.chemours.com/krytox" target="_blank" style="color:var(--blue)">Krytox PFPE</a> · <a href="https://www.klueberlubrication.com" target="_blank" style="color:var(--blue)">Klüber Petamo</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">ndm — פרמטר מהירות</div>
+<div><span class="mc-badge b-orange">n × dm ≤ 500,000</span></div>
+<div class="spec-row"><span class="spec-key">dm</span><span class="spec-val">dm = (bore + OD) / 2 — קוטר פיטץ'</span></div>
+<div class="spec-row"><span class="spec-key">ndm ≤ 500,000</span><span class="spec-val">→ גריז מתאים</span></div>
+<div class="spec-row"><span class="spec-key">ndm 500K-750K</span><span class="spec-val">→ גריז מיוחד או שמן</span></div>
+<div class="spec-row"><span class="spec-key">ndm > 750,000</span><span class="spec-val">→ שמן חובה</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה: 6205</span><span class="spec-val">dm=(25+52)/2=38.5mm · n=12,000rpm · ndm=462K ← גריז ✅</span></div>
+</div>
+</div></div></div>
+
+<!-- ===== DAMAGE ===== -->
+<div id="bear-damage" class="bear-sec">
+<div class="card"><div class="ctitle">⚠️ נזקים וכשלים — Bearing Failure Analysis</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Fatigue Spalling — עייפות משטח</div>
+<div><span class="mc-badge b-red">30% כל הכשלים</span></div>
+<div class="spec-row"><span class="spec-key">מראה</span><span class="spec-val">קשקשים (Flakes) על מסלול · רעש ↑</span></div>
+<div class="spec-row"><span class="spec-key">סיבה</span><span class="spec-val">עומס מחזורי → סדק תת-משטחי → קלוף</span></div>
+<div class="spec-row"><span class="spec-key">גורמים מאיצים</span><span class="spec-val">עומס יתר · סיכה לא מספקת · זיהום</span></div>
+<div class="spec-row"><span class="spec-key">מניעה</span><span class="spec-val">C/P ≥ 3 · ניקיון · סיכה נכונה</span></div>
+<div class="spec-row"><span class="spec-key">גילוי מוקדם</span><span class="spec-val">ניטור רטט (SKF IMx) · Shock Pulse SPM</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Brinelling — הוספה סטטית</div>
+<div><span class="mc-badge b-orange">True / False Brinelling</span></div>
+<div class="spec-row"><span class="spec-key">True Brinelling</span><span class="spec-val">עומס סטטי חורג P0 → שקע קבוע</span></div>
+<div class="spec-row"><span class="spec-key">False Brinelling</span><span class="spec-val">רטט בזמן מנוחה → שחיקת פיתה</span></div>
+<div class="spec-row"><span class="spec-key">מראה</span><span class="spec-val">שקעים מרוחקים בפסיעת הגלגורות</span></div>
+<div class="spec-row"><span class="spec-key">מניעה True</span><span class="spec-val">C0/P0 ≥ 4 · הגדל מסב</span></div>
+<div class="spec-row"><span class="spec-key">מניעה False</span><span class="spec-val">גריז EP · מסב סוג SRB/TRB · אי-מגע</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Fluting — חריצי גלוון</div>
+<div><span class="mc-badge b-red">זרם חשמלי!</span></div>
+<div class="spec-row"><span class="spec-key">מראה</span><span class="spec-val">חריצים מקבילים על מסלול · חלודה כהה</span></div>
+<div class="spec-row"><span class="spec-key">סיבה</span><span class="spec-val">זרם VFD עובר דרך מסב ← פריקות EDM</span></div>
+<div class="spec-row"><span class="spec-key">VFD Bearing</span><span class="spec-val">מנועי VFD → רמה גבוהה של CMRV</span></div>
+<div class="spec-row"><span class="spec-key">מניעה</span><span class="spec-val">מסב מבודד (HV/H) · גשר הארקה · הזרמה</span></div>
+<div class="spec-row"><span class="spec-key">SKF Hybrid</span><span class="spec-val">כדורי Si3N4 → מבדל חשמלי!</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF Insocoat / Hybrid</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Contamination — זיהום</div>
+<div><span class="mc-badge b-orange">20% כל הכשלים</span></div>
+<div class="spec-row"><span class="spec-key">מראה</span><span class="spec-val">גבשוש (Denting) · שחיקה מואצת · קלוף</span></div>
+<div class="spec-row"><span class="spec-key">מקורות</span><span class="spec-val">אבק · עשבשת · שבבים · מים</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4406</span><span class="spec-val">ניקיון שמן: -/16/13 ← מינימום</span></div>
+<div class="spec-row"><span class="spec-key">מניעה</span><span class="spec-val">אטמים טובים · סינון שמן · אחסון נכון</span></div>
+<div class="spec-row"><span class="spec-key">SPM Shock Pulse</span><span class="spec-val">זיהוי זיהום → dBsv > dBi + 20dB = בעיה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Smearing — גרירה</div>
+<div><span class="mc-badge b-red">מהירות גבוהה!</span></div>
+<div class="spec-row"><span class="spec-key">מראה</span><span class="spec-val">שריטות כיווניות · העברת חומר</span></div>
+<div class="spec-row"><span class="spec-key">סיבה</span><span class="spec-val">החלקה בזמן האצה/עצירה · Skidding</span></div>
+<div class="spec-row"><span class="spec-key">מסבים מועדים</span><span class="spec-val">NU (גלגורת גלילי) · מסב מהירות גבוהה</span></div>
+<div class="spec-row"><span class="spec-key">מניעה</span><span class="spec-val">Preload קל · EP grease · ↓האצה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Misalignment — אי-קו</div>
+<div><span class="mc-badge b-orange">10% כל הכשלים</span></div>
+<div class="spec-row"><span class="spec-key">מראה</span><span class="spec-val">בלאי לא סימטרי · חום מוגבר</span></div>
+<div class="spec-row"><span class="spec-key">גורמים</span><span class="spec-val">שגיאת הרכבה · עיוות גוף · ציר כפוף</span></div>
+<div class="spec-row"><span class="spec-key">סף DG Ball</span><span class="spec-val">מרבי 0.1° (6') — רגיש מאוד!</span></div>
+<div class="spec-row"><span class="spec-key">מניעה</span><span class="spec-val">Self-Aligning · CARB · יישור לייזר</span></div>
+<div class="spec-row"><span class="spec-key">יישור לייזר</span><span class="spec-val">≤0.05mm/m Offset · ≤0.05mm/m Angular</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">כלי יישור:</b> <a href="https://www.skf.com/alignment" target="_blank" style="color:var(--blue)">SKF TKSA</a> · <a href="https://www.pruftechnik.com" target="_blank" style="color:var(--blue)">Pruftechnik</a></div>
+</div>
+</div></div></div>
+
+<!-- ===== LINEAR ===== -->
+<div id="bear-linear" class="bear-sec">
+<div class="card"><div class="ctitle">📏 מסבים ליניאריים ומסילות — Linear Bearings & Guide Rails</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Linear Ball Bearing — מסב כדורים ליניארי</div>
+<div><span class="mc-badge b-blue">LM/LMUU</span><span class="mc-badge b-orange">ציר חלק</span></div>
+<div class="spec-row"><span class="spec-key">LM6UU</span><span class="spec-val">bore 6mm · OD 12mm · L 19mm</span></div>
+<div class="spec-row"><span class="spec-key">LM8UU</span><span class="spec-val">bore 8mm — 3D Printers, CNC קל</span></div>
+<div class="spec-row"><span class="spec-key">LM16UU</span><span class="spec-val">bore 16mm — CNC בינוני</span></div>
+<div class="spec-row"><span class="spec-key">עומס דינמי</span><span class="spec-val">C = 30-200N טיפוסי</span></div>
+<div class="spec-row"><span class="spec-key">ציר</span><span class="spec-val">חלק: Ra≤0.4μm · HRC60+ · h6</span></div>
+<div class="spec-row"><span class="spec-key">אטמים</span><span class="spec-val">LMUU=ללא · LMFUU=פלנגה · Open=LMO</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.hiwin.com" target="_blank" style="color:var(--blue)">HIWIN</a> · <a href="https://www.thomsonindustries.com" target="_blank" style="color:var(--blue)">Thomson</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Linear Guide Rail — מסילת ליניארית</div>
+<div><span class="mc-badge b-green">↑דיוק</span><span class="mc-badge b-blue">HG/EG/MG Series</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Carriege + Rail · כדורי/גלגורת</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">Normal/High/Precision/Super P (±3μm)</span></div>
+<div class="spec-row"><span class="spec-key">Preload</span><span class="spec-val">Z0/ZA/ZB/ZC — ↑Preload=↑נוקשות</span></div>
+<div class="spec-row"><span class="spec-key">HIWIN HG Series</span><span class="spec-val">עומסים שווים 4 כיוונים — הנפוץ ב-CNC</span></div>
+<div class="spec-row"><span class="spec-key">HIWIN EG Series</span><span class="spec-val">קומפקטי · עומסים קלים</span></div>
+<div class="spec-row"><span class="spec-key">Roller Guideway</span><span class="spec-val">↑נוקשות · ↑עומס · ↑מחיר · HIWIN RG</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.hiwin.com" target="_blank" style="color:var(--blue)">HIWIN</a> · <a href="https://www.thmcnc.com" target="_blank" style="color:var(--blue)">THK</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Slide Bushing — בוש ליניארי פלסטיק</div>
+<div><span class="mc-badge b-green">ללא סיכה</span><span class="mc-badge b-orange">Igus</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">PTFE + פוליאמיד / iglidur J/G/X</span></div>
+<div class="spec-row"><span class="spec-key">סיכה</span><span class="spec-val">Self-Lubricated — ללא שמן/גריז!</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">שקט · אנטי-מגנטי · קל · עמיד כימי</span></div>
+<div class="spec-row"><span class="spec-key">חיסרון</span><span class="spec-val">↓עומס · ↓מהירות vs. כדורים</span></div>
+<div class="spec-row"><span class="spec-key">PV limit</span><span class="spec-val">0.28 m/s × 0.1 MPa = 0.028 W/m²</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.igus.com" target="_blank" style="color:var(--blue)">Igus (מוביל עולמי)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Crossed Roller Bearing — גלגורת צולבת</div>
+<div><span class="mc-badge b-blue">↑↑דיוק</span><span class="mc-badge b-orange">רוטרי + ליניארי</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">גלגורות ב-90° לסירוגין — 4 עומסים</span></div>
+<div class="spec-row"><span class="spec-key">Runout</span><span class="spec-val">≤ 1-5μm — דיוק גבוה מאוד</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">שולחן סיבוב · ציר A/B · רובוט</span></div>
+<div class="spec-row"><span class="spec-key">סידור</span><span class="spec-val">Internal/External ring split</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.thmcnc.com" target="_blank" style="color:var(--blue)">THK</a> · <a href="https://www.iko.com" target="_blank" style="color:var(--blue)">IKO</a> · <a href="https://www.hiwin.com" target="_blank" style="color:var(--blue)">HIWIN</a></div>
+</div>
+</div></div></div>
+
+<!-- ===== STANDARDS ===== -->
+<div id="bear-standards" class="bear-sec">
+<div class="card"><div class="ctitle">🏆 תקנים ויצרנים מובילים — Standards & Manufacturers</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">תקנים בינלאומיים — Standards</div>
+<div><span class="mc-badge b-blue">ISO · ABMA · JIS</span></div>
+<div class="spec-row"><span class="spec-key">ISO 15</span><span class="spec-val">Radial Bearings — ממדים</span></div>
+<div class="spec-row"><span class="spec-key">ISO 76</span><span class="spec-val">Static Load Ratings</span></div>
+<div class="spec-row"><span class="spec-key">ISO 281</span><span class="spec-val">Dynamic Load Ratings + L10 Life</span></div>
+<div class="spec-row"><span class="spec-key">ISO 355</span><span class="spec-val">Tapered Roller Bearings</span></div>
+<div class="spec-row"><span class="spec-key">ISO 492</span><span class="spec-val">Tolerances for Radial Bearings</span></div>
+<div class="spec-row"><span class="spec-key">ABMA 9/11</span><span class="spec-val">Ball/Roller Bearings (ארה"ב)</span></div>
+<div class="spec-row"><span class="spec-key">JIS B 1512</span><span class="spec-val">Rolling Bearings (יפן)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">SKF — שוודיה</div>
+<div><span class="mc-badge b-blue">מוביל עולמי #1</span></div>
+<div class="spec-row"><span class="spec-key">מטה</span><span class="spec-val">Gothenburg, Sweden · 1907</span></div>
+<div class="spec-row"><span class="spec-key">מוצרים</span><span class="spec-val">כל סוגי המסבים · CARB · Explorer</span></div>
+<div class="spec-row"><span class="spec-key">כלים</span><span class="spec-val">SKF Bearing Calculator · IMx Monitor</span></div>
+<div class="spec-row"><span class="spec-key">קטלוג</span><span class="spec-val">Bearing & Units Catalogue (PDF)</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.skf.com" target="_blank" style="color:var(--blue)">skf.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Schaeffler — FAG / INA — גרמניה</div>
+<div><span class="mc-badge b-orange">#2 עולמי</span></div>
+<div class="spec-row"><span class="spec-key">FAG</span><span class="spec-val">Rolling Bearings · High Precision</span></div>
+<div class="spec-row"><span class="spec-key">INA</span><span class="spec-val">Needle Rollers · Linear · Engine</span></div>
+<div class="spec-row"><span class="spec-key">כלים</span><span class="spec-val">BEARINX · Lifetime Explorer</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">schaeffler.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">NSK · NTN · JTEKT — יפן</div>
+<div><span class="mc-badge b-green">יפן — #3-5 עולמי</span></div>
+<div class="spec-row"><span class="spec-key">NSK</span><span class="spec-val">Precision · Automotive · ≥1916</span></div>
+<div class="spec-row"><span class="spec-key">NTN</span><span class="spec-val">Aerospace · Industrial · ≥1918</span></div>
+<div class="spec-row"><span class="spec-key">JTEKT (Koyo)</span><span class="spec-val">Toyota Group · Steering</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">nsk.com</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">ntn-snr.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Timken — ארה"ב</div>
+<div><span class="mc-badge b-orange">מלך חרוטי</span></div>
+<div class="spec-row"><span class="spec-key">מטה</span><span class="spec-val">North Canton, Ohio · 1899</span></div>
+<div class="spec-row"><span class="spec-key">התמחות</span><span class="spec-val">Tapered Roller · Steel · Alloys</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">Automotive · Rail · Aerospace · Mining</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.timken.com" target="_blank" style="color:var(--blue)">timken.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">ספקים בישראל — Local Suppliers</div>
+<div><span class="mc-badge b-green">🇮🇱 ישראל</span></div>
+<div class="spec-row"><span class="spec-key">אמריי</span><span class="spec-val">מפיץ SKF ו-FAG — מדינה</span></div>
+<div class="spec-row"><span class="spec-key">דן-רולר</span><span class="spec-val">מסבים, גלגלים, מסילות</span></div>
+<div class="spec-row"><span class="spec-key">טכני-רול</span><span class="spec-val">מסבים תעשייתיים, ייעוץ</span></div>
+<div class="spec-row"><span class="spec-key">ראמה</span><span class="spec-val">מסבים + פרזול טכני</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">מסבים לדיוק גבוה — SKF/FAG מיבוא ישיר</div>
+</div>
+</div></div></div>
+
+<!-- ===== CALC ===== -->
+<div id="bear-calc_bear" class="bear-sec">
+<div class="card"><div class="ctitle">🧮 מחשבוני מסבים</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange)">מחשבון L10h — חיי מסב</div>
+<div class="cg">
+<div><label>C — עומס דינמי (kN)</label><input id="bc-c" type="number" value="25.5" step="0.1" oninput="calcBearFull()"></div>
+<div><label>Fr — עומס רדיאלי (N)</label><input id="bc-fr" type="number" value="5000" oninput="calcBearFull()"></div>
+<div><label>Fa — עומס צירי (N)</label><input id="bc-fa" type="number" value="1000" oninput="calcBearFull()"></div>
+<div><label>e (מ-catalog, 0.22-0.44)</label><input id="bc-e" type="number" value="0.30" step="0.01" oninput="calcBearFull()"></div>
+<div><label>Y (מ-catalog, 1.4-2.5)</label><input id="bc-y" type="number" value="1.8" step="0.1" oninput="calcBearFull()"></div>
+<div><label>n — מהירות (RPM)</label><input id="bc-n" type="number" value="1450" oninput="calcBearFull()"></div>
+<div><label>סוג מסב</label>
+<select id="bc-type" onchange="calcBearFull()">
+<option value="3">כדורים (p=3)</option>
+<option value="3.333">גלגורת (p=10/3)</option>
+</select></div>
+</div>
+<div id="bc-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange)">מחשבון ndm — מהירות מרבית</div>
+<div class="cg">
+<div><label>d — קוטר bore (mm)</label><input id="ndm-d" type="number" value="25" oninput="calcNdm()"></div>
+<div><label>D — קוטר חיצוני (mm)</label><input id="ndm-D" type="number" value="52" oninput="calcNdm()"></div>
+<div><label>n — מהירות (RPM)</label><input id="ndm-n" type="number" value="12000" oninput="calcNdm()"></div>
+</div>
+<div id="ndm-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange)">מפענח מספר מסב</div>
+<div class="cg">
+<div><label>מספר מסב (לדוגמה: 6205-2RS-C3)</label>
+<input id="bc-num" type="text" value="6205" placeholder="6205 / 7310B / NU208" oninput="decodeBearFull()"></div>
+</div>
+<div id="bc-decode" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:2;color:var(--muted)">הכנס מספר מסב לפענוח</div>
+</div>
+
+</div></div></div>
+</div>

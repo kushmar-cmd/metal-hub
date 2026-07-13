@@ -1,0 +1,395 @@
+<div id="sec-surface" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#17110d);border-color:var(--yellow,#fde047)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">✦</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--yellow,#fde047)">טיב שטח — Surface Finish</div>
+    <div style="font-size:12px;color:var(--muted)">Ra · Rz · Rmax · N-Grade · ISO 21920 · סימנים בשרטוט · מדידה · השוואת תהליכים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="srf-tab active" onclick="showSrf('params',this)">📊 פרמטרים</button>
+  <button class="srf-tab" onclick="showSrf('ntable',this)">📋 טבלת N-Grade</button>
+  <button class="srf-tab" onclick="showSrf('symbols',this)">✏️ סימנים בשרטוט</button>
+  <button class="srf-tab" onclick="showSrf('process',this)">⚙️ תהליך → Ra</button>
+  <button class="srf-tab" onclick="showSrf('measure',this)">📐 מדידה</button>
+  <button class="srf-tab" onclick="showSrf('specs',this)">🔧 דרישות לפי יישום</button>
+  <button class="srf-tab" onclick="showSrf('improve',this)">💡 שיפור טיב שטח</button>
+  <button class="srf-tab" onclick="showSrf('defects',this)">⚠️ פגמי משטח</button>
+</div>
+
+<style>
+.srf-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.srf-tab:hover,.srf-tab.active{background:var(--yellow,#fde047);color:#000;border-color:var(--yellow,#fde047);font-weight:700}
+.srf-sec{display:none}.srf-sec.active{display:block}
+</style>
+
+<!-- ==================== PARAMETERS ==================== -->
+<div id="srf-params" class="srf-sec active">
+<div class="card"><div class="ctitle">📊 פרמטרי טיב שטח — Surface Texture Parameters</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">פרמטרים ראשיים — Profile (2D)</div>
+<div><span class="mc-badge b-blue">ISO 21920-2</span><span class="mc-badge b-orange">ISO 4287 (ישן)</span></div>
+<div class="spec-row"><span class="spec-key">Ra</span><span class="spec-val">ממוצע אריתמטי של הסטייה מקו האמצע — הנפוץ ביותר בתעשייה</span></div>
+<div class="spec-row"><span class="spec-key">Rz</span><span class="spec-val">ממוצע של 5 גבהים מקסימליים ב-5 חלונות דגימה — רגיש לשריטות</span></div>
+<div class="spec-row"><span class="spec-key">Rmax / Rz1max</span><span class="spec-val">הגובה המקסימלי הגדול ביותר מבין ה-5 חלונות — worst case</span></div>
+<div class="spec-row"><span class="spec-key">Rq (RMS)</span><span class="spec-val">שורש ממוצע ריבועי — רגיש יותר מ-Ra לחריגות. Rq ≈ 1.11×Ra</span></div>
+<div class="spec-row"><span class="spec-key">Rt</span><span class="spec-val">גובה כולל מקסימלי של הפרופיל — Peak to Valley על כל אורך המדידה</span></div>
+<div class="spec-row"><span class="spec-key">Rsk</span><span class="spec-val">Skewness — א-סימטריה. שלילי=פלטו (טוב למסבים). חיובי=חודים</span></div>
+<div class="spec-row"><span class="spec-key">Rku</span><span class="spec-val">Kurtosis — חדות. Rku>3=חדוד (שריטות). Rku<3=שטוח (טוב)</span></div>
+<div class="spec-row"><span class="spec-key">Rsm</span><span class="spec-val">Mean Spacing — מרחק ממוצע בין פסגות. קשור לכלי ו-fn</span></div>
+<div class="spec-row"><span class="spec-key">Rmr</span><span class="spec-val">Material Ratio — אחוז חומר בחתך נתון. Abbott-Firestone Curve</span></div>
+<div class="tip-box">▸ <b>Ra לבד לא מספיק!</b> שני משטחים עם Ra=0.8 יכולים להיראות שונה לגמרי<br>▸ <b>Rz חשוב יותר לאטימה</b> — שריטה אחת עמוקה = דליפה<br>▸ <b>Rsk שלילי</b> = פלטו = ↑נשיאת עומס ← מסבים, צילינדרים</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=surface+roughness+parameters+Ra+Rz+Rq+Rsk+ISO+21920+explained" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">פרמטרים משטחיים — Areal (3D)</div>
+<div><span class="mc-badge b-purple">ISO 25178</span></div>
+<div class="spec-row"><span class="spec-key">Sa</span><span class="spec-val">Ra בתלת-ממד — ממוצע אריתמטי על שטח</span></div>
+<div class="spec-row"><span class="spec-key">Sz</span><span class="spec-val">Rz בתלת-ממד — גובה מקסימום על שטח</span></div>
+<div class="spec-row"><span class="spec-key">Sq</span><span class="spec-val">RMS בתלת-ממד</span></div>
+<div class="spec-row"><span class="spec-key">Ssk</span><span class="spec-val">Skewness משטחי</span></div>
+<div class="spec-row"><span class="spec-key">Str</span><span class="spec-val">Texture Aspect Ratio — 0=כיווני, 1=איזוטרופי</span></div>
+<div class="spec-row"><span class="spec-key">Sal</span><span class="spec-val">Auto-correlation Length — אורך דפוס חוזר</span></div>
+<div class="spec-row"><span class="spec-key">Smr</span><span class="spec-val">Material Ratio 3D — Abbott-Firestone משטחי</span></div>
+<div class="tip-box">▸ <b>ISO 25178</b> מחליף בהדרגה את ISO 4287<br>▸ 3D = תמונה מלאה — 2D = חתך אחד בלבד<br>▸ נדרש Confocal / White Light Interferometer</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">יחסים בין פרמטרים</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>יחס</th><th>ערך טיפוסי</th><th>הערה</th></tr>
+<tr><td>Rz / Ra</td><td>4–7</td><td>4 לשחיקה, 7 לחריטה</td></tr>
+<tr><td>Rq / Ra</td><td>1.1–1.3</td><td>~1.11 לפרופיל סינוסואידלי</td></tr>
+<tr><td>Rt / Rz</td><td>1.0–2.0</td><td>1.0=אחיד, 2.0=שריטה בודדת</td></tr>
+<tr><td>Rmax / Rz</td><td>1.0–1.5</td><td>גבוה = חריג מקומי</td></tr>
+</table>
+<div class="tip-box">▸ <b>כלל אצבע:</b> Rz ≈ 4×Ra (שחיקה) עד 7×Ra (חריטה)<br>▸ אם Rz/Ra > 8 ← חפש שריטה או פגם מקומי</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Cutoff / Filter — λc, λs</div>
+<div><span class="mc-badge b-blue">ISO 21920-3</span></div>
+<div class="spec-row"><span class="spec-key">λc (Cutoff)</span><span class="spec-val">מפריד Roughness מ-Waviness — הכי קריטי!</span></div>
+<div class="spec-row"><span class="spec-key">λs</span><span class="spec-val">מפריד Roughness מ-Noise — בדרך כלל 2.5μm</span></div>
+<div class="spec-row"><span class="spec-key">λf</span><span class="spec-val">מפריד Waviness מ-Form</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Ra (μm)</th><th>λc מומלץ</th><th>אורך מדידה</th></tr>
+<tr><td>0.006–0.02</td><td>0.08mm</td><td>0.4mm</td></tr>
+<tr><td>0.02–0.1</td><td>0.25mm</td><td>1.25mm</td></tr>
+<tr><td>0.1–2.0</td><td>0.8mm</td><td>4.0mm</td></tr>
+<tr><td>2.0–10</td><td>2.5mm</td><td>12.5mm</td></tr>
+<tr><td>10–80</td><td>8.0mm</td><td>40mm</td></tr>
+</table>
+<div class="tip-box">▸ <b>λc=0.8mm</b> = ברירת מחדל לרוב החלקים (Ra 0.1–2.0)<br>▸ שינוי λc משנה את תוצאת Ra! ← תמיד ציין בשרטוט</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== N-TABLE ==================== -->
+<div id="srf-ntable" class="srf-sec">
+<div class="card"><div class="ctitle">📋 טבלת N-Grade — ISO 1302</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--yellow,#fde047)">N-Grade — טבלה מלאה</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>N</th><th>Ra μm</th><th>Ra μin</th><th>Rz μm</th><th>שיטת עיבוד</th><th>שימוש</th><th>עלות</th></tr>
+<tr style="color:var(--red)"><td><b>N1</b></td><td>0.025</td><td>1</td><td>0.1</td><td>ליטוש מראה / לאפינג</td><td>אופטיקה, אטמי פיסטון</td><td>×50</td></tr>
+<tr style="color:var(--red)"><td><b>N2</b></td><td>0.05</td><td>2</td><td>0.2</td><td>Superfinish / לאפינג</td><td>גלגורות מסבים, שסתומים</td><td>×30</td></tr>
+<tr style="color:var(--red)"><td><b>N3</b></td><td>0.1</td><td>4</td><td>0.4</td><td>האנינג / לאפינג</td><td>צירי מסבים דיוק</td><td>×20</td></tr>
+<tr style="color:var(--orange,#fb923c)"><td><b>N4</b></td><td>0.2</td><td>8</td><td>0.8</td><td>שחיקה עדינה</td><td>גירים דיוק, Gauges</td><td>×15</td></tr>
+<tr style="color:var(--orange,#fb923c)"><td><b>N5</b></td><td>0.4</td><td>16</td><td>1.6</td><td>שחיקה</td><td>כוננות לחץ, ציר מנוע</td><td>×10</td></tr>
+<tr><td><b>N6</b></td><td>0.8</td><td>32</td><td>3.2</td><td>שחיקה גסה / חריטת גמר</td><td>כוננות הזזה, מגשרים</td><td>×5</td></tr>
+<tr style="color:var(--green)"><td><b>N7 ★</b></td><td>1.6</td><td>63</td><td>6.3</td><td>חריטת גמר / כרסום גמר</td><td>O-Ring, אטמים, כללי</td><td>×3</td></tr>
+<tr style="color:var(--green)"><td><b>N8</b></td><td>3.2</td><td>125</td><td>12.5</td><td>חריטה / כרסום</td><td>כוננות מעבר, משטח כללי</td><td>×2</td></tr>
+<tr style="color:var(--green)"><td><b>N9</b></td><td>6.3</td><td>250</td><td>25</td><td>חריטה גסה / כרסום</td><td>לא פונקציונלי, פנימי</td><td>×1.5</td></tr>
+<tr><td>N10</td><td>12.5</td><td>500</td><td>50</td><td>ניסור / כרסום גס</td><td>חיתוך גלם</td><td>×1</td></tr>
+<tr><td>N11</td><td>25</td><td>1000</td><td>100</td><td>ניסור / חיתוך להבה</td><td>גלם לפני עיבוד</td><td>×1</td></tr>
+<tr><td>N12</td><td>50</td><td>2000</td><td>200</td><td>יציקה חול / חישול</td><td>גלם</td><td>—</td></tr>
+</table>
+<div class="tip-box">▸ <b>★ N7 (Ra 1.6)</b> = ברירת מחדל סבירה לרוב המשטחים הפונקציונליים<br>▸ <b>N8 (Ra 3.2)</b> = ISO 2768 כללי — מספיק ל-90% מהמשטחים<br>▸ כל ירידה ב-N = ×1.5–2 בעלות!</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== SYMBOLS ==================== -->
+<div id="srf-symbols" class="srf-sec">
+<div class="card"><div class="ctitle">✏️ סימני טיב שטח בשרטוט — ISO 1302:2002</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">סימן בסיסי</div>
+<div class="spec-row"><span class="spec-key">√ (בסיסי)</span><span class="spec-val">כל שיטת עיבוד — לא מוגדר</span></div>
+<div class="spec-row"><span class="spec-key">√ + עיגול</span><span class="spec-val">עיבוד אסור! משטח כפי שהוא (יציקה/חישול)</span></div>
+<div class="spec-row"><span class="spec-key">√ + קו</span><span class="spec-val">עיבוד שבבי נדרש — Material Removal Required</span></div>
+<div class="spec-row"><span class="spec-key">מיקום a</span><span class="spec-val">Ra ערך — למעלה משמאל (ראשי)</span></div>
+<div class="spec-row"><span class="spec-key">מיקום b</span><span class="spec-val">שיטת ייצור — למעלה מימין</span></div>
+<div class="spec-row"><span class="spec-key">מיקום c</span><span class="spec-val">Cutoff λc — אם שונה מברירת מחדל</span></div>
+<div class="spec-row"><span class="spec-key">מיקום d</span><span class="spec-val">כיוון Lay — ⊥ / = / × / M / C / R / P</span></div>
+<div class="spec-row"><span class="spec-key">מיקום e</span><span class="spec-val">Stock Removal — כמות חומר להסרה (mm)</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=surface+finish+symbols+drawing+ISO+1302+Ra+Rz+how+to+read" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">כיוון Lay — סימנים</div>
+<div class="spec-row"><span class="spec-key">= (מקביל)</span><span class="spec-val">קווי עיבוד מקבילים לשפת ההשקה — חריטה OD</span></div>
+<div class="spec-row"><span class="spec-key">⊥ (ניצב)</span><span class="spec-val">קווי עיבוד ניצבים לשפת ההשקה — Facing</span></div>
+<div class="spec-row"><span class="spec-key">× (צולב)</span><span class="spec-val">שתי כיוונים — האנינג צילינדרים</span></div>
+<div class="spec-row"><span class="spec-key">M (רב-כיווני)</span><span class="spec-val">ללא כיוון מועדף — לאפינג, Shot Blast</span></div>
+<div class="spec-row"><span class="spec-key">C (מעגלי)</span><span class="spec-val">מעגלים קונצנטריים — Facing, Surface Grinding</span></div>
+<div class="spec-row"><span class="spec-key">R (רדיאלי)</span><span class="spec-val">קרניים מהמרכז</span></div>
+<div class="spec-row"><span class="spec-key">P (ללא דפוס)</span><span class="spec-val">ללא Lay — ציפוי, הדפסה</span></div>
+<div class="tip-box">▸ <b>Lay חשוב לאטימה:</b> O-Ring על משטח = ← כיוון Lay ⊥ לכיוון הדליפה!<br>▸ <b>האנינג</b> = × (Cross-Hatch) ← ← Honing Angle 45°–60°</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">דוגמאות סימון בשרטוט</div>
+<div class="spec-row"><span class="spec-key">Ra 0.8</span><span class="spec-val">טיב שטח Ra מקסימום 0.8μm — כל שיטה</span></div>
+<div class="spec-row"><span class="spec-key">Ra 0.8 / Rz 4.0</span><span class="spec-val">Ra + Rz ביחד — ↑בקרה</span></div>
+<div class="spec-row"><span class="spec-key">Ra 0.8 (שחיקה)</span><span class="spec-val">Ra 0.8 בשיטת שחיקה ספציפית</span></div>
+<div class="spec-row"><span class="spec-key">Ra 3.2 כללי</span><span class="spec-val">בפינת השרטוט — חל על כל המשטחים ללא סימון</span></div>
+<div class="spec-row"><span class="spec-key">U/L</span><span class="spec-val">Upper/Lower limit — Ra 0.4U / Ra 0.1L = טווח</span></div>
+<div class="spec-row"><span class="spec-key">16% Rule</span><span class="spec-val">ברירת מחדל: עד 16% מהמדידות יכולות לחרוג</span></div>
+<div class="spec-row"><span class="spec-key">Max Rule</span><span class="spec-val">אף מדידה לא חורגת — מסומן "max" ליד הערך</span></div>
+<div class="tip-box">▸ <b>16% Rule:</b> ISO ברירת מחדל. Ra 0.8 = עד 16% מהמדידות יכולות להיות >0.8<br>▸ <b>Max Rule:</b> מחמיר! 100% של המדידות ≤ 0.8. יקר יותר לייצור</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== PROCESS ==================== -->
+<div id="srf-process" class="srf-sec">
+<div class="card"><div class="ctitle">⚙️ תהליך → Ra — מה משיגים מכל שיטה</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--yellow,#fde047)">טווח Ra לפי תהליך ייצור</div>
+<table style="font-size:10px;margin-top:6px">
+<tr><th>תהליך</th><th>Ra Min (μm)</th><th>Ra Max (μm)</th><th>Ra טיפוסי</th><th>הערה</th></tr>
+<tr style="background:rgba(239,68,68,0.05)"><td>Superfinish</td><td>0.01</td><td>0.1</td><td>0.025–0.05</td><td>גלגורות מסבים, מדחסים</td></tr>
+<tr style="background:rgba(239,68,68,0.05)"><td>לאפינג</td><td>0.01</td><td>0.4</td><td>0.05–0.1</td><td>שסתומים, Gauge Blocks</td></tr>
+<tr style="background:rgba(239,68,68,0.05)"><td>האנינג</td><td>0.05</td><td>0.8</td><td>0.1–0.4</td><td>צילינדרים, Hydraulic Bores</td></tr>
+<tr style="background:rgba(239,68,68,0.05)"><td>ליטוש (Polishing)</td><td>0.01</td><td>0.4</td><td>0.05–0.2</td><td>תבניות, אופטיקה</td></tr>
+<tr style="background:rgba(253,224,71,0.05)"><td>שחיקה גלילית</td><td>0.1</td><td>1.6</td><td>0.2–0.8</td><td>צירים, כוננויות</td></tr>
+<tr style="background:rgba(253,224,71,0.05)"><td>שחיקת משטח</td><td>0.1</td><td>1.6</td><td>0.2–0.8</td><td>שטוחים מדויקים</td></tr>
+<tr style="background:rgba(253,224,71,0.05)"><td>Burnishing</td><td>0.05</td><td>0.4</td><td>0.1–0.2</td><td>לחיצת פני השטח ← Ra נמוך</td></tr>
+<tr><td>חריטת גמר</td><td>0.4</td><td>3.2</td><td>0.8–1.6</td><td>fn נמוך, Wiper Insert</td></tr>
+<tr><td>כרסום גמר</td><td>0.4</td><td>3.2</td><td>0.8–1.6</td><td>ae קטן, fz נמוך</td></tr>
+<tr><td>Reaming</td><td>0.4</td><td>3.2</td><td>0.8–1.6</td><td>חורים H7</td></tr>
+<tr><td>Boring</td><td>0.2</td><td>1.6</td><td>0.4–0.8</td><td>Fine Boring ← 0.2</td></tr>
+<tr><td>חריטה רגילה</td><td>1.6</td><td>6.3</td><td>3.2</td><td>fn סטנדרטי</td></tr>
+<tr><td>כרסום רגיל</td><td>1.6</td><td>6.3</td><td>3.2</td><td>ae/fz סטנדרטי</td></tr>
+<tr style="background:rgba(74,222,128,0.05)"><td>קידוח</td><td>1.6</td><td>12.5</td><td>3.2–6.3</td><td>מקדח HSS/Carbide</td></tr>
+<tr style="background:rgba(74,222,128,0.05)"><td>חריטה גסה</td><td>3.2</td><td>25</td><td>6.3–12.5</td><td>ap/fn גבוהים</td></tr>
+<tr style="background:rgba(74,222,128,0.05)"><td>ניסור</td><td>6.3</td><td>25</td><td>12.5</td><td>חיתוך גלם</td></tr>
+<tr style="background:rgba(74,222,128,0.05)"><td>חיתוך להבה</td><td>12.5</td><td>50</td><td>25</td><td>Oxy-Fuel / Plasma</td></tr>
+<tr style="background:rgba(74,222,128,0.05)"><td>יציקת חול</td><td>12.5</td><td>50</td><td>25</td><td>Sand Casting</td></tr>
+<tr style="background:rgba(74,222,128,0.05)"><td>Die Casting</td><td>0.8</td><td>6.3</td><td>1.6–3.2</td><td>תבנית חדשה</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">חריטה — Ra לפי fn</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Ra ≈ fn² / (8×R_nose) × 1000</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>fn (mm/rev)</th><th>R_nose 0.4mm</th><th>R_nose 0.8mm</th><th>R_nose 1.2mm</th></tr>
+<tr><td>0.05</td><td>0.39</td><td>0.20</td><td>0.13</td></tr>
+<tr><td>0.08</td><td>1.00</td><td>0.50</td><td>0.33</td></tr>
+<tr><td>0.10</td><td>1.56</td><td>0.78</td><td>0.52</td></tr>
+<tr><td>0.15</td><td>3.52</td><td>1.76</td><td>1.17</td></tr>
+<tr><td>0.20</td><td>6.25</td><td>3.13</td><td>2.08</td></tr>
+<tr><td>0.30</td><td>14.06</td><td>7.03</td><td>4.69</td></tr>
+</table>
+<div class="tip-box">▸ <b>Wiper Insert:</b> מכפיל fn בלי להעלות Ra!<br>▸ <b>R_nose גדול = Ra נמוך</b> ← אבל ↑Chatter בחומרים רכים<br>▸ <b>נוסחה:</b> Ra ≈ fn² / (8×Rε) × 1000 [μm]</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">כרסום — Ra לפי Step-Over</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Ball End Mill — Scallop Height</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>ae/D</th><th>Ball ⌀6</th><th>Ball ⌀10</th><th>Ball ⌀16</th></tr>
+<tr><td>0.05</td><td>Ra 0.3</td><td>Ra 0.2</td><td>Ra 0.1</td></tr>
+<tr><td>0.10</td><td>Ra 1.2</td><td>Ra 0.7</td><td>Ra 0.4</td></tr>
+<tr><td>0.20</td><td>Ra 4.7</td><td>Ra 2.8</td><td>Ra 1.8</td></tr>
+<tr><td>0.30</td><td>Ra 10.5</td><td>Ra 6.3</td><td>Ra 3.9</td></tr>
+</table>
+<div class="tip-box">▸ <b>Scallop Height = ae²/(8×R)</b><br>▸ ae/D=0.1 עם Ball ⌀10 = Ra 0.7 — סביר לתבניות</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== MEASURE ==================== -->
+<div id="srf-measure" class="srf-sec">
+<div class="card"><div class="ctitle">📐 מדידת טיב שטח — Measuring Methods</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Contact Profilometer — מחט סריקה</div>
+<div><span class="mc-badge b-blue">הנפוץ ביותר</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Stylus (מחט יהלום R=2μm) סורקת על פני השטח</span></div>
+<div class="spec-row"><span class="spec-key">פרמטרים</span><span class="spec-val">Ra, Rz, Rq, Rsm, Rmr — כל פרמטרי 2D</span></div>
+<div class="spec-row"><span class="spec-key">טווח</span><span class="spec-val">Ra 0.01–100μm</span></div>
+<div class="spec-row"><span class="spec-key">רזולוציה</span><span class="spec-val">0.001μm אנכי (Z) · 0.5μm אופקי (X)</span></div>
+<div class="spec-row"><span class="spec-key">מגבלות</span><span class="spec-val">מגע פיזי ← שריטה בחומרים רכים. 2D בלבד</span></div>
+<div class="spec-row"><span class="spec-key">נייד</span><span class="spec-val">Mitutoyo SJ-210/310 — ← ← ← נפוץ בשטח!</span></div>
+<div class="spec-row"><span class="spec-key">שולחני</span><span class="spec-val">Taylor Hobson Surtronic / Mahr MarSurf</span></div>
+<div class="spec-row"><span class="spec-key">כיול</span><span class="spec-val">Ra Reference Standard — Type C1/D1 לפי ISO 5436</span></div>
+<div class="tip-box">▸ <b>הנחת מכשיר:</b> ⊥ לכיוון ה-Lay! מדידה ∥ ← Ra נמוך מדי<br>▸ <b>כיול:</b> לפני כל סדרת מדידות — Reference Specimen<br>▸ <b>חזרתיות:</b> 3 מדידות מינימום, ממוצע</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=surface+roughness+tester+profilometer+Mitutoyo+SJ-210+how+to+measure+Ra" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Optical — ללא מגע</div>
+<div><span class="mc-badge b-purple">3D</span><span class="mc-badge b-blue">ISO 25178</span></div>
+<div class="spec-row"><span class="spec-key">White Light Interferometry</span><span class="spec-val">↑↑רזולוציה (0.1nm Z!) — Zygo, Bruker</span></div>
+<div class="spec-row"><span class="spec-key">Confocal Microscopy</span><span class="spec-val">סריקת שכבות — 3D מלא — Keyence, Sensofar</span></div>
+<div class="spec-row"><span class="spec-key">Focus Variation</span><span class="spec-val">Alicona InfiniteFocus — חלקים מורכבים</span></div>
+<div class="spec-row"><span class="spec-key">Structured Light</span><span class="spec-val">הקרנת פסים — מהיר, פחות מדויק</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">ללא מגע ← חומרים רכים, 3D ← Sa/Sz/Ssk</span></div>
+<div class="spec-row"><span class="spec-key">חסרון</span><span class="spec-val">יקר ×10–50 מ-Contact, רגיש לזוהר/שקיפות</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=optical+profilometer+confocal+white+light+interferometer+surface+3D" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Comparator — השוואה ויזואלית</div>
+<div><span class="mc-badge b-green">מהיר</span><span class="mc-badge b-orange">סובייקטיבי</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">השוואת משטח לדגמי התייחסות — ציפורן / עין</span></div>
+<div class="spec-row"><span class="spec-key">Ra Comparator</span><span class="spec-val">Rubert / GAR — 6 דגמים לפי תהליך</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±1 N-Grade — מספיק לבקרת קו</span></div>
+<div class="spec-row"><span class="spec-key">כלל הציפורן</span><span class="spec-val">Ra>1.6 = מרגיש. Ra<0.8 = חלק למגע</span></div>
+<div class="tip-box">▸ <b>Comparator = בקרה מהירה בקו ייצור</b><br>▸ לא מחליף מדידה! רק Go/No-Go ראשוני<br>▸ דגם נפרד לכל תהליך: חריטה ≠ כרסום ≠ שחיקה</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== SPECS ==================== -->
+<div id="srf-specs" class="srf-sec">
+<div class="card"><div class="ctitle">🔧 דרישות טיב שטח לפי יישום</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Ra מומלץ לפי יישום הנדסי</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>יישום</th><th>Ra (μm)</th><th>Rz (μm)</th><th>שיטה</th><th>הערות</th></tr>
+<tr><td>גלגורת מסב</td><td>0.025–0.05</td><td>0.1–0.2</td><td>Superfinish</td><td>Rsk שלילי חובה</td></tr>
+<tr><td>ציר מסב</td><td>0.1–0.4</td><td>0.4–1.6</td><td>שחיקה</td><td>h5/h6 + Ra</td></tr>
+<tr><td>בית מסב</td><td>0.4–1.6</td><td>1.6–6.3</td><td>שחיקה / Boring</td><td>H7 + Ra</td></tr>
+<tr><td>פני שסתום (Seat)</td><td>0.05–0.2</td><td>0.2–0.8</td><td>לאפינג</td><td>Leak-tight!</td></tr>
+<tr><td>O-Ring Groove</td><td>0.4–0.8</td><td>1.6–3.2</td><td>חריטת גמר</td><td>Lay ⊥ לאטימה</td></tr>
+<tr><td>O-Ring מושב (Static)</td><td>0.2–0.8</td><td>0.8–3.2</td><td>שחיקה / חריטה</td><td>Ra 0.4 = בטוח</td></tr>
+<tr><td>O-Ring מושב (Dynamic)</td><td>0.1–0.4</td><td>0.4–1.6</td><td>שחיקה</td><td>Ra 0.2 אידיאלי</td></tr>
+<tr><td>גליל הידראולי</td><td>0.1–0.4</td><td>0.4–1.6</td><td>האנינג</td><td>Cross-Hatch Angle 45°</td></tr>
+<tr><td>גליל מנוע</td><td>0.2–0.8</td><td>0.8–3.2</td><td>האנינג</td><td>Plateau Honing</td></tr>
+<tr><td>כוננות לחץ H7/p6</td><td>0.4–0.8</td><td>1.6–3.2</td><td>שחיקה</td><td>Ra שני חלקים תואם</td></tr>
+<tr><td>כוננות הזזה H7/f7</td><td>0.4–1.6</td><td>1.6–6.3</td><td>שחיקה / חריטה</td><td>סיכה נדרשת</td></tr>
+<tr><td>גליל פנאומטי</td><td>0.1–0.4</td><td>0.4–1.6</td><td>האנינג / שחיקה</td><td>Chrome plated ID</td></tr>
+<tr><td>שטוח Gasket</td><td>1.6–3.2</td><td>6.3–12.5</td><td>כרסום / חריטה</td><td>Gasket מפצה</td></tr>
+<tr><td>Metal-to-Metal Seal</td><td>0.2–0.4</td><td>0.8–1.6</td><td>שחיקה</td><td>בלי Gasket!</td></tr>
+<tr><td>Flange Face (RF)</td><td>3.2–6.3</td><td>12.5–25</td><td>חריטה</td><td>ASME B16.5 — Serrated Finish</td></tr>
+<tr><td>חוט הברגה</td><td>1.6–3.2</td><td>6.3–12.5</td><td>חריטה / ארבול</td><td>כללי</td></tr>
+<tr><td>שן גיר</td><td>0.4–1.6</td><td>1.6–6.3</td><td>שחיקה / Shaving</td><td>תלוי AGMA Quality</td></tr>
+<tr><td>מגלש מדריכי CNC</td><td>0.2–0.8</td><td>0.8–3.2</td><td>שחיקה</td><td>+ Turcite/Scraped</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== IMPROVE ==================== -->
+<div id="srf-improve" class="srf-sec">
+<div class="card"><div class="ctitle">💡 שיפור טיב שטח — איך להוריד Ra</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">חריטה — שיפור Ra</div>
+<div class="spec-row"><span class="spec-key">↓ fn</span><span class="spec-val">הזנה נמוכה = Ra נמוך. Ra ∝ fn² ← ← השפעה מרכזית!</span></div>
+<div class="spec-row"><span class="spec-key">↑ R_nose</span><span class="spec-val">רדיוס חוד גדול = Ra נמוך. R0.8 → R1.2 = ↓Ra ×33%</span></div>
+<div class="spec-row"><span class="spec-key">Wiper Insert</span><span class="spec-val">↑fn בלי ↑Ra — ← ← הפתרון הכלכלי ביותר</span></div>
+<div class="spec-row"><span class="spec-key">↑ Vc</span><span class="spec-val">מהירות גבוהה יותר = ↓BUE = ↓Ra (בד"כ)</span></div>
+<div class="spec-row"><span class="spec-key">Coolant</span><span class="spec-val">קירור מספיק = ↓חום = ↓BUE = ↓Ra</span></div>
+<div class="spec-row"><span class="spec-key">כלי חד</span><span class="spec-val">VB < 0.1mm ← כלי שחוק = ↑Ra!</span></div>
+<div class="spec-row"><span class="spec-key">קשיחות</span><span class="spec-val">↑Clamping + ↓Overhang = ↓Chatter = ↓Ra</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">כרסום — שיפור Ra</div>
+<div class="spec-row"><span class="spec-key">↓ fz</span><span class="spec-val">הזנה לשן נמוכה = ↓Ra</span></div>
+<div class="spec-row"><span class="spec-key">↓ ae (Step-Over)</span><span class="spec-val">ae/D=0.05 במקום 0.2 = ↓Ra ×4 (Ball Mill)</span></div>
+<div class="spec-row"><span class="spec-key">↑ z (מספר שיניים)</span><span class="spec-val">4-Flute במקום 2 = ↓fz באותו Vf</span></div>
+<div class="spec-row"><span class="spec-key">Climb Milling</span><span class="spec-val">תמיד Climb ← ↓Ra vs. Conventional</span></div>
+<div class="spec-row"><span class="spec-key">Spring Pass</span><span class="spec-val">מעבר נוסף בלי Feed = ↓Ra (Deflection)</span></div>
+<div class="spec-row"><span class="spec-key">High Speed</span><span class="spec-val">HSM ← ↑Vc + ↓fz = ↓Ra + ↑פרודוקטיביות</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">שחיקה — שיפור Ra</div>
+<div class="spec-row"><span class="spec-key">↓ Infeed</span><span class="spec-val">0.005mm/pass Finishing vs 0.02mm Roughing</span></div>
+<div class="spec-row"><span class="spec-key">Spark Out</span><span class="spec-val">3–5 מעברים ללא Feed ← ← חובה לRa נמוך!</span></div>
+<div class="spec-row"><span class="spec-key">Dress Wheel</span><span class="spec-val">גלגל מכויל = Ra נמוך. Diamond Single Point</span></div>
+<div class="spec-row"><span class="spec-key">Fine Grit</span><span class="spec-val">F120 → F220 ← ↓Ra (אבל ↓MRR)</span></div>
+<div class="spec-row"><span class="spec-key">Coolant</span><span class="spec-val">חובה! ← מניעת Thermal Damage ו-Grinding Burn</span></div>
+<div class="spec-row"><span class="spec-key">CBN Wheel</span><span class="spec-val">↑יציבות ← Ra עקבי לאורך כל הסדרה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">תהליכי גמר מיוחדים</div>
+<div class="spec-row"><span class="spec-key">Burnishing</span><span class="spec-val">לחיצת גלגלת/כדור ← משטח Ra 0.05–0.2 ללא הסרת חומר</span></div>
+<div class="spec-row"><span class="spec-key">Tumbling</span><span class="spec-val">בטון סיבובי עם Media ← ← Deburr + Ra 0.4–1.6</span></div>
+<div class="spec-row"><span class="spec-key">Shot Peening</span><span class="spec-val">↑Ra (מחספס!) אבל ↑↑חיי עייפות</span></div>
+<div class="spec-row"><span class="spec-key">Electropolish</span><span class="spec-val">חומצה + זרם ← Ra 0.1–0.4 — נירוסטה בלבד</span></div>
+<div class="spec-row"><span class="spec-key">Bead Blasting</span><span class="spec-val">חרוזי זכוכית ← Ra אחיד 1.6–3.2, מראה מט</span></div>
+<div class="spec-row"><span class="spec-key">Vapor Honing</span><span class="spec-val">מים + Media ← Ra 0.4–1.6, ← ← אחיד ועדין</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=surface+finish+improvement+burnishing+electropolish+tumbling+deburr" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== DEFECTS ==================== -->
+<div id="srf-defects" class="srf-sec">
+<div class="card"><div class="ctitle">⚠️ פגמי משטח — Surface Defects</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">פגמים בעיבוד שבבי</div>
+<div class="spec-row"><span class="spec-key">Chatter Marks</span><span class="spec-val">סימוני רטט — פסים מחזוריים. פתרון: שנה RPM/ap</span></div>
+<div class="spec-row"><span class="spec-key">BUE (Built-Up Edge)</span><span class="spec-val">הצטברות חומר על הכלי ← Ra גרוע. ↑Vc או ↑Coolant</span></div>
+<div class="spec-row"><span class="spec-key">Feed Marks</span><span class="spec-val">קווי הזנה — צפויים. ↓fn = ↓סימנים</span></div>
+<div class="spec-row"><span class="spec-key">Tool Drag</span><span class="spec-val">שריטה ברגע עצירת Spindle — הרם כלי לפני עצירה!</span></div>
+<div class="spec-row"><span class="spec-key">Smearing</span><span class="spec-val">מריחת חומר רך (Al/Cu) — ↑Vc, כלי DLC, Coolant</span></div>
+<div class="spec-row"><span class="spec-key">Grinding Burn</span><span class="spec-val">שינוי צבע/מיקרו-מבנה מחום ← Temper Etch לבדיקה</span></div>
+<div class="spec-row"><span class="spec-key">Orange Peel</span><span class="spec-val">מרקם תפוז — מיקרו-מבנה גס. ↑גריינדינג/ליטוש</span></div>
+<div class="spec-row"><span class="spec-key">Burr</span><span class="spec-val">שפם מתכתי ← Deburr ידני / Tumbling / Electrochemical</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=machining+surface+defects+chatter+marks+BUE+grinding+burn+prevention" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Grinding Burn — בדיקה ומניעה</div>
+<div><span class="mc-badge b-red">קריטי!</span></div>
+<div class="spec-row"><span class="spec-key">מהו</span><span class="spec-val">חום מוגזם בשחיקה ← שינוי מיקרו-מבנה ← ↓קשיות/עייפות</span></div>
+<div class="spec-row"><span class="spec-key">סימנים</span><span class="spec-val">שינוי צבע (כחול/חום), ↓קשיות מקומית</span></div>
+<div class="spec-row"><span class="spec-key">Temper Etch</span><span class="spec-val">Nital Etch — חשיפת אזורי Burn. AMS 2649</span></div>
+<div class="spec-row"><span class="spec-key">Barkhausen Noise</span><span class="spec-val">בדיקה מגנטית ללא מגע ← Online QC. Stresstech</span></div>
+<div class="spec-row"><span class="spec-key">מניעה</span><span class="spec-val">↑Coolant, ↓Infeed, ↑Wheel Speed, Dress תכוף</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">Burn = פסילה! ← ← אסור להשתמש בחלק!</span></div>
+<div class="tip-box">▸ <b>Grinding Burn = Scrap!</b> אין תיקון — רק מניעה<br>▸ תעופה: Temper Etch 100% — AMS 2649 / PWA 34<br>▸ רכב: Barkhausen Online ← בקרה אוטומטית</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=grinding+burn+detection+temper+etch+Barkhausen+noise+prevention" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">White Layer / Rehardened Layer</div>
+<div class="spec-row"><span class="spec-key">מהו</span><span class="spec-val">שכבה דקה מאוד קשיחה מ-Martensite שנוצר מחום + קירור מהיר</span></div>
+<div class="spec-row"><span class="spec-key">עובי</span><span class="spec-val">5–50μm — לא נראית בעין!</span></div>
+<div class="spec-row"><span class="spec-key">בעיה</span><span class="spec-val">שברירית, מאמצי מתיחה ← סדיקת עייפות</span></div>
+<div class="spec-row"><span class="spec-key">נגרם ע"י</span><span class="spec-val">שחיקה אגרסיבית, EDM, Hard Turning בלי Coolant</span></div>
+<div class="spec-row"><span class="spec-key">בדיקה</span><span class="spec-val">מטלוגרפיה — חתך + Etch + מיקרוסקופ</span></div>
+<div class="spec-row"><span class="spec-key">מניעה</span><span class="spec-val">↑Coolant, ↓אגרסיביות, Stress Relief אחרי EDM</span></div>
+</div>
+
+</div></div></div>
+
+</div>

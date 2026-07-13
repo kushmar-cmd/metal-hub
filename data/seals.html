@@ -1,0 +1,486 @@
+<div id="sec-seals" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1117);border-color:var(--blue)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔵</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--blue)">אטמים — Seals & Gaskets</div>
+    <div style="font-size:12px;color:var(--muted)">O-ring · מכאני · שפתון · Gasket · חומרים · עיצוב חריץ · מחשבון</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="sl-tab active" onclick="showSl('oring',this)">🔵 O-Ring</button>
+  <button class="sl-tab" onclick="showSl('materials',this)">🧪 חומרים</button>
+  <button class="sl-tab" onclick="showSl('types',this)">⚙️ סוגי אטמים</button>
+  <button class="sl-tab" onclick="showSl('mechanical',this)">🌀 אטם מכאני</button>
+  <button class="sl-tab" onclick="showSl('gaskets',this)">📋 Gaskets</button>
+  <button class="sl-tab" onclick="showSl('groove',this)">📐 עיצוב חריץ</button>
+  <button class="sl-tab" onclick="showSl('calc',this)">🧮 מחשבון</button>
+  <button class="sl-tab" onclick="showSl('standards',this)">📋 תקנים</button>
+</div>
+
+<style>
+.sl-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.sl-tab:hover,.sl-tab.active{background:var(--blue);color:#000;border-color:var(--blue);font-weight:700}
+.sl-sec{display:none}.sl-sec.active{display:block}
+</style>
+
+<!-- ==================== O-RING ==================== -->
+<div id="sl-oring" class="sl-sec active">
+<div class="card"><div class="ctitle">🔵 O-Ring — מידות ועקרונות</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AS568 — גדלי O-ring נפוצים</div>
+<div><span class="mc-badge b-blue">ANSI/AS568</span><span class="mc-badge b-orange">נפוץ בישראל</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>AS568</th><th>ID (mm)</th><th>חוט d₂</th><th>AS568</th><th>ID (mm)</th><th>חוט d₂</th></tr>
+<tr><td>-006</td><td>2.90</td><td>1.78</td><td>-210</td><td>13.87</td><td>3.53</td></tr>
+<tr><td>-008</td><td>4.48</td><td>1.78</td><td>-214</td><td>19.18</td><td>3.53</td></tr>
+<tr><td>-010</td><td>6.07</td><td>1.78</td><td>-220</td><td>28.17</td><td>3.53</td></tr>
+<tr><td>-012</td><td>7.65</td><td>1.78</td><td>-225</td><td>38.00</td><td>3.53</td></tr>
+<tr><td>-014</td><td>9.25</td><td>1.78</td><td>-309</td><td>22.23</td><td>5.33</td></tr>
+<tr><td>-109</td><td>8.74</td><td>2.62</td><td>-316</td><td>36.17</td><td>5.33</td></tr>
+<tr><td>-116</td><td>22.23</td><td>2.62</td><td>-325</td><td>58.42</td><td>5.33</td></tr>
+<tr><td>-125</td><td>41.28</td><td>2.62</td><td>-330</td><td>64.77</td><td>5.33</td></tr>
+<tr><td>-130</td><td>53.34</td><td>2.62</td><td>-425</td><td>88.57</td><td>6.99</td></tr>
+<tr><td>-145</td><td>88.62</td><td>2.62</td><td>-432</td><td>107.32</td><td>6.99</td></tr>
+<tr><td>-206</td><td>6.07</td><td>3.53</td><td>-440</td><td>125.07</td><td>6.99</td></tr>
+<tr><td>-208</td><td>8.74</td><td>3.53</td><td>-450</td><td>150.57</td><td>6.99</td></tr>
+</table>
+<div class="tip-box">▸ קוטר חיצוני OD = ID + 2×d₂<br>▸ -1xx = d₂=1.78mm · -2xx = d₂=3.53mm · -3xx = d₂=5.33mm · -4xx = d₂=6.99mm</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ISO 3601 — גדלים מטריים</div>
+<div><span class="mc-badge b-green">ISO 3601</span><span class="mc-badge b-blue">אירופאי</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>מידה</th><th>ID (mm)</th><th>חוט d₂ (mm)</th><th>שימוש</th></tr>
+<tr><td>6×1.5</td><td>6.0</td><td>1.5</td><td>כללי קטן</td></tr>
+<tr><td>8×1.5</td><td>8.0</td><td>1.5</td><td>כללי</td></tr>
+<tr><td>10×1.5</td><td>10.0</td><td>1.5</td><td>כללי</td></tr>
+<tr><td>10×2</td><td>10.0</td><td>2.0</td><td>כללי</td></tr>
+<tr><td>12×2</td><td>12.0</td><td>2.0</td><td>נפוץ</td></tr>
+<tr><td>16×2</td><td>16.0</td><td>2.0</td><td>נפוץ</td></tr>
+<tr><td>20×2.5</td><td>20.0</td><td>2.5</td><td>נפוץ</td></tr>
+<tr><td>25×3</td><td>25.0</td><td>3.0</td><td>נפוץ</td></tr>
+<tr><td>30×3</td><td>30.0</td><td>3.0</td><td>נפוץ</td></tr>
+<tr><td>40×4</td><td>40.0</td><td>4.0</td><td>גדול</td></tr>
+<tr><td>50×5</td><td>50.0</td><td>5.0</td><td>גדול</td></tr>
+<tr><td>100×5.5</td><td>100.0</td><td>5.5</td><td>ענק</td></tr>
+</table>
+<div class="tip-box">▸ ISO 3601-1: מידות. ISO 3601-3: סובלנויות. ISO 3601-4: חומרים<br>▸ מטרי נפוץ יותר בישראל מ-AS568</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">לחיצה — Squeeze</div>
+<div><span class="mc-badge b-orange">קריטי!</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>סוג יישום</th><th>Squeeze %</th><th>Fill %</th><th>הערה</th></tr>
+<tr><td>סטטי — פנים</td><td>15–25%</td><td>65–80%</td><td>הנפוץ</td></tr>
+<tr><td>סטטי — חיצוני</td><td>15–25%</td><td>65–80%</td><td>Face Seal</td></tr>
+<tr><td>דינמי צירי</td><td>10–20%</td><td>55–70%</td><td>Piston, Rod</td></tr>
+<tr><td>דינמי רוטרי</td><td>5–15%</td><td>50–65%</td><td>↓חיכוך</td></tr>
+<tr><td>קריוגני</td><td>20–30%</td><td>70–85%</td><td>Shrinkage בקור</td></tr>
+<tr><td>טמפ' גבוהה</td><td>20–25%</td><td>70–85%</td><td>Compression Set</td></tr>
+</table>
+<div class="spec-row"><span class="spec-key">נוסחה</span><span class="spec-val">Squeeze% = (d₂ - h) / d₂ × 100</span></div>
+<div class="spec-row"><span class="spec-key">Fill%</span><span class="spec-val">= π×d₂²/(4×h×w) × 100</span></div>
+<div class="tip-box">▸ Squeeze נמוך מדי = דליפה. גבוה מדי = Compression Set = דליפה!<br>▸ תמיד בדוק Fill — צריך מקום ל-O-ring להתרחב בלחץ</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=O-ring+groove+design+squeeze+compression+seal" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מתיחה — Stretch</div>
+<div class="spec-row"><span class="spec-key">Stretch אידיאלי</span><span class="spec-val">1–5% — O-ring מעט גדול מהחריץ</span></div>
+<div class="spec-row"><span class="spec-key">מקסימום</span><span class="spec-val">6% — מעל = ↓קוטר חוט = ↓Squeeze!</span></div>
+<div class="spec-row"><span class="spec-key">Compression</span><span class="spec-val">עד 3% (O-ring גדול מהחריץ)</span></div>
+<div class="spec-row"><span class="spec-key">נוסחה</span><span class="spec-val">Stretch% = (Groove ID - O-ring ID) / O-ring ID × 100</span></div>
+<div class="tip-box">▸ O-ring מתוח = קוטר חוט קטן יותר = Squeeze קטן יותר!<br>▸ בחר O-ring עם ID קצת קטן מהחריץ — Stretch 1-3%</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== MATERIALS ==================== -->
+<div id="sl-materials" class="sl-sec">
+<div class="card"><div class="ctitle">🧪 חומרי אטמים — בחירה לפי יישום</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">השוואת חומרי אטמים — טבלה מלאה</div>
+<table style="font-size:10px;margin-top:6px">
+<tr><th>חומר</th><th>קיצור</th><th>טווח °C</th><th>שמן מינרלי</th><th>דלק</th><th>מים/קיטור</th><th>חומצות</th><th>בסיסים</th><th>קריוגני</th><th>שימוש</th><th>מחיר</th></tr>
+<tr><td><b>Buna-N / Nitrile</b></td><td>NBR</td><td>−40 / +120</td><td>✅ מצוין</td><td>✅ טוב</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>❌</td><td>הידראוליקה, שמן, נפוץ ביותר</td><td>★</td></tr>
+<tr><td><b>Viton</b></td><td>FKM</td><td>−20 / +200</td><td>✅</td><td>✅ מצוין</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>❌</td><td>ביטחוני, כימיה, טמפ' גבוהה</td><td>★★★</td></tr>
+<tr><td><b>EPDM</b></td><td>EPDM</td><td>−50 / +150</td><td>❌</td><td>❌</td><td>✅ מצוין</td><td>✅</td><td>✅</td><td>⚠️</td><td>מים, קיטור, בלמים — לא לשמן!</td><td>★</td></tr>
+<tr><td><b>Silicone</b></td><td>VMQ</td><td>−60 / +220</td><td>⚠️</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>⚠️</td><td>מזון, רפואה, טמפ' קיצונית</td><td>★★</td></tr>
+<tr><td><b>PTFE</b></td><td>PTFE</td><td>−200 / +260</td><td>✅</td><td>✅</td><td>✅</td><td>✅ מצוין</td><td>✅ מצוין</td><td>✅</td><td>כימיה אגרסיבית, Universal</td><td>★★★</td></tr>
+<tr><td><b>Neoprene</b></td><td>CR</td><td>−40 / +120</td><td>⚠️</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>⚠️</td><td>אוויר, פריון, סביבת חוץ</td><td>★</td></tr>
+<tr><td><b>HNBR</b></td><td>HNBR</td><td>−30 / +150</td><td>✅</td><td>✅</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>❌</td><td>NBR משופר — רכב, שמן H₂S</td><td>★★</td></tr>
+<tr><td><b>Kalrez</b></td><td>FFKM</td><td>−20 / +315</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>⚠️</td><td>כל כימיה — יקר מאוד!</td><td>★★★★★</td></tr>
+<tr><td><b>Polyurethane</b></td><td>AU/EU</td><td>−30 / +100</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>❌</td><td>❌</td><td>❌</td><td>U-Cup, Wiper — חוזק מכאני</td><td>★★</td></tr>
+<tr><td><b>Natural Rubber</b></td><td>NR</td><td>−50 / +80</td><td>❌</td><td>❌</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>⚠️</td><td>מים, אוויר, רטט</td><td>★</td></tr>
+<tr><td><b>Butyl</b></td><td>IIR</td><td>−50 / +120</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>⚠️</td><td>אטימות גז — טובס, מאגרים</td><td>★</td></tr>
+<tr><td><b>Viton GF</b></td><td>FKM-GF</td><td>−40 / +200</td><td>✅</td><td>✅</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>✅</td><td>Viton קריוגני — LNG, LN₂</td><td>★★★★</td></tr>
+</table>
+<div class="tip-box">▸ <b>כלל זהב:</b> NBR = ראשון לנסות (זול + עמיד לשמן). אם לא מתאים ← FKM<br>▸ <b>EPDM + שמן = ❌ מיידי!</b> תפיחה וכשל<br>▸ <b>קריוגניקה:</b> PTFE (מצוין), Viton-GLT/GF (טוב), NBR (❌)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">קשיות Shore A — השפעה על ביצוע</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Shore A</th><th>אפיון</th><th>לחץ מקסימלי</th><th>שימוש</th></tr>
+<tr><td>40–50</td><td>רך מאוד</td><td>10 bar</td><td>אטימה עדינה, מגע קל</td></tr>
+<tr><td>60–70</td><td>רגיל</td><td>70 bar</td><td>סטטי כללי — ←הנפוץ</td></tr>
+<tr><td>70–80</td><td>קשה בינוני</td><td>200 bar</td><td>דינמי, לחצים בינוניים</td></tr>
+<tr><td>80–90</td><td>קשה</td><td>400 bar</td><td>לחצים גבוהים + Backup</td></tr>
+<tr><td>90+</td><td>קשה מאוד</td><td>700 bar+</td><td>עם Backup Ring בלבד</td></tr>
+</table>
+<div class="tip-box">▸ Shore 70 = ברירת מחדל לרוב היישומים<br>▸ לחץ גבוה → Shore גבוה יותר → ↓Extrusion<br>▸ Extrusion Gap מקסימום: 0.05–0.1mm ב-Shore 70</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Compression Set — כיווץ קבוע</div>
+<div class="spec-row"><span class="spec-key">הגדרה</span><span class="spec-val">אחוז כיווץ קבוע לאחר עומס ממושך — O-ring לא חוזר לצורתו</span></div>
+<div class="spec-row"><span class="spec-key">נוסחה</span><span class="spec-val">CS% = (d₀ - d₁) / (d₀ - d_spacer) × 100</span></div>
+<div class="spec-row"><span class="spec-key">NBR 70</span><span class="spec-val">CS ≈ 20% לאחר 70°C/22h</span></div>
+<div class="spec-row"><span class="spec-key">FKM</span><span class="spec-val">CS ≈ 15% לאחר 175°C/22h</span></div>
+<div class="spec-row"><span class="spec-key">Silicone</span><span class="spec-val">CS ≈ 30–50% — גבוה יחסית!</span></div>
+<div class="spec-row"><span class="spec-key">PTFE</span><span class="spec-val">CS ≈ 60–70% — Cold Flow!</span></div>
+<div class="tip-box">▸ CS גבוה = O-ring "ישאר שטוח" ← ↓Squeeze ← דליפה<br>▸ טמפ' גבוהה = ↑CS מהיר<br>▸ Kalrez CS = 5–15% — הטוב ביותר</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== TYPES ==================== -->
+<div id="sl-types" class="sl-sec">
+<div class="card"><div class="ctitle">⚙️ סוגי אטמים — כל הסוגים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">O-Ring</div>
+<div><span class="mc-badge b-blue">הנפוץ</span><span class="mc-badge b-green">סטטי+דינמי</span></div>
+<div class="spec-row"><span class="spec-key">לחץ מקסימלי</span><span class="spec-val">סטטי: 700 bar · דינמי: 100 bar (ללא Backup)</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">עד 0.5 m/s צירי · עד 2 m/s רוטרי</span></div>
+<div class="spec-row"><span class="spec-key">יתרונות</span><span class="spec-val">זול, זמין, קל להתקנה, דו-כיווני</span></div>
+<div class="spec-row"><span class="spec-key">חסרונות</span><span class="spec-val">Extrusion בלחץ גבוה, Spiral Failure בדינמי</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=O-ring+seal+how+it+works+selection+design" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">X-Ring / Quad-Ring</div>
+<div><span class="mc-badge b-green">דינמי</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">4 שפות במקום 2 — ↓ Spiral Failure בדינמי</span></div>
+<div class="spec-row"><span class="spec-key">לחץ</span><span class="spec-val">עד 400 bar</span></div>
+<div class="spec-row"><span class="spec-key">יתרון על O-ring</span><span class="spec-val">↓ חיכוך, ↓ Torsion, ↑ עמידות דינמית</span></div>
+<div class="spec-row"><span class="spec-key">חסרון</span><span class="spec-val">יקר יותר, פחות זמין</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">פיסטון הידראולי, מוט, Reciprocating</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Backup Ring</div>
+<div><span class="mc-badge b-red">לחץ גבוה</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">טבעת PTFE/Nylon בצד הלחץ — מונעת Extrusion</span></div>
+<div class="spec-row"><span class="spec-key">לחץ עם Backup</span><span class="spec-val">עד 700 bar!</span></div>
+<div class="spec-row"><span class="spec-key">Single Backup</span><span class="spec-val">לחץ חד-כיווני — Backup בצד הלחץ</span></div>
+<div class="spec-row"><span class="spec-key">Double Backup</span><span class="spec-val">לחץ דו-כיווני — Backup משני הצדדים</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">PTFE (ניתן לפיתול), Nylon, Polyester</span></div>
+<div class="tip-box">▸ Gap Extrusion: ≥70 bar → Backup חובה!<br>▸ Gap מקסימום: 0.05–0.1mm לפי Shore</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">U-Cup / Lip Seal</div>
+<div><span class="mc-badge b-blue">פיסטון/מוט</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">שפה גמישה שנלחצת ע"י לחץ — Self-Energizing</span></div>
+<div class="spec-row"><span class="spec-key">לחץ</span><span class="spec-val">עד 500 bar</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">עד 1 m/s (Polyurethane)</span></div>
+<div class="spec-row"><span class="spec-key">כיווניות</span><span class="spec-val">חד-כיווני! שים בכיוון הלחץ</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">Polyurethane, NBR, FKM, PTFE</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">גלילי הידראולי, פנאומטי, פרסות</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=U-cup+lip+seal+hydraulic+cylinder+rod+piston+seal" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Wiper / Scraper Seal</div>
+<div><span class="mc-badge b-orange">ניקוי מוט</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">מגרד לכלוך מהמוט בזמן כניסה לגליל</span></div>
+<div class="spec-row"><span class="spec-key">מיקום</span><span class="spec-val">חיצוני ביותר — גוש הגליל</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">Polyurethane, NBR, PTFE</span></div>
+<div class="spec-row"><span class="spec-key">כישלון בלעדיו</span><span class="spec-val">לכלוך נכנס → שריטת ציפוי Chrome → דליפה!</span></div>
+<div class="tip-box">▸ Wiper + Rod Seal = סט הגנה מלא על מוט<br>▸ תמיד החלף Wiper כשמחליף Rod Seal</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">V-Ring Seal</div>
+<div><span class="mc-badge b-green">ציר סובב</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">טבעת גומי הנלחצת על כתף הציר — עצמי-מהדקת</span></div>
+<div class="spec-row"><span class="spec-key">לחץ</span><span class="spec-val">נמוך — לא לאטימה תחת לחץ</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">עד 12 m/s</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">הגנה על מסבים מגריז + חציצת לכלוך</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">לא צריך חריץ! מותקן על הציר ישירות</span></div>
+<div class="spec-row"><span class="spec-key">יצרנים</span><span class="spec-val">SKF V-Ring, Freudenberg</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">PTFE Lip Seal / Rotary Shaft</div>
+<div><span class="mc-badge b-purple">מהירות גבוהה</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">שפת PTFE על ציר סובב — ↓חיכוך</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">עד 20 m/s! (vs. NBR 6 m/s)</span></div>
+<div class="spec-row"><span class="spec-key">טמפרטורה</span><span class="spec-val">−200 עד +260°C</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">ציר תרמי, משאבות מהירות, כימיה</span></div>
+<div class="spec-row"><span class="spec-key">Ra ציר</span><span class="spec-val">Ra 0.2–0.8μm — חייב לשים לב!</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Metal C-Ring / E-Ring</div>
+<div><span class="mc-badge b-red">קיצוני</span><span class="mc-badge b-orange">טמפ'+לחץ</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">טבעת מתכת (SS/Inconel) שמכווצת אלסטית</span></div>
+<div class="spec-row"><span class="spec-key">לחץ</span><span class="spec-val">עד 700 bar</span></div>
+<div class="spec-row"><span class="spec-key">טמפרטורה</span><span class="spec-val">עד 600°C (Inconel)</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">מנועי סילון, חלל, כורים גרעיניים</span></div>
+<div class="spec-row"><span class="spec-key">עלות</span><span class="spec-val">גבוהה מאוד — שימוש ביישומים קריטיים בלבד</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=metal+C-ring+seal+high+pressure+temperature+aerospace" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== MECHANICAL ==================== -->
+<div id="sl-mechanical" class="sl-sec">
+<div class="card"><div class="ctitle">🌀 אטם מכאני — Mechanical Face Seal</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">עיקרון פעולה</div>
+<div><span class="mc-badge b-blue">Zero Leakage</span><span class="mc-badge b-orange">משאבות</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">2 פנים מלוטשות (Primary/Mating Ring) נלחצות זו לזו — ↓ דליפה</span></div>
+<div class="spec-row"><span class="spec-key">Primary Ring</span><span class="spec-val">טבעת מסתובבת עם הציר (Carbon/SiC/WC)</span></div>
+<div class="spec-row"><span class="spec-key">Mating Ring</span><span class="spec-val">טבעת קבועה בגוף המשאבה (SiC/SS/Ceramic)</span></div>
+<div class="spec-row"><span class="spec-key">קפיץ</span><span class="spec-key">לוחץ את Primary Ring אל Mating Ring</span></div>
+<div class="spec-row"><span class="spec-key">דליפה מותרת</span><span class="spec-val">3–5 טיפות/שעה — אטם מכאני = לא Zero Leakage מוחלט</span></div>
+<div class="spec-row"><span class="spec-key">עמידות</span><span class="spec-val">10,000–50,000 שעות עבודה</span></div>
+<div class="tip-box">▸ ה-film נוזל דק בין הפנים = גורם לסיבוב חופשי + ↓בלאי<br>▸ אסור להריץ Dry! → כשל מיידי<br>▸ Flushing Plan (API 682) = קירור + ניקוי הפנים</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=mechanical+seal+how+it+works+pump+face+seal+principle" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">חומרי פנים — Face Materials</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>זוג</th><th>Primary</th><th>Mating</th><th>שימוש</th></tr>
+<tr><td>נפוץ</td><td>Carbon</td><td>SiC</td><td>מים, קולנט, רוב נוזלים</td></tr>
+<tr><td>קשה</td><td>SiC</td><td>SiC</td><td>נוזלים אברייזיביים</td></tr>
+<tr><td>כימי</td><td>Carbon</td><td>Alumina</td><td>כימיה, חומצות</td></tr>
+<tr><td>טמפ' גבוהה</td><td>WC</td><td>SiC</td><td>טמפ' + אברייזיב</td></tr>
+</table>
+<div class="tip-box">▸ אסור Carbon-Carbon! ← ↓בלאי, ↑חום<br>▸ SiC vs SiC = לנוזלים עם מוצקים (Slurry)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">סוגי אטמים מכאניים</div>
+<div class="spec-row"><span class="spec-key">Single Seal</span><span class="spec-val">זוג פנים אחד — ←הנפוץ. דליפה קטנה לסביבה</span></div>
+<div class="spec-row"><span class="spec-key">Double Seal</span><span class="spec-val">שני זוגות + Barrier Fluid — Zero Leakage לסביבה</span></div>
+<div class="spec-row"><span class="spec-key">Tandem</span><span class="spec-val">שני זוגות + Quench — Backup לכשל</span></div>
+<div class="spec-row"><span class="spec-key">Cartridge</span><span class="spec-val">יחידה מוכנה — ↓שגיאות התקנה</span></div>
+<div class="spec-row"><span class="spec-key">API 682</span><span class="spec-val">תקן תעשיית הנפט — Plans 11/13/23/53A/53B</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">כשלי אטם מכאני — אבחון</div>
+<div class="spec-row"><span class="spec-key">Dry Running</span><span class="spec-val">חריכה, Chipping, כשל פתאומי — ↑↑נפוץ!</span></div>
+<div class="spec-row"><span class="spec-key">Cavitation</span><span class="spec-val">שחיקת פנים מבועות — ↑Flow, ↓NPSH</span></div>
+<div class="spec-row"><span class="spec-key">Misalignment</span><span class="spec-val">בלאי לא אחיד — בדוק Alignment משאבה</span></div>
+<div class="spec-row"><span class="spec-key">Crystallization</span><span class="spec-val">מלחים מתגבשים על הפנים — ↑Flushing</span></div>
+<div class="spec-row"><span class="spec-key">Coking</span><span class="spec-val">נוזלים חמים מוקשים — ↑Quench</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== GASKETS ==================== -->
+<div id="sl-gaskets" class="sl-sec">
+<div class="card"><div class="ctitle">📋 Gaskets — אטמי פלנג'ים וחיבורים</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">סוגי Gaskets</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>סוג</th><th>חומר</th><th>לחץ</th><th>טמפ'</th><th>שימוש</th><th>תקן</th></tr>
+<tr><td><b>Spiral Wound</b></td><td>SS/Graphite</td><td>עד 250 bar</td><td>עד 800°C</td><td>צנרת כימיה, נפט</td><td>ASME B16.20</td></tr>
+<tr><td><b>Ring Joint (RTJ)</b></td><td>SS/Iron/Monel</td><td>עד 700 bar!</td><td>עד 650°C</td><td>צנרת HP, פחם</td><td>ASME B16.20</td></tr>
+<tr><td><b>Kammprofile</b></td><td>SS+Graphite</td><td>עד 200 bar</td><td>עד 600°C</td><td>פלנג'ים מיוחדים</td><td>ASME B16.20</td></tr>
+<tr><td><b>Full Face Flat</b></td><td>Rubber/PTFE</td><td>עד 20 bar</td><td>עד 150°C</td><td>Cast Iron Flanges</td><td>ASME B16.21</td></tr>
+<tr><td><b>Raised Face (RF)</b></td><td>Spiral/Graphite</td><td>עד 250 bar</td><td>עד 500°C</td><td>פלנג'ים SS/CS</td><td>ASME B16.5</td></tr>
+<tr><td><b>Metal Jacketed</b></td><td>SS/Al+Fiber</td><td>עד 100 bar</td><td>עד 400°C</td><td>Heat Exchangers</td><td>—</td></tr>
+<tr><td><b>Graphite Sheet</b></td><td>Flexible Graphite</td><td>עד 100 bar</td><td>עד 450°C</td><td>כימיה, קיטור</td><td>—</td></tr>
+<tr><td><b>PTFE Sheet</b></td><td>Virgin PTFE</td><td>עד 25 bar</td><td>עד 200°C</td><td>כימיה אגרסיבית</td><td>—</td></tr>
+<tr><td><b>Compressed Fiber</b></td><td>Aramid/Glass</td><td>עד 50 bar</td><td>עד 300°C</td><td>כללי, מים, אוויר</td><td>—</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Spiral Wound Gasket — פרטים</div>
+<div><span class="mc-badge b-orange">הנפוץ בישראל</span></div>
+<div class="spec-row"><span class="spec-key">מבנה</span><span class="spec-val">רצועת מתכת V + Filler מגולגלים בספירלה</span></div>
+<div class="spec-row"><span class="spec-key">Inner Ring</span><span class="spec-val">מסומן צהוב — SS304/316</span></div>
+<div class="spec-row"><span class="spec-key">Filler</span><span class="spec-val">Graphite (כללי) / PTFE (כימיה)</span></div>
+<div class="spec-row"><span class="spec-key">Winding</span><span class="spec-val">SS304 / SS316 / Inconel</span></div>
+<div class="spec-row"><span class="spec-key">צביעה</span><span class="spec-val">ירוק=Graphite · לבן=PTFE · כחול=Mica</span></div>
+<div class="spec-row"><span class="spec-key">Seating Stress</span><span class="spec-val">מינימום: 69 MPa (ASME)</span></div>
+<div class="tip-box">▸ Inner Ring חובה! מונע Buckling ב-Vacuum<br>▸ אחסון: שטוח + יבש — אל תפח!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Ring Type Joint (RTJ)</div>
+<div><span class="mc-badge b-red">לחץ גבוה</span></div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">טבעת מתכת רכה ב-Groove — ← לחץ מהדק</span></div>
+<div class="spec-row"><span class="spec-key">צורה R</span><span class="spec-val">Oval — לחצים נמוכים יחסית</span></div>
+<div class="spec-row"><span class="spec-key">צורה RX</span><span class="spec-val">Pressure Energized — ← עצמי-מהדקת</span></div>
+<div class="spec-row"><span class="spec-key">צורה BX</span><span class="spec-val">Super High Pressure — Subsea, Wellhead</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">חייב רך מהפלנג'! Iron < CS < SS < Monel</span></div>
+<div class="tip-box">▸ RTJ לשימוש חד-פעמי! אל תשתמש שנית<br>▸ Groove חייב להיות נקי ומוגן מפגמים</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">כיסוי פלנג' — Flange Facing</div>
+<div class="spec-row"><span class="spec-key">RF (Raised Face)</span><span class="spec-val">Ra 3.2–6.3μm · Serrated Finish (ASME B16.5)</span></div>
+<div class="spec-row"><span class="spec-key">FF (Full Face)</span><span class="spec-val">Cast Iron Flanges — Full Face Gasket</span></div>
+<div class="spec-row"><span class="spec-key">RTJ Groove</span><span class="spec-val">Ra 0.8μm — מלוטש! לRTJ</span></div>
+<div class="spec-row"><span class="spec-key">TG (Tongue & Groove)</span><span class="spec-val">↑ אחיזה Gasket — מדויק</span></div>
+<div class="spec-row"><span class="spec-key">MF (Male/Female)</span><span class="spec-val">זכר/נקבה — Gasket מוחזק</span></div>
+<div class="tip-box">▸ Serrated Finish: 125–250 AARH = Ra 3.2–6.3μm<br>▸ Stock Finish: Ra 12.5μm — לא מתאים ל-SW Gasket!</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== GROOVE DESIGN ==================== -->
+<div id="sl-groove" class="sl-sec">
+<div class="card"><div class="ctitle">📐 עיצוב חריץ O-Ring — לפי ISO 3601 ו-Parker</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">ממדי חריץ — Piston Seal (Internal)</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>d₂ חוט</th><th>עומק חריץ h</th><th>רוחב חריץ w</th><th>R פינה</th><th>Ra דרוש</th><th>Squeeze%</th></tr>
+<tr><td>1.5 mm</td><td>1.15–1.20</td><td>2.0–2.2</td><td>0.2–0.4</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>1.78 mm</td><td>1.37–1.42</td><td>2.4–2.6</td><td>0.2–0.4</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>2.0 mm</td><td>1.55–1.60</td><td>2.7–2.9</td><td>0.2–0.4</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>2.62 mm</td><td>2.05–2.10</td><td>3.5–3.8</td><td>0.4–0.8</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>3.0 mm</td><td>2.35–2.40</td><td>4.0–4.3</td><td>0.4–0.8</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>3.53 mm</td><td>2.75–2.85</td><td>4.7–5.1</td><td>0.4–0.8</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>4.0 mm</td><td>3.15–3.25</td><td>5.4–5.7</td><td>0.4–0.8</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>5.0 mm</td><td>3.90–4.05</td><td>6.7–7.2</td><td>0.8–1.2</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>5.33 mm</td><td>4.15–4.30</td><td>7.1–7.6</td><td>0.8–1.2</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>6.99 mm</td><td>5.45–5.65</td><td>9.4–10.0</td><td>0.8–1.2</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+</table>
+<div class="tip-box">▸ Ra משטח חריץ: 0.4–0.8μm (סטטי) · 0.2–0.4μm (דינמי)<br>▸ R פינה חובה! פינה חדה = חיתוך O-ring<br>▸ Lay: ⊥ לכיוון ההיסט — מקטין דליפה</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Face Seal — חריץ אטימת פנים</div>
+<div class="spec-row"><span class="spec-key">Squeeze</span><span class="spec-val">20–30% — גבוה יותר מ-Piston Seal</span></div>
+<div class="spec-row"><span class="spec-key">ממדים</span><span class="spec-val">כמו Piston אבל h קטן ב-10–15%</span></div>
+<div class="spec-row"><span class="spec-key">Ra משטח</span><span class="spec-val">Ra 0.4–1.6μm — פחות קריטי מ-Dynamic</span></div>
+<div class="spec-row"><span class="spec-key">Dovetail Groove</span><span class="spec-val">מחזיק O-ring בזמן פירוק — לפנים אנכיים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Ra נדרש על ציר / גליל</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>יישום</th><th>Ra (μm)</th><th>שיטה</th></tr>
+<tr><td>ציר דינמי (Rod Seal)</td><td>0.1–0.4</td><td>שחיקה</td></tr>
+<tr><td>גליל הידראולי (Bore)</td><td>0.2–0.8</td><td>האנינג</td></tr>
+<tr><td>פיסטון (Piston Seal)</td><td>0.2–0.8</td><td>האנינג</td></tr>
+<tr><td>Face Seal (סטטי)</td><td>0.4–1.6</td><td>כרסום/חריטה</td></tr>
+<tr><td>Rotary Shaft Seal</td><td>0.2–0.5</td><td>שחיקה</td></tr>
+<tr><td>O-Ring Groove (דינמי)</td><td>0.4–0.8</td><td>חריטת גמר</td></tr>
+<tr><td>O-Ring Groove (סטטי)</td><td>0.8–1.6</td><td>חריטה</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== CALCULATOR ==================== -->
+<div id="sl-calc" class="sl-sec">
+<div class="card"><div class="ctitle">🧮 מחשבון מושב O-Ring</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מחשבון לחיצה ומילוי</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:8px">הכנס נתוני O-Ring וחריץ לחישוב אוטומטי</div>
+<div class="cg">
+  <div><label>קוטר חוט d₂ (mm)</label><input id="or-d2" type="number" value="3.53" step="0.01" oninput="calcOring()"></div>
+  <div><label>עומק חריץ h (mm)</label><input id="or-h" type="number" value="2.80" step="0.01" oninput="calcOring()"></div>
+  <div><label>רוחב חריץ w (mm)</label><input id="or-w" type="number" value="4.80" step="0.01" oninput="calcOring()"></div>
+  <div><label>סוג יישום</label>
+  <select id="or-type" onchange="calcOring()">
+    <option value="static_internal">סטטי — פנימי (Piston)</option>
+    <option value="static_face">סטטי — פנים (Face)</option>
+    <option value="dynamic_axial">דינמי — צירי (Reciprocating)</option>
+    <option value="dynamic_rotary">דינמי — רוטרי (Rotating)</option>
+  </select></div>
+  <div><label>קוטר פנימי O-Ring ID (mm)</label><input id="or-id" type="number" value="25.0" step="0.1" oninput="calcOring()"></div>
+  <div><label>קוטר חריץ ID (mm)</label><input id="or-gid" type="number" value="25.5" step="0.1" oninput="calcOring()"></div>
+</div>
+<div id="or-result" class="res" style="margin-top:10px">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">טבלת עזר מהירה</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>d₂</th><th>Squeeze סטטי</th><th>h מומלץ</th></tr>
+<tr><td>1.78</td><td>15–25%</td><td>1.37–1.52</td></tr>
+<tr><td>2.62</td><td>15–25%</td><td>2.05–2.23</td></tr>
+<tr><td>3.53</td><td>15–25%</td><td>2.75–2.99</td></tr>
+<tr><td>5.33</td><td>15–25%</td><td>4.15–4.53</td></tr>
+<tr><td>6.99</td><td>15–25%</td><td>5.45–5.94</td></tr>
+</table>
+<div class="tip-box">▸ Squeeze = (d₂ - h) / d₂ × 100<br>▸ Fill = π×d₂² / (4×h×w) × 100<br>▸ Stretch = (Groove ID - OR ID) / OR ID × 100</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== STANDARDS ==================== -->
+<div id="sl-standards" class="sl-sec">
+<div class="card"><div class="ctitle">📋 תקנים ומפרטים — אטמים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תקני O-Ring</div>
+<div class="spec-row"><span class="spec-key">AS568</span><span class="spec-val">ANSI — מידות O-Ring (נפוץ בישראל/USA)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 3601</span><span class="spec-val">מטרי — מידות + סובלנויות + חומרים</span></div>
+<div class="spec-row"><span class="spec-key">BS 1806</span><span class="spec-val">בריטי (מוחלף בISO 3601)</span></div>
+<div class="spec-row"><span class="spec-key">DIN 3771</span><span class="spec-val">גרמני (מוחלף בISO 3601)</span></div>
+<div class="spec-row"><span class="spec-key">MIL-G-5514</span><span class="spec-val">ביטחוני — O-Ring קריטיים</span></div>
+<div class="spec-row"><span class="spec-key">Parker O-Ring Handbook</span><span class="spec-val">ORD 5700 — מדריך עיצוב מלא</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תקני אטמי פלנג'ים</div>
+<div class="spec-row"><span class="spec-key">ASME B16.20</span><span class="spec-val">Spiral Wound + Ring Joint Gaskets</span></div>
+<div class="spec-row"><span class="spec-key">ASME B16.21</span><span class="spec-val">Gaskets for Flanged Joints</span></div>
+<div class="spec-row"><span class="spec-key">EN 1514</span><span class="spec-val">Flanges and their joints — Gasket dimensions</span></div>
+<div class="spec-row"><span class="spec-key">ASME B16.5</span><span class="spec-val">Pipe Flanges (כולל Facing Finish)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תקני אטמים מכאניים</div>
+<div class="spec-row"><span class="spec-key">API 682</span><span class="spec-val">Shaft Sealing Systems — Pumps (Oil & Gas)</span></div>
+<div class="spec-row"><span class="spec-key">API 610</span><span class="spec-val">Centrifugal Pumps — Seal Requirements</span></div>
+<div class="spec-row"><span class="spec-key">ISO 21049</span><span class="spec-val">Pumps Shaft Sealing Systems (=API 682)</span></div>
+<div class="spec-row"><span class="spec-key">EN 12756</span><span class="spec-val">Mechanical Seals — Dimensions</span></div>
+<div class="spec-row"><span class="spec-key">יצרנים</span><span class="spec-val">John Crane, Flowserve, EagleBurgmann, Burgmann</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תקני חומרי אטמים</div>
+<div class="spec-row"><span class="spec-key">ISO 1629</span><span class="spec-val">Rubber — Nomenclature (NBR, FKM, EPDM...)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM D2000</span><span class="spec-val">Classification of Rubber Materials</span></div>
+<div class="spec-row"><span class="spec-key">SAE J200</span><span class="spec-val">= ASTM D2000 (ביטחוני/רכב)</span></div>
+<div class="spec-row"><span class="spec-key">AMS 7276</span><span class="spec-val">FKM O-Ring Compounds (תעופה)</span></div>
+<div class="spec-row"><span class="spec-key">FDA 21 CFR</span><span class="spec-val">Food Grade Elastomers</span></div>
+<div class="spec-row"><span class="spec-key">USP Class VI</span><span class="spec-val">Medical Grade — ביואימתיות</span></div>
+</div>
+
+</div></div></div>
+
+</div>

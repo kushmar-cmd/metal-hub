@@ -1,0 +1,517 @@
+<div id="sec-dfm" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a0d17);border-color:var(--orange,#fb923c)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🏗️</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--orange,#fb923c)">תכן לייצור — Design for Manufacturing</div>
+    <div style="font-size:12px;color:var(--muted)">DFM · DFA · סובלנויות ועלות · כללים לכל טכנולוגיה · טעויות נפוצות · Before/After</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="dfm-tab active" onclick="showDfm('principles',this)">📐 עקרונות</button>
+  <button class="dfm-tab" onclick="showDfm('turning',this)">🔄 חריטה</button>
+  <button class="dfm-tab" onclick="showDfm('milling',this)">⚙️ כרסום</button>
+  <button class="dfm-tab" onclick="showDfm('holes',this)">🔩 חורים והברגות</button>
+  <button class="dfm-tab" onclick="showDfm('grinding',this)">💎 שחיקה</button>
+  <button class="dfm-tab" onclick="showDfm('sheet',this)">📄 פח וכיפוף</button>
+  <button class="dfm-tab" onclick="showDfm('casting',this)">🔥 יציקה</button>
+  <button class="dfm-tab" onclick="showDfm('welding',this)">⚡ ריתוך</button>
+  <button class="dfm-tab" onclick="showDfm('tolerance',this)">💰 סובלנות ועלות</button>
+  <button class="dfm-tab" onclick="showDfm('dfa',this)">🔧 DFA — הרכבה</button>
+</div>
+
+<style>
+.dfm-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.dfm-tab:hover,.dfm-tab.active{background:var(--orange,#fb923c);color:#000;border-color:var(--orange,#fb923c);font-weight:700}
+.dfm-sec{display:none}.dfm-sec.active{display:block}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.ba-bad{background:rgba(239,68,68,0.08);border:1px solid var(--red);border-radius:6px;padding:10px;font-size:11px}
+.ba-good{background:rgba(74,222,128,0.08);border:1px solid var(--green);border-radius:6px;padding:10px;font-size:11px}
+.ba-title{font-weight:700;margin-bottom:6px}
+.cost-bar{display:flex;align-items:center;gap:6px;margin:3px 0;font-size:11px}
+.cost-fill{height:10px;border-radius:4px;background:var(--orange,#fb923c)}
+</style>
+
+<!-- ==================== PRINCIPLES ==================== -->
+<div id="dfm-principles" class="dfm-sec active">
+<div class="card"><div class="ctitle">📐 עקרונות DFM — כללים בסיסיים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">10 כללי הזהב של DFM</div>
+<div class="spec-row"><span class="spec-key">1. פשט צורה</span><span class="spec-val">כל Feature נוסף = Setup נוסף = עלות. שאל: ← באמת צריך?</span></div>
+<div class="spec-row"><span class="spec-key">2. סובלנות מינימלית</span><span class="spec-val">אל תבקש IT7 כשמספיק IT11. כל דרגה = ×1.5–2 בעלות</span></div>
+<div class="spec-row"><span class="spec-key">3. Ra מינימלי</span><span class="spec-val">Ra 3.2 = חריטה רגילה. Ra 0.8 = שחיקה. Ra 0.2 = לאפינג ← ×10 עלות</span></div>
+<div class="spec-row"><span class="spec-key">4. חומר סטנדרטי</span><span class="spec-val">1045/6061/304 = זמין מהמדף. Inconel 718 = 6 שבועות + ×8 מחיר</span></div>
+<div class="spec-row"><span class="spec-key">5. מידות סטנדרטיות</span><span class="spec-val">מוט ⌀25 = מדף. מוט ⌀27 = הזמנה מיוחדת</span></div>
+<div class="spec-row"><span class="spec-key">6. Datum אחיד</span><span class="spec-val">מימוד מ-Datum אחד — לא שרשרת! ← ↓הצטברות שגיאות</span></div>
+<div class="spec-row"><span class="spec-key">7. גישת כלי</span><span class="spec-val">אם הכלי לא מגיע — לא ניתן לעבד! חשוב על L/D וזוויות</span></div>
+<div class="spec-row"><span class="spec-key">8. אחיזה</span><span class="spec-val">צריך משטח אחיזה! חלק עגול ← צ'אק. שטוח ← מלחציים</span></div>
+<div class="spec-row"><span class="spec-key">9. צמצם Setups</span><span class="spec-val">כל Setup = ±0.02–0.05mm שגיאה + זמן. תכנן Done-In-One</span></div>
+<div class="spec-row"><span class="spec-key">10. חשוב ייצור המוני</span><span class="spec-val">מה שעובד ל-1 חלק לא בהכרח כלכלי ל-10,000</span></div>
+<div class="tip-box">▸ <b>כלל האצבע:</b> 80% מעלות הייצור נקבע בשלב התכן!<br>▸ שינוי בשרטוט = ₪100. שינוי בייצור = ₪10,000. שינוי בשטח = ₪100,000</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=DFM+design+for+manufacturing+principles+rules+cost+reduction" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">בחירת תהליך לפי כמות</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>כמות</th><th>תהליך מומלץ</th><th>עלות Setup</th><th>עלות/חלק</th></tr>
+<tr><td>1–5</td><td>CNC 3-ציר + ידני</td><td>נמוכה</td><td>גבוהה</td></tr>
+<tr><td>5–50</td><td>CNC 3/5-ציר</td><td>בינונית</td><td>בינונית</td></tr>
+<tr><td>50–500</td><td>CNC + Fixture ייעודי</td><td>בינונית-גבוהה</td><td>↓</td></tr>
+<tr><td>500–5,000</td><td>CNC HMC + Pallet</td><td>גבוהה</td><td>נמוכה</td></tr>
+<tr><td>5,000–50,000</td><td>Multi-Spindle / Swiss</td><td>גבוהה מאוד</td><td>נמוכה מאוד</td></tr>
+<tr><td>50,000+</td><td>יציקה + גמר / Progressive Die</td><td>גבוהה מאוד</td><td>הנמוכה ביותר</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">בחירת חומר — עלות vs. עיבודיות</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>חומר</th><th>עלות חומר</th><th>עיבודיות</th><th>חיי כלי</th><th>מתי לבחור</th></tr>
+<tr><td>1018 / 1020</td><td>★</td><td>★★★★★</td><td>★★★★★</td><td>כללי, לא קריטי</td></tr>
+<tr><td>1045</td><td>★</td><td>★★★★</td><td>★★★★</td><td>חוזק בינוני, צירים</td></tr>
+<tr><td>4140 Q&T</td><td>★★</td><td>★★★</td><td>★★★</td><td>חוזק גבוה, גירים</td></tr>
+<tr><td>4340</td><td>★★★</td><td>★★</td><td>★★</td><td>תעופה, עומסים כבדים</td></tr>
+<tr><td>SS 303</td><td>★★★</td><td>★★★★</td><td>★★★</td><td>נירוסטה + עיבודיות!</td></tr>
+<tr><td>SS 304</td><td>★★★</td><td>★★</td><td>★★</td><td>נירוסטה כללי</td></tr>
+<tr><td>SS 316</td><td>★★★★</td><td>★★</td><td>★★</td><td>כימיה, ים</td></tr>
+<tr><td>Al 6061-T6</td><td>★★</td><td>★★★★★</td><td>★★★★★</td><td>קל, נפוץ, מצוין!</td></tr>
+<tr><td>Al 7075-T6</td><td>★★★</td><td>★★★★</td><td>★★★★</td><td>תעופה, חוזק</td></tr>
+<tr><td>Ti-6Al-4V</td><td>★★★★★</td><td>★</td><td>★</td><td>תעופה/רפואה בלבד</td></tr>
+<tr><td>Inconel 718</td><td>★★★★★</td><td>★</td><td>★</td><td>טמפרטורה קיצונית</td></tr>
+</table>
+<div class="tip-box">▸ <b>SS 303 vs 304:</b> 303 = +Sulfur = ↑עיבודיות ×2! אם לא צריך ריתוך — 303 תמיד<br>▸ <b>12L14:</b> פלדה free-machining — ↑מהירויות, ↑Ra — לפינים ובורגים</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">טעויות נפוצות בשרטוטים</div>
+<div><span class="mc-badge b-red">❌ להימנע!</span></div>
+<div class="spec-row"><span class="spec-key">❌ סובלנות על הכל</span><span class="spec-val">רק מידות פונקציונליות! שאר = ISO 2768-m</span></div>
+<div class="spec-row"><span class="spec-key">❌ Ra 0.8 על הכל</span><span class="spec-val">רק משטחי כוננות ואטימה! שאר = Ra 3.2–6.3</span></div>
+<div class="spec-row"><span class="spec-key">❌ פינות חדות</span><span class="spec-val">תמיד R ≥ 0.2mm — כלי לא יכול R0! Stress Riser!</span></div>
+<div class="spec-row"><span class="spec-key">❌ חור עמוק ≫ 5D</span><span class="spec-val">Gun Drill = ×5 עלות. תכנן L/D ≤ 4</span></div>
+<div class="spec-row"><span class="spec-key">❌ דופן דק מדי</span><span class="spec-val">רטט + עיוות. מינימום 2mm פלדה, 3mm Al</span></div>
+<div class="spec-row"><span class="spec-key">❌ שרשור מידות</span><span class="spec-val">הצטברות שגיאות! השתמש ב-Datum אחד</span></div>
+<div class="spec-row"><span class="spec-key">❌ GD&T מוגזם</span><span class="spec-val">Position ±0.01 בורג M6? הבורג ב-0.5mm Clearance!</span></div>
+<div class="spec-row"><span class="spec-key">❌ חומר אקזוטי</span><span class="spec-val">Inconel כשמספיק SS 316? ← בדוק תנאי עבודה בפועל</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=common+engineering+drawing+mistakes+DFM+tolerance+design+errors" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== TURNING ==================== -->
+<div id="dfm-turning" class="dfm-sec">
+<div class="card"><div class="ctitle">🔄 DFM — חריטה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">כללי DFM לחריטה</div>
+<div class="spec-row"><span class="spec-key">L/D</span><span class="spec-val">מקסימום 4:1 ללא תמיכה. 10:1 עם Steady Rest. 20:1+ = בעייתי</span></div>
+<div class="spec-row"><span class="spec-key">צעדי קוטר</span><span class="spec-val">תכנן מהגדול לקטן — הימנע מכיסי Undercut</span></div>
+<div class="spec-row"><span class="spec-key">Undercut</span><span class="spec-val">הימנע! אם חייבים — תקני DIN 509 (E/F/G/H)</span></div>
+<div class="spec-row"><span class="spec-key">חריצי O-Ring</span><span class="spec-val">השתמש בכלי סטנדרטי — רוחב ≥ 1.5mm</span></div>
+<div class="spec-row"><span class="spec-key">הברגה יציאה</span><span class="spec-val">תן מרווח Thread Relief לפני כתף — 2× Pitch מינימום</span></div>
+<div class="spec-row"><span class="spec-key">מרכזים</span><span class="spec-val">הוסף Center Drill A2.5/B4 — לאחיזה בין מרכזים</span></div>
+<div class="spec-row"><span class="spec-key">פאזה</span><span class="spec-val">C0.5–C1 בכל קצה! מונע Burr + מקל הרכבה</span></div>
+<div class="spec-row"><span class="spec-key">דופן מינימלי</span><span class="spec-val">צינור: t ≥ D/20 (פלדה) · t ≥ D/15 (Al)</span></div>
+
+<div class="ba-grid">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>חלק ארוך L/D=12 ללא תמיכה ← רטט, סטייה, Ra גרוע</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>L/D ≤ 4, או הוסף Steady Rest. חלק ארוך ← Between Centers</div>
+</div>
+<div class="ba-grid" style="margin-top:6px">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>פינה פנימית חדה R0 בין קטרים ← כלי Grooving מיוחד</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>R ≥ 0.4mm פינה פנימית — כלי סטנדרטי VNMG</div>
+</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=DFM+turning+design+guidelines+CNC+lathe+best+practices" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Undercuts — DIN 509</div>
+<div class="spec-row"><span class="spec-key">Type E</span><span class="spec-val">חריץ צר — לכתפיים רגילות</span></div>
+<div class="spec-row"><span class="spec-key">Type F</span><span class="spec-val">חריץ + שחיקה — לדיוק גבוה</span></div>
+<div class="spec-row"><span class="spec-key">Type G</span><span class="spec-val">חריץ רחב — מרווח הברגה</span></div>
+<div class="spec-row"><span class="spec-key">Type H</span><span class="spec-val">חריץ רדיאלי — O-Ring Grooves</span></div>
+<div class="spec-row"><span class="spec-key">מתי להימנע</span><span class="spec-val">אם הכתף לא פונקציונלית — R פשוט עדיף ×10</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Swiss-Type — כללי DFM</div>
+<div class="spec-row"><span class="spec-key">קוטר מקסימום</span><span class="spec-val">≤ 32mm (רוב המכונות) · ≤ 38mm (גדולות)</span></div>
+<div class="spec-row"><span class="spec-key">אורך מקסימום</span><span class="spec-val">≤ 300mm מהBar Feeder</span></div>
+<div class="spec-row"><span class="spec-key">Guide Bush</span><span class="spec-val">קוטר חיצוני h6 → שטח חלק! סימני צ'אק = בעיה</span></div>
+<div class="spec-row"><span class="spec-key">Cross Drilling</span><span class="spec-val">אפשרי עם Live Tools — תכנן מרכז</span></div>
+<div class="spec-row"><span class="spec-key">Back Work</span><span class="spec-val">Sub-Spindle לOP2 — תכנן את הצד השני</span></div>
+<div class="tip-box">▸ Swiss = מושלם לחלקים קטנים ומורכבים<br>▸ אם יש יותר מ-5 Features שונים — Swiss עדיף על מחרטה רגילה</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== MILLING ==================== -->
+<div id="dfm-milling" class="dfm-sec">
+<div class="card"><div class="ctitle">⚙️ DFM — כרסום</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">כללי DFM לכרסום</div>
+<div class="spec-row"><span class="spec-key">רדיוס פינה</span><span class="spec-val">R ≥ ½ קוטר כלי! R3 פינה ← כלי ⌀6 מינימום</span></div>
+<div class="spec-row"><span class="spec-key">עומק כיס</span><span class="spec-val">מקסימום 4× קוטר כלי. כיס 20mm עומק ← כלי ⌀5+</span></div>
+<div class="spec-row"><span class="spec-key">דופן כיס</span><span class="spec-val">עובי ≥ 2mm פלדה / 3mm Al — רטט!</span></div>
+<div class="spec-row"><span class="spec-key">פינה פנימית</span><span class="spec-val">לעולם לא R0! כלי עגול = תמיד רדיוס. הוסף Dog Bone / T-Bone</span></div>
+<div class="spec-row"><span class="spec-key">משטח אחיזה</span><span class="spec-val">השאר ≥ 15mm למלחציים, או תכנן אוזניים</span></div>
+<div class="spec-row"><span class="spec-key">5-ציר vs 3-ציר</span><span class="spec-val">3-ציר = Setup לכל צד. 5-ציר = Setup אחד אבל ×2 עלות מכונה</span></div>
+<div class="spec-row"><span class="spec-key">מספר Setups</span><span class="spec-val">תכנן מקסימום 2 Setups. כל Setup = ±0.03mm שגיאה</span></div>
+<div class="spec-row"><span class="spec-key">Text / Marking</span><span class="spec-val">Engrave עדיף מ-Emboss — פחות עיבוד. גובה ≥ 3mm</span></div>
+
+<div class="ba-grid">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>כיס עם פינה R0 חדה ← בלתי אפשרי בכרסום!</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>R ≥ 3mm פינות כיס. אם צריך R0 — הוסף Dog Bone Relief</div>
+</div>
+<div class="ba-grid" style="margin-top:6px">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>כיס עמוק 40mm עם כלי ⌀6 ← L/D=6.7 ← רטט, שבירה</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>כיס 40mm ← כלי ⌀12 (L/D=3.3) או Trochoidal step-down</div>
+</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=DFM+milling+design+guidelines+pocket+corner+radius+CNC+best+practices" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">רדיוסי פינה — טבלת עלות</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>R פינה</th><th>כלי מינימום</th><th>עלות יחסית</th><th>הערה</th></tr>
+<tr><td>R0 (חדה)</td><td>בלתי אפשרי!</td><td>—</td><td>EDM בלבד = ×20 עלות</td></tr>
+<tr><td>R0.5</td><td>⌀1mm</td><td>×5</td><td>שברירי, איטי</td></tr>
+<tr><td>R1.0</td><td>⌀2mm</td><td>×3</td><td>אפשרי, לא מומלץ</td></tr>
+<tr><td>R1.5</td><td>⌀3mm</td><td>×2</td><td>סביר</td></tr>
+<tr><td>R3.0</td><td>⌀6mm</td><td>×1.2</td><td>טוב</td></tr>
+<tr><td>R5.0</td><td>⌀10mm</td><td>×1.0</td><td>מצוין — ← ← ← ★</td></tr>
+</table>
+<div class="tip-box">▸ <b>כלל אצבע:</b> R פינה = רדיוס כלי + 1mm לפחות ← ↓רטט<br>▸ R5 ← הכי כלכלי בייצור סדרתי</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">3-ציר vs 5-ציר — מתי?</div>
+<div class="spec-row"><span class="spec-key">3-ציר מספיק</span><span class="spec-val">חלק פריזמטי, 1-2 צדדים, כיסים ישרים</span></div>
+<div class="spec-row"><span class="spec-key">3+2 (Indexed)</span><span class="spec-val">5 צדדים, אבל כל צד שטוח — ← מספיק!</span></div>
+<div class="spec-row"><span class="spec-key">5-Sim נדרש</span><span class="spec-val">Impellers, Blisks, משטחים מורכבים, Undercuts</span></div>
+<div class="spec-row"><span class="spec-key">עלות שעה 3X</span><span class="spec-val">₪100–200/hr</span></div>
+<div class="spec-row"><span class="spec-key">עלות שעה 5X</span><span class="spec-val">₪250–500/hr</span></div>
+<div class="tip-box">▸ <b>אם אפשר 3+2 — אל תשלם על 5-Sim!</b><br>▸ 5-Sim = נדרש רק כשהכלי חייב לזוז בזווית בו-זמנית</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== HOLES ==================== -->
+<div id="dfm-holes" class="dfm-sec">
+<div class="card"><div class="ctitle">🔩 DFM — חורים והברגות</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">חורים — כללי DFM</div>
+<div class="spec-row"><span class="spec-key">קוטר סטנדרטי</span><span class="spec-val">⌀3/4/5/6/8/10/12/16/20 — מקדח מהמדף!</span></div>
+<div class="spec-row"><span class="spec-key">L/D ≤ 4</span><span class="spec-val">קידוח רגיל — ×1 עלות</span></div>
+<div class="spec-row"><span class="spec-key">L/D 4–10</span><span class="spec-val">Peck Drill נדרש — ×2 עלות</span></div>
+<div class="spec-row"><span class="spec-key">L/D > 10</span><span class="spec-val">Gun Drill — ×5–10 עלות!</span></div>
+<div class="spec-row"><span class="spec-key">חור עיוור</span><span class="spec-val">תחתית חרוטית 118°/135° — אי אפשר שטוח!</span></div>
+<div class="spec-row"><span class="spec-key">כניסה ישרה</span><span class="spec-val">מקדח חייב להיכנס ניצבית! משטח משופע = סחיפה</span></div>
+<div class="spec-row"><span class="spec-key">יציאה ישרה</span><span class="spec-val">מקדח יוצא ← Burr. תכנן פאזה ביציאה או Deburr</span></div>
+<div class="spec-row"><span class="spec-key">מרחק בין חורים</span><span class="spec-val">≥ 2× קוטר — אחרת עיוות דופן</span></div>
+<div class="spec-row"><span class="spec-key">מרחק מקצה</span><span class="spec-val">≥ 1.5× קוטר — אחרת Breakout</span></div>
+
+<div class="ba-grid">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>חור ⌀6 בעומק 60mm (L/D=10) ← Gun Drill ← ×5 עלות</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>חור ⌀6 בעומק 24mm (L/D=4) ← מקדח סטנדרטי ← ×1</div>
+</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=DFM+hole+design+guidelines+drilling+depth+diameter+ratio" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">הברגות — כללי DFM</div>
+<div class="spec-row"><span class="spec-key">עומק הברגה</span><span class="spec-val">1.5D בפלדה, 2D באלומיניום, 2.5D בפלסטיק</span></div>
+<div class="spec-row"><span class="spec-key">Thread Relief</span><span class="spec-val">חריץ 2× Pitch ← ← ← ← חובה לחריטה!</span></div>
+<div class="spec-row"><span class="spec-key">חור עיוור</span><span class="spec-val">עומק קידוח = עומק הברגה + 3× Pitch</span></div>
+<div class="spec-row"><span class="spec-key">מידות סטנדרטיות</span><span class="spec-val">M3/M4/M5/M6/M8/M10/M12 — אל תמציא!</span></div>
+<div class="spec-row"><span class="spec-key">Pitch סטנדרטי</span><span class="spec-val">השתמש בCoarse! Fine רק כשצריך באמת (רטט)</span></div>
+<div class="spec-row"><span class="spec-key">Helicoil</span><span class="spec-val">ב-Al עם הברגה קריטית — תכנן STI מראש</span></div>
+<div class="spec-row"><span class="spec-key">Thread Mill</span><span class="spec-val">חורים גדולים (>M16) ← Thread Mill עדיף</span></div>
+
+<div class="ba-grid">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>M4 בעומק 20mm באלומיניום (5D!) ← ארבל ישבר</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>M4 בעומק 8mm (2D) באלומיניום + Helicoil אם קריטי</div>
+</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">דיוק חור — עלות לפי שיטה</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>שיטה</th><th>דיוק</th><th>Ra</th><th>עלות יחסית</th></tr>
+<tr><td>קידוח רגיל</td><td>IT10–IT12</td><td>3.2–12.5μm</td><td>×1</td></tr>
+<tr><td>קידוח + Reaming</td><td>IT6–IT8</td><td>0.4–1.6μm</td><td>×2</td></tr>
+<tr><td>Boring Single Point</td><td>IT5–IT7</td><td>0.4–1.6μm</td><td>×3</td></tr>
+<tr><td>Fine Boring</td><td>IT4–IT6</td><td>0.2–0.8μm</td><td>×5</td></tr>
+<tr><td>ID Grinding</td><td>IT4–IT5</td><td>0.1–0.4μm</td><td>×8</td></tr>
+<tr><td>Honing</td><td>IT4–IT5</td><td>0.05–0.4μm</td><td>×10</td></tr>
+</table>
+<div class="tip-box">▸ <b>H7 Bore:</b> Reaming מספיק! לא צריך Boring<br>▸ <b>H6 Bore:</b> Boring או ID Grinding<br>▸ אל תבקש H5 בשרטוט אלא אם באמת צריך!</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== GRINDING ==================== -->
+<div id="dfm-grinding" class="dfm-sec">
+<div class="card"><div class="ctitle">💎 DFM — שחיקה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">מתי באמת צריך שחיקה?</div>
+<div class="spec-row"><span class="spec-key">IT5 ומטה</span><span class="spec-val">חריטה/כרסום לא מגיעים ← שחיקה חובה</span></div>
+<div class="spec-row"><span class="spec-key">Ra ≤ 0.4μm</span><span class="spec-val">חריטה מגיעה ל-0.8 בקושי ← שחיקה</span></div>
+<div class="spec-row"><span class="spec-key">HRC > 45</span><span class="spec-val">Hard Turning אפשרי (CBN) אבל שחיקה = ↑Ra</span></div>
+<div class="spec-row"><span class="spec-key">עיגוליות ≤ 5μm</span><span class="spec-val">Centerless Grinding</span></div>
+<div class="spec-row"><span class="spec-key">שטחיות ≤ 5μm</span><span class="spec-val">Surface Grinding</span></div>
+<div class="tip-box">▸ <b>אם IT7 + Ra 0.8 מספיק — חריטת גמר מספיקה!</b><br>▸ שחיקה = ×3–5 עלות vs. חריטה<br>▸ תכנן מידות Stock לשחיקה: 0.1–0.3mm לצד</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">כללי DFM לשחיקה</div>
+<div class="spec-row"><span class="spec-key">Stock</span><span class="spec-val">השאר 0.1–0.3mm/צד לשחיקה. יותר מדי = זמן. פחות = לא מספיק</span></div>
+<div class="spec-row"><span class="spec-key">Undercuts</span><span class="spec-val">חריץ Grinding Relief ← גלגל לא שוחק כתף!</span></div>
+<div class="spec-row"><span class="spec-key">מרכזים</span><span class="spec-val">חובה Center Holes לשחיקה Between Centers!</span></div>
+<div class="spec-row"><span class="spec-key">חור מפתח</span><span class="spec-val">חריץ Key = הפרעה לOD Grinding ← שוחקים לפני חריצה</span></div>
+<div class="spec-row"><span class="spec-key">Runout</span><span class="spec-val">שחיקה ← Runout מצוין. תכנן Datum A על OD שחוק</span></div>
+<div class="spec-row"><span class="spec-key">Hardness</span><span class="spec-val">טפל חום לפני שחיקה! HRC55-62 ← CBN Wheel</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== SHEET METAL ==================== -->
+<div id="dfm-sheet" class="dfm-sec">
+<div class="card"><div class="ctitle">📄 DFM — פח וכיפוף</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">כללי DFM לפח</div>
+<div class="spec-row"><span class="spec-key">R כיפוף מינימום</span><span class="spec-val">R ≥ t (עובי הפח). R < t = סדיקה!</span></div>
+<div class="spec-row"><span class="spec-key">R מומלץ</span><span class="spec-val">R = 1–2t — בטוח לרוב החומרים</span></div>
+<div class="spec-row"><span class="spec-key">אורך שפה מינימום</span><span class="spec-val">≥ 4t + R — אחרת הפח מחליק מהDie</span></div>
+<div class="spec-row"><span class="spec-key">K-Factor</span><span class="spec-val">0.33 (Air Bend) / 0.42 (Bottom) / 0.5 (Coining)</span></div>
+<div class="spec-row"><span class="spec-key">Bend Allowance</span><span class="spec-val">BA = π/180 × α × (R + K×t) ← ← קריטי לפריסה!</span></div>
+<div class="spec-row"><span class="spec-key">מרחק חור מכיפוף</span><span class="spec-val">≥ 2.5t + R — אחרת חור מתעוות!</span></div>
+<div class="spec-row"><span class="spec-key">כיוון גלגול</span><span class="spec-val">כפף ⊥ לכיוון הגלגול — ↓סדיקה</span></div>
+<div class="spec-row"><span class="spec-key">עובי סטנדרטי</span><span class="spec-val">0.5/0.8/1.0/1.2/1.5/2.0/2.5/3.0mm ← מדף!</span></div>
+
+<div class="ba-grid">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>כיפוף R=0 בפלדה 2mm ← סדיקה בצד חיצון!</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>R ≥ 2mm (= 1t) לפלדה 2mm. Al ← R ≥ 1t עובד</div>
+</div>
+<div class="ba-grid" style="margin-top:6px">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>חור ⌀5 במרחק 3mm מכיפוף בפח 2mm ← חור מתעוות</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>חור ⌀5 במרחק ≥ 7mm (2.5t+R) מכיפוף</div>
+</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=DFM+sheet+metal+design+rules+bend+radius+K+factor+guidelines" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">עובי פח — R כיפוף מינימום</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>חומר</th><th>R_min / t</th><th>הערה</th></tr>
+<tr><td>פלדה DC01 רכה</td><td>0.5t</td><td>מצוין לכיפוף</td></tr>
+<tr><td>פלדה S355</td><td>1.0t</td><td>גבולי</td></tr>
+<tr><td>SS 304</td><td>1.0t</td><td>Springback גבוה!</td></tr>
+<tr><td>SS 316</td><td>1.0t</td><td>דומה ל-304</td></tr>
+<tr><td>Al 5052</td><td>0.5t</td><td>הכי טוב לכיפוף Al</td></tr>
+<tr><td>Al 6061-T6</td><td>2.0t</td><td>קשה! סדיקה בR קטן</td></tr>
+<tr><td>Al 7075-T6</td><td>3.0t+</td><td>לא לכפף! Pre-heat או Annealed</td></tr>
+<tr><td>טיטניום Gr.2</td><td>2.5t</td><td>Hot Forming מומלץ</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">חיתוך לייזר / פאנצ' — DFM</div>
+<div class="spec-row"><span class="spec-key">חור מינימום</span><span class="spec-val">לייזר: ≥ 0.5t · פאנצ': ≥ 1.0t</span></div>
+<div class="spec-row"><span class="spec-key">רוחב חריץ</span><span class="spec-val">≥ 1.5t — אחרת כלי פאנצ' נשבר</span></div>
+<div class="spec-row"><span class="spec-key">מרחק חור מקצה</span><span class="spec-val">≥ 2t</span></div>
+<div class="spec-row"><span class="spec-key">Tab / Micro-Joint</span><span class="spec-val">0.3–1mm — מחזיק חלק בגיליון ← שבירה ידנית</span></div>
+<div class="spec-row"><span class="spec-key">Kerf Width</span><span class="spec-val">לייזר CO₂: 0.2mm · Fiber: 0.1mm · Plasma: 1.5mm</span></div>
+<div class="spec-row"><span class="spec-key">HAZ</span><span class="spec-val">לייזר: 0.1–0.5mm · Plasma: 2–5mm</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== CASTING ==================== -->
+<div id="dfm-casting" class="dfm-sec">
+<div class="card"><div class="ctitle">🔥 DFM — יציקה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">כללי DFM ליציקה</div>
+<div class="spec-row"><span class="spec-key">עובי דופן אחיד</span><span class="spec-val">↓הבדלי עובי ← ↓ Shrinkage + Porosity</span></div>
+<div class="spec-row"><span class="spec-key">עובי מינימום</span><span class="spec-val">Sand: 5mm · Die Cast: 1–2mm · Investment: 1mm</span></div>
+<div class="spec-row"><span class="spec-key">Draft Angle</span><span class="spec-val">Sand: 1–3° · Die Cast: 0.5–2° · Investment: 0.5°</span></div>
+<div class="spec-row"><span class="spec-key">פינות</span><span class="spec-val">R ≥ t/3 פנימי · R ≥ t חיצוני ← ↓Stress Concentration</span></div>
+<div class="spec-row"><span class="spec-key">Undercuts</span><span class="spec-val">הימנע! אם חייב ← Side Core / Collapsible Core</span></div>
+<div class="spec-row"><span class="spec-key">Parting Line</span><span class="spec-val">תכנן שטוח! ← פשט תבנית</span></div>
+<div class="spec-row"><span class="spec-key">סובלנות</span><span class="spec-val">Sand: ±1mm · Die Cast: ±0.1–0.3mm · Investment: ±0.1mm</span></div>
+<div class="spec-row"><span class="spec-key">Machining Stock</span><span class="spec-val">2–5mm לצד על משטחי עיבוד</span></div>
+<div class="tip-box">▸ <b>כלל #1:</b> עובי אחיד! הבדל של ×2 = Shrinkage + Hot Spots<br>▸ <b>Ribs:</b> עובי Rib = 0.6–0.8× עובי דופן<br>▸ <b>Bosses:</b> OD Boss ≤ 2× ID — אחרת Sink</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=DFM+casting+design+guidelines+draft+angle+wall+thickness+sand+die+cast" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">השוואת שיטות יציקה</div>
+<table style="font-size:10px;margin-top:6px">
+<tr><th>שיטה</th><th>דיוק</th><th>Ra</th><th>עובי Min</th><th>כמות</th><th>עלות תבנית</th></tr>
+<tr><td>Sand Casting</td><td>±1–3mm</td><td>12.5–25</td><td>5mm</td><td>1–1000</td><td>₪500–5K</td></tr>
+<tr><td>Investment (שעווה)</td><td>±0.1–0.5</td><td>1.6–6.3</td><td>1mm</td><td>100–50K</td><td>₪5–50K</td></tr>
+<tr><td>Die Casting</td><td>±0.05–0.3</td><td>0.8–3.2</td><td>1mm</td><td>10K+</td><td>₪50–500K</td></tr>
+<tr><td>Gravity Permanent</td><td>±0.5–1</td><td>3.2–12.5</td><td>3mm</td><td>500–50K</td><td>₪10–50K</td></tr>
+<tr><td>Centrifugal</td><td>±0.5–2</td><td>3.2–12.5</td><td>5mm</td><td>100–10K</td><td>₪5–20K</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== WELDING ==================== -->
+<div id="dfm-welding" class="dfm-sec">
+<div class="card"><div class="ctitle">⚡ DFM — ריתוך</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">כללי DFM לריתוך</div>
+<div class="spec-row"><span class="spec-key">גישה למרתך</span><span class="spec-val">↑מרחב = ↑איכות. זווית מינימום 30° למרתך</span></div>
+<div class="spec-row"><span class="spec-key">פילה vs חריץ</span><span class="spec-val">Fillet Weld = פשוט. Groove Weld = ↑חוזק, ↑עלות</span></div>
+<div class="spec-row"><span class="spec-key">גודל פילה</span><span class="spec-val">a = 0.7× עובי דק יותר — לא יותר!</span></div>
+<div class="spec-row"><span class="spec-key">סימטריה</span><span class="spec-val">ריתוך סימטרי ← ↓עיוות. לסירוגין אם אפשר</span></div>
+<div class="spec-row"><span class="spec-key">מינימום ריתוכים</span><span class="spec-val">פחות תפרים = פחות עיוות = פחות NDT = פחות עלות</span></div>
+<div class="spec-row"><span class="spec-key">הימנע מצלבים</span><span class="spec-val">תפרים שנפגשים = ריכוז מאמצים! היסט ≥ 50mm</span></div>
+<div class="spec-row"><span class="spec-key">הכנת קצה</span><span class="spec-val">V/U/J-Groove: סטנדרט AWS D1.1 Table 4.3</span></div>
+<div class="spec-row"><span class="spec-key">Back Gouging</span><span class="spec-val">Full Pen ← חייב Back Gouging + ריתוך מצד שני</span></div>
+
+<div class="ba-grid">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>ריתוך פילה a=10mm על פלדה 6mm ← Over-weld ← עיוות</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>ריתוך פילה a = 0.7×6 = 4mm ← ← מספיק + ↓עיוות</div>
+</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=DFM+welding+design+guidelines+fillet+weld+size+distortion+control" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">עיוות ריתוך — מניעה</div>
+<div class="spec-row"><span class="spec-key">Pre-Set</span><span class="spec-val">כופף נגדי לפני ריתוך ← חוזר לישר אחרי</span></div>
+<div class="spec-row"><span class="spec-key">סדר ריתוך</span><span class="spec-val">מהמרכז החוצה, לסירוגין, סימטרי</span></div>
+<div class="spec-row"><span class="spec-key">Back-Step</span><span class="spec-val">ריתוך בכיוון הפוך ← ↓עיוות אורכי</span></div>
+<div class="spec-row"><span class="spec-key">הידוק</span><span class="spec-val">Jigs + Clamps + Tack Welds — מחזיק צורה</span></div>
+<div class="spec-row"><span class="spec-key">Preheat</span><span class="spec-val">פלדות >25mm / CE>0.45 / T<5°C ← חימום מקדים</span></div>
+<div class="spec-row"><span class="spec-key">PWHT</span><span class="spec-val">הרפיית מאמצים 600–650°C/1h לכל 25mm — ASME VIII</span></div>
+<div class="spec-row"><span class="spec-key">Stress Relief</span><span class="spec-val">Vibratory (VSR) — חלופה זולה ל-PWHT</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== TOLERANCE COST ==================== -->
+<div id="dfm-tolerance" class="dfm-sec">
+<div class="card"><div class="ctitle">💰 סובלנות ועלות — Tolerance vs. Cost</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange,#fb923c)">עלות יחסית לפי דרגת סובלנות</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>IT Grade</th><th>סובלנות ⌀25mm</th><th>שיטה נדרשת</th><th>עלות יחסית</th><th>Ra אופייני</th></tr>
+<tr><td>IT14</td><td>±0.26mm</td><td>חיתוך / ניסור</td><td style="color:var(--green)">×1</td><td>12.5–25μm</td></tr>
+<tr><td>IT12</td><td>±0.105mm</td><td>חריטה גסה</td><td style="color:var(--green)">×1.5</td><td>6.3–12.5μm</td></tr>
+<tr><td>IT11</td><td>±0.065mm</td><td>כרסום / חריטה</td><td style="color:var(--green)">×2</td><td>3.2–6.3μm</td></tr>
+<tr><td>IT9</td><td>±0.026mm</td><td>חריטה / כרסום גמר</td><td>×3</td><td>1.6–3.2μm</td></tr>
+<tr><td>IT8</td><td>±0.016mm</td><td>חריטה גמר / Reaming</td><td>×4</td><td>0.8–1.6μm</td></tr>
+<tr><td>IT7</td><td>±0.010mm</td><td>שחיקה / Reaming / Boring</td><td style="color:var(--orange,#fb923c)">×6</td><td>0.4–0.8μm</td></tr>
+<tr><td>IT6</td><td>±0.006mm</td><td>שחיקה / Fine Boring</td><td style="color:var(--red)">×10</td><td>0.2–0.4μm</td></tr>
+<tr><td>IT5</td><td>±0.004mm</td><td>שחיקה + לאפינג</td><td style="color:var(--red)">×20</td><td>0.1–0.2μm</td></tr>
+<tr><td>IT4</td><td>±0.003mm</td><td>לאפינג / Superfinish</td><td style="color:var(--red)">×40+</td><td>0.05–0.1μm</td></tr>
+</table>
+<div class="tip-box">▸ <b>כל דרגת IT = ×1.5–2 בעלות!</b><br>▸ IT11 (ISO 2768-m כללי) = מספיק ל-90% מהמידות<br>▸ IT7 רק לכוננויות ומשטחי אטימה<br>▸ IT5 ומטה = רק מסבים, Gauges, חלקי דיוק</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Ra — עלות יחסית</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Ra (μm)</th><th>שיטה</th><th>עלות</th><th>מתי</th></tr>
+<tr><td>25</td><td>חיתוך / ניסור</td><td style="color:var(--green)">×1</td><td>לא נראה</td></tr>
+<tr><td>6.3</td><td>חריטה / כרסום</td><td style="color:var(--green)">×1.5</td><td>כללי</td></tr>
+<tr><td>3.2</td><td>חריטת גמר</td><td>×2</td><td>כוננות מעבר</td></tr>
+<tr><td>1.6</td><td>גמר מדויק</td><td>×3</td><td>אטמים, O-Ring</td></tr>
+<tr><td>0.8</td><td>שחיקה</td><td style="color:var(--orange,#fb923c)">×5</td><td>כוננות לחץ</td></tr>
+<tr><td>0.4</td><td>שחיקה + גמר</td><td style="color:var(--red)">×10</td><td>מסבים</td></tr>
+<tr><td>0.2</td><td>לאפינג</td><td style="color:var(--red)">×20</td><td>שסתומים, Gauges</td></tr>
+<tr><td>0.05</td><td>Superfinish</td><td style="color:var(--red)">×50+</td><td>גלגורות, מדחסים</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">GD&T — עלות לפי סוג</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>GD&T</th><th>0.1mm</th><th>0.05mm</th><th>0.02mm</th><th>0.01mm</th></tr>
+<tr><td>Flatness</td><td style="color:var(--green)">×1</td><td>×2</td><td style="color:var(--orange,#fb923c)">×5</td><td style="color:var(--red)">×15</td></tr>
+<tr><td>Cylindricity</td><td style="color:var(--green)">×1.5</td><td>×3</td><td style="color:var(--orange,#fb923c)">×8</td><td style="color:var(--red)">×20</td></tr>
+<tr><td>Position</td><td style="color:var(--green)">×1</td><td>×2</td><td style="color:var(--orange,#fb923c)">×5</td><td style="color:var(--red)">×12</td></tr>
+<tr><td>Runout</td><td style="color:var(--green)">×1.5</td><td>×3</td><td style="color:var(--orange,#fb923c)">×6</td><td style="color:var(--red)">×15</td></tr>
+<tr><td>Profile</td><td>×2</td><td>×4</td><td style="color:var(--red)">×10</td><td style="color:var(--red)">×25</td></tr>
+</table>
+<div class="tip-box">▸ <b>Position ⌀0.1 MMC:</b> בורג M6 ב-Clearance Hole — מספיק בהחלט!<br>▸ <b>Position ⌀0.02:</b> רק כוננויות מסבים ← שחיקה חובה<br>▸ <b>שאל: מה קורה אם הסובלנות 2× יותר רחבה? כלום? ← הרחב!</b></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== DFA ==================== -->
+<div id="dfm-dfa" class="dfm-sec">
+<div class="card"><div class="ctitle">🔧 DFA — תכן להרכבה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">עקרונות DFA</div>
+<div class="spec-row"><span class="spec-key">צמצם חלקים</span><span class="spec-val">כל חלק = רכש + מלאי + הרכבה + תקלה. ↓חלקים = ↓עלות</span></div>
+<div class="spec-row"><span class="spec-key">3 שאלות</span><span class="spec-val">1) נע ביחס לשכנים? 2) חומר שונה? 3) נדרש לפירוק? אם לא — אחד!</span></div>
+<div class="spec-row"><span class="spec-key">כיוון הרכבה</span><span class="spec-val">Z-Axis בלבד! הימנע מהפיכות ← ↓זמן ← ↓טעויות</span></div>
+<div class="spec-row"><span class="spec-key">Self-Locating</span><span class="spec-val">חלקים שמתמקמים לבד — Chamfer Lead-In, Snap-Fit</span></div>
+<div class="spec-row"><span class="spec-key">Poka-Yoke</span><span class="spec-val">א-סימטריה מכוונת ← הרכבה נכונה אחת בלבד!</span></div>
+<div class="spec-row"><span class="spec-key">סטנדרטיזציה</span><span class="spec-val">בורג M5 בכל מקום — לא M3+M4+M5+M6!</span></div>
+<div class="spec-row"><span class="spec-key">גישה</span><span class="spec-val">מפתח/מברג צריך מרחב! ≥ 20mm סביב בורג</span></div>
+<div class="spec-row"><span class="spec-key">Snap-Fit</span><span class="spec-val">עדיף על בורג! ← ← 0 חלקי רכש, הרכבה מיידית</span></div>
+<div class="tip-box">▸ <b>Boothroyd-Dewhurst:</b> ← שיטת DFA מוכחת — מחשבת זמן הרכבה לחלק<br>▸ <b>כלל אצבע:</b> ↓50% חלקים = ↓30% עלות ← ← ← ROI מיידי<br>▸ <b>בורג = 6 שניות.</b> Snap-Fit = 1.5 שניות. ← ×4 מהיר</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=DFA+design+for+assembly+Boothroyd+Dewhurst+reduce+parts+count+poka+yoke" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Poka-Yoke — מניעת טעויות</div>
+<div class="spec-row"><span class="spec-key">פין מיקום</span><span class="spec-val">2 פינים — 1 עגול + 1 Diamond ← מיקום חד-ערכי</span></div>
+<div class="spec-row"><span class="spec-key">א-סימטריה</span><span class="spec-val">מפתח / חריץ / בליטה ← כיוון יחיד להרכבה</span></div>
+<div class="spec-row"><span class="spec-key">צבעי קידוד</span><span class="spec-val">מחבר אדום ← שקע אדום. לא ניתן לטעות</span></div>
+<div class="spec-row"><span class="spec-key">מידות שונות</span><span class="spec-val">חיבור A = ⌀8, חיבור B = ⌀10. לא ניתן להחליף</span></div>
+<div class="spec-row"><span class="spec-key">D-Sub / USB</span><span class="spec-val">מבנה טרפזי / א-סימטרי ← כיוון יחיד</span></div>
+
+<div class="ba-grid">
+  <div class="ba-bad"><div class="ba-title">❌ לא לעשות</div>חלק סימטרי ← העובד מרכיב הפוך 50% מהזמן</div>
+  <div class="ba-good"><div class="ba-title">✅ נכון</div>בליטה/חריץ בצד אחד ← הרכבה נכונה 100% מהזמן</div>
+</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=poka+yoke+examples+manufacturing+assembly+mistake+proofing+design" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">זמני הרכבה — Boothroyd-Dewhurst</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>פעולה</th><th>זמן (שניות)</th><th>הערה</th></tr>
+<tr><td>הנחה מלמעלה</td><td>1.5</td><td>הכי קל</td></tr>
+<tr><td>הנחה + מיקום</td><td>3.0</td><td>Self-Locate = 1.5</td></tr>
+<tr><td>בורג + מברג</td><td>6.0</td><td>×כמות בורגים!</td></tr>
+<tr><td>בורג + מומנט</td><td>8.0</td><td>מפתח מומנט</td></tr>
+<tr><td>Snap-Fit</td><td>1.5</td><td>↑↑מהיר!</td></tr>
+<tr><td>Press-Fit</td><td>4.0</td><td>+הידראולי</td></tr>
+<tr><td>הפיכת חלק</td><td>4.5</td><td>הימנע!</td></tr>
+<tr><td>Adhesive</td><td>10.0+</td><td>+זמן ייבוש</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+</div>

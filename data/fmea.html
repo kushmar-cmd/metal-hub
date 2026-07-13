@@ -1,0 +1,61 @@
+<div id="sec-fmea" class="section">
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--red)">
+<div style="display:flex;align-items:center;gap:12px"><span style="font-size:32px">⚠️</span><div><div style="font-size:18px;font-weight:800;color:var(--red)">FMEA / FTA — ניתוח כשלים</div><div style="font-size:12px;color:var(--muted)">FMEA · Severity · Occurrence · Detection · RPN · FTA</div></div></div></div>
+<div class="grid2">
+<div class="card"><div class="ctitle">🧮 מחשבון RPN</div>
+<div class="cg">
+<div><label>S — חומרה (1-10)</label><select id="fm-s" onchange="calcFMEA()">
+<option value="1">1 — אין השפעה</option><option value="2">2 — מינימלי</option><option value="3">3 — קל</option>
+<option value="4">4 — בינוני-קל</option><option value="5" selected>5 — בינוני</option><option value="6">6 — משמעותי</option>
+<option value="7">7 — גבוה</option><option value="8">8 — מאוד גבוה</option><option value="9">9 — קריטי</option>
+<option value="10">10 — מסכן חיים</option></select></div>
+<div><label>O — תדירות (1-10)</label><select id="fm-o" onchange="calcFMEA()">
+<option value="1">1 — כמעט בלתי אפשרי</option><option value="2">2 — נדיר מאוד</option><option value="3" selected>3 — נדיר</option>
+<option value="4">4 — לעיתים רחוקות</option><option value="5">5 — נמוך</option><option value="6">6 — בינוני</option>
+<option value="7">7 — גבוה-בינוני</option><option value="8">8 — גבוה</option><option value="9">9 — מאוד גבוה</option>
+<option value="10">10 — כמעט בטוח</option></select></div>
+<div><label>D — גילוי (1-10)</label><select id="fm-d" onchange="calcFMEA()">
+<option value="1">1 — גילוי בטוח</option><option value="2">2 — כמעט בטוח</option><option value="3">3 — גבוה</option>
+<option value="4" selected>4 — בינוני-גבוה</option><option value="5">5 — בינוני</option><option value="6">6 — נמוך-בינוני</option>
+<option value="7">7 — נמוך</option><option value="8">8 — מאוד נמוך</option><option value="9">9 — נדיר</option>
+<option value="10">10 — כמעט בלתי אפשרי לגלות</option></select></div>
+</div>
+<div id="fm-result" class="res">—</div>
+<div class="note">RPN = S × O × D · מקסימום = 1000 · סף פעולה: RPN>100 (כללי) / >50 (ביטחוני)</div></div>
+<div class="card"><div class="ctitle">📊 דירוגי FMEA — Severity (S)</div>
+<table><tr><th>S</th><th>תיאור</th><th>דוגמה</th></tr>
+<tr><td>1</td><td>אין השפעה</td><td>שינוי אסתטי בלבד</td></tr>
+<tr><td>2-3</td><td>קל — לקוח מבחין לעיתים</td><td>רעש קל, מדבקה מתקלפת</td></tr>
+<tr><td>4-6</td><td>בינוני — פגיעה בביצועים</td><td>תפקוד חלקי, איחור</td></tr>
+<tr><td>7-8</td><td>גבוה — אובדן פונקציה</td><td>כשל מוצר, החזרה</td></tr>
+<tr><td>9</td><td>קריטי — בטיחות ללא אזהרה</td><td>כשל מסכן חיים אפשרי</td></tr>
+<tr><td>10</td><td>קטסטרופלי</td><td>כשל מסכן חיים בטוח</td></tr></table></div>
+</div>
+<div class="card"><div class="ctitle">📋 טבלת FMEA לדוגמה — מסב ציר</div>
+<div style="overflow-x:auto"><table><tr><th>מזהה</th><th>פונקציה</th><th>מצב כשל</th><th>השפעה</th><th>S</th><th>גורם</th><th>O</th><th>בקרות</th><th>D</th><th style="color:var(--orange)">RPN</th><th>פעולה</th></tr>
+<tr><td>1.1</td><td>תמיכת ציר</td><td>בלאי מסב</td><td>רעש, רטט, כשל ציר</td><td>7</td><td>לחץ/מהירות גבוה</td><td>3</td><td>בדיקת רטט</td><td>5</td><td style="color:var(--orange)">105</td><td>↑תדירות סיכה</td></tr>
+<tr><td>1.2</td><td>תמיכת ציר</td><td>כשל Cage</td><td>נעילת ציר</td><td>9</td><td>עומס פתאומי</td><td>2</td><td>בדיקה ויזואלית</td><td>7</td><td style="color:var(--red)">126</td><td>↑ C/P, ↓עומס</td></tr>
+<tr><td>1.3</td><td>תמיכת ציר</td><td>קורוזיה</td><td>גדילה בממד</td><td>5</td><td>לחות, חוסר סיכה</td><td>4</td><td>בדיקה שנתית</td><td>4</td><td style="color:var(--yellow)">80</td><td>שדרוג גריז</td></tr>
+<tr><td>1.4</td><td>אטימה</td><td>דליפת שמן</td><td>מפגע סביבתי</td><td>4</td><td>בלאי אטם</td><td>5</td><td>בדיקה חזותית</td><td>3</td><td style="color:var(--green)">60</td><td>ניטור שוטף</td></tr></table></div></div>
+<div class="grid2">
+<div class="card"><div class="ctitle">🌳 FTA — Fault Tree Analysis</div>
+<div style="font-size:12px;color:var(--muted);line-height:2.3">
+<b style="color:var(--orange)">▸ FTA שיטה:</b> מהכשל הראשי ↓ לגורמים בסיסיים (Top-Down)<br>
+<b style="color:var(--orange)">▸ FMEA שיטה:</b> מרכיב ↑ להשפעה על מערכת (Bottom-Up)<br>
+<b style="color:var(--orange)">▸ שערים:</b> AND = שניהם · OR = אחד מהם<br>
+<b style="color:var(--orange)">▸ P(AND) = P₁ × P₂ (עצמאיים)</b><br>
+<b style="color:var(--orange)">▸ P(OR) = 1-(1-P₁)(1-P₂)</b><br>
+<b style="color:var(--orange)">▸ MIL-STD-1629A:</b> תקן FMEA ביטחוני<br>
+<b style="color:var(--orange)">▸ IEC 60812:</b> תקן FMEA אזרחי<br>
+<b style="color:var(--orange)">▸ AIAG/VDA FMEA:</b> אוטומוטיב 2019+
+</div></div>
+<div class="card"><div class="ctitle">✅ רמות קריטיות (MIL-STD-1629)</div>
+<table><tr><th>קטגוריה</th><th>תיאור</th><th>SF מינימלי</th></tr>
+<tr><td><b style="color:var(--red)">I — קריטי</b></td><td>מוות/פציעה חמורה/אובדן מערכת</td><td>4-10</td></tr>
+<tr><td><b style="color:var(--orange)">II — קריטי</b></td><td>פציעה, נזק כבד למשימה</td><td>3-6</td></tr>
+<tr><td><b style="color:var(--yellow)">III — שולי</b></td><td>פציעה קלה, עיכוב</td><td>2-3</td></tr>
+<tr><td><b style="color:var(--green)">IV — מזערי</b></td><td>אי-נוחות בלבד</td><td>1.5-2</td></tr></table></div>
+</div>
+</div>
+
+<!-- CHANGE MANAGEMENT -->

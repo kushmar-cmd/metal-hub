@@ -1,0 +1,541 @@
+<div id="sec-inserts" class="section">
+
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a0d2e);border-color:var(--purple,#bc8cff)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔩</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--purple,#bc8cff)">קשיחים — Threaded Inserts</div>
+    <div style="font-size:12px;color:var(--muted)">Helicoil · Keensert · Time-Sert · Rivet Nut · Press-fit · פלסטיק · Rosan · E-Z Lok · השוואה · מחשבונים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="ins-tab active" onclick="showIns('helicoil',this)">🌀 Helicoil / STI</button>
+  <button class="ins-tab" onclick="showIns('keensert',this)">🔐 Keensert</button>
+  <button class="ins-tab" onclick="showIns('timesert',this)">🔧 Time-Sert</button>
+  <button class="ins-tab" onclick="showIns('rivetnut',this)">🔴 Rivet Nut</button>
+  <button class="ins-tab" onclick="showIns('press_fit',this)">⚙️ Press-fit / PEM</button>
+  <button class="ins-tab" onclick="showIns('plastic_insert',this)">🔵 לפלסטיק</button>
+  <button class="ins-tab" onclick="showIns('rosan',this)">✈️ Rosan / תעופה</button>
+  <button class="ins-tab" onclick="showIns('ezlok',this)">🟢 E-Z Lok</button>
+  <button class="ins-tab" onclick="showIns('comparison',this)">📊 השוואה</button>
+  <button class="ins-tab" onclick="showIns('calc_ins',this)">🧮 מחשבונים</button>
+</div>
+
+<!-- ===== HELICOIL ===== -->
+<div id="ins-helicoil" class="ins-sec active">
+<div class="card"><div class="ctitle">🌀 Helicoil / Wire Thread Insert — STI</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">מהו Helicoil?</div>
+<div><span class="mc-badge" style="background:var(--purple,#bc8cff);color:#000">הנפוץ ביותר</span><span class="mc-badge b-blue">NASM 21209</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">חוט נירוסטה סלילי מוחדר לקדח STI → הברגה חדשה</span></div>
+<div class="spec-row"><span class="spec-key">חוזק</span><span class="spec-val">גבוה מההברגה המקורית ב-Al! ×1.5-2 Pull-out</span></div>
+<div class="spec-row"><span class="spec-key">חומר Insert</span><span class="spec-val">SS 304 · SS 316 · Phosphor Bronze · Inconel 600</span></div>
+<div class="spec-row"><span class="spec-key">מידות</span><span class="spec-val">M3 עד M39 · UNC 4-40 עד 3/4"-10</span></div>
+<div class="spec-row"><span class="spec-key">עומק</span><span class="spec-val">1D · 1.5D (נפוץ) · 2D · 2.5D · 3D</span></div>
+<div class="spec-row"><span class="spec-key">תקנים</span><span class="spec-val">NASM 21209 · MIL-I-8846 · DIN 8140 · BS 4255</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">תיקון הברגה · Al/Mg → ↑חוזק · מנועים · תעופה</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.helicoil.com" target="_blank" style="color:var(--blue)">Helicoil (Stanley)</a> · <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff ENSAT</a> · <a href="https://www.recoil.com.au" target="_blank" style="color:var(--blue)">Recoil</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">STI Tap Drill — קדחי Helicoil</div>
+<div><span class="mc-badge b-orange">גדול מרגיל!</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ חשוב</span><span class="spec-val">STI Tap = גדול מ-Standard! לפי טבלה בלבד</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>מידה</th><th>Pitch</th><th>STI Drill</th><th>Standard Drill</th></tr>
+<tr><td>M3</td><td>0.5</td><td>3.6mm</td><td>2.5mm</td></tr>
+<tr><td>M4</td><td>0.7</td><td>4.7mm</td><td>3.3mm</td></tr>
+<tr><td>M5</td><td>0.8</td><td>5.9mm</td><td>4.2mm</td></tr>
+<tr><td>M6</td><td>1.0</td><td>7.0mm</td><td>5.0mm</td></tr>
+<tr><td>M8</td><td>1.25</td><td>9.2mm</td><td>6.8mm</td></tr>
+<tr><td>M10</td><td>1.5</td><td>11.3mm</td><td>8.5mm</td></tr>
+<tr><td>M12</td><td>1.75</td><td>13.5mm</td><td>10.2mm</td></tr>
+<tr><td>M16</td><td>2.0</td><td>17.7mm</td><td>14.0mm</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">תהליך התקנה</div>
+<div><span class="mc-badge b-blue">5 שלבים</span></div>
+<div class="spec-row"><span class="spec-key">1. קדח</span><span class="spec-val">STI Tap Drill — לפי טבלה</span></div>
+<div class="spec-row"><span class="spec-key">2. ארבל STI</span><span class="spec-val">ארבל Helicoil (לא רגיל!)</span></div>
+<div class="spec-row"><span class="spec-key">3. הכנסה</span><span class="spec-val">כלי הכנסה (Insertion Tool) ← לנגד ← Insert</span></div>
+<div class="spec-row"><span class="spec-key">4. שבירת לשון</span><span class="spec-val">Notch (Tanged) → שבר לשון ← תוך כלי</span></div>
+<div class="spec-row"><span class="spec-key">5. Tangless</span><span class="spec-val">ללא לשון — לא צריך שבירה! (תעופה)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">עומק מינימום: 1.5D · מומלץ: 2D לעומסים גבוהים</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Tangless Helicoil — ללא לשון</div>
+<div><span class="mc-badge b-blue">NASM 21209-3T</span><span class="mc-badge b-green">תעופה</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">ללא לשון לשבור → ↓זמן · ↓סיכון</span></div>
+<div class="spec-row"><span class="spec-key">הכנסה</span><span class="spec-val">כלי הכנסה מיוחד ← ←</span></div>
+<div class="spec-row"><span class="spec-key">פירוק</span><span class="spec-val">ניתן לפרק ← כלי הוצאה מיוחד</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">NASM 21209-3T · AS1085 (USAF)</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">תעופה · שטחים קשי גישה · חדר נקי</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Recoil — מקביל ל-Helicoil</div>
+<div><span class="mc-badge b-green">אוסטרליה</span><span class="mc-badge b-blue">תואם STI</span></div>
+<div class="spec-row"><span class="spec-key">יצרן</span><span class="spec-val">Recoil — אוסטרליה · Snap-on Industrial</span></div>
+<div class="spec-row"><span class="spec-key">תאימות</span><span class="spec-val">תואם Helicoil ← אותם STI Taps!</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↓מחיר vs. Helicoil · Tangless זמין</span></div>
+<div class="spec-row"><span class="spec-key">חומרים</span><span class="spec-val">SS 304 · SS 316 · Phosphor Bronze</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.recoil.com.au" target="_blank" style="color:var(--blue)">recoil.com.au</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">יישומי Helicoil</div>
+<div><span class="mc-badge b-orange">מתי להשתמש</span></div>
+<div class="spec-row"><span class="spec-key">תיקון הברגה</span><span class="spec-val">בורג שנתפס/קרע → Helicoil = כחדש</span></div>
+<div class="spec-row"><span class="spec-key">Al/Mg → Steel</span><span class="spec-val">בורג פלדה ב-Al → Helicoil מגן!</span></div>
+<div class="spec-row"><span class="spec-key">ראשי מנוע</span><span class="spec-val">ניקוי ← ארבל ← Insert ← חזרה לשירות</span></div>
+<div class="spec-row"><span class="spec-key">גוף מחרטה</span><span class="spec-val">Helicoil ב-Cast Iron ← ↑Pull-out</span></div>
+<div class="spec-row"><span class="spec-key">לא להשתמש</span><span class="spec-val">לחצים גבוהים מאוד — Keensert עדיף</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== KEENSERT ===== -->
+<div id="ins-keensert" class="ins-sec">
+<div class="card"><div class="ctitle">🔐 Keensert / Key-Lock Insert — קשיח מוצק</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">מהו Keensert?</div>
+<div><span class="mc-badge b-red">מוצק!</span><span class="mc-badge b-blue">NASM 33537</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Insert מוצק מנירוסטה עם מפתחות נעילה (Keys)</span></div>
+<div class="spec-row"><span class="spec-key">נעילה</span><span class="spec-val">4 מפתחות (Keys) נכנסים לחומר האם → לא מסתובב לעולם</span></div>
+<div class="spec-row"><span class="spec-key">חוזק</span><span class="spec-val">↑↑ Pull-out vs. Helicoil — מומלץ לעומסים כבדים</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">SS 303 · SS 316 · Inconel 718</span></div>
+<div class="spec-row"><span class="spec-key">מידות</span><span class="spec-val">M6 עד M39 · #10-32 עד 1"-8</span></div>
+<div class="spec-row"><span class="spec-key">תקנים</span><span class="spec-val">NASM 33537 · MS122073 · DIN 8140 Type D</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">תעופה · ביטחוני · עומסים כבדים · Al רב-שימושי</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff (ENSAT)</a> · <a href="https://www.kato-fastening.com" target="_blank" style="color:var(--blue)">KATO Locking</a> · <a href="https://www.stanleyengineeredfastening.com" target="_blank" style="color:var(--blue)">Keensert (Stanley)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Keensert Drill Chart</div>
+<div><span class="mc-badge b-orange">קדח מיוחד!</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>מידה</th><th>Pitch</th><th>Drill</th><th>עומק מינימום</th></tr>
+<tr><td>M6</td><td>1.0</td><td>8.0mm</td><td>9.0mm</td></tr>
+<tr><td>M8</td><td>1.25</td><td>10.5mm</td><td>12.0mm</td></tr>
+<tr><td>M10</td><td>1.5</td><td>12.5mm</td><td>15.0mm</td></tr>
+<tr><td>M12</td><td>1.75</td><td>15.0mm</td><td>18.0mm</td></tr>
+<tr><td>M16</td><td>2.0</td><td>20.0mm</td><td>24.0mm</td></tr>
+<tr><td>M20</td><td>2.5</td><td>25.0mm</td><td>30.0mm</td></tr>
+</table>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ חובה להשתמש ב-Keensert Tap (מוברג שונה מרגיל!)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">תהליך התקנה Keensert</div>
+<div><span class="mc-badge b-blue">4 שלבים</span></div>
+<div class="spec-row"><span class="spec-key">1. קדח</span><span class="spec-val">Keensert Drill Size</span></div>
+<div class="spec-row"><span class="spec-key">2. ארבל</span><span class="spec-val">Keensert Tap (לא STI ולא Standard!)</span></div>
+<div class="spec-row"><span class="spec-key">3. הכנסה</span><span class="spec-val">מברג הכנסה מיוחד ← בורג מוחדר</span></div>
+<div class="spec-row"><span class="spec-key">4. נעילת Keys</span><span class="spec-val">כלי נעילה מכה Keys פנימה → נועל!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ לא ניתן להסרה אחרי נעילת Keys — קבוע לצמיתות!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Keensert vs Helicoil</div>
+<div><span class="mc-badge b-green">השוואה</span></div>
+<div class="spec-row"><span class="spec-key">Pull-out חוזק</span><span class="spec-val">Keensert ↑↑ vs. Helicoil</span></div>
+<div class="spec-row"><span class="spec-key">תיקון מידה</span><span class="spec-val">שניהם — Helicoil קל יותר</span></div>
+<div class="spec-row"><span class="spec-key">פירוק</span><span class="spec-val">Helicoil ✅ · Keensert ❌ (קבוע)</span></div>
+<div class="spec-row"><span class="spec-key">מחיר</span><span class="spec-val">Keensert יקר יותר</span></div>
+<div class="spec-row"><span class="spec-key">עומס כבד</span><span class="spec-val">Keensert עדיף</span></div>
+<div class="spec-row"><span class="spec-key">תיקון מהיר</span><span class="spec-val">Helicoil עדיף</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== TIMESERT ===== -->
+<div id="ins-timesert" class="ins-sec">
+<div class="card"><div class="ctitle">🔧 Time-Sert / Solid Thread Repair</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Time-Sert — Insert מוצק עם Flange</div>
+<div><span class="mc-badge b-orange">תיקון ראשי מנוע</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Insert מוצק + Flange → נועל בקצה</span></div>
+<div class="spec-row"><span class="spec-key">נעילה</span><span class="spec-val">Flange מתרחב בהתקנה → נועל מכנית</span></div>
+<div class="spec-row"><span class="spec-key">חוזק</span><span class="spec-val">גבוה מאוד — Flange נושא עומס גזירה</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">Mild Steel (FineTech) · SS 303</span></div>
+<div class="spec-row"><span class="spec-key">שימוש עיקרי</span><span class="spec-val">בורגי ראש מנוע (M8/M10/M11/M12) · ארבלי גלגלי Al</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">לא צריך Helicoil Tap מיוחד — Standard Tap!</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.time-sert.com" target="_blank" style="color:var(--blue)">Time-Sert</a> · <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff TRISERT</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">ENSAT — Böllhoff Solid Insert</div>
+<div><span class="mc-badge b-blue">DIN 16903</span><span class="mc-badge b-green">נפוץ באירופה</span></div>
+<div class="spec-row"><span class="spec-key">סוגים</span><span class="spec-val">Type 140 (Hex Drive) · Type 302 (Slot Drive) · Type 160</span></div>
+<div class="spec-row"><span class="spec-key">DIN 16903</span><span class="spec-val">תקן ENSAT אירופאי</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מסנן חיצוני גדול + פנימי תקני · נועל בברגה</span></div>
+<div class="spec-row"><span class="spec-key">חומרים</span><span class="spec-val">פלדה · SS 303 · Brass</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">תיקון · Al/Zn Die Casting · פלסטיק קשיח</span></div>
+<div class="spec-row"><span class="spec-key">כלי</span><span class="spec-val">Standard Tap + מברג Hex הכנסה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Locking vs Non-Locking</div>
+<div><span class="mc-badge b-orange">בחירה</span></div>
+<div class="spec-row"><span class="spec-key">Non-Locking</span><span class="spec-val">ניתן להסרה · תיקון בלבד</span></div>
+<div class="spec-row"><span class="spec-key">Locking</span><span class="spec-val">נועל Flange · קבוע · עומסים גבוהים</span></div>
+<div class="spec-row"><span class="spec-key">מתי Locking?</span><span class="spec-val">ראשי מנוע · עומסים דינמיים · רטט</span></div>
+<div class="spec-row"><span class="spec-key">Prevailing Torque</span><span class="spec-val">Insert מעוות מעט → כוח נגד סיבוב</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== RIVET NUT ===== -->
+<div id="ins-rivetnut" class="ins-sec">
+<div class="card"><div class="ctitle">🔴 Rivet Nut / Blind Nut / Nutsert</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rivet Nut — עקרון</div>
+<div><span class="mc-badge b-blue">גישה חד-צדדית</span><span class="mc-badge b-orange">PEM · Avdel</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">ממוחדר לחור → נמשך → מתרחב → נועל</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">גישה חד-צדדית בלבד! ← כמו Pop Rivet</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">Al · SS · Mild Steel · Cu-Ni · Monel</span></div>
+<div class="spec-row"><span class="spec-key">מידות</span><span class="spec-val">M3 עד M16 · #6-32 עד 1/2"-13</span></div>
+<div class="spec-row"><span class="spec-key">עובי חומר</span><span class="spec-val">0.5-6mm לפי מידה</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">ציוד חשמלי · רכב · ארגז · פח</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.pemnet.com" target="_blank" style="color:var(--blue)">PEM (Parker)</a> · <a href="https://www.avdelglobal.com" target="_blank" style="color:var(--blue)">Avdel (Textron)</a> · <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">סוגי Rivet Nut</div>
+<div><span class="mc-badge b-green">4 עיקריים</span></div>
+<div class="spec-row"><span class="spec-key">Round Body (עגול)</span><span class="spec-val">הנפוץ · סובב בחור עגול · עד 15kN</span></div>
+<div class="spec-row"><span class="spec-key">Hex Body (משושה)</span><span class="spec-val">↑חוזק · לא מסתובב! · לרטט</span></div>
+<div class="spec-row"><span class="spec-key">Flat Head</span><span class="spec-val">ראש שטוח · לא בולט</span></div>
+<div class="spec-row"><span class="spec-key">Countersunk (CSK)</span><span class="spec-val">שוקע במשטח → אווירודינמי</span></div>
+<div class="spec-row"><span class="spec-key">Large Flange</span><span class="spec-val">חומר רך/דק → ↑אחיזה</span></div>
+<div class="spec-row"><span class="spec-key">Sealed</span><span class="spec-val">גב סגום → איטום · ים · חוץ</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rivet Nut — מידות קדח</div>
+<div><span class="mc-badge b-blue">Hole Size</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>מידה</th><th>Drill (Round)</th><th>Drill (Hex)</th><th>עובי מקס׳</th></tr>
+<tr><td>M3</td><td>5.4mm</td><td>—</td><td>2.0mm</td></tr>
+<tr><td>M4</td><td>6.4mm</td><td>6.4mm</td><td>3.0mm</td></tr>
+<tr><td>M5</td><td>7.7mm</td><td>7.8mm</td><td>3.5mm</td></tr>
+<tr><td>M6</td><td>9.0mm</td><td>9.0mm</td><td>4.0mm</td></tr>
+<tr><td>M8</td><td>11.5mm</td><td>11.5mm</td><td>5.0mm</td></tr>
+<tr><td>M10</td><td>14.0mm</td><td>14.0mm</td><td>6.0mm</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">כלי הכנסה — Installation Tools</div>
+<div><span class="mc-badge b-orange">ידני · פנאומטי · חשמלי</span></div>
+<div class="spec-row"><span class="spec-key">Hand Tool</span><span class="spec-val">מ-M3 עד M10 · לכמויות קטנות</span></div>
+<div class="spec-row"><span class="spec-key">Pneumatic</span><span class="spec-val">↑מהירות · מ-M3 עד M16</span></div>
+<div class="spec-row"><span class="spec-key">Cordless (Avdel)</span><span class="spec-val">ניידות · אחיד · M4-M12</span></div>
+<div class="spec-row"><span class="spec-key">Press (Auto)</span><span class="spec-val">ייצור ← ←: כוח מדויק</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">בדוק Pull Force לפי פריט! ← עצמת הידוק קריטית</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== PRESS FIT ===== -->
+<div id="ins-press_fit" class="ins-sec">
+<div class="card"><div class="ctitle">⚙️ Press-fit / Self-Clinching Inserts — PEM</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Self-Clinching Standoff / Nut</div>
+<div><span class="mc-badge b-blue">PEM</span><span class="mc-badge b-orange">לוחות מתכת דקים</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">לחץ ← ← Insert נכנס ← חומר זורם סביבו</span></div>
+<div class="spec-row"><span class="spec-key">תוצאה</span><span class="spec-val">חיבור קבוע ← גבוה Push-out Force</span></div>
+<div class="spec-row"><span class="spec-key">עובי מינימום</span><span class="spec-val">0.5-1.5mm (לפי מידה וחומר)</span></div>
+<div class="spec-row"><span class="spec-key">חומרי לוח</span><span class="spec-val">Al (Hard) · Steel · SS · נחושת</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Al רך</span><span class="spec-val">Soft Al (1xxx) ← לא מתאים! PEM נושר</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">PCB · שלטים · ארונות חשמל · ציוד אלקטרוני</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.pemnet.com" target="_blank" style="color:var(--blue)">PEM (Parker Hannifin)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">PEM סוגים עיקריים</div>
+<div><span class="mc-badge b-green">S · SS · SO · SOFS</span></div>
+<div class="spec-row"><span class="spec-key">S (Nut)</span><span class="spec-val">אום לחיצה · M2 עד M10 · פלדה</span></div>
+<div class="spec-row"><span class="spec-key">SS (Nut SS)</span><span class="spec-val">נירוסטה · M2-M10</span></div>
+<div class="spec-row"><span class="spec-key">SO (Standoff)</span><span class="spec-val">ריווח + הברגה · M2-M8 · מגדיל</span></div>
+<div class="spec-row"><span class="spec-key">SOFS (Floating)</span><span class="spec-val">הברגה זזה ± 0.5mm · ← פיצוי שגיאות</span></div>
+<div class="spec-row"><span class="spec-key">K (Stud)</span><span class="spec-val">ברג קבוע · M2-M8</span></div>
+<div class="spec-row"><span class="spec-key">FH (Flush Head)</span><span class="spec-val">ראש שטוח · אווירודינמי</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">התקנת PEM</div>
+<div><span class="mc-badge b-blue">כבש + Anvil</span></div>
+<div class="spec-row"><span class="spec-key">כלי</span><span class="spec-val">כבש (Hand/Pneumatic/C-Press) + Anvil מתאים</span></div>
+<div class="spec-row"><span class="spec-key">כוח התקנה</span><span class="spec-val">0.3-35kN לפי מידה (מPEM Chart)</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Anvil</span><span class="spec-val">חובה! בלי Anvil = לוח עקום</span></div>
+<div class="spec-row"><span class="spec-key">בדיקה</span><span class="spec-val">Push-out Force Test · Torque Test לפי PEM Spec</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">לעולם לא עם פטיש! כבש בלבד</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Spirol / HAEGER Alternatives</div>
+<div><span class="mc-badge b-green">מקבילים לPEM</span></div>
+<div class="spec-row"><span class="spec-key">Spirol</span><span class="spec-val">Coiled Pins + Inserts · Self-clinching</span></div>
+<div class="spec-row"><span class="spec-key">HAEGER</span><span class="spec-val">ייצרן מכונות + Insert ייחודי</span></div>
+<div class="spec-row"><span class="spec-key">Böllhoff RIVKLE</span><span class="spec-val">Blind Rivet Element</span></div>
+<div class="spec-row"><span class="spec-key">Captive Nut</span><span class="spec-val">אום מוחזק ← מוגדר במסגרת</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><a href="https://www.spirol.com" target="_blank" style="color:var(--blue)">spirol.com</a> · <a href="https://www.haeger.com" target="_blank" style="color:var(--blue)">haeger.com</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== PLASTIC ===== -->
+<div id="ins-plastic_insert" class="ins-sec">
+<div class="card"><div class="ctitle">🔵 Inserts לפלסטיק — Plastic Threaded Inserts</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Ultrasonic Insert — אולטרסאונד</div>
+<div><span class="mc-badge b-blue">Thermoplastic</span><span class="mc-badge b-orange">↑חוזק</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">ויברציה 20-40kHz ← חום מקומי ← פלסטיק נמס סביב Insert</span></div>
+<div class="spec-row"><span class="spec-key">Insert חומר</span><span class="spec-val">פליז H59 (Brass) בד"כ · SS · Al</span></div>
+<div class="spec-row"><span class="spec-key">פלסטיקים מתאימים</span><span class="spec-val">PA · ABS · PC · POM · PBT · PEEK</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↑↑חוזק Pull-out · מהיר · נקי</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ לא ל</span><span class="spec-val">Thermoset (Epoxy/Phenol) — לא נמס!</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">מוצרי צריכה · רפואה · ציוד אלקטרוני</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff AMTEC</a> · <a href="https://www.accu.co.uk" target="_blank" style="color:var(--blue)">Accu</a> · <a href="https://www.pemnet.com" target="_blank" style="color:var(--blue)">PEM Plastic</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Heat-Set Insert — חום</div>
+<div><span class="mc-badge b-red">חולד</span><span class="mc-badge b-blue">3D Print</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">חום (מלחם/תנור) ← Insert חודר לפלסטיק רך</span></div>
+<div class="spec-row"><span class="spec-key">T התקנה</span><span class="spec-val">150-300°C לפי פלסטיק</span></div>
+<div class="spec-row"><span class="spec-key">PLA</span><span class="spec-val">150-180°C</span></div>
+<div class="spec-row"><span class="spec-key">ABS / PETG</span><span class="spec-val">200-240°C</span></div>
+<div class="spec-row"><span class="spec-key">⭐ 3D Print</span><span class="spec-val">מדפסת 3D → Heat-Set Inserts = הפתרון הנפוץ!</span></div>
+<div class="spec-row"><span class="spec-key">כלי</span><span class="spec-val">מלחם + Tip מיוחד · Weller · Hakko</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Press-in Insert — לחץ קר</div>
+<div><span class="mc-badge b-green">פשוט</span><span class="mc-badge b-orange">↓חוזק</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">לחץ ← ← בהתאמה הדוקה</span></div>
+<div class="spec-row"><span class="spec-key">חוזק</span><span class="spec-val">נמוך יחסית — ↓Pull-out</span></div>
+<div class="spec-row"><span class="spec-key">Knurled Body</span><span class="spec-val">גוף מחורץ → ↑אחיזה</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">פלסטיק קשיח · עומסים נמוכים</span></div>
+<div class="spec-row"><span class="spec-key">לא מתאים</span><span class="spec-val">עומסים דינמיים · רטט</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Expansion Insert — הרחבה</div>
+<div><span class="mc-badge b-blue">Thermoset · Composites</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">בורג מהדק → גוף Insert מתרחב</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">Thermoset Plastics · Composites · פלסטיק קשיח</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">ללא חום — מתאים ל-Thermoset!</span></div>
+<div class="spec-row"><span class="spec-key">חוזק</span><span class="spec-val">בינוני · תלוי בחומר מארח</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.spirol.com" target="_blank" style="color:var(--blue)">Spirol</a> · <a href="https://www.kvt-fastening.com" target="_blank" style="color:var(--blue)">KVT</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Molded-in Insert</div>
+<div><span class="mc-badge b-orange">הכי חזק</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Insert בתוך תבנית ← יציקה סביבו</span></div>
+<div class="spec-row"><span class="spec-key">חוזק</span><span class="spec-val">↑↑↑ הכי גבוה — חלק ממבנה החלק</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ חיסרון</span><span class="spec-val">מסבך תבנית · Insert חייב להחזיק מקום</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">מוצרי יציקה קריטיים · רפואה · תעופה</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== ROSAN ===== -->
+<div id="ins-rosan" class="ins-sec">
+<div class="card"><div class="ctitle">✈️ Rosan / Aviation Inserts — תעופה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rosan Insert — מהו?</div>
+<div><span class="mc-badge b-blue">NAS1130</span><span class="mc-badge b-red">תעופה בלבד</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Insert מוצק Locking Ring → נועל לאחר הכנסה</span></div>
+<div class="spec-row"><span class="spec-key">Locking Ring</span><span class="spec-val">טבעת Al/Ti נדחסת ← ← Insert נועל לחלוטין</span></div>
+<div class="spec-row"><span class="spec-key">חוזק</span><span class="spec-val">↑↑↑ Pull-out — מוסמך לתעופה</span></div>
+<div class="spec-row"><span class="spec-key">חומרים</span><span class="spec-val">Ti · SS A286 · Inconel · Al 7075</span></div>
+<div class="spec-row"><span class="spec-key">תקנים</span><span class="spec-val">NAS1130 · MS21209 · AS4536</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">מסגרת מטוס · Al/Ti מבני · חיבורים קריטיים</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.roosanite.com" target="_blank" style="color:var(--blue)">Rosan Inc.</a> · <a href="https://www.lisi-aerospace.com" target="_blank" style="color:var(--blue)">LISI Aerospace</a> · <a href="https://www.aviall.com" target="_blank" style="color:var(--blue)">Aviall</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rosan Types</div>
+<div><span class="mc-badge b-green">A · B · C · D</span></div>
+<div class="spec-row"><span class="spec-key">Type A</span><span class="spec-val">Standard — Wall רגיל</span></div>
+<div class="spec-row"><span class="spec-key">Type B (Thin)</span><span class="spec-val">דופן דקה — ↑חוזק</span></div>
+<div class="spec-row"><span class="spec-key">Type C (Nut)</span><span class="spec-val">עם Hex Nut לסיבוב נגד</span></div>
+<div class="spec-row"><span class="spec-key">Type D (Double)</span><span class="spec-val">תושב כפול — עומסים גבוהים</span></div>
+<div class="spec-row"><span class="spec-key">Sealed</span><span class="spec-val">עם אטום — בסביבת לחץ/נוזל</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Spiralock — Aviation Locking</div>
+<div><span class="mc-badge b-blue">MIL-DTL-18240</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">הברגה פנימית עם מסלול רחב 30° ← נועל</span></div>
+<div class="spec-row"><span class="spec-key">לא צריך</span><span class="spec-val">Nyloc / Loctite / Safety Wire — ←Spiralock לבד</span></div>
+<div class="spec-row"><span class="spec-key">Self-Lock</span><span class="spec-val">רטט → בורג לא נרפה! ← מובטח</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">תעופה · ביטחוני · חלל · מנועי רקטות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.spiralock.com" target="_blank" style="color:var(--blue)">Spiralock (Stanley)</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== E-Z LOK ===== -->
+<div id="ins-ezlok" class="ins-sec">
+<div class="card"><div class="ctitle">🟢 E-Z Lok — Inserts לחומרים רכים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">E-Z Lok — עקרון</div>
+<div><span class="mc-badge b-green">Al · עץ · פלסטיק</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">Insert עם הברגה גסה חיצונית → מוחדר בסיבוב</span></div>
+<div class="spec-row"><span class="spec-key">חיצוני</span><span class="spec-val">הברגה גסה/Knurl → אחיזה בחומר רך</span></div>
+<div class="spec-row"><span class="spec-key">פנימי</span><span class="spec-val">הברגה M תקנית</span></div>
+<div class="spec-row"><span class="spec-key">חומרים</span><span class="spec-val">פליז · SS · Al · Zinc</span></div>
+<div class="spec-row"><span class="spec-key">חומרי מארח</span><span class="spec-val">עץ · פלסטיק · Al רך · MDF · Foam</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">רהיטים · מודלים · ארגזים · פרוטוטייפ</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.ezlok.com" target="_blank" style="color:var(--blue)">E-Z Lok</a> · <a href="https://www.rockler.com" target="_blank" style="color:var(--blue)">Rockler (עץ)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">סוגי E-Z Lok</div>
+<div><span class="mc-badge b-green">לפי חומר מארח</span></div>
+<div class="spec-row"><span class="spec-key">Through-Thread</span><span class="spec-val">הברגה חיצונית ← סיבוב ידני</span></div>
+<div class="spec-row"><span class="spec-key">Flush Press-In</span><span class="spec-val">לחץ + Knurl · ← פלסטיק</span></div>
+<div class="spec-row"><span class="spec-key">Knife Thread</span><span class="spec-val">שיניים חדות → חותך עצמי · עץ</span></div>
+<div class="spec-row"><span class="spec-key">Wood Insert</span><span class="spec-val">Barrel Nut / Tee Nut לרהיטים</span></div>
+<div class="spec-row"><span class="spec-key">Locking</span><span class="spec-val">Nyloc פנימי ← ↓Vibration Loosening</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Tee Nut / Barrel Nut — רהיטים</div>
+<div><span class="mc-badge b-orange">עץ / MDF</span></div>
+<div class="spec-row"><span class="spec-key">Tee Nut</span><span class="spec-val">פלנגה + שיניים → מוחדר ← ← פטיש</span></div>
+<div class="spec-row"><span class="spec-key">Barrel Nut</span><span class="spec-val">גלילי ← לחדיר · ← רהיטים להרכבה</span></div>
+<div class="spec-row"><span class="spec-key">Cross Dowel</span><span class="spec-val">מחליף Barrel Nut · ↑חוזק</span></div>
+<div class="spec-row"><span class="spec-key">מידות</span><span class="spec-val">M4 · M5 · M6 · M8 — הנפוצות</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== COMPARISON ===== -->
+<div id="ins-comparison" class="ins-sec">
+<div class="card"><div class="ctitle">📊 טבלת השוואה — כל סוגי הקשיחים</div>
+<div style="overflow-x:auto">
+<table>
+<tr><th>סוג</th><th>עקרון</th><th>חוזק Pull-out</th><th>קבוע/נשלף</th><th>גישה</th><th>חומר מארח</th><th>שימוש עיקרי</th><th>מחיר יחסי</th></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Helicoil STI</b></td><td>חוט סלילי</td><td>⭐⭐⭐⭐</td><td>נשלף ✅</td><td>חד-צדדי</td><td>כל מתכת</td><td>תיקון · Al</td><td>💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Keensert</b></td><td>מוצק + Keys</td><td>⭐⭐⭐⭐⭐</td><td>קבוע ❌</td><td>חד-צדדי</td><td>Al · פלדה</td><td>תעופה · כבד</td><td>💰💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Time-Sert</b></td><td>מוצק + Flange</td><td>⭐⭐⭐⭐⭐</td><td>קבוע ❌</td><td>חד-צדדי</td><td>Al · CI</td><td>ראשי מנוע</td><td>💰💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Rivet Nut</b></td><td>מתרחב</td><td>⭐⭐⭐</td><td>קבוע ❌</td><td>חד-צדדי ✅</td><td>פח · Al</td><td>ארגזים · רכב</td><td>💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">PEM Self-Clinch</b></td><td>לחץ</td><td>⭐⭐⭐⭐</td><td>קבוע ❌</td><td>שני צדדים</td><td>פח 0.5-3mm</td><td>PCB · אלקטרו</td><td>💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Ultrasonic Insert</b></td><td>ויברציה</td><td>⭐⭐⭐⭐</td><td>קבוע ❌</td><td>חד-צדדי</td><td>Thermoplastic</td><td>מוצרי צריכה</td><td>💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Heat-Set Insert</b></td><td>חום</td><td>⭐⭐⭐</td><td>קבוע ❌</td><td>חד-צדדי</td><td>PLA/ABS/PC</td><td>3D Print</td><td>💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Rosan NAS1130</b></td><td>Locking Ring</td><td>⭐⭐⭐⭐⭐</td><td>קבוע ❌</td><td>חד-צדדי</td><td>Al/Ti מבני</td><td>תעופה</td><td>💰💰💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">E-Z Lok</b></td><td>הברגה גסה</td><td>⭐⭐</td><td>נשלף ✅</td><td>חד-צדדי</td><td>עץ · פלסטיק</td><td>רהיטים · מודלים</td><td>💰</td></tr>
+</table></div>
+
+<div class="machine-grid" style="margin-top:16px">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">מדריך בחירה מהיר</div>
+<div><span class="mc-badge b-green">שאלות מפתח</span></div>
+<div class="spec-row"><span class="spec-key">תיקון הברגה מהיר</span><span class="spec-val">→ Helicoil STI</span></div>
+<div class="spec-row"><span class="spec-key">עומס כבד / ביטחוני</span><span class="spec-val">→ Keensert</span></div>
+<div class="spec-row"><span class="spec-key">ראש מנוע / מנוע</span><span class="spec-val">→ Time-Sert</span></div>
+<div class="spec-row"><span class="spec-key">פח / גישה חד-צדדית</span><span class="spec-val">→ Rivet Nut</span></div>
+<div class="spec-row"><span class="spec-key">לוח מתכת דק (PCB)</span><span class="spec-val">→ PEM Self-Clinching</span></div>
+<div class="spec-row"><span class="spec-key">פלסטיק מודפס 3D</span><span class="spec-val">→ Heat-Set Insert</span></div>
+<div class="spec-row"><span class="spec-key">תעופה / מוסמך</span><span class="spec-val">→ Rosan / Keensert</span></div>
+<div class="spec-row"><span class="spec-key">עץ / חומר רך</span><span class="spec-val">→ E-Z Lok / Tee Nut</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">תקנים חשובים</div>
+<div><span class="mc-badge b-blue">Standards</span></div>
+<div class="spec-row"><span class="spec-key">NASM 21209</span><span class="spec-val">Helicoil / Wire Thread Insert</span></div>
+<div class="spec-row"><span class="spec-key">NASM 33537</span><span class="spec-val">Key-Lock Insert (Keensert)</span></div>
+<div class="spec-row"><span class="spec-key">NAS1130</span><span class="spec-val">Rosan Inserts (Aviation)</span></div>
+<div class="spec-row"><span class="spec-key">DIN 8140</span><span class="spec-val">Wire Thread Inserts (EU)</span></div>
+<div class="spec-row"><span class="spec-key">DIN 16903</span><span class="spec-val">Solid Inserts (ENSAT)</span></div>
+<div class="spec-row"><span class="spec-key">MIL-I-8846</span><span class="spec-val">Military Wire Insert</span></div>
+<div class="spec-row"><span class="spec-key">IFI-432</span><span class="spec-val">Self-Clinching Fasteners (PEM)</span></div>
+</div>
+</div>
+</div></div>
+
+<!-- ===== CALC ===== -->
+<div id="ins-calc_ins" class="ins-sec">
+<div class="card"><div class="ctitle">🧮 מחשבוני קשיחים — Pre-Drill Calculator</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">מחשבון STI Drill — Helicoil</div>
+<div class="cg">
+<div><label>מידה מטרית</label>
+<select id="ins-size" onchange="calcInsDrill()">
+<option value="3,0.5,3.6">M3 × 0.5</option>
+<option value="4,0.7,4.7">M4 × 0.7</option>
+<option value="5,0.8,5.9">M5 × 0.8</option>
+<option value="6,1.0,7.0" selected>M6 × 1.0</option>
+<option value="8,1.25,9.2">M8 × 1.25</option>
+<option value="10,1.5,11.3">M10 × 1.5</option>
+<option value="12,1.75,13.5">M12 × 1.75</option>
+<option value="16,2.0,17.7">M16 × 2.0</option>
+<option value="20,2.5,22.0">M20 × 2.5</option>
+</select></div>
+<div><label>עומק Insert</label>
+<select id="ins-depth-mult" onchange="calcInsDrill()">
+<option value="1">1D — מינימום</option>
+<option value="1.5" selected>1.5D — מומלץ</option>
+<option value="2">2D — כבד</option>
+<option value="2.5">2.5D — תעופה</option>
+<option value="3">3D — מקסימום</option>
+</select></div>
+</div>
+<div id="ins-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">מחשבון Rivet Nut — Hole Size</div>
+<div class="cg">
+<div><label>מידה</label>
+<select id="rn-size" onchange="calcRivetNut()">
+<option value="3,5.4">M3 (5.4mm)</option>
+<option value="4,6.4">M4 (6.4mm)</option>
+<option value="5,7.7" selected>M5 (7.7mm)</option>
+<option value="6,9.0">M6 (9.0mm)</option>
+<option value="8,11.5">M8 (11.5mm)</option>
+<option value="10,14.0">M10 (14.0mm)</option>
+<option value="12,16.5">M12 (16.5mm)</option>
+</select></div>
+<div><label>סוג</label>
+<select id="rn-type" onchange="calcRivetNut()">
+<option value="round">Round Body</option>
+<option value="hex">Hex Body</option>
+</select></div>
+<div><label>עובי חומר (mm)</label><input id="rn-thick" type="number" value="2.0" step="0.5" min="0.5" oninput="calcRivetNut()"></div>
+</div>
+<div id="rn-result" class="res">—</div>
+</div>
+
+</div></div></div>
+</div>

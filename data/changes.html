@@ -1,0 +1,76 @@
+<div id="sec-changes" class="section">
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--muted)">
+<div style="display:flex;align-items:center;gap:12px"><span style="font-size:32px">📄</span><div><div style="font-size:18px;font-weight:800;color:var(--text)">ניהול שינויים בשרטוט</div><div style="font-size:12px;color:var(--muted)">ECO/ECN · REV Control · MIL-STD-100 · ITAR · תהליך שינוי</div></div></div></div>
+<div class="grid2">
+<div class="card"><div class="ctitle">📋 תהליך שינוי הנדסי — ECO/ECN</div>
+<div style="font-size:12px;color:var(--muted);line-height:2.3">
+<b style="color:var(--blue)">1. בקשת שינוי (ECR)</b><br>
+&nbsp;&nbsp;· גורם מגיש: הנדסה / ייצור / לקוח<br>
+&nbsp;&nbsp;· תיאור שינוי + נימוק + השפעות<br>
+&nbsp;&nbsp;· מספר חלק + Rev נוכחי<br>
+<b style="color:var(--orange)">2. ניתוח השפעה</b><br>
+&nbsp;&nbsp;· חלקים מושפעים (where-used)<br>
+&nbsp;&nbsp;· מלאי קיים — מה לעשות עמו?<br>
+&nbsp;&nbsp;· עלות + לוחות זמנים<br>
+<b style="color:var(--green)">3. אישור (ECO Board)</b><br>
+&nbsp;&nbsp;· הנדסה + ייצור + רכש + אחסון<br>
+&nbsp;&nbsp;· תאריך כניסה לתוקף<br>
+<b style="color:var(--purple)">4. יישום</b><br>
+&nbsp;&nbsp;· עדכון שרטוט + Rev<br>
+&nbsp;&nbsp;· עדכון BOM / דרישות<br>
+&nbsp;&nbsp;· הודעה לכל המחלקות<br>
+<b style="color:var(--muted)">5. סגירה ותיוק</b><br>
+&nbsp;&nbsp;· רשומה ב-PLM/ERP<br>
+&nbsp;&nbsp;· שמירת Baseline
+</div></div>
+<div class="card"><div class="ctitle">🔤 מערכת REV — ניהול גרסאות</div>
+<table><tr><th>גרסה</th><th>שיטה</th><th>שימוש</th></tr>
+<tr><td>A, B, C...</td><td>אותיות A-Z</td><td>ISO/ASME — נפוץ מאוד</td></tr>
+<tr><td>0, 1, 2...</td><td>מספרים</td><td>חלק ייצורים</td></tr>
+<tr><td>P1, P2...</td><td>P=Preliminary</td><td>שלב פיתוח לפני אישור</td></tr>
+<tr><td>Rev -</td><td>קו</td><td>שרטוט ראשוני טרם REV</td></tr>
+<tr><td>Rev A</td><td>שינוי ראשון</td><td>אחרי Release ראשון</td></tr></table>
+<div class="note" style="margin-top:8px">לא לדלג על אותיות! I, O, Q, S, X, Z נמנעים (בלבול עם 1, 0, 0, 5, ×, 2). MIL-STD-100 = I, O, Q, S, X, Z אסורות.</div>
+<h3 style="color:var(--orange);margin-top:12px">תיבת REV בשרטוט</h3>
+<table><tr><th>REV</th><th>תיאור</th><th>תאריך</th><th>אישור</th></tr>
+<tr><td>A</td><td>שינוי ל-GD&T על חור ⌀12</td><td>01.01.24</td><td>א.ל.</td></tr>
+<tr><td>B</td><td>שינוי חומר מ-6061 ל-7075</td><td>15.03.24</td><td>י.ב.</td></tr>
+<tr><td>C</td><td>הוספת חריץ 3×10mm</td><td>01.06.24</td><td>א.ל.</td></tr></table></div>
+</div>
+<div class="grid2">
+<div class="card"><div class="ctitle">📐 כותרת שרטוט — Title Block</div>
+<table><tr><th>שדה</th><th>תוכן</th><th>חשיבות</th></tr>
+<tr><td>Part Number</td><td>מספר חלק ייחודי</td><td>קריטי</td></tr>
+<tr><td>Part Name</td><td>שם חלק</td><td>גבוה</td></tr>
+<tr><td>Revision</td><td>Rev A / B / C</td><td>קריטי</td></tr>
+<tr><td>Material</td><td>חומר + תקן</td><td>קריטי</td></tr>
+<tr><td>Scale</td><td>1:2 / 1:1 / 2:1</td><td>גבוה</td></tr>
+<tr><td>Projection</td><td>⊕ First / ⊗ Third</td><td>חשוב</td></tr>
+<tr><td>General Tolerance</td><td>ISO 2768-mK</td><td>חשוב</td></tr>
+<tr><td>Surface Finish</td><td>✓N7 (ברירת מחדל)</td><td>חשוב</td></tr>
+<tr><td>Drawn By</td><td>שם + תאריך</td><td>בינוני</td></tr>
+<tr><td>Approved By</td><td>שם + תאריך</td><td>קריטי</td></tr>
+<tr><td>Drawing Number</td><td>מספר שרטוט</td><td>קריטי</td></tr></table></div>
+<div class="card"><div class="ctitle">🔒 דרישות ITAR / בקרת יצוא</div>
+<div style="font-size:12px;color:var(--muted);line-height:2.3">
+<b style="color:var(--red)">▸ ITAR:</b> International Traffic in Arms Regulations (ארה"ב)<br>
+<b style="color:var(--red)">▸ USML:</b> US Munitions List — חומרים מבוקרים<br>
+<b style="color:var(--orange)">▸ EAR:</b> Export Administration Regulations (אזרחי+כפול שימוש)<br>
+<b style="color:var(--orange)">▸ ECCN:</b> Export Control Classification Number<br>
+<br>
+<b style="color:var(--text)">סימון על שרטוטים:</b><br>
+<div style="background:rgba(239,68,68,0.08);border:1px solid var(--red);border-radius:6px;padding:8px;font-family:monospace;font-size:11px;color:var(--red)">
+WARNING: This document contains technical data<br>
+subject to the Export Administration Regulations<br>
+(EAR). Export/transfer in violation of EAR<br>
+is prohibited. ECCN: 1C002
+</div>
+<br>
+<b style="color:var(--orange)">▸ ישראל:</b> בקרת יצוא ביטחוני — DECA (SIBAT)<br>
+<b style="color:var(--orange)">▸ TP-10:</b> טפסי בקשת רישיון יצוא
+</div></div>
+</div>
+</div>
+
+<!-- MANUFACTURING TECHNOLOGIES -->
+

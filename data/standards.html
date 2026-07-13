@@ -1,0 +1,744 @@
+<div id="sec-standards" class="section">
+
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1a1a);border-color:var(--cyan,#67e8f9)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">📋</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--cyan,#67e8f9)">תקנים הנדסיים — Standards Reference</div>
+    <div style="font-size:12px;color:var(--muted)">GD&T · סובלנויות · חומרים · חיבורים · ריתוך · ציפויים · איכות · MIL/AMS · ישראל · השוואות</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="std-tab active" onclick="showStd('gdt_std',this)">📐 GD&T ושרטוט</button>
+  <button class="std-tab" onclick="showStd('tolerances',this)">📏 סובלנויות</button>
+  <button class="std-tab" onclick="showStd('materials',this)">🧱 חומרים</button>
+  <button class="std-tab" onclick="showStd('fasteners',this)">🔩 חיבורים</button>
+  <button class="std-tab" onclick="showStd('welding',this)">⚡ ריתוך</button>
+  <button class="std-tab" onclick="showStd('coatings',this)">🎨 ציפויים וטיפולי חום</button>
+  <button class="std-tab" onclick="showStd('quality',this)">✅ איכות ותעופה</button>
+  <button class="std-tab" onclick="showStd('military',this)">🛡️ MIL / AMS</button>
+  <button class="std-tab" onclick="showStd('israel',this)">🇮🇱 תקנים ישראליים</button>
+  <button class="std-tab" onclick="showStd('comparison',this)">🌍 השוואות</button>
+</div>
+
+<!-- ===== GD&T ושרטוט ===== -->
+<div id="std-gdt_std" class="std-sec active">
+<div class="card"><div class="ctitle">📐 תקני GD&T ושרטוט הנדסי</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ASME Y14.5 — GD&T אמריקאי</div>
+<div><span class="mc-badge" style="background:var(--cyan,#67e8f9);color:#000">הנפוץ בישראל</span></div>
+<div class="spec-row"><span class="spec-key">מהדורה נוכחית</span><span class="spec-val">ASME Y14.5-2018</span></div>
+<div class="spec-row"><span class="spec-key">מהדורה קודמת</span><span class="spec-val">ASME Y14.5M-2009 (עדיין נפוצה)</span></div>
+<div class="spec-row"><span class="spec-key">שינויים 2018</span><span class="spec-val">הסרת Symmetry ו-Concentricity → Position</span></div>
+<div class="spec-row"><span class="spec-key">RFS</span><span class="spec-val">ברירת מחדל — לא מסומן</span></div>
+<div class="spec-row"><span class="spec-key">Rule #1</span><span class="spec-val">Envelope Principle — ברירת מחדל</span></div>
+<div class="spec-row"><span class="spec-key">הקרנה</span><span class="spec-val">Third Angle ⊗</span></div>
+<div class="spec-row"><span class="spec-key">תחולה</span><span class="spec-val">ביטחוני · תעופה · רכב · ייצוא לארה"ב</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ISO 1101 — GD&T אירופאי</div>
+<div><span class="mc-badge b-blue">ISO/TC 213</span></div>
+<div class="spec-row"><span class="spec-key">מהדורה</span><span class="spec-val">ISO 1101:2017</span></div>
+<div class="spec-row"><span class="spec-key">הבדל מASME</span><span class="spec-val">Independence Principle — ברירת מחדל</span></div>
+<div class="spec-row"><span class="spec-key">הקרנה</span><span class="spec-val">First Angle ⊕</span></div>
+<div class="spec-row"><span class="spec-key">GPS Framework</span><span class="spec-val">Geometrical Product Specifications</span></div>
+<div class="spec-row"><span class="spec-key">ISO 8015</span><span class="spec-val">עקרונות יסוד — GPS</span></div>
+<div class="spec-row"><span class="spec-key">תחולה</span><span class="spec-val">ייצוא לאירופה · EN/DIN</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ASME Y14 — סדרת שרטוט</div>
+<div><span class="mc-badge b-blue">ASME</span></div>
+<div class="spec-row"><span class="spec-key">Y14.1</span><span class="spec-val">גדלי דפים — A/B/C/D/E</span></div>
+<div class="spec-row"><span class="spec-key">Y14.2</span><span class="spec-val">קווי שרטוט ורישום</span></div>
+<div class="spec-row"><span class="spec-key">Y14.3</span><span class="spec-val">מבטים ופריסות (Views)</span></div>
+<div class="spec-row"><span class="spec-key">Y14.5</span><span class="spec-val">GD&T</span></div>
+<div class="spec-row"><span class="spec-key">Y14.36M</span><span class="spec-val">סמלי גימור משטח</span></div>
+<div class="spec-row"><span class="spec-key">Y14.41</span><span class="spec-val">3D Digital Product Definition</span></div>
+<div class="spec-row"><span class="spec-key">Y14.100</span><span class="spec-val">Engineering Drawing Practices</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ISO — תקני שרטוט</div>
+<div><span class="mc-badge b-blue">ISO</span></div>
+<div class="spec-row"><span class="spec-key">ISO 128</span><span class="spec-val">קווי שרטוט ותצוגות</span></div>
+<div class="spec-row"><span class="spec-key">ISO 5455</span><span class="spec-val">קנה מידה (Scales)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 7200</span><span class="spec-val">כותרת שרטוט (Title Block)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 10209</span><span class="spec-val">מונחי שרטוט — Technical Drawing</span></div>
+<div class="spec-row"><span class="spec-key">ISO 16792</span><span class="spec-val">Digital Product Definition (MBD)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 1302</span><span class="spec-val">גימור משטח בשרטוט (מבוטל → 21920)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקני מדידת גיאומטריה</div>
+<div><span class="mc-badge b-orange">GPS Inspection</span></div>
+<div class="spec-row"><span class="spec-key">ISO 12181</span><span class="spec-val">עגוליות — Roundness</span></div>
+<div class="spec-row"><span class="spec-key">ISO 12780</span><span class="spec-val">ישרות — Straightness</span></div>
+<div class="spec-row"><span class="spec-key">ISO 12781</span><span class="spec-val">שטחיות — Flatness</span></div>
+<div class="spec-row"><span class="spec-key">ISO 1101</span><span class="spec-val">GD&T הגדרות כולל Cylindricity</span></div>
+<div class="spec-row"><span class="spec-key">ASME B89.3.1</span><span class="spec-val">Roundness Measurement</span></div>
+<div class="spec-row"><span class="spec-key">ISO 13225</span><span class="spec-val">גלילי — Cylindricity</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">גימור משטח — Surface</div>
+<div><span class="mc-badge b-green">Ra · Rz · Rmax</span></div>
+<div class="spec-row"><span class="spec-key">ISO 21920:2021</span><span class="spec-val">Profile method — Ra/Rz (חדש)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 25178</span><span class="spec-val">Areal Surface Texture — Sa/Sz</span></div>
+<div class="spec-row"><span class="spec-key">ASME B46.1</span><span class="spec-val">Surface Texture — Ra</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4288</span><span class="spec-val">Cutoff wavelengths (λc)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 1302</span><span class="spec-val">סמל גימור בשרטוט (מהדורה ישנה)</span></div>
+</div>
+
+</div>
+
+<div style="margin-top:14px">
+<table><tr><th>תקן</th><th>ISO מקביל</th><th>נושא</th><th>מצב</th></tr>
+<tr><td>ASME Y14.5-2018</td><td>ISO 1101:2017</td><td>GD&T</td><td>✅ בתוקף</td></tr>
+<tr><td>ASME Y14.36M</td><td>ISO 1302/21920</td><td>גימור משטח</td><td>✅ בתוקף</td></tr>
+<tr><td>ASME B46.1</td><td>ISO 21920</td><td>מדידת Ra</td><td>✅ בתוקף</td></tr>
+<tr><td>ASME Y14.41</td><td>ISO 16792</td><td>MBD / 3D Definition</td><td>✅ בתוקף</td></tr>
+<tr><td>ASME Y14.5M-1994</td><td>—</td><td>GD&T ישן</td><td>⚠️ בוטל</td></tr>
+</table>
+</div>
+</div></div>
+
+<!-- ===== TOLERANCES ===== -->
+<div id="std-tolerances" class="std-sec">
+<div class="card"><div class="ctitle">📏 תקני סובלנויות וכוננויות</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ISO 286 — מערכת כוננויות</div>
+<div><span class="mc-badge" style="background:var(--cyan,#67e8f9);color:#000">ה-מרכזי</span></div>
+<div class="spec-row"><span class="spec-key">ISO 286-1</span><span class="spec-val">יסודות מערכת IT — אותיות + דרגות</span></div>
+<div class="spec-row"><span class="spec-key">ISO 286-2</span><span class="spec-val">טבלאות סובלנות לכל מידה</span></div>
+<div class="spec-row"><span class="spec-key">IT1-IT18</span><span class="spec-val">18 דרגות דיוק — IT1 הכי מדויק</span></div>
+<div class="spec-row"><span class="spec-key">H7/h6</span><span class="spec-val">חוג/ציר — ה-Fit הנפוץ ביותר</span></div>
+<div class="spec-row"><span class="spec-key">H7/p6</span><span class="spec-val">Press Fit נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">ANSI B4.2</span><span class="spec-val">מקביל אמריקאי</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ISO 2768 — סובלנות כללית</div>
+<div><span class="mc-badge b-orange">General Tolerance</span></div>
+<div class="spec-row"><span class="spec-key">ISO 2768-1</span><span class="spec-val">ממדים לינאריים וזוויות: f/m/c/v</span></div>
+<div class="spec-row"><span class="spec-key">ISO 2768-2</span><span class="spec-val">GD&T כללי: H/K/L</span></div>
+<div class="spec-row"><span class="spec-key">m (Medium)</span><span class="spec-val">±0.1mm/0.5-3mm → הנפוץ</span></div>
+<div class="spec-row"><span class="spec-key">c (Coarse)</span><span class="spec-val">ייצור גס · יציקה</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">כשאין סובלנות ספציפית בשרטוט</span></div>
+<div class="spec-row"><span class="spec-key">ASME מקביל</span><span class="spec-val">ASME Y14.5 title block tolerances</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ASME B4.1/B4.2 — Fits אמריקאי</div>
+<div><span class="mc-badge b-blue">RC/LC/LN/FN</span></div>
+<div class="spec-row"><span class="spec-key">RC (Running Clearance)</span><span class="spec-val">RC1-RC9 — מחוג חופשי</span></div>
+<div class="spec-row"><span class="spec-key">LC (Locational Clearance)</span><span class="spec-val">LC1-LC11 — מיקום עם פרצה</span></div>
+<div class="spec-row"><span class="spec-key">LN (Locational Interference)</span><span class="spec-val">LN1-3 — מיקום הדוק</span></div>
+<div class="spec-row"><span class="spec-key">FN (Force/Shrink)</span><span class="spec-val">FN1-5 — לחץ וכיווץ</span></div>
+<div class="spec-row"><span class="spec-key">B4.2</span><span class="spec-val">מערכת ISO Hole/Shaft לאינצ'ים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ISO 1829 — סובלנות צורה</div>
+<div><span class="mc-badge b-green">Profile Tolerances</span></div>
+<div class="spec-row"><span class="spec-key">ISO 1829</span><span class="spec-val">בחירת דרגות IT לשימושים שונים</span></div>
+<div class="spec-row"><span class="spec-key">IT5-IT7</span><span class="spec-val">חלקים נעים — מדויקים</span></div>
+<div class="spec-row"><span class="spec-key">IT7-IT11</span><span class="spec-val">חלקים מותאמים — כלל שימוש</span></div>
+<div class="spec-row"><span class="spec-key">IT11-IT16</span><span class="spec-val">יציקות · חישול גס</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ISO 286 — טבלת Fits נפוצים</div>
+<div><span class="mc-badge b-orange">Quick Ref</span></div>
+<table style="font-size:11px;margin-top:4px">
+<tr><th>Fit</th><th>סוג</th><th>שימוש</th></tr>
+<tr><td>H7/h6</td><td>Sliding</td><td>ציר חלק — ניתן לזזה</td></tr>
+<tr><td>H7/g6</td><td>Running</td><td>מיסב ← ← ← נפוץ</td></tr>
+<tr><td>H7/f7</td><td>Running</td><td>מהיר · שמן</td></tr>
+<tr><td>H7/k6</td><td>Transition</td><td>Locating — כבש</td></tr>
+<tr><td>H7/n6</td><td>Transition</td><td>Light Press</td></tr>
+<tr><td>H7/p6</td><td>Interference</td><td>Press Fit — מקיש</td></tr>
+<tr><td>H7/s6</td><td>Interference</td><td>Heavy Press</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקני מדידה ו-CMM</div>
+<div><span class="mc-badge b-blue">Metrology</span></div>
+<div class="spec-row"><span class="spec-key">ISO 10360</span><span class="spec-val">CMM — דיוק ובדיקת CMM</span></div>
+<div class="spec-row"><span class="spec-key">ISO 1 (ISO 1:2016)</span><span class="spec-val">טמפרטורת ייחוס: 20°C</span></div>
+<div class="spec-row"><span class="spec-key">ASME B89.4</span><span class="spec-val">CMM Performance (US)</span></div>
+<div class="spec-row"><span class="spec-key">VDI/VDE 2617</span><span class="spec-val">CMM — גרמני, נפוץ מאוד</span></div>
+<div class="spec-row"><span class="spec-key">ISO 14253</span><span class="spec-val">Decision rules for conformance</span></div>
+<div class="spec-row"><span class="spec-key">GUM (ISO/IEC Guide 98)</span><span class="spec-val">אי-ודאות מדידה</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== MATERIALS ===== -->
+<div id="std-materials" class="std-sec">
+<div class="card"><div class="ctitle">🧱 תקני חומרים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">פלדות מבנה — ASTM/EN</div>
+<div><span class="mc-badge b-blue">Carbon Steel</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A36</span><span class="spec-val">פלדה מבנה אמריקאית — Fy=250MPa</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A572</span><span class="spec-val">HSLA Steel — Grade 50/60</span></div>
+<div class="spec-row"><span class="spec-key">EN 10025-2</span><span class="spec-val">S235/S275/S355 — אירופאי</span></div>
+<div class="spec-row"><span class="spec-key">EN 10025-3/4</span><span class="spec-val">S420/S460 TMCP/Quenched</span></div>
+<div class="spec-row"><span class="spec-key">IS 50 (ישראלי)</span><span class="spec-val">Fe360/Fe430/Fe510</span></div>
+<div class="spec-row"><span class="spec-key">JIS G3101</span><span class="spec-val">SS400 — יפני (≈S235)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">פלדת פחמן — AISI/SAE</div>
+<div><span class="mc-badge b-orange">Alloy Steel</span></div>
+<div class="spec-row"><span class="spec-key">AISI 1018</span><span class="spec-val">Low Carbon — C15 (EN)</span></div>
+<div class="spec-row"><span class="spec-key">AISI 1045</span><span class="spec-val">Medium Carbon — C45 (EN)</span></div>
+<div class="spec-row"><span class="spec-key">AISI 4140</span><span class="spec-val">Cr-Mo — 42CrMo4 (EN)</span></div>
+<div class="spec-row"><span class="spec-key">AISI 4340</span><span class="spec-val">Ni-Cr-Mo — 36CrNiMo4 (EN)</span></div>
+<div class="spec-row"><span class="spec-key">AISI 8620</span><span class="spec-val">Carburizing — 20NiCrMo2-2</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A108</span><span class="spec-val">Cold Drawn Bars (CF)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">אל-חלד — Stainless Steel</div>
+<div><span class="mc-badge b-green">SS</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A276</span><span class="spec-val">SS Bars and Shapes</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A240</span><span class="spec-val">SS Flat Products</span></div>
+<div class="spec-row"><span class="spec-key">EN 10088</span><span class="spec-val">SS — 1.4301/1.4404/1.4571</span></div>
+<div class="spec-row"><span class="spec-key">ISO 15510</span><span class="spec-val">Chemical Composition SS</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A312</span><span class="spec-val">SS Seamless Pipes</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A193</span><span class="spec-val">B7/B8 — SS Alloy Bolts</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">אלומיניום</div>
+<div><span class="mc-badge b-blue">Aluminum</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B211</span><span class="spec-val">Al Alloy Bars/Rods/Wire</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B209</span><span class="spec-val">Al Alloy Sheet & Plate</span></div>
+<div class="spec-row"><span class="spec-key">EN 573</span><span class="spec-val">Al — EN AW-6061/7075 וכו'</span></div>
+<div class="spec-row"><span class="spec-key">EN 485</span><span class="spec-val">Al Sheet, Strip, Plate</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2770</span><span class="spec-val">Heat Treatment Al (Aerospace)</span></div>
+<div class="spec-row"><span class="spec-key">ANSI H35.1</span><span class="spec-val">Al Alloy Designation System</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">טיטניום וסגסוגות על</div>
+<div><span class="mc-badge b-red">Ti · Ni Alloys</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B265</span><span class="spec-val">Ti Strip/Sheet/Plate</span></div>
+<div class="spec-row"><span class="spec-key">AMS 4928</span><span class="spec-val">Ti-6Al-4V Bar — Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B637</span><span class="spec-val">Ni Alloy Bars (Inconel 718)</span></div>
+<div class="spec-row"><span class="spec-key">AMS 5662</span><span class="spec-val">Inconel 718 Sheet</span></div>
+<div class="spec-row"><span class="spec-key">AMS 5663</span><span class="spec-val">Inconel 718 Bar</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B550</span><span class="spec-val">Zirconium Bar & Wire</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">כלים — Tool Steel</div>
+<div><span class="mc-badge b-orange">HSS · Cold · Hot</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A600</span><span class="spec-val">HSS (M2/M42 וכו') — Tool Steel</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A681</span><span class="spec-val">Alloy Tool Steels (D2/H13/A2)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4957</span><span class="spec-val">Tool Steels — EN Classification</span></div>
+<div class="spec-row"><span class="spec-key">DIN EN 10027</span><span class="spec-val">Steel Designation — HS6-5-2</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">יציקות</div>
+<div><span class="mc-badge b-blue">Cast Iron · Cast Steel</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A48</span><span class="spec-val">Gray Iron — Class 20-60</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A536</span><span class="spec-val">Ductile Iron — Grade 65-45-12</span></div>
+<div class="spec-row"><span class="spec-key">EN 1561</span><span class="spec-val">Gray Iron — EN-GJL-200/250/300</span></div>
+<div class="spec-row"><span class="spec-key">EN 1563</span><span class="spec-val">Ductile Iron — EN-GJS-400/500</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A27</span><span class="spec-val">Carbon Steel Castings</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">קפיצים ופלדות מיוחדות</div>
+<div><span class="mc-badge b-green">Springs · Special</span></div>
+<div class="spec-row"><span class="spec-key">EN 10270-1</span><span class="spec-val">Music Wire — SH/SL/SM</span></div>
+<div class="spec-row"><span class="spec-key">EN 10270-2</span><span class="spec-val">Cr-V Spring Wire</span></div>
+<div class="spec-row"><span class="spec-key">EN 10270-3</span><span class="spec-val">SS Spring Wire — 1.4310</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A228</span><span class="spec-val">Music Wire (US)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A401</span><span class="spec-val">Chromium-Silicon Wire</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== FASTENERS ===== -->
+<div id="std-fasteners" class="std-sec">
+<div class="card"><div class="ctitle">🔩 תקני חיבורים וחוזקים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">הברגות ISO מטרי</div>
+<div><span class="mc-badge" style="background:var(--cyan,#67e8f9);color:#000">ISO 68 / ISO 724</span></div>
+<div class="spec-row"><span class="spec-key">ISO 68-1</span><span class="spec-val">פרופיל הברגה מטרית — 60°</span></div>
+<div class="spec-row"><span class="spec-key">ISO 724</span><span class="spec-val">ממדי הברגה מטרית (M1-M600)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 965-1</span><span class="spec-val">סובלנויות מטרי — 6g/6H</span></div>
+<div class="spec-row"><span class="spec-key">ISO 261</span><span class="spec-val">ספרי העדפה (Coarse/Fine)</span></div>
+<div class="spec-row"><span class="spec-key">DIN 13</span><span class="spec-val">מטרי — גרמני (זהה ISO 724)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">הברגות אמריקאיות</div>
+<div><span class="mc-badge b-blue">UNC / UNF / UNEF</span></div>
+<div class="spec-row"><span class="spec-key">ASME B1.1</span><span class="spec-val">Unified Inch Screw Threads</span></div>
+<div class="spec-row"><span class="spec-key">UNC</span><span class="spec-val">Coarse — 1/4-20, 3/8-16</span></div>
+<div class="spec-row"><span class="spec-key">UNF</span><span class="spec-val">Fine — 1/4-28, 3/8-24</span></div>
+<div class="spec-row"><span class="spec-key">UNEF</span><span class="spec-val">Extra Fine</span></div>
+<div class="spec-row"><span class="spec-key">UN (Series)</span><span class="spec-val">4/6/8/12/16/20/28 TPI</span></div>
+<div class="spec-row"><span class="spec-key">ASME B1.13M</span><span class="spec-val">Metric Threads (US)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">הברגות צנרת</div>
+<div><span class="mc-badge b-orange">NPT · BSP · G</span></div>
+<div class="spec-row"><span class="spec-key">ASME B1.20.1</span><span class="spec-val">NPT — National Pipe Taper (US)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 7-1</span><span class="spec-val">BSP Taper (BSPT/Rc)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 228-1</span><span class="spec-val">BSP Parallel (BSPP/G)</span></div>
+<div class="spec-row"><span class="spec-key">NPSM</span><span class="spec-val">Straight Mechanical (US)</span></div>
+<div class="spec-row"><span class="spec-key">SAE J476</span><span class="spec-val">Dryseal Pressure Tight</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">בורגים ואומים ISO</div>
+<div><span class="mc-badge b-blue">Fastener Standards</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4014/4017</span><span class="spec-val">Hex Bolt — Part/Full Thread</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4762</span><span class="spec-val">Socket Head Cap Screw (DIN 912)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 10642</span><span class="spec-val">CSK Socket Screw</span></div>
+<div class="spec-row"><span class="spec-key">ISO 7380</span><span class="spec-val">Button Head Socket Screw</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4032/4033</span><span class="spec-val">Hex Nut Style 1/2</span></div>
+<div class="spec-row"><span class="spec-key">ISO 7089/7090</span><span class="spec-val">Flat Washer Normal/Hard</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">דרגות חוזק</div>
+<div><span class="mc-badge b-red">ISO 898 / SAE J429</span></div>
+<div class="spec-row"><span class="spec-key">ISO 898-1</span><span class="spec-val">Bolts/Screws — 4.6/5.8/8.8/10.9/12.9</span></div>
+<div class="spec-row"><span class="spec-key">ISO 898-2</span><span class="spec-val">Nuts — Grade 5/8/10/12</span></div>
+<div class="spec-row"><span class="spec-key">SAE J429</span><span class="spec-val">Grade 2/5/8 (US)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A307</span><span class="spec-val">Low Carbon Bolts Grade A/B</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A325/A490</span><span class="spec-val">Structural Bolts (US)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 3506</span><span class="spec-val">SS Fasteners — A2/A4 70/80</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">מסמרות וחיבורים</div>
+<div><span class="mc-badge b-green">Rivets · Pins</span></div>
+<div class="spec-row"><span class="spec-key">ISO 1051</span><span class="spec-val">Rivets — Solid</span></div>
+<div class="spec-row"><span class="spec-key">ASME B18.1.1</span><span class="spec-val">Small Solid Rivets (US)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 8749</span><span class="spec-val">Spring Pins — Slotted</span></div>
+<div class="spec-row"><span class="spec-key">ISO 8748</span><span class="spec-val">Coiled Spring Pins (Spirol)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 2339</span><span class="spec-val">Taper Pins</span></div>
+<div class="spec-row"><span class="spec-key">NASM 1312</span><span class="spec-val">Fastener Test — Aerospace</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== WELDING ===== -->
+<div id="std-welding" class="std-sec">
+<div class="card"><div class="ctitle">⚡ תקני ריתוך</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">AWS — American Welding Society</div>
+<div><span class="mc-badge" style="background:var(--cyan,#67e8f9);color:#000">AWS</span></div>
+<div class="spec-row"><span class="spec-key">AWS D1.1</span><span class="spec-val">Structural Welding — Steel</span></div>
+<div class="spec-row"><span class="spec-key">AWS D1.2</span><span class="spec-val">Structural Welding — Aluminum</span></div>
+<div class="spec-row"><span class="spec-key">AWS D1.3</span><span class="spec-val">Sheet Metal Welding</span></div>
+<div class="spec-row"><span class="spec-key">AWS D1.5</span><span class="spec-val">Bridge Welding Code</span></div>
+<div class="spec-row"><span class="spec-key">AWS D1.6</span><span class="spec-val">Structural Welding — SS</span></div>
+<div class="spec-row"><span class="spec-key">AWS D8.1M</span><span class="spec-val">Automotive Spot Welding</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ISO — תקני ריתוך</div>
+<div><span class="mc-badge b-blue">ISO / EN</span></div>
+<div class="spec-row"><span class="spec-key">ISO 5817</span><span class="spec-val">Weld Quality — B/C/D (Fusion)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 10042</span><span class="spec-val">Al Weld Quality — B/C/D</span></div>
+<div class="spec-row"><span class="spec-key">ISO 9692</span><span class="spec-val">Joint Preparation — Weld</span></div>
+<div class="spec-row"><span class="spec-key">ISO 2553</span><span class="spec-val">Welding Symbols on Drawings</span></div>
+<div class="spec-row"><span class="spec-key">ISO 3834</span><span class="spec-val">Quality Requirements — Fusion</span></div>
+<div class="spec-row"><span class="spec-key">EN 1090</span><span class="spec-val">Execution of Steel Structures (EU)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקני חומרי ריתוך — AWS Filler</div>
+<div><span class="mc-badge b-orange">Filler Metals</span></div>
+<div class="spec-row"><span class="spec-key">AWS A5.1</span><span class="spec-val">SMAW Electrodes — E6010/E7018</span></div>
+<div class="spec-row"><span class="spec-key">AWS A5.18</span><span class="spec-val">MIG Steel — ER70S-6</span></div>
+<div class="spec-row"><span class="spec-key">AWS A5.10</span><span class="spec-val">MIG Al — ER4043/ER5356</span></div>
+<div class="spec-row"><span class="spec-key">AWS A5.9</span><span class="spec-val">MIG/TIG SS — ER308L/ER316L</span></div>
+<div class="spec-row"><span class="spec-key">AWS A5.14</span><span class="spec-val">Ni Alloy — ERNiCrMo-3</span></div>
+<div class="spec-row"><span class="spec-key">ISO 14341</span><span class="spec-val">MIG/MAG Wire — ISO Classification</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקני בדיקת ריתוך</div>
+<div><span class="mc-badge b-red">NDE / NDT</span></div>
+<div class="spec-row"><span class="spec-key">ASME V</span><span class="spec-val">NDE Methods (BPVC Section V)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 17635</span><span class="spec-val">NDE of Welds — General Rules</span></div>
+<div class="spec-row"><span class="spec-key">ISO 17636</span><span class="spec-val">RT — Radiographic Testing Welds</span></div>
+<div class="spec-row"><span class="spec-key">ISO 17637</span><span class="spec-val">VT — Visual Testing Welds</span></div>
+<div class="spec-row"><span class="spec-key">ISO 17638</span><span class="spec-val">MT — Magnetic Particle Welds</span></div>
+<div class="spec-row"><span class="spec-key">ISO 17640</span><span class="spec-val">UT — Ultrasonic Testing Welds</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">כשירות מרתכים</div>
+<div><span class="mc-badge b-green">Qualification</span></div>
+<div class="spec-row"><span class="spec-key">ISO 9606-1</span><span class="spec-val">Welder Qualification — Fusion Steel</span></div>
+<div class="spec-row"><span class="spec-key">ISO 9606-2</span><span class="spec-val">Welder Qualification — Al</span></div>
+<div class="spec-row"><span class="spec-key">ASME IX</span><span class="spec-val">Welding Qualifications (BPVC)</span></div>
+<div class="spec-row"><span class="spec-key">AWS D1.1 D1 Qual.</span><span class="spec-val">CWI — Certified Welding Inspector</span></div>
+<div class="spec-row"><span class="spec-key">EN 1418</span><span class="spec-val">Welding Operator Qualification</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ריתוך — לחץ / צינורות</div>
+<div><span class="mc-badge b-red">Pressure Vessels</span></div>
+<div class="spec-row"><span class="spec-key">ASME BPVC VIII</span><span class="spec-val">Pressure Vessel Code</span></div>
+<div class="spec-row"><span class="spec-key">ASME B31.3</span><span class="spec-val">Process Piping</span></div>
+<div class="spec-row"><span class="spec-key">ASME B31.1</span><span class="spec-val">Power Piping</span></div>
+<div class="spec-row"><span class="spec-key">ISO 15614-1</span><span class="spec-val">WPS Qualification — Steel</span></div>
+<div class="spec-row"><span class="spec-key">PD 5500</span><span class="spec-val">Pressure Vessels (UK)</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== COATINGS ===== -->
+<div id="std-coatings" class="std-sec">
+<div class="card"><div class="ctitle">🎨 תקני ציפויים וטיפולי חום</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">אנודיזציה — Anodizing</div>
+<div><span class="mc-badge b-blue">Al Anodize</span></div>
+<div class="spec-row"><span class="spec-key">MIL-A-8625</span><span class="spec-val">Type I (Chromic) / II (Sulfuric) / III (Hard)</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2469</span><span class="spec-val">Hard Anodic Coating</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2471</span><span class="spec-val">Anodic Coating — Undyed</span></div>
+<div class="spec-row"><span class="spec-key">ISO 7599</span><span class="spec-val">Anodizing of Al — Sulphuric Acid</span></div>
+<div class="spec-row"><span class="spec-key">BS 1615</span><span class="spec-val">Anodic Oxidation of Al (UK)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">כרום ו-Electroless Nickel</div>
+<div><span class="mc-badge b-orange">Plating</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2406</span><span class="spec-val">Hard Chrome — Electrodeposited</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2460</span><span class="spec-val">Decorative Chrome</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2404</span><span class="spec-val">Electroless Nickel</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B733</span><span class="spec-val">Electroless Nickel — thickness</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4526</span><span class="spec-val">EN Coatings — Requirements</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B177</span><span class="spec-val">Chrome Plating Process</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">פסיבציה וציפוי Zn</div>
+<div><span class="mc-badge b-green">Passivation · Zinc</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2700</span><span class="spec-val">Passivation SS — Method 1-7</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A967</span><span class="spec-val">Passivation SS (alternative)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B633</span><span class="spec-val">Electro Zinc Plating</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4520</span><span class="spec-val">Chromate Conversion on Zn</span></div>
+<div class="spec-row"><span class="spec-key">ISO 10683</span><span class="spec-val">Zinc Flake Coating</span></div>
+<div class="spec-row"><span class="spec-key">ASTM B695</span><span class="spec-val">Mechanical Zinc Plating</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">פוספטציה וציפוי הגנה</div>
+<div><span class="mc-badge b-blue">Phosphate · Paint</span></div>
+<div class="spec-row"><span class="spec-key">MIL-DTL-16232</span><span class="spec-val">Phosphate Coating (Manganese/Zinc)</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2481</span><span class="spec-val">Manganese Phosphate</span></div>
+<div class="spec-row"><span class="spec-key">MIL-PRF-85582</span><span class="spec-val">Epoxy Primer Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">ISO 12944</span><span class="spec-val">Corrosion Protection Paint Systems</span></div>
+<div class="spec-row"><span class="spec-key">MIL-PRF-23377</span><span class="spec-val">Epoxy Primer — 2 Part</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">טיפולי חום — Heat Treatment</div>
+<div><span class="mc-badge b-red">HT Standards</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2759</span><span class="spec-val">Heat Treatment Steel</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2770</span><span class="spec-val">Heat Treatment Al Alloys</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2774</span><span class="spec-val">Heat Treatment Wrought Ni Alloys</span></div>
+<div class="spec-row"><span class="spec-key">ISO 683</span><span class="spec-val">Heat Treatable Steels (EU)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A255</span><span class="spec-val">Jominy Hardenability Test</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2750</span><span class="spec-val">Pyrometry — Furnace Calibration</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Hydrogen Embrittlement</div>
+<div><span class="mc-badge b-red">⚠️ HE Relief</span></div>
+<div class="spec-row"><span class="spec-key">ASTM F519</span><span class="spec-val">HE Testing — Notched Bar</span></div>
+<div class="spec-row"><span class="spec-key">ASTM F1940</span><span class="spec-val">Process Control — HE Prevention</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2759/9</span><span class="spec-val">HE Relief Process</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4042</span><span class="spec-val">Coatings on Fasteners — HE Risk</span></div>
+<div class="spec-row"><span class="spec-key">ביצוע</span><span class="spec-val">190-210°C × 23h לאחר ציפוי</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== QUALITY ===== -->
+<div id="std-quality" class="std-sec">
+<div class="card"><div class="ctitle">✅ תקני איכות ותעופה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ISO 9001 — ניהול איכות</div>
+<div><span class="mc-badge" style="background:var(--cyan,#67e8f9);color:#000">QMS</span></div>
+<div class="spec-row"><span class="spec-key">ISO 9001:2015</span><span class="spec-val">Quality Management System</span></div>
+<div class="spec-row"><span class="spec-key">ISO 9000</span><span class="spec-val">Vocabulary and Fundamentals</span></div>
+<div class="spec-row"><span class="spec-key">ISO 9004</span><span class="spec-val">Performance Excellence — Beyond 9001</span></div>
+<div class="spec-row"><span class="spec-key">ISO 19011</span><span class="spec-val">Auditing Management Systems</span></div>
+<div class="spec-row"><span class="spec-key">תחולה</span><span class="spec-val">כל תעשייה · דרישה בסיסית</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">AS9100 — תעופה</div>
+<div><span class="mc-badge b-red">Aerospace QMS</span></div>
+<div class="spec-row"><span class="spec-key">AS9100 Rev D</span><span class="spec-val">QMS Aerospace — ISO 9001 + תוספות</span></div>
+<div class="spec-row"><span class="spec-key">AS9102</span><span class="spec-val">First Article Inspection (FAI)</span></div>
+<div class="spec-row"><span class="spec-key">AS9103</span><span class="spec-val">Variation Management of Key Characteristics</span></div>
+<div class="spec-row"><span class="spec-key">AS9110</span><span class="spec-val">MRO — Maintenance Organizations</span></div>
+<div class="spec-row"><span class="spec-key">AS9120</span><span class="spec-val">Distributors — Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">OASIS DB</span><span class="spec-val">מאגר הסמכות — IAQG</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">IATF 16949 — רכב</div>
+<div><span class="mc-badge b-orange">Automotive</span></div>
+<div class="spec-row"><span class="spec-key">IATF 16949:2016</span><span class="spec-val">QMS Automotive (הוחלף TS 16949)</span></div>
+<div class="spec-row"><span class="spec-key">APQP</span><span class="spec-val">Advanced Product Quality Planning</span></div>
+<div class="spec-row"><span class="spec-key">PPAP</span><span class="spec-val">Production Part Approval Process</span></div>
+<div class="spec-row"><span class="spec-key">FMEA (AIAG)</span><span class="spec-val">DFMEA + PFMEA — 4th Edition</span></div>
+<div class="spec-row"><span class="spec-key">MSA</span><span class="spec-val">Measurement System Analysis</span></div>
+<div class="spec-row"><span class="spec-key">SPC</span><span class="spec-val">Statistical Process Control</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">SPC ו-Statistical</div>
+<div><span class="mc-badge b-blue">Statistics</span></div>
+<div class="spec-row"><span class="spec-key">ISO 7870</span><span class="spec-val">Control Charts</span></div>
+<div class="spec-row"><span class="spec-key">ISO 7873</span><span class="spec-val">Control Charts — Means</span></div>
+<div class="spec-row"><span class="spec-key">ISO 3951</span><span class="spec-val">Sampling by Variables</span></div>
+<div class="spec-row"><span class="spec-key">ISO 2859</span><span class="spec-val">Sampling by Attributes — AQL</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E2587</span><span class="spec-val">SPC Charts (US)</span></div>
+<div class="spec-row"><span class="spec-key">Six Sigma</span><span class="spec-val">AIAG · ASQ — DMAIC</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">NDT / NDE</div>
+<div><span class="mc-badge b-green">Non-Destructive</span></div>
+<div class="spec-row"><span class="spec-key">ASNT SNT-TC-1A</span><span class="spec-val">NDT Personnel Qualification (US)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 9712</span><span class="spec-val">NDE Personnel Qualification (ISO)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E1444</span><span class="spec-val">Magnetic Particle (MT)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E1417</span><span class="spec-val">Liquid Penetrant (PT)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E214</span><span class="spec-val">Radiography (RT)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E2375</span><span class="spec-val">Ultrasonic (UT)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">FAI — First Article Inspection</div>
+<div><span class="mc-badge b-orange">AS9102</span></div>
+<div class="spec-row"><span class="spec-key">AS9102B</span><span class="spec-val">First Article Inspection Requirements</span></div>
+<div class="spec-row"><span class="spec-key">מה כולל</span><span class="spec-val">Design Documentation · Materials · Processes</span></div>
+<div class="spec-row"><span class="spec-key">מה מדידים</span><span class="spec-val">כל מידה בשרטוט · Key Characteristics</span></div>
+<div class="spec-row"><span class="spec-key">FAIR מסמכים</span><span class="spec-val">Ballooned Drawing · Actual Measurements</span></div>
+<div class="spec-row"><span class="spec-key">מתי נדרש</span><span class="spec-val">פיתוח חדש · שינוי תהליך · Supplier חדש</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== MILITARY ===== -->
+<div id="std-military" class="std-sec">
+<div class="card"><div class="ctitle">🛡️ תקנים ביטחוניים MIL / AMS / NASM</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">MIL-STD — ציפויים</div>
+<div><span class="mc-badge b-red">MIL-SPEC</span></div>
+<div class="spec-row"><span class="spec-key">MIL-A-8625</span><span class="spec-val">Anodic Coatings — Al</span></div>
+<div class="spec-row"><span class="spec-key">MIL-DTL-5002</span><span class="spec-val">Surface Treatments — Iron/Steel</span></div>
+<div class="spec-row"><span class="spec-key">MIL-DTL-16232</span><span class="spec-val">Phosphate Coating</span></div>
+<div class="spec-row"><span class="spec-key">MIL-PRF-8585</span><span class="spec-val">Lubricating Grease</span></div>
+<div class="spec-row"><span class="spec-key">MIL-PRF-680</span><span class="spec-val">Degreasing Solvent</span></div>
+<div class="spec-row"><span class="spec-key">MIL-C-5541</span><span class="spec-val">Chemical Film (Alodine/Chromate)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">MIL-STD — תהליכים</div>
+<div><span class="mc-badge b-red">Process Specs</span></div>
+<div class="spec-row"><span class="spec-key">MIL-STD-130</span><span class="spec-val">Identification Marking of US Military Property</span></div>
+<div class="spec-row"><span class="spec-key">MIL-STD-792</span><span class="spec-val">Identification Marking of Critical Parts</span></div>
+<div class="spec-row"><span class="spec-key">MIL-STD-810</span><span class="spec-val">Environmental Test Methods</span></div>
+<div class="spec-row"><span class="spec-key">MIL-STD-1472</span><span class="spec-val">Human Engineering — Design</span></div>
+<div class="spec-row"><span class="spec-key">MIL-STD-1553</span><span class="spec-val">Data Bus (Avionics)</span></div>
+<div class="spec-row"><span class="spec-key">MIL-HDBK-5</span><span class="spec-val">Metallic Materials — Properties</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">AMS — Aerospace Material Specs</div>
+<div><span class="mc-badge b-blue">SAE / AMS</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2430</span><span class="spec-val">Shot Peening</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2432</span><span class="spec-val">Shot Peening — Computer Controlled</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2700</span><span class="spec-val">Passivation SS</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2759</span><span class="spec-val">Heat Treatment of Steel</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2770</span><span class="spec-val">Heat Treatment Al</span></div>
+<div class="spec-row"><span class="spec-key">AMS 4928</span><span class="spec-val">Ti-6Al-4V Bar</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">NASM — Fasteners Aerospace</div>
+<div><span class="mc-badge b-green">NASM</span></div>
+<div class="spec-row"><span class="spec-key">NASM 21209</span><span class="spec-val">Helicoil / Wire Thread Insert</span></div>
+<div class="spec-row"><span class="spec-key">NASM 33537</span><span class="spec-val">Key-Lock Insert (Keensert)</span></div>
+<div class="spec-row"><span class="spec-key">NASM 1312</span><span class="spec-val">Fastener Test Methods</span></div>
+<div class="spec-row"><span class="spec-key">NAS1130</span><span class="spec-val">Rosan Inserts</span></div>
+<div class="spec-row"><span class="spec-key">NAS623</span><span class="spec-val">Hex Bolts — Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">MS21250</span><span class="spec-val">Hi-Lok Fasteners</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">DEF STAN — ביטחוני בריטי</div>
+<div><span class="mc-badge b-blue">UK Defence</span></div>
+<div class="spec-row"><span class="spec-key">DEF STAN 00-970</span><span class="spec-val">Design of Military Aircraft</span></div>
+<div class="spec-row"><span class="spec-key">DEF STAN 03-2</span><span class="spec-val">Anodic Coating of Al</span></div>
+<div class="spec-row"><span class="spec-key">DEF STAN 03-5</span><span class="spec-val">Cadmium Plate (Aerospace)</span></div>
+<div class="spec-row"><span class="spec-key">DEF STAN 02-729</span><span class="spec-val">Naval Surface Preparation</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">RCC / Rafael / IAI Specs</div>
+<div><span class="mc-badge b-orange">🇮🇱 ישראל ביטחוני</span></div>
+<div class="spec-row"><span class="spec-key">MIL-STD בישראל</span><span class="spec-val">תקנים אמריקאיים נהוגים בתעשייה</span></div>
+<div class="spec-row"><span class="spec-key">ת"ל ביטחוני</span><span class="spec-val">תקני מכון התקנים לביטחון</span></div>
+<div class="spec-row"><span class="spec-key">AMS נהוג</span><span class="spec-val">ציפויים + חומרים — AMS נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">AS9100</span><span class="spec-val">חובה ליצרני תעופה ביטחוניים</span></div>
+<div class="spec-row"><span class="spec-key">AQAP</span><span class="spec-val">NATO Quality Assurance — AQAP 2110</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== ISRAEL ===== -->
+<div id="std-israel" class="std-sec">
+<div class="card"><div class="ctitle">🇮🇱 תקנים ישראליים — מכון התקנים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">מכון התקנים הישראלי — מת"י</div>
+<div><span class="mc-badge" style="background:var(--cyan,#67e8f9);color:#000">ת"י</span></div>
+<div class="spec-row"><span class="spec-key">ת"י 1</span><span class="spec-val">מידות נייר — A4/A3/A0</span></div>
+<div class="spec-row"><span class="spec-key">ת"י 13</span><span class="spec-val">שרטוט טכני — כללים</span></div>
+<div class="spec-row"><span class="spec-key">ת"י 16 (GHS)</span><span class="spec-val">סיווג וסימון כימיקלים</span></div>
+<div class="spec-row"><span class="spec-key">ת"י 630</span><span class="spec-val">פלדה מבנה</span></div>
+<div class="spec-row"><span class="spec-key">ת"י 1390</span><span class="spec-val">ריתוך — כשירות מרתכים</span></div>
+<div class="spec-row"><span class="spec-key">אתר</span><span class="spec-val">sii.org.il</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקנות בטיחות — עבודה</div>
+<div><span class="mc-badge b-red">משרד הכלכלה</span></div>
+<div class="spec-row"><span class="spec-key">תקנות בטיחות עבודה</span><span class="spec-val">ציוד מגן אישי · מכונות</span></div>
+<div class="spec-row"><span class="spec-key">ת"ז 1 — CE</span><span class="spec-val">סימון CE חובה בישראל (יבוא)</span></div>
+<div class="spec-row"><span class="spec-key">תקנות כלים לחץ</span><span class="spec-val">דוד קיטור · מכלי לחץ</span></div>
+<div class="spec-row"><span class="spec-key">ת"י 931</span><span class="spec-val">ציוד הרמה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ת"י — תקנים מקבילים ISO</div>
+<div><span class="mc-badge b-blue">ת"י ≡ ISO</span></div>
+<div class="spec-row"><span class="spec-key">ת"י ISO 9001</span><span class="spec-val">ניהול איכות</span></div>
+<div class="spec-row"><span class="spec-key">ת"י ISO 14001</span><span class="spec-val">ניהול סביבה</span></div>
+<div class="spec-row"><span class="spec-key">ת"י ISO 45001</span><span class="spec-val">בטיחות ובריאות תעסוקתית</span></div>
+<div class="spec-row"><span class="spec-key">ת"י ISO 1101</span><span class="spec-val">GD&T</span></div>
+<div class="spec-row"><span class="spec-key">ת"י ISO 286</span><span class="spec-val">כוננויות ומשבצות</span></div>
+<div class="spec-row"><span class="spec-key">רוב ת"י</span><span class="spec-val">תרגום ישיר מISO/EN ← בדרך כלל זהים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקנות סביבה — ישראל</div>
+<div><span class="mc-badge b-green">משרד הגנת הסביבה</span></div>
+<div class="spec-row"><span class="spec-key">REACH (EU בישראל)</span><span class="spec-val">הגבלת כימיקלים — מחייב ביצוא</span></div>
+<div class="spec-row"><span class="spec-key">RoHS</span><span class="spec-val">הגבלת עופרת/כסף/Cd/Hg</span></div>
+<div class="spec-row"><span class="spec-key">תקנות אוויר נקי</span><span class="spec-val">פליטות VOC מציפויים</span></div>
+<div class="spec-row"><span class="spec-key">תקנות חומ"ס</span><span class="spec-val">חומרים מסוכנים 2008</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== COMPARISON ===== -->
+<div id="std-comparison" class="std-sec">
+<div class="card"><div class="ctitle">🌍 השוואות — AISI/SAE vs EN vs JIS</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle" style="font-size:13px">פלדות פחמן ופלדות סגסוגת</div>
+<table><tr><th>AISI/SAE (US)</th><th>EN (אירופה)</th><th>DIN (גרמניה)</th><th>JIS (יפן)</th><th>תיאור</th></tr>
+<tr><td>1018</td><td>S235/C15</td><td>St37/Ck15</td><td>SS400/S15C</td><td>פחמן נמוך, רך</td></tr>
+<tr><td>1020</td><td>C20</td><td>Ck20</td><td>S20C</td><td>פחמן נמוך</td></tr>
+<tr><td>1045</td><td>C45</td><td>Ck45</td><td>S45C</td><td>פחמן בינוני, נפוץ</td></tr>
+<tr><td>1060</td><td>C60</td><td>Ck60</td><td>S60C</td><td>פחמן גבוה, קפיצים</td></tr>
+<tr><td>4130</td><td>25CrMo4</td><td>25CrMo4</td><td>SCM430</td><td>Cr-Mo, Aerospace</td></tr>
+<tr><td>4140</td><td>42CrMo4</td><td>42CrMo4</td><td>SCM440</td><td>Cr-Mo, הנפוץ</td></tr>
+<tr><td>4340</td><td>36CrNiMo4</td><td>36NiCrMo4</td><td>SNCM439</td><td>Ni-Cr-Mo, חוזק גבוה</td></tr>
+<tr><td>8620</td><td>20NiCrMo2-2</td><td>21NiCrMo2</td><td>SNCM220</td><td>Case Hardening</td></tr>
+<tr><td>9310</td><td>—</td><td>—</td><td>—</td><td>Aerospace Gear Steel</td></tr>
+</table></div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle" style="font-size:13px">אל-חלד — Stainless Steel</div>
+<table><tr><th>AISI/UNS (US)</th><th>EN/W-Nr (EU)</th><th>DIN</th><th>תיאור</th><th>שימוש</th></tr>
+<tr><td>304 / S30400</td><td>1.4301</td><td>X5CrNi18-10</td><td>אוסטניטי 18-8</td><td>כלל שימוש</td></tr>
+<tr><td>304L / S30403</td><td>1.4307</td><td>X2CrNi18-9</td><td>C נמוך — ריתוך</td><td>ריתוך 304</td></tr>
+<tr><td>316 / S31600</td><td>1.4401</td><td>X5CrNiMo17-12-2</td><td>Mo — קורוזיה</td><td>ים, כימיה</td></tr>
+<tr><td>316L / S31603</td><td>1.4404</td><td>X2CrNiMo17-12-2</td><td>C נמוך + Mo</td><td>ריתוך ים</td></tr>
+<tr><td>321 / S32100</td><td>1.4541</td><td>X6CrNiTi18-10</td><td>Ti Stabilized</td><td>T גבוהה</td></tr>
+<tr><td>347 / S34700</td><td>1.4550</td><td>X6CrNiNb18-10</td><td>Nb Stabilized</td><td>T גבוהה</td></tr>
+<tr><td>410 / S41000</td><td>1.4006</td><td>X12Cr13</td><td>מרטנזיטי</td><td>סכינים, מסבים</td></tr>
+<tr><td>17-4PH / S17400</td><td>1.4542</td><td>X5CrNiCuNb16-4</td><td>Precip. Hardened</td><td>תעופה, ביטחוני</td></tr>
+<tr><td>2205 / S32205</td><td>1.4462</td><td>X2CrNiMoN22-5-3</td><td>דופלקס</td><td>ים, כימיה</td></tr>
+</table></div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle" style="font-size:13px">אלומיניום</div>
+<table><tr><th>AA (US)</th><th>EN (EU)</th><th>מצב</th><th>Rm (MPa)</th><th>שימוש</th></tr>
+<tr><td>1050</td><td>EN AW-1050A</td><td>H14</td><td>105</td><td>כלל, מוליכות</td></tr>
+<tr><td>2024</td><td>EN AW-2024</td><td>T3/T4</td><td>440-470</td><td>תעופה</td></tr>
+<tr><td>5052</td><td>EN AW-5052</td><td>H32</td><td>230</td><td>ים, ריתוך</td></tr>
+<tr><td>6061</td><td>EN AW-6061</td><td>T6</td><td>310</td><td>כלל, מבני</td></tr>
+<tr><td>6063</td><td>EN AW-6063</td><td>T5/T6</td><td>190-245</td><td>פרופילים</td></tr>
+<tr><td>7050</td><td>EN AW-7050</td><td>T7451</td><td>510</td><td>תעופה מבני</td></tr>
+<tr><td>7075</td><td>EN AW-7075</td><td>T6/T651</td><td>500-570</td><td>תעופה, ביטחוני</td></tr>
+<tr><td>7068</td><td>—</td><td>T6511</td><td>690</td><td>ביצועים גבוהים</td></tr>
+</table></div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle" style="font-size:13px">כלי עבודה — Tool Steel</div>
+<table><tr><th>AISI (US)</th><th>EN (EU)</th><th>DIN</th><th>סוג</th><th>שימוש</th></tr>
+<tr><td>H13</td><td>X40CrMoV5-1</td><td>1.2344</td><td>Hot Work</td><td>יציקה, חישול חם</td></tr>
+<tr><td>H11</td><td>X38CrMoV5-1</td><td>1.2343</td><td>Hot Work</td><td>מנסרות, ביטחוני</td></tr>
+<tr><td>D2</td><td>X153CrMoV12</td><td>1.2379</td><td>Cold Work</td><td>штампים, חיתוך</td></tr>
+<tr><td>A2</td><td>X100CrMoV5</td><td>1.2363</td><td>Cold Work</td><td>חיתוך, ניקוב</td></tr>
+<tr><td>O1</td><td>100MnCrW4</td><td>1.2510</td><td>Oil Hardening</td><td>כלים כלליים</td></tr>
+<tr><td>M2</td><td>S6-5-2</td><td>1.3343</td><td>HSS</td><td>מקדחות, פרזות</td></tr>
+<tr><td>M42</td><td>S2-10-1-8</td><td>1.3247</td><td>HSS-Co</td><td>קשיות גבוהה</td></tr>
+<tr><td>P20</td><td>40CrMnMo7</td><td>1.2311</td><td>Mold Steel</td><td>תבניות פלסטיק</td></tr>
+</table></div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle" style="font-size:13px">השוואת מערכות GD&T</div>
+<table><tr><th>נושא</th><th>ASME Y14.5-2018</th><th>ISO 1101:2017</th><th>הערה</th></tr>
+<tr><td>עקרון ברירת מחדל</td><td>Rule #1 / Envelope</td><td>Independence</td><td>הבדל קריטי!</td></tr>
+<tr><td>RFS</td><td>ברירת מחדל (ⓢ הוסר)</td><td>ברירת מחדל</td><td>זהה</td></tr>
+<tr><td>הקרנה</td><td>Third Angle ⊗</td><td>First Angle ⊕</td><td>חשוב בשרטוט!</td></tr>
+<tr><td>Symmetry</td><td>בוטל → Position</td><td>קיים</td><td>שינוי 2018</td></tr>
+<tr><td>Concentricity</td><td>בוטל → Position</td><td>קיים</td><td>שינוי 2018</td></tr>
+<tr><td>Datum Target</td><td>DT</td><td>DT</td><td>זהה</td></tr>
+<tr><td>Basic Dimension</td><td>מסגרת מרובעת</td><td>מסגרת מרובעת</td><td>זהה</td></tr>
+<tr><td>גימור משטח</td><td>Y14.36M</td><td>ISO 1302/21920</td><td>שונה!</td></tr>
+</table></div>
+
+</div></div>
+</div>

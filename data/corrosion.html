@@ -1,0 +1,80 @@
+<div id="sec-corrosion" class="section">
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--red)">
+<div style="display:flex;align-items:center;gap:12px"><span style="font-size:32px">⚡</span><div><div style="font-size:18px;font-weight:800;color:var(--red)">קורוזיה ותאימות גלוונית</div><div style="font-size:12px;color:var(--muted)">סדרת גלוון · זוגות מסוכנים · PREN · מניעה</div></div></div></div>
+<div class="card"><div class="ctitle">⚡ סדרת גלוון — Galvanic Series (מים ים)</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:8px">↑ קתודי (אציל) — הגנה</div>
+<table><tr><th>מתכת/סגסוגת</th><th>פוטנציאל mV</th></tr>
+<tr><td style="color:#ffd700"><b>זהב, פלטינה</b></td><td>+1200</td></tr>
+<tr><td><b>גרפיט/פחמן</b></td><td>+300</td></tr>
+<tr><td><b>CFRP (פחמן)</b></td><td>+200</td></tr>
+<tr><td><b>Hastelloy C</b></td><td>+100</td></tr>
+<tr><td><b>Inconel 625</b></td><td>+50</td></tr>
+<tr><td><b>Monel 400</b></td><td>+20</td></tr>
+<tr><td><b>SS 316L (passive)</b></td><td>-50</td></tr>
+<tr><td><b>SS 304 (passive)</b></td><td>-80</td></tr>
+<tr><td><b>נחושת C110</b></td><td>-100</td></tr>
+<tr><td><b>ברונזה</b></td><td>-150</td></tr>
+<tr><td><b>פליז</b></td><td>-200</td></tr>
+<tr><td><b>ניקל</b></td><td>-250</td></tr>
+<tr><td><b>SS 304 (active)</b></td><td>-300</td></tr>
+<tr><td><b>טיטניום Grade 2</b></td><td>-50 עד -300*</td></tr>
+<!-- Ti: -50mV passive (oxide), -300mV active -->
+<tr><td><b>כסף (Noble!)</b></td><td>-150</td></tr></table>
+</div>
+<div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:8px">↓ אנודי (פעיל) — קורוזיה</div>
+<table><tr><th>מתכת/סגסוגת</th><th>פוטנציאל mV</th></tr>
+<tr><td><b>Lead (עופרת)</b></td><td>-450</td></tr>
+<tr><td><b>פלדה A36</b></td><td>-600</td></tr>
+<tr><td><b>פלדת יצוק</b></td><td>-650</td></tr>
+<tr><td><b>אלומיניום 7075</b></td><td>-700</td></tr>
+<tr><td><b>אלומיניום 6061</b></td><td>-750</td></tr>
+<tr><td><b>אלומיניום 1100</b></td><td>-780</td></tr>
+<tr><td><b>קדמיום</b></td><td>-800</td></tr>
+<tr><td><b>אבץ (Zinc)</b></td><td>-900</td></tr>
+<tr><td><b>מגנזיום AZ31</b></td><td>-1600</td></tr>
+<tr style="background:var(--surface)"><td colspan="2" style="text-align:center;color:var(--muted);font-size:11px">הפרש >250mV = סכנת קורוזיה גלוונית!
+* Ti = passive (oxide) בסביבה רגילה: ~-50mV. Active (ללא oxide): ~-300mV</td></tr></table>
+<div class="note" style="margin-top:8px"><b>⚠️ CFRP + Al</b> = הפרש ~950mV = קורוזיה קשה! חובה Glass ply barrier.<br><b>⚠️ SS + Al</b> = הפרש ~650mV = קורוזיה. בידוד או ציפוי.</div>
+</div>
+</div>
+</div>
+<div class="grid2">
+<div class="card"><div class="ctitle">🚨 זוגות מסוכנים — מה לא לשלב</div>
+<table><tr><th>חיבור</th><th>הפרש mV</th><th>סיכון</th><th>מניעה</th></tr>
+<tr><td>CFRP + Al</td><td>~950</td><td style="color:var(--red)">קריטי!</td><td>Glass ply barrier, Sealant</td></tr>
+<tr><td>SS 304 + Al</td><td>~670</td><td style="color:var(--red)">גבוה</td><td>Alodine + Primer, בידוד</td></tr>
+<tr><td>SS 304 + Mg</td><td>~1500</td><td style="color:var(--red)">קריטי!</td><td>לא לשלב! Mg מושמד</td></tr>
+<tr><td>נחושת + Al</td><td>~650</td><td style="color:var(--red)">גבוה</td><td>בידוד Nylon washer</td></tr>
+<tr><td>SS + פלדה</td><td>~520</td><td style="color:var(--orange)">בינוני</td><td>Zinc plate, צבע</td></tr>
+<tr><td>Al 7075 + Al 6061</td><td>~50</td><td style="color:var(--green)">נמוך</td><td>בד"כ מקובל</td></tr>
+<tr><td>Ti + SS</td><td>~250</td><td style="color:var(--yellow)">גבולי</td><td>בסביבת ים — בידוד</td></tr>
+<tr><td>Cd + SS</td><td>~550</td><td style="color:var(--orange)">בינוני</td><td>פופולרי בתעופה בכוונה (Cd=אנודי)</td></tr></table></div>
+<div class="card"><div class="ctitle">🔢 PREN — עמידות קורוזיה אל-חלד</div>
+<div style="font-family:monospace;background:var(--surface);border-radius:8px;padding:12px;font-size:13px;color:var(--text);margin-bottom:10px">
+PREN = %Cr + 3.3×%Mo + 16×%N
+</div>
+<table><tr><th>סגסוגת</th><th>PREN</th><th>שימוש</th></tr>
+<tr><td>SS 304</td><td>~18</td><td>פנים, מזון</td></tr>
+<tr><td>SS 316L</td><td>~24</td><td>ים קל, כימיה</td></tr>
+<tr><td>SS 317L</td><td>~30</td><td>ים בינוני</td></tr>
+<tr><td>SS 2205 Duplex</td><td>~35</td><td>ים, נפט/גז</td></tr>
+<tr><td>SS 2507 Super</td><td>>40</td><td>ים קשה</td></tr>
+<tr><td>904L</td><td>~36</td><td>חומצה</td></tr>
+<tr><td>Hastelloy C276</td><td>~70+</td><td>הכל</td></tr></table>
+<div class="note">PREN>35 = עמיד Pitting בסביבת ים. PREN>40 = Super Duplex = תנאים קשים ביותר.</div></div>
+</div>
+<div class="card"><div class="ctitle">🛡️ שיטות מניעת קורוזיה</div>
+<div class="grid3">
+<div><h3 style="color:var(--blue)">בחירת חומר</h3><div style="font-size:12px;color:var(--muted);line-height:2">✅ SS 316L במקום 304 לסביבת ים<br>✅ Ti-Grade 2 — עמיד לכל<br>✅ Al 5083 לסביבת ים<br>✅ PREN>35 לים פתוח</div></div>
+<div><h3 style="color:var(--green)">ציפויים הגנתיים</h3><div style="font-size:12px;color:var(--muted);line-height:2">✅ Zinc (קרבני) לפלדה<br>✅ Alodine + Primer לAl<br>✅ Passivation לSS<br>✅ Cadmium לתעופה<br>✅ HDG לחיצוני</div></div>
+<div><h3 style="color:var(--orange)">בידוד גלוונית</h3><div style="font-size:12px;color:var(--muted);line-height:2">✅ Nylon washer בין חומרים<br>✅ Glass ply barrier (CFRP+Al)<br>✅ Faying Surface Sealant<br>✅ Anodize + Sealant<br>✅ PR-1422 / PR-1776</div></div>
+</div></div>
+</div>
+
+<!-- ADDITIVE MFG -->
+
+
+<!-- HYDRAULICS -->

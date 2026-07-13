@@ -1,0 +1,553 @@
+<div id="sec-pricing" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a150d);border-color:var(--orange,#fb923c)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">💰</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--orange,#fb923c)">תמחיר ייצור מקצועי</div>
+    <div style="font-size:12px;color:var(--muted)">עיבוד שבבי · גלם · תעריפים · BOM · הצעת מחיר · גמר · בדיקה · הרכבה · נוסחאות</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="prc-tab active" onclick="showPrc('calc',this)">🧮 מחשבון תמחיר</button>
+  <button class="prc-tab" onclick="showPrc('rates',this)">⏱️ תעריפי מכונות</button>
+  <button class="prc-tab" onclick="showPrc('material',this)">🧱 מחירי חומרי גלם</button>
+  <button class="prc-tab" onclick="showPrc('finish',this)">🎨 ציפוי וגמר</button>
+  <button class="prc-tab" onclick="showPrc('testing',this)">🔍 בדיקה ואיכות</button>
+  <button class="prc-tab" onclick="showPrc('assembly',this)">🔧 הרכבה ועבודות</button>
+  <button class="prc-tab" onclick="showPrc('quote',this)">📄 הצעת מחיר</button>
+  <button class="prc-tab" onclick="showPrc('formulas',this)">📊 נוסחאות ומדדים</button>
+</div>
+
+<style>
+.prc-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.prc-tab:hover,.prc-tab.active{background:var(--orange,#fb923c);color:#000;border-color:var(--orange,#fb923c);font-weight:700}
+.prc-sec{display:none}.prc-sec.active{display:block}
+</style>
+
+<!-- ==================== CALCULATOR ==================== -->
+<div id="prc-calc" class="prc-sec active">
+<div class="card"><div class="ctitle">🧮 מחשבון תמחיר — חלק מעובד</div>
+
+<div class="tip-box" style="margin-bottom:14px">
+<b>איך להשתמש:</b> מלא את 4 הכרטיסים מלמעלה למטה. התוצאה מתעדכנת אוטומטית.<br>
+<b>לא בטוח מה להכניס?</b> לחץ על אחת הדוגמאות למטה — המחשבון יתמלא בערכים ריאליסטיים של חלק טיפוסי.
+</div>
+
+<!-- PRESETS -->
+<div style="margin-bottom:14px">
+<div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--orange,#fb923c)">⚡ דוגמאות מוכנות — לחץ לטעינה:</div>
+<div style="display:flex;flex-wrap:wrap;gap:5px">
+  <div style="width:100%;font-size:10px;color:var(--muted);margin-bottom:2px">⚙️ חריטה:</div>
+  <button class="prc-tab" onclick="loadPreset('pin')" style="font-size:10px">📌 פין פשוט</button>
+  <button class="prc-tab" onclick="loadPreset('shaft')" style="font-size:10px">⚙️ ציר מדויק</button>
+  <button class="prc-tab" onclick="loadPreset('swiss')" style="font-size:10px">🏥 Swiss רפואי</button>
+  <div style="width:100%;font-size:10px;color:var(--muted);margin-bottom:2px;margin-top:4px">⚙️ כרסום:</div>
+  <button class="prc-tab" onclick="loadPreset('bracket')" style="font-size:10px">📐 סוגר Al פשוט</button>
+  <button class="prc-tab" onclick="loadPreset('pocket')" style="font-size:10px">🔲 כיס פנימי</button>
+  <button class="prc-tab" onclick="loadPreset('plate')" style="font-size:10px">📋 פלטה SS</button>
+  <button class="prc-tab" onclick="loadPreset('housing')" style="font-size:10px">🏗️ Housing מורכב</button>
+  <button class="prc-tab" onclick="loadPreset('mold')" style="font-size:10px">💎 תבנית 3D</button>
+  <button class="prc-tab" onclick="loadPreset('aero')" style="font-size:10px">✈️ תעופה 5-ציר</button>
+</div>
+</div>
+
+<div class="machine-grid">
+
+<!-- ===== כרטיס 1: חומר גלם ===== -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">📦 שלב 1 — חומר גלם</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px;line-height:1.6">
+כמה חומר צריך לקנות כדי לייצר חלק אחד? המשקל הסופי של החלק מוכפל בפקטור הבזבוז (BTF) — כי תמיד נכנס יותר חומר ממה שנשאר בחלק הגמור.
+</div>
+<div class="cg">
+  <div>
+    <label>משקל החלק הגמור (ק"ג)</label>
+    <div style="font-size:9px;color:var(--muted)">שקול את החלק או חשב מ-CAD. לא הגלם — הגמור!</div>
+    <input id="pc-wt" type="number" value="0.3" step="0.05" oninput="calcFullPrice()">
+  </div>
+  <div>
+    <label>פקטור בזבוז — Buy-to-Fly (BTF)</label>
+    <div style="font-size:9px;color:var(--muted)">כמה ק"ג גלם צריך לקנות עבור כל ק"ג של חלק גמור. BTF 1.3 = 30% בזבוז.</div>
+    <select id="pc-btf" onchange="calcFullPrice()">
+      <option value="1.1">1.1 — ציר מבר, כמעט ללא בזבוז</option>
+      <option value="1.3" selected>1.3 — חריטה + כרסום קל (נפוץ)</option>
+      <option value="1.6">1.6 — כיסים / פרופיל מורכב</option>
+      <option value="2.5">2.5 — כיסים עמוקים / קירות דקים</option>
+      <option value="4.0">4.0 — Hog-Out מפלטה (הרבה בזבוז)</option>
+      <option value="8.0">8.0 — Monolithic תעופה (רוב החומר הולך לפח)</option>
+    </select>
+  </div>
+  <div>
+    <label>סוג חומר (₪ לק"ג)</label>
+    <div style="font-size:9px;color:var(--muted)">מחיר משוער לק"ג בר/פלטה בכמות בינונית בישראל.</div>
+    <select id="pc-mat" onchange="calcFullPrice()">
+      <option value="8">פלדה 1018/20 (~8₪) — הזולה ביותר</option>
+      <option value="12">פלדה 1045 (~12₪) — כללי</option>
+      <option value="15">12L14 Free-Cut (~15₪) — עיבודיות מעולה</option>
+      <option value="18">פלדה 4140 (~18₪) — חוזק גבוה</option>
+      <option value="28">פלדה 4340 (~28₪) — תעופה/ביטחוני</option>
+      <option value="45">SS 303 (~45₪) — נירוסטה + עיבודיות</option>
+      <option value="55">SS 304 (~55₪) — נירוסטה כללי</option>
+      <option value="75">SS 316L (~75₪) — נירוסטה כימיה/ים</option>
+      <option value="120">SS 17-4PH (~120₪) — נירוסטה מחוסמת</option>
+      <option value="38" selected>Al 6061-T6 (~38₪) — אלומיניום כללי</option>
+      <option value="58">Al 7075-T6 (~58₪) — אלומיניום תעופה</option>
+      <option value="600">Ti-6Al-4V (~600₪) — טיטניום (יקר!)</option>
+      <option value="1200">Inconel 718 (~1200₪) — סופר-סגסוגת (יקר מאוד!)</option>
+      <option value="90">פליז C360 (~90₪) — עיבודיות מעולה</option>
+      <option value="75">ברונזה C932 (~75₪) — מסבים/בושינגים</option>
+      <option value="40">POM / Delrin (~40₪) — פלסטיק הנדסי</option>
+    </select>
+  </div>
+</div>
+<div class="res" id="pc-r1" style="margin-top:8px">—</div>
+</div>
+
+<!-- ===== כרטיס 2: עיבוד שבבי ===== -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">⚙️ שלב 2 — עיבוד שבבי</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px;line-height:1.6">
+כמה זמן לוקח להכין את המכונה (Setup) וכמה זמן המכונה עובדת על כל חלק. ה-Setup מתחלק על כל הכמות — ככל שיותר חלקים, עלות Setup לחלק יורדת.
+</div>
+<div class="cg">
+  <div>
+    <label>Setup כולל (דקות)</label>
+    <div style="font-size:9px;color:var(--muted)">זמן הכנת המכונה: אחיזה, כיוון כלים, כיוון אפס, הרצת חלק ראשון. אם יש 2 OPs (הגדרות) — חבר את שניהם.</div>
+    <input id="pc-setup" type="number" value="45" step="5" oninput="calcFullPrice()">
+  </div>
+  <div>
+    <label>זמן מכונה לחלק (דקות)</label>
+    <div style="font-size:9px;color:var(--muted)">כמה דקות המכונה עובדת על חלק אחד, כולל כל הפעולות (OPs). פין פשוט = 2-5 דקות. חלק מורכב = 60-120 דקות.</div>
+    <input id="pc-mach" type="number" value="25" step="1" oninput="calcFullPrice()">
+  </div>
+  <div>
+    <label>סוג מכונה (₪ לשעה)</label>
+    <div style="font-size:9px;color:var(--muted)">תעריף שעת מכונה כולל: אופרטור, פחת מכונה, חשמל, כלי חיתוך, Coolant. מכונה מתקדמת יותר = תעריף גבוה יותר.</div>
+    <select id="pc-rate" onchange="calcFullPrice()">
+      <option value="200">מחרטה ידנית — 200₪/hr</option>
+      <option value="300">מחרטה CNC 2-ציר — 300₪/hr</option>
+      <option value="400">מחרטה CNC Y+C+Live — 400₪/hr</option>
+      <option value="350" selected>VMC 3-ציר (כרסומת CNC) — 350₪/hr</option>
+      <option value="450">VMC 3-ציר גדול — 450₪/hr</option>
+      <option value="550">VMC 5-ציר (3+2) — 550₪/hr</option>
+      <option value="700">VMC 5-ציר Simultaneous — 700₪/hr</option>
+      <option value="500">HMC + Pallet — 500₪/hr</option>
+      <option value="300">Surface Grinding — 300₪/hr</option>
+      <option value="350">Cylindrical Grinding — 350₪/hr</option>
+      <option value="600">EDM Wire — 600₪/hr</option>
+      <option value="700">EDM Sinker — 700₪/hr</option>
+      <option value="450">Swiss-Type — 450₪/hr</option>
+      <option value="500">לייזר Fiber — 500₪/hr</option>
+      <option value="150">ניסור / מקדחה — 150₪/hr</option>
+    </select>
+  </div>
+  <div>
+    <label>כמות חלקים בהזמנה</label>
+    <div style="font-size:9px;color:var(--muted)">ככל שהכמות גדולה יותר — עלות ה-Setup לחלק יורדת. 1 חלק = יקר. 1000 חלקים = זול.</div>
+    <input id="pc-qty" type="number" value="20" min="1" oninput="calcFullPrice()">
+  </div>
+</div>
+<div class="res" id="pc-r2" style="margin-top:8px">—</div>
+</div>
+
+<!-- ===== כרטיס 3: גמר ותוספות ===== -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">🎨 שלב 3 — גמר, בדיקה ותוספות</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px;line-height:1.6">
+עלויות נוספות אחרי העיבוד: ציפוי (אנודייז, אבץ...), טיפול חום (הקשיה), בדיקות איכות, וניקוי/גמר. לא כל חלק דורש את הכל — בחר רק מה שרלוונטי.
+</div>
+<div class="cg">
+  <div>
+    <label>ציפוי (₪ לחלק)</label>
+    <div style="font-size:9px;color:var(--muted)">ציפוי מגן מפני קורוזיה / שחיקה. מחיר לחלק בסדרה בינונית.</div>
+    <select id="pc-coat" onchange="calcFullPrice()">
+      <option value="0" selected>ללא ציפוי</option>
+      <option value="12">אנודייז Type II — 12₪ (Al בלבד)</option>
+      <option value="25">אנודייז Type III קשה — 25₪ (Al בלבד)</option>
+      <option value="12">אבץ (Zinc) — 12₪ (פלדה)</option>
+      <option value="18">ניקל EN — 18₪ (כל מתכת)</option>
+      <option value="30">כרום קשה — 30₪ (שחיקה)</option>
+      <option value="8">Black Oxide — 8₪ (פלדה, זול)</option>
+      <option value="10">פסיבציה — 10₪ (נירוסטה)</option>
+      <option value="15">Alodine / Chem Film — 15₪ (Al)</option>
+      <option value="25">Powder Coat (צביעה) — 25₪</option>
+    </select>
+  </div>
+  <div>
+    <label>טיפול חום (₪ לחלק)</label>
+    <div style="font-size:9px;color:var(--muted)">הקשיה, ריכוך, או שיפור תכונות מכניות. נדרש לפלדות שצריכות קשיות.</div>
+    <select id="pc-ht" onchange="calcFullPrice()">
+      <option value="0" selected>ללא</option>
+      <option value="15">הקשיה Q&T — 15₪ (4140, 4340)</option>
+      <option value="25">כרבור / ניטרוד — 25₪ (שכבת קשיחות)</option>
+      <option value="40">ואקום — 40₪ (כלי חיתוך, תעופה)</option>
+      <option value="10">הרפיית מאמצים — 10₪ (אחרי ריתוך)</option>
+    </select>
+  </div>
+  <div>
+    <label>בדיקת איכות (₪ לחלק)</label>
+    <div style="font-size:9px;color:var(--muted)">מדידה, דו"ח, CMM. חלק פשוט = בדיקה בסיסית. תעופה = FAI + CMM מלא.</div>
+    <select id="pc-insp" onchange="calcFullPrice()">
+      <option value="0">ללא — QC פנימי בלבד (0₪)</option>
+      <option value="15" selected>מדידה בסיסית — 15₪</option>
+      <option value="40">מדידה + דו"ח כתוב — 40₪</option>
+      <option value="80">FAI מלא (AS9102) — 80₪</option>
+      <option value="100">CMM + דו"ח — 100₪</option>
+      <option value="35">NDT — PT / MT — 35₪</option>
+    </select>
+  </div>
+  <div>
+    <label>Deburr / ניקוי גמר (₪ לחלק)</label>
+    <div style="font-size:9px;color:var(--muted)">הסרת שפמים (Burrs), חידוד קצוות, ניקוי. כמעט כל חלק דורש לפחות Deburr ידני.</div>
+    <select id="pc-deb" onchange="calcFullPrice()">
+      <option value="0">ללא (0₪)</option>
+      <option value="8" selected>Deburr ידני — 8₪</option>
+      <option value="15">Tumbling (בטון סיבובי) — 15₪</option>
+      <option value="30">Electropolish — 30₪ (נירוסטה)</option>
+      <option value="12">Bead Blast — 12₪ (מראה מט)</option>
+    </select>
+  </div>
+</div>
+<div class="res" id="pc-r3" style="margin-top:8px">—</div>
+</div>
+
+<!-- ===== כרטיס 4: סיכום ===== -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">💰 שלב 4 — סיכום ומחיר</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px;line-height:1.6">
+<b>תקורה</b> = עלויות שלא קשורות ישירות לחלק: שכירות, חשמל, ביטוח, הנהלה, Coolant. בדרך כלל 25-40%.<br>
+<b>רווח</b> = מה שנשאר למפעל אחרי כל ההוצאות. 15-25% טיפוסי בישראל.
+</div>
+<div class="cg">
+  <div>
+    <label>תקורה (%)</label>
+    <div style="font-size:9px;color:var(--muted)">מפעל קטן ~25%. בינוני ~30%. גדול/תעופה ~35-45%.</div>
+    <input id="pc-oh" type="number" value="30" oninput="calcFullPrice()">
+  </div>
+  <div>
+    <label>רווח (%)</label>
+    <div style="font-size:9px;color:var(--muted)">רווח גולמי על המחיר. 15% = תחרותי. 20% = סביר. 25%+ = פרימיום/תעופה.</div>
+    <input id="pc-margin" type="number" value="20" oninput="calcFullPrice()">
+  </div>
+</div>
+<div id="pc-summary" style="background:var(--surface);border:1px solid var(--orange,#fb923c);border-radius:8px;padding:14px;margin-top:10px;font-size:13px;line-height:2.2">—</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== RATES ==================== -->
+<div id="prc-rates" class="prc-sec">
+<div class="card"><div class="ctitle">⏱️ תעריפי מכונות — שוק ישראלי 2024-2026</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange,#fb923c)">תעריפי שעת מכונה — ישראל</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:6px">טווח מחירים משקף: גודל מפעל, אזור, עומס, דחיפות</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>מכונה</th><th>נמוך ₪/hr</th><th>ממוצע ₪/hr</th><th>גבוה ₪/hr</th><th>Setup ₪</th><th>הערות</th></tr>
+<tr><td>מחרטה ידנית</td><td>180</td><td>250</td><td>350</td><td>100–200</td><td>חלקים בודדים, תיקונים</td></tr>
+<tr><td>מחרטה CNC 2-ציר</td><td>280</td><td>350</td><td>450</td><td>200–500</td><td>Haas/Doosan/Mazak</td></tr>
+<tr><td>מחרטה CNC Y+C+Sub</td><td>380</td><td>500</td><td>650</td><td>400–800</td><td>Done-In-One</td></tr>
+<tr><td>Swiss-Type</td><td>400</td><td>550</td><td>750</td><td>500–1500</td><td>Setup ארוך!</td></tr>
+<tr><td>VMC 3-ציר</td><td>300</td><td>450</td><td>600</td><td>200–600</td><td>Haas VF / Mazak</td></tr>
+<tr><td>VMC 5-ציר (3+2)</td><td>500</td><td>650</td><td>850</td><td>400–1000</td><td>DMG/Hermle</td></tr>
+<tr><td>VMC 5-ציר Sim</td><td>650</td><td>800</td><td>1200</td><td>600–2000</td><td>תעופה, Impellers</td></tr>
+<tr><td>HMC + Pallet</td><td>450</td><td>600</td><td>800</td><td>300–800</td><td>סדרות</td></tr>
+<tr><td>Surface Grinding</td><td>250</td><td>350</td><td>500</td><td>150–400</td><td>שטוחים</td></tr>
+<tr><td>Cylindrical Grinding</td><td>300</td><td>400</td><td>600</td><td>200–500</td><td>OD/ID</td></tr>
+<tr><td>Centerless Grinding</td><td>250</td><td>350</td><td>500</td><td>500–2000</td><td>Setup גבוה, ייצור המוני</td></tr>
+<tr><td>EDM Wire</td><td>500</td><td>700</td><td>1000</td><td>300–800</td><td>לפי שעה או לפי חתך</td></tr>
+<tr><td>EDM Sinker</td><td>600</td><td>800</td><td>1200</td><td>500–2000</td><td>+עלות אלקטרודה</td></tr>
+<tr><td>מקדחה</td><td>120</td><td>200</td><td>300</td><td>50–200</td><td>חורים פשוטים</td></tr>
+<tr><td>ניסור פס</td><td>80</td><td>150</td><td>250</td><td>50–100</td><td>חיתוך גלם</td></tr>
+<tr><td>כיפוף CNC</td><td>200</td><td>350</td><td>500</td><td>200–600</td><td>Amada/Trumpf</td></tr>
+<tr><td>לייזר Fiber</td><td>400</td><td>600</td><td>900</td><td>100–300</td><td>לפי שעה או לפי מטר</td></tr>
+<tr><td>Waterjet</td><td>350</td><td>500</td><td>750</td><td>100–300</td><td>כל חומר</td></tr>
+</table>
+<div class="tip-box">▸ <b>Setup = קבוע!</b> בסדרה של 100 ← Setup/חלק = שולי. בסדרה של 1 ← Setup = 50% מהמחיר<br>▸ <b>דחיפות:</b> ×1.3–2.0 על תעריף רגיל<br>▸ <b>לילה/שבת:</b> ×1.25–1.5 תוספת<br>▸ <b>תעופה/ביטחוני:</b> ×1.3–1.5 (תיעוד + Traceability)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">תעריפי עבודת יד</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>עבודה</th><th>₪/שעה</th><th>הערה</th></tr>
+<tr><td>שיפוי / Deburr</td><td>120–180</td><td>ידני</td></tr>
+<tr><td>הרכבה מכנית</td><td>150–250</td><td>טכנאי מנוסה</td></tr>
+<tr><td>מרתך TIG</td><td>200–350</td><td>תעופה: 350–500</td></tr>
+<tr><td>מרתך MIG</td><td>180–280</td><td>מבני</td></tr>
+<tr><td>בקרת איכות</td><td>180–300</td><td>כולל CMM</td></tr>
+<tr><td>תכנות CNC</td><td>200–400</td><td>CAM offline</td></tr>
+<tr><td>תכנון תבניות</td><td>250–450</td><td>Fixture / Jig</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== MATERIAL ==================== -->
+<div id="prc-material" class="prc-sec">
+<div class="card"><div class="ctitle">🧱 מחירי חומרי גלם — שוק ישראלי</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange,#fb923c)">מחירי חומר לק"ג — ישראל 2024-2026</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:6px">מחירים משוערים, תלויים בכמות, ספק, תקופה. בר ⌀20-100mm</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>חומר</th><th>₪/ק"ג</th><th>₪/ק"ג (קטן)</th><th>MOQ טיפוסי</th><th>זמינות</th><th>הערות</th></tr>
+<tr><td>פלדה 1018/1020</td><td>7–10</td><td>12–18</td><td>6m בר</td><td>★★★★★</td><td>מהמדף</td></tr>
+<tr><td>פלדה 1045</td><td>10–15</td><td>18–25</td><td>6m בר</td><td>★★★★★</td><td>מהמדף</td></tr>
+<tr><td>פלדה 4140</td><td>15–22</td><td>25–35</td><td>6m בר</td><td>★★★★</td><td>נפוץ</td></tr>
+<tr><td>פלדה 4340</td><td>22–35</td><td>35–50</td><td>3m בר</td><td>★★★</td><td>הזמנה</td></tr>
+<tr><td>12L14 Free-Cut</td><td>12–18</td><td>20–30</td><td>6m בר</td><td>★★★★</td><td>↑עיבודיות</td></tr>
+<tr><td>SS 303</td><td>40–55</td><td>60–80</td><td>3m בר</td><td>★★★★</td><td>↑עיבודיות vs 304</td></tr>
+<tr><td>SS 304/304L</td><td>45–60</td><td>65–90</td><td>3m בר</td><td>★★★★★</td><td>מהמדף</td></tr>
+<tr><td>SS 316/316L</td><td>60–80</td><td>85–120</td><td>3m בר</td><td>★★★★</td><td>נפוץ</td></tr>
+<tr><td>SS 17-4PH</td><td>100–140</td><td>150–200</td><td>הזמנה</td><td>★★</td><td>2–4 שבועות</td></tr>
+<tr><td>Al 6061-T6</td><td>30–42</td><td>45–65</td><td>3m בר</td><td>★★★★★</td><td>מהמדף</td></tr>
+<tr><td>Al 7075-T6</td><td>50–65</td><td>70–95</td><td>3m בר</td><td>★★★★</td><td>תעופה</td></tr>
+<tr><td>Al 2024-T4</td><td>45–60</td><td>65–85</td><td>הזמנה</td><td>★★★</td><td>תעופה</td></tr>
+<tr><td>Ti-6Al-4V Grade 5</td><td>450–700</td><td>700–1000</td><td>הזמנה</td><td>★★</td><td>4–8 שבועות</td></tr>
+<tr><td>Inconel 718</td><td>900–1400</td><td>1200–2000</td><td>הזמנה</td><td>★</td><td>6–12 שבועות</td></tr>
+<tr><td>נחושת C110</td><td>70–90</td><td>100–140</td><td>3m בר</td><td>★★★★</td><td>מוליכות</td></tr>
+<tr><td>פליז C360</td><td>70–100</td><td>110–150</td><td>3m בר</td><td>★★★★</td><td>Free-Cut</td></tr>
+<tr><td>POM (Delrin)</td><td>35–50</td><td>55–75</td><td>1m בר</td><td>★★★★</td><td>פלסטיק הנדסי</td></tr>
+<tr><td>Nylon PA66</td><td>30–45</td><td>50–70</td><td>1m בר</td><td>★★★★</td><td>פלסטיק הנדסי</td></tr>
+<tr><td>PEEK</td><td>800–1200</td><td>1200–1800</td><td>הזמנה</td><td>★★</td><td>רפואה/תעופה</td></tr>
+</table>
+<div class="tip-box">▸ <b>כמות:</b> מחיר ק"ג יורד ב-20–40% בהזמנה של 100ק"ג+<br>▸ <b>ספקים בישראל:</b> מטלוקס, MLS, אלמט, סטנדרט מתכות, א.ל.מ<br>▸ <b>תעודת חומר:</b> Mill Cert (3.1) = +5–15₪/חלק</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Buy-to-Fly — פקטור בזבוז</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>סוג חלק</th><th>BTF</th><th>הסבר</th></tr>
+<tr><td>ציר / בושינג פשוט</td><td>1.1–1.3</td><td>מעט בזבוז מבר</td></tr>
+<tr><td>חלק חרוט רגיל</td><td>1.3–1.5</td><td>חריטה + כרסום</td></tr>
+<tr><td>חלק כרסום מורכב</td><td>1.5–2.5</td><td>כיסים, חורים</td></tr>
+<tr><td>Structural Aerospace</td><td>3–8</td><td>Hog-Out מפלטה</td></tr>
+<tr><td>Monolithic Wing Rib</td><td>10–25!</td><td>90%+ חומר הולך לפח</td></tr>
+</table>
+<div class="tip-box">▸ <b>BTF 10 = קנית 10ק"ג, נשאר 1ק"ג בחלק!</b><br>▸ Ti-6Al-4V ב-BTF 10 = חומר גלם = ×10 מהמשקל הסופי ×600₪/ק"ג = יקר מאוד<br>▸ <b>Near Net Shape:</b> יציקה/חישול ← BTF 1.5–3 ← חסכון בחומר</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== FINISH ==================== -->
+<div id="prc-finish" class="prc-sec">
+<div class="card"><div class="ctitle">🎨 ציפוי, גמר וטיפול חום — מחירים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">ציפויים — מחיר לחלק</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:6px">חלק בינוני ~100-500cm². מחיר לחלק, לא לאצווה</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>ציפוי</th><th>₪/חלק (סדרה)</th><th>₪/חלק (בודד)</th><th>Lead Time</th></tr>
+<tr><td>אנודייז Type II</td><td>10–20</td><td>30–60</td><td>3–5 ימים</td></tr>
+<tr><td>אנודייז Type II צבע</td><td>15–30</td><td>40–80</td><td>5–7 ימים</td></tr>
+<tr><td>אנודייז Type III (קשה)</td><td>25–45</td><td>60–120</td><td>5–10 ימים</td></tr>
+<tr><td>אבץ (Zinc Plating)</td><td>10–20</td><td>25–50</td><td>3–5 ימים</td></tr>
+<tr><td>ניקל EN</td><td>20–35</td><td>50–90</td><td>5–7 ימים</td></tr>
+<tr><td>כרום קשה</td><td>30–60</td><td>80–150</td><td>7–14 ימים</td></tr>
+<tr><td>Black Oxide</td><td>8–15</td><td>20–40</td><td>2–3 ימים</td></tr>
+<tr><td>Alodine (Chem Film)</td><td>10–20</td><td>25–50</td><td>3–5 ימים</td></tr>
+<tr><td>פסיבציה (SS)</td><td>8–15</td><td>20–40</td><td>2–5 ימים</td></tr>
+<tr><td>צביעה Powder Coat</td><td>20–40</td><td>50–100</td><td>5–7 ימים</td></tr>
+<tr><td>צביעה Epoxy Wet</td><td>30–60</td><td>70–150</td><td>5–10 ימים</td></tr>
+<tr><td>Electroless Nickel</td><td>25–45</td><td>60–120</td><td>5–10 ימים</td></tr>
+<tr><td>Cadmium (QQ-P-416)</td><td>40–80</td><td>100–200</td><td>10–21 ימים</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">טיפולי חום — מחיר</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>טיפול</th><th>₪/חלק (סדרה)</th><th>₪/חלק (בודד)</th><th>Lead Time</th></tr>
+<tr><td>הקשיה + מיתון (Q&T)</td><td>15–30</td><td>40–80</td><td>3–7 ימים</td></tr>
+<tr><td>כרבור (Carburizing)</td><td>25–50</td><td>60–120</td><td>5–10 ימים</td></tr>
+<tr><td>ניטרוד (Nitriding)</td><td>30–60</td><td>70–150</td><td>7–14 ימים</td></tr>
+<tr><td>ואקום Hardening</td><td>40–80</td><td>100–200</td><td>5–10 ימים</td></tr>
+<tr><td>הרפיית מאמצים</td><td>10–20</td><td>25–50</td><td>2–5 ימים</td></tr>
+<tr><td>ריכוך (Annealing)</td><td>10–20</td><td>25–50</td><td>2–5 ימים</td></tr>
+<tr><td>Induction Hardening</td><td>20–40</td><td>50–100</td><td>3–7 ימים</td></tr>
+<tr><td>Cryogenic Treatment</td><td>30–60</td><td>80–150</td><td>5–10 ימים</td></tr>
+</table>
+<div class="tip-box">▸ <b>מינימום אצווה:</b> רוב המכוונים גובים מינימום ₪200–500 לאצווה<br>▸ <b>תעודה:</b> תעודת טיפול חום = +₪20–50/חלק<br>▸ <b>ספקים בישראל:</b> שרותי חום, מתם, ITC, פלגי חום</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== TESTING ==================== -->
+<div id="prc-testing" class="prc-sec">
+<div class="card"><div class="ctitle">🔍 בדיקה ואיכות — עלויות</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">בדיקות מכניות — מחירים</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>בדיקה</th><th>₪/בדיקה</th><th>הערה</th></tr>
+<tr><td>מדידת מידות (מד חוגה + מיקרומטר)</td><td>פנימי</td><td>חלק מעלות הייצור</td></tr>
+<tr><td>CMM — עד 10 מידות</td><td>80–150</td><td>לחלק</td></tr>
+<tr><td>CMM — FAI מלא (50+ מידות)</td><td>200–500</td><td>AS9102</td></tr>
+<tr><td>מד טיב שטח Ra</td><td>20–40</td><td>לנקודה</td></tr>
+<tr><td>בדיקת קשיות HRC</td><td>15–30</td><td>לנקודה</td></tr>
+<tr><td>בדיקת קשיות מיקרו HV</td><td>40–80</td><td>Case Depth Profile</td></tr>
+<tr><td>מתיחה (Tensile Test)</td><td>150–300</td><td>דגם + בדיקה</td></tr>
+<tr><td>Charpy Impact</td><td>100–200</td><td>3 דגמים מינימום</td></tr>
+<tr><td>בדיקת עייפות</td><td>500–2000</td><td>לדגם, Run-Out</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">NDT — בדיקות לא הורסות</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>שיטה</th><th>₪/חלק</th><th>₪/מ' ריתוך</th><th>הערה</th></tr>
+<tr><td>PT (Dye Penetrant)</td><td>30–60</td><td>40–80</td><td>פשוט וזול</td></tr>
+<tr><td>MT (Magnetic Particle)</td><td>30–60</td><td>40–80</td><td>רק פרומגנטי</td></tr>
+<tr><td>UT (Ultrasonic)</td><td>60–150</td><td>80–200</td><td>עובי + סדקים</td></tr>
+<tr><td>RT (Radiographic)</td><td>150–400</td><td>200–500</td><td>קרינה — ← יקר</td></tr>
+<tr><td>PAUT (Phased Array)</td><td>100–250</td><td>150–350</td><td>מחליף RT</td></tr>
+<tr><td>He Leak Test</td><td>100–300</td><td>—</td><td>אטימות</td></tr>
+<tr><td>Hydro Test</td><td>80–200</td><td>—</td><td>לכלי לחץ</td></tr>
+</table>
+<div class="tip-box">▸ <b>NDT לריתוך:</b> AWS D1.1 = PT מינימום, ASME VIII = RT/UT<br>▸ <b>100% RT:</b> ×3–5 עלות vs. Spot (10%) — שקול אם נדרש<br>▸ <b>PAUT מחליף RT:</b> ↓עלות, ↓זמן, ← ← ← ← מגמה!</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== ASSEMBLY ==================== -->
+<div id="prc-assembly" class="prc-sec">
+<div class="card"><div class="ctitle">🔧 הרכבה ועבודות נוספות — עלויות</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">הרכבה — תעריפים</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>עבודה</th><th>₪/שעה</th><th>₪/חלק (טיפוסי)</th></tr>
+<tr><td>הרכבה מכנית פשוטה</td><td>150–220</td><td>10–50</td></tr>
+<tr><td>הרכבה מורכבת + כיול</td><td>200–350</td><td>50–200</td></tr>
+<tr><td>Press-Fit (Bearings, Pins)</td><td>180–280</td><td>15–60</td></tr>
+<tr><td>Helicoil / Insert התקנה</td><td>—</td><td>5–15 ליחידה</td></tr>
+<tr><td>הדבקה Loctite/Epoxy</td><td>180–250</td><td>10–40</td></tr>
+<tr><td>Dowel Pin + Reaming</td><td>200–300</td><td>20–60</td></tr>
+<tr><td>Safety Wiring</td><td>200–350</td><td>15–40 לבורג</td></tr>
+<tr><td>Balancing (Dynamic)</td><td>—</td><td>100–500</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">ריתוך — תעריפים</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>סוג</th><th>₪/שעה</th><th>₪/מ' תפר</th><th>הערות</th></tr>
+<tr><td>MIG/MAG פלדה</td><td>180–280</td><td>40–80</td><td>מבני</td></tr>
+<tr><td>TIG SS</td><td>250–400</td><td>80–150</td><td>צנרת, מיכלים</td></tr>
+<tr><td>TIG Al</td><td>250–400</td><td>80–150</td><td>AC, ← ← קשה</td></tr>
+<tr><td>TIG תעופה (AWS/NADCAP)</td><td>350–550</td><td>120–250</td><td>+תיעוד</td></tr>
+<tr><td>Robot Welding</td><td>300–450</td><td>20–50</td><td>סדרות ← ← ↓</td></tr>
+<tr><td>Laser Welding</td><td>400–700</td><td>60–150</td><td>מדויק, ↓HAZ</td></tr>
+<tr><td>Electron Beam</td><td>600–1200</td><td>150–400</td><td>ואקום, Ti/SS</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">שירותים נוספים</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>שירות</th><th>מחיר</th><th>הערות</th></tr>
+<tr><td>סימון לייזר</td><td>5–20₪/חלק</td><td>P/N, S/N, לוגו</td></tr>
+<tr><td>חריטת CNC (Engraving)</td><td>10–30₪/חלק</td><td>טקסט עמוק</td></tr>
+<tr><td>אריזה מיוחדת</td><td>10–50₪/חלק</td><td>VCI, Desiccant</td></tr>
+<tr><td>Masking לציפוי</td><td>15–50₪/חלק</td><td>חורי הברגה, כוננויות</td></tr>
+<tr><td>Mill Cert 3.1</td><td>15–50₪</td><td>תעודת חומר</td></tr>
+<tr><td>FAIR / AS9102</td><td>200–500₪</td><td>לחלק ראשון</td></tr>
+<tr><td>PPAP Level 3</td><td>500–2000₪</td><td>רכב — 18 אלמנטים</td></tr>
+<tr><td>תעודת Conformance</td><td>20–50₪</td><td>CoC בסיסי</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== QUOTE ==================== -->
+<div id="prc-quote" class="prc-sec">
+<div class="card"><div class="ctitle">📄 הצעת מחיר — מבנה ושיטה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">מבנה הצעת מחיר מקצועית</div>
+<div class="spec-row"><span class="spec-key">1. כותרת</span><span class="spec-val">שם חברה, לוגו, תאריך, מספר הצעה, תוקף</span></div>
+<div class="spec-row"><span class="spec-key">2. פרטי לקוח</span><span class="spec-val">שם, איש קשר, מייל, RFQ Reference</span></div>
+<div class="spec-row"><span class="spec-key">3. תיאור טכני</span><span class="spec-val">P/N, Rev, חומר, כמות, שרטוט מצורף</span></div>
+<div class="spec-row"><span class="spec-key">4. מחיר ליחידה</span><span class="spec-val">פירוט: חומר + עיבוד + גמר + בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">5. NRE</span><span class="spec-val">Non-Recurring: Fixture, תכנות, כלים מיוחדים</span></div>
+<div class="spec-row"><span class="spec-key">6. Lead Time</span><span class="spec-val">ימי עסקים! FAI + סדרה</span></div>
+<div class="spec-row"><span class="spec-key">7. MOQ</span><span class="spec-val">כמות מינימום + Price Breaks</span></div>
+<div class="spec-row"><span class="spec-key">8. תנאי תשלום</span><span class="spec-val">שוטף+30/60, מקדמה?, מטבע</span></div>
+<div class="spec-row"><span class="spec-key">9. אי-הכללות</span><span class="spec-val">מה לא כלול! (ציפוי? NDT? אריזה? Cert?)</span></div>
+<div class="spec-row"><span class="spec-key">10. חתימה</span><span class="spec-val">תוקף הצעה (30/60 יום), T&C</span></div>
+<div class="tip-box">▸ <b>Price Break:</b> 10/50/100/500 יחידות — עם ירידת מחיר<br>▸ <b>תוקף:</b> 30 יום סטנדרט. חומרים מיוחדים = 14 יום<br>▸ <b>NRE:</b> תמיד בנפרד! לקוח משלם פעם אחת</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Lead Time — זמני אספקה טיפוסיים</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>שלב</th><th>ימים (רגיל)</th><th>ימים (דחוף)</th></tr>
+<tr><td>הזמנת חומר (מדף)</td><td>1–3</td><td>0–1</td></tr>
+<tr><td>הזמנת חומר (מיוחד)</td><td>14–42</td><td>7–21</td></tr>
+<tr><td>תכנות CAM</td><td>1–3</td><td>0.5–1</td></tr>
+<tr><td>עיבוד (חלק פשוט)</td><td>3–5</td><td>1–2</td></tr>
+<tr><td>עיבוד (חלק מורכב)</td><td>7–14</td><td>3–7</td></tr>
+<tr><td>ציפוי</td><td>5–10</td><td>3–5</td></tr>
+<tr><td>טיפול חום</td><td>5–10</td><td>3–5</td></tr>
+<tr><td>NDT</td><td>3–7</td><td>1–3</td></tr>
+<tr><td>FAI + דו"ח</td><td>3–5</td><td>1–2</td></tr>
+<tr><td>אריזה + משלוח</td><td>1–2</td><td>0.5–1</td></tr>
+</table>
+<div class="tip-box">▸ <b>סה"כ טיפוסי:</b> 3–4 שבועות (פשוט) · 6–8 שבועות (מורכב+ציפוי)<br>▸ <b>דחיפות:</b> ×1.3–2.0 תוספת מחיר — תמחר מראש!</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== FORMULAS ==================== -->
+<div id="prc-formulas" class="prc-sec">
+<div class="card"><div class="ctitle">📊 נוסחאות תמחיר ומדדים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">נוסחאות בסיסיות</div>
+<div class="spec-row"><span class="spec-key">עלות חומר</span><span class="spec-val">= משקל גמר × BTF × ₪/ק"ג</span></div>
+<div class="spec-row"><span class="spec-key">עלות עיבוד</span><span class="spec-val">= (Setup/כמות + זמן מכונה) × תעריף</span></div>
+<div class="spec-row"><span class="spec-key">עלות ישירה</span><span class="spec-val">= חומר + עיבוד + גמר + בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">עלות מלאה</span><span class="spec-val">= עלות ישירה × (1 + תקורה%)</span></div>
+<div class="spec-row"><span class="spec-key">מחיר מכירה</span><span class="spec-val">= עלות מלאה × (1 + רווח%)</span></div>
+<div class="spec-row"><span class="spec-key">NRE</span><span class="spec-val">= Fixture + תכנות + כלים + FAI ראשון</span></div>
+<div class="spec-row"><span class="spec-key">Break-Even</span><span class="spec-val">= NRE / (מחיר - עלות משתנה)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">מדדי ביצוע — KPIs</div>
+<div class="spec-row"><span class="spec-key">OEE</span><span class="spec-val">= Availability × Performance × Quality</span></div>
+<div class="spec-row"><span class="spec-key">OEE World Class</span><span class="spec-val">≥ 85%</span></div>
+<div class="spec-row"><span class="spec-key">Scrap Rate</span><span class="spec-val">= פסולת / כמות ייצור. יעד: < 2%</span></div>
+<div class="spec-row"><span class="spec-key">On-Time Delivery</span><span class="spec-val">≥ 95%. < 90% = בעיה!</span></div>
+<div class="spec-row"><span class="spec-key">Setup Ratio</span><span class="spec-val">= זמן Setup / זמן ייצור. יעד: < 15%</span></div>
+<div class="spec-row"><span class="spec-key">Spindle Utilization</span><span class="spec-val">שעות Spindle / שעות זמינות. יעד: > 60%</span></div>
+<div class="spec-row"><span class="spec-key">Cost/Part Trend</span><span class="spec-val">↓ עם Learning Curve — Wright's Law: C_n = C₁ × n^b</span></div>
+<div class="tip-box">▸ <b>Learning Curve:</b> 80% LC = כל הכפלת כמות ← ↓20% עלות<br>▸ <b>Wright's Law:</b> b = log(LC)/log(2) = log(0.8)/log(2) = −0.322</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">תקורה — מה כולל?</div>
+<div class="spec-row"><span class="spec-key">שכירות / פחת</span><span class="spec-val">בניין, מכונות, ציוד</span></div>
+<div class="spec-row"><span class="spec-key">חשמל + מים</span><span class="spec-val">CNC = 15–40 kW × ₪0.5/kWh</span></div>
+<div class="spec-row"><span class="spec-key">Coolant + שמנים</span><span class="spec-val">החלפה כל 3–6 חודשים</span></div>
+<div class="spec-row"><span class="spec-key">כלי חיתוך</span><span class="spec-val">בדרך כלל 5–15% מעלות העיבוד</span></div>
+<div class="spec-row"><span class="spec-key">ביטוח</span><span class="spec-val">מבנה + ציוד + אחריות מוצר</span></div>
+<div class="spec-row"><span class="spec-key">אדמיניסטרציה</span><span class="spec-val">הנה"ח, רכש, הנהלה</span></div>
+<div class="spec-row"><span class="spec-key">תחזוקה</span><span class="spec-val">Preventive + Corrective + חלפים</span></div>
+<div class="spec-row"><span class="spec-key">סה"כ טיפוסי</span><span class="spec-val">25–45% מהעלות הישירה</span></div>
+<div class="tip-box">▸ <b>מפעל קטן:</b> תקורה 25–35%<br>▸ <b>מפעל בינוני:</b> 30–40%<br>▸ <b>מפעל גדול + AS9100:</b> 35–50%<br>▸ <b>כלי חיתוך:</b> חשב 8–12% מעלות שעת מכונה</div>
+</div>
+
+</div></div></div>
+
+</div>

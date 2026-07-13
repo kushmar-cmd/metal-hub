@@ -1,0 +1,1619 @@
+<div id="sec-inspection" class="section">
+
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1a2e);border-color:var(--blue)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔍</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--blue)">בדיקה ואיכות — Inspection & Quality Control</div>
+    <div style="font-size:12px;color:var(--muted)">כלי מדידה · CMM · NDT · SPC · Gage R&R · כיול · AQL · תקני איכות</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="insp-tab active" onclick="showInsp('gauges',this)">📏 כלי מדידה ידניים</button>
+  <button class="insp-tab" onclick="showInsp('cmm',this)">🤖 CMM ומדידה מרחבית</button>
+  <button class="insp-tab" onclick="showInsp('surface_meas',this)">✦ מדידת גימור משטח</button>
+  <button class="insp-tab" onclick="showInsp('optical',this)">🔭 מדידה אופטית ולייזר</button>
+  <button class="insp-tab" onclick="showInsp('hardness',this)">💎 בדיקות קשיות</button>
+  <button class="insp-tab" onclick="showInsp('ndt_methods',this)">⚡ NDT — בדיקות לא הרסניות</button>
+  <button class="insp-tab" onclick="showInsp('spc',this)">📊 SPC — בקרה סטטיסטית</button>
+  <button class="insp-tab" onclick="showInsp('gagerr',this)">📐 Gage R&R — MSA</button>
+  <button class="insp-tab" onclick="showInsp('sampling',this)">🎯 AQL ותכניות דגימה</button>
+  <button class="insp-tab" onclick="showInsp('calibration',this)">⚖️ כיול ועקביות</button>
+  <button class="insp-tab" onclick="showInsp('incoming',this)">📦 QC קבלת סחורה</button>
+  <button class="insp-tab" onclick="showInsp('qstandards',this)">🏆 תקני איכות</button>
+  <button class="insp-tab" onclick="showInsp('calc_qc',this)">🧮 מחשבונים</button>
+</div>
+
+<!-- ===== GAUGES ===== -->
+<div id="insp-gauges" class="insp-sec active">
+<div class="card"><div class="ctitle">📏 כלי מדידה ידניים — Handheld Measuring Instruments</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ורניה — Vernier Caliper</div>
+<div><span class="mc-badge b-blue">±0.02-0.05mm</span><span class="mc-badge b-green">רב-שימושי</span></div>
+<div class="spec-row"><span class="spec-key">טווח</span><span class="spec-val">0-150 / 0-200 / 0-300mm</span></div>
+<div class="spec-row"><span class="spec-key">רזולוציה</span><span class="spec-val">0.02mm (ורניה) · 0.01mm (דיגיטלי)</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±0.02-0.05mm (JIS B7507)</span></div>
+<div class="spec-row"><span class="spec-key">מדידות</span><span class="spec-val">חיצוני · פנימי · עומק · מדרגה</span></div>
+<div class="spec-row"><span class="spec-key">סוגים</span><span class="spec-val">אנלוגי / דיגיטלי / Dial / Carbon Fiber</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">לא מתאים למדידות קריטיות מתחת לIT8 — השתמש במיקרומטר!<br>
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.sylvac.ch" target="_blank" style="color:var(--blue)">Sylvac</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מיקרומטר חיצוני — Outside Micrometer</div>
+<div><span class="mc-badge b-green">±0.004mm</span><span class="mc-badge b-blue">IT6-IT7</span></div>
+<div class="spec-row"><span class="spec-key">טווח</span><span class="spec-val">0-25, 25-50... כל 25mm (עד 3000mm)</span></div>
+<div class="spec-row"><span class="spec-key">רזולוציה</span><span class="spec-val">0.001mm · 0.0001mm (דיגיטלי)</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±0.002-0.004mm</span></div>
+<div class="spec-row"><span class="spec-key">Spindle Pitch</span><span class="spec-val">0.5mm — סיבוב = 0.5mm</span></div>
+<div class="spec-row"><span class="spec-key">כוח מדידה</span><span class="spec-val">5-10N (Ratchet Thimble)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">כיול עם Slip Gauge (בלוק כיול) לפני שימוש!<br>
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מיקרומטר פנימי — Inside Micrometer / Bore Gauge</div>
+<div><span class="mc-badge b-blue">IT7-IT8</span><span class="mc-badge b-green">חורים מדויקים</span></div>
+<div class="spec-row"><span class="spec-key">Tubular Inside Mic</span><span class="spec-val">5-210mm, ±0.005mm</span></div>
+<div class="spec-row"><span class="spec-key">Bore Gauge (שעון)</span><span class="spec-val">6-450mm, ±0.003mm</span></div>
+<div class="spec-row"><span class="spec-key">Telescoping Gauge</span><span class="spec-val">8-150mm, העברה למיקרומטר</span></div>
+<div class="spec-row"><span class="spec-key">3-Point Bore Mic</span><span class="spec-val">±0.001mm — הדיוק הגבוה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Bore Gauge = מגלה Ovality! מדוד 2 כיוונים ⊥<br>
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.bowers-group.com" target="_blank" style="color:var(--blue)">Bowers</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">שעון מדידה — Dial Indicator / DTI</div>
+<div><span class="mc-badge b-blue">0.001-0.01mm</span><span class="mc-badge b-green">Runout · Flatness</span></div>
+<div class="spec-row"><span class="spec-key">Dial Indicator</span><span class="spec-val">טווח 0-10mm · רזולוציה 0.01mm</span></div>
+<div class="spec-row"><span class="spec-key">DTI (Test Indicator)</span><span class="spec-val">טווח ±0.8mm · רזולוציה 0.001mm</span></div>
+<div class="spec-row"><span class="spec-key">Digital Indicator</span><span class="spec-val">רזולוציה 0.001/0.0005mm</span></div>
+<div class="spec-row"><span class="spec-key">יישומים</span><span class="spec-val">Runout · Flatness · Parallelism · Setup</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">DTI = Lever Arm → רגיש לכיוון מדידה!<br>
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.tesa.ch" target="_blank" style="color:var(--blue)">TESA</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מד-גובה — Height Gauge</div>
+<div><span class="mc-badge b-blue">±0.02mm</span><span class="mc-badge b-orange">Granite Table</span></div>
+<div class="spec-row"><span class="spec-key">טווח</span><span class="spec-val">0-300 / 600 / 1000mm</span></div>
+<div class="spec-row"><span class="spec-key">רזולוציה</span><span class="spec-val">0.001mm (דיגיטלי)</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±0.02-0.04mm</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">סימון · מדידת גובה · Datum מישור</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">חייב Granite Surface Plate Grade A/B!<br>
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.tesa.ch" target="_blank" style="color:var(--blue)">TESA</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">בלוקי כיול — Gauge Blocks / Slip Gauges</div>
+<div><span class="mc-badge b-red">Grade K/0/1/2</span><span class="mc-badge b-green">Reference Standard</span></div>
+<div class="spec-row"><span class="spec-key">Grade K</span><span class="spec-val">±0.05μm — Master ראשי</span></div>
+<div class="spec-row"><span class="spec-key">Grade 0</span><span class="spec-val">±0.1μm — כיול מכשירים</span></div>
+<div class="spec-row"><span class="spec-key">Grade 1</span><span class="spec-val">±0.2μm — ייחוס לכלים</span></div>
+<div class="spec-row"><span class="spec-key">Grade 2</span><span class="spec-val">±0.5μm — שטח ייצור</span></div>
+<div class="spec-row"><span class="spec-key">חומרים</span><span class="spec-val">Steel / Carbide / Ceramic</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Wringing = הדבקה ע"י ואן-דר-ואלס — ללא דבק!<br>
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.cartertools.com" target="_blank" style="color:var(--blue)">Starrett</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">גאוג' Go/NoGo — Limit Gauges</div>
+<div><span class="mc-badge b-green">Go ✓</span><span class="mc-badge b-red">NoGo ✗</span><span class="mc-badge b-blue">IT6-IT9</span></div>
+<div class="spec-row"><span class="spec-key">Plug Gauge</span><span class="spec-val">מדידת חורים — Go חייב להיכנס</span></div>
+<div class="spec-row"><span class="spec-key">Ring Gauge</span><span class="spec-val">מדידת ציר — Go חייב לעבור</span></div>
+<div class="spec-row"><span class="spec-key">Thread Plug</span><span class="spec-val">הברגה פנימית — 6H נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">Thread Ring</span><span class="spec-val">הברגה חיצונית — 6g נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">דיוק גאוג'</span><span class="spec-val">IT4-IT5 (≈10% מסובלנות חלק)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Taylor Principle: Go בודק כל המדות יחד!<br>
+<b>יצרנים:</b> <a href="https://www.dorsey.com" target="_blank" style="color:var(--blue)">Dorsey Metrology</a> · <a href="https://www.marposs.com" target="_blank" style="color:var(--blue)">Marposs</a> · <a href="https://www.telegage.com" target="_blank" style="color:var(--blue)">Telegage</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">גאוג' מיוחדים — Specialty Gauges</div>
+<div><span class="mc-badge b-orange">Thread · Radius · Feeler</span></div>
+<div class="spec-row"><span class="spec-key">Feeler Gauge להבי סדק</span><span class="spec-val">0.05-1.0mm · פערי מנוע/שסתומים</span></div>
+<div class="spec-row"><span class="spec-key">Radius Gauge גאוג' רדיוס</span><span class="spec-val">R1-R25mm · בדיקת פינות/סיבובים</span></div>
+<div class="spec-row"><span class="spec-key">Thread Pitch Gauge</span><span class="spec-val">זיהוי פסיעת הברגה ISO/UNC/UNF</span></div>
+<div class="spec-row"><span class="spec-key">Pin Gauge פין גאוג'</span><span class="spec-val">ø0.1-13mm · בדיקת חורים/מרווחים</span></div>
+<div class="spec-row"><span class="spec-key">Angle Gauge גאוג' זווית</span><span class="spec-val">±1' דיוק · זוויות חיתוך</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a> · <a href="https://www.insize.com" target="_blank" style="color:var(--blue)">Insize</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מד-עומק — Depth Micrometer / Gauge</div>
+<div><span class="mc-badge b-blue">±0.005mm</span><span class="mc-badge b-orange">חריצים · כיסים</span></div>
+<div class="spec-row"><span class="spec-key">Depth Mic</span><span class="spec-val">0-25mm פר סיבוב · ±0.004mm</span></div>
+<div class="spec-row"><span class="spec-key">Depth Vernier</span><span class="spec-val">0-200mm · ±0.02mm · מהיר</span></div>
+<div class="spec-row"><span class="spec-key">Step Gauge</span><span class="spec-val">מדרגות ב-0.001mm</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a></div>
+</div>
+
+</div>
+
+<div style="margin-top:14px">
+<table><tr><th>כלי מדידה</th><th>טווח</th><th>רזולוציה</th><th>דיוק טיפוסי</th><th>IT Grade</th><th>מתאים ל</th></tr>
+<tr><td>ורניה — Caliper</td><td>0-300mm</td><td>0.01mm</td><td>±0.03mm</td><td>IT10-IT12</td><td>מדידה כללית מהירה</td></tr>
+<tr><td>מיקרומטר — Micrometer</td><td>0-25mm+</td><td>0.001mm</td><td>±0.004mm</td><td>IT6-IT8</td><td>קוטר/עובי קריטי</td></tr>
+<tr><td>שעון — Dial Indicator</td><td>0-10mm</td><td>0.01mm</td><td>±0.01mm</td><td>—</td><td>Runout, Flatness</td></tr>
+<tr><td>DTI (Test Indicator)</td><td>±0.8mm</td><td>0.001mm</td><td>±0.003mm</td><td>—</td><td>Setup מדויק, CMM</td></tr>
+<tr><td>Bore Gauge מד-חור</td><td>6-450mm</td><td>0.001mm</td><td>±0.003mm</td><td>IT7-IT8</td><td>חורים מדויקים</td></tr>
+<tr><td>Height Gauge מד-גובה</td><td>0-1000mm</td><td>0.001mm</td><td>±0.02mm</td><td>IT9-IT10</td><td>גובה, Datum</td></tr>
+<tr><td>Gauge Block בלוק כיול</td><td>0.5-100mm</td><td>0.0001mm</td><td>±0.0001mm</td><td>Grade K-2</td><td>ייחוס, כיול כלים</td></tr>
+<tr><td>Go/NoGo Gauge</td><td>קבוע</td><td>—</td><td>IT4-IT5</td><td>IT6-IT9</td><td>ייצור כמויות</td></tr>
+</table></div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">📏 כלי מדידה מתקדמים — Advanced Measurement Tools</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Sine Bar / Sine Plate — סיניוס</div>
+<div><span class="mc-badge b-blue">±5" דיוק זווית</span><span class="mc-badge b-orange">עם Gauge Blocks</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">sin(θ) = H / L (L=100 or 200mm)</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±5 arc-seconds (~0.0014°)</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">הגדרת זוויות מדויקות לשחיקה/בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">H = L × sin(θ)</span><span class="spec-val">בנה ב-Gauge Blocks לגובה H</span></div>
+<div class="spec-row"><span class="spec-key">Compound Sine</span><span class="spec-val">שני צירים — זוויות מורכבות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">דוגמה: θ=15° · L=200mm → H=200×sin(15°)=51.76mm<br>
+<b>יצרנים:</b> <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a> · <a href="https://www.bowers-group.com" target="_blank" style="color:var(--blue)">Moore & Wright</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Air Gauge — מד אוויר פנאומטי</div>
+<div><span class="mc-badge b-green">±0.0002mm</span><span class="mc-badge b-blue">ממוצע הקיר</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">לחץ אוויר ↔ מרווח → מדידה</span></div>
+<div class="spec-row"><span class="spec-key">רזולוציה</span><span class="spec-val">0.0001-0.001mm</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">מיידי! ממוצע היקף אוטומטי</span></div>
+<div class="spec-row"><span class="spec-key">Back Pressure</span><span class="spec-val">גרסה בלחץ — לחורים עמוקים</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">חורי מנוע, קדחי מדויק, ייצור המוני</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">לא נוגע בחלק → ↓בלאי → ↑חיי כלי<br>
+<b>יצרנים:</b> <a href="https://www.marposs.com" target="_blank" style="color:var(--blue)">Marposs</a> · <a href="https://www.stotz-gmbh.de" target="_blank" style="color:var(--blue)">Stotz</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Optical Flat — שטחון אופטי</div>
+<div><span class="mc-badge b-purple">λ/20 = 0.03μm</span><span class="mc-badge b-blue">פסי אינטרפרנס</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">פסי Newton — כל פס = λ/2 ≈ 0.3μm</span></div>
+<div class="spec-row"><span class="spec-key">אור</span><span class="spec-val">Sodium D (589nm) — חד-צבעי</span></div>
+<div class="spec-row"><span class="spec-key">שטחיות כלי</span><span class="spec-val">Gauge Block / משטח מחוסמס</span></div>
+<div class="spec-row"><span class="spec-key">פירוש</span><span class="spec-val">פסים ישרים=שטוח · עגולים=קמור/קעור</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">שיטה: Wringing ה-Flat על החלק + אור Sodium<br>
+<b>יצרנים:</b> <a href="https://www.zygo.com" target="_blank" style="color:var(--blue)">Zygo</a> · <a href="https://www.npl.co.uk" target="_blank" style="color:var(--blue)">Mahr Optical Flats</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Level מפלס דיוק — Precision Level</div>
+<div><span class="mc-badge b-orange">0.02mm/m</span><span class="mc-badge b-blue">יישור מכונות</span></div>
+<div class="spec-row"><span class="spec-key">Spirit Level</span><span class="spec-val">0.02-0.1mm/m · בועית</span></div>
+<div class="spec-row"><span class="spec-key">Electronic Level</span><span class="spec-val">0.001mm/m · רזולוציה דיגיטלית</span></div>
+<div class="spec-row"><span class="spec-key">Autocollimator</span><span class="spec-val">0.1" arc · שינויי זווית בטווח</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">יישור מחרטה · CMM · מכבש · מסילות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.wyler.ch" target="_blank" style="color:var(--blue)">Wyler (INCLISOFT)</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.taylor-hobson.com" target="_blank" style="color:var(--blue)">Taylor Hobson</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Roundness Tester — מד עגוליות</div>
+<div><span class="mc-badge b-blue">Roundness · Cylindricity</span><span class="mc-badge b-green">0.01μm</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">חלק מסתובב + Stylus קבוע</span></div>
+<div class="spec-row"><span class="spec-key">רזולוציה</span><span class="spec-val">0.01μm (10 nm)</span></div>
+<div class="spec-row"><span class="spec-key">Roundness</span><span class="spec-val">RONt = מקסימום פסגה-עמק</span></div>
+<div class="spec-row"><span class="spec-key">פילטרים</span><span class="spec-val">UPR (Undulations Per Revolution) 1-500</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ISO 12181</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Talyrond = הסטנדרט לתעופה ומסבים<br>
+<b>יצרנים:</b> <a href="https://www.taylor-hobson.com" target="_blank" style="color:var(--blue)">Taylor Hobson Talyrond</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr MFU</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Coordinate Rule + מדידת Setup</div>
+<div><span class="mc-badge b-orange">V-Block · Magnetic Base</span></div>
+<div class="spec-row"><span class="spec-key">V-Block</span><span class="spec-val">ייצוב ציר לרוטציה/מדידה</span></div>
+<div class="spec-row"><span class="spec-key">Magnetic Base</span><span class="spec-val">הצמדה לפלדה · זרוע גמישה</span></div>
+<div class="spec-row"><span class="spec-key">Parallel Bars</span><span class="spec-val">הגבהה מדויקת בממצ · Grade B</span></div>
+<div class="spec-row"><span class="spec-key">1-2-3 Block</span><span class="spec-val">1"×2"×3" · קביעת Datum מהיר</span></div>
+<div class="spec-row"><span class="spec-key">Angle Plate</span><span class="spec-val">90° מדויק ל-Surface Plate</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a> · <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a></div>
+</div>
+</div>
+<div style="margin-top:12px;background:var(--surface);border-radius:8px;padding:12px;font-size:12px">
+<b style="color:var(--text)">📌 כלל זהב לבחירת כלי מדידה:</b><br>
+דיוק כלי ≤ <b>10%</b> מהסובלנות הנמדדת (Golden Rule of Metrology)<br>
+דוגמה: סובלנות ±0.05mm → כלי בדיוק ≤ ±0.005mm → מיקרומטר (±0.004mm) ✅<br>
+ורניה (±0.03mm) = 60% מהסובלנות → ❌ לא מספיק!
+</div>
+</div></div></div>
+
+<!-- ===== CMM ===== -->
+<div id="insp-cmm" class="insp-sec">
+<div class="card"><div class="ctitle">🤖 CMM — מכונת מדידה קואורדינאטית / Coordinate Measuring Machine</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Bridge CMM — CMM גשר (קבוע)</div>
+<div><span class="mc-badge b-blue">±0.002-0.005mm</span><span class="mc-badge b-green">IT4-IT6</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">MPEE = 1.5+L/333 μm (טיפוסי)</span></div>
+<div class="spec-row"><span class="spec-key">Touch Probe</span><span class="spec-val">Renishaw TP20/TP200 · כדור 1-6mm</span></div>
+<div class="spec-row"><span class="spec-key">Scanning Probe</span><span class="spec-val">SP25/LSP-X5 · סריקה רציפה</span></div>
+<div class="spec-row"><span class="spec-key">טמפ' עבודה</span><span class="spec-val">20°C ±1°C! (הרחב עם תיקון)</span></div>
+<div class="spec-row"><span class="spec-key">תוכנות</span><span class="spec-val">PC-DMIS · Calypso · Quindos · Aberlink</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 10360-2: מבחן MPEE ו-MPEP<br>חמם חלק 4h לפני מדידה עם ±2°C/h שינוי!<br>
+<b>יצרנים:</b> <a href="https://www.zeiss.com/metrology" target="_blank" style="color:var(--blue)">Zeiss</a> · <a href="https://www.hexagonmi.com" target="_blank" style="color:var(--blue)">Hexagon</a> · <a href="https://www.cmmxyz.com" target="_blank" style="color:var(--blue)">Mitutoyo CMM</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Portable CMM — זרוע מדידה ניידת</div>
+<div><span class="mc-badge b-orange">±0.02-0.05mm</span><span class="mc-badge b-blue">גמיש</span></div>
+<div class="spec-row"><span class="spec-key">FARO Arm</span><span class="spec-val">טווח 1.2-3.7m · ±0.024-0.064mm</span></div>
+<div class="spec-row"><span class="spec-key">ROMER Arm</span><span class="spec-val">±0.028-0.054mm · 6/7 DOF</span></div>
+<div class="spec-row"><span class="spec-key">Cimcore</span><span class="spec-val">±0.018mm (hy'kor)</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">מדידה על הרצפה/מכונה · ניייד</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 10360-12: Portable CMM testing<br>
+<b>יצרנים:</b> <a href="https://www.faro.com" target="_blank" style="color:var(--blue)">FARO Technologies</a> · <a href="https://www.hexagonmi.com" target="_blank" style="color:var(--blue)">Hexagon / ROMER</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">3D Scanner — סורק תלת-ממד</div>
+<div><span class="mc-badge b-purple">±0.03-0.1mm</span><span class="mc-badge b-blue">Reverse Engineering</span></div>
+<div class="spec-row"><span class="spec-key">Structured Light</span><span class="spec-val">±0.03mm · מהיר · GOM ATOS</span></div>
+<div class="spec-row"><span class="spec-key">Laser Triangulation</span><span class="spec-val">±0.05mm · גמיש · Creaform</span></div>
+<div class="spec-row"><span class="spec-key">HandySCAN</span><span class="spec-val">±0.025mm · ידני ונייד</span></div>
+<div class="spec-row"><span class="spec-key">CT Scanning</span><span class="spec-val">±0.005mm · פנים חלק! · Zeiss VoluMax</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">GOM Inspect / Polyworks = תוכנות ניתוח<br>
+<b>יצרנים:</b> <a href="https://www.zeiss.com/metrology" target="_blank" style="color:var(--blue)">Zeiss GOM</a> · <a href="https://www.creaform3d.com" target="_blank" style="color:var(--blue)">Creaform</a> · <a href="https://www.faro.com" target="_blank" style="color:var(--blue)">FARO</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">FAI — First Article Inspection</div>
+<div><span class="mc-badge b-red">AS9102</span><span class="mc-badge b-orange">תעופה</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">AS9102 Rev B (תעופה) / PPAP (רכב)</span></div>
+<div class="spec-row"><span class="spec-key">FAI מלא</span><span class="spec-val">כל המדות בשרטוט (100%)</span></div>
+<div class="spec-row"><span class="spec-key">FAI חלקי</span><span class="spec-val">מדות קריטיות בלבד</span></div>
+<div class="spec-row"><span class="spec-key">תיעוד</span><span class="spec-val">FAIR Form 1/2/3 · Ballooned Drawing</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Balloon Drawing = מספור כל מדה בשרטוט<br>כל שינוי בתהליך → FAI חדש חובה!<br>
+<b>תוכנה:</b> <a href="https://www.discoverquality.com" target="_blank" style="color:var(--blue)">DISCUS</a> · <a href="https://www.elfasoftware.com" target="_blank" style="color:var(--blue)">Elfa</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">GD&T מדידה — Geometric Tolerances</div>
+<div><span class="mc-badge b-blue">ISO 1101</span><span class="mc-badge b-orange">ASME Y14.5</span></div>
+<div class="spec-row"><span class="spec-key">Flatness שטחיות</span><span class="spec-val">סריקה משטח → Least Squares Plane</span></div>
+<div class="spec-row"><span class="spec-key">Cylindricity גליליות</span><span class="spec-val">סריקה גליל → שלושת הסטיות</span></div>
+<div class="spec-row"><span class="spec-key">Position מיקום</span><span class="spec-val">TP = 2√(Δx²+Δy²) מה-Datum</span></div>
+<div class="spec-row"><span class="spec-key">True Position</span><span class="spec-val">MMC Bonus Tolerance חישוב CMM</span></div>
+<div class="spec-row"><span class="spec-key">Runout פגיעות</span><span class="spec-val">Total vs Circular Runout</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">CMM → PC-DMIS → GD&T Report אוטומטי<br>
+<b>תוכנות:</b> <a href="https://www.pcdmis.com" target="_blank" style="color:var(--blue)">PC-DMIS</a> · <a href="https://www.hexagonmi.com/calypso" target="_blank" style="color:var(--blue)">Calypso</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Surface Plate — משטח גרניט</div>
+<div><span class="mc-badge b-blue">Grade A/B/C</span><span class="mc-badge b-green">ייחוס שטחי</span></div>
+<div class="spec-row"><span class="spec-key">Grade A (Lab)</span><span class="spec-val">שטחיות ±0.001mm/300mm</span></div>
+<div class="spec-row"><span class="spec-key">Grade B (Tool Room)</span><span class="spec-val">±0.002mm/300mm</span></div>
+<div class="spec-row"><span class="spec-key">Grade C (Shop)</span><span class="spec-val">±0.004mm/300mm</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">Black Granite (Diabase) — 0 Thermal</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">כיול: BS 817 / ISO 8512<br>
+<b>יצרנים:</b> <a href="https://www.granitedevices.com" target="_blank" style="color:var(--blue)">Standridge</a> · <a href="https://www.ultra-flat.com" target="_blank" style="color:var(--blue)">Taft-Peirce</a></div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🤖 CMM — נושאים מתקדמים</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Probe Qualification — כיול מחטה</div>
+<div><span class="mc-badge b-orange">לפני כל מדידה</span><span class="mc-badge b-blue">Datum Sphere</span></div>
+<div class="spec-row"><span class="spec-key">כדור ייחוס</span><span class="spec-val">Ruby Sphere ø10-25mm, Grade 5</span></div>
+<div class="spec-row"><span class="spec-key">מספר נקודות</span><span class="spec-val">מינימום 25 נקודות לכיול</span></div>
+<div class="spec-row"><span class="spec-key">PD (Probe Diameter)</span><span class="spec-val">קוטר יעיל מחושב · לא קוטר ממשי!</span></div>
+<div class="spec-row"><span class="spec-key">Form Error</span><span class="spec-val">≤ 0.001mm → כיול תקין</span></div>
+<div class="spec-row"><span class="spec-key">תדירות כיול</span><span class="spec-val">בכל הפעלה · אחרי התנגשות · אחרי חימום</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">החלפת Stylus → כיול חובה!<br>Styli: Ruby (כללי) / Silicon Nitride (מהיר) / Zirconia (Al)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Datum Reference Frame — DRF מסגרת ייחוס</div>
+<div><span class="mc-badge b-blue">3-2-1 Setup</span><span class="mc-badge b-orange">Primary/Secondary/Tertiary</span></div>
+<div class="spec-row"><span class="spec-key">Primary Datum</span><span class="spec-val">מישור (3 נקודות) → מגביל Z/Rx/Ry</span></div>
+<div class="spec-row"><span class="spec-key">Secondary Datum</span><span class="spec-val">ציר/קצה (2 נקודות) → X/Rz</span></div>
+<div class="spec-row"><span class="spec-key">Tertiary Datum</span><span class="spec-val">נקודה (1) → Y</span></div>
+<div class="spec-row"><span class="spec-key">BF vs. Constrained</span><span class="spec-val">Best Fit vs. Datum Locked</span></div>
+<div class="spec-row"><span class="spec-key">Fixture</span><span class="spec-val">ייצוב מכני = דיוק + חזרתיות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">DRF = שרטוט GD&T → חייב לייצג את ה-Datum מהשרטוט!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Temperature Compensation — תיקון טמפרטורה</div>
+<div><span class="mc-badge b-red">20°C ±1°C</span><span class="mc-badge b-blue">CTE Correction</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ISO 1 = 20°C מינוס קבוע</span></div>
+<div class="spec-row"><span class="spec-key">שגיאה ב-1°C</span><span class="spec-val">פלדה: 12μm/m · Al: 23μm/m</span></div>
+<div class="spec-row"><span class="spec-key">סנסורי טמפ'</span><span class="spec-val">CMM + חלק + מרווח</span></div>
+<div class="spec-row"><span class="spec-key">Software Correction</span><span class="spec-val">αΔT×L → תיקון אוטומטי</span></div>
+<div class="spec-row"><span class="spec-key">Soak Time</span><span class="spec-val">4h מינימום לחלקי פלדה גדולים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">חלק Al ב-25°C → שגיאה 75μm/m — קריטי!<br>CTE פלדה: 11.5μm/m·°C | Al: 23μm/m·°C | Invar: 1.5μm/m·°C</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">PC-DMIS / Calypso — תכנות CMM</div>
+<div><span class="mc-badge b-purple">Offline Programming</span><span class="mc-badge b-blue">CAD Import</span></div>
+<div class="spec-row"><span class="spec-key">CAD Import</span><span class="spec-val">STEP/IGES → ייצוא ממוצרי CAD</span></div>
+<div class="spec-row"><span class="spec-key">Auto Path</span><span class="spec-val">מסלול מחט אוטומטי מ-CAD</span></div>
+<div class="spec-row"><span class="spec-key">GD&T Auto Eval</span><span class="spec-val">חישוב Position/Flatness אוטומטי</span></div>
+<div class="spec-row"><span class="spec-key">SPC Integration</span><span class="spec-val">ייצוא ל-Q-DAS / Minitab</span></div>
+<div class="spec-row"><span class="spec-key">דוח CMM</span><span class="spec-val">PDF/Excel עם Balloon Numbers</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>תוכנות:</b> <a href="https://www.pcdmis.com" target="_blank" style="color:var(--blue)">PC-DMIS (Hexagon)</a> · <a href="https://www.zeiss.com/calypso" target="_blank" style="color:var(--blue)">Calypso (Zeiss)</a> · <a href="https://www.polyworks.com" target="_blank" style="color:var(--blue)">Polyworks</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Scanning Probe — מחט סריקה</div>
+<div><span class="mc-badge b-green">↑↑מהירות</span><span class="mc-badge b-blue">רציף vs. נקודות</span></div>
+<div class="spec-row"><span class="spec-key">Touch Trigger</span><span class="spec-val">נקודה → נקודה · מהיר לנקודות בדידות</span></div>
+<div class="spec-row"><span class="spec-key">Analog Scanning</span><span class="spec-val">1000+ נקודות/שנייה · Surface Form</span></div>
+<div class="spec-row"><span class="spec-key">Renishaw REVO</span><span class="spec-val">5-Axis · סריקה בכל כיוון · ↑↑מהירות</span></div>
+<div class="spec-row"><span class="spec-key">יתרון סריקה</span><span class="spec-val">Form Error · Waviness · עקומות חופשיות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">REVO = ראש מסתובב 5 צירים → ↓זמן מדידה 85%<br>
+<b>יצרן:</b> <a href="https://www.renishaw.com" target="_blank" style="color:var(--blue)">Renishaw</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">CT Scanning — טומוגרפיה תעשייתית</div>
+<div><span class="mc-badge b-red">X-Ray 3D</span><span class="mc-badge b-orange">פנים חלק!</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±0.005-0.02mm (תלוי VOX size)</span></div>
+<div class="spec-row"><span class="spec-key">Porosity Detection</span><span class="spec-val">חורים מ-0.1mm · יציקות AM</span></div>
+<div class="spec-row"><span class="spec-key">Wall Thickness</span><span class="spec-val">מפת עובי קיר מלאה</span></div>
+<div class="spec-row"><span class="spec-key">Assembly CT</span><span class="spec-val">בדיקת מבנים מורכבים סגורים</span></div>
+<div class="spec-row"><span class="spec-key">מגבלה</span><span class="spec-val">חלקים צפופים/גדולים — ↓חדירה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.zeiss.com/metrology" target="_blank" style="color:var(--blue)">Zeiss VoluMax</a> · <a href="https://www.yxlon.com" target="_blank" style="color:var(--blue)">YXLON</a> · <a href="https://www.nikon.com/metrology" target="_blank" style="color:var(--blue)">Nikon XT</a></div>
+</div>
+</div></div></div></div>
+
+<!-- ===== SURFACE MEASUREMENT ===== -->
+<div id="insp-surface_meas" class="insp-sec">
+<div class="card"><div class="ctitle">✦ מדידת גימור משטח — Surface Texture Measurement</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">פרופילומטר — Surface Roughness Tester</div>
+<div><span class="mc-badge b-green">Ra · Rz · Rt</span><span class="mc-badge b-blue">מגע/ללא מגע</span></div>
+<div class="spec-row"><span class="spec-key">Ra</span><span class="spec-val">ממוצע אריתמטי — הנפוץ ביותר</span></div>
+<div class="spec-row"><span class="spec-key">Rz</span><span class="spec-val">ממוצע 5 פיקים — ISO 4287</span></div>
+<div class="spec-row"><span class="spec-key">Rt</span><span class="spec-val">פסגה לעמק מקסימלית</span></div>
+<div class="spec-row"><span class="spec-key">Rq (RMS)</span><span class="spec-val">שורש ממוצע ריבועי</span></div>
+<div class="spec-row"><span class="spec-key">Stylus radius</span><span class="spec-val">2μm (קונבנציונלי) / 0.5μm (מיקרו)</span></div>
+<div class="spec-row"><span class="spec-key">Cutoff λc</span><span class="spec-val">0.08/0.25/0.8/2.5/8mm (ISO 4288)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Cutoff לפי Ra: Ra>2μm → λc=0.8mm<br>
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo SJ</a> · <a href="https://www.taylor-hobson.com" target="_blank" style="color:var(--blue)">Taylor Hobson</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Ra אופייני לתהליכים</div>
+<div><span class="mc-badge b-orange">ערכי ייחוס</span></div>
+<div class="spec-row"><span class="spec-key">גריפה גסה</span><span class="spec-val">Ra 12.5-50 μm</span></div>
+<div class="spec-row"><span class="spec-key">כרסום גסה</span><span class="spec-val">Ra 3.2-12.5 μm</span></div>
+<div class="spec-row"><span class="spec-key">כרסום גמר</span><span class="spec-val">Ra 0.8-3.2 μm</span></div>
+<div class="spec-row"><span class="spec-key">שחיקת משטח — Surface Grinding</span><span class="spec-val">Ra 0.2-0.8 μm</span></div>
+<div class="spec-row"><span class="spec-key">Honing</span><span class="spec-val">Ra 0.1-0.4 μm (Cross-hatch)</span></div>
+<div class="spec-row"><span class="spec-key">Lapping</span><span class="spec-val">Ra 0.01-0.1 μm</span></div>
+<div class="spec-row"><span class="spec-key">Superfinishing</span><span class="spec-val">Ra &lt;0.05 μm</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Non-Contact Surface — ללא מגע</div>
+<div><span class="mc-badge b-purple">אופטי</span><span class="mc-badge b-green">↑מהיר</span></div>
+<div class="spec-row"><span class="spec-key">White Light Interferometry</span><span class="spec-val">רזולוציה 0.1nm! · Zygo · Bruker</span></div>
+<div class="spec-row"><span class="spec-key">Focus Variation</span><span class="spec-val">±0.1μm · Alicona InfiniteFocus</span></div>
+<div class="spec-row"><span class="spec-key">Confocal</span><span class="spec-val">±0.5μm · Olympus LEXT</span></div>
+<div class="spec-row"><span class="spec-key">Fringe Projection</span><span class="spec-val">GOM ATOS · שדה גדול</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.zygo.com" target="_blank" style="color:var(--blue)">Zygo (Ametek)</a> · <a href="https://www.alicona.com" target="_blank" style="color:var(--blue)">Alicona</a> · <a href="https://www.bruker.com" target="_blank" style="color:var(--blue)">Bruker</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">N-Grade — ציון גימור</div>
+<div><span class="mc-badge b-orange">N1-N12</span></div>
+<div class="spec-row"><span class="spec-key">N1</span><span class="spec-val">Ra 0.025 μm — ↑↑ יקר</span></div>
+<div class="spec-row"><span class="spec-key">N4</span><span class="spec-val">Ra 0.2 μm — שחיקה גמר</span></div>
+<div class="spec-row"><span class="spec-key">N6</span><span class="spec-val">Ra 0.8 μm — כרסום גמר</span></div>
+<div class="spec-row"><span class="spec-key">N8</span><span class="spec-val">Ra 3.2 μm — כרסום רגיל</span></div>
+<div class="spec-row"><span class="spec-key">N10</span><span class="spec-val">Ra 12.5 μm — גסה</span></div>
+<div class="spec-row"><span class="spec-key">N12</span><span class="spec-val">Ra 50 μm — גריפה</span></div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">✦ פרמטרים מתקדמים — Advanced Surface Parameters</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Waviness vs. Roughness vs. Form</div>
+<div><span class="mc-badge b-blue">ISO 4287 / ISO 12780</span></div>
+<div class="spec-row"><span class="spec-key">Form (צורה)</span><span class="spec-val">שגיאות ארוכות — Flatness, Straightness</span></div>
+<div class="spec-row"><span class="spec-key">Waviness (גליות) W</span><span class="spec-val">בינוני — Wt, Wa, Wz (λf - λc)</span></div>
+<div class="spec-row"><span class="spec-key">Roughness (גסות) R</span><span class="spec-val">קצר — Ra, Rz, Rt (λs - λc)</span></div>
+<div class="spec-row"><span class="spec-key">Cutoff λc</span><span class="spec-val">מפריד Roughness/Waviness</span></div>
+<div class="spec-row"><span class="spec-key">λs</span><span class="spec-val">0.0025mm — פילטר גסות עדינה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Form → Waviness → Roughness: שלוש שכבות מדידה עצמאיות!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Abbott-Firestone — עקומת נשיאה</div>
+<div><span class="mc-badge b-orange">Bearing Ratio</span><span class="mc-badge b-blue">Rpk / Rk / Rvk</span></div>
+<div class="spec-row"><span class="spec-key">Rk (Core)</span><span class="spec-val">גובה ליבת הפרופיל — נשיאה עיקרית</span></div>
+<div class="spec-row"><span class="spec-key">Rpk</span><span class="spec-val">פסגות בולטות — נשחקות ראשונות</span></div>
+<div class="spec-row"><span class="spec-key">Rvk</span><span class="spec-val">עמקי שמן — שמירת סיכה</span></div>
+<div class="spec-row"><span class="spec-key">Rmr (Tp)</span><span class="spec-val">אחוז נשיאה בגובה נתון</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+גלילי מנוע: Rpk נמוך + Rvk גבוה = ↑חיים + ↓בלאי<br>תקן: ISO 13565-2</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Rsk · Rku — צורת פרופיל</div>
+<div><span class="mc-badge b-purple">Skewness · Kurtosis</span></div>
+<div class="spec-row"><span class="spec-key">Rsk (Skewness)</span><span class="spec-val">0=סימטרי · + = פסגות · - = עמקים</span></div>
+<div class="spec-row"><span class="spec-key">Rsk שלילי</span><span class="spec-val">↑שטח נשיאה · ↑חיי גלי מנוע</span></div>
+<div class="spec-row"><span class="spec-key">Rku (Kurtosis)</span><span class="spec-val">3=נורמלי · >3 = פסגות חדות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Honed cylinder: Rsk = -1.5 עד -0.5 (אידיאלי)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Areal 3D — פרמטרים תלת-ממדיים</div>
+<div><span class="mc-badge b-blue">ISO 25178</span><span class="mc-badge b-green">Sa · Sz · Sp</span></div>
+<div class="spec-row"><span class="spec-key">Sa</span><span class="spec-val">ממוצע אריתמטי שטחי (כמו Ra בתלת)</span></div>
+<div class="spec-row"><span class="spec-key">Sq</span><span class="spec-val">שורש ממוצע ריבועי שטחי (RMS)</span></div>
+<div class="spec-row"><span class="spec-key">Sz</span><span class="spec-val">גובה מקסימלי משטח</span></div>
+<div class="spec-row"><span class="spec-key">Sdr</span><span class="spec-val">Developed Surface Ratio — הדבקה</span></div>
+<div class="spec-row"><span class="spec-key">Sdq</span><span class="spec-val">שיפוע RMS — מנבא Friction</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 25178 = עתיד המדידה! מחליף Ra/Rz בהדרגה<br>
+<b>יצרנים:</b> <a href="https://www.alicona.com" target="_blank" style="color:var(--blue)">Alicona</a> · <a href="https://www.zygo.com" target="_blank" style="color:var(--blue)">Zygo</a> · <a href="https://www.keyence.com" target="_blank" style="color:var(--blue)">Keyence VK</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Comparison Specimens — דגמי השוואה</div>
+<div><span class="mc-badge b-orange">Tactile Reference</span><span class="mc-badge b-blue">מגע</span></div>
+<div class="spec-row"><span class="spec-key">VDI 3400</span><span class="spec-val">תקן EDM — 45 דרגות (VDI 12-45)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 2632</span><span class="spec-val">השוואה לפי תהליך (מחרטה/כרסומת/שחיקה)</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">בדיקה מהירה בצל/בשטח ללא מכשיר</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">לא חלופה לפרופילומטר — הערכה ויזואלית בלבד!<br>
+<b>יצרן:</b> <a href="https://www.rubert.co.uk" target="_blank" style="color:var(--blue)">Rubert & Co</a> · <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Surface Finish לפי יישום</div>
+<div><span class="mc-badge b-green">הנחיות עיצוב</span></div>
+<div class="spec-row"><span class="spec-key">מסבים גלגורים</span><span class="spec-val">Ra 0.1-0.4 μm · Roundness &lt;1μm</span></div>
+<div class="spec-row"><span class="spec-key">אטמי O-ring</span><span class="spec-val">Ra 0.4-0.8 μm · ללא עקבות עיבוד!</span></div>
+<div class="spec-row"><span class="spec-key">ציפוי קשה</span><span class="spec-val">Ra ≤ 0.8 לפני ציפוי (EN/Chrome)</span></div>
+<div class="spec-row"><span class="spec-key">חוזקת עייפות</span><span class="spec-val">Ra ≤ 0.4 → ↑30% חוזק עייפות!</span></div>
+<div class="spec-row"><span class="spec-key">הדבקה/ציפוי</span><span class="spec-val">Ra 1.6-3.2 → מנסה Sdr גבוה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">כיוון עקבות ⊥ לעומס = ↑חוזק עייפות (Lay Symbol)</div>
+</div>
+</div></div></div></div>
+
+<!-- ===== OPTICAL ===== -->
+<div id="insp-optical" class="insp-sec">
+<div class="card"><div class="ctitle">🔭 מדידה אופטית ולייזר — Optical & Laser Measurement</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Profile Projector — פרוייקטור פרופיל / Optical Comparator</div>
+<div><span class="mc-badge b-blue">×10 ×20 ×50</span><span class="mc-badge b-green">±0.005mm</span></div>
+<div class="spec-row"><span class="spec-key">הגדלות</span><span class="spec-val">×10, ×20, ×50, ×100</span></div>
+<div class="spec-row"><span class="spec-key">דיוק מדידה</span><span class="spec-val">±0.003-0.005mm</span></div>
+<div class="spec-row"><span class="spec-key">מסך</span><span class="spec-val">ø250/500mm · השוואה לתבנית</span></div>
+<div class="spec-row"><span class="spec-key">DRO</span><span class="spec-val">X/Y/Z דיגיטלי · זוויות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a> · <a href="https://www.nikon.com/metrology" target="_blank" style="color:var(--blue)">Nikon</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">VMM — Video Measuring Machine</div>
+<div><span class="mc-badge b-blue">±0.002mm</span><span class="mc-badge b-green">ללא מגע</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±0.002-0.005mm</span></div>
+<div class="spec-row"><span class="spec-key">טווח ציר Z</span><span class="spec-val">150-300mm</span></div>
+<div class="spec-row"><span class="spec-key">Telecentric Lens</span><span class="spec-val">ללא Parallax Error</span></div>
+<div class="spec-row"><span class="spec-key">Auto Edge Detection</span><span class="spec-val">↑מהירות · ↓שגיאת מפעיל</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo Quick Vision</a> · <a href="https://www.hexagonmi.com" target="_blank" style="color:var(--blue)">Hexagon Optiv</a> · <a href="https://www.smartscope.com" target="_blank" style="color:var(--blue)">OGP SmartScope</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Laser Micrometer — מיקרומטר לייזר</div>
+<div><span class="mc-badge b-blue">±0.001mm</span><span class="mc-badge b-green">ללא מגע · מהיר</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">הצללת קרן לייזר — Shadow Method</span></div>
+<div class="spec-row"><span class="spec-key">רזולוציה</span><span class="spec-val">0.0001-0.001mm</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">עד 1200 מדידות/שנייה!</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">קווי ייצור, חוטים, פלסטיק בולבל</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.keyence.com" target="_blank" style="color:var(--blue)">Keyence</a> · <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.micro-epsilon.com" target="_blank" style="color:var(--blue)">Micro-Epsilon</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Laser Tracker — מעקב לייזר</div>
+<div><span class="mc-badge b-orange">±0.025mm</span><span class="mc-badge b-blue">חלקים גדולים</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±0.016-0.025mm בטווח מטרים!</span></div>
+<div class="spec-row"><span class="spec-key">טווח</span><span class="spec-val">עד 80 מטר</span></div>
+<div class="spec-row"><span class="spec-key">SMR</span><span class="spec-val">Spherically Mounted Retroreflector</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">מטוסים · מבנים · יישור מכונות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.faro.com" target="_blank" style="color:var(--blue)">FARO Laser Tracker</a> · <a href="https://www.hexagonmi.com" target="_blank" style="color:var(--blue)">Leica AT960</a></div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🔭 מדידה אופטית מתקדמת</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Machine Vision / AOI — ראיית מכונה</div>
+<div><span class="mc-badge b-blue">Inline</span><span class="mc-badge b-green">100% בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">AOI</span><span class="spec-val">Automated Optical Inspection — PCB/SMD</span></div>
+<div class="spec-row"><span class="spec-key">Camera Resolution</span><span class="spec-val">5-50 MPx · Telecentric Lens</span></div>
+<div class="spec-row"><span class="spec-key">תאורה</span><span class="spec-val">Coaxial / Ring / Dark Field / Structured</span></div>
+<div class="spec-row"><span class="spec-key">מהירות</span><span class="spec-val">עד 10,000 חלקים/שעה</span></div>
+<div class="spec-row"><span class="spec-key">AI / Deep Learning</span><span class="spec-val">זיהוי פגמים ↑ ↓ False Reject</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.keyence.com" target="_blank" style="color:var(--blue)">Keyence IV3</a> · <a href="https://www.cognex.com" target="_blank" style="color:var(--blue)">Cognex</a> · <a href="https://www.mvtec.com" target="_blank" style="color:var(--blue)">MVTec HALCON</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Photogrammetry — פוטוגרמטריה</div>
+<div><span class="mc-badge b-orange">±0.05mm</span><span class="mc-badge b-blue">חלקים גדולים מאוד</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">תמונות מרובות → נקודות 3D</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">1:100,000 מהטווח</span></div>
+<div class="spec-row"><span class="spec-key">טווח</span><span class="spec-val">1m עד מטוס/ספינה מלאים!</span></div>
+<div class="spec-row"><span class="spec-key">Coded Targets</span><span class="spec-val">סמני ייחוס מודפסים על החלק</span></div>
+<div class="spec-row"><span class="spec-key">Scale Bar</span><span class="spec-val">מוט ייחוס לסדר גודל</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.aicon3d.com" target="_blank" style="color:var(--blue)">Aicon (Hexagon)</a> · <a href="https://www.geodetic.com" target="_blank" style="color:var(--blue)">V-STARS (Geodetic)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Laser Interferometer — אינטרפרומטר</div>
+<div><span class="mc-badge b-purple">λ/2 = 316nm</span><span class="mc-badge b-blue">כיול מכונות</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">0.001μm (1nm) — הדיוק הגבוה ביותר!</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">כיול CNC/CMM · גזי ציר מקסימלי</span></div>
+<div class="spec-row"><span class="spec-key">Linear/Angular</span><span class="spec-val">מדידת ישרות · זוויות · ישרוּת</span></div>
+<div class="spec-row"><span class="spec-key">XL-80 / XM-60</span><span class="spec-val">Renishaw — Ballbar + Interferometer</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.renishaw.com" target="_blank" style="color:var(--blue)">Renishaw XL-80</a> · <a href="https://www.agilent.com" target="_blank" style="color:var(--blue)">Keysight 5530</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Autocollimator — אוטוקולימטור</div>
+<div><span class="mc-badge b-blue">0.1 arc-second</span><span class="mc-badge b-orange">זוויות מרחוק</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">קרן מקבילה → Mirror → זווית מוחזרת</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±0.1" arc = ±0.5μrad</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">ישרות מסילות · בדיקת CMM · אופטיקה</span></div>
+<div class="spec-row"><span class="spec-key">דיגיטלי</span><span class="spec-val">CCD + LCD — קריאה אוטומטית</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.taylor-hobson.com" target="_blank" style="color:var(--blue)">Taylor Hobson</a> · <a href="https://www.brunson.us" target="_blank" style="color:var(--blue)">Brunson</a></div>
+</div>
+</div></div></div></div>
+
+<!-- ===== HARDNESS ===== -->
+<div id="insp-hardness" class="insp-sec">
+<div class="card"><div class="ctitle">💎 בדיקות קשיות — Hardness Testing</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">רוקוול — Rockwell Hardness (HRC/HRB/HRA)</div>
+<div><span class="mc-badge b-blue">ISO 6508</span><span class="mc-badge b-green">מהיר · נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">HRC (C scale)</span><span class="spec-val">Diamond Brale · 150kg · HRC 20-70</span></div>
+<div class="spec-row"><span class="spec-key">HRB (B scale)</span><span class="spec-val">כדור 1/16" · 100kg · חומרים רכים</span></div>
+<div class="spec-row"><span class="spec-key">HRA</span><span class="spec-val">Diamond · 60kg · קרביד, ציפויים</span></div>
+<div class="spec-row"><span class="spec-key">HRN15/30/45</span><span class="spec-val">Superficial — חומר דק, ציפויים</span></div>
+<div class="spec-row"><span class="spec-key">מינימום עובי</span><span class="spec-val">HRC: 1.5mm · HRN15: 0.2mm</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">מהיר ואוטומטי — הנפוץ בתעשייה!<br>
+<b>יצרנים:</b> <a href="https://www.wilsonhardness.com" target="_blank" style="color:var(--blue)">Wilson (Buehler)</a> · <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.zwickroell.com" target="_blank" style="color:var(--blue)">ZwickRoell</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ויקרס — Vickers Hardness (HV)</div>
+<div><span class="mc-badge b-blue">ISO 6507</span><span class="mc-badge b-green">דיוק גבוה</span></div>
+<div class="spec-row"><span class="spec-key">מדחס</span><span class="spec-val">Diamond Pyramid 136°</span></div>
+<div class="spec-row"><span class="spec-key">עומסים</span><span class="spec-val">HV0.001-HV100 (1g עד 100kg)</span></div>
+<div class="spec-row"><span class="spec-key">מיקרו ויקרס</span><span class="spec-val">HV0.01-HV1 → ציפויים, שכבת Case</span></div>
+<div class="spec-row"><span class="spec-key">מדידת אלכסון</span><span class="spec-val">HV = 1.854 × F/d² (d=ממוצע אלכסונים)</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">כל קשיות, כל עובי, מדויק</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תקן תעופה: HV מיקרו לבדיקת Case Depth!<br>
+<b>יצרנים:</b> <a href="https://www.struers.com" target="_blank" style="color:var(--blue)">Struers</a> · <a href="https://www.wilsonhardness.com" target="_blank" style="color:var(--blue)">Wilson</a> · <a href="https://www.zwickroell.com" target="_blank" style="color:var(--blue)">ZwickRoell</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ברינל — Brinell Hardness (HBW)</div>
+<div><span class="mc-badge b-orange">ISO 6506</span><span class="mc-badge b-blue">יציקות · פלדה</span></div>
+<div class="spec-row"><span class="spec-key">מדחס</span><span class="spec-val">כדור Carbide 2.5/5/10mm</span></div>
+<div class="spec-row"><span class="spec-key">עומסים</span><span class="spec-val">187.5-3000 kg · HB 20-650</span></div>
+<div class="spec-row"><span class="spec-key">נוסחה</span><span class="spec-val">HBW = 2F / (πD(D-√(D²-d²)))</span></div>
+<div class="spec-row"><span class="spec-key">מדידה</span><span class="spec-val">מיקרוסקופ מדידת קוטר רושם</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">אידיאלי: יציקות, פלדה גסה, חומרים לא אחידים<br>
+<b>יצרנים:</b> <a href="https://www.wilsonhardness.com" target="_blank" style="color:var(--blue)">Wilson</a> · <a href="https://www.ernst-equipment.com" target="_blank" style="color:var(--blue)">Ernst</a> · <a href="https://www.zwickroell.com" target="_blank" style="color:var(--blue)">ZwickRoell</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Leeb / UCI — קשיות נייד</div>
+<div><span class="mc-badge b-green">נייד</span><span class="mc-badge b-orange">HL → HRC/HB/HV</span></div>
+<div class="spec-row"><span class="spec-key">Leeb Rebound</span><span class="spec-val">HL = 1000 × v_return/v_impact</span></div>
+<div class="spec-row"><span class="spec-key">UCI (Ultrasonic)</span><span class="spec-val">שינוי תדר מדחס Vickers</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±3-5% מול מחשוף שולחן</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">חלקים גדולים · שטח · ריתוך</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 16859 (Leeb) / ASTM A956<br>
+<b>יצרנים:</b> <a href="https://www.proceq.com" target="_blank" style="color:var(--blue)">Proceq (Screening Eagle)</a> · <a href="https://www.equotip.com" target="_blank" style="color:var(--blue)">Equotip</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Shore A/D — קשיות גומי/פלסטיק</div>
+<div><span class="mc-badge b-blue">ISO 868</span><span class="mc-badge b-green">פולימרים</span></div>
+<div class="spec-row"><span class="spec-key">Shore A</span><span class="spec-val">גומי רך · סיליקון · 0-100 HA</span></div>
+<div class="spec-row"><span class="spec-key">Shore D</span><span class="spec-val">פלסטיק קשה · 0-100 HD</span></div>
+<div class="spec-row"><span class="spec-key">IRHD</span><span class="spec-val">International Rubber Hardness Degrees</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">מדוד אחרי 3 שניות! Creep משפיע<br>
+<b>יצרנים:</b> <a href="https://www.zwickroell.com" target="_blank" style="color:var(--blue)">ZwickRoell</a> · <a href="https://www.bareiss.de" target="_blank" style="color:var(--blue)">Bareiss</a></div>
+</div>
+
+</div>
+
+<div style="margin-top:14px">
+<div class="ctitle" style="font-size:14px">🔄 טבלת המרת קשיות — Hardness Conversion (ISO 18265 / ASTM E140)</div>
+<table class="conv-table">
+<tr><th>HRC</th><th>HB (3000kg)</th><th>HV (10kg)</th><th>UTS פלדה MPa</th><th>שימוש</th></tr>
+<tr><td>20</td><td>226</td><td>238</td><td>~780</td><td>פלדה מכוסמת קלה</td></tr>
+<tr><td>30</td><td>286</td><td>302</td><td>~1010</td><td>מכוסמת בינונית</td></tr>
+<tr><td>40</td><td>371</td><td>392</td><td>~1280</td><td>מכוסמת טובה</td></tr>
+<tr><td>50</td><td>481</td><td>513</td><td>~1640</td><td>מכוסמת גבוהה</td></tr>
+<tr><td>55</td><td>551</td><td>596</td><td>~1870</td><td>כלי חיתוך, D2, M2</td></tr>
+<tr><td>60</td><td>654</td><td>746</td><td>~2100</td><td>כלים, מסבים</td></tr>
+<tr><td>65</td><td>—</td><td>900</td><td>—</td><td>HSS, קרביד (מוגבל)</td></tr>
+<tr><td style="color:var(--muted)">HB 120</td><td>HB 120</td><td>HV 126</td><td>~420</td><td>אלומיניום, פלדה מתוילה</td></tr>
+<tr><td style="color:var(--muted)">HB 200</td><td>HB 200</td><td>HV 210</td><td>~680</td><td>פלדה מבנה, SS</td></tr>
+</table>
+<div style="font-size:11px;color:var(--red);margin-top:6px">⚠️ המרות אינן מדויקות — ±5-10% · תמיד השתמש בטבלאות ASTM E140 לחומר הספציפי!</div>
+</div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">💎 נושאים מתקדמים — הכנת דגים ועומק Case</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Knoop Hardness — קשיות קנופ</div>
+<div><span class="mc-badge b-purple">HK</span><span class="mc-badge b-blue">מדחס מוארך</span></div>
+<div class="spec-row"><span class="spec-key">מדחס</span><span class="spec-val">פירמידה Rhombic · 7.11:1 יחס אלכסונות</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↓עומק → ↑מיקרו-אזורים · קרמיקה</span></div>
+<div class="spec-row"><span class="spec-key">עומסים</span><span class="spec-val">HK0.01 עד HK1</span></div>
+<div class="spec-row"><span class="spec-key">נוסחה</span><span class="spec-val">HK = 14.229 × F / d²</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">קרמיקה · ציפויים · שיניים · שחיקות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ASTM E384 · מדידת אלכסון ארוך בלבד (קל יותר)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Case Depth — עומק שכבה מוקשת</div>
+<div><span class="mc-badge b-red">ECD / TCD</span><span class="mc-badge b-orange">חתך Metallographic</span></div>
+<div class="spec-row"><span class="spec-key">ECD (Effective)</span><span class="spec-val">עד HV 550 (HRC 52) — Case/Core גבול</span></div>
+<div class="spec-row"><span class="spec-key">TCD (Total)</span><span class="spec-val">כל עומק השכבה עד Core</span></div>
+<div class="spec-row"><span class="spec-key">שיטת מדידה</span><span class="spec-val">חתך → Mounting → Polishing → HV Profile</span></div>
+<div class="spec-row"><span class="spec-key">Traverse</span><span class="spec-val">HV מדידות כל 0.1-0.5mm</span></div>
+<div class="spec-row"><span class="spec-key">Case Carburizing</span><span class="spec-val">ECD טיפוסי: 0.5-1.5mm</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תקן: ISO 2639 (Case Hardening) / AMS 2759</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">הכנת דגים — Metallographic Sample Prep</div>
+<div><span class="mc-badge b-orange">Cutting → Mounting → Polish</span></div>
+<div class="spec-row"><span class="spec-key">חיתוך</span><span class="spec-val">Abrasive Saw / Wire EDM — ללא שריפה!</span></div>
+<div class="spec-row"><span class="spec-key">Mounting</span><span class="spec-val">Bakelite חם / Epoxy קר</span></div>
+<div class="spec-row"><span class="spec-key">Grinding</span><span class="spec-val">SiC Paper: P120→P240→P320→P600→P1200</span></div>
+<div class="spec-row"><span class="spec-key">Polishing</span><span class="spec-val">3μm Diamond → 1μm → OPS 0.04μm</span></div>
+<div class="spec-row"><span class="spec-key">Etching</span><span class="spec-val">Nital (פלדה) / Keller (Al) / Marble (SS)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.struers.com" target="_blank" style="color:var(--blue)">Struers</a> · <a href="https://www.buehler.com" target="_blank" style="color:var(--blue)">Buehler</a> · <a href="https://www.leco.com" target="_blank" style="color:var(--blue)">LECO</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Nanoindentation — ננו קשיות</div>
+<div><span class="mc-badge b-purple">mN · nm</span><span class="mc-badge b-blue">ציפויים דקים</span></div>
+<div class="spec-row"><span class="spec-key">כוח</span><span class="spec-val">0.1-500 mN</span></div>
+<div class="spec-row"><span class="spec-key">עומק</span><span class="spec-val">10-10,000 nm</span></div>
+<div class="spec-row"><span class="spec-key">Oliver-Pharr</span><span class="spec-val">H ו-E מעקומת עומס-הזזה</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">DLC, PVD/CVD ציפויים, MEMS</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.bruker.com" target="_blank" style="color:var(--blue)">Bruker Hysitron</a> · <a href="https://www.kett.com" target="_blank" style="color:var(--blue)">Fischer Picodentor</a></div>
+</div>
+</div></div></div></div>
+
+<!-- ===== NDT METHODS ===== -->
+<div id="insp-ndt_methods" class="insp-sec">
+<div class="card"><div class="ctitle">⚡ NDT — בדיקות לא הרסניות / Non-Destructive Testing</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">VT — בדיקה חזותית / Visual Testing</div>
+<div><span class="mc-badge b-green">Level I-III</span><span class="mc-badge b-blue">ASNT / EN 473</span></div>
+<div class="spec-row"><span class="spec-key">Direct VT</span><span class="spec-val">עיניים · מרחק &lt;600mm · &gt;500 lux</span></div>
+<div class="spec-row"><span class="spec-key">Remote VT (RVI)</span><span class="spec-val">Borescope · Camera · Drone</span></div>
+<div class="spec-row"><span class="spec-key">עזרים</span><span class="spec-val">Weld Gauge · Fillet Gauge · Magnifier</span></div>
+<div class="spec-row"><span class="spec-key">תקנים</span><span class="spec-val">ISO 17637 (ריתוך) · ASTM E1316</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.olympus-ims.com" target="_blank" style="color:var(--blue)">Olympus</a> · <a href="https://www.ge.com/inspection" target="_blank" style="color:var(--blue)">GE Inspection</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">UT — אולטרסוניק / Ultrasonic Testing</div>
+<div><span class="mc-badge b-blue">Pulse-Echo</span><span class="mc-badge b-orange">TOFD · Phased Array</span></div>
+<div class="spec-row"><span class="spec-key">Pulse-Echo</span><span class="spec-val">חזרת אקו מפגם · 1-20 MHz</span></div>
+<div class="spec-row"><span class="spec-key">TOFD</span><span class="spec-val">Time of Flight Diffraction · ↑דיוק</span></div>
+<div class="spec-row"><span class="spec-key">PAUT</span><span class="spec-val">Phased Array · תמונה סקטורית</span></div>
+<div class="spec-row"><span class="spec-key">EMAT</span><span class="spec-val">ללא Couplant! גז, טמפ' גבוהה</span></div>
+<div class="spec-row"><span class="spec-key">עובי מינימלי</span><span class="spec-val">0.1mm (UT עובי) · 1mm (פגמים)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 17640 · EN 583<br>
+<b>יצרנים:</b> <a href="https://www.olympus-ims.com" target="_blank" style="color:var(--blue)">Olympus</a> · <a href="https://www.ge.com/inspection" target="_blank" style="color:var(--blue)">GE Inspection</a> · <a href="https://www.sonatest.com" target="_blank" style="color:var(--blue)">Sonatest</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">RT — רדיוגרפיה / Radiographic Testing</div>
+<div><span class="mc-badge b-red">קרינה!</span><span class="mc-badge b-blue">X-Ray · γ-Ray</span></div>
+<div class="spec-row"><span class="spec-key">X-Ray</span><span class="spec-val">150-450 kV · פלדה עד 100mm</span></div>
+<div class="spec-row"><span class="spec-key">γ-Ray Ir-192</span><span class="spec-val">20-100mm פלדה · נייד</span></div>
+<div class="spec-row"><span class="spec-key">γ-Ray Co-60</span><span class="spec-val">60-200mm פלדה · ↑אנרגיה</span></div>
+<div class="spec-row"><span class="spec-key">Digital DR/CR</span><span class="spec-val">↑מהירות · ↓פסולת · DICONDE</span></div>
+<div class="spec-row"><span class="spec-key">CT Industrial</span><span class="spec-val">תמונה 3D פנים חלק · Zeiss VoluMax</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 17636 · ASME Section V · רישיון קרינה!<br>
+<b>יצרנים:</b> <a href="https://www.yxlon.com" target="_blank" style="color:var(--blue)">YXLON</a> · <a href="https://www.carestream.com" target="_blank" style="color:var(--blue)">Carestream NDT</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ET — ורידים חשמליים / Eddy Current</div>
+<div><span class="mc-badge b-blue">מוליכים</span><span class="mc-badge b-green">ציפויים · סדקים</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">זרם מושרה → שינוי אימפדנס</span></div>
+<div class="spec-row"><span class="spec-key">תדירות</span><span class="spec-val">100Hz-10MHz · ↑תדר=↓חדירה</span></div>
+<div class="spec-row"><span class="spec-key">Skin Depth δ</span><span class="spec-val">δ = 503√(ρ/μf) mm</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">עובי ציפוי · סדקי עייפות · מיון</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">ללא מגע · מהיר · אוטומציה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 15549 · ASTM E376 (עובי)<br>
+<b>יצרנים:</b> <a href="https://www.olympus-ims.com" target="_blank" style="color:var(--blue)">Olympus</a> · <a href="https://www.zetec.com" target="_blank" style="color:var(--blue)">Zetec</a> · <a href="https://www.nortec-ndt.com" target="_blank" style="color:var(--blue)">Nortec</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">LT — בדיקת דליפות / Leak Testing</div>
+<div><span class="mc-badge b-green">He · Pressure · Vacuum</span></div>
+<div class="spec-row"><span class="spec-key">Helium Leak</span><span class="spec-val">10⁻¹⁰ mbar·L/s — הרגיש ביותר!</span></div>
+<div class="spec-row"><span class="spec-key">Pressure Decay</span><span class="spec-val">↑לחץ → מדידת ירידה · זול</span></div>
+<div class="spec-row"><span class="spec-key">Bubble Test</span><span class="spec-val">MIL-STD-202 Method 112</span></div>
+<div class="spec-row"><span class="spec-key">Vacuum Box</span><span class="spec-val">בדיקת ריתוכים עם סבון</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 20485 · ASTM E493<br>
+<b>יצרנים:</b> <a href="https://www.inficon.com" target="_blank" style="color:var(--blue)">Inficon</a> · <a href="https://www.pfeiffer-vacuum.com" target="_blank" style="color:var(--blue)">Pfeiffer</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Thermography — תרמוגרפיה</div>
+<div><span class="mc-badge b-orange">IR Camera</span><span class="mc-badge b-blue">ללא מגע</span></div>
+<div class="spec-row"><span class="spec-key">Passive IRT</span><span class="spec-val">חום טבעי → מציאת פגמים/דליפות</span></div>
+<div class="spec-row"><span class="spec-key">Active IRT</span><span class="spec-val">מקור חום חיצוני → Lock-in/Flash</span></div>
+<div class="spec-row"><span class="spec-key">רזולוציה תרמית</span><span class="spec-val">&lt;0.02°C (NETD)</span></div>
+<div class="spec-row"><span class="spec-key">יישומים</span><span class="spec-val">CFRP שכבות · אלקטרוניקה · בנייה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 10878 · ASTM E1211<br>
+<b>יצרנים:</b> <a href="https://www.flir.com" target="_blank" style="color:var(--blue)">FLIR (Teledyne)</a> · <a href="https://www.hamamatsu.com" target="_blank" style="color:var(--blue)">Fluke Thermal</a></div>
+</div>
+</div>
+
+<div style="margin-top:14px"><table>
+<tr><th>שיטה</th><th>קיצור</th><th>מגלה</th><th>חומרים</th><th>מינימום פגם</th><th>תקן</th></tr>
+<tr><td>בדיקה חזותית</td><td>VT</td><td>פגמי משטח</td><td>הכל</td><td>0.5mm</td><td>ISO 17637</td></tr>
+<tr><td>חדירה נוזלית</td><td>PT</td><td>סדקי משטח</td><td>לא פורוז</td><td>0.1mm</td><td>ASTM E165</td></tr>
+<tr><td>חלקיקים מגנטיים</td><td>MT</td><td>משטח + תת-משטח</td><td>פריטי בלבד</td><td>0.1mm</td><td>ASTM E709</td></tr>
+<tr><td>אולטרסוני</td><td>UT</td><td>פנים חלק</td><td>מוצקים</td><td>0.5mm (PAUT: 0.2mm)</td><td>ISO 17640</td></tr>
+<tr><td>רדיוגרפיה</td><td>RT</td><td>פנים + נפחי</td><td>הכל</td><td>2% עובי</td><td>ISO 17636</td></tr>
+<tr><td>ורידים חשמליים</td><td>ET</td><td>משטח · ציפוי</td><td>מוליכים</td><td>0.2mm</td><td>ISO 15549</td></tr>
+<tr><td>דליפות הליום</td><td>LT</td><td>דליפות מיקרו</td><td>אטימות</td><td>10⁻¹⁰ mbar·L/s</td><td>ISO 20485</td></tr>
+</table></div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">⚡ NDT — הסמכות ושיטות מתקדמות</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ASNT / EN ISO 9712 — רמות הסמכה</div>
+<div><span class="mc-badge b-red">Level I · II · III</span><span class="mc-badge b-blue">SNT-TC-1A</span></div>
+<div class="spec-row"><span class="spec-key">Level I</span><span class="spec-val">בדיקה תחת פיקוח · ביצוע בלבד</span></div>
+<div class="spec-row"><span class="spec-key">Level II</span><span class="spec-val">עצמאי · פירוש · דוחות · הסמכת אחרים</span></div>
+<div class="spec-row"><span class="spec-key">Level III</span><span class="spec-val">שיטות · הכשרה · מפרטים · אחראי תחום</span></div>
+<div class="spec-row"><span class="spec-key">ASNT SNT-TC-1A</span><span class="spec-val">ארה"ב — תאגידי (Internal Certification)</span></div>
+<div class="spec-row"><span class="spec-key">EN ISO 9712</span><span class="spec-val">אירופה/ישראל — הסמכה חיצונית!</span></div>
+<div class="spec-row"><span class="spec-key">NAS 410</span><span class="spec-val">תעופה — מחמיר יותר מ-SNT</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תעשיות ביטחון ישראל: EN ISO 9712 מועדף</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">PAUT — Phased Array UT</div>
+<div><span class="mc-badge b-blue">Sectorial Scan</span><span class="mc-badge b-orange">S-Scan / E-Scan</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">16-128 אלמנטים → שליטה בקרן</span></div>
+<div class="spec-row"><span class="spec-key">S-Scan (Sectorial)</span><span class="spec-val">סריקת זוויות 40-70° → תמונה מעוגלת</span></div>
+<div class="spec-row"><span class="spec-key">E-Scan (Linear)</span><span class="spec-val">סריקה ליניארית אלקטרונית</span></div>
+<div class="spec-row"><span class="spec-key">TOFD</span><span class="spec-val">Time of Flight Diffraction + PAUT = מיטב</span></div>
+<div class="spec-row"><span class="spec-key">Reference Block</span><span class="spec-val">SDH / FBH / Notch — כיול רגישות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תחליף מוסמך ל-RT בריתוכים! · ASME VIII Div.1<br>
+<b>יצרנים:</b> <a href="https://www.olympus-ims.com" target="_blank" style="color:var(--blue)">Olympus OmniScan</a> · <a href="https://www.eddyfi.com" target="_blank" style="color:var(--blue)">Eddyfi M2M</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AUT — Automated Ultrasonic</div>
+<div><span class="mc-badge b-green">↑עקביות</span><span class="mc-badge b-blue">ZONE Discrimination</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">צנרת נפט/גז · ריתוך ספינות · חישורים</span></div>
+<div class="spec-row"><span class="spec-key">Zone Method</span><span class="spec-val">חלוקת עובי לאזורים · פוקוס לכל אזור</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">200-600mm/שנייה · vs. Manual 50mm</span></div>
+<div class="spec-row"><span class="spec-key">TOFD+PAUT</span><span class="spec-val">שני מוצרים יחד = כיסוי מלא</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.zetec.com" target="_blank" style="color:var(--blue)">Zetec</a> · <a href="https://www.applus.com" target="_blank" style="color:var(--blue)">Applus RTD</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">POD — Probability of Detection</div>
+<div><span class="mc-badge b-red">א90/95</span><span class="mc-badge b-orange">תקף לתעופה</span></div>
+<div class="spec-row"><span class="spec-key">POD</span><span class="spec-val">הסתברות לגילוי פגם בגודל נתון</span></div>
+<div class="spec-row"><span class="spec-key">a90/95</span><span class="spec-val">גודל פגם → POD 90% ב-95% ביטחון</span></div>
+<div class="spec-row"><span class="spec-key">Hit/Miss</span><span class="spec-val">60-90 פגמים לניתוח סטטיסטי</span></div>
+<div class="spec-row"><span class="spec-key">MIL-HDBK-1823A</span><span class="spec-val">מדריך USAF ל-POD</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Retire Limit = a90/95 מחולק ב-Safety Factor<br>דרוש לפני הטמעת שיטת NDT חדשה בתעופה!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">MFL — Magnetic Flux Leakage</div>
+<div><span class="mc-badge b-blue">צנרת · מיכלים</span><span class="mc-badge b-orange">Online</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">שדה מגנטי חזק → דליפה בפגם</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">צנרת נפט/גז תת-קרקעית · מיכלי סעד</span></div>
+<div class="spec-row"><span class="spec-key">ILI Pig</span><span class="spec-val">In-Line Inspection — תוך כדי ייצור!</span></div>
+<div class="spec-row"><span class="spec-key">מינימום קורוזיה</span><span class="spec-val">5-10% עובי קיר</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>יצרנים:</b> <a href="https://www.tdwilliamson.com" target="_blank" style="color:var(--blue)">T.D. Williamson</a> · <a href="https://www.rosen-group.com" target="_blank" style="color:var(--blue)">ROSEN</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AE — Acoustic Emission</div>
+<div><span class="mc-badge b-purple">Passive</span><span class="mc-badge b-blue">↑פעיל בזמן אמת</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">גדילת סדק → גל קולי → סנסור</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">מוניטורינג רציף תחת עומס!</span></div>
+<div class="spec-row"><span class="spec-key">מיקום מקור</span><span class="spec-val">Triangulation מ-4+ סנסורים</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">בדיקת לחץ · מיכלי CFRP · מסבים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ASTM E1316 / EN 13554<br>
+<b>יצרנים:</b> <a href="https://www.mistrasgroup.com" target="_blank" style="color:var(--blue)">MISTRAS</a> · <a href="https://www.physicalacoustics.com" target="_blank" style="color:var(--blue)">PAC (Physical Acoustics)</a></div>
+</div>
+</div></div></div></div>
+
+<!-- ===== SPC ===== -->
+<div id="insp-spc" class="insp-sec">
+<div class="card"><div class="ctitle">📊 SPC — Statistical Process Control / בקרה סטטיסטית של תהליכים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Cp / Cpk — כשירות תהליך</div>
+<div><span class="mc-badge b-green">Cpk≥1.33</span><span class="mc-badge b-red">Cpk&lt;1.0 בעיה</span></div>
+<div class="spec-row"><span class="spec-key">Cp</span><span class="spec-val">Cp = (USL-LSL) / 6σ</span></div>
+<div class="spec-row"><span class="spec-key">Cpk</span><span class="spec-val">Cpk = min[(USL-μ)/3σ, (μ-LSL)/3σ]</span></div>
+<div class="spec-row"><span class="spec-key">Cpk ≥ 1.67</span><span class="spec-val">תעופה/רפואה — 5 סיגמא</span></div>
+<div class="spec-row"><span class="spec-key">Cpk ≥ 1.33</span><span class="spec-val">תעשייה כללית — 4 סיגמא</span></div>
+<div class="spec-row"><span class="spec-key">Cpk ≥ 1.00</span><span class="spec-val">מינימום מקובל (מוגבל)</span></div>
+<div class="spec-row"><span class="spec-key">Pp / Ppk</span><span class="spec-val">כמו Cp/Cpk אך σ=כלל הנתונים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Cp = פוטנציאל · Cpk = ביצוע בפועל (כולל סטייה)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Control Charts — תרשימי בקרה</div>
+<div><span class="mc-badge b-blue">X̄-R · X̄-S · p · c · u</span></div>
+<div class="spec-row"><span class="spec-key">X̄-R Chart</span><span class="spec-val">ממוצע+טווח · n=2-10</span></div>
+<div class="spec-row"><span class="spec-key">X̄-S Chart</span><span class="spec-val">ממוצע+סטיית תקן · n>10</span></div>
+<div class="spec-row"><span class="spec-key">X-MR (ImR)</span><span class="spec-val">ערך בודד+מרחק נע · n=1</span></div>
+<div class="spec-row"><span class="spec-key">p Chart</span><span class="spec-val">שיעור פגומים (Attribute)</span></div>
+<div class="spec-row"><span class="spec-key">c / u Chart</span><span class="spec-val">מספר פגמים / פגמים ליחידה</span></div>
+<div class="spec-row"><span class="spec-key">UCL/LCL</span><span class="spec-val">X̄ ± 3σ (99.73% תחת שליטה)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Western Electric Rules: 8 כללים לאיתור חריגות</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Western Electric Rules — 8 הכללים</div>
+<div><span class="mc-badge b-red">Special Cause</span></div>
+<div class="spec-row"><span class="spec-key">כלל 1</span><span class="spec-val">נקודה מחוץ ל-3σ (UCL/LCL)</span></div>
+<div class="spec-row"><span class="spec-key">כלל 2</span><span class="spec-val">9 נקודות רצופות מאותו צד מ-CL</span></div>
+<div class="spec-row"><span class="spec-key">כלל 3</span><span class="spec-val">6 נקודות עולות/יורדות ברציפות</span></div>
+<div class="spec-row"><span class="spec-key">כלל 4</span><span class="spec-val">14 נקודות לסירוגין עלייה/ירידה</span></div>
+<div class="spec-row"><span class="spec-key">כלל 5</span><span class="spec-val">2 מתוך 3 מחוץ ל-2σ (אותו צד)</span></div>
+<div class="spec-row"><span class="spec-key">כלל 6</span><span class="spec-val">4 מתוך 5 מחוץ ל-1σ (אותו צד)</span></div>
+<div class="spec-row"><span class="spec-key">כלל 7</span><span class="spec-val">15 נקודות רצופות בתוך ±1σ (שני צדדים)</span></div>
+<div class="spec-row"><span class="spec-key">כלל 8</span><span class="spec-val">8 נקודות רצופות מחוץ ל-±1σ (שני צדדים)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">כל כלל = חשד לסיבה מיוחדת → חקור מיד!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Six Sigma — שש סיגמא</div>
+<div><span class="mc-badge b-green">DMAIC</span><span class="mc-badge b-blue">3.4 PPM</span></div>
+<div class="spec-row"><span class="spec-key">Define</span><span class="spec-val">הגדרת בעיה · CTQ · Project Charter</span></div>
+<div class="spec-row"><span class="spec-key">Measure</span><span class="spec-val">מדידה · Baseline · MSA · Gage R&R</span></div>
+<div class="spec-row"><span class="spec-key">Analyze</span><span class="spec-val">Root Cause · Fishbone · Pareto · DOE</span></div>
+<div class="spec-row"><span class="spec-key">Improve</span><span class="spec-val">פתרון · Pilot · Validation</span></div>
+<div class="spec-row"><span class="spec-key">Control</span><span class="spec-val">Control Plan · SPC · אחזקת שיפור</span></div>
+<div class="spec-row"><span class="spec-key">6σ ביצוע</span><span class="spec-val">3.4 PPM · Cpk = 2.0</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">DPMO = Defects Per Million Opportunities</div>
+</div>
+</div>
+
+<div style="margin-top:14px">
+<table><tr><th>רמת סיגמא</th><th>Cpk</th><th>DPMO</th><th>% תקין</th><th>פרשנות</th></tr>
+<tr><td>1σ</td><td>0.33</td><td>691,462</td><td>30.9%</td><td>כאוס</td></tr>
+<tr><td>2σ</td><td>0.67</td><td>308,538</td><td>69.1%</td><td>גרוע</td></tr>
+<tr><td>3σ</td><td>1.00</td><td>66,807</td><td>93.3%</td><td>מינימום</td></tr>
+<tr><td style="color:var(--green)">4σ</td><td style="color:var(--green)">1.33</td><td style="color:var(--green)">6,210</td><td style="color:var(--green)">99.38%</td><td style="color:var(--green)">תעשייה טובה</td></tr>
+<tr><td style="color:var(--blue)">5σ</td><td style="color:var(--blue)">1.67</td><td style="color:var(--blue)">233</td><td style="color:var(--blue)">99.977%</td><td style="color:var(--blue)">תעופה/רפואה</td></tr>
+<tr><td style="color:var(--orange)">6σ</td><td style="color:var(--orange)">2.00</td><td style="color:var(--orange)">3.4</td><td style="color:var(--orange)">99.9997%</td><td style="color:var(--orange)">Six Sigma Goal</td></tr>
+</table></div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">📊 כלים סטטיסטיים נוספים</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Normality Test — בדיקת נורמליות</div>
+<div><span class="mc-badge b-blue">Anderson-Darling</span><span class="mc-badge b-orange">Shapiro-Wilk</span></div>
+<div class="spec-row"><span class="spec-key">Anderson-Darling</span><span class="spec-val">p&gt;0.05 → נורמלי (לא דחה H0)</span></div>
+<div class="spec-row"><span class="spec-key">Shapiro-Wilk</span><span class="spec-val">n&lt;50 — עדיף לדגימות קטנות</span></div>
+<div class="spec-row"><span class="spec-key">Histogram</span><span class="spec-val">visual check — פעמון</span></div>
+<div class="spec-row"><span class="spec-key">Normal Probability Plot</span><span class="spec-val">נקודות על קו ישר → נורמלי</span></div>
+<div class="spec-row"><span class="spec-key">אם לא נורמלי</span><span class="spec-val">Box-Cox Transform · Weibull · Non-param</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Cp/Cpk מניחים נורמליות! בדוק תמיד לפני!<br>
+<b>תוכנה:</b> <a href="https://www.minitab.com" target="_blank" style="color:var(--blue)">Minitab</a> · <a href="https://www.jmp.com" target="_blank" style="color:var(--blue)">JMP (SAS)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Fishbone / Ishikawa — דיאגרמת עצם דג</div>
+<div><span class="mc-badge b-orange">Root Cause</span><span class="mc-badge b-blue">6M</span></div>
+<div class="spec-row"><span class="spec-key">Machine</span><span class="spec-val">מכונה · תחזוקה · כיול</span></div>
+<div class="spec-row"><span class="spec-key">Method</span><span class="spec-val">שיטה · תהליך · הוראות עבודה</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">חומר · ספק · גרד</span></div>
+<div class="spec-row"><span class="spec-key">Man</span><span class="spec-val">אדם · הכשרה · שגיאות</span></div>
+<div class="spec-row"><span class="spec-key">Measurement</span><span class="spec-val">מדידה · Gage R&R</span></div>
+<div class="spec-row"><span class="spec-key">Mother Nature</span><span class="spec-val">סביבה · טמפ' · לחות</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Pareto Analysis — ניתוח פארטו 80/20</div>
+<div><span class="mc-badge b-green">80% בעיות = 20% סיבות</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מיון לפי תדירות/עלות/חומרה</span></div>
+<div class="spec-row"><span class="spec-key">תרשים</span><span class="spec-val">עמודות + קו מצטבר 80%</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">תעדוף פעולות תיקון · ↓נזק מקסימלי</span></div>
+<div class="spec-row"><span class="spec-key">Pareto של Pareto</span><span class="spec-val">2 רמות — סיבה ראשית + משנית</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תמיד תשאל: "מה 20% הסיבות שגורמות 80% הפגמים?"</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DOE — Design of Experiments</div>
+<div><span class="mc-badge b-purple">Full/Fractional Factorial</span></div>
+<div class="spec-row"><span class="spec-key">Full Factorial</span><span class="spec-val">2ᵏ — כל שילובי הגורמים</span></div>
+<div class="spec-row"><span class="spec-key">Fractional</span><span class="spec-val">2ᵏ⁻ᵖ — חיסכון בניסויים</span></div>
+<div class="spec-row"><span class="spec-key">Taguchi</span><span class="spec-val">L9/L18 — Robust Design</span></div>
+<div class="spec-row"><span class="spec-key">Response Surface</span><span class="spec-val">אופטימיזציה — Central Composite</span></div>
+<div class="spec-row"><span class="spec-key">Main Effects</span><span class="spec-val">Interaction Plots + ANOVA</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">DOE = מוצא גורמים קריטיים ↑↑ יעיל מ-One-at-a-time<br>
+<b>תוכנה:</b> <a href="https://www.minitab.com" target="_blank" style="color:var(--blue)">Minitab</a> · <a href="https://www.statease.com" target="_blank" style="color:var(--blue)">Design-Expert</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Hypothesis Testing — בדיקת השערות</div>
+<div><span class="mc-badge b-blue">p-value</span><span class="mc-badge b-orange">H0 / H1</span></div>
+<div class="spec-row"><span class="spec-key">t-Test (ממוצעים)</span><span class="spec-val">לפני/אחרי שיפור · 2 קבוצות</span></div>
+<div class="spec-row"><span class="spec-key">F-Test / ANOVA</span><span class="spec-val">3+ ממוצעים · מספר גורמים</span></div>
+<div class="spec-row"><span class="spec-key">Chi-Square</span><span class="spec-val">נתוני Attribute · Contingency Table</span></div>
+<div class="spec-row"><span class="spec-key">α = 0.05</span><span class="spec-val">רמת מובהקות 5% — נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">p &lt; α</span><span class="spec-val">דחה H0 — ↑הבדל מובהק!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">"p&lt;0.05 → פליאה" = הבדל לא במקרה</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DPMO · Yield · RTY</div>
+<div><span class="mc-badge b-green">First Pass Yield</span><span class="mc-badge b-orange">Rolled Throughput</span></div>
+<div class="spec-row"><span class="spec-key">DPMO</span><span class="spec-val">Defects Per Million Opportunities</span></div>
+<div class="spec-row"><span class="spec-key">FPY</span><span class="spec-val">First Pass Yield = טובים ראשון/כולל</span></div>
+<div class="spec-row"><span class="spec-key">RTY</span><span class="spec-val">RTY = FPY₁ × FPY₂ × ... × FPYₙ</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה RTY</span><span class="spec-val">0.95×0.97×0.98 = 90.3% — מפתיע!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">RTY מגלה בעיות מוסתרות שה-FPY מסתיר ע"י Rework</div>
+</div>
+</div></div></div></div>
+
+<!-- ===== GAGE R&R ===== -->
+<div id="insp-gagerr" class="insp-sec">
+<div class="card"><div class="ctitle">📐 Gage R&R — MSA / Measurement System Analysis</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Gage R&R — מהו?</div>
+<div><span class="mc-badge b-blue">AIAG MSA 4th</span><span class="mc-badge b-green">%GR&R &lt;10%</span></div>
+<div class="spec-row"><span class="spec-key">Repeatability</span><span class="spec-val">אותו מדידה × אותו מכשיר × אותו מפעיל</span></div>
+<div class="spec-row"><span class="spec-key">Reproducibility</span><span class="spec-val">אותו חלק × אותו מכשיר × מפעילים שונים</span></div>
+<div class="spec-row"><span class="spec-key">GR&R</span><span class="spec-val">√(EV² + AV²)</span></div>
+<div class="spec-row"><span class="spec-key">%GR&R &lt;10%</span><span class="spec-val">✅ מקובל</span></div>
+<div class="spec-row"><span class="spec-key">%GR&R 10-30%</span><span class="spec-val">⚠️ שיפור רצוי</span></div>
+<div class="spec-row"><span class="spec-key">%GR&R &gt;30%</span><span class="spec-val">❌ לא מקובל!</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תכנון מחקר R&R</div>
+<div><span class="mc-badge b-orange">10 חלקים × 3 מפעילים × 2 חזרות</span></div>
+<div class="spec-row"><span class="spec-key">מינימום חלקים</span><span class="spec-val">10 (ייצוגיים מהתהליך)</span></div>
+<div class="spec-row"><span class="spec-key">מפעילים</span><span class="spec-val">2-3 (כל מי שמודד בפועל)</span></div>
+<div class="spec-row"><span class="spec-key">חזרות</span><span class="spec-val">2-3 (אקראי, מסומר)</span></div>
+<div class="spec-row"><span class="spec-key">NDC</span><span class="spec-val">Number of Distinct Categories ≥5</span></div>
+<div class="spec-row"><span class="spec-key">שיטות</span><span class="spec-val">ANOVA / Average & Range Method</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ANOVA = מדויקת יותר · מומלצת AIAG MSA 4th<br>
+<b>תוכנה:</b> <a href="https://www.minitab.com" target="_blank" style="color:var(--blue)">Minitab</a> · <a href="https://www.qs-stat.com" target="_blank" style="color:var(--blue)">Q-DAS</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Bias · Linearity · Stability</div>
+<div><span class="mc-badge b-blue">MSA מלא</span></div>
+<div class="spec-row"><span class="spec-key">Bias הטיה</span><span class="spec-val">הפרש בין מדידה לערך אמת</span></div>
+<div class="spec-row"><span class="spec-key">Linearity</span><span class="spec-val">שינוי Bias לאורך טווח המדידה</span></div>
+<div class="spec-row"><span class="spec-key">Stability</span><span class="spec-val">שינוי Bias לאורך זמן (דריפט)</span></div>
+<div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">≤ 10% מסובלנות — חובה!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">כלל: Resolution ≤ 1/10 × Tolerance<br>דוגמה: Tol=0.1mm → רזולוציה ≤0.01mm</div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">📐 MSA מורחב — Type 1 Study ו-Attribute Agreement</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Type 1 Study — כשירות כלי ראשונית</div>
+<div><span class="mc-badge b-blue">Cg / Cgk</span><span class="mc-badge b-green">לפני R&R</span></div>
+<div class="spec-row"><span class="spec-key">מה זה</span><span class="spec-val">50 מדידות חוזרות × 1 מפעיל × 1 חלק</span></div>
+<div class="spec-row"><span class="spec-key">Cg</span><span class="spec-val">Cg = 0.2 × T / (6 × σ_g)</span></div>
+<div class="spec-row"><span class="spec-key">Cgk</span><span class="spec-val">כמו Cg אבל כולל הטיה מהערך האמיתי</span></div>
+<div class="spec-row"><span class="spec-key">קריטריון</span><span class="spec-val">Cg ≥ 1.33 AND Cgk ≥ 1.33</span></div>
+<div class="spec-row"><span class="spec-key">מתי</span><span class="spec-val">לפני Gage R&R · כלי חדש · תיקון</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Type 1 = בדיקת הכלי עצמו! R&R = הכלי + המפעיל</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Attribute Agreement Analysis — AAA</div>
+<div><span class="mc-badge b-orange">Pass / Fail</span><span class="mc-badge b-blue">Visual Inspection</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">בדיקות ויזואליות · Go/NoGo · Welding VT</span></div>
+<div class="spec-row"><span class="spec-key">מבנה</span><span class="spec-val">20-30 חלקים × 3 מפעילים × 2 חזרות</span></div>
+<div class="spec-row"><span class="spec-key">Kappa</span><span class="spec-val">κ ≥ 0.75 = מקובל</span></div>
+<div class="spec-row"><span class="spec-key">Effectiveness</span><span class="spec-val">% הסכמה עם Reference Standard</span></div>
+<div class="spec-row"><span class="spec-key">False Accept</span><span class="spec-val">גרוע מ-False Reject!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">AIAG MSA 4th ed. · עלות False Accept >> False Reject</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מחשבון R&R — ניתוח ANOVA</div>
+<div><span class="mc-badge b-purple">Variance Components</span></div>
+<div class="spec-row"><span class="spec-key">σ²_total</span><span class="spec-val">σ²_parts + σ²_repeatability + σ²_reproducibility</span></div>
+<div class="spec-row"><span class="spec-key">%EV</span><span class="spec-val">%EV = 100 × σ_repeatability / σ_total</span></div>
+<div class="spec-row"><span class="spec-key">%AV</span><span class="spec-val">%AV = 100 × σ_reproducibility / σ_total</span></div>
+<div class="spec-row"><span class="spec-key">%GR&R</span><span class="spec-val">√(EV² + AV²) / (k × σ_total)</span></div>
+<div class="spec-row"><span class="spec-key">k</span><span class="spec-val">k=5.15 (99% conf) · k=6 (±3σ)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ANOVA = מדויק יותר מ-Average&Range Method<br>מגלה Interaction בין מפעיל לחלק!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Resolution & Discrimination</div>
+<div><span class="mc-badge b-green">כלל 1:10</span><span class="mc-badge b-blue">NDC ≥ 5</span></div>
+<div class="spec-row"><span class="spec-key">כלל הזהב</span><span class="spec-val">Resolution ≤ Tolerance / 10</span></div>
+<div class="spec-row"><span class="spec-key">NDC</span><span class="spec-val">ndc = 1.41 × (σ_parts / σ_grr)</span></div>
+<div class="spec-row"><span class="spec-key">NDC ≥ 5</span><span class="spec-val">כלי מסוגל להבדיל ≥5 קטגוריות</span></div>
+<div class="spec-row"><span class="spec-key">NDC = 1</span><span class="spec-val">הכלי "לא רואה" שונות בין חלקים!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">דוגמה: Tol=0.1mm · כלי Resolution=0.001mm ✅<br>כלי Resolution=0.02mm → 5 קטגוריות בלבד ⚠️</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Bias Study — הטיה שיטתית</div>
+<div><span class="mc-badge b-orange">Reference Part</span><span class="mc-badge b-blue">Traceable</span></div>
+<div class="spec-row"><span class="spec-key">Bias</span><span class="spec-val">X̄_measured - Reference_Value</span></div>
+<div class="spec-row"><span class="spec-key">קריטריון</span><span class="spec-val">Bias % = |Bias| / T × 100 ≤ 5%</span></div>
+<div class="spec-row"><span class="spec-key">t-Test</span><span class="spec-val">האם Bias מובהק? (p&lt;0.05)</span></div>
+<div class="spec-row"><span class="spec-key">גורמי Bias</span><span class="spec-val">כיול שגוי · Datum שגוי · טמפ'</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">חלק Reference חייב להיות מכויל! ISO 17025 Traceability</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Linearity Study — לינאריות</div>
+<div><span class="mc-badge b-blue">טווח מלא</span><span class="mc-badge b-orange">Bias vs. Size</span></div>
+<div class="spec-row"><span class="spec-key">מה זה</span><span class="spec-val">שינוי Bias לאורך טווח המדידה</span></div>
+<div class="spec-row"><span class="spec-key">מבנה</span><span class="spec-val">5 חלקי reference × 12 מדידות כל אחד</span></div>
+<div class="spec-row"><span class="spec-key">Linearity %</span><span class="spec-val">Slope × Process Variation / T × 100</span></div>
+<div class="spec-row"><span class="spec-key">קריטריון</span><span class="spec-val">Linearity % ≤ 5%</span></div>
+<div class="spec-row"><span class="spec-key">גורמים</span><span class="spec-val">בלאי Anvil · קפיץ שחוק · אלקטרוניקה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">מיקרומטר ישן: Linearity גדולה ↑ = כיול לא מספיק!</div>
+</div>
+</div></div></div></div>
+
+<!-- ===== SAMPLING ===== -->
+<div id="insp-sampling" class="insp-sec">
+<div class="card"><div class="ctitle">🎯 AQL ותכניות דגימה — Acceptance Sampling Plans</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AQL — Acceptable Quality Level</div>
+<div><span class="mc-badge b-blue">ISO 2859-1</span><span class="mc-badge b-orange">MIL-STD-1916</span></div>
+<div class="spec-row"><span class="spec-key">AQL 0.065</span><span class="spec-val">ביטחוני/תעופה — קריטי</span></div>
+<div class="spec-row"><span class="spec-key">AQL 0.25</span><span class="spec-val">רפואי/קריטי — מינימום</span></div>
+<div class="spec-row"><span class="spec-key">AQL 1.0</span><span class="spec-val">הנפוץ — תעשייה כללית</span></div>
+<div class="spec-row"><span class="spec-key">AQL 4.0</span><span class="spec-val">ייצור המוני — איכות ירודה</span></div>
+<div class="spec-row"><span class="spec-key">רמות בדיקה</span><span class="spec-val">I=מופחתת · II=נורמלית · III=מחמירה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Letter Code + Sample Size</div>
+<div><span class="mc-badge b-blue">ISO 2859-1 Table</span></div>
+<div class="spec-row"><span class="spec-key">N 2-8 → Code A</span><span class="spec-val">n=2</span></div>
+<div class="spec-row"><span class="spec-key">N 9-15 → Code B</span><span class="spec-val">n=3</span></div>
+<div class="spec-row"><span class="spec-key">N 51-90 → Code E</span><span class="spec-val">n=13</span></div>
+<div class="spec-row"><span class="spec-key">N 281-500 → Code H</span><span class="spec-val">n=50</span></div>
+<div class="spec-row"><span class="spec-key">N 1201-3200 → Code K</span><span class="spec-val">n=125</span></div>
+<div class="spec-row"><span class="spec-key">N &gt;500,000 → Code R</span><span class="spec-val">n=2000</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Switching Rules — כללי מעבר</div>
+<div><span class="mc-badge b-green">Normal → Tightened → Reduced</span></div>
+<div class="spec-row"><span class="spec-key">Normal → Tightened</span><span class="spec-val">2 מתוך 5 לוטים נדחו</span></div>
+<div class="spec-row"><span class="spec-key">Tightened → Normal</span><span class="spec-val">5 לוטים רצופים עברו</span></div>
+<div class="spec-row"><span class="spec-key">Normal → Reduced</span><span class="spec-val">10 לוטים רצופים עברו</span></div>
+<div class="spec-row"><span class="spec-key">Reduced → Normal</span><span class="spec-val">דחייה / ציון מחוץ לגבולות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Tightened = n גדול יותר ← ↑עלות בדיקה!</div>
+</div>
+</div>
+
+<div style="margin-top:14px">
+<div class="ctitle" style="font-size:14px">🧮 מחשבון AQL מהיר</div>
+<div class="cg">
+<div><label>גודל אצווה N</label><input type="number" id="aql-n" value="500" oninput="calcAQL()"></div>
+<div><label>AQL</label>
+<select id="aql-val" onchange="calcAQL()">
+<option value="0.065">0.065 — ביטחוני</option>
+<option value="0.25">0.25 — קריטי</option>
+<option value="1.0" selected>1.0 — כללי</option>
+<option value="2.5">2.5 — רגיל</option>
+<option value="4.0">4.0 — המוני</option>
+</select></div>
+<div><label>רמת בדיקה</label>
+<select id="aql-level" onchange="calcAQL()">
+<option value="I">Level I — מופחת</option>
+<option value="II" selected>Level II — נורמלי</option>
+<option value="III">Level III — מוגבר</option>
+</select></div>
+</div>
+<div id="aql-result" class="res">—</div>
+</div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🎯 שיטות דגימה מתקדמות</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Variables Sampling — ISO 3951</div>
+<div><span class="mc-badge b-blue">כמותי vs. Attribute</span><span class="mc-badge b-green">n קטן יותר!</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מדידה כמותית → n קטן מ-Attribute</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">AQL 1.0 N=500: Attribute n=50 · Variables n=18!</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ISO 3951-1/2/3 / MIL-STD-414</span></div>
+<div class="spec-row"><span class="spec-key">תנאי</span><span class="spec-val">ידוע σ (נוסחה Z) או לא (נוסחה S)</span></div>
+<div class="spec-row"><span class="spec-key">מגבלה</span><span class="spec-val">נורמליות חובה!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">↓עלות בדיקה משמעותית לפרמטרים מדידים</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Zero Acceptance (c=0) — ANSI/ASQ Z1.4</div>
+<div><span class="mc-badge b-red">c=0</span><span class="mc-badge b-orange">↑↑ הגנת צרכן</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">0 פגמים מקובלים — דחה על הראשון!</span></div>
+<div class="spec-row"><span class="spec-key">n ל-c=0</span><span class="spec-val">גדול יותר מ-AQL רגיל</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↑הגנה · פשוט · ללא מעבר Tightened</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">רפואי · ביטחוני · סיכוני חיים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 2859-1 רגיל: c=1 · Zero Acceptance: c=0 (מחמיר)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Skip-Lot — מדגם מתוך אצוות</div>
+<div><span class="mc-badge b-green">↓עלות בדיקה</span><span class="mc-badge b-blue">ספק מאושר</span></div>
+<div class="spec-row"><span class="spec-key">ANSI/ASQ S1</span><span class="spec-val">בדוק 1 מתוך k אצוות</span></div>
+<div class="spec-row"><span class="spec-key">כניסה</span><span class="spec-val">4 אצוות רצופות ללא פגמים</span></div>
+<div class="spec-row"><span class="spec-key">k=2</span><span class="spec-val">בדוק 50% מהאצוות</span></div>
+<div class="spec-row"><span class="spec-key">ביטול</span><span class="spec-val">פגם 1 → חזרה לבדיקה רגילה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">דורש: AVL מאושר + היסטוריה נקייה + ISO 9001</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">OC Curve — עקומת ביצועי תוכנית</div>
+<div><span class="mc-badge b-purple">Producer/Consumer Risk</span></div>
+<div class="spec-row"><span class="spec-key">OC Curve</span><span class="spec-val">P(accept) vs. lot defect rate</span></div>
+<div class="spec-row"><span class="spec-key">α (סיכון יצרן)</span><span class="spec-val">P(reject AQL lot) = 0.05 (5%)</span></div>
+<div class="spec-row"><span class="spec-key">β (סיכון צרכן)</span><span class="spec-val">P(accept LTPD lot) = 0.10 (10%)</span></div>
+<div class="spec-row"><span class="spec-key">LTPD</span><span class="spec-val">Lot Tolerance Percent Defective</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">↑n → OC Curve חדה יותר → ↑הגנה · ↑עלות<br>תמיד ↑n = ↓β (סיכון צרכן)</div>
+</div>
+</div></div></div></div>
+
+<!-- ===== CALIBRATION ===== -->
+<div id="insp-calibration" class="insp-sec">
+<div class="card"><div class="ctitle">⚖️ כיול ועקביות — Calibration & Traceability</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ISO/IEC 17025 — כיול מעבדות</div>
+<div><span class="mc-badge b-red">אקרדיטציה</span><span class="mc-badge b-blue">ILAC</span></div>
+<div class="spec-row"><span class="spec-key">מטרה</span><span class="spec-val">כשירות מעבדת כיול/בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">Traceability</span><span class="spec-val">שרשרת לSI (BIPM/NIST/NMI)</span></div>
+<div class="spec-row"><span class="spec-key">ישראל</span><span class="spec-val">ISRAC — רשות האקרדיטציה</span></div>
+<div class="spec-row"><span class="spec-key">תעודת כיול</span><span class="spec-val">חייב: U, k, תנאים, תאריך</span></div>
+<div class="spec-row"><span class="spec-key">Uncertainty U</span><span class="spec-val">U = k × uc (k=2 = 95% confidence)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>מעבדות:</b> <a href="https://www.iai.co.il/nmli" target="_blank" style="color:var(--blue)">מכון התקנים ישראלי NMLI</a> · <a href="https://www.nist.gov" target="_blank" style="color:var(--blue)">NIST</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תדירות כיול — Calibration Intervals</div>
+<div><span class="mc-badge b-orange">3-12 חודשים</span></div>
+<div class="spec-row"><span class="spec-key">מיקרומטר</span><span class="spec-val">12 חודש (שימוש מתון)</span></div>
+<div class="spec-row"><span class="spec-key">ורניה</span><span class="spec-val">6-12 חודש</span></div>
+<div class="spec-row"><span class="spec-key">שעון מדידה</span><span class="spec-val">6 חודש</span></div>
+<div class="spec-row"><span class="spec-key">CMM</span><span class="spec-val">6-12 חודש + ISO 10360 מלא</span></div>
+<div class="spec-row"><span class="spec-key">בלוקי כיול</span><span class="spec-val">12-24 חודש</span></div>
+<div class="spec-row"><span class="spec-key">Torque Wrench</span><span class="spec-val">12 חודש / 5000 שימושים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 9001: תדירות לפי היסטוריה ועומס שימוש!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ניהול כיול — Calibration Management</div>
+<div><span class="mc-badge b-blue">תגיות · מערכת</span></div>
+<div class="spec-row"><span class="spec-key">תגית כיול</span><span class="spec-val">מספר כלי · תאריך · תאריך הבא</span></div>
+<div class="spec-row"><span class="spec-key">לא כשיר</span><span class="spec-val">Out of Cal → ↑בידוד מיד!</span></div>
+<div class="spec-row"><span class="spec-key">ניהול תוכנה</span><span class="spec-val">Asset management · Reminder · History</span></div>
+<div class="spec-row"><span class="spec-key">תנאי אחסון</span><span class="spec-val">20°C ±2°C · 40-60% RH · ללא רטט</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>תוכנות:</b> <a href="https://www.qsosoft.com" target="_blank" style="color:var(--blue)">QSO Calibration</a> · <a href="https://www.fluke.com/metcal" target="_blank" style="color:var(--blue)">Fluke MET/CAL</a></div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">⚖️ אי-ודאות מדידה — Measurement Uncertainty</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">GUM — מדריך לאי-ודאות</div>
+<div><span class="mc-badge b-blue">ISO/IEC Guide 98-3</span><span class="mc-badge b-orange">BIPM</span></div>
+<div class="spec-row"><span class="spec-key">GUM</span><span class="spec-val">Guide to Uncertainty in Measurement</span></div>
+<div class="spec-row"><span class="spec-key">Type A</span><span class="spec-val">סטטיסטית — מדידות חוזרות (σ/√n)</span></div>
+<div class="spec-row"><span class="spec-key">Type B</span><span class="spec-val">מידע אחר — תעודה · מפרט · ספרות</span></div>
+<div class="spec-row"><span class="spec-key">uc (Combined)</span><span class="spec-val">uc = √(uA² + uB1² + uB2² + ...)</span></div>
+<div class="spec-row"><span class="spec-key">U (Expanded)</span><span class="spec-val">U = k × uc · k=2 → 95% coverage</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תוצאה: x = X ± U [units], k=2, 95%<br>דוגמה: 25.003 ± 0.004 mm, k=2</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Uncertainty Budget — תקציב אי-ודאות</div>
+<div><span class="mc-badge b-orange">Contributions</span></div>
+<div class="spec-row"><span class="spec-key">u_calibration</span><span class="spec-val">מתוך תעודת כיול (Type B)</span></div>
+<div class="spec-row"><span class="spec-key">u_repeatability</span><span class="spec-val">Type A — √(σ²/n)</span></div>
+<div class="spec-row"><span class="spec-key">u_resolution</span><span class="spec-val">±0.5 × resolution / √3</span></div>
+<div class="spec-row"><span class="spec-key">u_temperature</span><span class="spec-val">CTE × ΔT × L / √3</span></div>
+<div class="spec-row"><span class="spec-key">u_cosine</span><span class="spec-val">Cosine Error = L(1-cosθ)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">גיליון Excel לתקציב: כל תרומה → uc → U<br>דרישה: U ≤ T/4 (כלל ה-Quarter Rule)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Calibration Hierarchy — היררכיית כיול</div>
+<div><span class="mc-badge b-blue">SI → NMI → Reference → Working</span></div>
+<div class="spec-row"><span class="spec-key">SI (בינ"ל)</span><span class="spec-val">BIPM Paris — ייחוס עולמי</span></div>
+<div class="spec-row"><span class="spec-key">NMI (לאומי)</span><span class="spec-val">NIST/NPL/PTB/NMLI ישראל</span></div>
+<div class="spec-row"><span class="spec-key">Accredited Lab</span><span class="spec-val">ISO 17025 · ILAC mutual recognition</span></div>
+<div class="spec-row"><span class="spec-key">Reference Std</span><span class="spec-val">מעבדה פנימית — Gauge Blocks Grade 0</span></div>
+<div class="spec-row"><span class="spec-key">Working Std</span><span class="spec-val">כלים בשטח — Grade 1/2</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">כל רמה מוסיפה אי-ודאות — שרשרת Traceability!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">TUR — Test Uncertainty Ratio</div>
+<div><span class="mc-badge b-green">TUR ≥ 4:1</span><span class="mc-badge b-blue">כלל הרביע</span></div>
+<div class="spec-row"><span class="spec-key">TUR</span><span class="spec-val">TUR = Tolerance / (2 × U_calibration)</span></div>
+<div class="spec-row"><span class="spec-key">TUR ≥ 4:1</span><span class="spec-val">✅ מקובל לרוב התעשיות</span></div>
+<div class="spec-row"><span class="spec-key">TUR ≥ 10:1</span><span class="spec-val">ביטחוני/תעופה</span></div>
+<div class="spec-row"><span class="spec-key">TUR &lt; 4:1</span><span class="spec-val">⚠️ לשקול Guard Banding</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Guard Banding = הצרת טולרנס בדיקה ב-U<br>ANSI/NCSL Z540.3: TUR מינימום 4:1</div>
+</div>
+</div></div></div></div>
+
+<!-- ===== INCOMING ===== -->
+<div id="insp-incoming" class="insp-sec">
+<div class="card"><div class="ctitle">📦 QC קבלת סחורה — Incoming Quality Control</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">IQC — Incoming Quality Control</div>
+<div><span class="mc-badge b-blue">תכנית בדיקה</span><span class="mc-badge b-orange">COC · Report</span></div>
+<div class="spec-row"><span class="spec-key">שלב 1: תיעוד</span><span class="spec-val">COC · Mill Cert · PO · Spec</span></div>
+<div class="spec-row"><span class="spec-key">שלב 2: זיהוי</span><span class="spec-val">חומר · גרד · Heat Number</span></div>
+<div class="spec-row"><span class="spec-key">שלב 3: מדידה</span><span class="spec-val">מדות קריטיות · AQL sampling</span></div>
+<div class="spec-row"><span class="spec-key">שלב 4: תכונות</span><span class="spec-val">קשיות · RM/Rp0 (אם נדרש)</span></div>
+<div class="spec-row"><span class="spec-key">שלב 5: החלטה</span><span class="spec-val">Accept / Reject / MRB</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">MRB = Material Review Board — לא תקני</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">PPAP — תעשיית הרכב</div>
+<div><span class="mc-badge b-blue">AIAG 4th Edition</span><span class="mc-badge b-red">Level 1-5</span></div>
+<div class="spec-row"><span class="spec-key">Level 1</span><span class="spec-val">Part Submission Warrant בלבד</span></div>
+<div class="spec-row"><span class="spec-key">Level 2</span><span class="spec-val">PSW + דגימות + תיעוד מוגבל</span></div>
+<div class="spec-row"><span class="spec-key">Level 3</span><span class="spec-val">PSW + דגימות + תיעוד מלא (הנפוץ)</span></div>
+<div class="spec-row"><span class="spec-key">Level 4</span><span class="spec-val">לפי הגדרת הלקוח</span></div>
+<div class="spec-row"><span class="spec-key">Level 5</span><span class="spec-val">הכל + ביקור ספק</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">18 אלמנטים כולל: DFMEA, Control Plan, MSA, Cpk</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Mill Certificate — תעודת חומר</div>
+<div><span class="mc-badge b-green">EN 10204</span><span class="mc-badge b-blue">Type 2.1-3.2</span></div>
+<div class="spec-row"><span class="spec-key">Type 2.1</span><span class="spec-val">הצהרת עמידה בתקן — לא ספציפי</span></div>
+<div class="spec-row"><span class="spec-key">Type 2.2</span><span class="spec-val">בדיקות לפי נוהל לא ספציפי</span></div>
+<div class="spec-row"><span class="spec-key">Type 3.1</span><span class="spec-val">בדיקות ספציפיות + אישור YB</span></div>
+<div class="spec-row"><span class="spec-key">Type 3.2</span><span class="spec-val">3.1 + אישור לקוח עצמאי</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תעופה/רפואה = 3.1 מינימום! · NADCAP = 3.2<br>בדוק: Heat No. · Chemical · Mechanical · UTS/Rp0</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Non-Conformance — אי-התאמה</div>
+<div><span class="mc-badge b-red">NCR</span><span class="mc-badge b-orange">MRB · CAR</span></div>
+<div class="spec-row"><span class="spec-key">NCR</span><span class="spec-val">Non-Conformance Report — תיעוד</span></div>
+<div class="spec-row"><span class="spec-key">Disposition</span><span class="spec-val">Use-As-Is / Rework / Scrap / Return</span></div>
+<div class="spec-row"><span class="spec-key">CAR</span><span class="spec-val">Corrective Action Request — לספק</span></div>
+<div class="spec-row"><span class="spec-key">8D</span><span class="spec-val">8 Disciplines → Root Cause + Fix</span></div>
+<div class="spec-row"><span class="spec-key">SCAR</span><span class="spec-val">Supplier CAR — 30 יום לתגובה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Use-As-Is → חייב אישור הנדסי + לקוח!</div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">📦 ניהול ספקים ואי-התאמות</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ASL / AVL — רשימת ספקים מאושרים</div>
+<div><span class="mc-badge b-green">Approved Supplier List</span></div>
+<div class="spec-row"><span class="spec-key">ASL</span><span class="spec-val">Approved Supplier List — ספקים מאושרים</span></div>
+<div class="spec-row"><span class="spec-key">AVL</span><span class="spec-val">Approved Vendor List — ספקי חומרים</span></div>
+<div class="spec-row"><span class="spec-key">כניסה לASL</span><span class="spec-val">ביקורת · דגימת קבלה ראשונה · FAI</span></div>
+<div class="spec-row"><span class="spec-key">ניקוד ספקים</span><span class="spec-val">OTD% · PPM · SCAR Rate · Audit</span></div>
+<div class="spec-row"><span class="spec-key">הסרה</span><span class="spec-val">3 SCAR ← Hold → הסרה מ-AVL</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">AS9100/IATF: AVL תיעוד + עדכון שנתי חובה</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Dock-to-Stock — DTS</div>
+<div><span class="mc-badge b-green">ללא בדיקה IQC</span><span class="mc-badge b-blue">ספקים מצטיינים</span></div>
+<div class="spec-row"><span class="spec-key">כניסה ל-DTS</span><span class="spec-val">12+ אצוות נקיות · Cpk≥1.67 · ISO 17025</span></div>
+<div class="spec-row"><span class="spec-key">שיטה</span><span class="spec-val">סריקת תווית · COC ← מחסן ישיר</span></div>
+<div class="spec-row"><span class="spec-key">בדיקה תקופתית</span><span class="spec-val">1/20 אצוות — Random Audit</span></div>
+<div class="spec-row"><span class="spec-key">ביטול DTS</span><span class="spec-val">כל ממצא → חזרה ל-IQC מיד</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">↓עלות IQC 70-80% · ↓Lead Time · ↑אמון ספק</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">COC — Certificate of Conformance</div>
+<div><span class="mc-badge b-blue">בדיקת תקינות</span><span class="mc-badge b-orange">חובה לתעופה</span></div>
+<div class="spec-row"><span class="spec-key">מה לבדוק</span><span class="spec-val">P/N · Revision · Quantity · Heat/Lot No.</span></div>
+<div class="spec-row"><span class="spec-key">Spec</span><span class="spec-val">ציטוט תקנים ספציפיים (AMS/MIL/EN)</span></div>
+<div class="spec-row"><span class="spec-key">חתימה</span><span class="spec-val">Quality Manager · תאריך · חותמת</span></div>
+<div class="spec-row"><span class="spec-key">Counterfeit</span><span class="spec-val">SAE AS5553 — רכיבים מזויפים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ COC מזויף = עבירה פלילית בתעופה!<br>בדוק: CAGE Code · DUNS · AS9120 אישור</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">SCAR — Supplier Corrective Action</div>
+<div><span class="mc-badge b-red">8D Response</span><span class="mc-badge b-orange">30 יום</span></div>
+<div class="spec-row"><span class="spec-key">D1-D3</span><span class="spec-val">צוות + בעיה + Containment → 24h</span></div>
+<div class="spec-row"><span class="spec-key">D4-D5</span><span class="spec-val">Root Cause + פתרון קבוע → 14 יום</span></div>
+<div class="spec-row"><span class="spec-key">D6-D7</span><span class="spec-val">אימות יעילות + מניעת חזרה → 30 יום</span></div>
+<div class="spec-row"><span class="spec-key">D8</span><span class="spec-val">הכרה בצוות + סגירה</span></div>
+<div class="spec-row"><span class="spec-key">Effectiveness</span><span class="spec-val">מדידה: 0 חזרה ב-90 יום</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תעד: Evidence לכל D! AS9100 מחייב עדויות</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Supplier Rating — דירוג ספקים</div>
+<div><span class="mc-badge b-green">A/B/C/D</span><span class="mc-badge b-blue">KPI ספק</span></div>
+<div class="spec-row"><span class="spec-key">OTD</span><span class="spec-val">On-Time Delivery % · משקל 30%</span></div>
+<div class="spec-row"><span class="spec-key">Quality PPM</span><span class="spec-val">Parts Per Million פגומים · משקל 40%</span></div>
+<div class="spec-row"><span class="spec-key">SCAR Response</span><span class="spec-val">מהירות + איכות תגובה · משקל 20%</span></div>
+<div class="spec-row"><span class="spec-key">Audit Score</span><span class="spec-val">ממצאי ביקורת · משקל 10%</span></div>
+<div class="spec-row"><span class="spec-key">A ≥ 90</span><span class="spec-val">Preferred · B=80-90 · C=70-80 · D&lt;70</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">D = Development Program → 90 יום לשיפור או החלפה</div>
+</div>
+</div></div></div></div>
+
+<!-- ===== QUALITY STANDARDS ===== -->
+<div id="insp-qstandards" class="insp-sec">
+<div class="card"><div class="ctitle">🏆 תקני איכות — Quality Management Standards</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ISO 9001:2015 — הבסיס</div>
+<div><span class="mc-badge b-blue">7 עקרונות</span><span class="mc-badge b-green">כלל התעשייה</span></div>
+<div class="spec-row"><span class="spec-key">Context</span><span class="spec-val">4: הקשר ארגוני · ניהול סיכונים</span></div>
+<div class="spec-row"><span class="spec-key">Leadership</span><span class="spec-val">5: מדיניות · אחריות הנהלה</span></div>
+<div class="spec-row"><span class="spec-key">Planning</span><span class="spec-val">6: סיכונים · יעדי איכות</span></div>
+<div class="spec-row"><span class="spec-key">Operation</span><span class="spec-val">8: ייצור · שליטה תהליך</span></div>
+<div class="spec-row"><span class="spec-key">Evaluation</span><span class="spec-val">9: מדידה · ביקורת פנימית</span></div>
+<div class="spec-row"><span class="spec-key">Improvement</span><span class="spec-val">10: אי-התאמות · Corrective Action</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">PDCA: Plan → Do → Check → Act<br>
+<b>גופי הסמכה:</b> <a href="https://www.sii.org.il" target="_blank" style="color:var(--blue)">מכון התקנים ישראלי</a> · <a href="https://www.bsigroup.com" target="_blank" style="color:var(--blue)">BSI</a> · <a href="https://www.tuv.com" target="_blank" style="color:var(--blue)">TÜV</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AS9100 Rev D — תעופה וחלל</div>
+<div><span class="mc-badge b-red">IAQG</span><span class="mc-badge b-blue">9001 + תוספות</span></div>
+<div class="spec-row"><span class="spec-key">בסיס</span><span class="spec-val">ISO 9001 + דרישות תעופה</span></div>
+<div class="spec-row"><span class="spec-key">Key Add-ons</span><span class="spec-val">Configuration Management, FAI, AS9102</span></div>
+<div class="spec-row"><span class="spec-key">Risk</span><span class="spec-val">Product & Process Risk Management</span></div>
+<div class="spec-row"><span class="spec-key">First Article</span><span class="spec-val">FAI חובה לכל שינוי!</span></div>
+<div class="spec-row"><span class="spec-key">OASIS DB</span><span class="spec-val">מסד נתוני אישורי ספקים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>גופי הסמכה:</b> <a href="https://www.dnv.com" target="_blank" style="color:var(--blue)">DNV</a> · <a href="https://www.bsigroup.com" target="_blank" style="color:var(--blue)">BSI</a> · <a href="https://www.tuv.com" target="_blank" style="color:var(--blue)">TÜV SÜD</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">IATF 16949 — תעשיית הרכב</div>
+<div><span class="mc-badge b-blue">IATF</span><span class="mc-badge b-orange">9001 + Core Tools</span></div>
+<div class="spec-row"><span class="spec-key">Core Tools</span><span class="spec-val">APQP · PPAP · FMEA · MSA · SPC</span></div>
+<div class="spec-row"><span class="spec-key">APQP</span><span class="spec-val">Advanced Product Quality Planning</span></div>
+<div class="spec-row"><span class="spec-key">Control Plan</span><span class="spec-val">תוכנית בקרת ייצור מלאה</span></div>
+<div class="spec-row"><span class="spec-key">Customer Specific</span><span class="spec-val">VW / Ford / GM / Toyota נוספים</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>גופי הסמכה:</b> <a href="https://www.tuv.com" target="_blank" style="color:var(--blue)">TÜV</a> · <a href="https://www.bvqi.com" target="_blank" style="color:var(--blue)">Bureau Veritas</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">NADCAP — תהליכים מיוחדים</div>
+<div><span class="mc-badge b-red">PRI</span><span class="mc-badge b-orange">תעופה</span></div>
+<div class="spec-row"><span class="spec-key">Special Processes</span><span class="spec-val">ריתוך · NDT · ציפויים · טיפולי חום</span></div>
+<div class="spec-row"><span class="spec-key">AC7004</span><span class="spec-val">Welding Audit Checklist</span></div>
+<div class="spec-row"><span class="spec-key">AC7114</span><span class="spec-val">NDT Audit Checklist</span></div>
+<div class="spec-row"><span class="spec-key">AC7108</span><span class="spec-val">Heat Treatment</span></div>
+<div class="spec-row"><span class="spec-key">Merit Status</span><span class="spec-val">12/18 חודש לחברות מצטיינות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">נדרש עבור Boeing/Airbus/Lockheed/Rafael!<br>
+<b>ניהול:</b> <a href="https://www.pri-network.org" target="_blank" style="color:var(--blue)">PRI (Performance Review Institute)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ISO 13485 — מכשור רפואי</div>
+<div><span class="mc-badge b-blue">MDR 2017/745</span><span class="mc-badge b-red">FDA 21 CFR 820</span></div>
+<div class="spec-row"><span class="spec-key">Design Control</span><span class="spec-val">DHF, DMR, DHR — תיעוד מלא</span></div>
+<div class="spec-row"><span class="spec-key">Risk Management</span><span class="spec-val">ISO 14971 — מכשור רפואי</span></div>
+<div class="spec-row"><span class="spec-key">Sterility</span><span class="spec-val">ISO 11135 / 11137 (עיקור)</span></div>
+<div class="spec-row"><span class="spec-key">Traceability</span><span class="spec-val">UDI — מספר זיהוי ייחודי</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>גופי הסמכה:</b> <a href="https://www.tuv.com" target="_blank" style="color:var(--blue)">TÜV Rheinland</a> · <a href="https://www.bsigroup.com" target="_blank" style="color:var(--blue)">BSI</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">8D — פתרון בעיות</div>
+<div><span class="mc-badge b-orange">8 שלבים</span><span class="mc-badge b-blue">Root Cause</span></div>
+<div class="spec-row"><span class="spec-key">D1</span><span class="spec-val">הקמת צוות</span></div>
+<div class="spec-row"><span class="spec-key">D2</span><span class="spec-val">הגדרת הבעיה (Is / Is Not)</span></div>
+<div class="spec-row"><span class="spec-key">D3</span><span class="spec-val">Containment Action מיידי</span></div>
+<div class="spec-row"><span class="spec-key">D4</span><span class="spec-val">Root Cause Analysis (5 Why, Ishikawa)</span></div>
+<div class="spec-row"><span class="spec-key">D5-D6</span><span class="spec-val">פתרון קבוע + אימות</span></div>
+<div class="spec-row"><span class="spec-key">D7-D8</span><span class="spec-val">מניעת חזרה + הכרה בצוות</span></div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🏆 כלי איכות מרכזיים — APQP · FMEA · Control Plan</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">APQP — Advanced Product Quality Planning</div>
+<div><span class="mc-badge b-blue">5 שלבים</span><span class="mc-badge b-orange">Automotive</span></div>
+<div class="spec-row"><span class="spec-key">Phase 1</span><span class="spec-val">Plan & Define — VOC · CTQ · Targets</span></div>
+<div class="spec-row"><span class="spec-key">Phase 2</span><span class="spec-val">Product Design — DFMEA · DVP&R</span></div>
+<div class="spec-row"><span class="spec-key">Phase 3</span><span class="spec-val">Process Design — PFMEA · Control Plan</span></div>
+<div class="spec-row"><span class="spec-key">Phase 4</span><span class="spec-val">Product Validation — PPAP · Cpk</span></div>
+<div class="spec-row"><span class="spec-key">Phase 5</span><span class="spec-val">Feedback · Corrective Action · Launch</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">AIAG APQP Manual 2nd Edition</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">FMEA — Failure Mode & Effects Analysis</div>
+<div><span class="mc-badge b-red">DFMEA · PFMEA</span><span class="mc-badge b-orange">RPN · AP</span></div>
+<div class="spec-row"><span class="spec-key">DFMEA</span><span class="spec-val">Design FMEA — פגמי עיצוב</span></div>
+<div class="spec-row"><span class="spec-key">PFMEA</span><span class="spec-val">Process FMEA — פגמי ייצור</span></div>
+<div class="spec-row"><span class="spec-key">RPN (ישן)</span><span class="spec-val">Severity × Occurrence × Detection</span></div>
+<div class="spec-row"><span class="spec-key">AP (AIAG 2019)</span><span class="spec-val">Action Priority H/M/L — מחליף RPN</span></div>
+<div class="spec-row"><span class="spec-key">Severity 9-10</span><span class="spec-val">חובה לפעול גם בהסתברות נמוכה!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">AIAG-VDA FMEA 1st Ed. (2019): AP מחליף RPN<br>
+<b>תוכנה:</b> <a href="https://www.isograph.com" target="_blank" style="color:var(--blue)">Isograph</a> · <a href="https://www.plato.de" target="_blank" style="color:var(--blue)">PLATO e1ns</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Control Plan — תכנית בקרה</div>
+<div><span class="mc-badge b-blue">3 גרסאות</span><span class="mc-badge b-green">Prototype/Pre/Production</span></div>
+<div class="spec-row"><span class="spec-key">כותרת</span><span class="spec-val">P/N · Rev · Customer · PFMEA Link</span></div>
+<div class="spec-row"><span class="spec-key">עמודות עיקריות</span><span class="spec-val">Characteristic · Spec · Method · Size · Freq</span></div>
+<div class="spec-row"><span class="spec-key">Control Method</span><span class="spec-val">SPC · Attribute Check · Go/NoGo · Visual</span></div>
+<div class="spec-row"><span class="spec-key">Reaction Plan</span><span class="spec-val">מה לעשות בחריגה · Containment</span></div>
+<div class="spec-row"><span class="spec-key">Special Char.</span><span class="spec-val">◆ KPC (Key Product) · ★ KCC (Key Control)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Control Plan = "חוקת הייצור" — מחייב עדכון בכל שינוי</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">5 Why — 5 למה</div>
+<div><span class="mc-badge b-orange">Toyota Method</span><span class="mc-badge b-blue">Root Cause</span></div>
+<div class="spec-row"><span class="spec-key">Why 1</span><span class="spec-val">מדוע קרה הבעיה?</span></div>
+<div class="spec-row"><span class="spec-key">Why 2</span><span class="spec-val">מדוע Why 1 קרה?</span></div>
+<div class="spec-row"><span class="spec-key">Why 3-5</span><span class="spec-val">המשך עד לסיבת שורש אמיתית</span></div>
+<div class="spec-row"><span class="spec-key">Root Cause</span><span class="spec-val">Why שלא ניתן להמשיך = Root Cause</span></div>
+<div class="spec-row"><span class="spec-key">כלל</span><span class="spec-val">שאל "מדוע" לא "מי" — ↓הטחת אשמה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">5 Why + Fishbone = שילוב הכי חזק לRoot Cause!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Risk Management — ניהול סיכונים</div>
+<div><span class="mc-badge b-red">ISO 31000</span><span class="mc-badge b-blue">ISO 14971 (רפואה)</span></div>
+<div class="spec-row"><span class="spec-key">Risk = S × P</span><span class="spec-val">Severity × Probability</span></div>
+<div class="spec-row"><span class="spec-key">Risk Matrix</span><span class="spec-val">3×3 או 5×5 · High/Med/Low</span></div>
+<div class="spec-row"><span class="spec-key">ALARP</span><span class="spec-val">As Low As Reasonably Practicable</span></div>
+<div class="spec-row"><span class="spec-key">Residual Risk</span><span class="spec-val">לאחר מיטיגציה — חובה לתעד</span></div>
+<div class="spec-row"><span class="spec-key">Risk Register</span><span class="spec-val">עדכון חי + Owner + Due Date</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 9001:2015 = Risk-Based Thinking חובה!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Audit — ביקורת איכות</div>
+<div><span class="mc-badge b-blue">1st/2nd/3rd Party</span><span class="mc-badge b-orange">ISO 19011</span></div>
+<div class="spec-row"><span class="spec-key">1st Party</span><span class="spec-val">ביקורת פנימית — Internal Audit</span></div>
+<div class="spec-row"><span class="spec-key">2nd Party</span><span class="spec-val">לקוח מבקר ספק — Supplier Audit</span></div>
+<div class="spec-row"><span class="spec-key">3rd Party</span><span class="spec-val">גוף חיצוני — הסמכה ISO/AS9100</span></div>
+<div class="spec-row"><span class="spec-key">Finding Types</span><span class="spec-val">Major / Minor / Observation / OFI</span></div>
+<div class="spec-row"><span class="spec-key">Major</span><span class="spec-val">→ 30 יום CAR · ↓סיכון הסמכה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 19011 = מדריך לביקורות מערכות ניהול</div>
+</div>
+</div></div></div></div>
+
+<!-- ===== CALC QC ===== -->
+<div id="insp-calc_qc" class="insp-sec">
+<div class="card"><div class="ctitle">🧮 מחשבונים — Quality Calculators</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">מחשבון Cpk — כשירות תהליך</div>
+<div class="cg">
+<div><label>USL (גבול עליון)</label><input type="number" id="cpk-usl" value="10.05" step="0.001" oninput="calcCpk()"></div>
+<div><label>LSL (גבול תחתון)</label><input type="number" id="cpk-lsl" value="9.95" step="0.001" oninput="calcCpk()"></div>
+<div><label>ממוצע תהליך μ</label><input type="number" id="cpk-mean" value="10.01" step="0.001" oninput="calcCpk()"></div>
+<div><label>סטיית תקן σ</label><input type="number" id="cpk-sigma" value="0.008" step="0.001" oninput="calcCpk()"></div>
+</div>
+<div id="cpk-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">מחשבון Gage R&R מהיר</div>
+<div class="cg">
+<div><label>סובלנות חלק (Tol)</label><input type="number" id="grr-tol" value="0.1" step="0.01" oninput="calcGRR()"></div>
+<div><label>סטיית R&R (σ_rr)</label><input type="number" id="grr-sigma" value="0.006" step="0.001" oninput="calcGRR()"></div>
+</div>
+<div id="grr-result" class="res">—</div>
+</div>
+
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🧮 מחשבונים נוספים</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">מחשבון TUR — Test Uncertainty Ratio</div>
+<div class="cg">
+<div><label>סובלנות חלק T (mm)</label><input type="number" id="tur-tol" value="0.1" step="0.001" oninput="calcTUR()"></div>
+<div><label>אי-ודאות כיול U (mm)</label><input type="number" id="tur-u" value="0.008" step="0.001" oninput="calcTUR()"></div>
+</div>
+<div id="tur-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">מחשבון DPMO ורמת סיגמא</div>
+<div class="cg">
+<div><label>סה"כ יחידות שנבדקו</label><input type="number" id="dpm-total" value="1000" oninput="calcDPMO()"></div>
+<div><label>פגמים שנמצאו</label><input type="number" id="dpm-def" value="5" oninput="calcDPMO()"></div>
+<div><label>הזדמנויות לפגם ליחידה</label><input type="number" id="dpm-opp" value="1" oninput="calcDPMO()"></div>
+</div>
+<div id="dpm-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">מחשבון Sine Bar — זווית מדויקת</div>
+<div class="cg">
+<div><label>אורך Sine Bar L (mm)</label>
+<select id="sb-l" onchange="calcSineBar()">
+<option value="100">100mm</option>
+<option value="200" selected>200mm</option>
+<option value="300">300mm</option>
+</select></div>
+<div><label>זווית רצויה θ (°)</label><input type="number" id="sb-angle" value="15" step="0.5" oninput="calcSineBar()"></div>
+</div>
+<div id="sb-result" class="res">—</div>
+</div>
+
+</div></div></div></div>
+
+</div>

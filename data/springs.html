@@ -1,0 +1,587 @@
+<div id="sec-springs" class="section">
+
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1020);border-color:var(--blue)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🌀</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--blue)">קפיצים — Springs</div>
+    <div style="font-size:12px;color:var(--muted)">סוגים · לחיצה · מתיחה · פיתול · Belleville · חומרים · עייפות · ייצור · תקנים · מחשבונים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="spr-tab active" onclick="showSpr('types',this)">🌀 סוגי קפיצים</button>
+  <button class="spr-tab" onclick="showSpr('compression',this)">⬇️ קפיץ לחיצה</button>
+  <button class="spr-tab" onclick="showSpr('extension',this)">↔️ קפיץ מתיחה</button>
+  <button class="spr-tab" onclick="showSpr('torsion',this)">🔄 קפיץ פיתול</button>
+  <button class="spr-tab" onclick="showSpr('belleville',this)">🫸 Belleville</button>
+  <button class="spr-tab" onclick="showSpr('materials',this)">🔩 חומרים</button>
+  <button class="spr-tab" onclick="showSpr('fatigue',this)">📊 עייפות</button>
+  <button class="spr-tab" onclick="showSpr('manufacturing',this)">🏭 ייצור ואיכות</button>
+  <button class="spr-tab" onclick="showSpr('standards',this)">🏆 תקנים ויצרנים</button>
+  <button class="spr-tab" onclick="showSpr('calc_spr',this)">🧮 מחשבונים</button>
+</div>
+
+<!-- ===== TYPES ===== -->
+<div id="spr-types" class="spr-sec active">
+<div class="card"><div class="ctitle">🌀 סוגי קפיצים — Spring Types</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Compression Spring — קפיץ לחיצה</div>
+<div><span class="mc-badge" style="background:var(--blue);color:#fff">הנפוץ ביותר</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">כוח מנגד לדחיסה — F = k × δ</span></div>
+<div class="spec-row"><span class="spec-key">צורת קצה</span><span class="spec-val">Open · Closed · Closed Ground · Pigtail</span></div>
+<div class="spec-row"><span class="spec-key">פרופיל</span><span class="spec-val">גלילי · חרוטי (Conical) · Barrel · Hourglass</span></div>
+<div class="spec-row"><span class="spec-key">Solid Length Ls</span><span class="spec-val">Ls = n_total × d</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Buckling</span><span class="spec-val">L/D > 4 → סכנת כיפוף צידי!</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">שסתומים · הגה · מכבשים · מוצרים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Extension Spring — קפיץ מתיחה</div>
+<div><span class="mc-badge b-blue">Initial Tension</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">כוח מנגד למתיחה · Initial Tension Ti</span></div>
+<div class="spec-row"><span class="spec-val">F = Ti + k × δ</span></div>
+<div class="spec-row"><span class="spec-key">קצוות</span><span class="spec-val">Machine Hook · Full Loop · Half Loop · Crossover</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ נקודת חולשה</span><span class="spec-val">קצוות Hook! מאמץ ריכוז גבוה</span></div>
+<div class="spec-row"><span class="spec-key">Initial Tension</span><span class="spec-val">Ti = τi × πd³ / (8D) לפי Wahl</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">מנגנוני סגירה · קשתות · גררות</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Torsion Spring — קפיץ פיתול</div>
+<div><span class="mc-badge b-blue">מומנט</span><span class="mc-badge b-orange">כיפוף!</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מאמץ כיפוף (לא גזירה!) · T = k_θ × θ</span></div>
+<div class="spec-row"><span class="spec-key">k_θ</span><span class="spec-val">k_θ = E×d⁴ / (10.8×D×n) [N·mm/°]</span></div>
+<div class="spec-row"><span class="spec-key">Winding Direction</span><span class="spec-val">RH (Right Hand) · LH — חשוב לכיוון!</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ הידוק</span><span class="spec-val">D מצטמצם בטעינה → ↑מאמץ</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">ציר (Hinge) · ציר אקדח · קלאצ' · מנגנוני בקרה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Belleville Washer — קפיץ צלחת</div>
+<div><span class="mc-badge b-red">עומס גבוה</span><span class="mc-badge b-blue">מרחב קטן</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">פלטה חרוטית שמשוטחת תחת עומס</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">עומס גבוה מאוד / מרחק קטן</span></div>
+<div class="spec-row"><span class="spec-key">סידור מקביל</span><span class="spec-val">↑↑עומס · ↓סטייה</span></div>
+<div class="spec-row"><span class="spec-key">סידור טורי</span><span class="spec-val">↑↑סטייה · = עומס</span></div>
+<div class="spec-row"><span class="spec-key">DIN 2093</span><span class="spec-val">תקן בינלאומי · 3 סדרות A/B/C</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">Preload בורג · חגורת בטיחות · שסתומים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Leaf Spring — קפיץ עלים</div>
+<div><span class="mc-badge b-orange">רכב · כלי רכב</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">קורה Cantilever/Simply Supported</span></div>
+<div class="spec-row"><span class="spec-key">Multi-leaf</span><span class="spec-val">שכבות עלים ← ↑עומס · ↑ריסון</span></div>
+<div class="spec-row"><span class="spec-key">Mono-leaf</span><span class="spec-val">עלה בודד · פחות ריסון · קל יותר</span></div>
+<div class="spec-row"><span class="spec-key">חומר</span><span class="spec-val">Cr-Si (9254) · Cr-V (6150) · Composite GFRP</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">ציר אחורי · משאיות · עגלות</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Spiral / Flat Spring — קפיץ ספיראלי</div>
+<div><span class="mc-badge b-blue">שעונים · מנגנונים</span></div>
+<div class="spec-row"><span class="spec-key">Power Spring</span><span class="spec-val">אנרגיה מאוחסנת · שעונים · מוצרים</span></div>
+<div class="spec-row"><span class="spec-key">Constant Force Spring</span><span class="spec-val">כוח קבוע לכל הסטייה</span></div>
+<div class="spec-row"><span class="spec-key">Volute Spring</span><span class="spec-val">גלילי-חרוטי · עומסים כבדים</span></div>
+<div class="spec-row"><span class="spec-key">Hair Spring</span><span class="spec-val">שעון · מדויק מאוד · Ni-Span-C</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">שעונים · מגנת · סלינג · מכשור</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Gas Spring — קפיץ גז</div>
+<div><span class="mc-badge b-green">N₂ / Oil</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">N₂ דחוס + שמן → כוח אחיד</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">כוח קבוע יותר · ↓מרחב · ↓ריסון</span></div>
+<div class="spec-row"><span class="spec-key">Compression</span><span class="spec-val">גז נדחס בדחיסה → ↑כוח</span></div>
+<div class="spec-row"><span class="spec-key">Extension</span><span class="spec-val">מושך לאחור — פתיחת מכסה</span></div>
+<div class="spec-row"><span class="spec-key">Force Range</span><span class="spec-val">50-60,000N · Stroke 25-1000mm</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.stabilus.com" target="_blank" style="color:var(--blue)">Stabilus</a> · <a href="https://www.ace-ace.com" target="_blank" style="color:var(--blue)">ACE Controls</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Wave Spring — קפיץ גל</div>
+<div><span class="mc-badge b-blue">↓מרחב</span><span class="mc-badge b-green">Smalley</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">רצועה מתולתלת בצורת גל</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↓50% מרחב vs. Coil Spring</span></div>
+<div class="spec-row"><span class="spec-key">Single Turn</span><span class="spec-val">סטייה קטנה · Preload</span></div>
+<div class="spec-row"><span class="spec-key">Multi-Turn</span><span class="spec-val">סטייה גדולה יותר</span></div>
+<div class="spec-row"><span class="spec-key">שימושים</span><span class="spec-val">Preload מסבים · מגשי שרשרת · מכשור</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרן:</b> <a href="https://www.smalley.com" target="_blank" style="color:var(--blue)">Smalley Steel Ring</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== COMPRESSION ===== -->
+<div id="spr-compression" class="spr-sec">
+<div class="card"><div class="ctitle">⬇️ קפיץ לחיצה — Compression Spring Design</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">פרמטרים גיאומטריים</div>
+<div><span class="mc-badge b-blue">ISO 10243</span></div>
+<div class="spec-row"><span class="spec-key">d — קוטר חוט</span><span class="spec-val">0.1-50mm (לפי עומס)</span></div>
+<div class="spec-row"><span class="spec-key">D — קוטר ממוצע</span><span class="spec-val">D = D_outer - d = D_inner + d</span></div>
+<div class="spec-row"><span class="spec-key">C = D/d</span><span class="spec-val">אינדקס קפיץ: 4-12 אידיאלי</span></div>
+<div class="spec-row"><span class="spec-key">n — כריכות פעילות</span><span class="spec-val">3-20 טיפוסי</span></div>
+<div class="spec-row"><span class="spec-key">n_total</span><span class="spec-val">n + 2 (Closed Ground קצה)</span></div>
+<div class="spec-row"><span class="spec-key">Ls = d × n_total</span><span class="spec-val">אורך מוצק Solid Length</span></div>
+<div class="spec-row"><span class="spec-key">Lf = Ls + δ_max + clearance</span><span class="spec-val">אורך חופשי</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">נוסחאות מאמץ</div>
+<div><span class="mc-badge b-orange">Wahl Correction</span></div>
+<div class="spec-row"><span class="spec-key">k = G×d⁴/(8×D³×n)</span><span class="spec-val">קצב קפיץ [N/mm]</span></div>
+<div class="spec-row"><span class="spec-key">Kw = (4C-1)/(4C-4) + 0.615/C</span><span class="spec-val">גורם Wahl</span></div>
+<div class="spec-row"><span class="spec-key">τ = Kw × 8FD/(πd³)</span><span class="spec-val">מאמץ גזירה [MPa]</span></div>
+<div class="spec-row"><span class="spec-key">δ = F/k = 8FD³n/(Gd⁴)</span><span class="spec-val">סטייה [mm]</span></div>
+<div class="spec-row"><span class="spec-key">τ_static ≤ 45% Sut</span><span class="spec-val">גבול מאמץ סטטי</span></div>
+<div class="spec-row"><span class="spec-key">τ_fatigue ≤ 35% Sut</span><span class="spec-val">גבול מאמץ עייפות</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Buckling — כיפוף לרוחב</div>
+<div><span class="mc-badge b-red">L/D > 4 → סכנה!</span></div>
+<div class="spec-row"><span class="spec-key">תנאי Buckling</span><span class="spec-val">L₀/D > 2.62 (Free-Free) · >4.0 (Free-Fixed)</span></div>
+<div class="spec-row"><span class="spec-key">פתרונות</span><span class="spec-val">מדריך פנימי (Arbor) · מדריך חיצוני · Conical</span></div>
+<div class="spec-row"><span class="spec-key">Arbor קוטר</span><span class="spec-val">Di - 1.0 עד Di - 0.5 mm</span></div>
+<div class="spec-row"><span class="spec-key">Guide I.D.</span><span class="spec-val">Do + 1.0 עד Do + 0.5 mm</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">כלל מעשי: L/D ≤ 3 בטוח · 3-4 בדוק Buckling · >4 = השתמש במדריך</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">End Types — צורות קצה</div>
+<div><span class="mc-badge b-blue">4 סוגים</span></div>
+<div class="spec-row"><span class="spec-key">Plain (Open)</span><span class="spec-val">קצה פתוח · n_dead=0 · פחות יציב</span></div>
+<div class="spec-row"><span class="spec-key">Plain Closed</span><span class="spec-val">קצה סגור · n_dead=1 ← נגד</span></div>
+<div class="spec-row"><span class="spec-key">Closed Ground ✅</span><span class="spec-val">סגור + שחוק · n_dead=1 · מישורי!</span></div>
+<div class="spec-row"><span class="spec-key">Pigtail</span><span class="spec-val">קצה מופחת · מניעת הידוק צידי</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Closed Ground = ברירת מחדל לרוב היישומים<br>ליצרן: ציין "Both ends closed and ground"</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Presetting — הגדרה מוקדמת</div>
+<div><span class="mc-badge b-green">↑עמידות</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">לחץ מעל גבול גמישות → מאמץ שארי</span></div>
+<div class="spec-row"><span class="spec-key">תוצאה</span><span class="spec-val">↑טווח עומס · ↑עמידות עייפות</span></div>
+<div class="spec-row"><span class="spec-key">שיטה</span><span class="spec-val">לחץ עד Solid → שחרר → Lf קטנה</span></div>
+<div class="spec-row"><span class="spec-key">Shot Peening</span><span class="spec-val">↑20-40% חיי עייפות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Presetting + Shot Peening = שילוב מומלץ לקפיצי עייפות</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">כללי עיצוב מעשיים</div>
+<div><span class="mc-badge b-orange">Rules of Thumb</span></div>
+<div class="spec-row"><span class="spec-key">אינדקס C</span><span class="spec-val">4 ≤ C ≤ 12 (אידיאלי C=6-9)</span></div>
+<div class="spec-row"><span class="spec-key">רוחב כריכה</span><span class="spec-val">פיסה ≥ 0.1×d בין כריכות בדחיסה מלאה</span></div>
+<div class="spec-row"><span class="spec-key">Deflection max</span><span class="spec-val">≤ 80% מ-(Lf - Ls) — לא עד Solid</span></div>
+<div class="spec-row"><span class="spec-key">Natural Frequency</span><span class="spec-val">fn = (d/πDn²) × √(G/8ρ) → לא תהדהד!</span></div>
+<div class="spec-row"><span class="spec-key">ייצוב ב-60°C+</span><span class="spec-val">Stress Relax → בחר חומר מתאים</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== EXTENSION ===== -->
+<div id="spr-extension" class="spr-sec">
+<div class="card"><div class="ctitle">↔️ קפיץ מתיחה — Extension Spring Design</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Initial Tension — מתח ראשוני</div>
+<div><span class="mc-badge b-blue">Ti</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">כריכות צמודות → מתח פנימי מוקדם Ti</span></div>
+<div class="spec-row"><span class="spec-key">F = Ti + k × δ</span><span class="spec-val">כוח כולל</span></div>
+<div class="spec-row"><span class="spec-key">Ti טיפוסי</span><span class="spec-val">τi = 0.3 × Sut לMusic Wire</span></div>
+<div class="spec-row"><span class="spec-key">Length</span><span class="spec-val">L = n×d + 2×r_hook (ללא Pre-tension)</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Hook</span><span class="spec-val">נקודת כשל! SCF גבוה בקצה ה-Hook</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Hook Types — סוגי קצוות</div>
+<div><span class="mc-badge b-green">4 עיקריים</span></div>
+<div class="spec-row"><span class="spec-key">Full Loop (Machine Hook)</span><span class="spec-val">הנפוץ · SCF גבוה · זול</span></div>
+<div class="spec-row"><span class="spec-key">Half Loop</span><span class="spec-val">SCF נמוך יותר · חוזק Hook ↑</span></div>
+<div class="spec-row"><span class="spec-key">Extended Hook</span><span class="spec-val">גישה לחיבור ← קצה ארוך</span></div>
+<div class="spec-row"><span class="spec-key">Crossover Center</span><span class="spec-val">↓SCF · יקר יותר לייצור</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">לעייפות: Half Loop מועדף! Crossover = הטוב ביותר</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">SCF ב-Hook — ריכוז מאמץ</div>
+<div><span class="mc-badge b-red">⚠️ נקודה קריטית</span></div>
+<div class="spec-row"><span class="spec-key">K_hook = (4R1-d)/(4R1-4d)</span><span class="spec-val">Wahl בHook</span></div>
+<div class="spec-row"><span class="spec-key">σ_hook = K_hook × 32F×R/(πd³)</span><span class="spec-val">כיפוף!</span></div>
+<div class="spec-row"><span class="spec-key">גבול</span><span class="spec-val">σ_hook ≤ 0.5×Sut (עייפות: ≤0.35)</span></div>
+<div class="spec-row"><span class="spec-key">פתרון</span><span class="spec-val">↑d · ↑R1 · Hook מיוחד</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== TORSION ===== -->
+<div id="spr-torsion" class="spr-sec">
+<div class="card"><div class="ctitle">🔄 קפיץ פיתול — Torsion Spring Design</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">נוסחאות קפיץ פיתול</div>
+<div><span class="mc-badge b-blue">כיפוף לא גזירה!</span></div>
+<div class="spec-row"><span class="spec-key">k_θ = E×d⁴/(10.8×D×n)</span><span class="spec-val">קצב [N·mm/°]</span></div>
+<div class="spec-row"><span class="spec-key">T = k_θ × θ</span><span class="spec-val">מומנט [N·mm], θ=[°]</span></div>
+<div class="spec-row"><span class="spec-key">Ki = (4C²-C-1)/(4C(C-1))</span><span class="spec-val">גורם ריכוז פיתול</span></div>
+<div class="spec-row"><span class="spec-key">σ = Ki × 32T/(πd³)</span><span class="spec-val">מאמץ כיפוף [MPa]</span></div>
+<div class="spec-row"><span class="spec-key">σ ≤ 0.78×Sut</span><span class="spec-val">גבול מאמץ סטטי</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">E=207GPa לפלדה (לא G!) — כי מאמץ כיפוף</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">שינויי D תחת עומס</div>
+<div><span class="mc-badge b-orange">חשוב לעיצוב!</span></div>
+<div class="spec-row"><span class="spec-key">RH Winding (סובב CW)</span><span class="spec-val">D מצטמצם בטעינה</span></div>
+<div class="spec-row"><span class="spec-key">LH Winding (סובב CCW)</span><span class="spec-val">D מתרחב בטעינה</span></div>
+<div class="spec-row"><span class="spec-key">D_loaded</span><span class="spec-val">D' = D×n / (n + θ/360°)</span></div>
+<div class="spec-row"><span class="spec-key">Arbor קוטר</span><span class="spec-val">Di_loaded - 0.5mm לפחות</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ Arbor חייב לאפשר הידוק D בטעינה!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">זווית קצה — Leg Angles</div>
+<div><span class="mc-badge b-green">מיקום יחסי</span></div>
+<div class="spec-row"><span class="spec-key">0° (Straight)</span><span class="spec-val">שני קצוות ישרים באותו כיוון</span></div>
+<div class="spec-row"><span class="spec-key">90°</span><span class="spec-val">רגל אחת ←90° → רגל שניה</span></div>
+<div class="spec-row"><span class="spec-key">180°</span><span class="spec-val">קצוות מנוגדים — Hinge נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">Body Torsion</span><span class="spec-val">הקפיץ מחזיק עצמו ← צריך Arbor</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ציין ביצרן: "Body: RH · Leg A: 90° · Leg B: straight"</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== BELLEVILLE ===== -->
+<div id="spr-belleville" class="spr-sec">
+<div class="card"><div class="ctitle">🫸 Belleville Washer — קפיץ צלחת</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DIN 2093 — סדרות</div>
+<div><span class="mc-badge b-blue">A · B · C</span></div>
+<div class="spec-row"><span class="spec-key">Series A</span><span class="spec-val">h₀/t ≈ 0.4 · עקומת כוח-נסיגה ליניארית</span></div>
+<div class="spec-row"><span class="spec-key">Series B</span><span class="spec-val">h₀/t ≈ 0.75 · מגמה לא ליניארית</span></div>
+<div class="spec-row"><span class="spec-key">Series C</span><span class="spec-val">h₀/t ≈ 1.5 · אזור כוח קבוע בשיא</span></div>
+<div class="spec-row"><span class="spec-key">h₀ = t</span><span class="spec-val">כוח קבוע — אידיאלי ל-Preload!</span></div>
+<div class="spec-row"><span class="spec-key">OD/ID</span><span class="spec-val">יחס נפוץ: OD/ID ≈ 2.0</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">סידורי Stack</div>
+<div><span class="mc-badge b-green">מקביל × טורי</span></div>
+<div class="spec-row"><span class="spec-key">מקביל (Parallel)</span><span class="spec-val">↑↑כוח · סטייה = יחידה בודדת</span></div>
+<div class="spec-row"><span class="spec-key">טורי (Series)</span><span class="spec-val">↑↑סטייה · כוח = יחידה בודדת</span></div>
+<div class="spec-row"><span class="spec-key">מעורב</span><span class="spec-val">שני מקביל + שני טורי = ×2 כוח ×2 סטייה</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ חיכוך</span><span class="spec-val">Stack ← ↑חיכוך = ↑Hysteresis</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">שמן/גריז בין Washerים מפחית חיכוך ו-Hysteresis</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">שימושים Belleville</div>
+<div><span class="mc-badge b-orange">Preload · Safety</span></div>
+<div class="spec-row"><span class="spec-key">Bolt Preload</span><span class="spec-val">שמירת כוח הידוק גם עם שחרור</span></div>
+<div class="spec-row"><span class="spec-key">Overload Protection</span><span class="spec-val">כוח מרבי מוגדר מראש</span></div>
+<div class="spec-row"><span class="spec-key">חגורת בטיחות</span><span class="spec-val">עמידות ב-Crash Load</span></div>
+<div class="spec-row"><span class="spec-key">Preload מסב</span><span class="spec-val">כוח אחיד על Angular Contact</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">יצרנים:</b> <a href="https://www.spirol.com" target="_blank" style="color:var(--blue)">SPIROL</a> · <a href="https://www.mubea.com" target="_blank" style="color:var(--blue)">Mubea</a> · <a href="https://www.schnorr.de" target="_blank" style="color:var(--blue)">Schnorr</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== MATERIALS ===== -->
+<div id="spr-materials" class="spr-sec">
+<div class="card"><div class="ctitle">🔩 חומרי קפיצים — Spring Materials</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Music Wire — EN 10270-1</div>
+<div><span class="mc-badge" style="background:var(--blue);color:#fff">הנפוץ ביותר</span></div>
+<div class="spec-row"><span class="spec-key">G</span><span class="spec-val">80 GPa</span></div>
+<div class="spec-row"><span class="spec-key">E</span><span class="spec-val">207 GPa</span></div>
+<div class="spec-row"><span class="spec-key">τ_max</span><span class="spec-val">1400-1700 MPa (תלוי d)</span></div>
+<div class="spec-row"><span class="spec-key">Sut</span><span class="spec-val">2170 MPa ל-d=0.5mm · ↓עם ↑d</span></div>
+<div class="spec-row"><span class="spec-key">T_max</span><span class="spec-val">120°C — לא לטמפ' גבוהה!</span></div>
+<div class="spec-row"><span class="spec-key">ייצור</span><span class="spec-val">Cold Drawn · Patented · גמיש מאוד</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">קפיצים כלליים · מוצרים · כלי</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Cr-V Steel — 6150 / EN 10270-2</div>
+<div><span class="mc-badge b-orange">רכב · ביצועים</span></div>
+<div class="spec-row"><span class="spec-key">הרכב</span><span class="spec-val">0.5%C · 1%Cr · 0.15%V</span></div>
+<div class="spec-row"><span class="spec-key">G</span><span class="spec-val">80 GPa</span></div>
+<div class="spec-row"><span class="spec-key">τ_max</span><span class="spec-val">1100-1300 MPa</span></div>
+<div class="spec-row"><span class="spec-key">T_max</span><span class="spec-val">220°C</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↑עמידות עייפות · ↑קשיות</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">קפיצי רכב · שסתומים · עומסים גבוהים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Cr-Si Steel — 9254 / Si-Cr</div>
+<div><span class="mc-badge b-red">ביטחוני</span><span class="mc-badge b-orange">↑↑חוזק</span></div>
+<div class="spec-row"><span class="spec-key">הרכב</span><span class="spec-val">0.54%C · 1.4%Si · 0.7%Cr</span></div>
+<div class="spec-row"><span class="spec-key">τ_max</span><span class="spec-val">1200-1450 MPa</span></div>
+<div class="spec-row"><span class="spec-key">T_max</span><span class="spec-val">250°C</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">↑↑חוזק · ↑עמידות Sag</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">ביטחוני · מנועי מטוס · ביצועים גבוהים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">SS 302 / 304 — EN 10270-3</div>
+<div><span class="mc-badge b-blue">קורוזיה</span><span class="mc-badge b-green">מזון · ים</span></div>
+<div class="spec-row"><span class="spec-key">G</span><span class="spec-val">69 GPa (נמוך מפלדה!)</span></div>
+<div class="spec-row"><span class="spec-key">E</span><span class="spec-val">193 GPa</span></div>
+<div class="spec-row"><span class="spec-key">τ_max</span><span class="spec-val">800-1000 MPa</span></div>
+<div class="spec-row"><span class="spec-key">T_max</span><span class="spec-val">260°C</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ G נמוך</span><span class="spec-val">k נמוך ב-14% vs. Carbon → חשב מחדש!</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">קורוזיה · מזון · ים · רפואה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">SS 17-7PH — AMS 5678</div>
+<div><span class="mc-badge b-red">ביטחוני + SS</span></div>
+<div class="spec-row"><span class="spec-key">G</span><span class="spec-val">72 GPa</span></div>
+<div class="spec-row"><span class="spec-key">τ_max</span><span class="spec-val">1100-1300 MPa</span></div>
+<div class="spec-row"><span class="spec-key">T_max</span><span class="spec-val">315°C</span></div>
+<div class="spec-row"><span class="spec-key">מצב</span><span class="spec-val">CH900 · RH950 — Precipitation Hardened</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">ביטחוני · תעופה · מחצית מחיר Inconel</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Inconel 718 / X-750</div>
+<div><span class="mc-badge b-red">T גבוהה</span><span class="mc-badge b-orange">עד 550°C</span></div>
+<div class="spec-row"><span class="spec-key">G 718</span><span class="spec-val">77 GPa</span></div>
+<div class="spec-row"><span class="spec-key">G X-750</span><span class="spec-val">75 GPa</span></div>
+<div class="spec-row"><span class="spec-key">τ_max</span><span class="spec-val">900-1100 MPa</span></div>
+<div class="spec-row"><span class="spec-key">T_max 718</span><span class="spec-val">550°C</span></div>
+<div class="spec-row"><span class="spec-key">T_max X-750</span><span class="spec-val">650°C</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">מנוע סילון · שסתומי טורבינה · קיצוני</span></div>
+</div>
+
+</div>
+<table style="margin-top:14px">
+<tr><th>חומר</th><th>G (GPa)</th><th>E (GPa)</th><th>τ_max (MPa)</th><th>T_max (°C)</th><th>שימוש</th></tr>
+<tr><td>Music Wire SW</td><td>80</td><td>207</td><td>1400-1700</td><td>120</td><td>כלל שימוש</td></tr>
+<tr><td>Oil Tempered OT</td><td>80</td><td>207</td><td>1000-1300</td><td>150</td><td>קפיצים גדולים</td></tr>
+<tr><td>Cr-V 6150</td><td>80</td><td>207</td><td>1100-1300</td><td>220</td><td>רכב, עומסים</td></tr>
+<tr><td>Cr-Si 9254</td><td>80</td><td>207</td><td>1200-1450</td><td>250</td><td>ביטחוני</td></tr>
+<tr><td>SS 302/304</td><td>69</td><td>193</td><td>800-1000</td><td>260</td><td>קורוזיה</td></tr>
+<tr><td>SS 17-7PH</td><td>72</td><td>203</td><td>1100-1300</td><td>315</td><td>ביטחוני+SS</td></tr>
+<tr><td>Inconel 718</td><td>77</td><td>200</td><td>900-1100</td><td>550</td><td>T גבוהה</td></tr>
+<tr><td>Phosphor Bronze</td><td>44</td><td>110</td><td>600-800</td><td>95</td><td>חשמל</td></tr>
+<tr><td>Beryllium Cu</td><td>48</td><td>131</td><td>900-1100</td><td>200</td><td>מוליכות מקס׳</td></tr>
+</table>
+</div></div>
+
+<!-- ===== FATIGUE ===== -->
+<div id="spr-fatigue" class="spr-sec">
+<div class="card"><div class="ctitle">📊 עייפות קפיצים — Spring Fatigue</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Goodman Line — קפיצים</div>
+<div><span class="mc-badge b-blue">Modified Goodman</span></div>
+<div class="spec-row"><span class="spec-key">τ_a/S_e + τ_m/S_ut = 1/SF</span><span class="spec-val">— קו Goodman</span></div>
+<div class="spec-row"><span class="spec-key">τ_a</span><span class="spec-val">אמפליטודת מאמץ = (τ_max-τ_min)/2</span></div>
+<div class="spec-row"><span class="spec-key">τ_m</span><span class="spec-val">מאמץ ממוצע = (τ_max+τ_min)/2</span></div>
+<div class="spec-row"><span class="spec-key">S_e קפיצים</span><span class="spec-val">0.45×Sut (Shear endurance, R=-1)</span></div>
+<div class="spec-row"><span class="spec-key">SF מינימום</span><span class="spec-val">1.3 כללי · 1.5 ביטחוני</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Goodman: Zimmerli Line לקפיצי פלדה:<br>τ_a = 241 MPa (Music Wire, corrected)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Zimmerli / Wahl Fatigue Lines</div>
+<div><span class="mc-badge b-orange">ספציפי לקפיצים</span></div>
+<div class="spec-row"><span class="spec-key">Music Wire (Shear)</span><span class="spec-val">τ_a = 338 MPa (R=0) · 241 MPa (corrected)</span></div>
+<div class="spec-row"><span class="spec-key">Hardened Alloy</span><span class="spec-val">τ_a = 310 MPa (R=0)</span></div>
+<div class="spec-row"><span class="spec-key">SS 302</span><span class="spec-val">τ_a = 207 MPa (R=0)</span></div>
+<div class="spec-row"><span class="spec-key">Non-Ferrous</span><span class="spec-val">τ_a = 186 MPa (R=0)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">10⁷ cycles · Not Shot Peened. Shot Peened: ×1.3</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Stress Relaxation — שחרור מאמץ</div>
+<div><span class="mc-badge b-red">Sag בטמפ׳</span></div>
+<div class="spec-row"><span class="spec-key">תופעה</span><span class="spec-val">קפיץ מאבד אורך בטמפ׳ + עומס קבוע</span></div>
+<div class="spec-row"><span class="spec-key">Music Wire &gt;70°C</span><span class="spec-val">↑↑Sag — לא מתאים!</span></div>
+<div class="spec-row"><span class="spec-key">Cr-Si &lt;250°C</span><span class="spec-val">≤2% Sag — מקובל</span></div>
+<div class="spec-row"><span class="spec-key">Inconel 718 &lt;500°C</span><span class="spec-val">≤1% Sag — מעולה</span></div>
+<div class="spec-row"><span class="spec-key">מניעה</span><span class="spec-val">Presetting · חומר מתאים · ↓τ_max</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Shot Peening לקפיצים</div>
+<div><span class="mc-badge b-green">↑↑עמידות</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מאמץ דחיסה בשכבה חיצונית → מנגד לסדק</span></div>
+<div class="spec-row"><span class="spec-key">שיפור</span><span class="spec-val">↑20-40% חיי עייפות</span></div>
+<div class="spec-row"><span class="spec-key">Almen Strip</span><span class="spec-val">A/N/C — כיוון עוצמה</span></div>
+<div class="spec-row"><span class="spec-key">Peening Media</span><span class="spec-val">Steel Shot S110-S330 · Glass Bead</span></div>
+<div class="spec-row"><span class="spec-key">AMS 2430</span><span class="spec-val">תקן Shot Peening לתעופה</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Presetting לאחר Shot Peening = שילוב מיטבי!</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== MANUFACTURING ===== -->
+<div id="spr-manufacturing" class="spr-sec">
+<div class="card"><div class="ctitle">🏭 ייצור ואיכות — Spring Manufacturing</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Cold Coiling — כריכה קרה</div>
+<div><span class="mc-badge" style="background:var(--blue);color:#fff">עד d=16mm</span></div>
+<div class="spec-row"><span class="spec-key">תהליך</span><span class="spec-val">חוט ← גלגול · כריכה · חיתוך</span></div>
+<div class="spec-row"><span class="spec-key">CNC Coiling</span><span class="spec-val">מחשב שולט ← כל פרמטר · דיוק ↑↑</span></div>
+<div class="spec-row"><span class="spec-key">Stress Relief</span><span class="spec-val">150-250°C · 20-30 min · חובה!</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">k: ±10% (כללי) · ±5% (בחירה) · ±2% (ספציפי)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">תמיד ציין Stress Relief ב-Drawing!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Hot Coiling — כריכה חמה</div>
+<div><span class="mc-badge b-orange">d &gt; 16mm</span></div>
+<div class="spec-row"><span class="spec-key">טמפ' עבודה</span><span class="spec-val">900-1100°C</span></div>
+<div class="spec-row"><span class="spec-key">תהליך</span><span class="spec-val">חימום ← כריכה חמה ← Q&T</span></div>
+<div class="spec-row"><span class="spec-key">חומרים</span><span class="spec-val">Cr-Si · Cr-V · En45/46</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">קפיצי משאיות · לחץ כבד</span></div>
+<div class="spec-row"><span class="spec-key">דיוק</span><span class="spec-val">±5% Lf · ±10% k</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Grinding — שחיקת קצוות</div>
+<div><span class="mc-badge b-green">Closed Ground</span></div>
+<div class="spec-row"><span class="spec-key">מטרה</span><span class="spec-val">קצה מישורי ← שיקרוי מדויק ← ↑יציבות</span></div>
+<div class="spec-row"><span class="spec-key">סקואריות</span><span class="spec-val">≤1.5°/mm קוטר (DIN 2095)</span></div>
+<div class="spec-row"><span class="spec-key">שחוק קצה</span><span class="spec-val">מינימום 3/4 כריכה</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ חום שחיקה</span><span class="spec-val">↑טמפ' = ↓Sut! צינון קפדני</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DIN 2095 / 2096 — תקן כריכה</div>
+<div><span class="mc-badge b-blue">טבלאות SN</span></div>
+<div class="spec-row"><span class="spec-key">DIN 2095</span><span class="spec-val">Static/Quasi-Static — כוח סטטי</span></div>
+<div class="spec-row"><span class="spec-key">DIN 2096</span><span class="spec-val">Dynamic — מאמץ מחזורי</span></div>
+<div class="spec-row"><span class="spec-key">d=2mm DIN 2095</span><span class="spec-val">490-640 N/mm²</span></div>
+<div class="spec-row"><span class="spec-key">d=2mm DIN 2096</span><span class="spec-val">610-760 N/mm²</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">↑d → ↓Sut (Sut מתמעט עם עובי חוט)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ציפויים לקפיצים</div>
+<div><span class="mc-badge b-orange">קורוזיה · מראה</span></div>
+<div class="spec-row"><span class="spec-key">Zinc Phosphate</span><span class="spec-val">בסיס לצבע · לא לחשיפה</span></div>
+<div class="spec-row"><span class="spec-key">Hot Dip Zinc</span><span class="spec-val">⚠️ סכנת HE! לא לקפיצים!</span></div>
+<div class="spec-row"><span class="spec-key">Cadmium (אסור EU)</span><span class="spec-val">הוחלף ב-Zinc-Nickel</span></div>
+<div class="spec-row"><span class="spec-key">Zinc-Nickel</span><span class="spec-val">ממחליף Cadmium · תעופה · ±200h SS</span></div>
+<div class="spec-row"><span class="spec-key">PTFE Coating</span><span class="spec-val">↓חיכוך · עמיד כימי · לא מוליך</span></div>
+<div class="spec-row"><span class="spec-key">E-Coat</span><span class="spec-val">צבע אלקטרופורטי · 500h SS · רכב</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ Hydrogen Embrittlement! מחיצה לאחר ציפוי חשמלי!</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== STANDARDS ===== -->
+<div id="spr-standards" class="spr-sec">
+<div class="card"><div class="ctitle">🏆 תקנים ויצרנים — Standards & Manufacturers</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תקנים בינלאומיים</div>
+<div><span class="mc-badge b-blue">ISO · DIN · EN</span></div>
+<div class="spec-row"><span class="spec-key">ISO 10243</span><span class="spec-val">Compression Springs — ממדים</span></div>
+<div class="spec-row"><span class="spec-key">ISO 2162</span><span class="spec-val">Spring Drawing Standards</span></div>
+<div class="spec-row"><span class="spec-key">DIN 2095</span><span class="spec-val">Cold Coiled Compression — Static</span></div>
+<div class="spec-row"><span class="spec-key">DIN 2096</span><span class="spec-val">Cold Coiled Compression — Dynamic</span></div>
+<div class="spec-row"><span class="spec-key">DIN 2097</span><span class="spec-val">Extension Springs</span></div>
+<div class="spec-row"><span class="spec-key">DIN 2093</span><span class="spec-val">Belleville Washers</span></div>
+<div class="spec-row"><span class="spec-key">EN 10270</span><span class="spec-val">Spring Steel Wire — Part 1/2/3</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Associated Spring — Barnes</div>
+<div><span class="mc-badge b-blue">מוביל עולמי</span></div>
+<div class="spec-row"><span class="spec-key">חברה</span><span class="spec-val">Barnes Group · SPEC Engineering Springs</span></div>
+<div class="spec-row"><span class="spec-key">קטלוג</span><span class="spec-val">Standard Springs Catalog — מיליוני פריטים</span></div>
+<div class="spec-row"><span class="spec-key">כלים</span><span class="spec-val">Spring Design Software — SPEC</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.assocspring.com" target="_blank" style="color:var(--blue)">assocspring.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Lesjöfors · Mubea · Lee Spring</div>
+<div><span class="mc-badge b-green">אירופה · עולמי</span></div>
+<div class="spec-row"><span class="spec-key">Lesjöfors</span><span class="spec-val">שוודיה · Standard + Custom · Europe</span></div>
+<div class="spec-row"><span class="spec-key">Mubea</span><span class="spec-val">גרמניה · Disc Springs · Automotive</span></div>
+<div class="spec-row"><span class="spec-key">Lee Spring</span><span class="spec-val">ארה"ב · קטלוג ענק · ISO 9001</span></div>
+<div class="spec-row"><span class="spec-key">Century Spring</span><span class="spec-val">ארה"ב · Standard Catalog</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><a href="https://www.lesjofors.com" target="_blank" style="color:var(--blue)">lesjofors.com</a> · <a href="https://www.leespring.com" target="_blank" style="color:var(--blue)">leespring.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ספקים בישראל 🇮🇱</div>
+<div><span class="mc-badge b-green">מקומי</span></div>
+<div class="spec-row"><span class="spec-key">קפיצי ישראל</span><span class="spec-val">ייצור מקומי · Custom · Standard</span></div>
+<div class="spec-row"><span class="spec-key">אבנר-גל</span><span class="spec-val">קפיצים + מוצרי קפיץ</span></div>
+<div class="spec-row"><span class="spec-key">טלסקופ</span><span class="spec-val">קפיצי גז · Stabilus Israel</span></div>
+<div class="spec-row"><span class="spec-key">יבוא</span><span class="spec-val">Associated Spring · Lee Spring — זמין</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תוכנות עיצוב קפיצים</div>
+<div><span class="mc-badge b-orange">CAD · FEA</span></div>
+<div class="spec-row"><span class="spec-key">Springulator</span><span class="spec-val">Lee Spring — חינמי · מקוון</span></div>
+<div class="spec-row"><span class="spec-key">SPEC (Barnes)</span><span class="spec-val">Associated Spring — מקצועי</span></div>
+<div class="spec-row"><span class="spec-key">KISSsoft</span><span class="spec-val">מנגנון קפיצים מלא + FEA</span></div>
+<div class="spec-row"><span class="spec-key">ANSYS Mechanical</span><span class="spec-val">FEA — ניתוח עייפות מלא</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><a href="https://www.leespring.com/springulator" target="_blank" style="color:var(--blue)">leespring.com/springulator</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== CALC ===== -->
+<div id="spr-calc_spr" class="spr-sec">
+<div class="card"><div class="ctitle">🧮 מחשבוני קפיצים</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">מחשבון קפיץ לחיצה / מתיחה</div>
+<div class="cg">
+<div><label>d — קוטר חוט (mm)</label><input id="sp-d" type="number" value="3" step="0.1" oninput="calcSpringFull()"></div>
+<div><label>D — קוטר ממוצע (mm)</label><input id="sp-D" type="number" value="25" oninput="calcSpringFull()"></div>
+<div><label>n — כריכות פעילות</label><input id="sp-n" type="number" value="8" oninput="calcSpringFull()"></div>
+<div><label>G — מודול גזירה (GPa)</label>
+<select id="sp-G" onchange="calcSpringFull()">
+<option value="80">פלדה C / Cr-V / Cr-Si (80)</option>
+<option value="69">SS 302/304 (69)</option>
+<option value="72">SS 17-7PH (72)</option>
+<option value="77">Inconel 718 (77)</option>
+<option value="44">Phosphor Bronze (44)</option>
+<option value="48">Beryllium Cu (48)</option>
+</select></div>
+<div><label>F — עומס (N)</label><input id="sp-f" type="number" value="100" oninput="calcSpringFull()"></div>
+</div>
+<div id="sp-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">מחשבון קפיץ פיתול</div>
+<div class="cg">
+<div><label>d — קוטר חוט (mm)</label><input id="st-d" type="number" value="3" step="0.1" oninput="calcTorsionSpr()"></div>
+<div><label>D — קוטר ממוצע (mm)</label><input id="st-D" type="number" value="25" oninput="calcTorsionSpr()"></div>
+<div><label>n — כריכות פעילות</label><input id="st-n" type="number" value="8" oninput="calcTorsionSpr()"></div>
+<div><label>E — מודול אלסטי (GPa)</label><input id="st-E" type="number" value="207" oninput="calcTorsionSpr()"></div>
+<div><label>T — מומנט (N·mm)</label><input id="st-T" type="number" value="500" oninput="calcTorsionSpr()"></div>
+</div>
+<div id="st-result" class="res">—</div>
+</div>
+
+</div></div></div>
+</div>

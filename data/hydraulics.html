@@ -1,0 +1,399 @@
+<div id="sec-hydraulics" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--blue)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">💧</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--blue)">הידראוליקה ופנאומטיקה</div>
+    <div style="font-size:12px;color:var(--muted)">עקרונות · מעגל · שסתומים · שמנים · פנאומטיקה · אביזרים · מחשבונים · תקנים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="hy-tab active" onclick="showHy('basics',this)">📐 עקרונות ונוסחאות</button>
+  <button class="hy-tab" onclick="showHy('circuit',this)">🔄 מעגל הידראולי</button>
+  <button class="hy-tab" onclick="showHy('valves',this)">🔧 שסתומים</button>
+  <button class="hy-tab" onclick="showHy('oil',this)">🛢️ שמנים וסיכה</button>
+  <button class="hy-tab" onclick="showHy('pneumatic',this)">💨 פנאומטיקה</button>
+  <button class="hy-tab" onclick="showHy('components',this)">⚙️ אביזרים</button>
+  <button class="hy-tab" onclick="showHy('calc',this)">🧮 מחשבונים</button>
+  <button class="hy-tab" onclick="showHy('standards',this)">📋 תקנים</button>
+</div>
+
+<style>
+.hy-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.hy-tab:hover,.hy-tab.active{background:var(--blue);color:#000;border-color:var(--blue);font-weight:700}
+.hy-sec{display:none}.hy-sec.active{display:block}
+</style>
+
+<!-- ==================== BASICS ==================== -->
+<div id="hy-basics" class="hy-sec active">
+<div class="card"><div class="ctitle">📐 עקרון פסקל ונוסחאות יסוד</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">נוסחאות הליבה</div>
+<div style="background:var(--surface);border-radius:8px;padding:12px;font-family:monospace;font-size:12px;line-height:2.2;color:var(--text)">
+<div style="color:var(--blue)">// עיקרון פסקל — לחץ בנוזל סגור מועבר שווה לכל כיוון</div>
+<div><span style="color:var(--orange)">F</span> = P × A &nbsp;&nbsp;<span style="color:var(--muted)">// כוח [N]. P=[Pa], A=[m²]</span></div>
+<div><span style="color:var(--orange)">P</span> = F / A &nbsp;&nbsp;<span style="color:var(--muted)">// לחץ [Pa=N/m²]</span></div>
+<div style="color:var(--blue)">// המרות לחץ נוחות</div>
+<div><span style="color:var(--muted)">1 bar = 100,000 Pa = 10.2 kgf/cm² = 14.5 PSI</span></div>
+<div><span style="color:var(--muted)">1 MPa = 10 bar = 145 PSI</span></div>
+<div style="color:var(--blue)">// ספיקה ומהירות</div>
+<div><span style="color:var(--orange)">Q</span> = A × v &nbsp;&nbsp;<span style="color:var(--muted)">// [m³/s] → ×60000 = [L/min]</span></div>
+<div><span style="color:var(--orange)">v</span> = Q / A &nbsp;&nbsp;<span style="color:var(--muted)">// מהירות בוכנה מהספיקה</span></div>
+<div style="color:var(--blue)">// הספק הידראולי</div>
+<div><span style="color:var(--orange)">P_kW</span> = p[bar] × Q[L/min] / 600</div>
+<div style="color:var(--blue)">// שטחי בוכנה (צילינדר עם מוט)</div>
+<div><span style="color:var(--orange)">A_ext</span> = π×D²/4 &nbsp;&nbsp;<span style="color:var(--muted)">// שטח הרחבה (מלא)</span></div>
+<div><span style="color:var(--orange)">A_ret</span> = π(D²−d²)/4 &nbsp;&nbsp;<span style="color:var(--muted)">// שטח כיווץ (מינוס מוט)</span></div>
+</div>
+<div class="tip-box">▸ שטח הכיווץ תמיד קטן מההרחבה → מהירות כיווץ מהירה יותר באותה ספיקה, אך כוח נמוך יותר!<br>▸ יחס שטחים טיפוסי (Regeneration): 1.6:1 עד 2:1</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">לחצי עבודה טיפוסיים</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>מערכת</th><th>לחץ (bar)</th></tr>
+<tr><td>פנאומטיקה תעשייתית</td><td>4-8</td></tr>
+<tr><td>הידראוליקה ניידת קלה</td><td>150-180</td></tr>
+<tr><td>הידראוליקה ניידת (מחפרים)</td><td>250-350</td></tr>
+<tr><td>הידראוליקה תעשייתית</td><td>140-210</td></tr>
+<tr><td>מכבשי הידראוליקה</td><td>300-700</td></tr>
+<tr><td>מערכות תעופה</td><td>210-280 bar</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">יעילות מערכת — מקורות אובדן</div>
+<div class="spec-row"><span class="spec-key">משאבה</span><span class="spec-val">85-95% (Gear נמוך, Piston גבוה)</span></div>
+<div class="spec-row"><span class="spec-key">שסתומים</span><span class="spec-val">אובדן Δp על כל מעבר — חום!</span></div>
+<div class="spec-row"><span class="spec-key">צנרת</span><span class="spec-val">חיכוך זרימה — תלוי מהירות²</span></div>
+<div class="spec-row"><span class="spec-key">מערכת קבועה (Fixed)</span><span class="spec-val">כללית 60-70% — עודף לחוזר ל-Relief</span></div>
+<div class="spec-row"><span class="spec-key">מערכת Load-Sensing</span><span class="spec-val">80-90% — חיסכון משמעותי</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== CIRCUIT ==================== -->
+<div id="hy-circuit" class="hy-sec">
+<div class="card"><div class="ctitle">🔄 מעגל הידראולי — רכיבי ליבה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">משאבות — Pumps</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>סוג</th><th>לחץ מקס'</th><th>יעילות</th><th>שימוש</th></tr>
+<tr><td>Gear (גלגלי שיניים)</td><td>250 bar</td><td>85-90%</td><td>זול, כללי</td></tr>
+<tr><td>Vane (כנפיים)</td><td>175 bar</td><td>85-92%</td><td>שקט, בינוני</td></tr>
+<tr><td>Axial Piston Fixed</td><td>350 bar</td><td>92-95%</td><td>ספיקה קבועה, כבד</td></tr>
+<tr><td>Axial Piston Variable</td><td>420 bar</td><td>90-94%</td><td>Load-Sensing, יעיל</td></tr>
+<tr><td>Radial Piston</td><td>700 bar</td><td>92-96%</td><td>לחץ קיצוני</td></tr>
+</table>
+<div class="tip-box">▸ Variable Displacement = משנה נפח לפי דרישה — הבסיס לחיסכון אנרגיה<br>▸ Piston תמיד יקרה יותר אך יעילה ועמידה יותר מ-Gear</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מנועים הידראוליים — Motors</div>
+<div class="spec-row"><span class="spec-key">עיקרון</span><span class="spec-val">הפוך ממשאבה — זרימה יוצרת סיבוב</span></div>
+<div class="spec-row"><span class="spec-key">Gerotor/Orbit</span><span class="spec-val">מומנט גבוה, סל"ד נמוך — הנעת גלגלים</span></div>
+<div class="spec-row"><span class="spec-key">Axial Piston</span><span class="spec-val">סל"ד גבוה, יעילות מעולה — הידראוסטטי</span></div>
+<div class="spec-row"><span class="spec-key">מומנט</span><span class="spec-val">T[Nm] = p[bar]×V[cc/rev]/(20×π)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">צילינדר הידראולי — מבנה</div>
+<div class="spec-row"><span class="spec-key">Tube</span><span class="spec-val">גליל מכוסף (Honed) Ra 0.1-0.4μm</span></div>
+<div class="spec-row"><span class="spec-key">Piston</span><span class="spec-val">אטם + Wear Ring — נושא צידי</span></div>
+<div class="spec-row"><span class="spec-key">Rod</span><span class="spec-val">מוכסף כרום (Hard Chrome) 20-40μm</span></div>
+<div class="spec-row"><span class="spec-key">Gland</span><span class="spec-val">Rod Seal + Wiper + Bushing</span></div>
+<div class="spec-row"><span class="spec-key">Cushion</span><span class="spec-val">האטת קצה מובנית (ראה לשונית אטמים)</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=hydraulic+cylinder+components+construction+explained" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Reservoir — מיכל שמן</div>
+<div class="spec-row"><span class="spec-key">נפח</span><span class="spec-val">3-5× ספיקת משאבה לדקה [ליטר]</span></div>
+<div class="spec-row"><span class="spec-key">תפקיד</span><span class="spec-val">קירור, שיקוע לכלוך, שחרור אוויר</span></div>
+<div class="spec-row"><span class="spec-key">Baffle Plate</span><span class="spec-val">מפריד יניקה מחזרה — מונע קצר-זרימה</span></div>
+<div class="spec-row"><span class="spec-key">Breather</span><span class="spec-val">מסנן אוויר בכניסה/יציאה בשינוי מפלס</span></div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">תרשים מעגל בסיסי — רצף רכיבים</div>
+<div style="font-size:12px;color:var(--muted);line-height:2">
+מיכל → פילטר יניקה → משאבה → שסתום Relief (הגנה) → שסתום כיווני (DCV) → צילינדר/מנוע → שסתום בקרת זרימה (מהירות) → פילטר חזרה → מיכל
+</div>
+<div class="tip-box">▸ Relief תמיד מיד אחרי המשאבה — ההגנה הראשונה במעגל<br>▸ פילטר חזרה קריטי לא פחות מיניקה — תופס שחיקת רכיבים</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== VALVES ==================== -->
+<div id="hy-valves" class="hy-sec">
+<div class="card"><div class="ctitle">🔧 שסתומים הידראוליים ופנאומטיים</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">טבלת שסתומים מלאה</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>שסתום</th><th>תפקיד</th><th>הערה</th></tr>
+<tr><td><b>Relief Valve</b></td><td>הגבלת לחץ מקסימלי</td><td>הגנה ראשונה — חובה בכל מעגל</td></tr>
+<tr><td><b>Check Valve</b></td><td>כיוון זרימה אחד</td><td>Cracking 0.3-3 bar</td></tr>
+<tr><td><b>Pilot Operated Check</b></td><td>נעילת עומס (Load Holding)</td><td>מונע שקיעת בוכנה</td></tr>
+<tr><td><b>Directional Valve 4/3</b></td><td>כיוון בוכנה — 4 פתחים 3 מצבים</td><td>Closed/Open/Float/Tandem</td></tr>
+<tr><td><b>Flow Control</b></td><td>ויסות ספיקה/מהירות</td><td>Meter-In / Meter-Out</td></tr>
+<tr><td><b>Pressure Reducing</b></td><td>הפחתת לחץ ל-Circuit משני</td><td>נורמלית פתוחה</td></tr>
+<tr><td><b>Sequence Valve</b></td><td>הפעלת פעולה ב' אחרי א'</td><td>לפי לחץ סף</td></tr>
+<tr><td><b>Counterbalance Valve</b></td><td>תמיכה במשא תלוי</td><td>מונע נפילה חופשית</td></tr>
+<tr><td><b>Proportional Valve</b></td><td>שליטה רציפה אלקטרית</td><td>±5% היסטרזיס</td></tr>
+<tr><td><b>Servo Valve</b></td><td>דיוק גבוה עם משוב</td><td>±0.1% — סימולטורים</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Meter-In vs Meter-Out</div>
+<div class="spec-row"><span class="spec-key">Meter-In</span><span class="spec-val">חונק זרימה נכנסת — עומס חיובי (מרים)</span></div>
+<div class="spec-row"><span class="spec-key">Meter-Out</span><span class="spec-val">חונק זרימה יוצאת — עומס שלילי (מוריד/נופל)</span></div>
+<div class="tip-box">▸ Meter-Out מונע Cavitation בעומס נגרר (Overrunning Load) — הבחירה הבטוחה למעליות ומנופים</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DCV — קידוד מצבים</div>
+<div class="spec-row"><span class="spec-key">Closed Center</span><span class="spec-val">כל הפתחים חסומים — עומס נעול</span></div>
+<div class="spec-row"><span class="spec-key">Open Center</span><span class="spec-val">P-T פתוח — משאבה נחה בלחץ אפס</span></div>
+<div class="spec-row"><span class="spec-key">Float Center</span><span class="spec-val">A,B ל-T — בוכנה חופשית לנוע</span></div>
+<div class="spec-row"><span class="spec-key">Tandem Center</span><span class="spec-val">P-T פתוח, A,B סגורים — נפוץ במלגזות</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== OIL ==================== -->
+<div id="hy-oil" class="hy-sec">
+<div class="card"><div class="ctitle">🛢️ שמנים, סיכה וניקיון</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">דרגות ויסקוזיטי — ISO VG</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>ISO VG</th><th>cSt @40°C</th><th>הידראוליקה</th><th>גיר</th></tr>
+<tr><td>VG 10</td><td>10</td><td>מערכות קרות</td><td>—</td></tr>
+<tr><td>VG 22</td><td>22</td><td>כלי עבודה קלים</td><td>—</td></tr>
+<tr><td><b style="color:var(--orange)">VG 32 ★</b></td><td>32</td><td>הידראוליקה רגילה</td><td>—</td></tr>
+<tr><td><b style="color:var(--orange)">VG 46 ★</b></td><td>46</td><td>הידראוליקה בינונית (הנפוץ)</td><td>—</td></tr>
+<tr><td>VG 68</td><td>68</td><td>הידראוליקה כבדה</td><td>—</td></tr>
+<tr><td>VG 100</td><td>100</td><td>מחרטות</td><td>גיר קל</td></tr>
+<tr><td>VG 150</td><td>150</td><td>—</td><td>גיר בינוני</td></tr>
+<tr><td>VG 220</td><td>220</td><td>—</td><td>גיר כבד (רכב)</td></tr>
+<tr><td>VG 320</td><td>320</td><td>—</td><td>גיר תעשייה</td></tr>
+<tr><td>VG 680</td><td>680</td><td>—</td><td>גיר כרסמת</td></tr>
+</table>
+<div class="tip-box">▸ בחר VG כך שהצמיגות בטמפ' עבודה תהיה 16-36cSt במשאבה<br>▸ Viscosity Index (VI) גבוה = פחות רגיש לשינויי טמפרטורה</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ניקיון שמן — ISO 4406</div>
+<div class="spec-row"><span class="spec-key">קוד</span><span class="spec-val">חלקיקים ב-4/6/14 מיקרון (למשל 18/16/13)</span></div>
+<div class="spec-row"><span class="spec-key">הידראוליקה כללית</span><span class="spec-val">20/18/15</span></div>
+<div class="spec-row"><span class="spec-key">פרופורציונלי</span><span class="spec-val">18/16/13</span></div>
+<div class="spec-row"><span class="spec-key">סרוו</span><span class="spec-val">16/14/11</span></div>
+<div class="tip-box">▸ כל מספר נמוך יותר = חצי מהחלקיקים! 80% מכשלי הידראוליקה נגרמים מזיהום</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תוספי שמן — Additives</div>
+<div class="spec-row"><span class="spec-key">Anti-Wear (AW)</span><span class="spec-val">Zinc — הגנת מגע גבוה-לחץ</span></div>
+<div class="spec-row"><span class="spec-key">Anti-Foam</span><span class="spec-val">מונע קצף שגורם קוויטציה</span></div>
+<div class="spec-row"><span class="spec-key">Anti-Oxidant</span><span class="spec-val">מאריך חיי שמן — מונע חמצון</span></div>
+<div class="spec-row"><span class="spec-key">Anti-Rust</span><span class="spec-val">מונע קורוזיה על מתכת</span></div>
+<div class="spec-row"><span class="spec-key">Demulsifier</span><span class="spec-val">מפריד מים משמן במהירות</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">בקרת טמפרטורה</div>
+<div class="spec-row"><span class="spec-key">טווח עבודה</span><span class="spec-val">30-60°C אידיאלי</span></div>
+<div class="spec-row"><span class="spec-key">מעל 70°C</span><span class="spec-val">חמצון מואץ, אטמים נשחקים</span></div>
+<div class="spec-row"><span class="spec-key">מתחת 10°C</span><span class="spec-val">צמיגות גבוהה — Cavitation ביניקה</span></div>
+<div class="spec-row"><span class="spec-key">מקרר שמן</span><span class="spec-val">Air/Water Cooler — נדרש מעל 15kW הפסד</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== PNEUMATIC ==================== -->
+<div id="hy-pneumatic" class="hy-sec">
+<div class="card"><div class="ctitle">💨 פנאומטיקה — עקרונות ורכיבים</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">השוואה להידראוליקה</div>
+<div class="spec-row"><span class="spec-key">לחץ עבודה</span><span class="spec-val">4-8 bar (לעומת 150-350 בהידראוליקה)</span></div>
+<div class="spec-row"><span class="spec-key">יעילות</span><span class="spec-val">~40% (הידראוליקה ~90%) — אוויר דחיס</span></div>
+<div class="spec-row"><span class="spec-key">כוח</span><span class="spec-val">F=P×A — אותה נוסחה, לחץ נמוך יותר</span></div>
+<div class="spec-row"><span class="spec-key">יתרונות</span><span class="spec-val">נקי, בטוח (אין פיצוץ נוזל), מהיר, זול</span></div>
+<div class="spec-row"><span class="spec-key">חסרונות</span><span class="spec-val">כוח נמוך, רועש, לא מדויק (דחיסות אוויר)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">FRL — יחידת הכנה</div>
+<div class="spec-row"><span class="spec-key">Filter</span><span class="spec-val">מסנן לחות ולכלוך — 5-40 מיקרון</span></div>
+<div class="spec-row"><span class="spec-key">Regulator</span><span class="spec-val">מייצב לחץ עבודה קבוע</span></div>
+<div class="spec-row"><span class="spec-key">Lubricator</span><span class="spec-val">מוסיף ערפל שמן (לרכיבים ישנים בלבד!)</span></div>
+<div class="tip-box">▸ FRL תמיד בכניסה לכל מערכת פנאומטית — ללא זה = כשל מהיר</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">מייבשי אוויר</div>
+<div class="spec-row"><span class="spec-key">Refrigerated</span><span class="spec-val">Dew Point 3-10°C — הכללי</span></div>
+<div class="spec-row"><span class="spec-key">Desiccant</span><span class="spec-val">Dew Point עד −40°C — קריטי/חוץ</span></div>
+<div class="spec-row"><span class="spec-key">Membrane</span><span class="spec-val">קומפקטי, ללא חשמל — קווים קטנים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">רכיבי הפעלה</div>
+<div class="spec-row"><span class="spec-key">Cylinder</span><span class="spec-val">Single/Double Acting — כמו הידראולי</span></div>
+<div class="spec-row"><span class="spec-key">Rotary Actuator</span><span class="spec-val">סיבוב עד 360° — Rack/Vane</span></div>
+<div class="spec-row"><span class="spec-key">Air Motor</span><span class="spec-val">כלים מסתובבים — בטיחות (אזורי נפץ)</span></div>
+<div class="spec-row"><span class="spec-key">Grippers</span><span class="spec-val">מלחציים פנאומטיים — רובוטיקה</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== COMPONENTS ==================== -->
+<div id="hy-components" class="hy-sec">
+<div class="card"><div class="ctitle">⚙️ אביזרי מערכת</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">אקומולטור — Accumulator</div>
+<div class="spec-row"><span class="spec-key">Bladder</span><span class="spec-val">בועת גומי — הנפוץ, תגובה מהירה</span></div>
+<div class="spec-row"><span class="spec-key">Piston</span><span class="spec-val">נפחים גדולים, עמיד</span></div>
+<div class="spec-row"><span class="spec-key">Diaphragm</span><span class="spec-val">נפחים קטנים, קומפקטי</span></div>
+<div class="spec-row"><span class="spec-key">Pre-Charge</span><span class="spec-val">80-90% מלחץ עבודה מינימלי</span></div>
+<div class="tip-box">▸ שימושים: גיבוי חירום (בלמים!), ספיגת פעימות, השלמת שיא ספיקה<br>▸ תקן PED לנפחים גדולים — בדיקה תקופתית חובה</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">פילטרים — Filtration</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>מיקום</th><th>דירוג (μm)</th><th>תפקיד</th></tr>
+<tr><td>יניקה (Suction)</td><td>100-150</td><td>הגנת משאבה מגושים</td></tr>
+<tr><td>לחץ (Pressure)</td><td>10-25</td><td>הגנת שסתומים עדינים</td></tr>
+<tr><td>חזרה (Return)</td><td>10-25</td><td>תפיסת שחיקת רכיבים</td></tr>
+<tr><td>Off-Line/Kidney</td><td>3-6</td><td>ניקוי מתמשך — מערכות קריטיות</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">צנרת וזרימה</div>
+<div class="spec-row"><span class="spec-key">קו יניקה</span><span class="spec-val">מהירות מקסימלית 1.2 m/s</span></div>
+<div class="spec-row"><span class="spec-key">קו לחץ</span><span class="spec-val">מהירות 4-6 m/s</span></div>
+<div class="spec-row"><span class="spec-key">קו חזרה</span><span class="spec-val">מהירות 2-3 m/s</span></div>
+<div class="tip-box">▸ מהיר מדי = חום והפסדי לחץ, איטי מדי = צנרת יקרה ומיותרת</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">צילינדר — הקצאת האטה</div>
+<div class="spec-row"><span class="spec-key">Cushion</span><span class="spec-val">פלנג'ר מובנה מאט לפני קצה מהלך</span></div>
+<div class="spec-row"><span class="spec-key">כיוונון</span><span class="spec-val">בורג בשני הצדדים — נפרד לכל כיוון</span></div>
+<div class="spec-row"><span class="spec-key">ללא Cushion</span><span class="spec-val">הלם הידראולי, שבירת עוגנים</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== CALCULATORS ==================== -->
+<div id="hy-calc" class="hy-sec">
+<div class="card"><div class="ctitle">🧮 מחשבוני הידראוליקה</div>
+<div class="machine-grid">
+
+<!-- CALC 1: PISTON FORCE/SPEED -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">כוח ומהירות בוכנה</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px">חשב כוח, מהירות וספיקה נדרשת לצילינדר</div>
+<div class="cg">
+  <div><label>לחץ P (bar)</label><input id="hy-p" type="number" value="200" oninput="calcHydro()"></div>
+  <div><label>קוטר בוכנה D (mm)</label><input id="hy-d" type="number" value="63" oninput="calcHydro()"></div>
+  <div><label>קוטר מוט d (mm)</label><input id="hy-rod" type="number" value="36" oninput="calcHydro()"></div>
+  <div><label>ספיקה Q (L/min)</label><input id="hy-q" type="number" value="40" oninput="calcHydro()"></div>
+</div>
+<div class="res" id="hy-result">—</div>
+</div>
+
+<!-- CALC 2: FLOW & POWER -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ספיקה והספק נדרש</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px">חשב הספק מנוע נדרש למשאבה לפי לחץ וספיקה</div>
+<div class="cg">
+  <div><label>לחץ עבודה P (bar)</label><input id="hy-p2" type="number" value="180" oninput="calcHydroPower()"></div>
+  <div><label>ספיקה משאבה Q (L/min)</label><input id="hy-q2" type="number" value="60" oninput="calcHydroPower()"></div>
+  <div><label>יעילות משאבה (%)</label><input id="hy-eff" type="number" value="90" oninput="calcHydroPower()"></div>
+</div>
+<div class="res" id="hy-result2">—</div>
+</div>
+
+<!-- CALC 3: BUCKLING -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">בדיקת Buckling למוט</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px">בדוק אם מוט הצילינדר יציב בכיפוף (Euler)</div>
+<div class="cg">
+  <div><label>קוטר מוט d (mm)</label><input id="hy-bd" type="number" value="36" oninput="calcBuckling()"></div>
+  <div><label>אורך מהלך חופשי L (mm)</label><input id="hy-bl" type="number" value="800" oninput="calcBuckling()"></div>
+  <div><label>סוג הידוק K</label>
+  <select id="hy-bk" onchange="calcBuckling()">
+    <option value="2">קנטילבר (חופשי-קבוע) K=2</option>
+    <option value="1" selected>פרקים משני הצדדים K=1</option>
+    <option value="0.7">פרק-קבוע K=0.7</option>
+    <option value="0.5">קבוע-קבוע K=0.5</option>
+  </select></div>
+  <div><label>כוח מופעל F (kN)</label><input id="hy-bf" type="number" value="30" oninput="calcBuckling()"></div>
+</div>
+<div class="res" id="hy-result3">—</div>
+</div>
+
+<!-- CALC 4: ACCUMULATOR SIZING -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">גודל אקומולטור</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px">חשב נפח אקומולטור נדרש לפי חוק גז (איזותרמי)</div>
+<div class="cg">
+  <div><label>לחץ מקסימלי P1 (bar)</label><input id="hy-p1" type="number" value="200" oninput="calcAccumulator()"></div>
+  <div><label>לחץ מינימלי P2 (bar)</label><input id="hy-p2b" type="number" value="150" oninput="calcAccumulator()"></div>
+  <div><label>נפח נוזל נדרש ΔV (L)</label><input id="hy-dv" type="number" value="2" oninput="calcAccumulator()"></div>
+  <div><label>Pre-Charge P0 (bar)</label><input id="hy-p0" type="number" value="135" oninput="calcAccumulator()"></div>
+</div>
+<div class="res" id="hy-result4">—</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== STANDARDS ==================== -->
+<div id="hy-standards" class="hy-sec">
+<div class="card"><div class="ctitle">📋 תקנים — הידראוליקה ופנאומטיקה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תקני צנרת ורכיבים</div>
+<div class="spec-row"><span class="spec-key">ISO 4413</span><span class="spec-val">בטיחות מערכות הידראוליות</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4414</span><span class="spec-val">בטיחות מערכות פנאומטיות</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4406</span><span class="spec-val">קוד ניקיון שמן</span></div>
+<div class="spec-row"><span class="spec-key">ISO 6149</span><span class="spec-val">חיבורי O-Ring Boss (ORB)</span></div>
+<div class="spec-row"><span class="spec-key">SAE J514</span><span class="spec-val">חיבורי JIC 37°</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תקני שמנים וסינון</div>
+<div class="spec-row"><span class="spec-key">ISO VG 3448</span><span class="spec-val">דרגות ויסקוזיטי תעשייתיות</span></div>
+<div class="spec-row"><span class="spec-key">ISO 11171</span><span class="spec-val">כיול ספירת חלקיקים</span></div>
+<div class="spec-row"><span class="spec-key">NAS 1638</span><span class="spec-val">תקן ניקיון ישן (עדיין בשימוש)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">תקני אקומולטורים</div>
+<div class="spec-row"><span class="spec-key">PED 2014/68/EU</span><span class="spec-val">כלי לחץ אירופאי — חובה מעל נפח סף</span></div>
+<div class="spec-row"><span class="spec-key">ASME VIII</span><span class="spec-val">כלי לחץ אמריקאי</span></div>
+<div class="spec-row"><span class="spec-key">ISO 10771</span><span class="spec-val">בדיקת עייפות אקומולטור</span></div>
+</div>
+
+</div></div></div>
+
+</div>

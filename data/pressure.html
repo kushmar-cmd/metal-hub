@@ -1,0 +1,421 @@
+<div id="sec-pressure" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1a17);border-color:var(--cyan,#67e8f9)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔬</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--cyan,#67e8f9)">בדיקות לחץ וקריוגניקה</div>
+    <div style="font-size:12px;color:var(--muted)">Hydrostatic · Pneumatic · Leak Test · Burst · Cryogenic · Vacuum · Proof · Fatigue</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="prs-tab active" onclick="showPrs('hydro',this)">💧 הידרוסטטי</button>
+  <button class="prs-tab" onclick="showPrs('pneumatic',this)">💨 פנאומטי</button>
+  <button class="prs-tab" onclick="showPrs('leak',this)">🔎 בדיקת דליפה</button>
+  <button class="prs-tab" onclick="showPrs('burst',this)">💥 Burst / Proof</button>
+  <button class="prs-tab" onclick="showPrs('cryo',this)">🧊 קריוגניקה</button>
+  <button class="prs-tab" onclick="showPrs('vacuum',this)">🌀 ואקום</button>
+  <button class="prs-tab" onclick="showPrs('fatigue',this)">🔄 עייפות לחץ</button>
+  <button class="prs-tab" onclick="showPrs('standards_p',this)">📋 תקנים</button>
+</div>
+
+<style>
+.prs-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.prs-tab:hover,.prs-tab.active{background:var(--cyan,#67e8f9);color:#000;border-color:var(--cyan,#67e8f9);font-weight:700}
+.prs-sec{display:none}.prs-sec.active{display:block}
+</style>
+
+<!-- ==================== HYDROSTATIC ==================== -->
+<div id="prs-hydro" class="prs-sec active">
+<div class="card"><div class="ctitle">💧 בדיקת לחץ הידרוסטטי — Hydrostatic Pressure Test</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">עקרונות הידרוסטטי</div>
+<div><span class="mc-badge b-blue">מים / שמן</span><span class="mc-badge b-green">בטוח</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מילוי כלי לחץ בנוזל (מים/שמן) + העלאת לחץ לערך בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">לחץ בדיקה</span><span class="spec-val">1.25×–1.5× לחץ עבודה (MAWP) — תלוי תקן</span></div>
+<div class="spec-row"><span class="spec-key">זמן החזקה</span><span class="spec-val">10–30 דקות מינימום (תלוי עובי דופן ונפח)</span></div>
+<div class="spec-row"><span class="spec-key">מדיום</span><span class="spec-val">מים נקיים (עם מעכב חלודה) / שמן / גליקול</span></div>
+<div class="spec-row"><span class="spec-key">יתרון מרכזי</span><span class="spec-val">נוזל לא דחיס — כשל לא גורם לפיצוץ!</span></div>
+<div class="spec-row"><span class="spec-key">מדידה</span><span class="spec-val">מד לחץ מכויל ±1% FS — בנקודה הגבוהה ביותר</span></div>
+<div class="spec-row"><span class="spec-key">קריטריון עבירה</span><span class="spec-val">אין ירידת לחץ, אין דליפה נראית, אין עיוות</span></div>
+<div class="spec-row"><span class="spec-key">טמפרטורה</span><span class="spec-val">מינימום 5°C מעל MDMT (ניתוח פריך) — למנוע שבירה</span></div>
+<div class="tip-box">▸ <b>שחרור אוויר:</b> חובה לפתוח vent בנקודה הגבוהה ביותר לפני בדיקה<br>▸ <b>בטיחות:</b> ← אין אנשים בקרבת קוי לחץ בזמן העלאה<br>▸ <b>ניקוז:</b> אחרי בדיקה — ניקוז + ייבוש + שימור</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=hydrostatic+pressure+test+procedure+piping+vessel" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">ציוד בדיקה הידרוסטטי</div>
+<div class="spec-row"><span class="spec-key">משאבת בדיקה</span><span class="spec-val">משאבת הידרו ידנית / חשמלית — עד 700 bar</span></div>
+<div class="spec-row"><span class="spec-key">מד לחץ</span><span class="spec-val">מכויל, טווח 1.5×–4× לחץ בדיקה, דיוק ±1%</span></div>
+<div class="spec-row"><span class="spec-key">שסתום בטיחות</span><span class="spec-val">Relief Valve — מכויל ל-1.1× לחץ בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">מגופים</span><span class="spec-val">Blind Flanges / Test Caps / Expansion Plugs</span></div>
+<div class="spec-row"><span class="spec-key">רושם לחץ</span><span class="spec-val">Chart Recorder / Data Logger — תיעוד רציף</span></div>
+<div class="spec-row"><span class="spec-key">צנרת מילוי</span><span class="spec-val">High-Pressure Hose — מוסמכת ×4 לחץ בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">יצרנים</span><span class="spec-val">Maximator, Haskel, Parker, Graco, Rice Hydro</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">בדיקת צנרת — Piping Hydro Test</div>
+<div><span class="mc-badge b-blue">ASME B31.3</span></div>
+<div class="spec-row"><span class="spec-key">לחץ בדיקה</span><span class="spec-val">1.5 × Design Pressure (ASME B31.3)</span></div>
+<div class="spec-row"><span class="spec-key">זמן</span><span class="spec-val">10 דקות מינימום אחרי התייצבות</span></div>
+<div class="spec-row"><span class="spec-key">הכנה</span><span class="spec-val">נתק מכשירים רגישים, Safety Valves, Expansion Joints</span></div>
+<div class="spec-row"><span class="spec-key">Venting</span><span class="spec-val">פתח אוויר בנקודה הגבוהה ביותר — חובה!</span></div>
+<div class="spec-row"><span class="spec-key">תיעוד</span><span class="spec-val">Test Pack: P&ID, Test Boundary, Gauge Cert, Results</span></div>
+<div class="spec-row"><span class="spec-key">Reinstatement</span><span class="spec-val">החזרת מכשירים + Safety Valves אחרי בדיקה</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=piping+hydrostatic+test+ASME+B31.3+procedure+step+by+step" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">בדיקת מיכל לחץ — Vessel Hydro Test</div>
+<div><span class="mc-badge b-orange">ASME VIII</span></div>
+<div class="spec-row"><span class="spec-key">לחץ בדיקה</span><span class="spec-val">1.3 × MAWP × (σ_test/σ_design) — ASME VIII Div.1</span></div>
+<div class="spec-row"><span class="spec-key">זמן</span><span class="spec-val">30 דקות מינימום</span></div>
+<div class="spec-row"><span class="spec-key">בדיקה ויזואלית</span><span class="spec-val">בדיקת כל ריתוכים + Nozzles בלחץ בדיקה</span></div>
+<div class="spec-row"><span class="spec-key">עיוות</span><span class="spec-val">מדידת קוטר לפני/אחרי — עיוות קבוע = כשל</span></div>
+<div class="spec-row"><span class="spec-key">Head Types</span><span class="spec-val">Ellipsoidal (2:1) / Torispherical / Hemispherical / Flat</span></div>
+<div class="spec-row"><span class="spec-key">MDMT</span><span class="spec-val">Minimum Design Metal Temperature — Charpy Impact Test</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=pressure+vessel+hydrostatic+test+ASME+VIII+procedure" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== PNEUMATIC ==================== -->
+<div id="prs-pneumatic" class="prs-sec">
+<div class="card"><div class="ctitle">💨 בדיקת לחץ פנאומטי — Pneumatic Pressure Test</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">עקרונות פנאומטי</div>
+<div><span class="mc-badge b-red">סיכון גבוה!</span><span class="mc-badge b-blue">אוויר / N₂</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">העלאת לחץ באוויר/גז אינרטי — אנרגיה מאוגרת גבוהה!</span></div>
+<div class="spec-row"><span class="spec-key">לחץ בדיקה</span><span class="spec-val">1.1 × Design Pressure (ASME B31.3) — נמוך מהידרו!</span></div>
+<div class="spec-row"><span class="spec-key">מתי נדרש</span><span class="spec-val">כשמים לא מותרים (קטליסט, O₂ lines, ייבוש בלתי אפשרי)</span></div>
+<div class="spec-row"><span class="spec-key">סכנה!</span><span class="spec-val">גז דחיס = פיצוץ! אנרגיה ×1000 מנוזל!</span></div>
+<div class="spec-row"><span class="spec-key">הגנה</span><span class="spec-val">Barricade / מרחק בטיחות / ניטור מרחוק</span></div>
+<div class="spec-row"><span class="spec-key">העלאה</span><span class="spec-val">הדרגתית! 25% → 50% → 75% → 100% עם Hold בכל שלב</span></div>
+<div class="spec-row"><span class="spec-key">גז אינרטי</span><span class="spec-val">N₂ מועדף — ← ← מונע חמצון + בטוח</span></div>
+<div class="tip-box">▸ <b>אסור:</b> בדיקה פנאומטית ללא אישור מהנדס בטיחות!<br>▸ <b>Relief Valve:</b> חובה 1.1× לחץ בדיקה<br>▸ <b>אנרגיה מאוגרת:</b> E = P×V — צינור ⌀6" באורך 100m ב-10 bar = כמו TNT!<br>▸ <b>Sensitive Leak Test:</b> מי סבון / Snoop — בדיקת בועות</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=pneumatic+pressure+test+safety+procedure+nitrogen+piping" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">השוואת הידרוסטטי מול פנאומטי</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>פרמטר</th><th>הידרוסטטי</th><th>פנאומטי</th></tr>
+<tr><td>מדיום</td><td>מים / שמן</td><td>אוויר / N₂</td></tr>
+<tr><td>לחץ בדיקה (B31.3)</td><td>1.5× Design</td><td>1.1× Design</td></tr>
+<tr><td>סיכון פיצוץ</td><td>נמוך מאוד</td><td>גבוה מאוד!</td></tr>
+<tr><td>אנרגיה מאוגרת</td><td>מינימלית</td><td>עצומה</td></tr>
+<tr><td>גילוי דליפות</td><td>טוב (רואים מים)</td><td>צריך סבון/Helium</td></tr>
+<tr><td>ייבוש</td><td>נדרש אחרי</td><td>לא נדרש</td></tr>
+<tr><td>משקל</td><td>כבד (מים)</td><td>קל (אוויר)</td></tr>
+<tr><td>אישור מיוחד</td><td>לא</td><td>כן — מהנדס בטיחות!</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== LEAK TEST ==================== -->
+<div id="prs-leak" class="prs-sec">
+<div class="card"><div class="ctitle">🔎 בדיקת דליפה — Leak Testing Methods</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Bubble Test — בדיקת בועות</div>
+<div><span class="mc-badge b-green">פשוט</span><span class="mc-badge b-blue">נפוץ</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מי סבון / Snoop על חיבורים + לחץ פנימי</span></div>
+<div class="spec-row"><span class="spec-key">רגישות</span><span class="spec-val">~10⁻³ mbar·L/s — בינונית</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">צנרת גז, מזגנים, חיבורי Flange, ריתוכים</span></div>
+<div class="spec-row"><span class="spec-key">מוצרים</span><span class="spec-val">Snoop / Leak-Tec / מי סבון רגילים</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ASME V Art.10 / ASTM E515</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Helium Leak Test — בדיקת הליום</div>
+<div><span class="mc-badge b-purple">רגישות גבוהה</span><span class="mc-badge b-orange">תעופה</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">הליום (מולקולה קטנה ביותר) + Mass Spectrometer</span></div>
+<div class="spec-row"><span class="spec-key">רגישות</span><span class="spec-val">עד 10⁻¹² mbar·L/s — הרגיש ביותר!</span></div>
+<div class="spec-row"><span class="spec-key">Sniffer Mode</span><span class="spec-val">He בפנים, Sniffer בחוץ — מהיר, פחות רגיש</span></div>
+<div class="spec-row"><span class="spec-key">Vacuum Mode</span><span class="spec-val">He בחוץ, Vacuum + MS בפנים — ↑↑רגישות</span></div>
+<div class="spec-row"><span class="spec-key">Bombing</span><span class="spec-val">לחץ He → שליפה → מדידת He יוצא (רכיבים אטומים)</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">חלל, גרעין, חצי-מוליכים, מזגנים תעשייתיים, רפואי</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ASME V Art.10 / MIL-STD-1246 / ASTM E499</span></div>
+<div class="spec-row"><span class="spec-key">יצרנים</span><span class="spec-val">Pfeiffer, Agilent (Varian), Leybold, Inficon</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=helium+leak+test+mass+spectrometer+vacuum+sniffer+procedure" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Pressure Decay — ירידת לחץ</div>
+<div><span class="mc-badge b-blue">ייצור המוני</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">לחץ → המתנה → מדידת ירידה בזמן קבוע</span></div>
+<div class="spec-row"><span class="spec-key">רגישות</span><span class="spec-val">~10⁻³–10⁻⁴ mbar·L/s — בינונית-גבוהה</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">אוטומטי, מהיר, Go/No-Go — קו ייצור</span></div>
+<div class="spec-row"><span class="spec-key">חסרון</span><span class="spec-val">רגיש לטמפרטורה! ΔT=1°C → ΔP משמעותי</span></div>
+<div class="spec-row"><span class="spec-key">שיפור</span><span class="spec-val">Differential Pressure — Reference Volume מבטל ΔT</span></div>
+<div class="spec-row"><span class="spec-key">יצרנים</span><span class="spec-val">ATEQ, InterTech, Cincinnati Test Systems</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=pressure+decay+leak+test+automated+production+line+ATEQ" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Flow Test — בדיקת זרימה</div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מדידת זרימת גז דרך דליפה — Mass Flow Meter</span></div>
+<div class="spec-row"><span class="spec-key">רגישות</span><span class="spec-val">~10⁻²–10⁻⁴ mbar·L/s</span></div>
+<div class="spec-row"><span class="spec-key">יתרון</span><span class="spec-val">מהיר, לא רגיש לטמפרטורה</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">חלקי רכב, ברזים, שסתומים, מחברים</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Dye Penetrant — חדירת צבע</div>
+<div><span class="mc-badge b-green">NDT</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">צבע חודר → ניקוי → Developer → סדקים זוהרים</span></div>
+<div class="spec-row"><span class="spec-key">Visible</span><span class="spec-val">צבע אדום — אור רגיל</span></div>
+<div class="spec-row"><span class="spec-key">Fluorescent</span><span class="spec-val">UV (Black Light) — ↑↑רגישות</span></div>
+<div class="spec-row"><span class="spec-key">מגבלה</span><span class="spec-val">סדקים פתוחים לפני השטח בלבד</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ASME V Art.6 / ASTM E165 / ISO 3452</span></div>
+<div class="spec-row"><span class="spec-key">יצרנים</span><span class="spec-val">Magnaflux, Sherwin, MR Chemie, Helling</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=dye+penetrant+testing+liquid+penetrant+inspection+procedure+NDT" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Ultrasonic Testing — אולטרסוני</div>
+<div><span class="mc-badge b-purple">NDT</span><span class="mc-badge b-blue">עובי + סדקים</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">גלי קול 1–25MHz → החזר מפגם/דופן אחורית</span></div>
+<div class="spec-row"><span class="spec-key">Straight Beam</span><span class="spec-val">עובי דופן — 0° Probe</span></div>
+<div class="spec-row"><span class="spec-key">Angle Beam</span><span class="spec-val">סדקי ריתוך — 45°/60°/70° Shear Wave</span></div>
+<div class="spec-row"><span class="spec-key">TOFD</span><span class="spec-val">Time of Flight Diffraction — ↑דיוק גודל פגם</span></div>
+<div class="spec-row"><span class="spec-key">Phased Array</span><span class="spec-val">PAUT — סריקה אלקטרונית מלאה</span></div>
+<div class="spec-row"><span class="spec-key">Couplant</span><span class="spec-val">ג'ל / מים / גליצרין — חובה!</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ASME V Art.4+5 / ASTM E114 / ISO 17640</span></div>
+<div class="spec-row"><span class="spec-key">יצרנים</span><span class="spec-val">Olympus, GE/Baker Hughes, Sonatest, Zetec</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=ultrasonic+testing+UT+phased+array+TOFD+weld+inspection+NDT" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== BURST / PROOF ==================== -->
+<div id="prs-burst" class="prs-sec">
+<div class="card"><div class="ctitle">💥 Burst Test / Proof Test — בדיקת פיצוץ / הוכחה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Proof Test — בדיקת הוכחה</div>
+<div><span class="mc-badge b-green">לא הרסנית</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">העלאת לחץ מעל עבודה, מתחת לזרימה — הוכחת שלמות</span></div>
+<div class="spec-row"><span class="spec-key">לחץ</span><span class="spec-val">1.25×–1.5× MAWP — תלוי תקן</span></div>
+<div class="spec-row"><span class="spec-key">עיוות</span><span class="spec-val">אסור עיוות קבוע! (Permanent Deformation = Fail)</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">מיכלי לחץ, צינורות, בלוני גז, Fitting</span></div>
+<div class="spec-row"><span class="spec-key">תקן</span><span class="spec-val">ASME VIII / PED 2014/68/EU / EN 13445</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Burst Test — בדיקת פיצוץ</div>
+<div><span class="mc-badge b-red">הרסנית!</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">העלאת לחץ עד כשל — קביעת Burst Pressure</span></div>
+<div class="spec-row"><span class="spec-key">מדיום</span><span class="spec-val">מים בלבד! (בטיחות)</span></div>
+<div class="spec-row"><span class="spec-key">Safety Factor</span><span class="spec-val">Burst/MAWP ≥ 4 (ASME) / ≥ 3 (EN)</span></div>
+<div class="spec-row"><span class="spec-key">מדידה</span><span class="spec-val">לחץ, נפח, עיוות — בזמן אמת</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">אישור תכן, R&D, כישלון חומר, QA דגימה</span></div>
+<div class="spec-row"><span class="spec-key">Barlow</span><span class="spec-val">P_burst = 2×S×t/D — נוסחת Barlow לצינור</span></div>
+<div class="tip-box">▸ <b>Barlow:</b> P = 2×UTS×t/OD — צינור דופן דק<br>▸ <b>Sphere:</b> P = 2×UTS×t/R<br>▸ SF=4 → MAWP = Burst/4</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=burst+test+pressure+vessel+pipe+hydraulic+destructive+test" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Charpy Impact Test — בדיקת הלם</div>
+<div><span class="mc-badge b-blue">ASTM E23</span><span class="mc-badge b-orange">טמפ' נמוכה</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">פטיש מטוטלת → דגם V-Notch → אנרגיית שבירה (Joules)</span></div>
+<div class="spec-row"><span class="spec-key">טמפרטורה</span><span class="spec-val">בדיקה ב-MDMT או נמוך יותר</span></div>
+<div class="spec-row"><span class="spec-key">ערך מינימום</span><span class="spec-val">20J–27J לפלדות פחמניות (ASME VIII UCS-66)</span></div>
+<div class="spec-row"><span class="spec-key">דגם</span><span class="spec-val">10×10×55mm · V-Notch 2mm עומק 45°</span></div>
+<div class="spec-row"><span class="spec-key">Transition Curve</span><span class="spec-val">עקומת מעבר ductile→brittle — DBTT</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">קריוגניקה, LNG, מיכלי לחץ, גשרים</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=Charpy+impact+test+V+notch+transition+temperature+brittle+ductile" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== CRYOGENICS ==================== -->
+<div id="prs-cryo" class="prs-sec">
+<div class="card"><div class="ctitle">🧊 קריוגניקה — Cryogenic Engineering</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">טמפרטורות קריוגניות — סולם</div>
+<div><span class="mc-badge b-blue">מתחת ל-120K</span></div>
+<div class="spec-row"><span class="spec-key">הגדרה</span><span class="spec-val">קריוגני = מתחת ל-120K (−150°C)</span></div>
+<div class="spec-row"><span class="spec-key">LNG</span><span class="spec-val">−162°C (111K) — מתאן נוזלי</span></div>
+<div class="spec-row"><span class="spec-key">LOX</span><span class="spec-val">−183°C (90K) — חמצן נוזלי</span></div>
+<div class="spec-row"><span class="spec-key">LN₂</span><span class="spec-val">−196°C (77K) — חנקן נוזלי</span></div>
+<div class="spec-row"><span class="spec-key">LAr</span><span class="spec-val">−186°C (87K) — ארגון נוזלי</span></div>
+<div class="spec-row"><span class="spec-key">LH₂</span><span class="spec-val">−253°C (20K) — מימן נוזלי</span></div>
+<div class="spec-row"><span class="spec-key">LHe</span><span class="spec-val">−269°C (4K) — הליום נוזלי</span></div>
+<div class="spec-row"><span class="spec-key">Absolute Zero</span><span class="spec-val">0K = −273.15°C — אפס מוחלט</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">חומרים לקריוגניקה</div>
+<div><span class="mc-badge b-green">מותר</span><span class="mc-badge b-red">אסור</span></div>
+<div class="spec-row"><span class="spec-key">✅ SS 304/304L</span><span class="spec-val">Austenitic — ↑עקיבות בקור · הבחירה #1</span></div>
+<div class="spec-row"><span class="spec-key">✅ SS 316/316L</span><span class="spec-val">↑עמידות קורוזיה + קריוגני</span></div>
+<div class="spec-row"><span class="spec-key">✅ 9% Nickel Steel</span><span class="spec-val">ASTM A553 — LNG מיכלים · עד −196°C</span></div>
+<div class="spec-row"><span class="spec-key">✅ Al 5083/6061</span><span class="spec-val">FCC — אין מעבר ductile-brittle!</span></div>
+<div class="spec-row"><span class="spec-key">✅ Inconel 718</span><span class="spec-val">Nickel superalloy — חלל/רקטות</span></div>
+<div class="spec-row"><span class="spec-key">✅ PTFE/Kel-F</span><span class="spec-val">אטמים — גמישים גם ב-77K</span></div>
+<div class="spec-row"><span class="spec-key">❌ פלדה פחמנית</span><span class="spec-val">BCC → brittle! DBTT מעל −40°C</span></div>
+<div class="spec-row"><span class="spec-key">❌ Ferritic SS</span><span class="spec-val">BCC → brittle בקריוגני!</span></div>
+<div class="spec-row"><span class="spec-key">❌ NBR/Buna-N</span><span class="spec-val">מתקשה ומתפצח — להחליף ב-PTFE/Viton-GLT</span></div>
+<div class="tip-box">▸ <b>כלל: FCC = טוב, BCC = רע בקריוגניקה</b><br>▸ Austenitic SS + Al + Cu + Ni = FCC = ductile in cold<br>▸ Carbon Steel + Ferritic SS + Martensitic = BCC = brittle!</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=cryogenic+materials+selection+stainless+steel+LNG+low+temperature" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Cryogenic Valves & Piping</div>
+<div class="spec-row"><span class="spec-key">Extended Bonnet</span><span class="spec-val">שסתום עם צוואר מוארך — Packing רחוק מקור</span></div>
+<div class="spec-row"><span class="spec-key">Vacuum Jacket</span><span class="spec-val">צנרת עם מעטפת ואקום — בידוד תרמי</span></div>
+<div class="spec-row"><span class="spec-key">MLI</span><span class="spec-val">Multi-Layer Insulation — שכבות אלומיניום בואקום</span></div>
+<div class="spec-row"><span class="spec-key">Perlite</span><span class="spec-val">בידוד גרגרי בואקום — מיכלי LN₂/LOX</span></div>
+<div class="spec-row"><span class="spec-key">Bellows Sealed</span><span class="spec-val">שסתום אטום בלואז — Zero Leak</span></div>
+<div class="spec-row"><span class="spec-key">BOG</span><span class="spec-val">Boil-Off Gas — גז שמתאדה — יש לנהל!</span></div>
+<div class="spec-row"><span class="spec-key">Cooldown Rate</span><span class="spec-val">50–100°C/hr מקסימום — ← מניעת Thermal Shock</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=cryogenic+valve+piping+LNG+vacuum+jacketed+insulation+design" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Cryogenic Treatment — טיפול קריוגני</div>
+<div><span class="mc-badge b-blue">כלי חיתוך</span><span class="mc-badge b-orange">Retained Austenite</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">קירור ל-−196°C ← המרת Retained Austenite → Martensite</span></div>
+<div class="spec-row"><span class="spec-key">Deep Cryo</span><span class="spec-val">−196°C במשך 24–36h → חימום איטי</span></div>
+<div class="spec-row"><span class="spec-key">Shallow Cryo</span><span class="spec-val">−80°C (CO₂) — פחות אפקטיבי</span></div>
+<div class="spec-row"><span class="spec-key">יתרונות</span><span class="spec-val">↑חיי כלי ×2–5 · ↑Wear Resistance · ↑Dimensional Stability</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">כלי חיתוך HSS/Carbide, מנועי F1, גלגלי שיניים, שסתומים</span></div>
+<div class="spec-row"><span class="spec-key">חומרים</span><span class="spec-val">D2, M2, H13, 52100, 440C — פלדות כלים ומסבים</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=cryogenic+treatment+tool+steel+retained+austenite+deep+cryo+process" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== VACUUM ==================== -->
+<div id="prs-vacuum" class="prs-sec">
+<div class="card"><div class="ctitle">🌀 טכנולוגיית ואקום — Vacuum Technology</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">טווחי ואקום</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>טווח</th><th>לחץ</th><th>שימוש</th></tr>
+<tr><td>Rough Vacuum</td><td>1000–1 mbar</td><td>ייבוש, אוואקואציה, אריזה</td></tr>
+<tr><td>Medium Vacuum</td><td>1–10⁻³ mbar</td><td>בדיקת דליפות, ציפוי PVD prep</td></tr>
+<tr><td>High Vacuum</td><td>10⁻³–10⁻⁷ mbar</td><td>PVD/CVD, סיליקון, מאיצים</td></tr>
+<tr><td>Ultra-High (UHV)</td><td>10⁻⁷–10⁻¹² mbar</td><td>חלל, פיזיקת חלקיקים, MBE</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">משאבות ואקום</div>
+<div class="spec-row"><span class="spec-key">Rotary Vane</span><span class="spec-val">שמן — Rough Vacuum עד 10⁻² mbar</span></div>
+<div class="spec-row"><span class="spec-key">Scroll</span><span class="spec-val">ללא שמן (Dry) — נקי, שקט</span></div>
+<div class="spec-row"><span class="spec-key">Roots Blower</span><span class="spec-val">בוסטר — ↑זרימה, צריך Backing Pump</span></div>
+<div class="spec-row"><span class="spec-key">Turbo Molecular</span><span class="spec-val">High Vacuum — 10⁻¹⁰ mbar, סיבובים 50,000+ RPM</span></div>
+<div class="spec-row"><span class="spec-key">Diffusion</span><span class="spec-val">שמן מרותח — זול, אמין, פחות נקי</span></div>
+<div class="spec-row"><span class="spec-key">Cryo Pump</span><span class="spec-val">לכידת גז על משטח קר 10–20K — UHV</span></div>
+<div class="spec-row"><span class="spec-key">Ion Pump</span><span class="spec-val">יינון + Sputter — UHV, ללא תחזוקה</span></div>
+<div class="spec-row"><span class="spec-key">יצרנים</span><span class="spec-val">Edwards, Pfeiffer, Leybold, Busch, Agilent</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=vacuum+pump+types+rotary+vane+turbo+molecular+cryo+pump+comparison" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">מדידת ואקום — Vacuum Gauges</div>
+<div class="spec-row"><span class="spec-key">Pirani</span><span class="spec-val">תרמי — 1000–10⁻³ mbar</span></div>
+<div class="spec-row"><span class="spec-key">Capacitance (CDG)</span><span class="spec-val">מדויק, אינו תלוי גז — 1000–10⁻⁴ mbar</span></div>
+<div class="spec-row"><span class="spec-key">Cold Cathode</span><span class="spec-val">Penning — High Vacuum 10⁻²–10⁻⁹ mbar</span></div>
+<div class="spec-row"><span class="spec-key">Hot Cathode</span><span class="spec-val">Bayard-Alpert — UHV 10⁻⁴–10⁻¹¹ mbar</span></div>
+<div class="spec-row"><span class="spec-key">RGA</span><span class="spec-val">Residual Gas Analyzer — ניתוח הרכב גזים</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== FATIGUE ==================== -->
+<div id="prs-fatigue" class="prs-sec">
+<div class="card"><div class="ctitle">🔄 עייפות לחץ — Pressure Fatigue & Cycling</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Pressure Cycling Fatigue</div>
+<div><span class="mc-badge b-red">קריטי לבטיחות</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">מחזורי לחץ חוזרים → סדיקת עייפות → כשל</span></div>
+<div class="spec-row"><span class="spec-key">S-N Curve</span><span class="spec-val">מאמץ vs. מחזורים — ASME VIII-2 Appendix 5</span></div>
+<div class="spec-row"><span class="spec-key">Design Cycles</span><span class="spec-val">אם N>1000 מחזורים — נדרש Fatigue Analysis!</span></div>
+<div class="spec-row"><span class="spec-key">Stress Range</span><span class="spec-val">Δσ = σ_max − σ_min — מה שקובע עייפות</span></div>
+<div class="spec-row"><span class="spec-key">Nozzle/Weld</span><span class="spec-val">↑ריכוז מאמצים — הנקודה הקריטית!</span></div>
+<div class="spec-row"><span class="spec-key">Autofrettage</span><span class="spec-val">Over-pressure → מאמצי לחץ שאריתיים → ↑חיי עייפות</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">בלוני גז, Accumulators, מחליפי חום, Reactors</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=pressure+vessel+fatigue+analysis+cycling+S-N+curve+ASME" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Autofrettage — חיזוק פנימי</div>
+<div><span class="mc-badge b-green">↑חיי עייפות</span></div>
+<div class="spec-row"><span class="spec-key">עקרון</span><span class="spec-val">לחץ פנימי גבוה → זרימה פלסטית → מאמצי לחץ שאריתיים</span></div>
+<div class="spec-row"><span class="spec-key">שיפור</span><span class="spec-val">חיי עייפות ×3–10!</span></div>
+<div class="spec-row"><span class="spec-key">Hydraulic</span><span class="spec-val">מים/שמן בלחץ גבוה מאוד</span></div>
+<div class="spec-row"><span class="spec-key">Swage</span><span class="spec-val">Mandrel עובר בפנים — צנרת קטנה</span></div>
+<div class="spec-row"><span class="spec-key">שימוש</span><span class="spec-val">קני רובה, מזרקי דלק Common Rail, צנרת HP</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== STANDARDS ==================== -->
+<div id="prs-standards_p" class="prs-sec">
+<div class="card"><div class="ctitle">📋 תקנים — בדיקות לחץ וקריוגניקה</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקני מיכלי לחץ</div>
+<div class="spec-row"><span class="spec-key">ASME VIII Div.1</span><span class="spec-val">מיכלי לחץ — כללים קבועים (הנפוץ ביותר)</span></div>
+<div class="spec-row"><span class="spec-key">ASME VIII Div.2</span><span class="spec-val">מיכלי לחץ — ניתוח + כללים (↑לחצים, ↓משקל)</span></div>
+<div class="spec-row"><span class="spec-key">EN 13445</span><span class="spec-val">מיכלי לחץ אירופאי — Harmonized with PED</span></div>
+<div class="spec-row"><span class="spec-key">PED 2014/68/EU</span><span class="spec-val">דירקטיבת ציוד לחץ — CE Marking חובה</span></div>
+<div class="spec-row"><span class="spec-key">EN 13480</span><span class="spec-val">צנרת תעשייתית — אירופאי</span></div>
+<div class="spec-row"><span class="spec-key">AD 2000</span><span class="spec-val">תקן גרמני למיכלי לחץ — TÜV</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקני צנרת</div>
+<div class="spec-row"><span class="spec-key">ASME B31.1</span><span class="spec-val">Power Piping — תחנות כוח, קיטור</span></div>
+<div class="spec-row"><span class="spec-key">ASME B31.3</span><span class="spec-val">Process Piping — כימיה, נפט, גז (הנפוץ ביותר)</span></div>
+<div class="spec-row"><span class="spec-key">ASME B31.4</span><span class="spec-val">Pipeline Transportation — נפט</span></div>
+<div class="spec-row"><span class="spec-key">ASME B31.8</span><span class="spec-val">Gas Transmission — גז טבעי</span></div>
+<div class="spec-row"><span class="spec-key">API 570</span><span class="spec-val">Piping Inspection — תחזוקה שוטפת</span></div>
+<div class="spec-row"><span class="spec-key">API 510</span><span class="spec-val">Pressure Vessel Inspection — תחזוקה</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקני NDT / בדיקות</div>
+<div class="spec-row"><span class="spec-key">ASME V</span><span class="spec-val">Nondestructive Examination — כל שיטות NDT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E165</span><span class="spec-val">Liquid Penetrant — PT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E709</span><span class="spec-val">Magnetic Particle — MT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E114</span><span class="spec-val">Ultrasonic — UT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E94</span><span class="spec-val">Radiographic — RT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E499</span><span class="spec-val">Leak Testing — He MS</span></div>
+<div class="spec-row"><span class="spec-key">ISO 5817</span><span class="spec-val">Weld Quality — B/C/D acceptance</span></div>
+<div class="spec-row"><span class="spec-key">SNT-TC-1A</span><span class="spec-val">NDT Personnel Qualification — Level I/II/III</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">תקני קריוגניקה</div>
+<div class="spec-row"><span class="spec-key">CGA S-1.1</span><span class="spec-val">Pressure Relief Devices — בלוני גז</span></div>
+<div class="spec-row"><span class="spec-key">EIGA Doc 24</span><span class="spec-val">Liquid Oxygen / Nitrogen Storage</span></div>
+<div class="spec-row"><span class="spec-key">EN 13458</span><span class="spec-val">Cryogenic Vessels — מבודדי ואקום</span></div>
+<div class="spec-row"><span class="spec-key">NFPA 55</span><span class="spec-val">Compressed & Liquefied Gases — בטיחות</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A553</span><span class="spec-val">9% Nickel Steel — LNG Tanks</span></div>
+<div class="spec-row"><span class="spec-key">API 620 App.Q</span><span class="spec-val">LNG Storage — מיכלי LNG ענקיים</span></div>
+</div>
+
+</div></div></div>
+
+</div>

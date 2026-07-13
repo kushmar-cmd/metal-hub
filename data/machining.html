@@ -1,0 +1,45 @@
+<div id="sec-machining" class="section">
+<div class="card"><div class="ctitle">🔧 מהירויות חיתוך — Vc (m/min) — נקודת התחלה</div>
+<table><tr><th>חומר</th><th>חריטה HSS</th><th>חריטה קרביד</th><th>כרסום HSS</th><th>כרסום קרביד</th><th>קידוח HSS</th><th>הערות</th></tr>
+<tr><td>פלדה רכה (S235)</td><td>25-35</td><td>80-120</td><td>20-30</td><td>60-100</td><td>25-35</td><td>קירור מומלץ</td></tr>
+<tr><td>פלדה בינונית (4140 Q&T)</td><td>15-25</td><td>60-100</td><td>15-20</td><td>50-80</td><td>15-25</td><td>קירור חובה</td></tr>
+<tr><td>אל-חלד 304/316</td><td>8-12</td><td>40-70</td><td>5-10</td><td>30-50</td><td>8-12</td><td>לחץ גדול, קירור שוטף</td></tr>
+<tr><td>אלומיניום 6061</td><td>80-150</td><td>200-500</td><td>60-100</td><td>150-400</td><td>60-100</td><td>ניתן יבש, Vc גבוהה מאוד</td></tr>
+<tr><td>אלומיניום 7075</td><td>80-140</td><td>200-450</td><td>50-90</td><td>150-350</td><td>60-90</td><td>—</td></tr>
+<tr><td>טיטניום Ti-6Al-4V</td><td>4-8</td><td>30-60</td><td>3-6</td><td>20-40</td><td>5-10</td><td>קירור שוטף חובה, Vc נמוכה!</td></tr>
+<tr><td>יצוק ברזל אפור</td><td>20-30</td><td>80-150</td><td>15-25</td><td>60-120</td><td>25-35</td><td>ניתן יבש</td></tr>
+<tr><td>פלדת כלים D2</td><td>8-12</td><td>40-70</td><td>5-8</td><td>30-50</td><td>8-12</td><td>עיבוד לפני הקשחה</td></tr>
+<tr><td>Inconel 718</td><td>2-4</td><td>15-30</td><td>1-3</td><td>10-20</td><td>3-5</td><td>קרביד+TiAlN חובה, קירור שוטף</td></tr>
+<tr><td>נחושת/ברונזה</td><td>50-80</td><td>150-300</td><td>40-60</td><td>120-250</td><td>50-80</td><td>ללא קירור</td></tr></table>
+<div class="note">⚠️ ערכים אלה נקודת התחלה בלבד! תלוי בקוטר כלי, עומק חיתוך, מצב מכונה, ציפוי כלי. תמיד בדוק בפועל ועדן לפי ביצועי שבבים.</div></div>
+<div class="grid2">
+<div class="card"><div class="ctitle">📐 נוסחאות עיבוד מכני</div>
+<table><tr><th>פרמטר</th><th>נוסחה</th><th>יחידות</th></tr>
+<tr><td>RPM</td><td>n = (Vc × 1000) / (π × D)</td><td>סל"ד</td></tr>
+<tr><td>מהירות שולחן Vf</td><td>Vf = fz × z × n</td><td>mm/min</td></tr>
+<tr><td>MRR (קצב הסרת חומר)</td><td>MRR = ae × ap × Vf</td><td>mm³/min</td></tr>
+<tr><td>כוח חיתוך Fc</td><td>Fc = kc × ap × fz × z</td><td>N</td></tr>
+<tr><td>הספק P</td><td>P = Fc × Vc / 60000</td><td>kW</td></tr>
+<tr><td>זמן חריטה Tm</td><td>Tm = L / (f × n)</td><td>דקות</td></tr></table>
+<div style="font-size:11px;color:var(--muted);margin-top:8px">fz=הזנה לשן(mm) · z=מספר שיניים · ae=רוחב חיתוך · ap=עומק חיתוך · kc=לחץ חיתוך ספציפי</div></div>
+<div class="card"><div class="ctitle">🛠️ בחירת קירור</div>
+<table><tr><th>מצב</th><th>חומר</th><th>המלצה</th></tr>
+<tr><td>כרסום אלומיניום</td><td>Al</td><td>אמולסיה 5-8% / יבש</td></tr>
+<tr><td>חריטה אל-חלד</td><td>SS</td><td>שמן ריכוז גבוה 10-15%</td></tr>
+<tr><td>קידוח עמוק</td><td>כל חומר</td><td>חיתוך בלחץ גבוה, שמן</td></tr>
+<tr><td>כרסום טיטניום</td><td>Ti</td><td>אמולסיה שוטפת 8-10%</td></tr>
+<tr><td>קרביד ציפוי</td><td>—</td><td>לרוב יבש עדיף</td></tr>
+<tr><td>HSS חריטה</td><td>—</td><td>אמולסיה תמיד</td></tr>
+<tr><td>יצוק ברזל</td><td>Cast</td><td>יבש מועדף</td></tr></table></div>
+</div>
+<div class="card"><div class="ctitle">🔩 ציפויי כלים ויישומם</div>
+<table><tr><th>ציפוי</th><th>קשיות HV</th><th>Tmax °C</th><th>יישום מיטבי</th></tr>
+<tr><td>TiN (ניטריד טיטניום)</td><td>2300</td><td>500</td><td>חריטה פלדה, ברירת מחדל</td></tr>
+<tr><td>TiCN</td><td>3000</td><td>400</td><td>פלדה קשה, קירור</td></tr>
+<tr><td>TiAlN</td><td>3300</td><td>800</td><td>כרסום מהיר, יבש, SS</td></tr>
+<tr><td>AlCrN</td><td>3200</td><td>1100</td><td>סגסוגות קשות, Inconel</td></tr>
+<tr><td>DLC</td><td>3000-5000</td><td>300</td><td>Al, Cu — לא להידבקות</td></tr>
+<tr><td>CVD Al₂O₃</td><td>2400</td><td>1200</td><td>מחרטה מהירות גבוהות</td></tr></table></div>
+</div>
+
+<!-- INSPECTION -->
