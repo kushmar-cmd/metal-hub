@@ -1,46 +1,298 @@
-<div id="sec-fasteners" class="section">
-<div class="card"><div class="ctitle">🔗 דרגות בורגים — ISO 898-1</div>
-<table><tr><th>דרגה</th><th>RM min MPa</th><th>Rp0.2 min MPa</th><th>קשיות HB</th><th>חומר אופייני</th><th>שימוש</th></tr>
-<tr><td>4.6</td><td>400</td><td>240</td><td>114-209</td><td>פלדת פחמן נמוך</td><td>בנייה כללית, קל</td></tr>
-<tr><td>5.8</td><td>500</td><td>400</td><td>147-238</td><td>פלדת פחמן</td><td>כללי</td></tr>
-<tr><td><b style="color:var(--orange)">8.8 ★</b></td><td>800</td><td>640</td><td>245-335</td><td>פלדה בינונית</td><td><b>הנפוץ ביותר</b></td></tr>
-<tr><td>10.9</td><td>1040</td><td>940</td><td>304-394</td><td>סגסוגת Cr/Mo</td><td>חיבורים מבניים</td></tr>
-<tr><td><b style="color:var(--red)">12.9</b></td><td>1220</td><td>1100</td><td>385-435</td><td>סגסוגת Cr/Ni/Mo</td><td>ביטחוני, תעופה</td></tr></table>
-<div class="note">הספרה הראשונה × 100 = RM בMPa · הספרה השנייה × 10 = % Rp/RM · מסמר: דרגה = שתי ספרות</div></div>
-<div class="grid2">
-<div class="card"><div class="ctitle">🔩 מומנט הידוק מומלץ — M/Nm (דרגה 8.8, שמן)</div>
-<table><tr><th>הברגה</th><th>מומנט Nm</th><th>כוח הידוק kN</th><th>K-factor</th></tr>
-<tr><td>M4</td><td>2.9</td><td>5.4</td><td>0.2</td></tr>
-<tr><td>M5</td><td>5.8</td><td>8.3</td><td>0.2</td></tr>
-<tr><td>M6</td><td>10</td><td>11.7</td><td>0.2</td></tr>
-<tr><td>M8</td><td>25</td><td>21.6</td><td>0.2</td></tr>
-<tr><td>M10</td><td>49</td><td>33.9</td><td>0.2</td></tr>
-<tr><td>M12</td><td>86</td><td>49.5</td><td>0.2</td></tr>
-<tr><td>M16</td><td>210</td><td>90.4</td><td>0.2</td></tr>
-<tr><td>M20</td><td>415</td><td>141</td><td>0.2</td></tr>
-<tr><td>M24</td><td>715</td><td>204</td><td>0.2</td></tr>
-<tr><td>M30</td><td>1450</td><td>330</td><td>0.2</td></tr></table>
-<div class="note">T = K × D × F · K=0.2 (שמן) · K=0.13 (MoS₂) · K=0.25 (יבש)<br>דרגה 10.9: ×1.4 · דרגה 12.9: ×1.7</div></div>
-<div class="card"><div class="ctitle">🔒 הגנה מפני שחרור</div>
-<table><tr><th>שיטה</th><th>עלות</th><th>ניתן לשחרור</th><th>שימוש</th></tr>
-<tr><td>Loctite 243 (כחול)</td><td>נמוכה</td><td>כן</td><td>ברירת מחדל, כלל שימוש</td></tr>
-<tr><td>Loctite 263 (אדום)</td><td>נמוכה</td><td>חום/כוח</td><td>בורגים קבועים</td></tr>
-<tr><td>Loctite 270 (ירוק)</td><td>נמוכה</td><td>לא</td><td>חיבורים קבועים</td></tr>
-<tr><td>אום Nyloc</td><td>נמוכה</td><td>כן (כמה פעמים)</td><td>כללי, רטט בינוני</td></tr>
-<tr><td>שייבת נעילה</td><td>נמוכה</td><td>כן</td><td>לא יעיל לרטט גבוה</td></tr>
-<tr><td>Nordlock</td><td>בינונית</td><td>כן</td><td>רטט גבוה, ביטחוני</td></tr>
-<tr><td>Spiralock</td><td>גבוהה</td><td>כן</td><td>תעופה, עומסים גבוהים</td></tr>
-<tr><td>Wire Locking</td><td>בינונית</td><td>כן</td><td>תעופה, ביטחוני — MIL</td></tr>
-<tr><td>Prevailing Torque</td><td>נמוכה</td><td>כן</td><td>אוטומוטיב, שימוש חוזר</td></tr></table></div>
+<div id="sec-fasteners-inner">
+
+<div class="card">
+<div class="ctitle">🔗 חיבורים — מדריך מקיף</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+  <button class="fst-tab active" onclick="showFst('bolts',this)">🔩 ברגים</button>
+  <button class="fst-tab" onclick="showFst('nuts',this)">⬡ אומים</button>
+  <button class="fst-tab" onclick="showFst('washers',this)">◎ שייבות</button>
+  <button class="fst-tab" onclick="showFst('pins',this)">📌 פינים</button>
+  <button class="fst-tab" onclick="showFst('rivets',this)">⊙ ניטים</button>
+  <button class="fst-tab" onclick="showFst('locking',this)">🔒 נעילה</button>
+  <button class="fst-tab" onclick="showFst('torque',this)">🔧 מומנטים</button>
+  <button class="fst-tab" onclick="showFst('preload',this)">📐 Preload</button>
+  <button class="fst-tab" onclick="showFst('grades',this)">💪 דרגות חוזק</button>
 </div>
-<div class="card"><div class="ctitle">📏 סוגי ראשי בורגים ומפתחות</div>
-<table><tr><th>סוג</th><th>קיצור</th><th>מפתח</th><th>יתרון</th><th>חיסרון</th></tr>
-<tr><td>שישה פינות חיצוני</td><td>HEX</td><td>ספנר/רייטשה</td><td>מומנט גבוה, נפוץ</td><td>נפח גדול</td></tr>
-<tr><td>שישה פינות פנימי</td><td>SHCS</td><td>מפתח אלן</td><td>נפח קטן, מדויק</td><td>נגישות נמוכה</td></tr>
-<tr><td>Torx T</td><td>TX</td><td>מפתח Torx</td><td>אנטי-prout, מומנט גבוה</td><td>פחות נפוץ</td></tr>
-<tr><td>Phillips +</td><td>PH</td><td>מברג פיליפס</td><td>זול, נפוץ</td><td>CAM-out בקל</td></tr>
-<tr><td>ראש חרוטי (פוסק)</td><td>CSK</td><td>CSK מפתח</td><td>פנים חלק</td><td>—</td></tr>
-<tr><td>כיפה (Button)</td><td>BHCS</td><td>מפתח אלן</td><td>ראש שטוח/נמוך</td><td>מומנט נמוך</td></tr></table></div>
 </div>
 
-<!-- STANDARDS -->
+<!-- ═══════════════ ברגים ═══════════════ -->
+<div id="fst-bolts" class="fst-sec active">
+<div class="card">
+<div class="ctitle">🔩 סוגי ברגים</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:var(--surface)"><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">סוג</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">תקן</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">ראש</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">שימוש</th></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג משושה</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 4014 / DIN 931</td><td style="padding:8px;border-bottom:1px solid var(--border)">משושה חיצוני</td><td style="padding:8px;border-bottom:1px solid var(--border)">מבנה כללי, אוגנים, מכונות</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג משושה מלא</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 4017 / DIN 933</td><td style="padding:8px;border-bottom:1px solid var(--border)">משושה — הברגה מלאה</td><td style="padding:8px;border-bottom:1px solid var(--border)">הנפוץ ביותר. גזירה על חוט!</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג אלן SHCS</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 4762 / DIN 912</td><td style="padding:8px;border-bottom:1px solid var(--border)">גלילי + Allen</td><td style="padding:8px;border-bottom:1px solid var(--border)">הנדסה, מכונות, Fixture — ה-workhorse</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג אלן ראש נמוך</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 7984 / DIN 6912</td><td style="padding:8px;border-bottom:1px solid var(--border)">נמוך 60% מ-DIN 912</td><td style="padding:8px;border-bottom:1px solid var(--border)">מרווח מוגבל. מומנט מוגבל!</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג כפתור BHCS</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 7380</td><td style="padding:8px;border-bottom:1px solid var(--border)">מעוגל + Allen</td><td style="padding:8px;border-bottom:1px solid var(--border)">דקורטיבי, בטיחות (ללא קצוות). מומנט נמוך</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג שקוע FHCS</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 10642</td><td style="padding:8px;border-bottom:1px solid var(--border)">חרוטי 90° + Allen</td><td style="padding:8px;border-bottom:1px solid var(--border)">Flush עם פני השטח. ISO=90°, ANSI=82°!</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג כתף</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 7379</td><td style="padding:8px;border-bottom:1px solid var(--border)">SHCS + גליל h6</td><td style="padding:8px;border-bottom:1px solid var(--border)">ציר, מכוון, מרווחן. 12.9</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג אוגן</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 6921</td><td style="padding:8px;border-bottom:1px solid var(--border)">משושה + דיסק מובנה</td><td style="padding:8px;border-bottom:1px solid var(--border)">מחליף שייבה! רכב 90%. Serrated=נעילה</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Stud Bolt</td><td style="padding:8px;border-bottom:1px solid var(--border)">ASTM A193 B7</td><td style="padding:8px;border-bottom:1px solid var(--border)">ללא ראש — הברגה בשני קצוות</td><td style="padding:8px;border-bottom:1px solid var(--border)">אוגנים, מכלי לחץ. לא בולה הברגה בגוף</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Set Screw</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 913-916</td><td style="padding:8px;border-bottom:1px solid var(--border)">ללא ראש — Allen שקוע</td><td style="padding:8px;border-bottom:1px solid var(--border)">נעילת חלק על ציר. Cup/Cone/Dog/Flat Point</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">בורג עין</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 580 / DIN 444</td><td style="padding:8px;border-bottom:1px solid var(--border)">טבעת / עין</td><td style="padding:8px;border-bottom:1px solid var(--border)">הרמה, תלייה. SWL מוטבע! לא לעומסים צדדיים</td></tr>
+<tr><td style="padding:8px;font-weight:700;color:var(--blue)">Hi-Lok (תעופה)</td><td style="padding:8px">MS21250</td><td style="padding:8px">פין + Collar נתלש</td><td style="padding:8px">מומנט מובנה. מיליוני יחידות בכל מטוס</td></tr>
+</table>
+<div style="margin-top:12px;padding:10px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--muted)">
+💡 <b>כלל בחירה:</b> DIN 912 (אלן) = ברירת מחדל הנדסית. משושה = כשצריך מפתח חיצוני. CBORE תמיד עם DIN 912. CSK עם ISO 10642 (שים לב לזווית!).
+</div>
+</div>
+</div>
+
+<!-- ═══════════════ אומים ═══════════════ -->
+<div id="fst-nuts" class="fst-sec">
+<div class="card">
+<div class="ctitle">⬡ סוגי אומים</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:var(--surface)"><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">סוג</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">תקן</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">מאפיין</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">שימוש</th></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">אום משושה</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 4032 / DIN 934</td><td style="padding:8px;border-bottom:1px solid var(--border)">H ≈ 0.8d. דרגה 8/10/12</td><td style="padding:8px;border-bottom:1px solid var(--border)">הבסיסית. 8 על 8.8, 10 על 10.9</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">אום נמוכה</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 4035 / DIN 439</td><td style="padding:8px;border-bottom:1px solid var(--border)">H ≈ 0.5d. Jam Nut</td><td style="padding:8px;border-bottom:1px solid var(--border)">נעילה כפולה (מתחת לאום הראשית)</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">אום Nyloc</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 985 / ISO 10511</td><td style="padding:8px;border-bottom:1px solid var(--border)">טבעת ניילון — Prevailing Torque</td><td style="padding:8px;border-bottom:1px solid var(--border)">נעילה עצמית. עד 120°C! 2-3 שימושים מקס'</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">אום אוגן</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 6923</td><td style="padding:8px;border-bottom:1px solid var(--border)">דיסק מובנה. Serrated אופציונלי</td><td style="padding:8px;border-bottom:1px solid var(--border)">מחליפה שייבה! חלוקת עומס. רכב=סטנדרט</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">אום מטיל</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 6334</td><td style="padding:8px;border-bottom:1px solid var(--border)">H ≈ 3d. מחברת שני ברגים</td><td style="padding:8px;border-bottom:1px solid var(--border)">הארכת Stud, חיבור מוטות מוברגים</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">אום כנף</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 315</td><td style="padding:8px;border-bottom:1px solid var(--border)">כנפיים — הידוק ביד</td><td style="padding:8px;border-bottom:1px solid var(--border)">פתיחה תכופה ללא כלי. לא לעומסים!</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">אום Castle</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 935 / ISO 7035</td><td style="padding:8px;border-bottom:1px solid var(--border)">חריצים + Cotter Pin</td><td style="padding:8px;border-bottom:1px solid var(--border)">נעילה חיובית. מסבי TRB, ציר גלגל</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">אום מתכתית נועלת</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 980V / Stover</td><td style="padding:8px;border-bottom:1px solid var(--border)">כתר מעוות — All Metal</td><td style="padding:8px;border-bottom:1px solid var(--border)">טמפ' גבוהה (מעל 120°C — Nyloc נמס!)</td></tr>
+<tr><td style="padding:8px;font-weight:700;color:var(--blue)">אום A194 2H</td><td style="padding:8px">ASTM A194</td><td style="padding:8px">כבדה, מוקשית</td><td style="padding:8px">צמד עם A193 B7 — אוגנים ומכלי לחץ</td></tr>
+</table>
+<div style="margin-top:12px;padding:10px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--muted)">
+💡 <b>התאמת דרגות:</b> אום 8 → בורג 8.8 | אום 10 → בורג 10.9 | אום 12 → בורג 12.9 | A194 2H → A193 B7. אום חזקה מדי = בורג נשבר בלי אזהרה!
+</div>
+</div>
+</div>
+
+<!-- ═══════════════ שייבות ═══════════════ -->
+<div id="fst-washers" class="fst-sec">
+<div class="card">
+<div class="ctitle">◎ שייבות</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:var(--surface)"><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">סוג</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">תקן</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">תפקיד</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">הערות</th></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">שטוחה רגילה</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 7089 (100HV)</td><td style="padding:8px;border-bottom:1px solid var(--border)">חלוקת עומס, הגנת פני שטח</td><td style="padding:8px;border-bottom:1px solid var(--border)">רכה — מתעוותת ב-10.9+</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">שטוחה קשיחה</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 7090 (200HV)</td><td style="padding:8px;border-bottom:1px solid var(--border)">חלוקת עומס, לעומסים גבוהים</td><td style="padding:8px;border-bottom:1px solid var(--border)">★ הבחירה הנכונה להנדסה</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">שטוחה גדולה</td><td style="padding:8px;border-bottom:1px solid var(--border)">ISO 7093</td><td style="padding:8px;border-bottom:1px solid var(--border)">OD×2 — לחורים מוארכים</td><td style="padding:8px;border-bottom:1px solid var(--border)">חובה על Slot! OD גדול = פחות לחץ על פני שטח</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">קפיץ (Split)</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 127</td><td style="padding:8px;border-bottom:1px solid var(--border)">נעילה?</td><td style="padding:8px;border-bottom:1px solid var(--border)">⚠️ <b>לא מונעת התרופפות!</b> Junker Test נכשל. פוגעת בפני שטח. אסורה ב-10.9+</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--green)">★ Nord-Lock</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 25201</td><td style="padding:8px;border-bottom:1px solid var(--border)">טריז — נעילה מובטחת</td><td style="padding:8px;border-bottom:1px solid var(--border)">זוג שייבות משוננות. Junker Test מאושר! רב-פעמית. 10.9/12.9 OK</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Belleville</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 2093</td><td style="padding:8px;border-bottom:1px solid var(--border)">קפיץ — שומר Preload</td><td style="padding:8px;border-bottom:1px solid var(--border)">מפצה התפשטות תרמית + Creep גסקט</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Tab Washer</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 93</td><td style="padding:8px;border-bottom:1px solid var(--border)">לשונית נכפפת — נעילה חיובית</td><td style="padding:8px;border-bottom:1px solid var(--border)">חד-פעמית. לשון על הבורג + לשון על המכלול</td></tr>
+<tr><td style="padding:8px;font-weight:700;color:var(--blue)">Wave Spring</td><td style="padding:8px">Smalley</td><td style="padding:8px">עומס קפיצי בגובה נמוך</td><td style="padding:8px">Preload מסבים. חצי גובה מ-Belleville</td></tr>
+</table>
+<div style="margin-top:12px;padding:10px;background:rgba(220,50,50,0.1);border:1px solid rgba(220,50,50,0.3);border-radius:8px;font-size:12px">
+⚠️ <b>שייבת קפיץ DIN 127 — מיתוס:</b> מחקרים (Junker, 1969) הוכיחו שהיא לא מונעת התרופפות ברטט. הקצוות החדים פוגעים בפני השטח ומורידים Preload. האלטרנטיבות: Nord-Lock (טריז), Nyloc (ניילון), Loctite (כימי), Safety Wire (תעופה). DIN 127 = הרגל ישן, לא הנדסה.
+</div>
+</div>
+</div>
+
+<!-- ═══════════════ פינים ═══════════════ -->
+<div id="fst-pins" class="fst-sec">
+<div class="card">
+<div class="ctitle">📌 פינים וקשרים</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:var(--surface)"><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">סוג</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">תקן</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">מאפיין</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">שימוש</th></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">פין כיוון (Dowel)</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 6325 / ISO 8734</td><td style="padding:8px;border-bottom:1px solid var(--border)">מושחז m6, מוקשה HRC 58</td><td style="padding:8px;border-bottom:1px solid var(--border)">יישור מדויק. 2 פינים = מיקום מלא (עגול + Diamond!)</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">פין חריצי (Roll)</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 1481 / ISO 8752</td><td style="padding:8px;border-bottom:1px solid var(--border)">צינור מבותק — קפיצי</td><td style="padding:8px;border-bottom:1px solid var(--border)">נעילה בחיכוך. זול, סובלנות רחבה. הרכבה בפטיש</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">פין חרוטי (Taper)</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 1 / ISO 2339</td><td style="padding:8px;border-bottom:1px solid var(--border)">חרוט 1:50</td><td style="padding:8px;border-bottom:1px solid var(--border)">מרכוז עצמי + נעילת חיכוך. ידיות, גלגלים</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">פין Clevis</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 1444 / ISO 2341</td><td style="padding:8px;border-bottom:1px solid var(--border)">ציר + חור ל-Cotter Pin</td><td style="padding:8px;border-bottom:1px solid var(--border)">מפרקים, צילינדרים, Links. גזירה כפולה</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">סיכת ביטחון</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 94 / ISO 1234</td><td style="padding:8px;border-bottom:1px solid var(--border)">מפוצלת — רגליים מתכופפות</td><td style="padding:8px;border-bottom:1px solid var(--border)">נעילת Castle Nut, Clevis Pin. חד-פעמית!</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">טבעת עצירה חיצונית</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 471</td><td style="padding:8px;border-bottom:1px solid var(--border)">Circlip — בחריץ על ציר</td><td style="padding:8px;border-bottom:1px solid var(--border)">מונעת תזוזה צירית. עומס מוגבל! לנעילת מסבים</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">טבעת עצירה פנימית</td><td style="padding:8px;border-bottom:1px solid var(--border)">DIN 472</td><td style="padding:8px;border-bottom:1px solid var(--border)">Circlip — בחריץ בחור</td><td style="padding:8px;border-bottom:1px solid var(--border)">מחזיקה ציר/מסב בבית</td></tr>
+<tr><td style="padding:8px;font-weight:700;color:var(--blue)">E-Clip</td><td style="padding:8px">DIN 6799</td><td style="padding:8px">הרכבה מהצד — ללא כלי</td><td style="padding:8px">מהירה, לעומסים קלים. ללא חריץ</td></tr>
+</table>
+<div style="margin-top:12px;padding:10px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--muted)">
+💡 <b>כלל 2 פינים:</b> פין 1 (עגול) ממקם, פין 2 (Diamond / Slotted) מגדיר כיוון ומפצה סובלנות מרחק. בלי Diamond — הפינים מתקשים להיכנס (Over-Constraint). בשרטוט: פין עגול + פין Diamond על אותו BCD.
+</div>
+</div>
+</div>
+
+<!-- ═══════════════ ניטים ═══════════════ -->
+<div id="fst-rivets" class="fst-sec">
+<div class="card">
+<div class="ctitle">⊙ ניטים</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:var(--surface)"><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">סוג</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">גישה</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">חוזק</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">שימוש</th></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">ניט מוצק (Solid)</td><td style="padding:8px;border-bottom:1px solid var(--border)">דו-צדדי</td><td style="padding:8px;border-bottom:1px solid var(--border)">★ הגבוה ביותר</td><td style="padding:8px;border-bottom:1px solid var(--border)">מבנה תעופה. AN470 (Universal), AN426 (CSK)</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">ניט עיוור (Pop)</td><td style="padding:8px;border-bottom:1px solid var(--border)">חד-צדדי!</td><td style="padding:8px;border-bottom:1px solid var(--border)">נמוך</td><td style="padding:8px;border-bottom:1px solid var(--border)">פח, פלסטיק, שילוט. לא מבני! גזע שבור בפנים</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">ניט מבני עיוור</td><td style="padding:8px;border-bottom:1px solid var(--border)">חד-צדדי</td><td style="padding:8px;border-bottom:1px solid var(--border)">כמו מוצק</td><td style="padding:8px;border-bottom:1px solid var(--border)">Huck / Cherrymax. גזע נשאר! תעופה מאושר</td></tr>
+<tr><td style="padding:8px;font-weight:700;color:var(--blue)">ניט שמן (Drive)</td><td style="padding:8px">חד-צדדי</td><td style="padding:8px">נמוך מאוד</td><td style="padding:8px">לוחיות שם, כיסויים. דפיקה בפטיש</td></tr>
+</table>
+<div style="margin-top:12px;padding:10px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--muted)">
+💡 <b>ניט מול בורג:</b> ניט = חיבור קבוע (פירוק = קידוח). בורג = מתפרק. ניט מוצק = אמין ב-1,000,000+ מחזורים (עייפות). בורג = מקדם מומנט משתנה. בתעופה: ניטים מוצקים לעיקר המבנה, Hi-Lok לאזורי שירות.
+</div>
+</div>
+</div>
+
+<!-- ═══════════════ נעילה ═══════════════ -->
+<div id="fst-locking" class="fst-sec">
+<div class="card">
+<div class="ctitle">🔒 שיטות נעילה נגד התרופפות</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<tr style="background:var(--surface)"><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">שיטה</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">סוג</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">חום</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">רב-פעמי</th><th style="padding:8px;text-align:right;border-bottom:2px solid var(--border)">יעילות Junker</th></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--green)">★ Nord-Lock</td><td style="padding:8px;border-bottom:1px solid var(--border)">מכני — טריז</td><td style="padding:8px;border-bottom:1px solid var(--border)">עד 280°C</td><td style="padding:8px;border-bottom:1px solid var(--border)">✅ ללא הגבלה</td><td style="padding:8px;border-bottom:1px solid var(--border);color:var(--green)">★★★★★</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Nyloc Nut</td><td style="padding:8px;border-bottom:1px solid var(--border)">מכני — חיכוך</td><td style="padding:8px;border-bottom:1px solid var(--border)">עד 120°C</td><td style="padding:8px;border-bottom:1px solid var(--border)">2-3 פעמים</td><td style="padding:8px;border-bottom:1px solid var(--border)">★★★☆☆</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Loctite 243 (כחול)</td><td style="padding:8px;border-bottom:1px solid var(--border)">כימי — אנאירובי</td><td style="padding:8px;border-bottom:1px solid var(--border)">עד 180°C</td><td style="padding:8px;border-bottom:1px solid var(--border)">✅ פתיח בכלי</td><td style="padding:8px;border-bottom:1px solid var(--border)">★★★★☆</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Loctite 271 (אדום)</td><td style="padding:8px;border-bottom:1px solid var(--border)">כימי — קבוע</td><td style="padding:8px;border-bottom:1px solid var(--border)">עד 230°C</td><td style="padding:8px;border-bottom:1px solid var(--border)">חימום 250°C!</td><td style="padding:8px;border-bottom:1px solid var(--border)">★★★★★</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Safety Wire</td><td style="padding:8px;border-bottom:1px solid var(--border)">מכני — חיובי</td><td style="padding:8px;border-bottom:1px solid var(--border)">ללא הגבלה</td><td style="padding:8px;border-bottom:1px solid var(--border)">✅ חוט חדש</td><td style="padding:8px;border-bottom:1px solid var(--border)">★★★★★</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Castle Nut + Cotter</td><td style="padding:8px;border-bottom:1px solid var(--border)">מכני — חיובי</td><td style="padding:8px;border-bottom:1px solid var(--border)">ללא הגבלה</td><td style="padding:8px;border-bottom:1px solid var(--border)">✅ סיכה חדשה</td><td style="padding:8px;border-bottom:1px solid var(--border)">★★★★★</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--border);font-weight:700;color:var(--blue)">Tab Washer</td><td style="padding:8px;border-bottom:1px solid var(--border)">מכני — חיובי</td><td style="padding:8px;border-bottom:1px solid var(--border)">ללא הגבלה</td><td style="padding:8px;border-bottom:1px solid var(--border)">❌ חד-פעמי</td><td style="padding:8px;border-bottom:1px solid var(--border)">★★★★☆</td></tr>
+<tr><td style="padding:8px;font-weight:700;color:var(--muted)">DIN 127 Split Washer</td><td style="padding:8px">מכני — חיכוך</td><td style="padding:8px">עד 200°C</td><td style="padding:8px">❌ מתעוותת</td><td style="padding:8px;color:var(--red)">★☆☆☆☆ לא מונעת!</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ═══════════════ מומנטים ═══════════════ -->
+<div id="fst-torque" class="fst-sec">
+<div class="card">
+<div class="ctitle">🔧 טבלת מומנטי הידוק — ברגים מטריים</div>
+<div style="font-size:12px;color:var(--muted);margin-bottom:10px">T = K × F × d &nbsp;|&nbsp; K=0.2 יבש, K=0.15 משומן, K=0.12 MoS₂ &nbsp;|&nbsp; Preload = 70% מ-Rp0.2×As</div>
+<table style="width:100%;border-collapse:collapse;font-size:12px;text-align:center">
+<tr style="background:var(--surface)"><th style="padding:6px;border-bottom:2px solid var(--border)">מידה</th><th style="padding:6px;border-bottom:2px solid var(--border)">As [mm²]</th><th colspan="2" style="padding:6px;border-bottom:2px solid var(--border);background:rgba(100,149,237,0.15)">8.8</th><th colspan="2" style="padding:6px;border-bottom:2px solid var(--border);background:rgba(255,165,0,0.15)">10.9</th><th colspan="2" style="padding:6px;border-bottom:2px solid var(--border);background:rgba(220,50,50,0.15)">12.9</th></tr>
+<tr style="background:var(--surface);font-size:11px"><th></th><th></th><th style="padding:4px;color:var(--blue)">יבש [Nm]</th><th style="padding:4px;color:var(--blue)">שמן [Nm]</th><th style="padding:4px;color:orange">יבש</th><th style="padding:4px;color:orange">שמן</th><th style="padding:4px;color:var(--red)">יבש</th><th style="padding:4px;color:var(--red)">שמן</th></tr>
+<tr><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">M4</td><td style="padding:5px;border-bottom:1px solid var(--border)">8.78</td><td style="padding:5px;border-bottom:1px solid var(--border)">2.9</td><td style="padding:5px;border-bottom:1px solid var(--border)">2.2</td><td style="padding:5px;border-bottom:1px solid var(--border)">4.1</td><td style="padding:5px;border-bottom:1px solid var(--border)">3.1</td><td style="padding:5px;border-bottom:1px solid var(--border)">4.8</td><td style="padding:5px;border-bottom:1px solid var(--border)">3.6</td></tr>
+<tr><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">M5</td><td style="padding:5px;border-bottom:1px solid var(--border)">14.2</td><td style="padding:5px;border-bottom:1px solid var(--border)">5.8</td><td style="padding:5px;border-bottom:1px solid var(--border)">4.4</td><td style="padding:5px;border-bottom:1px solid var(--border)">8.2</td><td style="padding:5px;border-bottom:1px solid var(--border)">6.2</td><td style="padding:5px;border-bottom:1px solid var(--border)">9.6</td><td style="padding:5px;border-bottom:1px solid var(--border)">7.2</td></tr>
+<tr><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">M6</td><td style="padding:5px;border-bottom:1px solid var(--border)">20.1</td><td style="padding:5px;border-bottom:1px solid var(--border)">10</td><td style="padding:5px;border-bottom:1px solid var(--border)">7.5</td><td style="padding:5px;border-bottom:1px solid var(--border)">14</td><td style="padding:5px;border-bottom:1px solid var(--border)">10.5</td><td style="padding:5px;border-bottom:1px solid var(--border)">16.5</td><td style="padding:5px;border-bottom:1px solid var(--border)">12.4</td></tr>
+<tr style="background:rgba(100,149,237,0.05)"><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">M8</td><td style="padding:5px;border-bottom:1px solid var(--border)">36.6</td><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">25</td><td style="padding:5px;border-bottom:1px solid var(--border)">19</td><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">35</td><td style="padding:5px;border-bottom:1px solid var(--border)">26</td><td style="padding:5px;border-bottom:1px solid var(--border)">41</td><td style="padding:5px;border-bottom:1px solid var(--border)">31</td></tr>
+<tr style="background:rgba(100,149,237,0.05)"><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">M10</td><td style="padding:5px;border-bottom:1px solid var(--border)">58.0</td><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">49</td><td style="padding:5px;border-bottom:1px solid var(--border)">37</td><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">69</td><td style="padding:5px;border-bottom:1px solid var(--border)">52</td><td style="padding:5px;border-bottom:1px solid var(--border)">81</td><td style="padding:5px;border-bottom:1px solid var(--border)">61</td></tr>
+<tr style="background:rgba(100,149,237,0.05)"><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">M12</td><td style="padding:5px;border-bottom:1px solid var(--border)">84.3</td><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">86</td><td style="padding:5px;border-bottom:1px solid var(--border)">65</td><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">120</td><td style="padding:5px;border-bottom:1px solid var(--border)">90</td><td style="padding:5px;border-bottom:1px solid var(--border)">140</td><td style="padding:5px;border-bottom:1px solid var(--border)">105</td></tr>
+<tr><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">M16</td><td style="padding:5px;border-bottom:1px solid var(--border)">157</td><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">210</td><td style="padding:5px;border-bottom:1px solid var(--border)">157</td><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">295</td><td style="padding:5px;border-bottom:1px solid var(--border)">221</td><td style="padding:5px;border-bottom:1px solid var(--border)">346</td><td style="padding:5px;border-bottom:1px solid var(--border)">260</td></tr>
+<tr><td style="padding:5px;border-bottom:1px solid var(--border);font-weight:700">M20</td><td style="padding:5px;border-bottom:1px solid var(--border)">245</td><td style="padding:5px;border-bottom:1px solid var(--border)">410</td><td style="padding:5px;border-bottom:1px solid var(--border)">308</td><td style="padding:5px;border-bottom:1px solid var(--border)">580</td><td style="padding:5px;border-bottom:1px solid var(--border)">435</td><td style="padding:5px;border-bottom:1px solid var(--border)">680</td><td style="padding:5px;border-bottom:1px solid var(--border)">510</td></tr>
+<tr><td style="padding:5px;font-weight:700">M24</td><td style="padding:5px">353</td><td style="padding:5px">710</td><td style="padding:5px">530</td><td style="padding:5px">1000</td><td style="padding:5px">750</td><td style="padding:5px">1170</td><td style="padding:5px">880</td></tr>
+</table>
+<div style="margin-top:12px;padding:10px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--muted)">
+💡 <b>סדר הידוק אוגנים:</b> כוכב/הצלבה ב-3 שלבים (30% → 70% → 100%) + סיבוב ביקורת. אסור הידוק סדרתי (מסביב)! בורג ראשון = החלק מתעקם. Gasket: Re-Torque אחרי 24h חם (Gasket Creep).
+</div>
+</div>
+</div>
+
+<!-- ═══════════════ Preload ═══════════════ -->
+<div id="fst-preload" class="fst-sec">
+<div class="card">
+<div class="ctitle">📐 Preload — תורת ההידוק</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+
+<div style="padding:14px;background:var(--surface);border-radius:10px;border-right:3px solid var(--blue)">
+<div style="font-weight:700;color:var(--blue);margin-bottom:8px">🎯 למה Preload?</div>
+<div style="font-size:12px;line-height:1.8">
+• הבורג <b>לא מרגיש</b> עומסים חיצוניים כל עוד Preload > עומס חיצוני<br>
+• בלי Preload: כל מחזור עומס = מחזור עייפות על הבורג → שבר!<br>
+• עם Preload: החלקים המהודקים סופגים 90%+ מהעומס → הבורג חי<br>
+• <b>יעד:</b> Preload = 70-90% מ-Sy × As
+</div>
+</div>
+
+<div style="padding:14px;background:var(--surface);border-radius:10px;border-right:3px solid orange">
+<div style="font-weight:700;color:orange;margin-bottom:8px">📊 הבעיה: 90% הולך לחיכוך!</div>
+<div style="font-size:12px;line-height:1.8">
+• ~50% מהמומנט → חיכוך ראש בורג/אום<br>
+• ~40% → חיכוך חוטי הברגה<br>
+• <b>רק 10%</b> → מתח הבורג (Preload)!<br>
+• לכן: K-Factor (מצב שימון) שולט בהכל<br>
+• אותו מומנט, משומן = <b>Preload גבוה 60%</b> מיבש!
+</div>
+</div>
+
+<div style="padding:14px;background:var(--surface);border-radius:10px;border-right:3px solid var(--green)">
+<div style="font-weight:700;color:var(--green);margin-bottom:8px">🔧 שיטות הידוק (מדויק → פחות)</div>
+<div style="font-size:12px;line-height:1.8">
+<b>1. Torque-Angle</b> — Snug + זווית = ±5% Preload ★★★★★<br>
+<b>2. Yield-Point</b> (TTY) — עד זרימה = ±3% ★★★★★<br>
+<b>3. Torque מבוקר</b> — מפתח מכויל = ±25% ★★★☆☆<br>
+<b>4. Turn-of-Nut</b> — מחבר רצפה = ±15% ★★★★☆<br>
+<b>5. Stretch</b> — מדידת הארכה = ±1% ★★★★★<br>
+<b>6. Ultrasonic</b> — Bolt Gauge = ±1% ★★★★★
+</div>
+</div>
+
+<div style="padding:14px;background:var(--surface);border-radius:10px;border-right:3px solid var(--red)">
+<div style="font-weight:700;color:var(--red);margin-bottom:8px">⚠️ כשלים נפוצים</div>
+<div style="font-size:12px;line-height:1.8">
+• <b>Preload חסר</b> — הסיבה #1 להתרופפות ברטט<br>
+• <b>הידוק-יתר</b> — בורג 12.9 + Anti-Seize = שבירה!<br>
+• <b>חיכוך לא ידוע</b> — יבש מול משומן = ±60% שונות<br>
+• <b>סדר שגוי</b> — סדרתי במקום כוכב = עיוות<br>
+• <b>Re-use TTY</b> — בורג שזרם פלסטית = חד-פעמי!
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- ═══════════════ דרגות חוזק ═══════════════ -->
+<div id="fst-grades" class="fst-sec">
+<div class="card">
+<div class="ctitle">💪 דרגות חוזק — ISO 898 / ASTM</div>
+
+<div style="margin-bottom:16px">
+<div style="font-weight:700;margin-bottom:8px;color:var(--blue)">ברגים מטריים — ISO 898-1</div>
+<div style="font-size:12px;color:var(--muted);margin-bottom:8px">פענוח X.Y: X×100 = UTS [MPa], Sy = X×Y×10 [MPa]. מוטבע על ראש הבורג.</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid #888">
+<div style="font-size:20px;font-weight:700">4.6</div>
+<div style="font-size:11px;color:var(--muted)">UTS 400 · Sy 240</div>
+<div style="font-size:11px;margin-top:4px">רך. מקל שרטוט</div>
+</div>
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid #999">
+<div style="font-size:20px;font-weight:700">5.8</div>
+<div style="font-size:11px;color:var(--muted)">UTS 520 · Sy 415</div>
+<div style="font-size:11px;margin-top:4px">בינוני. כללי</div>
+</div>
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid var(--blue)">
+<div style="font-size:20px;font-weight:700;color:var(--blue)">8.8 ★</div>
+<div style="font-size:11px;color:var(--muted)">UTS 800 · Sy 640</div>
+<div style="font-size:11px;margin-top:4px"><b>הסטנדרט המבני</b></div>
+</div>
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid orange">
+<div style="font-size:20px;font-weight:700;color:orange">10.9</div>
+<div style="font-size:11px;color:var(--muted)">UTS 1040 · Sy 940</div>
+<div style="font-size:11px;margin-top:4px">מוקשה. מכונות</div>
+</div>
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid var(--red)">
+<div style="font-size:20px;font-weight:700;color:var(--red)">12.9</div>
+<div style="font-size:11px;color:var(--muted)">UTS 1220 · Sy 1080</div>
+<div style="font-size:11px;margin-top:4px">מקסימום. ⚠️ HE risk</div>
+</div>
+</div>
+</div>
+
+<div style="margin-bottom:16px">
+<div style="font-weight:700;margin-bottom:8px;color:var(--blue)">נירוסטה — ISO 3506</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px">
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid silver">
+<div style="font-size:18px;font-weight:700">A2-70</div>
+<div style="font-size:11px;color:var(--muted)">304 · UTS 700 · Sy 450</div>
+<div style="font-size:11px;margin-top:4px">כללי. ⚠️ חלש מ-8.8!</div>
+</div>
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid silver">
+<div style="font-size:18px;font-weight:700">A4-80</div>
+<div style="font-size:11px;color:var(--muted)">316 · UTS 800 · Sy 600</div>
+<div style="font-size:11px;margin-top:4px">ימי/כימי. Cold Worked</div>
+</div>
+</div>
+</div>
+
+<div>
+<div style="font-weight:700;margin-bottom:8px;color:var(--blue)">ברגים אינצ'יים — SAE / ASTM</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px">
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid #888">
+<div style="font-size:18px;font-weight:700">Grade 2</div>
+<div style="font-size:11px;color:var(--muted)">≈4.6. ללא סימון</div>
+</div>
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid var(--blue)">
+<div style="font-size:18px;font-weight:700">Grade 5</div>
+<div style="font-size:11px;color:var(--muted)">≈8.8. 3 קווים על ראש</div>
+</div>
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid orange">
+<div style="font-size:18px;font-weight:700">Grade 8</div>
+<div style="font-size:11px;color:var(--muted)">≈10.9. 6 קווים על ראש</div>
+</div>
+<div style="padding:10px;background:var(--surface);border-radius:8px;text-align:center;border-top:3px solid var(--red)">
+<div style="font-size:18px;font-weight:700">A193 B7</div>
+<div style="font-size:11px;color:var(--muted)">4140 Q&T. אוגנים/לחץ</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
