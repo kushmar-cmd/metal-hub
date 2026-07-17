@@ -2463,14 +2463,13 @@ function showStd(id,btn){
 }
 
 function showIns(id,btn){
-
-function showFst(id,btn){document.querySelectorAll('.fst-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.fst-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('fst-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
   document.querySelectorAll('.ins-sec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.ins-tab').forEach(t=>t.classList.remove('active'));
   const el=document.getElementById('ins-'+id);
   if(el)el.classList.add('active');
   if(btn)btn.classList.add('active');
 }
+function showFst(id,btn){document.querySelectorAll('.fst-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.fst-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('fst-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function calcInsDrill(){
   const vals=(document.getElementById('ins-size').value||'6,1.0,7.0').split(',');
   const d=parseFloat(vals[0]),pitch=parseFloat(vals[1]),sti=parseFloat(vals[2]);
