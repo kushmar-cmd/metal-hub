@@ -1,6 +1,20 @@
 <div id="sec-stress" class="section">
-<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--orange)">
-<div style="display:flex;align-items:center;gap:12px"><span style="font-size:32px">📊</span><div><div style="font-size:18px;font-weight:800;color:var(--orange)">ניתוח עומסים — Stress Analysis</div><div style="font-size:12px;color:var(--muted)">כיפוף · פיתול · Von Mises · Kt · מקדם בטיחות</div></div></div></div>
+
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="str-tab active" onclick="showStr('beams',this)">🔧 קורות וצירים</button>
+  <button class="str-tab" onclick="showStr('formulas',this)">📐 נוסחאות מאמצים</button>
+  <button class="str-tab" onclick="showStr('kt',this)">📊 ריכוז מאמצים (Kt)</button>
+  <button class="str-tab" onclick="showStr('fatigue',this)">🔄 עייפות (Fatigue)</button>
+  <button class="str-tab" onclick="showStr('buckling',this)">📏 קריסה (Buckling)</button>
+  <button class="str-tab" onclick="showStr('sf',this)">🎯 מקדמי בטיחות</button>
+  <button class="str-tab" onclick="showStr('fea',this)">💻 מבוא ל-FEA</button>
+  <button class="str-tab" onclick="showStr('calc2',this)">🧮 מחשבונים נוספים</button>
+</div>
+</div>
+
+<!-- ============ BEAMS (existing calculators) ============ -->
+<div id="str-beams" class="str-sec active">
 <div class="grid2">
 <div class="card"><div class="ctitle">🧮 מחשבון קורה בכיפוף</div>
 <div class="cg">
@@ -29,6 +43,20 @@
 </div>
 <div class="res" id="sh-result">—</div></div>
 </div>
+<div class="card"><div class="ctitle">📚 מקרי קורה נפוצים — נוסחאות מהירות</div>
+<table><tr><th>מקרה</th><th>M_max</th><th>מיקום</th><th>δ_max</th></tr>
+<tr><td>פשוטה, עומס מרכז</td><td>PL/4</td><td>מרכז</td><td>PL³/48EI</td></tr>
+<tr><td>פשוטה, עומס מפוזר w</td><td>wL²/8</td><td>מרכז</td><td>5wL⁴/384EI</td></tr>
+<tr><td>מרותמת (Cantilever), עומס קצה</td><td>PL</td><td>שורש</td><td>PL³/3EI</td></tr>
+<tr><td>מרותמת, עומס מפוזר</td><td>wL²/2</td><td>שורש</td><td>wL⁴/8EI</td></tr>
+<tr><td>שתי קצוות קבועות, מרכז</td><td>PL/8</td><td>שורש+מרכז</td><td>PL³/192EI</td></tr>
+</table>
+<div class="note">⚠️ מרותמת = פי 16 שקיעה מקורה פשוטה באותו מפתח! (PL³/3EI מול PL³/48EI). זהירות בעיצוב זרועות בולטות.</div>
+</div>
+</div>
+
+<!-- ============ FORMULAS ============ -->
+<div id="str-formulas" class="str-sec">
 <div class="card"><div class="ctitle">📐 נוסחאות מאמצים חשובות</div>
 <div class="grid3">
 <div>
@@ -42,8 +70,7 @@
 <div>I_rect = b×h³/12</div>
 <div>I_circle = π×D⁴/64</div>
 <div>c_rect = h/2 · c_circle = D/2</div>
-</div>
-</div>
+</div></div>
 <div>
 <div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text)">
 <div style="color:var(--blue)">// פיתול</div>
@@ -54,8 +81,7 @@
 <div style="color:var(--blue)">// Von Mises</div>
 <div>σ_v = √(σ²+3τ²)</div>
 <div>SF = Sy / σ_v</div>
-</div>
-</div>
+</div></div>
 <div>
 <div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text)">
 <div style="color:var(--blue)">// ריכוז מאמצים</div>
@@ -66,10 +92,24 @@
 <div style="color:var(--blue)">// מקדם בטיחות</div>
 <div>SF = Sy / σ_max</div>
 <div>SF מינימלי = 1.5–2.5</div>
+</div></div>
+</div></div>
+
+<div class="card"><div class="ctitle">🌀 מאמצים ראשיים ועיגול מוהר</div>
+<div style="font-size:13px;line-height:1.9">
+מצב מאמצים משולב (σ+τ) ניתן להמרה למאמצים <b>ראשיים</b> (ללא גזירה) — המישורים שבהם σ מקסימלית וτ=0.
+</div>
+<div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text);margin-top:8px">
+σ₁,₂ = σ/2 ± √((σ/2)² + τ²)<br>
+τ_max = √((σ/2)² + τ²)<br>
+tan(2θp) = 2τ / σ
+</div>
+<div class="note">σ₁ (המאמץ הראשי המקסימלי) קובע כיוון סדק בחומרים שבירים (ניצב ל-σ₁!). לחומרים דקטיליים — Von Mises הוא הקריטריון הרלוונטי.</div>
 </div>
 </div>
-</div>
-</div>
+
+<!-- ============ KT ============ -->
+<div id="str-kt" class="str-sec">
 <div class="card"><div class="ctitle">📊 Kt — מקדמי ריכוז מאמצים נפוצים</div>
 <table><tr><th>גיאומטריה</th><th>Kt כיפוף</th><th>Kt פיתול</th><th>Kt מתיחה</th><th>הערות</th></tr>
 <tr><td>חריץ עגול (r/d=0.1)</td><td>1.8</td><td>1.5</td><td>2.0</td><td>↑ r → ↓ Kt</td></tr>
@@ -78,8 +118,207 @@
 <tr><td>חור מעבר (עגול)</td><td>2.5</td><td>—</td><td>3.0</td><td>שדה אינסופי</td></tr>
 <tr><td>שינוי קוטר (r/d=0.1)</td><td>1.5</td><td>1.3</td><td>1.6</td><td>D/d=2</td></tr>
 <tr><td>שינוי קוטר (r/d=0.02)</td><td>2.2</td><td>1.8</td><td>2.3</td><td>r קטן — מסוכן!</td></tr>
-<tr><td>חריץ פנימי rectangular</td><td>3.0–4.0</td><td>2.5–3.5</td><td>3.5–4.5</td><td>הכי גרוע!</td></tr></table>
-<div class="note">↑ r (רדיוס מעבר) → ↓ Kt → ↑ חיי עייפות. תמיד Fillet בשינויי קוטר!</div></div>
+<tr><td>חריץ פנימי rectangular</td><td>3.0–4.0</td><td>2.5–3.5</td><td>3.5–4.5</td><td>הכי גרוע!</td></tr>
+</table>
+<div class="note">↑ r (רדיוס מעבר) → ↓ Kt → ↑ חיי עייפות. תמיד Fillet בשינויי קוטר!</div>
 </div>
 
-<!-- FMEA -->
+<div class="card"><div class="ctitle">🎯 Kf — מקדם ריכוז מאמצים לעייפות (Notch Sensitivity)</div>
+<div style="font-size:13px;line-height:1.9">
+Kt (תיאורטי, תלוי גיאומטריה בלבד) שונה מ-<b>Kf</b> (בפועל, תלוי גם בחומר!) — Kf תמיד ≤ Kt.
+</div>
+<div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text);margin-top:8px">
+Kf = 1 + q×(Kt−1)<br>
+q = Notch Sensitivity (0 עד 1)
+</div>
+<div class="note">q גבוה (0.8-0.95) לחומרים חזקים/מוקשים — "זוכרים" את הריכוז. q נמוך (0.5-0.7) לחומרים רכים/ברזל יצוק — "סולחים" חלקית. Peterson's Charts = המקור הסטנדרטי ל-q.</div>
+</div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">❌ הטעות הנפוצה</div>
+<div style="font-size:12px;line-height:1.8">פינה חדה (R=0) בשינוי חתך = Kt→∞ תיאורטית. במציאות = ריכוז מאמצים אדיר וסדק כמעט מובטח בעייפות.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">✅ הפתרון</div>
+<div style="font-size:12px;line-height:1.8">רדיוס נדיב ככל האפשר (R/d≥0.1 כשניתן). כל הכפלת R מורידה Kt משמעותית — "חינם" מבחינת עלות!</div></div>
+</div>
+</div>
+
+<!-- ============ FATIGUE ============ -->
+<div id="str-fatigue" class="str-sec">
+<div class="card"><div class="ctitle">🔄 עייפות — S-N Curve ו-Endurance Limit</div>
+<div style="font-size:13px;line-height:1.9">
+כ-90% מכשלים מכניים הם <b>עייפות</b> — שבר מתחת ל-Yield אחרי מחזורי עומס חוזרים. השבר מתחיל בריכוז מאמצים (Kt!) ומתקדם בשקט עד שבר פתאומי.
+</div></div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Se — גבול עייפות (פלדה)</div>
+<div style="font-size:12px;line-height:1.8">Se ≈ 0.5×Sut (עד מקסימום ~700MPa)<br>מתחת ל-Se: חיים "אינסופיים" (&gt;10⁷ מחזורים)</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">⚠️ אלומיניום/טיטניום</div>
+<div style="font-size:12px;line-height:1.8">אין Endurance Limit אמיתי! כל מאמץ מצטבר נזק — תמיד יישבר בסופו של דבר (מוגבל-חיים).</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">High Cycle Fatigue</div>
+<div style="font-size:12px;line-height:1.8">&gt;10³ מחזורים, מאמץ אלסטי. רוב יישומי הנדסה (מסבים, קפיצים, גירים).</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Low Cycle Fatigue</div>
+<div style="font-size:12px;line-height:1.8">&lt;10³ מחזורים, מאמץ פלסטי. עומסי הלם, מחזורי טעינה/פריקה כבדים.</div></div>
+</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle">📉 מקדמי תיקון ל-Se (Marin Factors)</div>
+<table><tr><th>מקדם</th><th>סימון</th><th>השפעה</th></tr>
+<tr><td>גימור משטח (Surface)</td><td>ka</td><td>מלוטש=1.0, מכונה=0.7-0.9, יצוק=0.5-0.6</td></tr>
+<tr><td>גודל (Size)</td><td>kb</td><td>חלק גדול = Se נמוך יותר (יותר פגמים סטטיסטית)</td></tr>
+<tr><td>עומס (Load)</td><td>kc</td><td>כיפוף=1.0, צירי=0.7-0.9, פיתול=0.58</td></tr>
+<tr><td>טמפרטורה</td><td>kd</td><td>מעל 450°C ירידה משמעותית</td></tr>
+<tr><td>אמינות</td><td>ke</td><td>99.9% אמינות = ke≈0.75 (מול 0.5 ל-50%)</td></tr>
+</table>
+<div class="note">Se_actual = ka×kb×kc×kd×ke × Se'. גימור משטח גרוע (Ra גבוה) יכול להוריד Se ב-30-50%! ליטוש אזורי עייפות קריטיים = השקעה משתלמת.</div>
+</div>
+
+<div class="card"><div class="ctitle">📊 דיאגרמת Goodman — עומס משולב (Mean+Alternating)</div>
+<div style="font-size:13px;line-height:1.9">
+עומס עייפות אמיתי כמעט תמיד כולל גם מאמץ ממוצע (σm) וגם מתנד (σa) — לא רק מחזורי טהור סביב אפס.
+</div>
+<div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text);margin-top:8px">
+Goodman: σa/Se + σm/Sut = 1/SF<br>
+Soderberg (שמרני יותר): σa/Se + σm/Sy = 1/SF
+</div>
+<div class="note">מאמץ ממוצע חיובי (מתיחה) מזיק לעייפות — מוריד את σa המותר. מאמץ ממוצע שלילי (לחיצה, כמו Shot Peening!) — משפר עייפות.</div>
+</div>
+
+<div class="card"><div class="ctitle">🔨 שיפור עמידות עייפות — טכניקות מעשיות</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Shot Peening</div>
+<div style="font-size:12px;line-height:1.8">מאמצי לחיצה שיוריים בשטח. חיי עייפות ×3-10! קפיצים, גירים, מוטות חיבור.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">רדיוסים נדיבים</div>
+<div style="font-size:12px;line-height:1.8">הפחתת Kt/Kf ישירה. הכי זול ויעיל — תכנון מונע במקום תיקון.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">ליטוש/Polish</div>
+<div style="font-size:12px;line-height:1.8">הפחתת Ra משפרת ka. קריטי באזורי מאמץ מקסימלי בלבד — לא צריך את כל החלק.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Nitriding</div>
+<div style="font-size:12px;line-height:1.8">שכבה קשה + מאמצי לחיצה שיוריים. גירים, צירי מנוע.</div></div>
+</div>
+</div>
+</div>
+
+<!-- ============ BUCKLING ============ -->
+<div id="str-buckling" class="str-sec">
+<div class="card"><div class="ctitle">📏 קריסת אוילר (Euler Buckling)</div>
+<div style="font-size:13px;line-height:1.9">
+עמוד תמיר תחת דחיסה קורס <b>הצידה</b> לפני שהוא נשבר בחוזק — כשל בקשיחות (E,I), לא בחוזק (Sy)! קורה פתאום, בלי אזהרה.
+</div>
+<div style="background:var(--surface);border-radius:8px;padding:10px;font-family:monospace;font-size:11px;line-height:2;color:var(--text);margin-top:8px">
+Pcr = π²×E×I / (K×L)²<br>
+Slenderness Ratio = K×L / r &nbsp;&nbsp; (r = √(I/A))
+</div>
+</div>
+
+<div class="card"><div class="ctitle">🔗 מקדם K לפי תנאי קצה</div>
+<table><tr><th>תנאי קצה</th><th>K</th><th>הערה</th></tr>
+<tr><td>שני קצוות מפורקים (Pinned-Pinned)</td><td>1.0</td><td>הבסיס — עמוד "פשוט"</td></tr>
+<tr><td>שני קצוות קבועים (Fixed-Fixed)</td><td>0.5</td><td>הכי יציב — פי 4 מהבסיס!</td></tr>
+<tr><td>קבוע-מפורק (Fixed-Pinned)</td><td>0.7</td><td>ביניים</td></tr>
+<tr><td>קנטילבר (Fixed-Free)</td><td style="color:var(--red)">2.0</td><td>⚠️ הכי חלש — רבע מהבסיס!</td></tr>
+</table>
+<div class="note">⚠️ בוכנת הידראולית ארוכה, מוט דחוס, עמוד תמיכה — תמיד בדוק Buckling לפני חוזק חומר! הכפלת K (למשל מ-1.0 ל-2.0) = רבע כושר עומס.</div>
+</div>
+
+<div class="card"><div class="ctitle">💡 מסקנות תכן מ-Euler</div>
+<div style="font-size:13px;line-height:1.9">
+• הכפלת <b>אורך</b> = רבע כושר עומס (L² במכנה)<br>
+• הכפלת <b>קוטר</b> = פי 16 כושר עומס! (I∝D⁴)<br>
+• <b>לכן:</b> עדיף להעבות מוט מלהאריך אותו — I גדל בחזקה רביעית של קוטר<br>
+• Slenderness Ratio &gt;100 (פלדה) = תחום Euler שולט (כשל קשיחות)<br>
+• Slenderness Ratio &lt;100 = תחום ביניים (Johnson Formula) — גם חוזק וגם קשיחות משחקים תפקיד
+</div>
+</div>
+</div>
+
+<!-- ============ SAFETY FACTORS ============ -->
+<div id="str-sf" class="str-sec">
+<div class="card"><div class="ctitle">🎯 מקדמי בטיחות מומלצים לפי יישום</div>
+<table><tr><th>יישום</th><th>SF מומלץ</th><th>הערה</th></tr>
+<tr><td>תעופה (עם FEA+Test מלא)</td><td>1.25-1.5</td><td>כל גרם קריטי, אימות מקיף</td></tr>
+<tr><td>מבנה כללי / מכונות</td><td>2.0-2.5</td><td>עומסים ידועים, סטטי</td></tr>
+<tr><td>עומסים דינמיים/עייפות</td><td>3.0-4.0</td><td>אי-ודאות במחזורי עומס</td></tr>
+<tr><td>מנופים, שרשראות, הרמה</td><td>4.0-6.0</td><td>חיי אדם + שחיקה + הלם</td></tr>
+<tr><td>לחץ פנאומטי (Energy Storing)</td><td>4.0-8.0</td><td>אנרגיה מאוחסנת = סכנת פיצוץ</td></tr>
+<tr><td>מכלי לחץ (ASME VIII)</td><td>3.5 (על UTS)</td><td>לפי קוד — לא בחירה חופשית</td></tr>
+</table>
+<div class="note">SF נמוך דורש: מודל מדויק (FEA מאומת), NDT מלא, בקרת ייצור הדוקה. SF גבוה מפצה על אי-ודאות — אבל עולה במשקל ובעלות!</div>
+</div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">מתי SF נמוך מותר?</div>
+<div style="font-size:12px;line-height:1.8">כשיש: FEA מאומת מול ניסוי, בקרת ייצור הדוקה (Cpk גבוה), NDT 100%, עומסים ידועים במדויק.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">מתי צריך SF גבוה?</div>
+<div style="font-size:12px;line-height:1.8">עומסים לא ודאיים, הלם אפשרי, השלכות כשל חמורות (בטיחות אדם), חומר עם שונות גבוהה (יציקה).</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">SF מול Sy או Sut?</div>
+<div style="font-size:12px;line-height:1.8">חומרים דקטיליים: תמיד ביחס ל-Sy (עיוות פלסטי = כשל תפקודי). חומרים שבירים: ביחס ל-Sut בלבד.</div></div>
+</div>
+</div>
+
+<!-- ============ FEA ============ -->
+<div id="str-fea" class="str-sec">
+<div class="card"><div class="ctitle">💻 מתי צריך FEA ומתי מספיק חישוב ידני?</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">✅ חישוב ידני מספיק</div>
+<div style="font-size:12px;line-height:1.8">גיאומטריה פשוטה (קורה, ציר, לוח שטוח), עומס ברור, אין ריכוזי מאמצים מורכבים. מהיר, שקוף, קל לאמת.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">💻 כדאי FEA</div>
+<div style="font-size:12px;line-height:1.8">גיאומטריה מורכבת (חורים מרובים, מעברי חתך משתנים), עומסים משולבים, חשוב לדעת התפלגות מאמצים מדויקת.</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">🔲 יסודות Mesh (רשת אלמנטים)</div>
+<div style="font-size:13px;line-height:1.9">
+המודל מחולק לאלפי "אלמנטים" קטנים (Tet4/Tet10/Hex8) שבהם נפתרות משוואות המאמצים בנפרד ומחוברות יחד.
+</div>
+<table style="margin-top:8px"><tr><th>סוג אלמנט</th><th>מהירות</th><th>דיוק</th><th>שימוש</th></tr>
+<tr><td>Tet4 (טטרהדרון פשוט)</td><td>מהיר</td><td>נמוך</td><td>Mesh ראשוני מהיר</td></tr>
+<tr><td>Tet10 (טטרהדרון מסדר-2)</td><td>בינוני</td><td>טוב</td><td>הסטנדרט לגיאומטריה מורכבת</td></tr>
+<tr><td>Hex8/Hex20 (הקסהדרון)</td><td>איטי (Mesh ידני)</td><td>מעולה</td><td>הכי מדויק — קשה ל-Mesh אוטומטי</td></tr></table>
+<div class="note">Mesh Convergence: עדן את גודל הרשת עד שהתוצאה מפסיקה להשתנות (±5%). Refinement מקומי באזורי ריכוז מאמצים (חורים, רדיוסים)!</div>
+</div>
+
+<div class="card"><div class="ctitle">⚠️ המלכודות הנפוצות ב-FEA</div>
+<div style="font-size:13px;line-height:1.9">
+<b style="color:var(--red)">1. תנאי שפה שגויים</b> — Fixed Support במקום שבאמת יש גמישות = תוצאה "יפה" ושגויה!<br>
+<b style="color:var(--red)">2. Singularity בפינה חדה</b> — מאמץ→∞ מתמטית בפינה חדה ללא רדיוס. לא אמיתי — התעלם או הוסף רדיוס.<br>
+<b style="color:var(--red)">3. Mesh גס מדי</b> — במיוחד באזורי ריכוז מאמצים. תמיד בדוק Convergence.<br>
+<b style="color:var(--red)">4. חומר לינארי</b> — ברירת מחדל היא אלסטי לינארי; אם המאמץ עובר Yield, התוצאה לא תקפה בלי מודל פלסטי!<br>
+<b style="color:var(--orange)">הכלל הזהב:</b> FEA מאמת הבנה קיימת — לא מחליף אותה. תמיד סבירות-בדיקה (Sanity Check) מול חישוב ידני מקורב.
+</div>
+</div>
+</div>
+
+<!-- ============ MORE CALCULATORS ============ -->
+<div id="str-calc2" class="str-sec">
+<div class="card"><div class="ctitle">🧮 מחשבון Euler Buckling</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="cg">
+  <div><label>E — מודול אלסטיות (GPa)</label><input id="bk-e" type="number" value="200" step="1" oninput="calcBuckling()"></div>
+  <div><label>⌀D — קוטר עמוד (mm)</label><input id="bk-d" type="number" value="20" step="1" oninput="calcBuckling()"></div>
+  <div><label>L — אורך (mm)</label><input id="bk-l" type="number" value="800" step="10" oninput="calcBuckling()"></div>
+  <div><label>תנאי קצה</label><select id="bk-k" onchange="calcBuckling()">
+    <option value="1">Pinned-Pinned (K=1.0)</option>
+    <option value="0.5">Fixed-Fixed (K=0.5)</option>
+    <option value="0.7">Fixed-Pinned (K=0.7)</option>
+    <option value="2">קנטילבר (K=2.0)</option>
+  </select></div>
+</div>
+<div id="bk-result" class="res" style="margin-top:10px">—</div>
+</div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">🧮 מחשבון Von Mises — עומס משולב</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="cg">
+  <div><label>σ — מאמץ נורמלי (MPa)</label><input id="vm-s" type="number" value="150" step="5" oninput="calcVonMises()"></div>
+  <div><label>τ — מאמץ גזירה (MPa)</label><input id="vm-t" type="number" value="60" step="5" oninput="calcVonMises()"></div>
+  <div><label>Sy — גבול זרימה (MPa)</label><input id="vm-sy" type="number" value="350" step="10" oninput="calcVonMises()"></div>
+</div>
+<div id="vm-result" class="res" style="margin-top:10px">—</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>

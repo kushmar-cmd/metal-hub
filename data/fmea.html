@@ -1,6 +1,20 @@
 <div id="sec-fmea" class="section">
-<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--red)">
-<div style="display:flex;align-items:center;gap:12px"><span style="font-size:32px">⚠️</span><div><div style="font-size:18px;font-weight:800;color:var(--red)">FMEA / FTA — ניתוח כשלים</div><div style="font-size:12px;color:var(--muted)">FMEA · Severity · Occurrence · Detection · RPN · FTA</div></div></div></div>
+
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="fma-tab active" onclick="showFma('rpn',this)">🧮 מחשבון RPN</button>
+  <button class="fma-tab" onclick="showFma('ratings',this)">📊 דירוגי S/O/D</button>
+  <button class="fma-tab" onclick="showFma('example',this)">📋 טבלת FMEA לדוגמה</button>
+  <button class="fma-tab" onclick="showFma('types',this)">🔀 DFMEA מול PFMEA</button>
+  <button class="fma-tab" onclick="showFma('aiag',this)">🆕 AIAG-VDA — AP</button>
+  <button class="fma-tab" onclick="showFma('fta',this)">🌳 FTA</button>
+  <button class="fma-tab" onclick="showFma('tools',this)">🔧 כלים משלימים</button>
+  <button class="fma-tab" onclick="showFma('stds',this)">📜 תקנים</button>
+</div>
+</div>
+
+<!-- ============ RPN CALCULATOR ============ -->
+<div id="fma-rpn" class="fma-sec active">
 <div class="grid2">
 <div class="card"><div class="ctitle">🧮 מחשבון RPN</div>
 <div class="cg">
@@ -21,22 +35,127 @@
 <option value="10">10 — כמעט בלתי אפשרי לגלות</option></select></div>
 </div>
 <div id="fm-result" class="res">—</div>
-<div class="note">RPN = S × O × D · מקסימום = 1000 · סף פעולה: RPN>100 (כללי) / >50 (ביטחוני)</div></div>
-<div class="card"><div class="ctitle">📊 דירוגי FMEA — Severity (S)</div>
+<div class="note">RPN = S × O × D · מקסימום = 1000 · סף פעולה: RPN&gt;100 (כללי) / &gt;50 (ביטחוני)</div></div>
+
+<div class="card"><div class="ctitle">⚠️ מגבלות RPN — למה AIAG-VDA 2019 זנח אותו</div>
+<div style="font-size:13px;line-height:1.9">
+<b style="color:var(--red)">בעיה 1:</b> S=9×O=1×D=1 = RPN 9 בלבד — אבל S=9 (מסכן חיים!) חייב טיפול תמיד, RPN נמוך "מסתיר" את זה.<br>
+<b style="color:var(--red)">בעיה 2:</b> S=2×O=5×D=5 = RPN 50 — מספר זהה יכול לנבוע מהרבה שילובים שונים לגמרי במשמעות.<br>
+<b style="color:var(--red)">בעיה 3:</b> אין קפיצות ברורות — RPN 99 מול RPN 101 לא ממש שונים, אבל "סף 100" מתייחס אליהם אחרת.
+</div>
+<div class="note">הפתרון המודרני: AIAG/VDA Action Priority (AP) — ראה לשונית ייעודית. S גבוה = טיפול חובה, לא משנה O/D!</div>
+</div>
+</div>
+</div>
+
+<!-- ============ RATINGS ============ -->
+<div id="fma-ratings" class="fma-sec">
+<div class="card"><div class="ctitle">📊 Severity (S) — חומרת ההשפעה</div>
 <table><tr><th>S</th><th>תיאור</th><th>דוגמה</th></tr>
 <tr><td>1</td><td>אין השפעה</td><td>שינוי אסתטי בלבד</td></tr>
 <tr><td>2-3</td><td>קל — לקוח מבחין לעיתים</td><td>רעש קל, מדבקה מתקלפת</td></tr>
 <tr><td>4-6</td><td>בינוני — פגיעה בביצועים</td><td>תפקוד חלקי, איחור</td></tr>
 <tr><td>7-8</td><td>גבוה — אובדן פונקציה</td><td>כשל מוצר, החזרה</td></tr>
 <tr><td>9</td><td>קריטי — בטיחות ללא אזהרה</td><td>כשל מסכן חיים אפשרי</td></tr>
-<tr><td>10</td><td>קטסטרופלי</td><td>כשל מסכן חיים בטוח</td></tr></table></div>
+<tr><td>10</td><td>קטסטרופלי</td><td>כשל מסכן חיים בטוח</td></tr></table>
+<div class="note">⚠️ S אינו ניתן להורדה ע"י בקרות — רק שינוי תכן מוריד S! S=9-10 = דגל אדום תכנוני שדורש תשומת לב תמיד.</div></div>
+
+<div class="card"><div class="ctitle">📊 Occurrence (O) — תדירות הופעת הכשל</div>
+<table><tr><th>O</th><th>תיאור</th><th>Cpk מקורב</th></tr>
+<tr><td>1</td><td>כמעט בלתי אפשרי</td><td>Cpk&gt;1.67</td></tr>
+<tr><td>2-3</td><td>נדיר — תהליך מבוקר היטב</td><td>Cpk 1.33-1.67</td></tr>
+<tr><td>4-6</td><td>לעיתים — תהליך סביר</td><td>Cpk 1.0-1.33</td></tr>
+<tr><td>7-8</td><td>גבוה — תהליך לא יציב</td><td>Cpk 0.67-1.0</td></tr>
+<tr><td>9-10</td><td>כמעט ודאי</td><td>Cpk&lt;0.67</td></tr></table>
+<div class="note">הורדת O: שיפור תהליך, Poka-Yoke, שינוי תכן. מבוססת על נתוני עבר/Cpk אמיתיים — לא הערכה סובייקטיבית!</div></div>
+
+<div class="card"><div class="ctitle">📊 Detection (D) — יכולת גילוי לפני שהלקוח מקבל</div>
+<table><tr><th>D</th><th>תיאור</th><th>שיטת גילוי</th></tr>
+<tr><td>1</td><td>גילוי ודאי</td><td>Poka-Yoke פיזי — לא ניתן להרכיב שגוי</td></tr>
+<tr><td>2-3</td><td>גילוי גבוה</td><td>בדיקה אוטומטית 100%</td></tr>
+<tr><td>4-6</td><td>גילוי בינוני</td><td>בדיקה סטטיסטית (SPC), דגימה</td></tr>
+<tr><td>7-8</td><td>גילוי נמוך</td><td>בדיקה חזותית, תלוי מפעיל</td></tr>
+<tr><td>9-10</td><td>כמעט בלתי ניתן לגילוי</td><td>אין בקרה, מתגלה רק בשטח</td></tr></table>
+<div class="note">⚠️ שים לב לכיוון ההפוך! D=1 = גילוי מעולה (טוב). D=10 = לא מתגלה (רע). שיפור D זול משיפור O — אבל עדיף למנוע מלגלות.</div></div>
 </div>
+
+<!-- ============ EXAMPLE TABLE ============ -->
+<div id="fma-example" class="fma-sec">
 <div class="card"><div class="ctitle">📋 טבלת FMEA לדוגמה — מסב ציר</div>
 <div style="overflow-x:auto"><table><tr><th>מזהה</th><th>פונקציה</th><th>מצב כשל</th><th>השפעה</th><th>S</th><th>גורם</th><th>O</th><th>בקרות</th><th>D</th><th style="color:var(--orange)">RPN</th><th>פעולה</th></tr>
 <tr><td>1.1</td><td>תמיכת ציר</td><td>בלאי מסב</td><td>רעש, רטט, כשל ציר</td><td>7</td><td>לחץ/מהירות גבוה</td><td>3</td><td>בדיקת רטט</td><td>5</td><td style="color:var(--orange)">105</td><td>↑תדירות סיכה</td></tr>
 <tr><td>1.2</td><td>תמיכת ציר</td><td>כשל Cage</td><td>נעילת ציר</td><td>9</td><td>עומס פתאומי</td><td>2</td><td>בדיקה ויזואלית</td><td>7</td><td style="color:var(--red)">126</td><td>↑ C/P, ↓עומס</td></tr>
 <tr><td>1.3</td><td>תמיכת ציר</td><td>קורוזיה</td><td>גדילה בממד</td><td>5</td><td>לחות, חוסר סיכה</td><td>4</td><td>בדיקה שנתית</td><td>4</td><td style="color:var(--yellow)">80</td><td>שדרוג גריז</td></tr>
-<tr><td>1.4</td><td>אטימה</td><td>דליפת שמן</td><td>מפגע סביבתי</td><td>4</td><td>בלאי אטם</td><td>5</td><td>בדיקה חזותית</td><td>3</td><td style="color:var(--green)">60</td><td>ניטור שוטף</td></tr></table></div></div>
+<tr><td>1.4</td><td>אטימה</td><td>דליפת שמן</td><td>מפגע סביבתי</td><td>4</td><td>בלאי אטם</td><td>5</td><td>בדיקה חזותית</td><td>3</td><td style="color:var(--green)">60</td><td>ניטור שוטף</td></tr></table></div>
+</div>
+
+<div class="card"><div class="ctitle">📝 מבנה טופס FMEA מלא — כל השדות הנדרשים</div>
+<div style="font-size:13px;line-height:2">
+<b>זיהוי:</b> מספר פריט · פונקציה · דרישה<br>
+<b>כשל:</b> מצב כשל פוטנציאלי · השפעה על הלקוח · חומרה (S)<br>
+<b>גורם:</b> סיבת שורש · מנגנון כשל · תדירות (O)<br>
+<b>בקרה נוכחית:</b> בקרת מניעה · בקרת גילוי · דירוג גילוי (D)<br>
+<b>חישוב:</b> RPN (או AP) · דירוג עדיפות<br>
+<b>פעולה מומלצת:</b> מי אחראי · תאריך יעד · פעולה שננקטה · S/O/D חדשים אחרי פעולה
+</div>
+</div>
+</div>
+
+<!-- ============ DFMEA vs PFMEA ============ -->
+<div id="fma-types" class="fma-sec">
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DFMEA — Design FMEA</div>
+<div style="font-size:12px;line-height:1.9">
+בודק את <b>התכן</b> — לפני שהחלק קיים בפועל.<br><br>
+<b>שואל:</b> איך התכן עצמו יכול להיכשל? חומר לא מתאים, סובלנות שגויה, עומס לא צפוי, ריכוז מאמצים.<br><br>
+<b>מבוצע ע"י:</b> מהנדס תכן, בשלב הפיתוח — לפני ייצור!<br>
+<b>תוצר:</b> משפיע על בחירת חומר, GD&T, גיאומטריה.
+</div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">PFMEA — Process FMEA</div>
+<div style="font-size:12px;line-height:1.9">
+בודק את <b>תהליך הייצור</b> — איך מייצרים את החלק בפועל.<br><br>
+<b>שואל:</b> איפה בתהליך (עיבוד/הרכבה/בדיקה) עלול לקרות כשל? כלי שחוק, הגדרת מכונה שגויה, טעות מפעיל.<br><br>
+<b>מבוצע ע"י:</b> מהנדס תהליך/ייצור, לפני תחילת ייצור סדרתי.<br>
+<b>תוצר:</b> משפיע על Control Plan, בדיקות, Poka-Yoke בקו.
+</div></div>
+</div>
+<div class="card" style="margin-top:12px"><div class="ctitle">🔗 הקשר בין DFMEA ל-PFMEA</div>
+<div style="font-size:13px;line-height:1.9">
+DFMEA קודם (בזמן) ל-PFMEA. מאפיינים קריטיים שזוהו ב-DFMEA (Key Characteristics) הופכים לנקודות בקרה חובה ב-PFMEA. שני המסמכים חיים — מתעדכנים עם כל שינוי תכן/תהליך וכשל שטח.
+</div></div>
+</div>
+
+<!-- ============ AIAG-VDA AP ============ -->
+<div id="fma-aiag" class="fma-sec">
+<div class="card"><div class="ctitle">🆕 AIAG/VDA 2019 — Action Priority (AP)</div>
+<div style="font-size:13px;line-height:1.9">
+התקן החדש (2019) <b>מחליף</b> את חישוב ה-RPN הגולמי בטבלת החלטה: High / Medium / Low — מבוססת קודם כל על <b>S</b>, ואז O, ואז D.
+</div></div>
+
+<table><tr><th>S</th><th>O</th><th>D</th><th>Action Priority</th></tr>
+<tr><td>9-10</td><td>4+</td><td>כל ערך</td><td style="color:var(--red)"><b>High</b></td></tr>
+<tr><td>9-10</td><td>2-3</td><td>5+</td><td style="color:var(--red)"><b>High</b></td></tr>
+<tr><td>9-10</td><td>2-3</td><td>1-4</td><td style="color:var(--yellow)"><b>Medium</b></td></tr>
+<tr><td>7-8</td><td>4+</td><td>כל ערך</td><td style="color:var(--red)"><b>High</b></td></tr>
+<tr><td>7-8</td><td>1-3</td><td>כל ערך</td><td style="color:var(--yellow)"><b>Medium</b></td></tr>
+<tr><td>1-6</td><td>1-3</td><td>1-3</td><td style="color:var(--green)"><b>Low</b></td></tr>
+</table>
+<div class="note">⚠️ ההבדל המהותי: S=9 עם O נמוך עדיין יוצא <b>High</b> — לא "מסתתר" מאחורי מספר RPN נמוך כמו בשיטה הישנה! זו הסיבה המרכזית למעבר.</div>
+
+<div class="machine-grid" style="margin-top:12px">
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">High — טיפול חובה</div>
+<div style="font-size:12px;line-height:1.8">חובה פעולה מתקנת מתועדת. אם לא ננקטת פעולה — נדרש הצדקה מנומקת בכתב.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--yellow)">Medium — מומלץ טיפול</div>
+<div style="font-size:12px;line-height:1.8">פעולה מומלצת לפי שיקול צוות. תיעוד ההחלטה (לטפל/לא) עדיין נדרש.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Low — אין חובה</div>
+<div style="font-size:12px;line-height:1.8">ניתן להשאיר, אבל ממשיכים לנטר. לא אומר "בטוח" — רק שהעדיפות היחסית נמוכה.</div></div>
+</div>
+</div>
+
+<!-- ============ FTA ============ -->
+<div id="fma-fta" class="fma-sec">
 <div class="grid2">
 <div class="card"><div class="ctitle">🌳 FTA — Fault Tree Analysis</div>
 <div style="font-size:12px;color:var(--muted);line-height:2.3">
@@ -56,6 +175,54 @@
 <tr><td><b style="color:var(--yellow)">III — שולי</b></td><td>פציעה קלה, עיכוב</td><td>2-3</td></tr>
 <tr><td><b style="color:var(--green)">IV — מזערי</b></td><td>אי-נוחות בלבד</td><td>1.5-2</td></tr></table></div>
 </div>
+
+<div class="card"><div class="ctitle">🌳 דוגמת עץ כשל — כשל אספקת שמן</div>
+<div style="font-size:13px;line-height:2;font-family:monospace;background:var(--surface);border-radius:8px;padding:12px">
+Top Event: אספקת שמן נכשלה<br>
+&nbsp;&nbsp;├─ OR ─┬─ משאבה כשלה<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ AND ─┬─ מנוע כשל<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ גיבוי לא הופעל<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ פילטר סתום<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ קו צנרת נסדק
+</div>
+<div class="note">שער OR = כל אחד מהענפים מספיק לכשל הכולל. שער AND = שני הענפים חייבים לקרות יחד — יתירות (Redundancy) אמיתית!</div>
+</div>
 </div>
 
-<!-- CHANGE MANAGEMENT -->
+<!-- ============ TOOLS ============ -->
+<div id="fma-tools" class="fma-sec">
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">🐟 Fishbone / Ishikawa</div>
+<div style="font-size:12px;line-height:1.8">מיפוי גורמי שורש ב-6M: Man, Machine, Method, Material, Measurement, Environment. שיטתי — לא נתקעים על החשוד הראשון.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">❓ 5-Why</div>
+<div style="font-size:12px;line-height:1.8">שואלים "למה" עד גורם שורש אמיתי — בד"כ 5 פעמים. מלכודת: "אשמת העובד" כמעט אף פעם לא שורש — למה השיטה אפשרה?</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">📊 Pareto Analysis</div>
+<div style="font-size:12px;line-height:1.8">80% מהבעיות מ-20% מהגורמים. ממקד לאן להשקיע — לפי עלות, לא רק כמות!</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">8️⃣ 8D Problem Solving</div>
+<div style="font-size:12px;line-height:1.8">D1 צוות→D2 תיאור→D3 בלימה (24h!)→D4 שורש מאומת→D5 תיקון→D6 יישום→D7 מניעה מערכתית→D8 הוקרה.</div></div>
+</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle">🔗 מתי להשתמש בכל כלי?</div>
+<table><tr><th>מצב</th><th>כלי מומלץ</th></tr>
+<tr><td>תכנון מוצר/תהליך חדש (מניעתי)</td><td>DFMEA / PFMEA</td></tr>
+<tr><td>תקלה חוזרת, לא ברור למה</td><td>5-Why → Fishbone</td></tr>
+<tr><td>הרבה סוגי פגמים, לא יודע מה לתקוף קודם</td><td>Pareto Analysis</td></tr>
+<tr><td>תלונת לקוח רשמית (רכב/תעופה)</td><td>8D מלא</td></tr>
+<tr><td>כשל בטיחותי חמור, מספר מסלולי כשל</td><td>FTA</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ============ STANDARDS ============ -->
+<div id="fma-stds" class="fma-sec">
+<table><tr><th>תקן</th><th>תחום</th><th>הערות</th></tr>
+<tr><td><b>MIL-STD-1629A</b></td><td>ביטחוני/תעופה</td><td>התקן ההיסטורי — Criticality Analysis (I-IV)</td></tr>
+<tr><td><b>IEC 60812</b></td><td>אזרחי כללי</td><td>הבינלאומי הרשמי ל-FMEA</td></tr>
+<tr><td><b>AIAG/VDA FMEA (2019)</b></td><td>רכב</td><td>מחליף RPN ב-Action Priority. חובה ב-IATF 16949</td></tr>
+<tr><td><b>ARP5580</b></td><td>תעופה (SAE)</td><td>מבוסס על MIL-STD-1629A, מעודכן</td></tr>
+<tr><td><b>AS9100</b></td><td>תעופה — QMS</td><td>דורש FMEA כחלק מניהול סיכונים</td></tr>
+</table>
+<div class="note">בחר את התקן לפי דרישת הלקוח/תעשייה — רוב הרכב היום עברו ל-AIAG/VDA 2019, תעופה עדיין נעה בין MIL-STD-1629A ל-ARP5580.</div>
+</div>
+
+</div>
