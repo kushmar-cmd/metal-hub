@@ -292,10 +292,10 @@ Slenderness Ratio = K×L / r &nbsp;&nbsp; (r = √(I/A))
 <div class="machine-grid">
 <div class="machine-card">
 <div class="cg">
-  <div><label>E — מודול אלסטיות (GPa)</label><input id="bk-e" type="number" value="200" step="1" oninput="calcBuckling()"></div>
-  <div><label>⌀D — קוטר עמוד (mm)</label><input id="bk-d" type="number" value="20" step="1" oninput="calcBuckling()"></div>
-  <div><label>L — אורך (mm)</label><input id="bk-l" type="number" value="800" step="10" oninput="calcBuckling()"></div>
-  <div><label>תנאי קצה</label><select id="bk-k" onchange="calcBuckling()">
+  <div><label>E — מודול אלסטיות (GPa)</label><input id="bk-e" type="number" value="200" step="1" oninput="calcStrBuckling()"></div>
+  <div><label>⌀D — קוטר עמוד (mm)</label><input id="bk-d" type="number" value="20" step="1" oninput="calcStrBuckling()"></div>
+  <div><label>L — אורך (mm)</label><input id="bk-l" type="number" value="800" step="10" oninput="calcStrBuckling()"></div>
+  <div><label>תנאי קצה</label><select id="bk-k" onchange="calcStrBuckling()">
     <option value="1">Pinned-Pinned (K=1.0)</option>
     <option value="0.5">Fixed-Fixed (K=0.5)</option>
     <option value="0.7">Fixed-Pinned (K=0.7)</option>
