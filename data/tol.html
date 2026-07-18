@@ -1,20 +1,133 @@
 <div id="sec-tol" class="section">
-<div class="card"><div class="ctitle">📏 IT Grades — ערכי סובלנות בפועל (μm)</div>
+
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="tol-tab active" onclick="showTol('it',this)">📏 דרגות דיוק (IT)</button>
+  <button class="tol-tab" onclick="showTol('sys',this)">🔤 מערכת כוננויות</button>
+  <button class="tol-tab" onclick="showTol('fits',this)">🔗 סוגי כוננויות</button>
+  <button class="tol-tab" onclick="showTol('iso2768',this)">📊 ISO 2768</button>
+  <button class="tol-tab" onclick="showTol('stack',this)">⛓️ שרשראות סובלנות</button>
+  <button class="tol-tab" onclick="showTol('ansi',this)">🇺🇸 סובלנות אינצ'ית</button>
+  <button class="tol-tab" onclick="showTol('cost',this)">💰 סובלנות ועלות</button>
+  <button class="tol-tab" onclick="showTol('calc',this)">🧮 מחשבונים</button>
+</div>
+</div>
+
+<!-- ============ IT GRADES ============ -->
+<div id="tol-it" class="tol-sec active">
+<div class="card">
+<div class="ctitle">📏 IT Grade — מהי דרגת דיוק?</div>
+<div style="font-size:13px;line-height:1.9">
+ISO 286 מגדיר <b>20 דרגות דיוק</b> (IT01, IT0, IT1...IT18) — כל דרגה מכפילה בערך את רוחב הסובלנות של קודמתה. הדרגה <b>לא</b> תלויה בכיוון החריגה (+/-), רק ברוחב הכולל של הטווח המותר.
+</div>
+<div class="note" style="margin-top:10px">
+נוסחה מקורבת (ISO 286): i = 0.45×∛D + 0.001×D [μm], כאשר D = ⌀ ממוצע גיאומטרי של טווח המידה (mm). IT_n = i × מקדם טבלה לפי n.
+</div>
+</div>
+
+<div class="card">
+<div class="ctitle">📐 IT Grades — ערכי סובלנות בפועל (μm)</div>
 <table><tr><th>IT</th><th>שימוש</th><th>3–6mm</th><th>6–10mm</th><th>18–30mm</th><th>50–80mm</th><th>80–120mm</th></tr>
-<tr><td>IT4</td><td>מסבים דיוק גבוה</td><td>4</td><td>4</td><td>6</td><td>10</td><td>12</td></tr>
-<tr><td>IT5</td><td>גלגלי שיניים דיוק</td><td>5</td><td>6</td><td>9</td><td>13</td><td>15</td></tr>
-<tr><td>IT6</td><td>ציר מנוע, כוננות H7/f6</td><td>8</td><td>9</td><td>13</td><td>19</td><td>22</td></tr>
-<tr><td><b style="color:var(--orange)">IT7 ★</b></td><td>כוננות ממוצגות — הנפוץ</td><td>12</td><td>15</td><td>21</td><td>30</td><td>35</td></tr>
-<tr><td>IT8</td><td>כוננות כלליות</td><td>18</td><td>22</td><td>33</td><td>46</td><td>54</td></tr>
+<tr><td>IT01–IT1</td><td>בלוקי מדידה, מכשור מעבדה</td><td>0.6–1</td><td>0.6–1</td><td>0.8–1.2</td><td>1–1.5</td><td>1.2–1.5</td></tr>
+<tr><td>IT2–IT3</td><td>Gauge Blocks, כיול</td><td>1.5–2.5</td><td>1.5–2.5</td><td>2–3.5</td><td>2.5–4.5</td><td>3–5</td></tr>
+<tr><td>IT4</td><td>מסבים דיוק גבוה, ספינדלים</td><td>4</td><td>4</td><td>6</td><td>10</td><td>12</td></tr>
+<tr><td>IT5</td><td>גלגלי שיניים דיוק, לאפינג</td><td>5</td><td>6</td><td>9</td><td>13</td><td>15</td></tr>
+<tr><td>IT6</td><td>ציר מנוע, כוננות H7/f6, שחיקה</td><td>8</td><td>9</td><td>13</td><td>19</td><td>22</td></tr>
+<tr><td><b style="color:var(--orange)">IT7 ★</b></td><td>כוננות ממוצגות — הנפוץ ביותר</td><td>12</td><td>15</td><td>21</td><td>30</td><td>35</td></tr>
+<tr><td>IT8</td><td>כוננות כלליות, כרסום גמר</td><td>18</td><td>22</td><td>33</td><td>46</td><td>54</td></tr>
 <tr><td>IT9</td><td>שסתומים, ציוד כללי</td><td>30</td><td>36</td><td>52</td><td>74</td><td>87</td></tr>
-<tr><td>IT10</td><td>ייצור גס</td><td>48</td><td>58</td><td>84</td><td>120</td><td>140</td></tr>
-<tr><td>IT11</td><td>יציקות, חיתוך גס</td><td>75</td><td>90</td><td>130</td><td>190</td><td>220</td></tr>
-<tr><td>IT14</td><td>חיתוך גיליון</td><td>300</td><td>360</td><td>520</td><td>740</td><td>870</td></tr></table></div>
-<div class="card"><div class="ctitle">🔗 כוננויות H7 — ערכי סובלנות בפועל ל-⌀50mm</div>
+<tr><td>IT10</td><td>ייצור גס, חריטה רגילה</td><td>48</td><td>58</td><td>84</td><td>120</td><td>140</td></tr>
+<tr><td>IT11</td><td>יציקות מדויקות, חיתוך גס</td><td>75</td><td>90</td><td>130</td><td>190</td><td>220</td></tr>
+<tr><td>IT12–IT13</td><td>יציקות חול, חישול</td><td>120–190</td><td>150–220</td><td>210–330</td><td>300–460</td><td>350–540</td></tr>
+<tr><td>IT14</td><td>חיתוך גיליון, פח</td><td>300</td><td>360</td><td>520</td><td>740</td><td>870</td></tr>
+<tr><td>IT15–IT18</td><td>יציקת חול גסה, סובלנות מסחרית</td><td>480–1400</td><td>580–1500</td><td>840–2100</td><td>1200–2900</td><td>1400–3500</td></tr>
+</table>
+<div class="note">כלל אצבע לעלות: כל קפיצת דרגה כלפי מטה (למשל IT8→IT7) ≈ ייקור עיבוד פי 1.5-2. אל תבחר דרגה הדוקה יותר משנדרש פונקציונלית!</div>
+</div>
+
+<div class="card">
+<div class="ctitle">⚙️ דרגת דיוק אופיינית לפי תהליך ייצור</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">חריטה / כרסום גס</div>
+<div style="font-size:12px;line-height:1.8">IT11–IT13<br>Ra 3.2–6.3μm<br>ללא עיבוד גמר נוסף</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">חריטה / כרסום רגיל</div>
+<div style="font-size:12px;line-height:1.8">IT9–IT10<br>Ra 1.6–3.2μm<br>ברירת המחדל ל-CNC</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">חריטה / כרסום גמר</div>
+<div style="font-size:12px;line-height:1.8">IT7–IT8<br>Ra 0.8–1.6μm<br>הזנה איטית + כלי חד</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">שחיקה (Grinding)</div>
+<div style="font-size:12px;line-height:1.8">IT5–IT6<br>Ra 0.2–0.8μm<br>אחרי הקשיה</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Honing / Superfinish</div>
+<div style="font-size:12px;line-height:1.8">IT3–IT5<br>Ra 0.05–0.2μm<br>מסבים, בוכנות</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">לאפינג (Lapping)</div>
+<div style="font-size:12px;line-height:1.8">IT1–IT3<br>Ra 0.01–0.05μm<br>בלוקי מדידה, אופטיקה</div></div>
+</div>
+</div>
+</div>
+
+<!-- ============ FIT SYSTEM ============ -->
+<div id="tol-sys" class="tol-sec">
+<div class="card">
+<div class="ctitle">🔤 מערכת ISO 286 — עקרונות</div>
+<div style="font-size:13px;line-height:1.9">
+כל כוננת מוגדרת ע"י <b>אות</b> (מיקום שדה הסובלנות ביחס למידה הנומינלית) + <b>מספר</b> (IT Grade — רוחב השדה). לדוגמה <b>H7</b>: H=מיקום, 7=רוחב.<br><br>
+<b>אותיות גדולות (A...ZC)</b> = חורים. <b>אותיות קטנות (a...zc)</b> = צירים.<br>
+סדר האותיות מייצג תזוזה של שדה הסובלנות: A/a (הכי רחוק, רווח ענק) → ... → H/h (בדיוק על הקו הנומינלי) → ... → ZC/zc (הכי רחוק לכיוון ההפוך, חפיפה ענקית).
+</div>
+</div>
+
+<div class="card">
+<div class="ctitle">🏠 שיטת בסיס-חור מול בסיס-ציר</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">★ Hole Basis — בסיס-חור</div>
+<div style="font-size:12px;line-height:1.9">
+החור תמיד <b>H</b> (סטייה תחתונה = 0, גודל מינימלי קבוע). הכוננת נקבעת ע"י בחירת אות הציר: H7/f6, H7/k6, H7/p6...<br><br>
+<b>למה הנפוץ ביותר:</b> חורים מיוצרים בכלים סטנדרטיים (מקדח, Reamer, Broach) בקוטר קבוע. קל יותר לשנות את מידת הציר בחריטה מאשר להזמין Reamer מיוחד לכל כוננת.
+</div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Shaft Basis — בסיס-ציר</div>
+<div style="font-size:12px;line-height:1.9">
+הציר תמיד <b>h</b> (סטייה עליונה = 0). הבית/החור משתנה: C11/h9, D9/h9, K7/h6...<br><br>
+<b>מתי משתמשים:</b> כשהציר הוא פריט מדף מוכן (מוט מוכסף h6, ציר סטנדרטי) והבית מיוצר סביבו. נפוץ בפנאומטיקה, מערכות עם צירים סטנדרטיים ארוכים.
+</div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="ctitle">🔡 טבלת אותיות סטייה — לפי משפחה</div>
+<table><tr><th>אות ציר</th><th>אות חור</th><th>משפחה</th><th>אופי</th></tr>
+<tr><td>a, b, c</td><td>A, B, C</td><td>רווח ענק</td><td>סרק גדול, לא הנדסי בד"כ</td></tr>
+<tr><td>d, e</td><td>D, E</td><td>רווח נדיב</td><td>מסבי החלקה בעומס קל, מנגנונים חופשיים</td></tr>
+<tr><td>f, g</td><td>F, G</td><td>רווח קטן</td><td>הזזה חופשית ומדויקת</td></tr>
+<tr><td><b style="color:var(--green)">h</b></td><td><b style="color:var(--green)">H</b></td><td>אפס (על הקו)</td><td>בסיס המערכת — h/H</td></tr>
+<tr><td>js, k, m, n</td><td>JS, K, M, N</td><td>מעבר</td><td>ייתכן רווח זעיר או חפיפה קלה</td></tr>
+<tr><td>p, r, s, t, u</td><td>P, R, S, T, U</td><td>חפיפה (לחץ)</td><td>חפיפה מובטחת — פרס/חימום</td></tr>
+<tr><td>v...zc</td><td>V...ZC</td><td>חפיפה כבדה</td><td>חיבורים קבועים לצמיתות</td></tr>
+</table>
+<div class="note">הסימון המלא: [אות][מספר]. ⌀50H7 = חור נומינלי 50mm, אות H, דרגה IT7 → +0.030/0mm</div>
+</div>
+</div>
+
+<!-- ============ FIT TYPES ============ -->
+<div id="tol-fits" class="tol-sec">
+<div class="card">
+<div class="ctitle">🔗 שלוש משפחות הכוננויות</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Clearance — הזזה</div>
+<div style="font-size:12px;line-height:1.8">רווח מובטח בכל צירוף. הרכבה חופשית ביד.<br><b>שימוש:</b> ציר מסתובב בבוש, מנגנון חופשי</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--yellow)">Transition — מעבר</div>
+<div style="font-size:12px;line-height:1.8">ייתכן רווח זעיר או חפיפה קלה, תלוי במידות בפועל.<br><b>שימוש:</b> מיקום מדויק עם אפשרות פירוק — גלגלי שיניים, פוליים</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">Interference — לחץ</div>
+<div style="font-size:12px;line-height:1.8">חפיפה מובטחת בכל צירוף. פרס/חימום להרכבה.<br><b>שימוש:</b> מסבים בבית, בושים קבועים</div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="ctitle">🔗 כוננויות H7 — ערכי סובלנות בפועל ל-⌀50mm</div>
 <table><tr><th>כוננת</th><th>סוג</th><th>חור (μm)</th><th>ציר (μm)</th><th>רווח מין</th><th>רווח מקס</th><th>הרכבה</th><th>שימוש</th></tr>
 <tr><td><b style="color:var(--muted)">H7/d9</b></td><td>הזזה רחבה</td><td>+25/0</td><td>-80/-130</td><td>+80</td><td>+155</td><td>ביד</td><td>הנעה מהירה</td></tr>
 <tr><td><b style="color:var(--orange)">H7/f6</b></td><td>הזזה</td><td>+25/0</td><td>-25/-50</td><td>+25</td><td>+75</td><td>ביד</td><td>ציר ב-bush</td></tr>
-<tr><td><b style="color:var(--yellow)">H7/g6</b></td><td>הזזה דקה</td><td>+25/0</td><td>-9/-25</td><td>+9</td><td>+50</td><td>ביד בנזהרות</td><td>כוונון</td></tr>
+<tr><td><b style="color:var(--yellow)">H7/g6</b></td><td>הזזה דקה</td><td>+25/0</td><td>-9/-25</td><td>+9</td><td>+50</td><td>ביד בזהירות</td><td>כוונון</td></tr>
 <tr><td><b style="color:var(--green)">H7/h6</b></td><td>מחליקה</td><td>+25/0</td><td>0/-16</td><td>0</td><td>+41</td><td>ביד בדיוק</td><td>חלפים</td></tr>
 <tr><td><b style="color:var(--blue)">H7/js6</b></td><td>מעבר</td><td>+25/0</td><td>±8</td><td>-8</td><td>+33</td><td>פטיש/יד</td><td>כוונות קלות</td></tr>
 <tr><td><b style="color:var(--blue)">H7/k6</b></td><td>מעבר</td><td>+25/0</td><td>+15/+2</td><td>-15</td><td>+23</td><td>פטיש גומי</td><td>פולי, שרשרת</td></tr>
@@ -22,8 +135,26 @@
 <tr><td><b style="color:var(--red)">H7/p6</b></td><td>לחץ</td><td>+25/0</td><td>+42/+26</td><td>-42</td><td>-1</td><td>פרס/חימום</td><td>מסבים, בוש</td></tr>
 <tr><td><b style="color:var(--red)">H7/r6</b></td><td>לחץ בינוני</td><td>+25/0</td><td>+51/+34</td><td>-51</td><td>-9</td><td>חימום</td><td>חיבורים קבועים</td></tr>
 <tr><td><b style="color:var(--red)">H7/s6</b></td><td>לחץ כבד</td><td>+25/0</td><td>+59/+43</td><td>-59</td><td>-18</td><td>חימום בלבד</td><td>עטרות שיניים</td></tr></table>
-<div class="note">רווח חיובי = רווח (clearance) · רווח שלילי = חפיפה (interference) · ⌀50 IT7=30μm, IT6=19μm</div></div>
-<div class="card"><div class="ctitle">📊 ISO 2768 — סובלנות כללית לעיבוד</div>
+<div class="note">רווח חיובי = רווח (clearance) · רווח שלילי = חפיפה (interference) · ⌀50 IT7=30μm, IT6=19μm</div>
+</div>
+
+<div class="card">
+<div class="ctitle">🔗 כוננויות נוספות — H8/H9/H11 (סובלנות רחבה יותר)</div>
+<table><tr><th>כוננת</th><th>סוג</th><th>שימוש אופייני</th></tr>
+<tr><td><b style="color:var(--muted)">H8/e8</b></td><td>הזזה רחבה</td><td>מסבי החלקה בעומס קל, חום</td></tr>
+<tr><td><b style="color:var(--orange)">H8/f7</b></td><td>הזזה</td><td>מנגנונים כלליים, סיבוב חופשי</td></tr>
+<tr><td><b style="color:var(--green)">H9/h9</b></td><td>מחליקה — סובלנות מסחרית</td><td>ציוד כללי, פחות קריטי</td></tr>
+<tr><td><b style="color:var(--muted)">H11/c11</b></td><td>רווח ענק</td><td>חלקי פח, הרכבות גסות, ציריים ארוכים</td></tr>
+<tr><td><b style="color:var(--muted)">H11/h11</b></td><td>מחליקה גסה</td><td>ברגי מכונה, סרק גדול מקובל</td></tr>
+</table>
+<div class="note">ככל שדרגת ה-IT גבוהה יותר (H8→H9→H11) — הסובלנות רחבה יותר וזולה יותר לייצור. בחר לפי הצורך הפונקציוני בפועל, לא "כמה שיותר מדויק".</div>
+</div>
+</div>
+
+<!-- ============ ISO 2768 ============ -->
+<div id="tol-iso2768" class="tol-sec">
+<div class="card">
+<div class="ctitle">📊 ISO 2768 — סובלנות כללית לעיבוד (Part 1: מידות)</div>
 <div class="grid2">
 <table><tr><th colspan="5">מימוד ליניארי (mm)</th></tr>
 <tr><th>דרגה</th><th>0.5–3</th><th>3–30</th><th>30–120</th><th>120–400</th></tr>
@@ -37,7 +168,197 @@
 <tr><td>m ★</td><td>±1°</td><td>±0°30'</td></tr>
 <tr><td>c</td><td>±1°30'</td><td>±1°</td></tr></table>
 </div>
-<div class="note">בכותרת: "ISO 2768-mK" = ליניארי בינוני (m) + גיאומטרי K. K=שטחיות/ישרות/עגוליות ±0.1mm לחלקים עד 30mm</div></div>
+<div class="note">בכותרת: "ISO 2768-mK" = ליניארי בינוני (m) + גיאומטרי K. הסימון חוסך ציון סובלנות על כל מידה בשרטוט!</div>
 </div>
 
-<!-- SURFACE FINISH -->
+<div class="card">
+<div class="ctitle">📐 ISO 2768 Part 2 — סובלנות גיאומטרית כללית (H/K/L)</div>
+<table><tr><th>מאפיין</th><th>H (עדין)</th><th>K (בינוני) ★</th><th>L (גס)</th><th>טווח מידה</th></tr>
+<tr><td>שטחיות / ישרות</td><td>0.02–0.1</td><td>0.05–0.4</td><td>0.1–0.8</td><td>עד 10 ל-3000mm</td></tr>
+<tr><td>ניצבות</td><td>0.2–0.5</td><td>0.4–1</td><td>0.6–1.5</td><td>עד 100 ל-3000mm</td></tr>
+<tr><td>סימטריה</td><td>0.5</td><td>0.6–0.8</td><td>0.6–1.2</td><td>עד 100 ל-3000mm</td></tr>
+<tr><td>זריקה (Runout)</td><td>0.1</td><td>0.2</td><td>0.5</td><td>קבוע לכל הקטרים</td></tr>
+</table>
+<div class="note">חל אוטומטית על כל מאפיין GD&T שלא סומן במפורש בשרטוט. K הוא ברירת המחדל הנפוצה בתעשייה — משתלב עם ISO 2768-mK.</div>
+</div>
+
+<div class="card">
+<div class="ctitle">⚖️ ISO 2768 מול ASME Y14.5 — הבדל חשוב</div>
+<div style="font-size:13px;line-height:1.9">
+ISO 2768 היא סובלנות <b>ברירת מחדל גורפת</b> (חלה על מידות ללא ציון מפורש). ASME Y14.5 הוא תקן ה-GD&T המלא (Datum, FCF, Position וכו') — הם <b>לא</b> תחליפים זה לזה!<br><br>
+שרטוט מלא ומקצועי כולל את שניהם: "ISO 2768-mK" בכותרת עבור מידות "חשופות", <b>וגם</b> FCF מפורשים (⊕⌀0.2 A|B|C) על מאפיינים קריטיים שדורשים בקרה הדוקה יותר.
+</div>
+</div>
+</div>
+
+<!-- ============ STACK-UP ============ -->
+<div id="tol-stack" class="tol-sec">
+<div class="card">
+<div class="ctitle">⛓️ שרשראות סובלנות — למה זה קריטי?</div>
+<div style="font-size:13px;line-height:1.9">
+כשמספר חלקים נערמים במכלול, הסובלנויות שלהם <b>מצטברות</b>. אם כל חלק בתוך הסובלנות שלו בנפרד — המכלול השלם עדיין עלול לא להיסגר! שתי שיטות חישוב עיקריות:
+</div>
+</div>
+
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Worst Case (WC) — מקרה גרוע ביותר</div>
+<div style="font-size:12px;line-height:1.9">
+<b>נוסחה:</b> Gap = Σnominal ± Σtolerances (סכימה ישירה)<br><br>
+מניח שכל החלקים בשרשרת נמצאים בו-זמנית בקצה הסובלנות שלהם. <b>בטוח לחלוטין</b> אבל <b>יקר</b> — דורש הידוק סובלנויות בכל החוליות כדי לעמוד בדרישה.<br><br>
+<b>מתי להשתמש:</b> מכלולים בכמות קטנה, בטיחות קריטית (תעופה, רפואי), אין מספיק חלקים לניתוח סטטיסטי.
+</div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">RSS — Root Sum Square (סטטיסטי)</div>
+<div style="font-size:12px;line-height:1.9">
+<b>נוסחה:</b> Gap_tol = √(t1² + t2² + ... + tn²)<br><br>
+מניח שהתפלגות המידות בפועל אקראית (Normal Distribution) — לא סביר שכל החלקים "יצאו" בקצה בו-זמנית. נותן <b>סובלנות מכלול רחבה יותר</b> באותה רמת ביטחון.<br><br>
+<b>תנאי:</b> תהליך ייצור מבוקר וממורכז (Cpk≥1.33), כמות גדולה מספיק להתפלגות אמיתית.
+</div></div>
+</div>
+
+<div class="card">
+<div class="ctitle">🔢 דוגמה מספרית — מחסנית 3 חלקים</div>
+<table><tr><th>חלק</th><th>מידה נומינלית</th><th>סובלנות</th></tr>
+<tr><td>בית (Housing)</td><td>50.0mm</td><td>±0.10mm</td></tr>
+<tr><td>מרווחן (Spacer)</td><td>20.0mm</td><td>±0.05mm</td></tr>
+<tr><td>ציר (Shaft)</td><td>29.5mm</td><td>±0.08mm</td></tr>
+</table>
+<div style="margin-top:10px;font-size:13px;line-height:1.9">
+נומינלי: 50 − 20 − 29.5 = <b>0.5mm</b> רווח סופי<br>
+<b>Worst Case:</b> ±(0.10+0.05+0.08) = <b>±0.23mm</b> → טווח סופי: 0.27 עד 0.73mm<br>
+<b>RSS:</b> ±√(0.10²+0.05²+0.08²) = ±√(0.01+0.0025+0.0064) = <b>±0.137mm</b> → טווח סופי: 0.363 עד 0.637mm
+</div>
+<div class="note">RSS נותן טווח צר יותר (יותר ריאליסטי) — הפרש של 0.093mm בכל צד! ב-Stack-up עם הרבה חוליות ההבדל דרמטי יותר.</div>
+</div>
+
+<div class="card">
+<div class="ctitle">🛠️ פתרונות כש-Stack-up לא נסגר</div>
+<div style="font-size:13px;line-height:1.9">
+1. <b>הרחבת סובלנויות</b> — הזול ביותר, אם אפשרי פונקציונלית<br>
+2. <b>מעבר ל-RSS</b> — אם התהליך מבוקר סטטיסטית (דורש נתוני Cpk אמיתיים!)<br>
+3. <b>הוספת Shim/מרווחן מתכוונן</b> — כיוון בהרכבה במקום ייצור מדויק<br>
+4. <b>שינוי תכן</b> — פחות חוליות בשרשרת = פחות הצטברות (Datum ישיר במקום שרשרת)<br>
+5. <b>Selective Assembly</b> — מיון חלקים לקבוצות והתאמה (יקר בעבודה, זול בחומר)
+</div>
+</div>
+</div>
+
+<!-- ============ ANSI/ASME INCH ============ -->
+<div id="tol-ansi" class="tol-sec">
+<div class="card">
+<div class="ctitle">🇺🇸 ANSI/ASME B4.1 — מערכת כוננויות אינצ'ית</div>
+<div style="font-size:13px;line-height:1.9">
+המערכת האמריקאית (טרום-ISO) עדיין נפוצה בשרטוטים ותקנים אמריקאים ישנים ותעשיית התעופה. מחולקת ל-<b>8 מחלקות</b> לפי סוג הכוננת — שונה לגמרי מהאותיות של ISO!
+</div>
+</div>
+
+<table><tr><th>מחלקה</th><th>שם מלא</th><th>סוג</th><th>מקביל ISO בקירוב</th></tr>
+<tr><td><b style="color:var(--blue)">RC</b></td><td>Running / Sliding Clearance</td><td>הזזה — הרצה</td><td>H7/f6...H11/c11</td></tr>
+<tr><td><b style="color:var(--green)">LC</b></td><td>Locational Clearance</td><td>הזזה — מיקום</td><td>H7/h6, H7/g6</td></tr>
+<tr><td><b style="color:var(--yellow)">LT</b></td><td>Locational Transition</td><td>מעבר — מיקום</td><td>H7/k6, H7/js6</td></tr>
+<tr><td><b style="color:var(--orange)">LN</b></td><td>Locational Interference</td><td>לחץ קל — מיקום</td><td>H7/n6, H7/p6</td></tr>
+<tr><td><b style="color:var(--red)">FN</b></td><td>Force / Shrink Fit</td><td>לחץ / כיווץ</td><td>H7/s6, H7/u6</td></tr>
+</table>
+
+<div class="card" style="margin-top:12px">
+<div class="ctitle">📋 טבלת RC — Running/Sliding Fits נפוצות (⌀2" = 50.8mm)</div>
+<table><tr><th>מחלקה</th><th>אופי</th><th>שימוש</th></tr>
+<tr><td>RC1</td><td>מדויקת מאוד</td><td>מכשור, כלי מדידה</td></tr>
+<tr><td>RC3</td><td>מדויקת</td><td>ציר במסב דיוק, ספינדל</td></tr>
+<tr><td><b style="color:var(--orange)">RC5–RC6</b></td><td>כללית ★</td><td>מסבי החלקה, ציוד תעשייתי כללי</td></tr>
+<tr><td>RC8–RC9</td><td>רחבה</td><td>ציוד חקלאי, סרק גדול מקובל</td></tr>
+</table>
+</div>
+
+<div class="card">
+<div class="ctitle">📋 טבלת FN — Force/Shrink Fits</div>
+<table><tr><th>מחלקה</th><th>עוצמת לחץ</th><th>הרכבה</th><th>שימוש</th></tr>
+<tr><td>FN1</td><td>קל</td><td>פרס יד</td><td>בושים קלים, פליז/ברונזה</td></tr>
+<tr><td>FN2</td><td>בינוני</td><td>פרס הידראולי</td><td>מסבים, גלגלי שיניים תעשייתיים</td></tr>
+<tr><td>FN3</td><td>כבד</td><td>פרס + חימום</td><td>חיבורים קבועים, עומס גבוה</td></tr>
+<tr><td>FN4–FN5</td><td>Shrink Fit</td><td>חימום בלבד (עד 300°C+)</td><td>עטרות, חיבורי כוח מרבי</td></tr>
+</table>
+<div class="note">TPI (Threads Per Inch) ומידות אינצ'יות משתמשות באותה פילוסופיה — תמיד בדוק אם השרטוט/הספק אמריקאי (ASME) או מטרי (ISO) לפני שממירים!</div>
+</div>
+</div>
+
+<!-- ============ COST ============ -->
+<div id="tol-cost" class="tol-sec">
+<div class="card">
+<div class="ctitle">💰 היחס בין סובלנות לעלות ייצור</div>
+<div style="font-size:13px;line-height:1.9">
+ההידוק בסובלנות אינו ליניארי בעלות — <b>הוא אקספוננציאלי</b>. כל צעד קדימה לדיוק גבוה יותר מצריך תהליך שונה לגמרי, לא רק "לעבוד יותר בזהירות".
+</div>
+</div>
+
+<div class="card">
+<div class="ctitle">📈 עקומת עלות-סובלנות (יחסי, לא מוחלט)</div>
+<table><tr><th>סובלנות (מידה ⌀50mm)</th><th>IT Grade</th><th>תהליך</th><th>עלות יחסית</th></tr>
+<tr><td>±0.5mm</td><td>IT12-13</td><td>יציקה/חישול גס</td><td>×1 (בסיס)</td></tr>
+<tr><td>±0.2mm</td><td>IT10-11</td><td>חריטה/כרסום גס</td><td>×1.3</td></tr>
+<tr><td>±0.05mm</td><td>IT8-9</td><td>חריטה/כרסום רגיל</td><td>×2</td></tr>
+<tr><td>±0.021mm (IT7)</td><td>IT7</td><td>כרסום/חריטה גמר, הזנה איטית</td><td>×3.5</td></tr>
+<tr><td>±0.010mm</td><td>IT6</td><td>שחיקה (Grinding)</td><td>×7</td></tr>
+<tr><td>±0.003mm</td><td>IT4-5</td><td>שחיקה מדויקת, Honing</td><td>×15</td></tr>
+<tr><td>±0.001mm</td><td>IT2-3</td><td>לאפינג, Superfinish</td><td>×35+</td></tr>
+</table>
+<div class="note">המספרים יחסיים ומשתנים לפי גיאומטריה/חומר/כמות — אבל המגמה האקספוננציאלית עקבית בכל תעשיית הייצור.</div>
+</div>
+
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">❌ טעות נפוצה</div>
+<div style="font-size:12px;line-height:1.8">
+מהנדס "מוסיף בטחון" ומהדק סובלנות "כדי להיות בטוח" — בלי לבדוק אם זה באמת נדרש פונקציונלית. תוצאה: עלות כפולה-משולשת ללא תועלת.
+</div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:var(--green)">✅ הגישה הנכונה</div>
+<div style="font-size:12px;line-height:1.8">
+בחר את הסובלנות <b>הרחבה ביותר</b> שעדיין מבטיחה תפקוד (הרכבה, עומס, אטימה). כל השאר — ISO 2768 כללי. תן ל-Stack-up Analysis להראות איפה באמת צריך הידוק.
+</div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">💡 טיפ מעשי</div>
+<div style="font-size:12px;line-height:1.8">
+שאל: "מה קורה אם המידה הזו חורגת ב-0.1mm?" אם התשובה "כלום" — הסובלנות רחבה מדי בשרטוט הנוכחי ואפשר להרפות ולחסוך.
+</div></div>
+</div>
+</div>
+
+<!-- ============ CALCULATORS ============ -->
+<div id="tol-calc" class="tol-sec">
+<div class="card">
+<div class="ctitle">🧮 מחשבון גבולות כוננת</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">חישוב גבולות חור וציר</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:8px">הכנס מידה נומינלית וסטיות (μm) לחישוב גבולות וכוננת בפועל</div>
+<div class="cg">
+  <div><label>מידה נומינלית (mm)</label><input id="ft-nom" type="number" value="50" step="0.1" oninput="calcFit()"></div>
+  <div><label>סטייה עליונה חור ES (μm)</label><input id="ft-es" type="number" value="25" step="1" oninput="calcFit()"></div>
+  <div><label>סטייה תחתונה חור EI (μm)</label><input id="ft-ei" type="number" value="0" step="1" oninput="calcFit()"></div>
+  <div><label>סטייה עליונה ציר es (μm)</label><input id="ft-esh" type="number" value="-25" step="1" oninput="calcFit()"></div>
+  <div><label>סטייה תחתונה ציר ei (μm)</label><input id="ft-eih" type="number" value="-50" step="1" oninput="calcFit()"></div>
+</div>
+<div id="ft-result" class="res" style="margin-top:10px">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">⛓️ מחשבון Stack-up (עד 5 חוליות)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:8px">הכנס סובלנות ± לכל חוליה (mm) — 0 = לא בשימוש</div>
+<div class="cg">
+  <div><label>חוליה 1</label><input id="su-1" type="number" value="0.10" step="0.01" oninput="calcStackup()"></div>
+  <div><label>חוליה 2</label><input id="su-2" type="number" value="0.05" step="0.01" oninput="calcStackup()"></div>
+  <div><label>חוליה 3</label><input id="su-3" type="number" value="0.08" step="0.01" oninput="calcStackup()"></div>
+  <div><label>חוליה 4</label><input id="su-4" type="number" value="0" step="0.01" oninput="calcStackup()"></div>
+  <div><label>חוליה 5</label><input id="su-5" type="number" value="0" step="0.01" oninput="calcStackup()"></div>
+</div>
+<div id="su-result" class="res" style="margin-top:10px">—</div>
+<div class="tip-box">▸ Worst Case = Σ|ti| (סכום ישיר)<br>▸ RSS = √(Σti²) (שורש סכום ריבועים — תקף רק בתהליך מבוקר סטטיסטית)</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
