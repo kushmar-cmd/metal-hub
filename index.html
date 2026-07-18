@@ -2117,11 +2117,11 @@ var GDT_WCFG = {
   position:        {tpl:'A', label:'מרכז חור',  fcf:'⊕0.24 A|B|C', datum:false},
   concentricity:   {tpl:'A', label:'מרכז חתך',  fcf:'◎0.10 A',     datum:true},
   symmetry:        {tpl:'A', label:'מישור חציוני', fcf:'≡0.10 A', datum:true},
-  flatness:        {tpl:'B', label:'שטחיות',    orient:'flat',    datum:false},
-  straightness:    {tpl:'B', label:'ישרות',     orient:'flat',    datum:false},
-  parallelism:     {tpl:'B', label:'מקביליות',  orient:'flat',    datum:true},
-  perpendicularity:{tpl:'B', label:'ניצבות',    orient:'vert',    datum:true},
-  angularity:      {tpl:'B', label:'זוויתיות',  orient:'angle',   datum:true, nomAngle:30},
+  flatness:        {tpl:'B', label:'שטחיות',   mode:'wave'},
+  straightness:    {tpl:'B', label:'ישרות',    mode:'wave'},
+  parallelism:     {tpl:'B', label:'מקביליות', mode:'shift'},
+  perpendicularity:{tpl:'B', label:'ניצבות',   mode:'tilt', nomAngle:90},
+  angularity:      {tpl:'B', label:'זוויתיות', mode:'tilt', nomAngle:30},
   circularity:     {tpl:'C', label:'עגוליות',   sweep:false, datum:false},
   cylindricity:    {tpl:'C', label:'גלילות',    sweep:true,  datum:false},
   runout:          {tpl:'C', label:'זריקה',     sweep:false, datum:true},
@@ -2199,27 +2199,47 @@ function gdtAUpdate(el){
 /* ---------- TEMPLATE B: surface vs band + dial sweep (Flatness,Straightness,Parallelism,Perp,Angularity) ---------- */
 function gdtTplB(type,c){
   var uid='gB'+Math.random().toString(36).slice(2,8);
-  var rot = c.orient==='vert'?90:(c.orient==='angle'?(90-c.nomAngle):0);
-  return '<div class="gdt-widget" data-type="'+type+'" data-rot="'+rot+'" id="'+uid+'" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">'
-  +'<div style="flex:1;min-width:260px">'
-  +'<svg viewBox="0 0 300 190" width="100%">'
-  +'<g class="rotg" transform="rotate('+rot+' 150 100)">'
-  +'<line x1="20" y1="80" x2="280" y2="80" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
-  +'<line x1="20" y1="120" x2="280" y2="120" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
-  +'<path class="surf" d="M20,100 Q150,100 280,100" fill="none" stroke="var(--text)" stroke-width="2.2" stroke-linecap="round"/>'
-  +'</g>'
-  +(c.datum?'<rect x="20" y="150" width="260" height="10" rx="3" fill="var(--card)" stroke="var(--teal)" stroke-width="1"/><text x="150" y="176" text-anchor="middle" font-size="9" fill="var(--teal)">Datum A</text>':
-    '<rect x="20" y="150" width="260" height="10" rx="3" fill="var(--card)" stroke="var(--border)" stroke-width="0.6"/><text x="150" y="176" text-anchor="middle" font-size="9" fill="var(--muted)">משטח ייחוס (גרניט)</text>')
-  +'<g class="probe">'
-  +'<line x1="0" y1="-34" x2="0" y2="0" stroke="var(--muted)" stroke-width="1.6"/>'
-  +'<circle cx="0" cy="-38" r="8" fill="var(--card)" stroke="var(--text)" stroke-width="0.8"/>'
-  +'<line class="ndl" x1="0" y1="-38" x2="0" y2="-44" stroke="var(--red)" stroke-width="1.2"/>'
-  +'</g></svg></div>'
+  var isWave = c.mode==='wave';
+  var isShift = c.mode==='shift';
+  var isTilt = c.mode==='tilt';
+  var svgInner;
+  if(isWave){
+    svgInner =
+       '<line x1="20" y1="80" x2="280" y2="80" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<line x1="20" y1="120" x2="280" y2="120" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<path class="surf" d="M20,100 Q150,100 280,100" fill="none" stroke="var(--text)" stroke-width="2.2" stroke-linecap="round"/>'
+      +'<rect x="20" y="150" width="260" height="10" rx="3" fill="var(--card)" stroke="var(--border)" stroke-width="0.6"/>'
+      +'<text x="150" y="176" text-anchor="middle" font-size="9" fill="var(--muted)">משטח ייחוס (גרניט)</text>'
+      +'<g class="probe"><line x1="0" y1="-34" x2="0" y2="0" stroke="var(--muted)" stroke-width="1.6"/>'
+      +'<circle cx="0" cy="-38" r="8" fill="var(--card)" stroke="var(--text)" stroke-width="0.8"/>'
+      +'<line class="ndl" x1="0" y1="-38" x2="0" y2="-44" stroke="var(--red)" stroke-width="1.2"/></g>';
+  } else if(isShift){
+    svgInner =
+       '<line x1="20" y1="150" x2="280" y2="150" stroke="var(--teal)" stroke-width="2"/>'
+      +'<text x="150" y="166" text-anchor="middle" font-size="9" fill="var(--teal)">Datum A</text>'
+      +'<line x1="20" y1="80" x2="280" y2="80" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<line x1="20" y1="120" x2="280" y2="120" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<line class="surf" x1="20" y1="100" x2="280" y2="100" stroke="var(--text)" stroke-width="2.4" stroke-linecap="round"/>'
+      +'<g class="probe"><line x1="0" y1="-34" x2="0" y2="0" stroke="var(--muted)" stroke-width="1.6"/>'
+      +'<circle cx="0" cy="-38" r="8" fill="var(--card)" stroke="var(--text)" stroke-width="0.8"/>'
+      +'<line class="ndl" x1="0" y1="-38" x2="0" y2="-44" stroke="var(--red)" stroke-width="1.2"/></g>';
+  } else {
+    svgInner =
+       '<line x1="40" y1="160" x2="260" y2="160" stroke="var(--teal)" stroke-width="2"/>'
+      +'<text x="150" y="176" text-anchor="middle" font-size="9" fill="var(--teal)">Datum A</text>'
+      +'<line class="tolLo" x1="150" y1="160" x2="0" y2="0" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<line class="tolHi" x1="150" y1="160" x2="0" y2="0" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+      +'<line class="surf" x1="150" y1="160" x2="0" y2="0" stroke="var(--text)" stroke-width="2.6" stroke-linecap="round"/>'
+      +'<circle cx="150" cy="160" r="3" fill="var(--text)"/>'
+      +'<circle class="probe" cx="0" cy="0" r="6" fill="var(--card)" stroke="var(--red)" stroke-width="1.6"/>';
+  }
+  return '<div class="gdt-widget" data-type="'+type+'" data-mode="'+c.mode+'" data-nom="'+(c.nomAngle||0)+'" id="'+uid+'" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">'
+  +'<div style="flex:1;min-width:260px"><svg viewBox="0 0 300 190" width="100%">'+svgInner+'</svg></div>'
   +'<div style="flex:1;min-width:220px">'
-  +'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">עקמומיות '+c.label+' בפועל</div>'
-  +'<input type="range" class="bd" min="-35" max="35" value="10" step="1" style="width:100%" oninput="gdtBUpdate(this)">'
-  +'<div style="font-size:11px;color:var(--muted);margin:10px 0 4px">מיקום שעון המדידה</div>'
-  +'<input type="range" class="ps" min="0" max="100" value="50" step="1" style="width:100%" oninput="gdtBUpdate(this)">'
+  +'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">'+(isTilt?'זווית נטייה נוספת (מעלות)':(isShift?'הזזת המשטח כמכלול קשיח':'עקמומיות '+c.label+' בפועל'))+'</div>'
+  +'<input type="range" class="bd" min="'+(isTilt?-12:-35)+'" max="'+(isTilt?12:35)+'" value="'+(isTilt?4:10)+'" step="1" style="width:100%" oninput="gdtBUpdate(this)">'
+  +'<div style="font-size:11px;color:var(--muted);margin:10px 0 4px">מיקום שעון המדידה '+(isTilt?'לאורך המשטח':'')+'</div>'
+  +'<input type="range" class="ps" min="0" max="100" value="60" step="1" style="width:100%" oninput="gdtBUpdate(this)">'
   +'<div style="background:var(--card);border-radius:8px;padding:10px;margin-top:12px">'
   +'<div style="font-size:11px;color:var(--muted)">קריאת שעון מדידה (TIR)</div>'
   +'<div class="rv" style="font-size:18px;font-weight:700;margin:2px 0">0.00mm</div>'
@@ -2228,21 +2248,65 @@ function gdtTplB(type,c){
 function gdtBSurfY(xNorm,bend){ return 100+bend*Math.sin(xNorm*Math.PI); }
 function gdtBUpdate(el){
   var w=el.closest('.gdt-widget');
+  var mode=w.getAttribute('data-mode');
   var bend=parseFloat(w.querySelector('.bd').value);
   var pos=parseFloat(w.querySelector('.ps').value);
-  var pts=[];
-  for(var i=0;i<=20;i++){var xn=i/20;pts.push((20+xn*260)+','+gdtBSurfY(xn,bend));}
-  w.querySelector('.surf').setAttribute('d','M'+pts.join(' L'));
-  var xn=pos/100, x=20+xn*260, y=gdtBSurfY(xn,bend);
-  w.querySelector('.probe').setAttribute('transform','translate('+x+','+y+')');
-  var dev=y-100, mm=(dev/10).toFixed(2), tol=20, pass=Math.abs(dev)<=tol;
-  w.querySelector('.rv').textContent=(dev>=0?'+':'')+mm+'mm';
-  var st=w.querySelector('.st'), surf=w.querySelector('.surf'), ndl=w.querySelector('.ndl');
-  if(pass){st.textContent='בתוך הטווח — עובר';st.style.color='var(--green)';surf.setAttribute('stroke','var(--text)');ndl.setAttribute('stroke','var(--green)');}
-  else{st.textContent='חורג מהטווח — פסול!';st.style.color='var(--red)';surf.setAttribute('stroke','var(--red)');ndl.setAttribute('stroke','var(--red)');}
+  var dev, mm, tol, pass;
+
+  if(mode==='wave'){
+    var pts=[];
+    for(var i=0;i<=20;i++){var xn=i/20;pts.push((20+xn*260)+','+gdtBSurfY(xn,bend));}
+    w.querySelector('.surf').setAttribute('d','M'+pts.join(' L'));
+    var xn=pos/100, x=20+xn*260, y=gdtBSurfY(xn,bend);
+    w.querySelector('.probe').setAttribute('transform','translate('+x+','+y+')');
+    dev=y-100; tol=20;
+  } else if(mode==='shift'){
+    var y=100+bend;
+    var surf=w.querySelector('.surf');
+    surf.setAttribute('y1',y); surf.setAttribute('y2',y);
+    var x=20+(pos/100)*260;
+    w.querySelector('.probe').setAttribute('transform','translate('+x+','+y+')');
+    dev=bend; tol=20;
+  } else {
+    var nom=parseFloat(w.getAttribute('data-nom'));
+    var tolAngDeg=6;
+    var pivotX=150, pivotY=160, L=140;
+    var totalAngDeg = nom + bend;
+    var rad = totalAngDeg*Math.PI/180;
+    var ex = pivotX + L*Math.cos(rad), ey = pivotY - L*Math.sin(rad);
+    w.querySelector('.surf').setAttribute('x2',ex); w.querySelector('.surf').setAttribute('y2',ey);
+    var loRad=(nom-tolAngDeg)*Math.PI/180, hiRad=(nom+tolAngDeg)*Math.PI/180;
+    w.querySelector('.tolLo').setAttribute('x2', pivotX+L*Math.cos(loRad));
+    w.querySelector('.tolLo').setAttribute('y2', pivotY-L*Math.sin(loRad));
+    w.querySelector('.tolHi').setAttribute('x2', pivotX+L*Math.cos(hiRad));
+    w.querySelector('.tolHi').setAttribute('y2', pivotY-L*Math.sin(hiRad));
+    var f=pos/100;
+    var px=pivotX+f*L*Math.cos(rad), py=pivotY-f*L*Math.sin(rad);
+    w.querySelector('.probe').setAttribute('cx',px); w.querySelector('.probe').setAttribute('cy',py);
+    dev=bend; tol=tolAngDeg;
+  }
+
+  mm=(dev/10).toFixed(2);
+  pass=Math.abs(dev)<=tol;
+  if(mode==='tilt') w.querySelector('.rv').textContent=(dev>=0?'+':'')+dev.toFixed(1)+'°';
+  else w.querySelector('.rv').textContent=(dev>=0?'+':'')+mm+'mm';
+
+  var st=w.querySelector('.st');
+  var surfEl=w.querySelector('.surf');
+  var ndlOrProbe = w.querySelector('.ndl') || w.querySelector('.probe');
+  if(pass){
+    st.textContent='בתוך הטווח — עובר';st.style.color='var(--green)';
+    surfEl.setAttribute('stroke','var(--text)');
+    if(mode==='tilt'){w.querySelector('.probe').setAttribute('stroke','var(--green)');}
+    else{ndlOrProbe.setAttribute('stroke','var(--green)');}
+  } else {
+    st.textContent='חורג מהטווח — פסול!';st.style.color='var(--red)';
+    surfEl.setAttribute('stroke','var(--red)');
+    if(mode==='tilt'){w.querySelector('.probe').setAttribute('stroke','var(--red)');}
+    else{ndlOrProbe.setAttribute('stroke','var(--red)');}
+  }
 }
 
-/* ---------- TEMPLATE C: rotating cross-section + TIR (Circularity,Cylindricity,Runout,TotalRunout) ---------- */
 function gdtTplC(type,c){
   var uid='gC'+Math.random().toString(36).slice(2,8);
   return '<div class="gdt-widget" data-type="'+type+'" data-sweep="'+(c.sweep?1:0)+'" id="'+uid+'" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">'
