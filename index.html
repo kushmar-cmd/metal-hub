@@ -203,6 +203,9 @@ h3{font-size:13px;font-weight:700;color:var(--text);margin:12px 0 6px}
 .fst-sec{display:none}.fst-sec.active{display:block}
 .fst-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
 .fst-tab:hover{border-color:var(--blue);color:var(--fg)}.fst-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tol-sec{display:none}.tol-sec.active{display:block}
+.tol-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.tol-tab:hover{border-color:var(--blue);color:var(--text)}.tol-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
 .ins-sec{display:none}.ins-sec.active{display:block}
 
 
@@ -2425,7 +2428,7 @@ async function _loadTab(id) {
   const url = _lazyTabs[id];
   if (!url) return;
   try {
-    const r = await fetch(url + '?v=2');
+    const r = await fetch(url + '?v=3');
     if (!r.ok) throw new Error(r.status);
     const html = await r.text();
     // Regex-based extraction: get everything between outer div tags
@@ -2448,7 +2451,7 @@ async function _loadTab(id) {
     // Auto-activate first sub-tab by explicit ID (לא selector)
     const tabFirstIds = {
       'chem':'adhesives','inspection':'gauges','gears':'types','springs':'types','inserts':'helicoil','standards':'gdt_std','surface':'params','pricing':'calc','calc':'machining','seals':'oring','hydraulics':'basics','dfm':'principles','pressure':'hydro','bearings':'types','gdt':'symbols',
-      'welding':'mig','fasteners':'bolts','heat':'anneal','coatings':'anod','threads':'iso'
+      'welding':'mig','fasteners':'bolts','tol':'it','heat':'anneal','coatings':'anod','threads':'iso'
     };
     if (tabFirstIds[id]) {
       setTimeout(function(){
@@ -2459,7 +2462,7 @@ async function _loadTab(id) {
           'bearings': showBear, 'gdt': show_gd,
           'welding': show_wld, 'heat': show_ht, 'coatings': show_coat,
           'threads': show_thr, 'springs': showSpr, 'inserts': showIns,
-          'standards': showStd, 'fasteners': showFst, 'mfgtech': showMfg,
+          'standards': showStd, 'fasteners': showFst, 'tol': showTol, 'mfgtech': showMfg,
           'surface': showSrf, 'seals': showSl, 'hydraulics': showHy, 'pricing': showPrc, 'dfm': showDfm,
           'pressure': showPrs, 'calc': showCalc
         };
@@ -2588,6 +2591,7 @@ function showIns(id,btn){
   if(btn)btn.classList.add('active');
 }
 function showFst(id,btn){document.querySelectorAll('.fst-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.fst-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('fst-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
+function showTol(id,btn){document.querySelectorAll('.tol-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tol-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('tol-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function calcInsDrill(){
   const vals=(document.getElementById('ins-size').value||'6,1.0,7.0').split(',');
   const d=parseFloat(vals[0]),pitch=parseFloat(vals[1]),sti=parseFloat(vals[2]);
@@ -4550,6 +4554,23 @@ const STATIC_INDEX = [
   {icon:'💪',cat:'חיבורים',he:'דרגה 12.9 — מקסימום',en:'Property Class 12.9',tab:'fasteners',sub:'grades',def:'UTS 1220 · Sy 1080 MPa. ⚠️ סיכון Hydrogen Embrittlement! Bake חובה.'},
   {icon:'💪',cat:'חיבורים',he:'A2-70 / A4-80 — נירוסטה',en:'Stainless Steel Bolt Grades',tab:'fasteners',sub:'grades',def:'A2=304, A4=316. 70/80=UTS. חלש מ-8.8 — אל תחליף 1:1!'},
   {icon:'💪',cat:'חיבורים',he:'ASTM A193 B7 + A194 2H — לחץ',en:'Pressure Vessel Studs',tab:'fasteners',sub:'grades',def:'4140 Q&T. הצמד לאוגנים ומכלי לחץ. B7M ל-Sour Service (HRC≤22).'},
+,
+// ── סובלנויות: הרחבה ──
+  {icon:'🔤',cat:'סובלנויות',he:'Hole Basis — שיטת בסיס-חור',en:'Hole Basis System',tab:'tol',sub:'sys',def:'החור תמיד H — הכוננת נקבעת ע"י בחירת הציר. השיטה הנפוצה — חורים מיוצרים בכלים סטנדרטיים.'},
+  {icon:'🔤',cat:'סובלנויות',he:'Shaft Basis — שיטת בסיס-ציר',en:'Shaft Basis System',tab:'tol',sub:'sys',def:'הציר תמיד h — הבית משתנה. משמש כשהציר פריט מדף מוכן (מוט מוכסף).'},
+  {icon:'🔤',cat:'סובלנויות',he:'טבלת אותיות סטייה A-ZC / a-zc',en:'Deviation Letter Table',tab:'tol',sub:'sys',def:'a-h=רווח, js-n=מעבר, p-zc=חפיפה. h/H=אפס בדיוק על הקו הנומינלי.'},
+  {icon:'🔗',cat:'סובלנויות',he:'H8/e8, H8/f7 — כוננויות H8',en:'H8 Clearance Fits',tab:'tol',sub:'fits',def:'סובלנות רחבה מ-H7. מסבי החלקה בעומס קל, מנגנונים כלליים.'},
+  {icon:'🔗',cat:'סובלנויות',he:'H9/h9, H11/c11 — כוננויות מסחריות',en:'H9 H11 Commercial Fits',tab:'tol',sub:'fits',def:'סובלנות רחבה וזולה. חלקי פח, ברגי מכונה, הרכבות גסות.'},
+  {icon:'⛓️',cat:'סובלנויות',he:'Worst Case — מקרה גרוע ביותר',en:'Worst Case Tolerance Stack',tab:'tol',sub:'stack',def:'Gap=Σnominal±Σtolerances. בטוח לחלוטין אך יקר. תעופה, בטיחות קריטית.'},
+  {icon:'⛓️',cat:'סובלנויות',he:'RSS — Root Sum Square',en:'RSS Statistical Tolerance Stack',tab:'tol',sub:'stack',def:'Gap_tol=√(Σti²). סובלנות מכלול רחבה יותר. דורש תהליך מבוקר Cpk≥1.33.'},
+  {icon:'⛓️',cat:'סובלנויות',he:'דוגמה מספרית Stack-up — 3 חלקים',en:'Stack-up Numerical Example',tab:'tol',sub:'stack',def:'בית+מרווחן+ציר: WC=±0.23mm מול RSS=±0.137mm — הפרש 40% ברוחב הסובלנות.'},
+  {icon:'⛓️',cat:'סובלנויות',he:'Selective Assembly — הרכבה סלקטיבית',en:'Selective Assembly',tab:'tol',sub:'stack',def:'מיון חלקים לקבוצות והתאמה. פותר Stack-up שלא נסגר בלי הידוק ייצור.'},
+  {icon:'🇺🇸',cat:'סובלנויות',he:'RC — Running Sliding Clearance',en:'ANSI RC Fit Class',tab:'tol',sub:'ansi',def:'מחלקת כוננת אמריקאית להזזה/הרצה. RC5-6=כללי, RC1-3=מדויק.'},
+  {icon:'🇺🇸',cat:'סובלנויות',he:'LC/LT/LN — Locational Fits',en:'ANSI Locational Fit Classes',tab:'tol',sub:'ansi',def:'LC=הזזה מיקום, LT=מעבר מיקום, LN=לחץ קל מיקום. תקן ASME B4.1.'},
+  {icon:'🇺🇸',cat:'סובלנויות',he:'FN — Force / Shrink Fit',en:'ANSI FN Force Fit Class',tab:'tol',sub:'ansi',def:'לחץ/כיווץ אמריקאי. FN1=קל (פרס יד) עד FN5=Shrink Fit (חימום 300°C+).'},
+  {icon:'💰',cat:'סובלנויות',he:'עקומת עלות-סובלנות',en:'Tolerance Cost Curve',tab:'tol',sub:'cost',def:'אקספוננציאלי לא ליניארי! IT7→IT6 (שחיקה) ≈ ×2 עלות. IT4→IT2 (לאפינג) ≈ ×2.3.'},
+  {icon:'🧮',cat:'סובלנויות',he:'מחשבון גבולות כוננת',en:'Fit Limits Calculator',tab:'tol',sub:'calc',def:'חישוב גבולות חור/ציר וסוג כוננת (הזזה/מעבר/לחץ) מתוך ES/EI/es/ei.'},
+  {icon:'🧮',cat:'סובלנויות',he:'מחשבון Stack-up — WC/RSS',en:'Stack-up Calculator',tab:'tol',sub:'calc',def:'חישוב אוטומטי Worst Case מול RSS עד 5 חוליות + אחוז חיסכון.'},
   // === 305 NEW GLOSSARY TERMS (expansion to 1000) ===
   {icon:'🔩',cat:'הברגות',he:'UNC — הברגה מאוחדת גסה',en:'Unified National Coarse Thread',abbr:'UNC',tab:'glossary',def:'הברגה אינצ`ית סטנדרטית גסה — ברירת המחדל האמריקאית. 1/4-20 UNC = 20 TPI.'},
   {icon:'🔩',cat:'הברגות',he:'UNF — הברגה מאוחדת עדינה',en:'Unified National Fine Thread',abbr:'UNF',tab:'glossary',def:'הברגה אינצ`ית עדינה — לרטט, כיוון מדויק, ודפנות דקות. 1/4-28 UNF = 28 TPI.'},
@@ -5406,6 +5427,37 @@ function calcOring(){
   document.getElementById('or-result').innerHTML=
     `לחיצה: <b style="color:${sqColor}">${squeeze.toFixed(1)}%</b> ${sqOk?'✅':'⚠️'} · מילוי: <b style="color:${fillColor}">${fill.toFixed(1)}%</b> ${fillOk?'✅':'⚠️'}<br>עומק חריץ h=<b>${h}mm</b> · חוט d₂=<b>${d2}mm</b>`;
 }
+function calcFit(){
+  const nom=parseFloat(document.getElementById('ft-nom').value)||50;
+  const ES=parseFloat(document.getElementById('ft-es').value)||0;
+  const EI=parseFloat(document.getElementById('ft-ei').value)||0;
+  const es=parseFloat(document.getElementById('ft-esh').value)||0;
+  const ei=parseFloat(document.getElementById('ft-eih').value)||0;
+  const holeMax=nom+ES/1000, holeMin=nom+EI/1000;
+  const shaftMax=nom+es/1000, shaftMin=nom+ei/1000;
+  const clearMax=holeMax-shaftMin, clearMin=holeMin-shaftMax;
+  const isClearance = clearMin>=0;
+  const isInterference = clearMax<=0;
+  const fitType = isClearance?'הזזה (Clearance)':(isInterference?'לחץ (Interference)':'מעבר (Transition)');
+  const fitColor = isClearance?'var(--green)':(isInterference?'var(--red)':'var(--blue)');
+  document.getElementById('ft-result').innerHTML=
+    `חור: <b>⌀${holeMin.toFixed(3)} – ${holeMax.toFixed(3)}mm</b> · ציר: <b>⌀${shaftMin.toFixed(3)} – ${shaftMax.toFixed(3)}mm</b><br>`+
+    `טווח כוננת: <b>${clearMin>=0?'+':''}${(clearMin*1000).toFixed(0)}μm עד ${clearMax>=0?'+':''}${(clearMax*1000).toFixed(0)}μm</b><br>`+
+    `סוג כוננת: <b style="color:${fitColor}">${fitType}</b>`;
+}
+function calcStackup(){
+  const vals=[1,2,3,4,5].map(i=>parseFloat(document.getElementById('su-'+i).value)||0).filter(v=>v!==0);
+  if(!vals.length){document.getElementById('su-result').innerHTML='הכנס לפחות ערך אחד';return;}
+  const wc=vals.reduce((a,b)=>a+Math.abs(b),0);
+  const rss=Math.sqrt(vals.reduce((a,b)=>a+b*b,0));
+  const savings=((wc-rss)/wc*100);
+  document.getElementById('su-result').innerHTML=
+    `חוליות בשימוש: <b>${vals.length}</b><br>`+
+    `Worst Case: <b style="color:var(--red)">±${wc.toFixed(3)}mm</b><br>`+
+    `RSS (סטטיסטי): <b style="color:var(--green)">±${rss.toFixed(3)}mm</b><br>`+
+    `חיסכון ברוחב הסובלנות: <b>${savings.toFixed(0)}%</b>`;
+}
+
 
 // ── SPRING CALCULATOR ──
 function calcSpring(){
