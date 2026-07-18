@@ -209,6 +209,15 @@ h3{font-size:13px;font-weight:700;color:var(--text);margin:12px 0 6px}
 .mch-sec{display:none}.mch-sec.active{display:block}
 .mch-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
 .mch-tab:hover{border-color:var(--blue);color:var(--text)}.mch-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.str-sec{display:none}.str-sec.active{display:block}
+.str-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.str-tab:hover{border-color:var(--blue);color:var(--text)}.str-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.fma-sec{display:none}.fma-sec.active{display:block}
+.fma-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.fma-tab:hover{border-color:var(--blue);color:var(--text)}.fma-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.chg-sec{display:none}.chg-sec.active{display:block}
+.chg-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.chg-tab:hover{border-color:var(--blue);color:var(--text)}.chg-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
 .ins-sec{display:none}.ins-sec.active{display:block}
 
 
@@ -2600,7 +2609,7 @@ async function _loadTab(id) {
   const url = _lazyTabs[id];
   if (!url) return;
   try {
-    const r = await fetch(url + '?v=4');
+    const r = await fetch(url + '?v=5');
     if (!r.ok) throw new Error(r.status);
     const html = await r.text();
     // Regex-based extraction: get everything between outer div tags
@@ -2623,7 +2632,7 @@ async function _loadTab(id) {
     // Auto-activate first sub-tab by explicit ID (לא selector)
     const tabFirstIds = {
       'chem':'adhesives','inspection':'gauges','gears':'types','springs':'types','inserts':'helicoil','standards':'gdt_std','surface':'params','pricing':'calc','calc':'machining','seals':'oring','hydraulics':'basics','dfm':'principles','pressure':'hydro','bearings':'types','gdt':'symbols',
-      'welding':'mig','fasteners':'bolts','tol':'it','machining':'vc','heat':'anneal','coatings':'anod','threads':'iso'
+      'welding':'mig','fasteners':'bolts','tol':'it','machining':'vc','stress':'beams','fmea':'rpn','changes':'eco','heat':'anneal','coatings':'anod','threads':'iso'
     };
     if (tabFirstIds[id]) {
       setTimeout(function(){
@@ -2634,7 +2643,7 @@ async function _loadTab(id) {
           'bearings': showBear, 'gdt': show_gd,
           'welding': show_wld, 'heat': show_ht, 'coatings': show_coat,
           'threads': show_thr, 'springs': showSpr, 'inserts': showIns,
-          'standards': showStd, 'fasteners': showFst, 'tol': showTol, 'machining': showMch, 'mfgtech': showMfg,
+          'standards': showStd, 'fasteners': showFst, 'tol': showTol, 'machining': showMch, 'stress': showStr, 'fmea': showFma, 'changes': showChg, 'mfgtech': showMfg,
           'surface': showSrf, 'seals': showSl, 'hydraulics': showHy, 'pricing': showPrc, 'dfm': showDfm,
           'pressure': showPrs, 'calc': showCalc
         };
@@ -2765,6 +2774,9 @@ function showIns(id,btn){
 function showFst(id,btn){document.querySelectorAll('.fst-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.fst-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('fst-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function showTol(id,btn){document.querySelectorAll('.tol-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tol-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('tol-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function showMch(id,btn){document.querySelectorAll('.mch-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.mch-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('mch-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
+function showStr(id,btn){document.querySelectorAll('.str-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.str-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('str-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
+function showFma(id,btn){document.querySelectorAll('.fma-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.fma-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('fma-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
+function showChg(id,btn){document.querySelectorAll('.chg-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.chg-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('chg-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function calcInsDrill(){
   const vals=(document.getElementById('ins-size').value||'6,1.0,7.0').split(',');
   const d=parseFloat(vals[0]),pitch=parseFloat(vals[1]),sti=parseFloat(vals[2]);
@@ -4763,6 +4775,26 @@ const STATIC_INDEX = [
   {icon:'🔍',cat:'עיבוד מכני',he:'אבחון BUE — הצטברות על כלי',en:'BUE Diagnosis',tab:'machining',sub:'trouble',def:'Vc נמוך מדי, חומר דביק. פתרון: העלה Vc, ציפוי DLC, קירור מספק.'},
   {icon:'🔍',cat:'עיבוד מכני',he:'אבחון Chatter — רטט',en:'Chatter Diagnosis',tab:'machining',sub:'trouble',def:'תדר עצמי, Overhang גדול. פתרון: שנה RPM, הקטן ap, הידוק טוב יותר.'},
   {icon:'🔍',cat:'עיבוד מכני',he:'אבחון בלאי כלי מהיר',en:'Fast Tool Wear Diagnosis',tab:'machining',sub:'trouble',def:'Vc גבוה מדי, ציפוי לא מתאים. פתרון: הפחת Vc לפי Taylor, שדרג ציפוי.'},
+,
+// ── עומסים/FMEA/שינויים: הרחבה ──
+  {icon:'🔄',cat:'ניתוח עומסים',he:'Endurance Limit — גבול עייפות',en:'Fatigue Endurance Limit',tab:'stress',sub:'fatigue',def:'Se≈0.5×Sut לפלדה. אין ל-Al/Ti גבול אמיתי — תמיד יישברו בסוף.'},
+  {icon:'🔄',cat:'ניתוח עומסים',he:'Marin Factors — מקדמי תיקון Se',en:'Marin Correction Factors',tab:'stress',sub:'fatigue',def:'ka(גימור)×kb(גודל)×kc(עומס)×kd(חום)×ke(אמינות). גימור גרוע = Se נמוך ב-30-50%!'},
+  {icon:'🔄',cat:'ניתוח עומסים',he:'Goodman Diagram — עומס משולב',en:'Goodman Fatigue Diagram',tab:'stress',sub:'fatigue',def:'σa/Se+σm/Sut=1/SF. מאמץ ממוצע חיובי מזיק, שלילי (לחיצה) משפר עייפות.'},
+  {icon:'📏',cat:'ניתוח עומסים',he:'Euler Buckling — קריסת עמוד',en:'Euler Column Buckling',tab:'stress',sub:'buckling',def:'Pcr=π²EI/(KL)². קנטילבר K=2 הכי חלש! הכפלת אורך=רבע כושר עומס.'},
+  {icon:'🧮',cat:'ניתוח עומסים',he:'מחשבון Euler Buckling',en:'Buckling Calculator',tab:'stress',sub:'calc2',def:'חישוב חי של Pcr ויחס רזות לפי E, קוטר, אורך, ותנאי קצה.'},
+  {icon:'🧮',cat:'ניתוח עומסים',he:'מחשבון Von Mises',en:'Von Mises Calculator',tab:'stress',sub:'calc2',def:'חישוב חי של מאמץ שקול ומקדם בטיחות מ-σ, τ, Sy.'},
+  {icon:'💻',cat:'ניתוח עומסים',he:'מתי צריך FEA?',en:'When to Use FEA',tab:'stress',sub:'fea',def:'גיאומטריה מורכבת/עומסים משולבים → FEA. פשוט וברור → חישוב ידני מספיק.'},
+  {icon:'🎯',cat:'ניתוח עומסים',he:'מקדמי בטיחות לפי יישום',en:'Safety Factors by Application',tab:'stress',sub:'sf',def:'תעופה 1.25-1.5, כללי 2-2.5, עייפות 3-4, הרמה 4-6.'},
+  {icon:'🆕',cat:'FMEA',he:'AIAG-VDA Action Priority',en:'Action Priority AP',tab:'fmea',sub:'aiag',def:'מחליף RPN. High/Medium/Low מבוסס S קודם. S=9 לא מתחבא מאחורי RPN נמוך.'},
+  {icon:'🔀',cat:'FMEA',he:'DFMEA מול PFMEA',en:'DFMEA vs PFMEA',tab:'fmea',sub:'types',def:'DFMEA=בודק תכן לפני ייצור. PFMEA=בודק תהליך ייצור. DFMEA קודם בזמן.'},
+  {icon:'🔧',cat:'FMEA',he:'5-Why — חמשת הלמה',en:'5-Why Root Cause',tab:'fmea',sub:'tools',def:'שואלים למה עד גורם שורש אמיתי. אשמת עובד כמעט אף פעם לא שורש.'},
+  {icon:'🔧',cat:'FMEA',he:'8D Problem Solving',en:'8D Methodology',tab:'fmea',sub:'tools',def:'D1 צוות→D3 בלימה 24h→D4 שורש מאומת→D7 מניעה מערכתית.'},
+  {icon:'📜',cat:'FMEA',he:'MIL-STD-1629A מול IEC 60812',en:'FMEA Standards Comparison',tab:'fmea',sub:'stds',def:'MIL-STD-1629A=ביטחוני/תעופה. IEC 60812=אזרחי. AIAG/VDA=רכב 2019.'},
+  {icon:'💾',cat:'ניהול שינויים',he:'PLM — Product Lifecycle Management',en:'PLM System',tab:'changes',sub:'plm',def:'מקור אמת אחד: CAD+BOM+ECO+חתימות. Windchill, Teamcenter.'},
+  {icon:'📐',cat:'ניהול שינויים',he:'Baseline — קו בסיס תצורה',en:'Configuration Baseline',tab:'changes',sub:'plm',def:'FBL/ABL/PBL. מרגע קיבוע — כל שינוי רק דרך ECO.'},
+  {icon:'📝',cat:'ניהול שינויים',he:'Deviation מול Waiver',en:'Deviation vs Waiver',tab:'changes',sub:'deviation',def:'Deviation=אישור מראש לחריגה. Waiver=אישור בדיעבד אחרי שכבר יוצר חריג.'},
+  {icon:'🔍',cat:'ניהול שינויים',he:'MRB — Material Review Board',en:'Material Review Board',tab:'changes',sub:'mrb',def:'Use-As-Is / Rework / Repair / Scrap. סמכות UAI רק למוסמכים!'},
+  {icon:'🔗',cat:'ניהול שינויים',he:'Where-Used — ניתוח השפעה',en:'Where-Used Analysis',tab:'changes',sub:'eco',def:'לפני כל ECO: איפה עוד החלק חי? PLM נותן תשובה בלחיצה.'},
   // === 305 NEW GLOSSARY TERMS (expansion to 1000) ===
   {icon:'🔩',cat:'הברגות',he:'UNC — הברגה מאוחדת גסה',en:'Unified National Coarse Thread',abbr:'UNC',tab:'glossary',def:'הברגה אינצ`ית סטנדרטית גסה — ברירת המחדל האמריקאית. 1/4-20 UNC = 20 TPI.'},
   {icon:'🔩',cat:'הברגות',he:'UNF — הברגה מאוחדת עדינה',en:'Unified National Fine Thread',abbr:'UNF',tab:'glossary',def:'הברגה אינצ`ית עדינה — לרטט, כיוון מדויק, ודפנות דקות. 1/4-28 UNF = 28 TPI.'},
@@ -5664,6 +5696,34 @@ function calcMachining(){
     `מהירות שולחן (Vf): <b style="color:var(--blue)">${Vf.toFixed(0)}</b> mm/min<br>`+
     `קצב הסרת חומר (MRR): <b style="color:var(--green)">${MRR.toFixed(1)}</b> cm³/min`;
 }
+function calcBuckling(){
+  const E=(parseFloat(document.getElementById('bk-e').value)||200)*1000;
+  const D=parseFloat(document.getElementById('bk-d').value)||20;
+  const L=parseFloat(document.getElementById('bk-l').value)||800;
+  const K=parseFloat(document.getElementById('bk-k').value)||1;
+  const I=Math.PI*Math.pow(D,4)/64;
+  const A=Math.PI*Math.pow(D/2,2);
+  const r=Math.sqrt(I/A);
+  const slenderness=(K*L)/r;
+  const Pcr=(Math.PI**2*E*I)/Math.pow(K*L,2);
+  const regime = slenderness>100 ? 'Euler (קשיחות שולטת)' : 'ביניים (בדוק גם חוזק חומר!)';
+  document.getElementById('bk-result').innerHTML=
+    `Pcr (עומס קריטי): <b style="color:var(--red)">${Pcr.toFixed(0)}</b> N<br>`+
+    `יחס רזות (KL/r): <b>${slenderness.toFixed(1)}</b><br>`+
+    `תחום: <b style="color:var(--blue)">${regime}</b>`;
+}
+function calcVonMises(){
+  const s=parseFloat(document.getElementById('vm-s').value)||0;
+  const t=parseFloat(document.getElementById('vm-t').value)||0;
+  const Sy=parseFloat(document.getElementById('vm-sy').value)||350;
+  const sv=Math.sqrt(s*s+3*t*t);
+  const SF=Sy/sv;
+  const sfColor = SF>=2?'var(--green)':(SF>=1.2?'var(--yellow)':'var(--red)');
+  document.getElementById('vm-result').innerHTML=
+    `מאמץ Von Mises (σv): <b>${sv.toFixed(1)}</b> MPa<br>`+
+    `מקדם בטיחות (SF): <b style="color:${sfColor}">${SF.toFixed(2)}</b>${SF<1?' ⚠️ כשל!':''}`;
+}
+
 
 
 
