@@ -2609,7 +2609,7 @@ async function _loadTab(id) {
   const url = _lazyTabs[id];
   if (!url) return;
   try {
-    const r = await fetch(url + '?v=5');
+    const r = await fetch(url + '?v=7');
     if (!r.ok) throw new Error(r.status);
     const html = await r.text();
     // Regex-based extraction: get everything between outer div tags
@@ -5681,7 +5681,139 @@ function calcStackup(){
     `RSS (סטטיסטי): <b style="color:var(--green)">±${rss.toFixed(3)}mm</b><br>`+
     `חיסכון ברוחב הסובלנות: <b>${savings.toFixed(0)}%</b>`;
 }
-function calcMachining(){
+function calcFitCentral(){
+  const nom=parseFloat(document.getElementById('ft2-nom').value)||50;
+  const ES=parseFloat(document.getElementById('ft2-es').value)||0;
+  const EI=parseFloat(document.getElementById('ft2-ei').value)||0;
+  const es=parseFloat(document.getElementById('ft2-esh').value)||0;
+  const ei=parseFloat(document.getElementById('ft2-eih').value)||0;
+  const holeMax=nom+ES/1000, holeMin=nom+EI/1000;
+  const shaftMax=nom+es/1000, shaftMin=nom+ei/1000;
+  const clearMax=holeMax-shaftMin, clearMin=holeMin-shaftMax;
+  const isClearance = clearMin>=0;
+  const isInterference = clearMax<=0;
+  const fitType = isClearance?'הזזה (Clearance)':(isInterference?'לחץ (Interference)':'מעבר (Transition)');
+  const fitColor = isClearance?'var(--green)':(isInterference?'var(--red)':'var(--blue)');
+  document.getElementById('ft2-result').innerHTML=
+    `חור: <b>⌀${holeMin.toFixed(3)} – ${holeMax.toFixed(3)}mm</b> · ציר: <b>⌀${shaftMin.toFixed(3)} – ${shaftMax.toFixed(3)}mm</b><br>`+
+    `טווח כוננת: <b>${clearMin>=0?'+':''}${(clearMin*1000).toFixed(0)}μm עד ${clearMax>=0?'+':''}${(clearMax*1000).toFixed(0)}μm</b><br>`+
+    `סוג כוננת: <b style="color:${fitColor}">${fitType}</b>`;
+}
+
+function calcStackupCentral(){
+  const vals=[1,2,3,4,5].map(i=>parseFloat(document.getElementById('su2-'+i).value)||0).filter(v=>v!==0);
+  if(!vals.length){document.getElementById('su2-result').innerHTML='הכנס לפחות ערך אחד';return;}
+  const wc=vals.reduce((a,b)=>a+Math.abs(b),0);
+  const rss=Math.sqrt(vals.reduce((a,b)=>a+b*b,0));
+  const savings=((wc-rss)/wc*100);
+  document.getElementById('su2-result').innerHTML=
+    `חוליות בשימוש: <b>${vals.length}</b><br>`+
+    `Worst Case: <b style="color:var(--red)">±${wc.toFixed(3)}mm</b><br>`+
+    `RSS (סטטיסטי): <b style="color:var(--green)">±${rss.toFixed(3)}mm</b><br>`+
+    `חיסכון ברוחב הסובלנות: <b>${savings.toFixed(0)}%</b>`;
+}
+
+function calcGdtPosZone(){
+  const base=parseFloat(document.getElementById('gdz-base').value)||0.2;
+  const mmc=parseFloat(document.getElementById('gdz-mmc').value)||10;
+  const actual=parseFloat(document.getElementById('gdz-actual').value)||10;
+  const type=document.getElementById('gdz-type').value;
+  let bonus;
+  if(type==='hole'){
+    bonus = actual - mmc;
+  } else {
+    bonus = mmc - actual;
+  }
+  bonus = Math.max(0, bonus);
+  const total = base + bonus;
+  document.getElementById('gdz-result').innerHTML=
+    `בונוס סובלנות: <b style="color:var(--orange)">+${bonus.toFixed(3)}mm</b><br>`+
+    `אזור סובלנות כולל: <b style="color:var(--green);font-size:16px;font-weight:800">⌀${total.toFixed(3)}mm</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">בסיס ⌀${base.toFixed(3)} + בונוס ${bonus.toFixed(3)}</span>`;
+}
+
+function calcUnitConv(group, source){
+  if(group==='len'){
+    if(source==='mm'){ const mm=parseFloat(document.getElementById('uc2-mm').value)||0; document.getElementById('uc2-in').value=(mm/25.4).toFixed(4); }
+    else { const inch=parseFloat(document.getElementById('uc2-in').value)||0; document.getElementById('uc2-mm').value=(inch*25.4).toFixed(3); }
+  } else if(group==='stress'){
+    if(source==='mpa'){ const mpa=parseFloat(document.getElementById('uc2-mpa').value)||0; document.getElementById('uc2-psi').value=(mpa*145.038).toFixed(0); }
+    else { const psi=parseFloat(document.getElementById('uc2-psi').value)||0; document.getElementById('uc2-mpa').value=(psi/145.038).toFixed(2); }
+  } else if(group==='torque'){
+    if(source==='nm'){ const nm=parseFloat(document.getElementById('uc2-nm').value)||0; document.getElementById('uc2-lbft').value=(nm*0.737562).toFixed(3); }
+    else { const lbft=parseFloat(document.getElementById('uc2-lbft').value)||0; document.getElementById('uc2-nm').value=(lbft/0.737562).toFixed(3); }
+  } else if(group==='temp'){
+    if(source==='c'){ const c=parseFloat(document.getElementById('uc2-c').value)||0; document.getElementById('uc2-f').value=(c*9/5+32).toFixed(1); }
+    else { const f=parseFloat(document.getElementById('uc2-f').value)||0; document.getElementById('uc2-c').value=((f-32)*5/9).toFixed(1); }
+  }
+}
+
+function calcTapDrill(){
+  const D=parseFloat(document.getElementById('tap-d').value)||10;
+  const P=parseFloat(document.getElementById('tap-p').value)||1.5;
+  const eng=parseFloat(document.getElementById('tap-eng').value)||75;
+  // Practical shop formula: 75% = D-P (universal quick rule), 100% = D-1.083P, 65% = D-0.85P
+  const multiplier = eng>=100 ? 1.083 : (eng>=75 ? 1.000 : 0.850);
+  const drill = D - multiplier*P;
+  document.getElementById('tap-result').innerHTML=
+    `קוטר קדח: <b style="color:var(--green);font-size:16px;font-weight:800">⌀${drill.toFixed(2)}mm</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">M${D}×${P} @ ${eng}% אחיזה — קדח סטנדרטי הקרוב ביותר: ⌀${(Math.round(drill*10)/10).toFixed(1)}mm</span>`;
+}
+
+function calcRaFinish(){
+  const fn=parseFloat(document.getElementById('raf-fn').value)||0.15;
+  const r=parseFloat(document.getElementById('raf-r').value)||0.8;
+  const ra = (fn*fn)/(8*r)*1000;
+  let quality, color;
+  if(ra<=0.8){quality='גמר עדין מאוד';color='var(--green)';}
+  else if(ra<=1.6){quality='גמר טוב';color='var(--green)';}
+  else if(ra<=3.2){quality='כללי';color='var(--yellow)';}
+  else {quality='גס';color='var(--orange)';}
+  document.getElementById('raf-result').innerHTML=
+    `Ra צפוי: <b style="color:${color};font-size:16px;font-weight:800">${ra.toFixed(2)}μm</b> — ${quality}<br>`+
+    `<span style="color:var(--muted);font-size:11px">Ra≈fn²/(8×Rε)×1000. Wiper Insert = הזנה כפולה באותו Ra</span>`;
+}
+
+function calcVonMisesCentral(){
+  const s=parseFloat(document.getElementById('vm2-s').value)||0;
+  const t=parseFloat(document.getElementById('vm2-t').value)||0;
+  const Sy=parseFloat(document.getElementById('vm2-sy').value)||350;
+  const sv=Math.sqrt(s*s+3*t*t);
+  const SF=Sy/sv;
+  const sfColor = SF>=2?'var(--green)':(SF>=1.2?'var(--yellow)':'var(--red)');
+  document.getElementById('vm2-result').innerHTML=
+    `מאמץ Von Mises (σv): <b>${sv.toFixed(1)}</b> MPa<br>`+
+    `מקדם בטיחות (SF): <b style="color:${sfColor}">${SF.toFixed(2)}</b>${SF<1?' ⚠️ כשל!':''}`;
+}
+
+function calcFatigueGoodman(){
+  const sa=parseFloat(document.getElementById('fat-sa').value)||0;
+  const sm=parseFloat(document.getElementById('fat-sm').value)||0;
+  const Se=parseFloat(document.getElementById('fat-se').value)||300;
+  const Sut=parseFloat(document.getElementById('fat-sut').value)||600;
+  const usage = sa/Se + sm/Sut;
+  const SF = 1/usage;
+  const sfColor = SF>=2?'var(--green)':(SF>=1?'var(--yellow)':'var(--red)');
+  document.getElementById('fat-result').innerHTML=
+    `יחס ניצול Goodman: <b>${(usage*100).toFixed(1)}%</b><br>`+
+    `מקדם בטיחות עייפות (SF): <b style="color:${sfColor};font-size:16px;font-weight:800">${SF.toFixed(2)}</b>${SF<1?' ⚠️ כשל עייפות צפוי!':''}`;
+}
+
+function calcPressFit(){
+  const delta=parseFloat(document.getElementById('pf-delta').value)||0.04;
+  const D=parseFloat(document.getElementById('pf-d').value)||50;
+  const alpha=parseFloat(document.getElementById('pf-alpha').value)||0.0000115;
+  const margin=parseFloat(document.getElementById('pf-margin').value)||30;
+  const dT_min = delta/(alpha*D);
+  const dT_total = dT_min + margin;
+  document.getElementById('pf-result').innerHTML=
+    `ΔT מינימלי (רק לחפיפה): <b>${dT_min.toFixed(0)}°C</b><br>`+
+    `ΔT מומלץ (עם מרווח): <b style="color:var(--green);font-size:16px;font-weight:800">${dT_total.toFixed(0)}°C</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">חמם ל-${dT_total.toFixed(0)}°C מעל טמפ' הבית לפני הרכבה</span>`;
+}
+
+
+function calcMchSpeedFeed(){
   const Vc=parseFloat(document.getElementById('mc-vc').value)||150;
   const D=parseFloat(document.getElementById('mc-d').value)||10;
   const fz=parseFloat(document.getElementById('mc-fz').value)||0.08;
@@ -5696,7 +5828,7 @@ function calcMachining(){
     `מהירות שולחן (Vf): <b style="color:var(--blue)">${Vf.toFixed(0)}</b> mm/min<br>`+
     `קצב הסרת חומר (MRR): <b style="color:var(--green)">${MRR.toFixed(1)}</b> cm³/min`;
 }
-function calcBuckling(){
+function calcStrBuckling(){
   const E=(parseFloat(document.getElementById('bk-e').value)||200)*1000;
   const D=parseFloat(document.getElementById('bk-d').value)||20;
   const L=parseFloat(document.getElementById('bk-l').value)||800;
@@ -6477,27 +6609,35 @@ function calcHertz(){
 
 function shapeChangeCalc(){
   const sh=document.getElementById('wt-sh').value;
+  const unitEl=document.getElementById('wt-unit');
+  const unit=unitEl?unitEl.value:'mm';
+  const u = unit==='in' ? '(inch)' : '(mm)';
   const l1=document.getElementById('wt-l1');
   const l2=document.getElementById('wt-l2');
+  const l3=document.getElementById('wt-l3');
   const g3=document.getElementById('wt-g3');
   const g4=document.getElementById('wt-g4');
   switch(sh){
-    case 'bar':   l1.textContent='קוטר (mm)'; l2.textContent='אורך (mm)'; g3.style.display='none'; g4.style.display='none'; break;
-    case 'rect':  l1.textContent='רוחב (mm)'; l2.textContent='גובה (mm)'; g3.style.display='block'; g4.style.display='block'; break;
-    case 'tube':  l1.textContent='קוטר חיצוני (mm)'; l2.textContent='אורך (mm)'; g3.style.display='block'; g4.style.display='none'; break;
-    case 'plate': l1.textContent='אורך (mm)'; l2.textContent='רוחב (mm)'; g3.style.display='block'; g4.style.display='none'; break;
-    case 'hex':   l1.textContent='מקצה למקצה (mm)'; l2.textContent='אורך (mm)'; g3.style.display='none'; g4.style.display='none'; break;
-    case 'ring':  l1.textContent='OD (mm)'; l2.textContent='אורך (mm)'; g3.style.display='block'; g4.style.display='none'; break;
+    case 'bar':   l1.textContent='קוטר '+u; l2.textContent='אורך '+u; g3.style.display='none'; g4.style.display='none'; break;
+    case 'rect':  l1.textContent='רוחב '+u; l2.textContent='גובה '+u; l3.textContent='אורך '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'tube':  l1.textContent='קוטר חיצוני '+u; l2.textContent='אורך '+u; l3.textContent='עובי דופן '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'plate': l1.textContent='אורך '+u; l2.textContent='רוחב '+u; l3.textContent='עובי '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'hex':   l1.textContent='מקצה למקצה '+u; l2.textContent='אורך '+u; g3.style.display='none'; g4.style.display='none'; break;
+    case 'ring':  l1.textContent='OD '+u; l2.textContent='אורך '+u; l3.textContent='עובי דופן '+u; g3.style.display='block'; g4.style.display='none'; break;
   }
   calcWtNew();
 }
 
 function calcWtNew(){
   const sh=document.getElementById('wt-sh').value;
-  const d1=parseFloat(document.getElementById('wt-d1').value)||50;
-  const d2=parseFloat(document.getElementById('wt-d2').value)||100;
-  const d3=parseFloat(document.getElementById('wt-d3').value)||5;
-  const d4=parseFloat(document.getElementById('wt-d4').value)||30;
+  const unitEl=document.getElementById('wt-unit');
+  const unit=unitEl?unitEl.value:'mm';
+  const toMM = unit==='in' ? 25.4 : 1;
+  const d1=(parseFloat(document.getElementById('wt-d1').value)||50)*toMM;
+  const d2=(parseFloat(document.getElementById('wt-d2').value)||100)*toMM;
+  const d3=(parseFloat(document.getElementById('wt-d3').value)||5)*toMM;
+  const d4=(parseFloat(document.getElementById('wt-d4').value)||30)*toMM;
+  const qty=parseInt(document.getElementById('wt-qty').value)||1;
   const rho=parseFloat(document.getElementById('wt-mt').value)||7.85;
   let vol=0;
   switch(sh){
@@ -6508,11 +6648,13 @@ function calcWtNew(){
     case 'hex':  vol=Math.pow(d1,2)*Math.sqrt(3)/2*d2; break;
     case 'ring': vol=Math.PI*(Math.pow(d1/2,2)-Math.pow(d1/2-d3,2))*d2; break;
   }
-  const mass=vol*rho*1e-3;
+  const massEach=vol*rho*1e-6;
+  const massTotal=massEach*qty;
   document.getElementById('mec-res4').innerHTML=
-    `<b>נפח:</b> ${(vol/1000).toFixed(1)} cm³<br>
-     <b>משקל:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${mass.toFixed(3)} kg</span><br>
-     <span style="color:var(--muted);font-size:11px">${(mass*1000).toFixed(1)} גרם · ρ=${rho} g/cm³</span>`;
+    `<b>נפח ליחידה:</b> ${(vol/1000).toFixed(1)} cm³<br>
+     <b>משקל ליחידה:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${massEach.toFixed(3)} kg</span> (${(massEach*1000).toFixed(1)} גרם)<br>
+     ${qty>1?`<b>משקל כולל (${qty} יח\'):</b> <span style="color:var(--orange);font-size:16px;font-weight:800">${massTotal.toFixed(3)} kg</span><br>`:''}
+     <span style="color:var(--muted);font-size:11px">ρ=${rho} g/cm³${unit==='in'?' · מידות הוזנו באינץ\' והומרו ל-mm':''}</span>`;
 }
 
 function calcTorque(){
