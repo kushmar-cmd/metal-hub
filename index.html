@@ -206,6 +206,9 @@ h3{font-size:13px;font-weight:700;color:var(--text);margin:12px 0 6px}
 .tol-sec{display:none}.tol-sec.active{display:block}
 .tol-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
 .tol-tab:hover{border-color:var(--blue);color:var(--text)}.tol-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mch-sec{display:none}.mch-sec.active{display:block}
+.mch-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.mch-tab:hover{border-color:var(--blue);color:var(--text)}.mch-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
 .ins-sec{display:none}.ins-sec.active{display:block}
 
 
@@ -2428,7 +2431,7 @@ async function _loadTab(id) {
   const url = _lazyTabs[id];
   if (!url) return;
   try {
-    const r = await fetch(url + '?v=3');
+    const r = await fetch(url + '?v=4');
     if (!r.ok) throw new Error(r.status);
     const html = await r.text();
     // Regex-based extraction: get everything between outer div tags
@@ -2451,7 +2454,7 @@ async function _loadTab(id) {
     // Auto-activate first sub-tab by explicit ID (לא selector)
     const tabFirstIds = {
       'chem':'adhesives','inspection':'gauges','gears':'types','springs':'types','inserts':'helicoil','standards':'gdt_std','surface':'params','pricing':'calc','calc':'machining','seals':'oring','hydraulics':'basics','dfm':'principles','pressure':'hydro','bearings':'types','gdt':'symbols',
-      'welding':'mig','fasteners':'bolts','tol':'it','heat':'anneal','coatings':'anod','threads':'iso'
+      'welding':'mig','fasteners':'bolts','tol':'it','machining':'vc','heat':'anneal','coatings':'anod','threads':'iso'
     };
     if (tabFirstIds[id]) {
       setTimeout(function(){
@@ -2462,7 +2465,7 @@ async function _loadTab(id) {
           'bearings': showBear, 'gdt': show_gd,
           'welding': show_wld, 'heat': show_ht, 'coatings': show_coat,
           'threads': show_thr, 'springs': showSpr, 'inserts': showIns,
-          'standards': showStd, 'fasteners': showFst, 'tol': showTol, 'mfgtech': showMfg,
+          'standards': showStd, 'fasteners': showFst, 'tol': showTol, 'machining': showMch, 'mfgtech': showMfg,
           'surface': showSrf, 'seals': showSl, 'hydraulics': showHy, 'pricing': showPrc, 'dfm': showDfm,
           'pressure': showPrs, 'calc': showCalc
         };
@@ -2592,6 +2595,7 @@ function showIns(id,btn){
 }
 function showFst(id,btn){document.querySelectorAll('.fst-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.fst-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('fst-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function showTol(id,btn){document.querySelectorAll('.tol-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tol-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('tol-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
+function showMch(id,btn){document.querySelectorAll('.mch-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.mch-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('mch-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function calcInsDrill(){
   const vals=(document.getElementById('ins-size').value||'6,1.0,7.0').split(',');
   const d=parseFloat(vals[0]),pitch=parseFloat(vals[1]),sti=parseFloat(vals[2]);
@@ -4571,6 +4575,25 @@ const STATIC_INDEX = [
   {icon:'💰',cat:'סובלנויות',he:'עקומת עלות-סובלנות',en:'Tolerance Cost Curve',tab:'tol',sub:'cost',def:'אקספוננציאלי לא ליניארי! IT7→IT6 (שחיקה) ≈ ×2 עלות. IT4→IT2 (לאפינג) ≈ ×2.3.'},
   {icon:'🧮',cat:'סובלנויות',he:'מחשבון גבולות כוננת',en:'Fit Limits Calculator',tab:'tol',sub:'calc',def:'חישוב גבולות חור/ציר וסוג כוננת (הזזה/מעבר/לחץ) מתוך ES/EI/es/ei.'},
   {icon:'🧮',cat:'סובלנויות',he:'מחשבון Stack-up — WC/RSS',en:'Stack-up Calculator',tab:'tol',sub:'calc',def:'חישוב אוטומטי Worst Case מול RSS עד 5 חוליות + אחוז חיסכון.'},
+,
+// ── עיבוד מכני: הרחבה ──
+  {icon:'📉',cat:'עיבוד מכני',he:'Taylor Tool Life — חיי כלי',en:'Taylor Tool Life Equation',tab:'machining',sub:'vc',def:'Vc×Tⁿ=C. העלאת Vc ב-20% מקצרת חיי כלי ב-50% (n≈0.25 קרביד).'},
+  {icon:'➡️',cat:'עיבוד מכני',he:'הזנה לשן fz לפי חומר',en:'Feed per Tooth by Material',tab:'machining',sub:'feed',def:'טבלת fz מומלץ לפי חומר וקוטר כלי — Al/פלדה/SS/Ti/Inconel.'},
+  {icon:'🌀',cat:'עיבוד מכני',he:'Chip Thinning — פיצוי הזנה',en:'Chip Thinning Compensation',tab:'machining',sub:'feed',def:'ae קטן = שבב דק בפועל. אפשר להעלות fz פי 1.5-2 ב-ae=10%D.'},
+  {icon:'🧮',cat:'עיבוד מכני',he:'מחשבון RPM/Feed/MRR',en:'Machining Calculator',tab:'machining',sub:'formulas',def:'חישוב חי של סל"ד, מהירות שולחן וקצב הסרת חומר מפרמטרי חיתוך.'},
+  {icon:'🧭',cat:'עיבוד מכני',he:'kc — לחץ חיתוך ספציפי',en:'Specific Cutting Force kc',tab:'machining',sub:'formulas',def:'קובע כוח והספק נדרש. אלומיניום 500-900, Inconel 2800-3500 N/mm².'},
+  {icon:'💎',cat:'עיבוד מכני',he:'גיאומטריית שינית — בחירה',en:'Insert Geometry Selection',tab:'machining',sub:'tools',def:'זווית חוד, Chip Breaker, רדיוס חוד — בחירה לפי יישום.'},
+  {icon:'🎯',cat:'עיבוד מכני',he:'קידוד ISO שינית — CNMG',en:'ISO Insert Code Decoding',tab:'machining',sub:'tools',def:'פענוח קוד: CNMG120408 = צורה+חופש+סובלנות+שפה+עובי+רדיוס.'},
+  {icon:'🚿',cat:'עיבוד מכני',he:'Through-Tool Coolant — קירור דרך כלי',en:'Through Spindle Coolant',tab:'machining',sub:'coolant',def:'20-70bar דרך חורים בכלי. חובה לקידוח עמוק L/D>5.'},
+  {icon:'📋',cat:'עיבוד מכני',he:'פרמטרים לאלומיניום',en:'Aluminum Machining Parameters',tab:'machining',sub:'bymat',def:'Vc 200-500, fz 0.10-0.25. BUE=הבעיה העיקרית — העלה Vc.'},
+  {icon:'📋',cat:'עיבוד מכני',he:'פרמטרים לטיטניום',en:'Titanium Machining Parameters',tab:'machining',sub:'bymat',def:'Vc 30-60 נמוכה! מוליכות תרמית נמוכה = חום בכלי. Trochoidal מומלץ.'},
+  {icon:'📋',cat:'עיבוד מכני',he:'פרמטרים ל-Inconel/סופר-אלוי',en:'Inconel Machining Parameters',tab:'machining',sub:'bymat',def:'Vc 15-30. Work Hardening קשה. Trochoidal כמעט חובה.'},
+  {icon:'⚙️',cat:'עיבוד מכני',he:'פרמטרים לחריטת גמר',en:'Turning Finish Parameters',tab:'machining',sub:'byproc',def:'ap=0.2-0.5mm, fn=0.05-0.15. Wiper Insert = הזנה כפולה באותו Ra.'},
+  {icon:'⚙️',cat:'עיבוד מכני',he:'פרמטרים לכרסום Trochoidal',en:'Trochoidal Milling Parameters',tab:'machining',sub:'byproc',def:'ae=5-15%D, ap=1-3×D. MRR גבוה ב-30-300% לחומרים קשים.'},
+  {icon:'🔍',cat:'עיבוד מכני',he:'אבחון שבב לא נשבר',en:'Chip Control Problem Diagnosis',tab:'machining',sub:'trouble',def:'Chip Breaker לא מתאים, fz נמוך מדי. פתרון: העלה fz, שנה גיאומטריה.'},
+  {icon:'🔍',cat:'עיבוד מכני',he:'אבחון BUE — הצטברות על כלי',en:'BUE Diagnosis',tab:'machining',sub:'trouble',def:'Vc נמוך מדי, חומר דביק. פתרון: העלה Vc, ציפוי DLC, קירור מספק.'},
+  {icon:'🔍',cat:'עיבוד מכני',he:'אבחון Chatter — רטט',en:'Chatter Diagnosis',tab:'machining',sub:'trouble',def:'תדר עצמי, Overhang גדול. פתרון: שנה RPM, הקטן ap, הידוק טוב יותר.'},
+  {icon:'🔍',cat:'עיבוד מכני',he:'אבחון בלאי כלי מהיר',en:'Fast Tool Wear Diagnosis',tab:'machining',sub:'trouble',def:'Vc גבוה מדי, ציפוי לא מתאים. פתרון: הפחת Vc לפי Taylor, שדרג ציפוי.'},
   // === 305 NEW GLOSSARY TERMS (expansion to 1000) ===
   {icon:'🔩',cat:'הברגות',he:'UNC — הברגה מאוחדת גסה',en:'Unified National Coarse Thread',abbr:'UNC',tab:'glossary',def:'הברגה אינצ`ית סטנדרטית גסה — ברירת המחדל האמריקאית. 1/4-20 UNC = 20 TPI.'},
   {icon:'🔩',cat:'הברגות',he:'UNF — הברגה מאוחדת עדינה',en:'Unified National Fine Thread',abbr:'UNF',tab:'glossary',def:'הברגה אינצ`ית עדינה — לרטט, כיוון מדויק, ודפנות דקות. 1/4-28 UNF = 28 TPI.'},
@@ -5457,6 +5480,22 @@ function calcStackup(){
     `RSS (סטטיסטי): <b style="color:var(--green)">±${rss.toFixed(3)}mm</b><br>`+
     `חיסכון ברוחב הסובלנות: <b>${savings.toFixed(0)}%</b>`;
 }
+function calcMachining(){
+  const Vc=parseFloat(document.getElementById('mc-vc').value)||150;
+  const D=parseFloat(document.getElementById('mc-d').value)||10;
+  const fz=parseFloat(document.getElementById('mc-fz').value)||0.08;
+  const z=parseFloat(document.getElementById('mc-z').value)||4;
+  const ap=parseFloat(document.getElementById('mc-ap').value)||3;
+  const ae=parseFloat(document.getElementById('mc-ae').value)||5;
+  const n = (Vc*1000)/(Math.PI*D);
+  const Vf = fz*z*n;
+  const MRR = (ae*ap*Vf)/1000;
+  document.getElementById('mc-result').innerHTML=
+    `RPM (n): <b style="color:var(--blue)">${n.toFixed(0)}</b> סל"ד<br>`+
+    `מהירות שולחן (Vf): <b style="color:var(--blue)">${Vf.toFixed(0)}</b> mm/min<br>`+
+    `קצב הסרת חומר (MRR): <b style="color:var(--green)">${MRR.toFixed(1)}</b> cm³/min`;
+}
+
 
 
 // ── SPRING CALCULATOR ──
