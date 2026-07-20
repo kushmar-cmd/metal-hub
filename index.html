@@ -2301,7 +2301,7 @@ var GDT_WCFG = {
   position:        {tpl:'A', label:'מרכז חור',  fcf:'⊕0.24 A|B|C', datum:false},
   concentricity:   {tpl:'A', label:'מרכז חתך',  fcf:'◎0.10 A',     datum:true},
   symmetry:        {tpl:'A', label:'מישור חציוני', fcf:'≡0.10 A', datum:true},
-  flatness:        {tpl:'B', label:'שטחיות',   mode:'wave'},
+  flatness:        {tpl:'B', label:'שטחיות',   mode:'surface'},
   straightness:    {tpl:'B', label:'ישרות',    mode:'wave'},
   parallelism:     {tpl:'B', label:'מקביליות', mode:'shift'},
   perpendicularity:{tpl:'B', label:'ניצבות',   mode:'tilt', nomAngle:90},
@@ -2318,6 +2318,7 @@ function gdtAnimSVG(type){
   var c = GDT_WCFG[type];
   if(!c) return '';
   if(c.tpl==='A') return gdtTplA(type,c);
+  if(c.tpl==='B' && c.mode==='surface') return gdtTplBSurface(type,c);
   if(c.tpl==='B') return gdtTplB(type,c);
   if(c.tpl==='C') return gdtTplC(type,c);
   if(c.tpl==='D') return gdtTplD(type,c);
@@ -2488,6 +2489,98 @@ function gdtBUpdate(el){
     surfEl.setAttribute('stroke','var(--red)');
     if(mode==='tilt'){w.querySelector('.probe').setAttribute('stroke','var(--red)');}
     else{ndlOrProbe.setAttribute('stroke','var(--red)');}
+  }
+}
+
+
+// Isometric-ish projection helper for surface-mode rendering
+function gdtIsoPoint(i, j, height, ox, oy, cell){
+  const ang = 28 * Math.PI/180;
+  const x = ox + (i - j) * Math.cos(ang) * cell;
+  const y = oy + (i + j) * Math.sin(ang) * cell - height;
+  return [x, y];
+}
+function gdtSurfHeight(i, j, bend){
+  return bend * Math.sin(i*1.15 + 0.3) * Math.cos(j*0.9 + 0.5);
+}
+function gdtBuildGridPath(bend, ox, oy, cell, n){
+  let lines = '';
+  // rows (varying j at fixed i)
+  for(let i=0;i<n;i++){
+    let pts=[];
+    for(let j=0;j<n;j++){
+      const h = gdtSurfHeight(i,j,bend);
+      pts.push(gdtIsoPoint(i,j,h,ox,oy,cell));
+    }
+    lines += 'M'+pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' L')+' ';
+  }
+  // cols (varying i at fixed j)
+  for(let j=0;j<n;j++){
+    let pts=[];
+    for(let i=0;i<n;i++){
+      const h = gdtSurfHeight(i,j,bend);
+      pts.push(gdtIsoPoint(i,j,h,ox,oy,cell));
+    }
+    lines += 'M'+pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' L')+' ';
+  }
+  return lines;
+}
+function gdtBuildPlanePath(zval, ox, oy, cell, n){
+  // flat reference plane at constant height zval (a parallelogram outline)
+  const corners = [[0,0],[n-1,0],[n-1,n-1],[0,n-1]];
+  const pts = corners.map(([i,j])=>gdtIsoPoint(i,j,zval,ox,oy,cell));
+  return 'M'+pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' L')+' Z';
+}
+
+function gdtTplBSurface(type,c){
+  const uid='gBs'+Math.random().toString(36).slice(2,8);
+  return '<div class="gdt-widget" data-type="'+type+'" data-mode="surface" id="'+uid+'" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">'
+  +'<div style="flex:1;min-width:260px"><svg viewBox="0 0 300 190" width="100%">'
+  +'<path class="planeHi" d="" fill="none" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+  +'<path class="planeLo" d="" fill="none" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+  +'<path class="gridMesh" d="" fill="none" stroke="var(--text)" stroke-width="1.4"/>'
+  +'<circle class="probeDotS" cx="0" cy="0" r="5" fill="var(--red)" stroke="var(--card)" stroke-width="1"/>'
+  +'<text x="150" y="182" text-anchor="middle" font-size="9" fill="var(--muted)">משטח שלם (רשת מדידה) — לא קו בודד!</text>'
+  +'</svg></div>'
+  +'<div style="flex:1;min-width:220px">'
+  +'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">עקמומיות המשטח בפועל (בכל הכיוונים)</div>'
+  +'<input type="range" class="bdS" min="-30" max="30" value="12" step="1" style="width:100%" oninput="gdtSurfUpdate(this)">'
+  +'<div style="font-size:11px;color:var(--muted);margin:10px 0 4px">מיקום נקודת המדידה על הרשת (שורה,עמודה)</div>'
+  +'<input type="range" class="psRow" min="0" max="3" value="1" step="1" style="width:100%" oninput="gdtSurfUpdate(this)">'
+  +'<input type="range" class="psCol" min="0" max="3" value="2" step="1" style="width:100%;margin-top:6px" oninput="gdtSurfUpdate(this)">'
+  +'<div style="background:var(--card);border-radius:8px;padding:10px;margin-top:12px">'
+  +'<div style="font-size:11px;color:var(--muted)">קריאת שעון מדידה בנקודה זו</div>'
+  +'<div class="rvS" style="font-size:18px;font-weight:700;margin:2px 0">0.00mm</div>'
+  +'<div class="stS" style="font-size:12px;font-weight:600"></div></div></div></div>';
+}
+
+function gdtSurfUpdate(el){
+  const w = el.closest('.gdt-widget');
+  const bend = parseFloat(w.querySelector('.bdS').value);
+  const row = parseInt(w.querySelector('.psRow').value);
+  const col = parseInt(w.querySelector('.psCol').value);
+  const ox=150, oy=95, cell=32, n=4;
+
+  w.querySelector('.gridMesh').setAttribute('d', gdtBuildGridPath(bend, ox, oy, cell, n));
+  w.querySelector('.planeHi').setAttribute('d', gdtBuildPlanePath(20, ox, oy, cell, n));
+  w.querySelector('.planeLo').setAttribute('d', gdtBuildPlanePath(-20, ox, oy, cell, n));
+
+  const h = gdtSurfHeight(row, col, bend);
+  const [px,py] = gdtIsoPoint(row, col, h, ox, oy, cell);
+  w.querySelector('.probeDotS').setAttribute('cx', px);
+  w.querySelector('.probeDotS').setAttribute('cy', py);
+
+  const mm=(h/10).toFixed(2), tol=20, pass=Math.abs(h)<=tol;
+  w.querySelector('.rvS').textContent=(h>=0?'+':'')+mm+'mm';
+  const st=w.querySelector('.stS');
+  const mesh=w.querySelector('.gridMesh');
+  const dot=w.querySelector('.probeDotS');
+  if(pass){
+    st.textContent='בתוך הטווח — עובר (בנקודה זו)';st.style.color='var(--green)';
+    mesh.setAttribute('stroke','var(--text)'); dot.setAttribute('fill','var(--green)');
+  } else {
+    st.textContent='חורג מהטווח — פסול!';st.style.color='var(--red)';
+    mesh.setAttribute('stroke','var(--red)'); dot.setAttribute('fill','var(--red)');
   }
 }
 
