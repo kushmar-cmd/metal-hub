@@ -737,8 +737,8 @@ const GDT_DATA=[
   {sym:"≡",name:"סימטריה",en:"Symmetry",cat:"מיקום",anim:"symmetry",detail:"מגדיר שהמישור החציוני של מאפיין (חריץ, לשון) חייב להיות בתוך אזור סובלנות סביב מישור החציוני של ה-Datum. Datum חובה.\n\nשימוש: חריצי מפתח (Keyway) מרכזיים, לשונות סימטריות, חלקים דו-צדדיים.\n\nהוסר מ-ASME Y14.5-2018 (קשה למדידה — נקודות אמצע, לא פני שטח) — הוחלף ב-Position על מישור חציוני. עדיין נפוץ בשרטוטים ישנים."},
   {sym:"⌒",name:"פרופיל קו",en:"Profile of a Line",cat:"פרופיל",anim:"profile",detail:"מגדיר סובלנות על צורת קו חופשי 2D. עם Datum — מגביל גם מיקום.\n\nשימוש: פרופיל כנף, קמה, חריצים מעוגלים, עקומות NACA.\n\nנמדד עם: CMM, מחוון פרופיל, מסכה (template)."},
   {sym:"⌓",name:"פרופיל משטח",en:"Profile of a Surface",cat:"פרופיל",anim:"surfaceprofile",detail:"כמו פרופיל קו אך בתלת-ממד — מגדיר סובלנות על צורת משטח שלם, לא רק חתך בודד.\n\nשימוש: משטחים אווירודינמיים, תבניות יציקה, צורות חופשיות (Free-form).\n\nנמדד עם: CMM אופטי/מגע, השוואה למודל CAD נומינלי."},
-  {sym:"↗",name:"זריקה כוללת",en:"Total Runout",cat:"זריקה",anim:"totalrunout",detail:"מגדיר סטייה כוללת בסיבוב שלם: ישרות + עגוליות + ריכוזיות. Datum חובה.\n\nשימוש: ציר ראשי מנוע, גלגל שיניים מדויק.\n\nמחמיר יותר מ-Runout רגיל — דורש מדידה בכל הגליל."},
-  {sym:"↺",name:"זריקה",en:"Runout",cat:"זריקה",anim:"runout",detail:"מגדיר נדנוד מרבי בחתך יחיד בסיבוב. Datum חובה.\n\nשימוש: גל מנוע, ציר כנן, גלגל שיניים.\n\nמדידה פשוטה: מד גלגולים על ציר המסתובב."},
+  {sym:"↗↗",name:"זריקה כוללת",en:"Total Runout",cat:"זריקה",anim:"totalrunout",detail:"מגדיר סטייה כוללת בסיבוב שלם: ישרות + עגוליות + ריכוזיות. Datum חובה.\n\nשימוש: ציר ראשי מנוע, גלגל שיניים מדויק.\n\nמחמיר יותר מ-Runout רגיל — דורש מדידה בכל הגליל."},
+  {sym:"↗",name:"זריקה",en:"Runout",cat:"זריקה",anim:"runout",detail:"מגדיר נדנוד מרבי בחתך יחיד בסיבוב. Datum חובה.\n\nשימוש: גל מנוע, ציר כנן, גלגל שיניים.\n\nמדידה פשוטה: מד גלגולים על ציר המסתובב."},
 ];
 let GLOSSARY=[];
 fetch('data/glossary.json?v=4').then(r=>r.json()).then(d=>{GLOSSARY=d;if(document.getElementById('sec-glossary')&&document.getElementById('sec-glossary').classList.contains('active')){filterG();}}).catch(e=>console.error('glossary load failed',e));
@@ -2324,9 +2324,9 @@ var GDT_WCFG = {
   totalrunout:     {tpl:'C', label:'זריקה כוללת', sweep:true, datum:true,
     note:'כמו זריקה רגילה, אך שעון המדידה גם נע לאורך הגליל תוך כדי הסיבוב — לכן זה בודק גם עקמומיות/חרוט לאורך הציר, לא רק חתך בודד.'},
   profile:         {tpl:'D', label:'פרופיל קו',   datum:false,
-    explain:'עקומה דו-ממדית (קו חתך בודד) חייבת להישאר בין שתי העקומות הכחולות המקווקוות — רצועה ברוחב t סביב הצורה הנומינלית (הכחולה הרציפה שקופה).'},
-  surfaceprofile:  {tpl:'D', label:'פרופיל משטח', datum:true,
-    explain:'כמו פרופיל קו, אך חל על משטח שלם (דו-ממדי) ולא רק על קו חתך — ולכן כמעט תמיד דורש Datum ליישור המשטח לפני הבדיקה.'}
+    explain:'עקומה דו-ממדית (קו חתך בודד, כמו ישרות) חייבת להישאר בין שתי העקומות הכחולות המקווקוות — רצועה ברוחב t סביב הצורה הנומינלית.'},
+  surfaceprofile:  {tpl:'D', mode:'surface', label:'פרופיל משטח', datum:true,
+    explain:'משטח שלם (דו-ממדי, כמו שטחיות) — אך כאן הצורה הנומינלית חופשית/מעוקלת, לא שטוחה! הרצועה עוקבת אחרי קו המתאר, לא ישרה כמו בשטחיות.'}
 };
 
 function gdtAnimSVG(type){
@@ -2336,6 +2336,7 @@ function gdtAnimSVG(type){
   if(c.tpl==='B' && c.mode==='surface') return gdtTplBSurface(type,c);
   if(c.tpl==='B') return gdtTplB(type,c);
   if(c.tpl==='C') return gdtTplC(type,c);
+  if(c.tpl==='D' && c.mode==='surface') return gdtTplDSurface(type,c);
   if(c.tpl==='D') return gdtTplD(type,c);
   return '';
 }
@@ -2343,13 +2344,35 @@ function gdtAnimSVG(type){
 /* ---------- TEMPLATE A: deviation point + mating pin check (Position, Concentricity) ---------- */
 function gdtTplA(type,c){
   var uid = 'gA'+Math.random().toString(36).slice(2,8);
+  var isPosition = (type==='position');
+  var datumSvg;
+  if(isPosition){
+    datumSvg =
+       '<line x1="30" y1="228" x2="230" y2="228" stroke="var(--teal)" stroke-width="2.5"/>'
+      +'<line x1="30" y1="228" x2="30" y2="40" stroke="var(--teal)" stroke-width="2.5"/>'
+      +'<text x="230" y="240" text-anchor="end" font-size="9" fill="var(--teal)" font-weight="700">A</text>'
+      +'<text x="18" y="44" text-anchor="end" font-size="9" fill="var(--teal)" font-weight="700">B</text>'
+      +'<circle cx="30" cy="228" r="3" fill="var(--teal)"/>'
+      +'<line x1="30" y1="228" x2="130" y2="228" stroke="var(--orange)" stroke-width="0.8" stroke-dasharray="2,2"/>'
+      +'<line x1="130" y1="228" x2="130" y2="130" stroke="var(--orange)" stroke-width="0.8" stroke-dasharray="2,2"/>'
+      +'<rect x="70" y="219" width="34" height="13" fill="var(--bg)" stroke="var(--orange)" stroke-width="0.8"/>'
+      +'<text x="87" y="229" text-anchor="middle" font-size="8" fill="var(--orange)">50</text>'
+      +'<rect x="121" y="170" width="34" height="13" fill="var(--bg)" stroke="var(--orange)" stroke-width="0.8"/>'
+      +'<text x="138" y="180" text-anchor="middle" font-size="8" fill="var(--orange)">40</text>'
+      +'<text x="130" y="256" text-anchor="middle" font-size="8" fill="var(--muted)">A|B = מסגרת ייחוס · מידות בסיסיות (בריבוע) → מיקום נומינלי</text>';
+  } else {
+    datumSvg =
+       '<line x1="30" y1="130" x2="230" y2="130" stroke="var(--teal)" stroke-width="2.5"/>'
+      +'<text x="222" y="122" font-size="9" fill="var(--teal)" font-weight="700">A</text>'
+      +'<text x="130" y="256" text-anchor="middle" font-size="8" fill="var(--teal)">קו זה = ציר Datum A (מבט מהצד, לאורך כל הרוחב)</text>';
+  }
   return '<div class="gdt-widget" data-type="'+type+'" id="'+uid+'" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">'
   +'<div style="flex:1;min-width:220px">'
   +'<svg viewBox="0 0 260 270" width="100%">'
   +'<rect x="14" y="14" width="232" height="232" rx="8" fill="var(--card)" stroke="var(--border)"/>'
   +'<line x1="14" y1="130" x2="246" y2="130" stroke="var(--muted)" stroke-width="0.6" stroke-dasharray="3,3"/>'
   +'<line x1="130" y1="14" x2="130" y2="246" stroke="var(--muted)" stroke-width="0.6" stroke-dasharray="3,3"/>'
-  +(c.datum?'<circle cx="130" cy="130" r="4" fill="none" stroke="var(--teal)" stroke-width="1.6"/><line x1="122" y1="130" x2="138" y2="130" stroke="var(--teal)" stroke-width="1.2"/><line x1="130" y1="122" x2="130" y2="138" stroke="var(--teal)" stroke-width="1.2"/><text x="130" y="256" text-anchor="middle" font-size="8" fill="var(--teal)">↑ ציר Datum A (מבט מהצד)</text>':'<text x="130" y="256" text-anchor="middle" font-size="8" fill="var(--muted)">מיקום נבדק יחסית ל-Datum A|B|C (לא מוצג — ראה FCF)</text>')
+  +datumSvg
   +'<circle class="tz" cx="130" cy="130" r="22" fill="none" stroke="var(--blue)" stroke-width="1.4" stroke-dasharray="4,3"/>'
   +'<line x1="120" y1="130" x2="140" y2="130" stroke="var(--blue)" stroke-width="0.8"/>'
   +'<line x1="130" y1="120" x2="130" y2="140" stroke="var(--blue)" stroke-width="0.8"/>'
@@ -2398,7 +2421,7 @@ function gdtAUpdate(el){
   mh.setAttribute('cx',110+mo); pl.setAttribute('x2',110+mo);
 }
 
-/* ---------- TEMPLATE B: surface vs band + dial sweep (Flatness,Straightness,Parallelism,Perp,Angularity) ---------- */
+
 function gdtTplB(type,c){
   var uid='gB'+Math.random().toString(36).slice(2,8);
   var isWave = c.mode==='wave';
@@ -2749,6 +2772,78 @@ setInterval(function(){
     var w=a.closest('.gdt-widget'); var inp=w.querySelector('.pd'); if(inp) gdtDUpdate(inp);
   });
 },80);
+
+function gdtProfNominal(i,j){ return 8*Math.sin(i*0.9+0.3)*Math.cos(j*0.7); }
+function gdtProfActual(i,j,dev){ return gdtProfNominal(i,j) + dev*Math.sin(i*1.4+0.6)*Math.cos(j*1.2+0.1); }
+function gdtBuildGridPathFn(heightFn, ox, oy, cell, n){
+  var lines='';
+  for(var i=0;i<n;i++){
+    var pts=[];
+    for(var j=0;j<n;j++){ pts.push(gdtIsoPoint(i,j,heightFn(i,j),ox,oy,cell)); }
+    lines += 'M'+pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' L')+' ';
+  }
+  for(var j2=0;j2<n;j2++){
+    var pts2=[];
+    for(var i2=0;i2<n;i2++){ pts2.push(gdtIsoPoint(i2,j2,heightFn(i2,j2),ox,oy,cell)); }
+    lines += 'M'+pts2.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' L')+' ';
+  }
+  return lines;
+}
+
+function gdtTplDSurface(type,c){
+  var uid='gDs'+Math.random().toString(36).slice(2,8);
+  return '<div class="gdt-widget" data-type="'+type+'" data-mode="dsurface" id="'+uid+'" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">'
+  +'<div style="flex:1;min-width:260px"><svg viewBox="0 0 300 190" width="100%">'
+  +'<path class="planeHi" d="" fill="none" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>'
+  +'<path class="planeLo" d="" fill="none" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>'
+  +'<path class="gridMesh" d="" fill="none" stroke="var(--text)" stroke-width="1.4"/>'
+  +'<circle class="probeDotS" cx="0" cy="0" r="5" fill="var(--red)" stroke="var(--card)" stroke-width="1"/>'
+  +'<text x="150" y="180" text-anchor="middle" font-size="9" fill="var(--teal)">משטח שלם — הרצועה עוקבת אחרי הצורה החופשית (לא שטוחה!)</text>'
+  +'</svg>'
+  +'<div style="font-size:10px;color:var(--muted);line-height:1.7;margin-top:4px">'+(c.explain||'')+'</div>'
+  +'</div>'
+  +'<div style="flex:1;min-width:220px">'
+  +'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">סטיית המשטח מהצורה הנומינלית (בכל הכיוונים)</div>'
+  +'<input type="range" class="pdS" min="0" max="30" value="8" step="1" style="width:100%" oninput="gdtProfSurfUpdate(this)">'
+  +'<div style="font-size:11px;color:var(--muted);margin:10px 0 4px">מיקום נקודת המדידה על הרשת (שורה,עמודה)</div>'
+  +'<input type="range" class="psRowP" min="0" max="3" value="1" step="1" style="width:100%" oninput="gdtProfSurfUpdate(this)">'
+  +'<input type="range" class="psColP" min="0" max="3" value="2" step="1" style="width:100%;margin-top:6px" oninput="gdtProfSurfUpdate(this)">'
+  +'<div style="background:var(--card);border-radius:8px;padding:10px;margin-top:12px">'
+  +'<div style="font-size:11px;color:var(--muted)">סטייה בנקודה זו מהצורה הנומינלית</div>'
+  +'<div class="rvS" style="font-size:18px;font-weight:700;margin:2px 0">0.00mm</div>'
+  +'<div class="stS" style="font-size:12px;font-weight:600"></div></div></div></div>';
+}
+function gdtProfSurfUpdate(el){
+  var w=el.closest('.gdt-widget');
+  var dev=parseFloat(w.querySelector('.pdS').value);
+  var row=parseInt(w.querySelector('.psRowP').value);
+  var col=parseInt(w.querySelector('.psColP').value);
+  var ox=150, oy=95, cell=32, n=4;
+
+  w.querySelector('.gridMesh').setAttribute('d', gdtBuildGridPathFn(function(i,j){return gdtProfActual(i,j,dev);}, ox,oy,cell,n));
+  w.querySelector('.planeHi').setAttribute('d', gdtBuildGridPathFn(function(i,j){return gdtProfNominal(i,j)+20;}, ox,oy,cell,n));
+  w.querySelector('.planeLo').setAttribute('d', gdtBuildGridPathFn(function(i,j){return gdtProfNominal(i,j)-20;}, ox,oy,cell,n));
+
+  var actualH = gdtProfActual(row,col,dev);
+  var nomH = gdtProfNominal(row,col);
+  var diff = actualH - nomH;
+  var pt = gdtIsoPoint(row,col,actualH,ox,oy,cell);
+  w.querySelector('.probeDotS').setAttribute('cx', pt[0]);
+  w.querySelector('.probeDotS').setAttribute('cy', pt[1]);
+
+  var mm=(diff/10).toFixed(2), tol=20, pass=Math.abs(diff)<=tol;
+  w.querySelector('.rvS').textContent=(diff>=0?'+':'')+mm+'mm';
+  var st=w.querySelector('.stS');
+  var mesh=w.querySelector('.gridMesh');
+  var dot=w.querySelector('.probeDotS');
+  if(pass){
+    st.textContent='בתוך רצועת הסובלנות — עובר';st.style.color='var(--green)';
+    mesh.setAttribute('stroke','var(--text)'); dot.setAttribute('fill','var(--green)');
+  } else {
+    st.textContent='חורג מהרצועה — פסול!';st.style.color='var(--red)';
+    mesh.setAttribute('stroke','var(--red)'); dot.setAttribute('fill','var(--red)');
+  }
+}
 
 // Lazy-loaded tabs cache
 const _tabCache = {};
