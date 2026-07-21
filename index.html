@@ -2301,12 +2301,12 @@ function toggleTheme(){
 /* ============ GD&T INTERACTIVE WIDGETS (replaces static gdtAnimSVG) ============ */
 
 var GDT_WCFG = {
-  position:        {tpl:'A', label:'מרכז חור',  fcf:'⊕0.24 A|B|C', datum:true,
-    explain:'מיקום מרכז החור נבדק ביחס למסגרת ייחוס (Datum A|B|C) — לא ביחס לחלק עצמו! הבדיקה המעשית: פין שיוצר במידה מדויקת חייב להיכנס דרך שני החורים המיושרים.'},
-  concentricity:   {tpl:'A', label:'מרכז חתך',  fcf:'◎0.10 A',     datum:true,
-    explain:'בודק שמרכז חתך (נקודות אמצע בין צדדים נגדיים) נשאר בתוך גליל דק סביב ציר ה-Datum. שונה מ-Runout: לא נמדד תוך כדי סיבוב בפועל אלא ממוצע נקודות — קשה מאוד למדידה בפועל.'},
-  symmetry:        {tpl:'A', label:'מישור חציוני', fcf:'≡0.10 A', datum:true,
-    explain:'בודק שהמישור החציוני של מאפיין (כמו חריץ) נשאר בתוך אזור דק סביב המישור החציוני של ה-Datum. נדיר כיום — הוחלף לרוב ב-Position על מישור חציוני (ASME 2018).'},
+  position:        {tpl:'A', label:'מרכז חור',  fcf:'⊕0.44 A|B|C', datum:true,
+    explain:'מיקום מרכז החור נבדק ביחס למסגרת ייחוס (Datum A|B|C) — לא ביחס לחלק עצמו! הבדיקה המעשית: פין שיוצר במידה מדויקת חייב להיכנס דרך שני החורים המיושרים. ✛ = איפה שהחור אמור להיות, ● = איפה שהוא בפועל.'},
+  concentricity:   {tpl:'A', label:'מרכז חתך',  fcf:'◎0.44 A',     datum:true,
+    explain:'שונה ממיקום: כאן בודקים אם ציר קוטר קטן נשאר קואקסיאלי (על אותו ציר) עם קוטר גדול יותר שמגדיר את ה-Datum — לא התאמת הרכבה של שני חורים.'},
+  symmetry:        {tpl:'E', label:'מישור חציוני', fcf:'≡0.10 A', datum:true,
+    explain:'שונה לגמרי ממיקום/ריכוזיות! אזור הסובלנות כאן הוא רצועה (Slab) דו-צדדית סביב מישור חציוני — לא גליל/מעגל. בודק שהחריץ ממורכז נכון בבלוק, לא מיקום נקודתי.'},
   flatness:        {tpl:'B', label:'שטחיות',   mode:'surface',
     explain:'משטח שלם (דו-ממדי) — כל נקודה על פני השטח נבדקת בנפרד. גרור שורה/עמודה כדי לבדוק נקודות שונות על אותו משטח.'},
   straightness:    {tpl:'B', label:'ישרות',    mode:'wave',
@@ -2333,6 +2333,7 @@ function gdtAnimSVG(type){
   var c = GDT_WCFG[type];
   if(!c) return '';
   if(c.tpl==='A') return gdtTplA(type,c);
+  if(c.tpl==='E') return gdtTplSym(type,c);
   if(c.tpl==='B' && c.mode==='surface') return gdtTplBSurface(type,c);
   if(c.tpl==='B') return gdtTplB(type,c);
   if(c.tpl==='C') return gdtTplC(type,c);
@@ -2345,7 +2346,7 @@ function gdtAnimSVG(type){
 function gdtTplA(type,c){
   var uid = 'gA'+Math.random().toString(36).slice(2,8);
   var isPosition = (type==='position');
-  var datumSvg;
+  var datumSvg, contextSvg;
   if(isPosition){
     datumSvg =
        '<line x1="30" y1="228" x2="230" y2="228" stroke="var(--teal)" stroke-width="2.5"/>'
@@ -2359,39 +2360,56 @@ function gdtTplA(type,c){
       +'<text x="87" y="229" text-anchor="middle" font-size="8" fill="var(--orange)">50</text>'
       +'<rect x="121" y="170" width="34" height="13" fill="var(--bg)" stroke="var(--orange)" stroke-width="0.8"/>'
       +'<text x="138" y="180" text-anchor="middle" font-size="8" fill="var(--orange)">40</text>'
-      +'<text x="130" y="256" text-anchor="middle" font-size="8" fill="var(--muted)">A|B = מסגרת ייחוס · מידות בסיסיות (בריבוע) → מיקום נומינלי</text>';
+      +'<text x="130" y="256" text-anchor="middle" font-size="8" fill="var(--muted)">A|B = מסגרת ייחוס · מידות בסיסיות (בריבוע) → מיקום נומינלי</text>'
+      // Nominal target marker (fixed, doesn't move) + deviation vector line
+      +'<line class="devLine" x1="130" y1="130" x2="130" y2="130" stroke="var(--orange)" stroke-width="1.2"/>'
+      +'<line x1="122" y1="130" x2="138" y2="130" stroke="var(--muted)" stroke-width="1.4"/>'
+      +'<line x1="130" y1="122" x2="130" y2="138" stroke="var(--muted)" stroke-width="1.4"/>'
+      +'<text x="150" y="118" font-size="8" fill="var(--muted)">✛ נומינלי (True Position)</text>';
+    contextSvg = '';
   } else {
+    // Concentricity: small side-view context showing 2 coaxial diameters + shared datum axis
     datumSvg =
        '<line x1="30" y1="130" x2="230" y2="130" stroke="var(--teal)" stroke-width="2.5"/>'
       +'<text x="222" y="122" font-size="9" fill="var(--teal)" font-weight="700">A</text>'
-      +'<text x="130" y="256" text-anchor="middle" font-size="8" fill="var(--teal)">קו זה = ציר Datum A (מבט מהצד, לאורך כל הרוחב)</text>';
+      +'<text x="130" y="256" text-anchor="middle" font-size="8" fill="var(--teal)">ציר Datum A = ציר הקוטר הגדול (ראה תרשים צד למעלה)</text>'
+      +'<line x1="130" y1="122" x2="130" y2="138" stroke="var(--muted)" stroke-width="1.4"/>'
+      +'<text x="150" y="118" font-size="8" fill="var(--muted)">✛ מרכז נומינלי (על ציר A)</text>';
+    contextSvg =
+       '<svg viewBox="0 0 260 60" width="100%" style="margin-bottom:6px">'
+      +'<line x1="10" y1="30" x2="250" y2="30" stroke="var(--muted)" stroke-width="0.6" stroke-dasharray="2,2"/>'
+      +'<rect x="10" y="12" width="140" height="36" fill="var(--card)" stroke="var(--text)" stroke-width="1.4"/>'
+      +'<rect x="150" y="20" width="90" height="20" fill="var(--card)" stroke="var(--text)" stroke-width="1.4"/>'
+      +'<text x="80" y="8" text-anchor="middle" font-size="8" fill="var(--teal)">קוטר גדול = מגדיר את Datum A</text>'
+      +'<text x="195" y="8" text-anchor="middle" font-size="8" fill="var(--orange)">קוטר קטן = נבדק כאן ←</text>'
+      +'</svg>';
   }
   return '<div class="gdt-widget" data-type="'+type+'" id="'+uid+'" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">'
   +'<div style="flex:1;min-width:220px">'
+  +contextSvg
   +'<svg viewBox="0 0 260 270" width="100%">'
   +'<rect x="14" y="14" width="232" height="232" rx="8" fill="var(--card)" stroke="var(--border)"/>'
   +'<line x1="14" y1="130" x2="246" y2="130" stroke="var(--muted)" stroke-width="0.6" stroke-dasharray="3,3"/>'
   +'<line x1="130" y1="14" x2="130" y2="246" stroke="var(--muted)" stroke-width="0.6" stroke-dasharray="3,3"/>'
   +datumSvg
   +'<circle class="tz" cx="130" cy="130" r="22" fill="none" stroke="var(--blue)" stroke-width="1.4" stroke-dasharray="4,3"/>'
-  +'<line x1="120" y1="130" x2="140" y2="130" stroke="var(--blue)" stroke-width="0.8"/>'
-  +'<line x1="130" y1="120" x2="130" y2="140" stroke="var(--blue)" stroke-width="0.8"/>'
+  +'<text x="155" y="112" font-size="8" fill="var(--blue)">אזור סובלנות</text>'
   +'<circle class="ho" cx="130" cy="130" r="12" fill="none" stroke="var(--text)" stroke-width="1.6"/>'
   +'<circle class="hc" cx="130" cy="130" r="2.6" fill="var(--text)"/>'
-  +'<text x="130" y="14" text-anchor="middle" font-size="9" fill="var(--muted)">'+c.label+' בפועל מול אזור הסובלנות</text>'
+  +'<text x="130" y="14" text-anchor="middle" font-size="9" fill="var(--muted)">'+(isPosition?'מרכז החור':'מרכז החתך')+' בפועל (●) מול הנומינלי (✛)</text>'
   +'</svg>'
   +'<div style="font-size:10px;color:var(--muted);line-height:1.7;margin-top:4px">'+c.explain+'</div>'
   +'</div>'
   +'<div style="flex:1;min-width:220px">'
-  +'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">סטייה (מ"מ)</div>'
+  +'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">סטיית המרכז בפועל מהנומינלי (מ"מ)</div>'
   +'<input type="range" class="dv" min="0" max="35" value="10" step="1" style="width:100%" oninput="gdtAUpdate(this)">'
-  +'<div style="font-size:11px;color:var(--muted);margin:10px 0 4px">כיוון (מעלות)</div>'
+  +'<div style="font-size:11px;color:var(--muted);margin:10px 0 4px">כיוון הסטייה (מעלות)</div>'
   +'<input type="range" class="an" min="0" max="360" value="45" step="5" style="width:100%" oninput="gdtAUpdate(this)">'
   +'<div style="background:var(--card);border-radius:8px;padding:10px;margin-top:12px">'
-  +'<div style="font-size:11px;color:var(--muted)">סטייה בפועל · '+c.fcf+'</div>'
+  +'<div style="font-size:11px;color:var(--muted)">מרחק בפועל מהנומינלי · '+c.fcf+'</div>'
   +'<div class="dvv" style="font-size:18px;font-weight:700;margin:2px 0">0.20mm</div>'
   +'<div class="st" style="font-size:12px;font-weight:600"></div></div>'
-  +'<div style="font-size:11px;color:var(--muted);margin-top:10px">בדיקה מעשית — האם הפין הנגדי נכנס?</div>'
+  +(isPosition?('<div style="font-size:11px;color:var(--muted);margin-top:10px">בדיקה מעשית — האם הפין הנגדי נכנס?</div>'
   +'<svg viewBox="0 0 220 60" width="100%">'
   +'<rect x="6" y="8" width="208" height="12" rx="3" fill="var(--card)" stroke="var(--border)" stroke-width="0.6"/>'
   +'<rect x="6" y="40" width="208" height="12" rx="3" fill="var(--card)" stroke="var(--border)" stroke-width="0.6"/>'
@@ -2399,26 +2417,95 @@ function gdtTplA(type,c){
   +'<circle class="pin" cx="110" cy="14" r="4.5" fill="var(--blue)"/>'
   +'<circle class="mh" cx="110" cy="46" r="7" fill="none" stroke="var(--text)" stroke-width="1.2"/>'
   +'<line class="pl" x1="110" y1="14" x2="110" y2="46" stroke="var(--blue)" stroke-width="0.8" stroke-dasharray="2,2"/>'
-  +'</svg></div></div>';
+  +'</svg>')
+  :('<div style="font-size:11px;color:var(--muted);margin-top:10px">בדיקה מעשית — מד רוטט הבודק יישור בין שני הקטרים</div>'
+  +'<svg viewBox="0 0 220 60" width="100%">'
+  +'<line x1="10" y1="30" x2="210" y2="30" stroke="var(--muted)" stroke-width="1"/>'
+  +'<circle cx="60" cy="30" r="18" fill="none" stroke="var(--text)" stroke-width="1.4"/>'
+  +'<circle class="smallD" cx="150" cy="30" r="10" fill="none" stroke="var(--text)" stroke-width="1.4"/>'
+  +'<g class="gauge" transform="translate(150,10)">'
+  +'<line x1="0" y1="0" x2="0" y2="-10" stroke="var(--muted)" stroke-width="1.4"/>'
+  +'<circle cy="-14" r="6" fill="var(--card)" stroke="var(--text)" stroke-width="0.8"/>'
+  +'<line class="ndl2" x1="0" y1="-14" x2="0" y2="-18" stroke="var(--red)" stroke-width="1"/>'
+  +'</g></svg>'))
+  +'</div></div>';
 }
 function gdtAUpdate(el){
   var w = el.closest('.gdt-widget');
   var dev = parseFloat(w.querySelector('.dv').value);
   var ang = parseFloat(w.querySelector('.an').value)*Math.PI/180;
-  var tolR = 22, scale = tolR/12;
+  var tolR = 22, scale = tolR/22;
   var px = 130+dev*scale*Math.cos(ang), py = 130+dev*scale*Math.sin(ang);
-  var mm = (dev/10).toFixed(2);
+  var mm = (dev/100).toFixed(2);
   var ho = w.querySelector('.ho'), hc = w.querySelector('.hc');
   ho.setAttribute('cx',px);ho.setAttribute('cy',py);
   hc.setAttribute('cx',px);hc.setAttribute('cy',py);
+  var devLine = w.querySelector('.devLine');
+  if(devLine){ devLine.setAttribute('x2',px); devLine.setAttribute('y2',py); }
   w.querySelector('.dvv').textContent = mm+'mm';
   var pass = dev<=tolR;
   var st = w.querySelector('.st');
-  var pin = w.querySelector('.pin'), mh = w.querySelector('.mh'), pl = w.querySelector('.pl');
-  if(pass){st.textContent='בתוך הטווח — עומד בדרישה';st.style.color='var(--green)';ho.setAttribute('stroke','var(--green)');pin.setAttribute('fill','var(--green)');}
-  else{st.textContent='חורג מהטווח — פסול!';st.style.color='var(--red)';ho.setAttribute('stroke','var(--red)');pin.setAttribute('fill','var(--red)');}
-  var mo = (dev/35)*5;
-  mh.setAttribute('cx',110+mo); pl.setAttribute('x2',110+mo);
+  if(pass){st.textContent='בתוך הטווח — עומד בדרישה';st.style.color='var(--green)';ho.setAttribute('stroke','var(--green)');}
+  else{st.textContent='חורג מהטווח — פסול!';st.style.color='var(--red)';ho.setAttribute('stroke','var(--red)');}
+  var pin = w.querySelector('.pin');
+  if(pin){
+    var mh = w.querySelector('.mh'), pl = w.querySelector('.pl');
+    if(pass){pin.setAttribute('fill','var(--green)');} else {pin.setAttribute('fill','var(--red)');}
+    var mo = (dev/35)*5;
+    mh.setAttribute('cx',110+mo); pl.setAttribute('x2',110+mo);
+  }
+  var smallD = w.querySelector('.smallD');
+  if(smallD){
+    var offY = (dev/35)*10*(ang>Math.PI?-1:1);
+    smallD.setAttribute('cy',30+offY*0.3);
+    var ndl2 = w.querySelector('.ndl2');
+    if(ndl2){ ndl2.setAttribute('stroke', pass?'var(--green)':'var(--red)'); }
+  }
+}
+
+function gdtTplSym(type,c){
+  var uid = 'gSym'+Math.random().toString(36).slice(2,8);
+  return '<div class="gdt-widget" data-type="'+type+'" id="'+uid+'" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">'
+  +'<div style="flex:1;min-width:260px">'
+  +'<svg viewBox="0 0 300 190" width="100%">'
+  +'<rect x="30" y="30" width="240" height="130" fill="var(--card)" stroke="var(--text)" stroke-width="1.6"/>'
+  +'<line x1="10" y1="95" x2="290" y2="95" stroke="var(--teal)" stroke-width="1.4" stroke-dasharray="5,3"/>'
+  +'<text x="278" y="88" font-size="8" fill="var(--teal)" font-weight="700">A (מישור חציוני של הבלוק)</text>'
+  +'<line class="tolHi" x1="30" y1="80" x2="270" y2="80" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+  +'<line class="tolLo" x1="30" y1="110" x2="270" y2="110" stroke="var(--blue)" stroke-width="1" stroke-dasharray="4,3"/>'
+  +'<text x="278" y="83" font-size="8" fill="var(--blue)">אזור t</text>'
+  +'<rect class="slot" x="80" y="80" width="140" height="30" fill="var(--bg)" stroke="var(--text)" stroke-width="1.8"/>'
+  +'<line class="slotMid" x1="80" y1="95" x2="220" y2="95" stroke="var(--orange)" stroke-width="1.2" stroke-dasharray="3,2"/>'
+  +'<text x="150" y="150" text-anchor="middle" font-size="9" fill="var(--muted)">מישור חציוני של החריץ (כתום) מול מישור חציוני של Datum A (טורקיז)</text>'
+  +'<circle class="probeSym" cx="250" cy="95" r="5" fill="var(--red)"/>'
+  +'</svg>'
+  +'<div style="font-size:10px;color:var(--muted);line-height:1.7;margin-top:4px">'+c.explain+'</div>'
+  +'</div>'
+  +'<div style="flex:1;min-width:220px">'
+  +'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">היסט מישור חציוני של החריץ (מ"מ)</div>'
+  +'<input type="range" class="symOff" min="-20" max="20" value="6" step="1" style="width:100%" oninput="gdtSymUpdate(this)">'
+  +'<div style="background:var(--card);border-radius:8px;padding:10px;margin-top:12px">'
+  +'<div style="font-size:11px;color:var(--muted)">היסט בפועל · '+c.fcf+'</div>'
+  +'<div class="dvv" style="font-size:18px;font-weight:700;margin:2px 0">0.00mm</div>'
+  +'<div class="st" style="font-size:12px;font-weight:600"></div></div>'
+  +'<div style="font-size:11px;color:var(--muted);margin-top:10px">שים לב: זה <b>לא</b> מעגל/פין — זו רצועה (Slab) דו-צדדית!</div>'
+  +'</div></div>';
+}
+function gdtSymUpdate(el){
+  var w = el.closest('.gdt-widget');
+  var off = parseFloat(w.querySelector('.symOff').value);
+  var slot = w.querySelector('.slot');
+  var mid = w.querySelector('.slotMid');
+  var probe = w.querySelector('.probeSym');
+  var newY = 80+off;
+  slot.setAttribute('y', newY);
+  mid.setAttribute('y1', newY+15); mid.setAttribute('y2', newY+15);
+  probe.setAttribute('cy', newY+15);
+  var mm=(off/10).toFixed(2), tol=1.5, pass=Math.abs(off/10)<=tol;
+  w.querySelector('.dvv').textContent=(off>=0?'+':'')+mm+'mm';
+  var st=w.querySelector('.st');
+  if(pass){st.textContent='בתוך רצועת הסובלנות — עובר';st.style.color='var(--green)';slot.setAttribute('stroke','var(--text)');probe.setAttribute('fill','var(--green)');}
+  else{st.textContent='חורג מהרצועה — פסול!';st.style.color='var(--red)';slot.setAttribute('stroke','var(--red)');probe.setAttribute('fill','var(--red)');}
 }
 
 
