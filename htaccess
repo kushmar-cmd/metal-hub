@@ -1,0 +1,14 @@
+# ============================================
+# 301 Redirect: kushmar.com/metal/* -> metal.kushmar.com/*
+# Place this file as .htaccess INSIDE the /metal/ folder
+# (the one accessible via kushmar.com/metal/)
+# ============================================
+RewriteEngine On
+
+# Only redirect when accessed via the MAIN domain (kushmar.com / www.kushmar.com)
+# This condition is critical: without it, if metal.kushmar.com shares the
+# SAME physical folder, this rule would also fire for metal.kushmar.com itself
+# and cause an infinite redirect loop.
+RewriteCond %{HTTP_HOST} ^kushmar\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www\.kushmar\.com$ [NC]
+RewriteRule ^(.*)$ https://metal.kushmar.com/$1 [R=301,L]
