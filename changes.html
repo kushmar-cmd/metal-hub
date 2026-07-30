@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://metal.kushmar.com/changes.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ניהול שינויים — ECO/ECN, REV, PLM, MRB, ITAR | METAL HUB</title>
+<meta name="description" content="מדריך ניהול שינויים הנדסי: תהליך ECO/ECN, מערכת REV, Title Block, PLM וניהול תצורה, Deviation/Waiver, MRB, ודרישות ITAR/EAR — מדריך מקיף לניהול שינויים בתכן ובייצור.">
+<meta name="keywords" content="ניהול שינויים, ECO, ECN, REV שרטוט, PLM, MRB, ITAR, Deviation Waiver">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/changes.html">
+<meta property="og:title" content="ניהול שינויים — מדריך מקיף | METAL HUB">
+<meta property="og:description" content="ECO/ECN, REV, PLM, MRB, ITAR/EAR — מדריך מקיף לניהול שינויים הנדסי.">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "ניהול שינויים — ECO/ECN, REV, PLM, MRB, ITAR",
+  "description": "מדריך ניהול שינויים הנדסי: ECO/ECN, מערכת REV, Title Block, PLM, MRB, ITAR/EAR",
+  "about": ["Engineering Change Management", "ECO", "PLM", "MRB", "ITAR"],
+  "url": "https://metal.kushmar.com/changes.html",
+  "inLanguage": "he-IL",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:rtl}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;padding:8px;background:var(--surface);border-right:2px solid var(--blue);border-radius:0 5px 5px 0}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border)}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.chg-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.chg-tab:hover{border-color:var(--blue);color:var(--text)}.chg-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.chg-sec{display:none}.chg-sec.active{display:block}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">METAL <span>HUB</span></div>
+  <a class="home-link" href="https://metal.kushmar.com/">→ חזרה לעמוד הראשי</a>
+</header>
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:20px;color:var(--text);margin-bottom:10px">ניהול שינויים הנדסי — מדריך מקיף</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+מדריך מקיף לניהול שינויים הנדסי: תהליך <b>ECO/ECN</b>, מערכת <b>REV</b>, Title Block, <b>PLM</b> וניהול תצורה, Deviation/Waiver, <b>MRB</b>, ודרישות <b>ITAR/EAR</b> — כל מה שצריך לנהל שינויים בתכן ובייצור בצורה מבוקרת.
+</p>
+</div>
+
+<div id="sec-changes" class="section">
+
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="chg-tab active" onclick="showChg('eco',this)">📋 תהליך ECO/ECN</button>
+  <button class="chg-tab" onclick="showChg('rev',this)">🔤 מערכת REV</button>
+  <button class="chg-tab" onclick="showChg('title',this)">📐 Title Block</button>
+  <button class="chg-tab" onclick="showChg('plm',this)">💾 PLM וניהול תצורה</button>
+  <button class="chg-tab" onclick="showChg('deviation',this)">📝 Deviation / Waiver</button>
+  <button class="chg-tab" onclick="showChg('mrb',this)">🔍 MRB</button>
+  <button class="chg-tab" onclick="showChg('itar',this)">🔒 ITAR / EAR</button>
+</div>
+</div>
+
+<!-- ============ ECO/ECN PROCESS ============ -->
+<div id="chg-eco" class="chg-sec active">
+<div class="card"><div class="ctitle">📋 תהליך שינוי הנדסי — ECO/ECN</div>
+<div style="font-size:12px;color:var(--muted);line-height:2.3">
+<b style="color:var(--blue)">1. בקשת שינוי (ECR)</b><br>
+&nbsp;&nbsp;· גורם מגיש: הנדסה / ייצור / לקוח<br>
+&nbsp;&nbsp;· תיאור שינוי + נימוק + השפעות<br>
+&nbsp;&nbsp;· מספר חלק + Rev נוכחי<br>
+<b style="color:var(--orange)">2. ניתוח השפעה</b><br>
+&nbsp;&nbsp;· חלקים מושפעים (Where-Used)<br>
+&nbsp;&nbsp;· מלאי קיים — מה לעשות עמו?<br>
+&nbsp;&nbsp;· עלות + לוחות זמנים<br>
+<b style="color:var(--green)">3. אישור (ECO Board / CCB)</b><br>
+&nbsp;&nbsp;· הנדסה + ייצור + רכש + אחסון<br>
+&nbsp;&nbsp;· תאריך כניסה לתוקף (Effectivity)<br>
+<b style="color:var(--purple)">4. יישום</b><br>
+&nbsp;&nbsp;· עדכון שרטוט + Rev<br>
+&nbsp;&nbsp;· עדכון BOM / דרישות<br>
+&nbsp;&nbsp;· הודעה לכל המחלקות (ECN)<br>
+<b style="color:var(--muted)">5. סגירה ותיוק</b><br>
+&nbsp;&nbsp;· רשומה ב-PLM/ERP<br>
+&nbsp;&nbsp;· שמירת Baseline
+</div></div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">ECR — Engineering Change Request</div>
+<div style="font-size:12px;line-height:1.8">הפתח לתהליך: מי מבקש, מה הבעיה (כשל שטח? הוזלה? ספק?), פתרון מוצע, הערכת השפעה. ה-CCB מאשר/דוחה.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">ECO — Engineering Change Order</div>
+<div style="font-size:12px;line-height:1.8">ההוראה המחייבת: מה משתנה + Rev חדש, Effectivity (S/N/תאריך), טיפול במלאי קיים (Use-As-Is/Rework/Scrap).</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">ECN — Engineering Change Notice</div>
+<div style="font-size:12px;line-height:1.8">ההפצה הרשמית לכל הנוגעים — ייצור, רכש, איכות, ספקים. מוודאת שכולם עובדים על אותה גרסה.</div></div>
+</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle">🔎 Where-Used — ניתוח השפעת שינוי</div>
+<div style="font-size:13px;line-height:1.9">
+לפני כל ECO — השאילתה הראשונה: <b>איפה עוד החלק חי?</b> שינוי בבורג "פשוט" שמופיע ב-40 מכלולים = 40 בדיקות השפעה נדרשות. PLM נותן תשובה בלחיצה; ניהול ידני בקבצים = הזמנה לתקלה.
+</div>
+</div>
+</div>
+
+<!-- ============ REV SYSTEM ============ -->
+<div id="chg-rev" class="chg-sec">
+<div class="card"><div class="ctitle">🔤 מערכת REV — ניהול גרסאות</div>
+<table><tr><th>גרסה</th><th>שיטה</th><th>שימוש</th></tr>
+<tr><td>A, B, C...</td><td>אותיות A-Z</td><td>ISO/ASME — נפוץ מאוד</td></tr>
+<tr><td>0, 1, 2...</td><td>מספרים</td><td>חלק ייצורים</td></tr>
+<tr><td>P1, P2...</td><td>P=Preliminary</td><td>שלב פיתוח לפני אישור</td></tr>
+<tr><td>Rev -</td><td>קו</td><td>שרטוט ראשוני טרם REV</td></tr>
+<tr><td>Rev A</td><td>שינוי ראשון</td><td>אחרי Release ראשון</td></tr></table>
+<div class="note">לא לדלג על אותיות! I, O, Q, S, X, Z נמנעים (בלבול עם 1, 0, 0, 5, ×, 2). MIL-STD-100 אוסר אותן במפורש.</div>
+</div>
+
+<div class="card"><div class="ctitle">📋 תיבת REV בשרטוט — דוגמה</div>
+<table><tr><th>REV</th><th>תיאור</th><th>תאריך</th><th>אישור</th></tr>
+<tr><td>A</td><td>שינוי ל-GD&T על חור ⌀12</td><td>01.01.24</td><td>א.ל.</td></tr>
+<tr><td>B</td><td>שינוי חומר מ-6061 ל-7075</td><td>15.03.24</td><td>י.ב.</td></tr>
+<tr><td>C</td><td>הוספת חריץ 3×10mm</td><td>01.06.24</td><td>א.ל.</td></tr></table>
+</div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Redline — תיקון בעט אדום</div>
+<div style="font-size:12px;line-height:1.8">סימון ידני זמני על עותק שרטוט בשטח — עד עדכון רשמי. חוקי רק עם חתימה מוסמכת + תאריך + ECO פתוח בעקבותיו!</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">As-Built</div>
+<div style="font-size:12px;line-height:1.8">מצב סופי בפועל — כולל סטיות מאושרות, החלפות חומר, ותיקוני שטח. קריטי למסירת פרויקטים ותחקירי כשל.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Interchangeability — FFF</div>
+<div style="font-size:12px;line-height:1.8">Form-Fit-Function: שינוי ששומר FFF = אותו מק"ט + Rev חדש. שובר FFF = חובה מק"ט חדש!</div></div>
+</div>
+</div>
+
+<!-- ============ TITLE BLOCK ============ -->
+<div id="chg-title" class="chg-sec">
+<div class="card"><div class="ctitle">📐 כותרת שרטוט — Title Block</div>
+<table><tr><th>שדה</th><th>תוכן</th><th>חשיבות</th></tr>
+<tr><td>Part Number</td><td>מספר חלק ייחודי</td><td>קריטי</td></tr>
+<tr><td>Part Name</td><td>שם חלק</td><td>גבוה</td></tr>
+<tr><td>Revision</td><td>Rev A / B / C</td><td>קריטי</td></tr>
+<tr><td>Material</td><td>חומר + תקן</td><td>קריטי</td></tr>
+<tr><td>Scale</td><td>1:2 / 1:1 / 2:1</td><td>גבוה</td></tr>
+<tr><td>Projection</td><td>⊕ First / ⊗ Third</td><td>חשוב</td></tr>
+<tr><td>General Tolerance</td><td>ISO 2768-mK</td><td>חשוב</td></tr>
+<tr><td>Surface Finish</td><td>✓N7 (ברירת מחדל)</td><td>חשוב</td></tr>
+<tr><td>Drawn By</td><td>שם + תאריך</td><td>בינוני</td></tr>
+<tr><td>Approved By</td><td>שם + תאריך</td><td>קריטי</td></tr>
+<tr><td>Drawing Number</td><td>מספר שרטוט</td><td>קריטי</td></tr></table>
+<div class="note">השדה הראשון שבודקים בקבלת חלק: האם ה-Rev בשרטוט תואם ל-Rev בהזמנה! חלק מושלם ב-Rev הלא-נכון = חלק פסול.</div>
+</div>
+
+<div class="card"><div class="ctitle">📄 סוגי שרטוטים (Drawing Types)</div>
+<table><tr><th>סוג</th><th>תיאור</th></tr>
+<tr><td>Detail Drawing</td><td>חלק בודד — כל המידות והדרישות</td></tr>
+<tr><td>Assembly Drawing</td><td>הרכבה — BOM, בלונים, יחסי הרכבה</td></tr>
+<tr><td>Installation Drawing</td><td>איך המכלול מותקן במערכת הגדולה</td></tr>
+<tr><td>Tabulated Drawing</td><td>משפחת חלקים דומים בטבלה אחת (Dash Numbers)</td></tr></table>
+</div>
+</div>
+
+<!-- ============ PLM / CONFIG MGMT ============ -->
+<div id="chg-plm" class="chg-sec">
+<div class="card"><div class="ctitle">💾 PLM — Product Lifecycle Management</div>
+<div style="font-size:13px;line-height:1.9">
+המערכת שמחזיקה הכל במקום אחד: קבצי CAD עם גרסאות, BOM, תהליכי ECO אלקטרוניים, חתימות דיגיטליות. היתרון המרכזי: <b>מקור אמת אחד</b> — אין "גרסה על שולחן של מישהו".
+</div></div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">PDM — Product Data Management</div>
+<div style="font-size:12px;line-height:1.8">הכספת של קבצי CAD: Check-in/out (אין דריסות!), גרסאות אוטומטיות, קשרי הרכבה-חלק. SolidWorks PDM נפוץ.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">PLM המלא</div>
+<div style="font-size:12px;line-height:1.8">מרעיון ועד הוצאה משירות: דרישות, CAD, BOM, ECO, ייצור, שירות. Windchill, Teamcenter, 3DEXPERIENCE.</div></div>
+</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle">📐 Configuration Management — ניהול תצורה</div>
+<div style="font-size:13px;line-height:1.9">
+<b style="color:var(--blue)">Baseline</b> — נקודת עיגון תצורה מאושרת. סוגים: FBL (Functional — דרישות), ABL (Allocated), PBL (Product — התיעוד המלא לייצור). מרגע הקיבוע — כל שינוי רק דרך ECO.<br><br>
+<b style="color:var(--orange)">Configuration Audit</b> — משווה: מה מתועד (Baseline) מול מה שנבנה בפועל (As-Built). חובה לפני מסירת פרויקט קריטי.
+</div></div>
+</div>
+
+<!-- ============ DEVIATION/WAIVER ============ -->
+<div id="chg-deviation" class="chg-sec">
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Deviation — סטייה מאושרת מראש</div>
+<div style="font-size:12px;line-height:1.9">
+"אנחנו יודעים שלא נעמוד בדרישה X — אפשר?" → ניתוח הנדסי → אישור <b>לפני</b> הייצור, לאצווה/כמות מוגדרת.<br><br>
+דוגמה: קוטר חור בגלם חורג ב-0.05mm — מאושר מראש כי לא משפיע על הרכבה.
+</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Waiver — אישור בדיעבד</div>
+<div style="font-size:12px;line-height:1.9">
+"יצא חריג — מה עושים?" → MRB בודק → אישור <b>אחרי</b> שהחלק כבר יוצר חריג.<br><br>
+דוגמה: חלק שכבר יוצר עם גימור משטח מעט גס מהנדרש — MRB בודק אם זה עדיין תקין פונקציונלית.
+</div></div>
+</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle">⚠️ כללי זהב</div>
+<div style="font-size:13px;line-height:1.9">
+• שני המסמכים <b>מוגבלים</b> בכמות/זמן — אינם משנים את השרטוט הרשמי!<br>
+• תיעוד מלא חובה — לא "החלטה בעל פה"<br>
+• שימוש חוזר/קבוע באותה חריגה = דגל אדום — <b>זה הזמן להוציא ECO</b> אמיתי ולעדכן את השרטוט<br>
+• Deviation/Waiver שחי חודשים בלי ECO בעקבותיו = פצצה מתקתקת של גרסאות סותרות
+</div></div>
+</div>
+
+<!-- ============ MRB ============ -->
+<div id="chg-mrb" class="chg-sec">
+<div class="card"><div class="ctitle">🔍 MRB — Material Review Board</div>
+<div style="font-size:13px;line-height:1.9">
+הפורום שמחליט על גורל <b>חלקים חריגים</b> — לא עומדים בדרישות השרטוט. הרכב: הנדסה + איכות (+ לקוח, בפרויקטים ביטחוניים/קריטיים).
+</div></div>
+
+<table><tr><th>החלטה</th><th>משמעות</th><th>דורש</th></tr>
+<tr><td><b style="color:var(--green)">Use-As-Is (UAI)</b></td><td>טוב כמו שהוא — למרות החריגה</td><td>הצדקה הנדסית מתועדת!</td></tr>
+<tr><td><b style="color:var(--yellow)">Rework</b></td><td>עיבוד נוסף להחזרה לתוך הדרישה</td><td>תהליך מאושר, בדיקה חוזרת</td></tr>
+<tr><td><b style="color:var(--orange)">Repair</b></td><td>תיקון (לא זהה למקורי, אבל תקין)</td><td>תהליך תיקון מאושר במיוחד</td></tr>
+<tr><td><b style="color:var(--red)">Scrap</b></td><td>פסילה מוחלטת</td><td>תיעוד + השמדה/סימון</td></tr>
+</table>
+<div class="note">⚠️ סמכות UAI (Use-As-Is) — רק למוסמכים! MRB Crib = אזור פיזי לחלקים חורגים הממתינים להחלטה, מונע שהם "יתגלגלו" בטעות לשרשרת הייצור.</div>
+</div>
+
+<!-- ============ ITAR/EAR ============ -->
+<div id="chg-itar" class="chg-sec">
+<div class="card"><div class="ctitle">🔒 דרישות ITAR / בקרת יצוא</div>
+<div style="font-size:12px;color:var(--muted);line-height:2.3">
+<b style="color:var(--red)">▸ ITAR:</b> International Traffic in Arms Regulations (ארה"ב)<br>
+<b style="color:var(--red)">▸ USML:</b> US Munitions List — חומרים מבוקרים<br>
+<b style="color:var(--orange)">▸ EAR:</b> Export Administration Regulations (אזרחי+כפול שימוש)<br>
+<b style="color:var(--orange)">▸ ECCN:</b> Export Control Classification Number<br>
+<br>
+<b style="color:var(--text)">סימון על שרטוטים:</b><br>
+<div style="background:rgba(239,68,68,0.08);border:1px solid var(--red);border-radius:6px;padding:8px;font-family:monospace;font-size:11px;color:var(--red)">
+WARNING: This document contains technical data<br>
+subject to the Export Administration Regulations<br>
+(EAR). Export/transfer in violation of EAR<br>
+is prohibited. ECCN: 1C002
+</div>
+<br>
+<b style="color:var(--orange)">▸ ישראל:</b> בקרת יצוא ביטחוני — DECA (SIBAT)<br>
+<b style="color:var(--orange)">▸ TP-10:</b> טפסי בקשת רישיון יצוא
+</div></div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">CAGE Code</div>
+<div style="font-size:12px;line-height:1.8">קוד 5 תווים המזהה ספק ביטחוני עולמית. מופיע בכותרת שרטוטים, CoC, פקודות רכש. ישראל: DSPO. ארה"ב: DLIS.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Effectivity + ITAR</div>
+<div style="font-size:12px;line-height:1.8">שרטוט ITAR = "יצוא" גם במייל לגורם זר! גישה מוגבלת ל-US Persons או ברישיון. הפרה = קנסות ומאסר.</div></div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+<footer>METAL HUB · פורטל ידע הנדסי מכני · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">חזרה לעמוד הראשי</a></footer>
+
+<script>
+function showChg(id,btn){
+  document.querySelectorAll('.chg-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.chg-tab').forEach(t=>t.classList.remove('active'));
+  var el=document.getElementById('chg-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+</script>
+</body>
+</html>
