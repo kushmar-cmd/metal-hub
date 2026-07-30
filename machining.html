@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://metal.kushmar.com/machining.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>עיבוד מכני — מהירויות חיתוך, הזנות, מחשבון RPM/Feed | METAL HUB</title>
+<meta name="description" content="מדריך ומחשבון עיבוד מכני: מהירויות חיתוך (Vc), הזנות (fz/fn), נוסחאות, כלים וציפויים, קירור, פרמטרים לפי חומר ותהליך, פתרון תקלות עיבוד, ומחשבון RPM/Feed/MRR חי.">
+<meta name="keywords" content="עיבוד מכני, מהירות חיתוך, מחשבון RPM, הזנה לשן, פרמטרי עיבוד שבבי, פתרון תקלות עיבוד">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/machining.html">
+<meta property="og:title" content="עיבוד מכני — מדריך ומחשבון | METAL HUB">
+<meta property="og:description" content="מהירויות חיתוך, הזנות, כלים, פרמטרים לפי חומר — עם מחשבון RPM/Feed/MRR חי.">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "עיבוד מכני — מהירויות חיתוך, הזנות, מחשבון RPM/Feed",
+  "description": "מדריך ומחשבון עיבוד מכני: מהירויות חיתוך, הזנות, כלים וציפויים, קירור, פרמטרים לפי חומר ותהליך",
+  "about": ["Machining", "Cutting Speed", "Feed Rate", "RPM Calculator", "Tool Coating"],
+  "url": "https://metal.kushmar.com/machining.html",
+  "inLanguage": "he-IL",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:rtl}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;padding:8px;background:var(--surface);border-right:2px solid var(--blue);border-radius:0 5px 5px 0}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border)}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.mch-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.mch-tab:hover{border-color:var(--blue);color:var(--text)}.mch-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.mch-sec{display:none}.mch-sec.active{display:block}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">METAL <span>HUB</span></div>
+  <a class="home-link" href="https://metal.kushmar.com/">→ חזרה לעמוד הראשי</a>
+</header>
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:20px;color:var(--text);margin-bottom:10px">עיבוד מכני — מדריך ומחשבון</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+מדריך ומחשבון <b>עיבוד מכני</b>: מהירויות חיתוך (Vc), הזנות (fz/fn), כלים וציפויים, קירור וסיכה, פרמטרים לפי חומר ולפי תהליך, ואבחון תקלות עיבוד נפוצות (שבב, BUE, Chatter, בלאי כלי) — עם מחשבון <b>RPM/הזנה/MRR</b> חי.
+</p>
+</div>
+
+<div id="sec-machining" class="section">
+
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="mch-tab active" onclick="showMch('vc',this)">🔧 מהירויות חיתוך</button>
+  <button class="mch-tab" onclick="showMch('feed',this)">➡️ הזנות</button>
+  <button class="mch-tab" onclick="showMch('formulas',this)">🧮 נוסחאות ומחשבונים</button>
+  <button class="mch-tab" onclick="showMch('tools',this)">🔩 כלים וציפויים</button>
+  <button class="mch-tab" onclick="showMch('coolant',this)">💧 קירור וסיכה</button>
+  <button class="mch-tab" onclick="showMch('bymat',this)">📋 לפי חומר</button>
+  <button class="mch-tab" onclick="showMch('byproc',this)">⚙️ לפי תהליך</button>
+  <button class="mch-tab" onclick="showMch('trouble',this)">🔍 פתרון תקלות</button>
+</div>
+</div>
+
+<!-- ============ VC ============ -->
+<div id="mch-vc" class="mch-sec active">
+<div class="card"><div class="ctitle">🔧 מהירויות חיתוך — Vc (m/min) — נקודת התחלה</div>
+<table><tr><th>חומר</th><th>חריטה HSS</th><th>חריטה קרביד</th><th>כרסום HSS</th><th>כרסום קרביד</th><th>קידוח HSS</th><th>הערות</th></tr>
+<tr><td>פלדה רכה (S235)</td><td>25-35</td><td>80-120</td><td>20-30</td><td>60-100</td><td>25-35</td><td>קירור מומלץ</td></tr>
+<tr><td>פלדה בינונית (4140 Q&T)</td><td>15-25</td><td>60-100</td><td>15-20</td><td>50-80</td><td>15-25</td><td>קירור חובה</td></tr>
+<tr><td>אל-חלד 304/316</td><td>8-12</td><td>40-70</td><td>5-10</td><td>30-50</td><td>8-12</td><td>לחץ גדול, קירור שוטף</td></tr>
+<tr><td>אלומיניום 6061</td><td>80-150</td><td>200-500</td><td>60-100</td><td>150-400</td><td>60-100</td><td>ניתן יבש, Vc גבוהה מאוד</td></tr>
+<tr><td>אלומיניום 7075</td><td>80-140</td><td>200-450</td><td>50-90</td><td>150-350</td><td>60-90</td><td>—</td></tr>
+<tr><td>טיטניום Ti-6Al-4V</td><td>4-8</td><td>30-60</td><td>3-6</td><td>20-40</td><td>5-10</td><td>קירור שוטף חובה, Vc נמוכה!</td></tr>
+<tr><td>יצוק ברזל אפור</td><td>20-30</td><td>80-150</td><td>15-25</td><td>60-120</td><td>25-35</td><td>ניתן יבש</td></tr>
+<tr><td>פלדת כלים D2</td><td>8-12</td><td>40-70</td><td>5-8</td><td>30-50</td><td>8-12</td><td>עיבוד לפני הקשחה</td></tr>
+<tr><td>Inconel 718</td><td>2-4</td><td>15-30</td><td>1-3</td><td>10-20</td><td>3-5</td><td>קרביד+TiAlN חובה, קירור שוטף</td></tr>
+<tr><td>נחושת/ברונזה</td><td>50-80</td><td>150-300</td><td>40-60</td><td>120-250</td><td>50-80</td><td>ללא קירור</td></tr></table>
+<div class="note">⚠️ ערכים אלה נקודת התחלה בלבד! תלוי בקוטר כלי, עומק חיתוך, מצב מכונה, ציפוי כלי. תמיד בדוק בפועל ועדן לפי ביצועי שבבים.</div></div>
+
+<div class="card"><div class="ctitle">📉 Taylor's Tool Life Equation — חיי כלי מול מהירות</div>
+<div style="font-size:13px;line-height:1.9">
+<b>Vc × Tⁿ = C</b> — n תלוי בזוג כלי/חומר (HSS≈0.1-0.15, קרביד≈0.2-0.4, קרמיקה≈0.5-0.7). ככל ש-n גדול יותר — הכלי "סולח" יותר על העלאת מהירות.
+</div>
+<div class="note">כלל אצבע: העלאת Vc ב-20% מקצרת חיי כלי בכ-50% (עבור n≈0.25 טיפוסי לקרביד). לפני שמאיצים ייצור — בדוק את המחיר האמיתי בבלאי כלים!</div>
+</div>
+</div>
+
+<!-- ============ FEEDS ============ -->
+<div id="mch-feed" class="mch-sec">
+<div class="card"><div class="ctitle">➡️ הזנה לשן (fz) לפי חומר וקוטר כלי — כרסום [mm/tooth]</div>
+<table><tr><th>חומר</th><th>⌀6-10mm</th><th>⌀12-20mm</th><th>⌀25mm+</th><th>הערות</th></tr>
+<tr><td>אלומיניום</td><td>0.05-0.10</td><td>0.10-0.18</td><td>0.15-0.25</td><td>ניתן להעלות עם Chip Thinning</td></tr>
+<tr><td>פלדה רכה</td><td>0.04-0.08</td><td>0.08-0.15</td><td>0.12-0.20</td><td>גס יותר = פרודוקטיביות</td></tr>
+<tr><td>פלדה בינונית/מוקשית</td><td>0.03-0.06</td><td>0.06-0.10</td><td>0.08-0.15</td><td>הפחת ב-Chatter</td></tr>
+<tr><td>אל-חלד</td><td>0.03-0.05</td><td>0.05-0.08</td><td>0.08-0.12</td><td>עדין מדי = Work Hardening!</td></tr>
+<tr><td>טיטניום</td><td>0.02-0.04</td><td>0.04-0.07</td><td>0.06-0.10</td><td>קבוע, אל תפחית מדי (חום)</td></tr>
+<tr><td>Inconel/סופר-אלוי</td><td>0.02-0.03</td><td>0.03-0.05</td><td>0.05-0.08</td><td>קשיח לכלי — עדיף Trochoidal</td></tr>
+</table>
+<div class="note">⚠️ fz מינימלי קריטי! מתחת למינימום = Rubbing (שפשוף במקום חיתוך) → חום → התקשות → שבירת כלי מוקדמת.</div></div>
+
+<div class="card"><div class="ctitle">➡️ הזנה לסיבוב (fn) — חריטה [mm/rev]</div>
+<table><tr><th>סוג פעולה</th><th>fn טיפוסי</th><th>Ra צפוי</th></tr>
+<tr><td>גס (Roughing)</td><td>0.2-0.5</td><td>3.2-6.3μm</td></tr>
+<tr><td>רגיל (General)</td><td>0.1-0.3</td><td>1.6-3.2μm</td></tr>
+<tr><td>גמר (Finishing)</td><td>0.05-0.15</td><td>0.8-1.6μm</td></tr>
+<tr><td>גמר עדין + Wiper</td><td>0.15-0.3</td><td>0.4-0.8μm</td></tr>
+</table>
+<div class="note">נוסחה: Ra ≈ fn²/(8×Rε)×1000 [μm], כאשר Rε = רדיוס חוד הכלי (mm). Wiper Insert מאפשר fn כפול באותו Ra!</div></div>
+
+<div class="card"><div class="ctitle">🌀 Chip Thinning — פיצוי הזנה בכרסום צדדי חלקי</div>
+<div style="font-size:13px;line-height:1.9">
+כש-ae (רוחב חיתוך) קטן מ-50% מקוטר הכלי, עובי השבב בפועל <b>קטן</b> מ-fz הנומינלי — אפשר (וכדאי!) להעלות fz כדי לשמור על עומס שן נכון ולמנוע שפשוף.
+</div>
+<div class="note">נוסחה מקורבת: fz_מתוקן = fz × D/√(D×ae−ae²). ב-ae=10%D אפשר לרוב להכפיל fz פי 1.5-2!</div>
+</div>
+</div>
+
+<!-- ============ FORMULAS ============ -->
+<div id="mch-formulas" class="mch-sec">
+<div class="grid2">
+<div class="card"><div class="ctitle">📐 נוסחאות עיבוד מכני</div>
+<table><tr><th>פרמטר</th><th>נוסחה</th><th>יחידות</th></tr>
+<tr><td>RPM</td><td>n = (Vc × 1000) / (π × D)</td><td>סל"ד</td></tr>
+<tr><td>מהירות שולחן Vf</td><td>Vf = fz × z × n</td><td>mm/min</td></tr>
+<tr><td>MRR (קצב הסרת חומר)</td><td>MRR = ae × ap × Vf</td><td>mm³/min</td></tr>
+<tr><td>כוח חיתוך Fc</td><td>Fc = kc × ap × fz × z</td><td>N</td></tr>
+<tr><td>הספק P</td><td>P = Fc × Vc / 60000</td><td>kW</td></tr>
+<tr><td>זמן חריטה Tm</td><td>Tm = L / (f × n)</td><td>דקות</td></tr></table>
+<div style="font-size:11px;color:var(--muted);margin-top:8px">fz=הזנה לשן(mm) · z=מספר שיניים · ae=רוחב חיתוך · ap=עומק חיתוך · kc=לחץ חיתוך ספציפי</div></div>
+
+<div class="card"><div class="ctitle">🧭 kc — לחץ חיתוך ספציפי לפי חומר [N/mm²]</div>
+<table><tr><th>חומר</th><th>kc</th></tr>
+<tr><td>אלומיניום</td><td>500-900</td></tr>
+<tr><td>פלדה רכה</td><td>1800-2200</td></tr>
+<tr><td>פלדה מוקשית</td><td>2500-3200</td></tr>
+<tr><td>אל-חלד</td><td>2200-2800</td></tr>
+<tr><td>טיטניום</td><td>1800-2400</td></tr>
+<tr><td>Inconel</td><td>2800-3500</td></tr>
+</table>
+<div class="note">kc קובע ישירות את הכוח וההספק הנדרש — חשוב לבדוק מול הספק הספינדל בפעולות גסות!</div></div>
+</div>
+
+<div class="card">
+<div class="ctitle">🧮 מחשבון RPM / הזנה / MRR</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">חישוב חי</div>
+<div class="cg">
+  <div><label>מהירות חיתוך Vc (m/min)</label><input id="mc-vc" type="number" value="150" step="1" oninput="calcMchSpeedFeed()"></div>
+  <div><label>קוטר כלי D (mm)</label><input id="mc-d" type="number" value="10" step="0.5" oninput="calcMchSpeedFeed()"></div>
+  <div><label>הזנה לשן fz (mm)</label><input id="mc-fz" type="number" value="0.08" step="0.01" oninput="calcMchSpeedFeed()"></div>
+  <div><label>מספר שיניים z</label><input id="mc-z" type="number" value="4" step="1" oninput="calcMchSpeedFeed()"></div>
+  <div><label>עומק חיתוך ap (mm)</label><input id="mc-ap" type="number" value="3" step="0.5" oninput="calcMchSpeedFeed()"></div>
+  <div><label>רוחב חיתוך ae (mm)</label><input id="mc-ae" type="number" value="5" step="0.5" oninput="calcMchSpeedFeed()"></div>
+</div>
+<div id="mc-result" class="res" style="margin-top:10px">—</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ TOOLS ============ -->
+<div id="mch-tools" class="mch-sec">
+<div class="card"><div class="ctitle">🔩 ציפויי כלים ויישומם</div>
+<table><tr><th>ציפוי</th><th>קשיות HV</th><th>Tmax °C</th><th>יישום מיטבי</th></tr>
+<tr><td>TiN (ניטריד טיטניום)</td><td>2300</td><td>500</td><td>חריטה פלדה, ברירת מחדל</td></tr>
+<tr><td>TiCN</td><td>3000</td><td>400</td><td>פלדה קשה, קירור</td></tr>
+<tr><td>TiAlN</td><td>3300</td><td>800</td><td>כרסום מהיר, יבש, SS</td></tr>
+<tr><td>AlCrN</td><td>3200</td><td>1100</td><td>סגסוגות קשות, Inconel</td></tr>
+<tr><td>DLC</td><td>3000-5000</td><td>300</td><td>Al, Cu — לא להידבקות</td></tr>
+<tr><td>CVD Al₂O₃</td><td>2400</td><td>1200</td><td>מחרטה מהירויות גבוהות</td></tr></table>
+</div>
+
+<div class="card"><div class="ctitle">💎 גיאומטריית שינית — בחירה מהירה</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">זווית חוד (Point Angle)</div>
+<div style="font-size:12px;line-height:1.8">80° (מעוין C) — חזק, אוניברסלי<br>55°/35° (V) — חד, לפרופילים/פינות<br>90° (S ריבוע) — קירות ניצבים</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Chip Breaker</div>
+<div style="font-size:12px;line-height:1.8">גס (Roughing) — תעלה עמוקה, שובר שבב עבה<br>גמר (Finishing) — תעלה רדודה, Ra נמוך<br>כללי — פשרה ביניים</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">רדיוס חוד (Rε)</div>
+<div style="font-size:12px;line-height:1.8">קטן (0.2-0.4mm) — חורים קטנים, רטט נמוך<br>גדול (0.8-1.6mm) — Ra טוב, יציבות, אבל Fc גבוה יותר</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">🎯 קידוד ISO לשינית — פענוח מהיר</div>
+<div style="font-size:13px;line-height:1.9">
+דוגמה: <b>CNMG 120408</b> → C(צורה: מעוין 80°) N(חופש: 0°) M(סובלנות: ±0.13) G(חור+שובר שבב) 12(שפה 12mm) 04(עובי 4.76mm) 08(רדיוס 0.8mm)
+</div>
+<div class="note">Grade נבחר בנפרד: P (פלדה), M (אל-חלד), K (יציקה), N (אל-ברזלי/Al), S (סופר-אלוי), H (מוקשה).</div>
+</div>
+</div>
+
+<!-- ============ COOLANT ============ -->
+<div id="mch-coolant" class="mch-sec">
+<div class="card"><div class="ctitle">💧 בחירת קירור לפי תהליך וחומר</div>
+<table><tr><th>מצב</th><th>חומר</th><th>המלצה</th></tr>
+<tr><td>כרסום אלומיניום</td><td>Al</td><td>אמולסיה 5-8% / יבש</td></tr>
+<tr><td>חריטה אל-חלד</td><td>SS</td><td>שמן ריכוז גבוה 10-15%</td></tr>
+<tr><td>קידוח עמוק</td><td>כל חומר</td><td>חיתוך בלחץ גבוה, שמן</td></tr>
+<tr><td>כרסום טיטניום</td><td>Ti</td><td>אמולסיה שוטפת 8-10%</td></tr>
+<tr><td>קרביד ציפוי</td><td>—</td><td>לרוב יבש עדיף</td></tr>
+<tr><td>HSS חריטה</td><td>—</td><td>אמולסיה תמיד</td></tr>
+<tr><td>יצוק ברזל</td><td>Cast</td><td>יבש מועדף</td></tr></table>
+</div>
+
+<div class="card"><div class="ctitle">🚿 שיטות אספקת קירור</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">הצפה (Flood)</div>
+<div style="font-size:12px;line-height:1.8">הנפוץ ביותר. זול, אמין. לא תמיד מגיע לאזור החיתוך בעומק.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">דרך הכלי (Through-Tool)</div>
+<div style="font-size:12px;line-height:1.8">20-70bar דרך חורים בכלי. חובה לקידוח עמוק (L/D&gt;5). מאריך חיי כלי משמעותית.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">MQL (כמות מינימלית)</div>
+<div style="font-size:12px;line-height:1.8">ערפל שמן 5-50ml/h. ירוק וחסכוני. מצוין לאלומיניום, פחות לקידוח עמוק.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">חיתוך יבש (Dry)</div>
+<div style="font-size:12px;line-height:1.8">דורש ציפוי TiAlN/AlCrN. יציקה, פלדה בקרסום מהיר. חוסך 15% מעלות תפעול.</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">🧪 ריכוז נוזל קירור — בדיקה ותחזוקה</div>
+<div style="font-size:13px;line-height:1.9">
+ריכוז אמולסיה: 5-10% נמדד ב-Refractometer. pH רצוי: 8.5-9.5. בקטריות = ריח רע + מחלות עור — בדיקה שבועית!
+</div>
+</div>
+</div>
+
+<!-- ============ BY MATERIAL ============ -->
+<div id="mch-bymat" class="mch-sec">
+<div class="machine-grid">
+
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">אלומיניום (6061/7075)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 200-500 (קרביד)<br>fz: 0.10-0.25mm<br>קירור: יבש/אמולסיה קלה<br>
+<b>טיפ:</b> BUE הבעיה העיקרית ב-Vc נמוך — העלה מהירות, כלי חד, DLC coating. גומחות פינוי שבב רחבות.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">פלדה רכה/בינונית</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 60-120 (קרביד)<br>fz: 0.08-0.20mm<br>קירור: אמולסיה 8-10%<br>
+<b>טיפ:</b> ברירת המחדל להתחלה. Insert P-Grade, TiAlN. עלה ל-4140 Q&T — הפחת Vc ב-30-40%.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">אל-חלד (304/316)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 40-70 (קרביד)<br>fz: 0.05-0.10mm<br>קירור: שוטף, ריכוז גבוה<br>
+<b>טיפ:</b> Work Hardening אויב מספר 1! לעולם אל תשפשף (fz מינימלי!). Insert M-Grade, כלי חד תמיד.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">טיטניום (Ti-6Al-4V)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 30-60 (קרביד)<br>fz: 0.04-0.08mm<br>קירור: שוטף חובה!<br>
+<b>טיפ:</b> מוליכות תרמית נמוכה = חום נשאר בכלי. Vc נמוכה, ap עמוק (לא רדוד!), Trochoidal מומלץ.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Inconel/סופר-אלוי</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 15-30 (קרביד)<br>fz: 0.03-0.06mm<br>קירור: שוטף בלחץ גבוה<br>
+<b>טיפ:</b> Work Hardening קשה מ-SS! Trochoidal חובה כמעט. AlCrN/קרמיקה. עומס יציב — הימנע משפשוף.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--muted)">יצוק ברזל אפור</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 80-150 (קרביד)<br>fz: 0.10-0.20mm<br>קירור: יבש מועדף!<br>
+<b>טיפ:</b> הגרפיט משמן בעצמו — קירור עלול לגרום להלם תרמי וסדקים. אבק — יניקה טובה.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--yellow)">נחושת/ברונזה/פליז</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 150-300 (קרביד)<br>fz: 0.10-0.20mm<br>קירור: לרוב לא נדרש<br>
+<b>טיפ:</b> נחושת טהורה נדבקת — כלי חד + Vc גבוה. פליז אוטומטים (עופרת) — עיבודיות מעולה.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">פלדת כלים מוקשית (D2/H13)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 40-80 (קרביד)/80-200 (CBN)<br>fz: 0.05-0.15mm<br>קירור: תלוי תהליך<br>
+<b>טיפ:</b> מעל HRC45 — עבור ל-Hard Turning עם CBN במקום שחיקה. ap קטן, קשיחות מכונה קריטית.
+</div></div>
+
+</div>
+</div>
+
+<!-- ============ BY PROCESS ============ -->
+<div id="mch-byproc" class="mch-sec">
+<div class="card"><div class="ctitle">⚙️ בחירת פרמטרים לפי תהליך</div>
+<div style="font-size:13px;color:var(--muted);margin-bottom:10px">להסבר מלא איך כל תהליך עובד (חריטה/כרסום/קידוח/שחיקה) — ראה לשונית "טכנולוגיות ייצור". כאן: רק בחירת פרמטרים.</div>
+</div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">חריטה (Turning)</div>
+<div style="font-size:12px;line-height:1.9">
+גס: ap=2-5mm, fn=0.2-0.4<br>גמר: ap=0.2-0.5mm, fn=0.05-0.15<br>
+<b>טיפ:</b> Wiper Insert לגמר = הזנה כפולה באותו Ra. עומק מינימלי לגמר: מעל 0.1mm (מתחת = שפשוף).
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">כרסום (Milling)</div>
+<div style="font-size:12px;line-height:1.9">
+Slotting: ae=100%D<br>Shoulder: ae=30-50%D<br>Trochoidal: ae=5-15%D, ap=1-3×D<br>
+<b>טיפ:</b> Climb Milling תמיד ב-CNC. Trochoidal ל-SS/Ti/Inconel = MRR גבוה ב-30-300%.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">קידוח (Drilling)</div>
+<div style="font-size:12px;line-height:1.9">
+L/D≤4: קידוח רגיל<br>L/D 4-10: Peck Drilling (G83)<br>L/D&gt;10: Gun Drill + קירור פנימי<br>
+<b>טיפ:</b> Spot Drill למיקום מדויק לפני מקדח ארוך. מקדח קרביד+TSC = פי 3-5 מהירות מ-HSS.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">שחיקה (Grinding)</div>
+<div style="font-size:12px;line-height:1.9">
+Surface: 0.005-0.02mm/מעבר<br>Cylindrical: Vc גלגל 25-35 m/s<br>
+<b>טיפ:</b> Grinding Burn = הרס נסתר! Dressing תכוף, Coolant מספיק, Infeed לא אגרסיבי מדי.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">הברגה (Tapping)</div>
+<div style="font-size:12px;line-height:1.9">
+Rigid Tapping: n=const, F=P×n<br>Form Tap: קדח גדול יותר (טבלה נפרדת)<br>
+<b>טיפ:</b> 75% עומק חוט = כמעט תמיד מספיק. Spiral Point לחורים עוברים, Spiral Flute לעיוורים.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">כרסום הברגה (Thread Mill)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc כמו כרסום רגיל, כלי אחד לכל הקטרים<br>
+<b>טיפ:</b> חובה בחומרים קשים ובחורים גדולים. שליטה בקוטר דרך Offset — מתקן שחיקה!
+</div></div>
+</div>
+</div>
+
+<!-- ============ TROUBLESHOOTING ============ -->
+<div id="mch-trouble" class="mch-sec">
+<div class="card"><div class="ctitle">🔍 אבחון תקלות עיבוד — לפי תסמין</div>
+<div style="font-size:13px;color:var(--muted)">זיהוי חזותי של הבעיה הוא המיומנות המרכזית באבחון עיבוד — לכן הוספתי כאן הפניות לדוגמאות חזותיות.</div>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">שבב לא נשבר / נכרך</div>
+<div style="font-size:12px;line-height:1.8">גורם: Chip Breaker לא מתאים, fz נמוך מדי, Vc לא מתאים לחומר.<br>פתרון: העלה fz, בדוק גיאומטריית שינית, Rε קטן יותר.</div>
+<a href="https://www.youtube.com/results?search_query=machining%20chip%20control%20problems%20diagnosis" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">BUE — הצטברות על הכלי</div>
+<div style="font-size:12px;line-height:1.8">גורם: Vc נמוך מדי, חומר דביק (Al/SS רכה), חוסר קירור.<br>פתרון: העלה Vc, ציפוי DLC/TiAlN, קירור מספק, כלי חד יותר.</div>
+<a href="https://www.youtube.com/results?search_query=built%20up%20edge%20BUE%20machining%20identification%20fix" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Chatter — רטט וגמר גלי</div>
+<div style="font-size:12px;line-height:1.8">גורם: תדר עצמי, Overhang גדול, קשיחות אחיזה נמוכה.<br>פתרון: שנה RPM (Stability Lobes!), הקטן ap, כלי קצר יותר, הידוק טוב.</div>
+<a href="https://www.youtube.com/results?search_query=machining%20chatter%20diagnosis%20stability%20lobes%20fix" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">בלאי כלי מהיר (VB גדול)</div>
+<div style="font-size:12px;line-height:1.8">גורם: Vc גבוה מדי, ציפוי לא מתאים, חוסר קירור.<br>פתרון: הפחת Vc לפי Taylor, שדרג ציפוי, בדוק זרימת קירור לאזור החיתוך.</div>
+<a href="https://www.youtube.com/results?search_query=tool%20wear%20flank%20wear%20VB%20identification%20causes" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">גימור משטח גרוע (Ra גבוה)</div>
+<div style="font-size:12px;line-height:1.8">גורם: fn/fz גבוה מדי, Rε קטן, כלי שחוק, Chatter.<br>פתרון: הפחת הזנה, Wiper Insert, בדוק בלאי כלי, ודא קשיחות אחיזה.</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">שבירת כלי פתאומית</div>
+<div style="font-size:12px;line-height:1.8">גורם: עומס יתר, כניסה פתאומית (ללא Ramping), חומר לא אחיד/כלואים.<br>פתרון: Ramping/Helical Entry, בדוק גלם, הפחת ap/fz בכניסה ראשונה.</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">חום יתר / שינוי צבע בחלק</div>
+<div style="font-size:12px;line-height:1.8">גורם: קירור לא מגיע לאזור, Vc גבוה, fz נמוך (שפשוף).<br>פתרון: Through-Tool Coolant, בדוק כיווני זרבובית, העלה fz למניעת שפשוף.</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">מידות לא עקביות (Drift)</div>
+<div style="font-size:12px;line-height:1.8">גורם: בלאי כלי מצטבר, התחממות מכונה/ספינדל, Tool Offset לא מעודכן.<br>פתרון: Probing תדיר, פיצוי שחיקה ב-Offset, Warm-up מכונה לפני עבודה מדויקת.</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+<footer>METAL HUB · פורטל ידע הנדסי מכני · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">חזרה לעמוד הראשי</a></footer>
+
+<script>
+function showMch(id,btn){
+  document.querySelectorAll('.mch-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.mch-tab').forEach(t=>t.classList.remove('active'));
+  var el=document.getElementById('mch-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function showMch(id,btn){document.querySelectorAll('.mch-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.mch-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('mch-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
+
+function calcMchSpeedFeed(){
+  const Vc=parseFloat(document.getElementById('mc-vc').value)||150;
+  const D=parseFloat(document.getElementById('mc-d').value)||10;
+  const fz=parseFloat(document.getElementById('mc-fz').value)||0.08;
+  const z=parseFloat(document.getElementById('mc-z').value)||4;
+  const ap=parseFloat(document.getElementById('mc-ap').value)||3;
+  const ae=parseFloat(document.getElementById('mc-ae').value)||5;
+  const n = (Vc*1000)/(Math.PI*D);
+  const Vf = fz*z*n;
+  const MRR = (ae*ap*Vf)/1000;
+  document.getElementById('mc-result').innerHTML=
+    `RPM (n): <b style="color:var(--blue)">${n.toFixed(0)}</b> סל"ד<br>`+
+    `מהירות שולחן (Vf): <b style="color:var(--blue)">${Vf.toFixed(0)}</b> mm/min<br>`+
+    `קצב הסרת חומר (MRR): <b style="color:var(--green)">${MRR.toFixed(1)}</b> cm³/min`;
+}
+
+
+</script>
+</body>
+</html>
