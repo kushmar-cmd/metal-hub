@@ -78,7 +78,7 @@ a.home-link:hover{color:var(--text);border-color:var(--muted)}
 .ai-btn{background:linear-gradient(135deg,#1e3a5f,#2d1b69);border:1px solid var(--blue);border-radius:20px;padding:5px 12px;font-size:12px;color:var(--blue);cursor:pointer;white-space:nowrap}
 #nav{background:var(--surface);border-bottom:2px solid var(--border);padding:0 16px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;position:fixed;top:52px;left:0;right:0;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4)}
 #nav::-webkit-scrollbar{display:none}
-.tab{padding:11px 13px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s;height:44px}
+.tab{padding:11px 13px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s;height:44px;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
 .tab:hover{color:var(--text)}.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
 #main{flex:1;padding:20px 16px;max-width:1280px;width:100%;margin:96px auto 0}
 .section{display:none}.section.active{display:block}
@@ -396,35 +396,35 @@ html.light-mode .hero p{color:var(--muted)}
 
 <div id="nav">
   <button class="tab active" onclick="showTab('home',this)">🏠 בית</button>
-  <button class="tab" onclick="showTab('mfgtech',this)">🏭 טכנולוגיות</button>
-  <button class="tab" onclick="showTab('materials',this)">🧱 חומרים</button>
-  <button class="tab" onclick="showTab('coatings',this)">🎨 ציפויים</button>
-  <button class="tab" onclick="showTab('heat',this)">🔥 טיפולי חום</button>
-  <button class="tab" onclick="showTab('gdt',this)">⊕ GD&T</button>
-  <button class="tab" onclick="showTab('inspection',this)">🔍 בדיקה ואיכות</button>
-  <button class="tab" onclick="showTab('pricing',this)">💰 תמחיר</button>
-  <button class="tab" onclick="showTab('tol',this)">📏 סובלנויות</button>
-  <button class="tab" onclick="showTab('surface',this)">✦ טיב שטח</button>
-  <button class="tab" onclick="showTab('threads',this)">🔩 הברגות</button>
-  <button class="tab" onclick="showTab('welding',this)">⚡ ריתוך</button>
-  <button class="tab" onclick="showTab('machining',this)">🔧 עיבוד מכני</button>
-  <button class="tab" onclick="showTab('fasteners',this)">🔗 חיבורים</button>
-  <button class="tab" onclick="showTab('inserts',this)">🔩 קשיחים</button>
-  <button class="tab" onclick="showTab('standards',this)">📋 תקנים</button>
-  <button class="tab" onclick="showTab('bearings',this)">⚙️ מסבים</button>
-  <button class="tab" onclick="showTab('gears',this)">⚙️ גירים</button>
-  <button class="tab" onclick="showTab('seals',this)">🔵 אטמים</button>
-  <button class="tab" onclick="showTab('springs',this)">🌀 קפיצים</button>
-  <button class="tab" onclick="showTab('corrosion',this)">⚡ קורוזיה</button>
-    <button class="tab" onclick="showTab('hydraulics',this)">💧 הידראוליקה</button>
-  <button class="tab" onclick="showTab('stress',this)">📊 עומסים</button>
-  <button class="tab" onclick="showTab('fmea',this)">⚠️ FMEA</button>
-  <button class="tab" onclick="showTab('changes',this)">📄 שינויים</button>
-  <button class="tab" onclick="showTab('dfm',this)">🏗️ תכן לייצור</button>
-  <button class="tab" onclick="showTab('pressure',this)">🔬 בדיקות לחץ</button>
-  <button class="tab" onclick="showTab('chem',this)">🧪 כימיה</button>
-  <button class="tab" onclick="showTab('calc',this)">🧮 מחשבונים</button>
-  <button class="tab" onclick="showTab('glossary',this)">📖 מילון</button>
+  <a class="tab" href="mfgtech.html">🏭 טכנולוגיות</a>
+  <a class="tab" href="materials.html">🧱 חומרים</a>
+  <a class="tab" href="coatings.html">🎨 ציפויים</a>
+  <a class="tab" href="heat.html">🔥 טיפולי חום</a>
+  <a class="tab" href="gdt.html">⊕ GD&T</a>
+  <a class="tab" href="inspection.html">🔍 בדיקה ואיכות</a>
+  <a class="tab" href="pricing.html">💰 תמחיר</a>
+  <a class="tab" href="tol.html">📏 סובלנויות</a>
+  <a class="tab" href="surface.html">✦ טיב שטח</a>
+  <a class="tab" href="threads.html">🔩 הברגות</a>
+  <a class="tab" href="welding.html">⚡ ריתוך</a>
+  <a class="tab" href="machining.html">🔧 עיבוד מכני</a>
+  <a class="tab" href="fasteners.html">🔗 חיבורים</a>
+  <a class="tab" href="inserts.html">🔩 קשיחים</a>
+  <a class="tab" href="standards.html">📋 תקנים</a>
+  <a class="tab" href="bearings.html">⚙️ מסבים</a>
+  <a class="tab" href="gears.html">⚙️ גירים</a>
+  <a class="tab" href="seals.html">🔵 אטמים</a>
+  <a class="tab" href="springs.html">🌀 קפיצים</a>
+  <a class="tab" href="corrosion.html">⚡ קורוזיה</a>
+    <a class="tab" href="hydraulics.html">💧 הידראוליקה</a>
+  <a class="tab" href="stress.html">📊 עומסים</a>
+  <a class="tab" href="fmea.html">⚠️ FMEA</a>
+  <a class="tab" href="changes.html">📄 שינויים</a>
+  <a class="tab" href="dfm.html">🏗️ תכן לייצור</a>
+  <a class="tab" href="pressure.html">🔬 בדיקות לחץ</a>
+  <a class="tab" href="chem.html">🧪 כימיה</a>
+  <a class="tab" href="calc.html">🧮 מחשבונים</a>
+  <a class="tab" href="glossary.html">📖 מילון</a>
   <button class="tab" onclick="if(aiUnlocked){showTab('ai',this)}else{openAiLock()}" id="ai-tab-btn">🔐 שאל AI</button>
 </div>
 <div id="main">
