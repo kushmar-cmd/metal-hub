@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://metal.kushmar.com/calc.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>מחשבוני הנדסה — 47 מחשבונים לעיבוד שבבי, GD&T, גלגלי שיניים, איכות ועוד | METAL HUB</title>
+<meta name="description" content="47 מחשבוני הנדסה חיים במקום אחד: עיבוד שבבי, סובלנויות ו-GD&T, מכניקה, גלגלי שיניים, מסבים, קפיצים, כימיה, בדיקה ואיכות, הידראוליקה, תמחיר, ויחידות — עם שרשראות עבודה מקושרות בין מחשבונים.">
+<meta name="keywords" content="מחשבוני הנדסה, מחשבון עיבוד שבבי, מחשבון GD&T, מחשבון גלגלי שיניים, מחשבון תמחיר, מחשבון איכות">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/calc.html">
+<meta property="og:title" content="מחשבוני הנדסה — 47 מחשבונים | METAL HUB">
+<meta property="og:description" content="47 מחשבוני הנדסה חיים: עיבוד שבבי, GD&T, מכניקה, גלגלי שיניים, איכות, ועוד.">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "מחשבוני הנדסה — 47 מחשבונים במקום אחד",
+  "description": "47 מחשבוני הנדסה: עיבוד שבבי, סובלנויות ו-GD&T, מכניקה, גלגלי שיניים, מסבים, קפיצים, כימיה, בדיקה ואיכות, הידראוליקה, תמחיר, יחידות",
+  "about": ["Engineering Calculators", "GD&T", "Machining", "Mechanical Engineering", "Quality Control"],
+  "url": "https://metal.kushmar.com/calc.html",
+  "inLanguage": "he-IL",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:rtl;text-align:right}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;direction:ltr;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border)}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">METAL <span>HUB</span></div>
+  <a class="home-link" href="https://metal.kushmar.com/">→ חזרה לעמוד הראשי</a>
+</header>
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">מחשבוני הנדסה — 47 מחשבונים</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+<b>47 מחשבוני הנדסה</b> חיים במקום אחד: <b>עיבוד שבבי</b>, <b>סובלנויות ו-GD&T</b>, מכניקה, <b>גלגלי שיניים</b>, מסבים, קפיצים, כימיה, <b>בדיקה ואיכות</b>, הידראוליקה, תמחיר, ויחידות — עם שרשראות עבודה מקושרות בין מחשבונים קשורים.
+</p>
+</div>
+
+<div id="sec-calc" class="section">
+<style>
+.calc-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.calc-tab:hover,.calc-tab.active{background:var(--yellow,#fde047);color:#000;border-color:var(--yellow,#fde047);font-weight:700}
+.calc-sec{display:none}.calc-sec.active{display:block}
+.flow-arrow{color:var(--yellow,#fde047);font-weight:700;font-size:16px;margin:0 4px}
+.flow-bar{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;font-size:12px;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.flow-step{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;color:var(--text);cursor:pointer;font-size:11px}
+.flow-step:hover{border-color:var(--yellow,#fde047);color:var(--yellow,#fde047)}
+.copy-btn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-size:10px;cursor:pointer;color:var(--muted);margin-right:6px}
+.copy-btn:hover{color:var(--yellow,#fde047);border-color:var(--yellow,#fde047)}
+</style>
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1a0d);border-color:var(--yellow,#fde047)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🧮</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--yellow,#fde047)">מחשבונים הנדסיים</div>
+    <div style="font-size:12px;color:var(--muted)">עיבוד מכני · מכניקה · גירים · מסבים · קפיצים · איכות SPC · תמחיר · נוזלים · הדבקות · קשיחים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="calc-tab active" onclick="showCalc('machining',this)">⚙️ עיבוד מכני</button>
+  <button class="calc-tab" onclick="showCalc('mechanics',this)">🔩 מכניקה ומבנה</button>
+  <button class="calc-tab" onclick="showCalc('gears',this)">⚙️ גלגלי שיניים</button>
+  <button class="calc-tab" onclick="showCalc('bearings',this)">🔵 מסבים</button>
+  <button class="calc-tab" onclick="showCalc('springs',this)">🌀 קפיצים</button>
+  <button class="calc-tab" onclick="showCalc('quality',this)">📊 איכות SPC</button>
+  <button class="calc-tab" onclick="showCalc('costs',this)">💰 תמחיר ועלויות</button>
+  <button class="calc-tab" onclick="showCalc('fluids',this)">💧 נוזלים</button>
+  <button class="calc-tab" onclick="showCalc('adhesives',this)">🔗 הדבקות</button>
+  <button class="calc-tab" onclick="showCalc('inserts',this)">🔩 קשיחים</button>
+  <button class="calc-tab" onclick="showCalc('tolgdt',this)">📐 סובלנויות ו-GD&T</button>
+</div>
+
+<!-- ====================== MACHINING ====================== -->
+<div id="calc-machining" class="calc-sec active">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימת חישוב: </span>
+  <span class="flow-step" onclick="document.getElementById('m-vc').focus()">1 Vc חיתוך</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('rpm-feed').focus()">2 RPM + הזנה</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('tc-len').focus()">3 זמן עיבוד</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('fc-ft').focus()">4 כוח חיתוך</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('dr-d').focus()">5 קידוח וארבל</span>
+</div>
+
+<div class="machine-grid">
+
+<!-- 1: Vc → RPM + MRR -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · מהירות חיתוך → RPM</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">הזן Vc ← קבל RPM + Vf + MRR</div>
+<div class="cg">
+  <div><label>Vc — מהירות חיתוך (m/min)</label>
+  <select id="m-vc-mat" onchange="calcMachining()">
+    <option value="80">פלדה C45 — 80</option><option value="120">פלדה 4140 Q&T — 120</option>
+    <option value="200">SS 304 — 200</option><option value="400">Al 6061 — 400</option>
+    <option value="60">Ti-6Al-4V — 60</option><option value="150">Cast Iron GCI — 150</option>
+    <option value="custom">מותאם אישית →</option>
+  </select></div>
+  <div><label>Vc מותאם (m/min)</label><input id="m-vc" type="number" value="120" oninput="calcMachining()"></div>
+  <div><label>D — קוטר כלי/חומר (mm)</label><input id="m-d" type="number" value="50" oninput="calcMachining()"></div>
+  <div><label>fn — הזנה לסיבוב (mm/rev)</label><input id="m-fn" type="number" value="0.2" step="0.05" oninput="calcMachining()"></div>
+  <div><label>ap — עומק חיתוך (mm)</label><input id="m-ap" type="number" value="2" step="0.5" oninput="calcMachining()"></div>
+</div>
+<div class="res" id="m-res1">—</div>
+</div>
+
+<!-- 2: זמן עיבוד -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · זמן עיבוד ← מ-RPM</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">RPM + הזנה ממחשבון 1 → זמן tc</div>
+<div class="cg">
+  <div><label>L — אורך עיבוד (mm)</label><input id="tc-len" type="number" value="200" oninput="calcMachiningTime()"></div>
+  <div><label>RPM (מחשבון 1 ↑)</label><input id="tc-rpm" type="number" value="764" oninput="calcMachiningTime()"></div>
+  <div><label>fn — הזנה (mm/rev)</label><input id="tc-fn" type="number" value="0.2" step="0.05" oninput="calcMachiningTime()"></div>
+  <div><label>מספר מעברים</label><input id="tc-pass" type="number" value="1" min="1" oninput="calcMachiningTime()"></div>
+</div>
+<div class="res" id="m-res2">—</div>
+<button class="copy-btn" onclick="copyRpmToTime()">⬆ קבל RPM ממחשבון 1</button>
+</div>
+
+<!-- 3: כוח חיתוך -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · כוח חיתוך וצריכת חשמל</div>
+<div class="cg">
+  <div><label>kc — כוח ספציפי (N/mm²)</label>
+  <select id="fc-kc" onchange="calcCuttingForce()">
+    <option value="1500">פלדה C45 — 1500</option><option value="2200">פלדה 4140 — 2200</option>
+    <option value="2000">SS 304 — 2000</option><option value="700">Al 6061 — 700</option>
+    <option value="1100">Ti-6Al-4V — 1100</option><option value="900">Cast Iron — 900</option>
+  </select></div>
+  <div><label>Ft — שטח חתך (mm²) = ap × fn</label><input id="fc-ft" type="number" value="0.4" step="0.05" oninput="calcCuttingForce()"></div>
+  <div><label>Vc (m/min) ← ממחשבון 1</label><input id="fc-vc" type="number" value="120" oninput="calcCuttingForce()"></div>
+  <div><label>η — יעילות ספינדל (%)</label><input id="fc-eta" type="number" value="80" oninput="calcCuttingForce()"></div>
+</div>
+<div class="res" id="m-res3">—</div>
+<button class="copy-btn" onclick="copyVcToForce()">⬆ קבל Vc ממחשבון 1</button>
+</div>
+
+<!-- 4: Sin Bar -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Sin Bar — זווית משטח</div>
+<div class="cg">
+  <div><label>L — אורך Sin Bar (mm)</label>
+  <select id="sb-l" onchange="calcSineBarNew()">
+    <option value="100">100mm</option><option value="125">125mm</option>
+    <option value="150">150mm (נפוץ)</option><option value="200">200mm</option><option value="250">250mm</option>
+  </select></div>
+  <div><label>α — זווית נדרשת (°)</label><input id="sb-a" type="number" value="30" step="0.01" oninput="calcSineBarNew()"></div>
+</div>
+<div class="res" id="m-res4">—</div>
+</div>
+
+<!-- 5: קידוח וארבל -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · קידוח וארבל — Drill & Tap</div>
+<div class="cg">
+  <div><label>מידה מטרית</label>
+  <select id="dr-size" onchange="calcDrillTap()">
+    <option value="3,0.5">M3 × 0.5</option><option value="4,0.7">M4 × 0.7</option>
+    <option value="5,0.8">M5 × 0.8</option><option value="6,1.0" selected>M6 × 1.0</option>
+    <option value="8,1.25">M8 × 1.25</option><option value="10,1.5">M10 × 1.5</option>
+    <option value="12,1.75">M12 × 1.75</option><option value="14,2.0">M14 × 2.0</option>
+    <option value="16,2.0">M16 × 2.0</option><option value="20,2.5">M20 × 2.5</option>
+    <option value="24,3.0">M24 × 3.0</option><option value="30,3.5">M30 × 3.5</option>
+  </select></div>
+  <div><label>עומק הברגה (× D)</label>
+  <select id="dr-depth" onchange="calcDrillTap()">
+    <option value="1">1D</option><option value="1.5" selected>1.5D</option>
+    <option value="2">2D</option><option value="2.5">2.5D</option>
+  </select></div>
+  <div><label>חומר</label>
+  <select id="dr-mat" onchange="calcDrillTap()">
+    <option value="al">אלומיניום</option><option value="steel" selected>פלדה</option>
+    <option value="ss">נירוסטה</option><option value="ci">ברזל יצוק</option>
+  </select></div>
+</div>
+<div class="res" id="m-res5">—</div>
+</div>
+
+<!-- 6: RPM → Vc (הפוך) -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · RPM → Vc (הפוך)</div>
+<div class="cg">
+  <div><label>RPM (סיבובים לדקה)</label><input id="rv-rpm" type="number" value="1000" oninput="calcRpmToVc()"></div>
+  <div><label>D — קוטר (mm)</label><input id="rv-d" type="number" value="50" oninput="calcRpmToVc()"></div>
+</div>
+<div class="res" id="m-res6">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">7 · Tap Drill Size — קוטר קדח לברז</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">הברגה מטרית → קוטר קדח לפי אחוז אחיזת חוט</div>
+<div class="cg">
+  <div><label>D — קוטר נומינלי (mm)</label><input id="tap-d" type="number" value="10" step="0.5" oninput="calcTapDrill()"></div>
+  <div><label>P — צעד הברגה (mm)</label><input id="tap-p" type="number" value="1.5" step="0.05" oninput="calcTapDrill()"></div>
+  <div><label>% אחיזת חוט</label><select id="tap-eng" onchange="calcTapDrill()">
+    <option value="100">100% (חומרים רכים בלבד)</option>
+    <option value="75" selected>75% (סטנדרט — כמעט תמיד מספיק)</option>
+    <option value="65">65% (חומרים קשים — Ti/Inconel/SS)</option>
+  </select></div>
+</div>
+<div class="res" id="tap-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">8 · גימור משטח בחריטה (Ra)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Ra צפוי מהזנה ורדיוס חוד הכלי</div>
+<div class="cg">
+  <div><label>fn — הזנה לסיבוב (mm/rev)</label><input id="raf-fn" type="number" value="0.15" step="0.01" oninput="calcRaFinish()"></div>
+  <div><label>Rε — רדיוס חוד הכלי (mm)</label><input id="raf-r" type="number" value="0.8" step="0.1" oninput="calcRaFinish()"></div>
+</div>
+<div class="res" id="raf-result">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== MECHANICS ====================== -->
+<div id="calc-mechanics" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 כוח/מומנט</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 מאמץ בציר/קורה</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 בחירת מידה</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 משקל</span>
+</div>
+
+<div class="machine-grid">
+
+<!-- ציר מומנט פיתול -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · ציר — מומנט וכוח</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">P → T → τ → קוטר מינימום</div>
+<div class="cg">
+  <div><label>P — הספק (kW)</label><input id="sh-p" type="number" value="7.5" step="0.5" oninput="calcShaftFull()"></div>
+  <div><label>n — סיבובים (RPM)</label><input id="sh-n" type="number" value="1450" oninput="calcShaftFull()"></div>
+  <div><label>τ_allow — מאמץ גזירה מותר (MPa)</label>
+  <select id="sh-tau" onchange="calcShaftFull()">
+    <option value="40">פלדה 1045 N — 40</option><option value="60">פלדה 4140 Q&T — 60</option>
+    <option value="80">פלדה 4340 — 80</option><option value="30">SS 304 — 30</option>
+    <option value="25">Al 6061-T6 — 25</option><option value="custom">מותאם ↓</option>
+  </select></div>
+  <div><label>τ_allow מותאם (MPa)</label><input id="sh-tau-c" type="number" value="60" oninput="calcShaftFull()"></div>
+  <div><label>SF — מקדם בטיחות</label><input id="sh-sf" type="number" value="2" step="0.5" oninput="calcShaftFull()"></div>
+</div>
+<div class="res" id="mec-res1">—</div>
+</div>
+
+<!-- קורה -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · קורה — כיפוף וסטייה</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Simply Supported · Cantilever</div>
+<div class="cg">
+  <div><label>סוג קורה</label>
+  <select id="bm-type" onchange="calcBeamFull()">
+    <option value="ss_center">Simply Supported — עומס מרכז</option>
+    <option value="ss_udl">Simply Supported — UDL</option>
+    <option value="cant_end">Cantilever — עומס קצה</option>
+    <option value="cant_udl">Cantilever — UDL</option>
+  </select></div>
+  <div><label>L — אורך (mm)</label><input id="bm-l" type="number" value="500" oninput="calcBeamFull()"></div>
+  <div><label>F — עומס (N)</label><input id="bm-f" type="number" value="1000" oninput="calcBeamFull()"></div>
+  <div><label>E — מודול Young (GPa)</label>
+  <select id="bm-e" onchange="calcBeamFull()">
+    <option value="210">פלדה — 210</option><option value="193">SS 304 — 193</option>
+    <option value="69">Al 6061 — 69</option><option value="114">Ti-6Al-4V — 114</option>
+  </select></div>
+  <div><label>I — מומנט אינרציה (mm⁴)</label><input id="bm-i" type="number" value="100000" oninput="calcBeamFull()"></div>
+  <div><label>c — מרחק ממרכז (mm) לσ</label><input id="bm-c" type="number" value="25" oninput="calcBeamFull()"></div>
+</div>
+<div class="res" id="mec-res2">—</div>
+</div>
+
+<!-- לחץ Hertz -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · לחץ Hertz — מגע</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">כדור/גלגורת על משטח/ציר</div>
+<div class="cg">
+  <div><label>סוג מגע</label>
+  <select id="hz-type" onchange="calcHertz()">
+    <option value="sphere_flat">כדור על משטח שטוח</option>
+    <option value="sphere_sphere">כדור על כדור</option>
+    <option value="cyl_flat">גלגורת על משטח שטוח</option>
+    <option value="cyl_cyl">גלגורת על גלגורת</option>
+  </select></div>
+  <div><label>F — עומס (N)</label><input id="hz-f" type="number" value="1000" oninput="calcHertz()"></div>
+  <div><label>R₁ — רדיוס 1 (mm)</label><input id="hz-r1" type="number" value="10" oninput="calcHertz()"></div>
+  <div><label>R₂ — רדיוס 2 (mm, ∞=שטוח)</label><input id="hz-r2" type="number" value="99999" oninput="calcHertz()"></div>
+  <div><label>E — חומר (GPa)</label>
+  <select id="hz-e" onchange="calcHertz()">
+    <option value="210">פלדה — 210</option><option value="193">SS — 193</option>
+    <option value="69">Al — 69</option>
+  </select></div>
+  <div><label>ν — Poisson</label><input id="hz-nu" type="number" value="0.3" step="0.01" oninput="calcHertz()"></div>
+</div>
+<div class="res" id="mec-res3">—</div>
+</div>
+
+<!-- משקל -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · משקל חומרים</div>
+<div class="cg">
+  <div><label>צורה</label>
+  <select id="wt-sh" onchange="shapeChangeCalc()">
+    <option value="bar">מוט עגול</option><option value="rect">פרופיל מלבני</option>
+    <option value="tube">צינור</option><option value="plate">לוח</option>
+    <option value="hex">שישה פינות</option><option value="ring">טבעת</option>
+  </select></div>
+  <div><label>יחידות מידה</label>
+  <select id="wt-unit" onchange="shapeChangeCalc()">
+    <option value="mm">מילימטר (mm)</option>
+    <option value="in">אינץ' (inch)</option>
+  </select></div>
+  <div><label id="wt-l1">קוטר (mm)</label><input id="wt-d1" type="number" value="50" oninput="calcWtNew()"></div>
+  <div><label id="wt-l2">אורך/גובה (mm)</label><input id="wt-d2" type="number" value="100" oninput="calcWtNew()"></div>
+  <div id="wt-g3"><label id="wt-l3">עובי דופן / רוחב (mm)</label><input id="wt-d3" type="number" value="5" oninput="calcWtNew()"></div>
+  <div id="wt-g4" style="display:none"><label id="wt-l4">עומק (mm)</label><input id="wt-d4" type="number" value="30" oninput="calcWtNew()"></div>
+  <div><label>כמות (יח')</label><input id="wt-qty" type="number" value="1" min="1" step="1" oninput="calcWtNew()"></div>
+  <div><label>חומר (g/cm³)</label>
+  <select id="wt-mt" onchange="calcWtNew()">
+    <optgroup label="פלדות"><option value="7.85" selected>פלדה 1018-4340 (7.85)</option><option value="7.76">H13 Tool Steel (7.76)</option><option value="8.16">M2 HSS (8.16)</option></optgroup>
+    <optgroup label="אל-חלד"><option value="7.93">SS 304/304L (7.93)</option><option value="7.99">SS 316/316L (7.99)</option><option value="7.78">SS 17-4PH (7.78)</option><option value="7.78">SS 15-5PH (7.78)</option><option value="7.82">SS 2205 Duplex (7.82)</option><option value="7.81">SS 2507 Super Duplex (7.81)</option></optgroup>
+    <optgroup label="אלומיניום"><option value="2.71">Al 6061-T6 (2.71)</option><option value="2.81">Al 7075-T6 (2.81)</option><option value="2.78">Al 2024-T4 (2.78)</option><option value="2.68">Al 5052 (2.68)</option><option value="2.83">Al 7050 (2.83)</option></optgroup>
+    <optgroup label="טיטניום"><option value="4.43">Ti-6Al-4V (4.43)</option><option value="4.51">Ti Grade 2 (4.51)</option></optgroup>
+    <optgroup label="נחושת ופליז"><option value="8.96">נחושת C110 (8.96)</option><option value="8.50">פליז C260 (8.50)</option><option value="8.83">ברונזה C932 (8.83)</option></optgroup>
+    <optgroup label="ניקל וסגסוגות-על"><option value="8.19">Inconel 718 (8.19)</option><option value="8.44">Inconel 625 (8.44)</option><option value="8.47">Inconel 600 (8.47)</option><option value="8.89">Hastelloy C276 (8.89)</option></optgroup>
+    <optgroup label="מגנזיום ואבץ"><option value="1.77">Mg AZ31B (1.77)</option><option value="6.60">Zamak 3 Die Cast (6.60)</option></optgroup>
+    <optgroup label="פלסטיק"><option value="1.14">Nylon PA66 (1.14)</option><option value="1.41">POM Acetal (1.41)</option><option value="1.20">PC Polycarbonate (1.20)</option><option value="0.91">PP (0.91)</option><option value="1.31">PEEK (1.31)</option></optgroup>
+  </select></div>
+</div>
+<div class="res" id="mec-res4">—</div>
+</div>
+
+<!-- מומנט הידוק בורג -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · מומנט הידוק בורג</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">ISO 898-1 · K·F·d</div>
+<div class="cg">
+  <div><label>מידה</label>
+  <select id="tq-size" onchange="calcTorque()">
+    <option value="3,0.5">M3</option><option value="4,0.7">M4</option><option value="5,0.8">M5</option>
+    <option value="6,1.0" selected>M6</option><option value="8,1.25">M8</option><option value="10,1.5">M10</option>
+    <option value="12,1.75">M12</option><option value="16,2.0">M16</option><option value="20,2.5">M20</option>
+    <option value="24,3.0">M24</option><option value="30,3.5">M30</option>
+  </select></div>
+  <div><label>דרגת חוזק</label>
+  <select id="tq-grade" onchange="calcTorque()">
+    <option value="400,0.9">4.6 — Fy=240MPa</option><option value="400,0.9">4.8</option>
+    <option value="640,0.9">8.8 — Fy=640MPa ★</option><option value="940,0.9">10.9 — Fy=940MPa</option>
+    <option value="1100,0.9">12.9 — Fy=1100MPa</option><option value="450,0.9">A2-70 SS</option>
+    <option value="600,0.9">A4-80 SS</option>
+  </select></div>
+  <div><label>K — גורם אום (0.15-0.20)</label>
+  <select id="tq-k" onchange="calcTorque()">
+    <option value="0.12">0.12 — MoS₂/PTFE</option><option value="0.15">0.15 — שמן קל</option>
+    <option value="0.17" selected>0.17 — יבש מטופל</option><option value="0.20">0.20 — יבש</option>
+    <option value="0.22">0.22 — חלוד/גס</option>
+  </select></div>
+  <div><label>% מהDowel Load</label><input id="tq-pct" type="number" value="70" min="50" max="90" oninput="calcTorque()"></div>
+</div>
+<div class="res" id="mec-res5">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · Von Mises — מאמץ שקול</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">שילוב כפיפה+פיתול/גזירה למקדם בטיחות</div>
+<div class="cg">
+  <div><label>σ — מאמץ נורמלי (MPa)</label><input id="vm2-s" type="number" value="150" step="5" oninput="calcVonMisesCentral()"></div>
+  <div><label>τ — מאמץ גזירה (MPa)</label><input id="vm2-t" type="number" value="60" step="5" oninput="calcVonMisesCentral()"></div>
+  <div><label>Sy — גבול זרימה (MPa)</label><input id="vm2-sy" type="number" value="350" step="10" oninput="calcVonMisesCentral()"></div>
+</div>
+<div class="res" id="vm2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">7 · עייפות — Goodman Diagram</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">מקדם בטיחות לעומס עייפות משולב (ממוצע+מתנד)</div>
+<div class="cg">
+  <div><label>σa — מאמץ מתנד (MPa)</label><input id="fat-sa" type="number" value="80" step="5" oninput="calcFatigueGoodman()"></div>
+  <div><label>σm — מאמץ ממוצע (MPa)</label><input id="fat-sm" type="number" value="50" step="5" oninput="calcFatigueGoodman()"></div>
+  <div><label>Se — גבול עייפות (MPa)</label><input id="fat-se" type="number" value="300" step="10" oninput="calcFatigueGoodman()"></div>
+  <div><label>Sut — חוזק קרע (MPa)</label><input id="fat-sut" type="number" value="600" step="10" oninput="calcFatigueGoodman()"></div>
+</div>
+<div class="res" id="fat-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">8 · Press-Fit / Shrink-Fit — חימום להרכבה</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">ΔT נדרש לחימום הבית לפני הרכבת כוננת לחץ</div>
+<div class="cg">
+  <div><label>חפיפה δ (מ"מ, סה"כ קוטרי)</label><input id="pf-delta" type="number" value="0.04" step="0.005" oninput="calcPressFit()"></div>
+  <div><label>⌀ נומינלי D (mm)</label><input id="pf-d" type="number" value="50" step="1" oninput="calcPressFit()"></div>
+  <div><label>חומר הבית (מקדם התפשטות α)</label><select id="pf-alpha" onchange="calcPressFit()">
+    <option value="0.0000115">פלדה (α=11.5×10⁻⁶)</option>
+    <option value="0.0000165">אל-חלד (α=16.5×10⁻⁶)</option>
+    <option value="0.0000230">אלומיניום (α=23×10⁻⁶)</option>
+    <option value="0.0000090">טיטניום (α=9×10⁻⁶)</option>
+  </select></div>
+  <div><label>מרווח בטיחות נוסף (°C)</label><input id="pf-margin" type="number" value="30" step="5" oninput="calcPressFit()"></div>
+</div>
+<div class="res" id="pf-result">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== GEARS ====================== -->
+<div id="calc-gears" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 מודול + שיניים</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 זוג גירים + יחס</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Ft מזוג 2 ↓</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 חוזק Lewis</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">5 כוכבית / Rack</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · גיאומטריית גיר</div>
+<div class="cg">
+  <div><label>מודול m</label>
+  <select id="gr-m" onchange="calcGearNew()">
+    <option value="0.5">0.5</option><option value="0.8">0.8</option><option value="1">1</option>
+    <option value="1.25">1.25</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+    <option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option>
+    <option value="5">5</option><option value="6">6</option><option value="8">8</option><option value="10">10</option>
+  </select></div>
+  <div><label>z — מספר שיניים</label><input id="gr-z" type="number" value="20" min="6" oninput="calcGearNew()"></div>
+  <div><label>זווית לחץ α</label>
+  <select id="gr-a" onchange="calcGearNew()">
+    <option value="20" selected>20°</option><option value="14.5">14.5°</option><option value="25">25°</option>
+  </select></div>
+  <div><label>רוחב שיניים b (mm)</label><input id="gr-b" type="number" value="30" oninput="calcGearNew()"></div>
+</div>
+<div class="res" id="gr-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · זוג גירים ← מ-1</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">מחשב Ft ← ← מחשבון 3 ישתמש בו</div>
+<div class="cg">
+  <div><label>m (ממחשבון 1)</label>
+  <select id="gp-m" onchange="calcGearPairNew()">
+    <option value="1">1</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+    <option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+  </select></div>
+  <div><label>z₁ — Pinion</label><input id="gp-z1" type="number" value="18" min="6" oninput="calcGearPairNew()"></div>
+  <div><label>z₂ — Gear</label><input id="gp-z2" type="number" value="54" min="6" oninput="calcGearPairNew()"></div>
+  <div><label>P — הספק (kW)</label><input id="gp-p" type="number" value="5" step="0.5" oninput="calcGearPairNew()"></div>
+  <div><label>n₁ — RPM כניסה</label><input id="gp-n1" type="number" value="1450" oninput="calcGearPairNew()"></div>
+</div>
+<div class="res" id="gr-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · חוזק Lewis ← Ft מ-2</div>
+<div class="cg">
+  <div><label>m</label><input id="gl-m" type="number" value="2" step="0.5" oninput="calcGearLewisNew()"></div>
+  <div><label>b (mm)</label><input id="gl-b" type="number" value="30" oninput="calcGearLewisNew()"></div>
+  <div><label>Ft (N) ← ממחשבון 2</label><input id="gl-ft" type="number" value="2000" oninput="calcGearLewisNew()"></div>
+  <div><label>מקדם Y (Lewis)</label>
+  <select id="gl-y" onchange="calcGearLewisNew()">
+    <option value="0.245">z=12</option><option value="0.261">z=14</option><option value="0.277">z=16</option>
+    <option value="0.290">z=18</option><option value="0.308" selected>z=20</option><option value="0.322">z=25</option>
+    <option value="0.340">z=30</option><option value="0.369">z=40</option><option value="0.408">z=75</option>
+    <option value="0.422">z=∞ (rack)</option>
+  </select></div>
+  <div><label>Kv — מקדם עומס</label>
+  <select id="gl-kv" onchange="calcGearLewisNew()">
+    <option value="1.1">1.1 — מהיר/דיוק ↑</option><option value="1.3" selected>1.3 — רגיל</option>
+    <option value="1.5">1.5 — איטי/גס</option>
+  </select></div>
+</div>
+<div class="res" id="gr-res3">—</div>
+<button class="copy-btn" onclick="copyFtToLewis()">⬆ קבל Ft ממחשבון 2</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Rack & Pinion</div>
+<div class="cg">
+  <div><label>m</label>
+  <select id="rp-m" onchange="calcRackNew()">
+    <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option>
+    <option value="4">4</option><option value="5">5</option>
+  </select></div>
+  <div><label>z — שיניים Pinion</label><input id="rp-z" type="number" value="20" oninput="calcRackNew()"></div>
+  <div><label>n — RPM</label><input id="rp-n" type="number" value="100" oninput="calcRackNew()"></div>
+</div>
+<div class="res" id="gr-res4">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · כוכבית Planetary</div>
+<div class="cg">
+  <div><label>zS — Sun</label><input id="pl-zs" type="number" value="20" oninput="calcPlanetaryNew()"></div>
+  <div><label>zP — Planet</label><input id="pl-zp" type="number" value="20" oninput="calcPlanetaryNew()"></div>
+  <div><label>n₁ — RPM כניסה</label><input id="pl-n" type="number" value="1450" oninput="calcPlanetaryNew()"></div>
+  <div><label>P — הספק (kW)</label><input id="pl-p" type="number" value="5" oninput="calcPlanetaryNew()"></div>
+</div>
+<div class="res" id="gr-res5">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== BEARINGS ====================== -->
+<div id="calc-bearings" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 עומסים Fr + Fa</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 P שקול → L10h</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 ndm בדיקת מהירות</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 מפענח קידוד</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1+2 · L10h — חיי מסב מלא</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">מחשב P מעומסים → L10h</div>
+<div class="cg">
+  <div><label>C — עומס דינמי (kN)</label><input id="bc-c" type="number" value="25.5" step="0.1" oninput="calcBearFull2()"></div>
+  <div><label>Fr — עומס רדיאלי (N)</label><input id="bc-fr" type="number" value="5000" oninput="calcBearFull2()"></div>
+  <div><label>Fa — עומס צירי (N)</label><input id="bc-fa" type="number" value="1000" oninput="calcBearFull2()"></div>
+  <div><label>e (מcatalog)</label><input id="bc-e" type="number" value="0.30" step="0.01" oninput="calcBearFull2()"></div>
+  <div><label>Y (מcatalog)</label><input id="bc-y" type="number" value="1.8" step="0.1" oninput="calcBearFull2()"></div>
+  <div><label>n — מהירות (RPM)</label><input id="bc-n" type="number" value="1450" oninput="calcBearFull2()"></div>
+  <div><label>סוג מסב</label>
+  <select id="bc-type" onchange="calcBearFull2()">
+    <option value="3">כדורים (p=3)</option><option value="3.333">גלגורת (p=10/3)</option>
+  </select></div>
+</div>
+<div class="res" id="br-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · ndm — בדיקת מהירות</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">קבע אם גריז מספיק</div>
+<div class="cg">
+  <div><label>d — bore (mm)</label><input id="ndm-d" type="number" value="25" oninput="calcNdm2()"></div>
+  <div><label>D — OD (mm)</label><input id="ndm-D" type="number" value="52" oninput="calcNdm2()"></div>
+  <div><label>n — RPM</label><input id="ndm-n" type="number" value="12000" oninput="calcNdm2()"></div>
+</div>
+<div class="res" id="br-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · מפענח מסב</div>
+<div class="cg">
+  <div><label>מספר מסב</label><input type="text" id="bc-num2" value="6205-2RS-C3" placeholder="6205 / NU208 / 7310B" oninput="decodeBear2()"></div>
+</div>
+<div id="br-res3" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:2;color:var(--muted)">הכנס מספר מסב</div>
+</div>
+
+</div></div>
+
+<!-- ====================== SPRINGS ====================== -->
+<div id="calc-springs" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 בחר חומר → G/E</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 ממדים → k + δ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 מאמץ τ/σ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 בדיקת Wahl</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1+2+3 · קפיץ לחיצה/מתיחה</div>
+<div class="cg">
+  <div><label>d — קוטר חוט (mm)</label><input id="sp2-d" type="number" value="3" step="0.1" oninput="calcSpringComp()"></div>
+  <div><label>D — קוטר ממוצע (mm)</label><input id="sp2-D" type="number" value="25" oninput="calcSpringComp()"></div>
+  <div><label>n — כריכות פעילות</label><input id="sp2-n" type="number" value="8" min="2" oninput="calcSpringComp()"></div>
+  <div><label>G (GPa)</label>
+  <select id="sp2-G" onchange="calcSpringComp()">
+    <option value="80">פלדה C / Cr-V / Cr-Si (80)</option><option value="69">SS 302/304 (69)</option>
+    <option value="72">SS 17-7PH (72)</option><option value="77">Inconel 718 (77)</option>
+    <option value="44">Phosphor Bronze (44)</option><option value="48">Beryllium Cu (48)</option>
+  </select></div>
+  <div><label>F — עומס (N)</label><input id="sp2-f" type="number" value="100" oninput="calcSpringComp()"></div>
+  <div><label>Lf — אורך חופשי (mm)</label><input id="sp2-lf" type="number" value="80" oninput="calcSpringComp()"></div>
+</div>
+<div class="res" id="sp-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · קפיץ פיתול</div>
+<div class="cg">
+  <div><label>d (mm)</label><input id="st2-d" type="number" value="3" step="0.1" oninput="calcTorsionSprNew()"></div>
+  <div><label>D (mm)</label><input id="st2-D" type="number" value="25" oninput="calcTorsionSprNew()"></div>
+  <div><label>n — כריכות</label><input id="st2-n" type="number" value="8" oninput="calcTorsionSprNew()"></div>
+  <div><label>E (GPa)</label>
+  <select id="st2-E" onchange="calcTorsionSprNew()">
+    <option value="207">פלדה (207)</option><option value="193">SS (193)</option><option value="200">Inconel (200)</option>
+  </select></div>
+  <div><label>T — מומנט (N·mm)</label><input id="st2-T" type="number" value="500" oninput="calcTorsionSprNew()"></div>
+</div>
+<div class="res" id="sp-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Belleville Washer</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">DIN 2093 — צלחת קפיץ</div>
+<div class="cg">
+  <div><label>OD — קוטר חיצוני (mm)</label><input id="bv-od" type="number" value="50" oninput="calcBelleville()"></div>
+  <div><label>ID — קוטר פנימי (mm)</label><input id="bv-id" type="number" value="25.4" oninput="calcBelleville()"></div>
+  <div><label>t — עובי (mm)</label><input id="bv-t" type="number" value="2" step="0.1" oninput="calcBelleville()"></div>
+  <div><label>h₀ — גובה חרוט (mm)</label><input id="bv-h" type="number" value="1.8" step="0.1" oninput="calcBelleville()"></div>
+  <div><label>E (GPa)</label><input id="bv-e" type="number" value="210" oninput="calcBelleville()"></div>
+  <div><label>סידור</label>
+  <select id="bv-arr" onchange="calcBelleville()">
+    <option value="1">יחידה × 1</option><option value="2p">מקביל × 2</option>
+    <option value="2s">טורי × 2</option><option value="4p">מקביל × 4</option>
+  </select></div>
+</div>
+<div class="res" id="sp-res3">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== QUALITY ====================== -->
+<div id="calc-quality" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 מדידות → Cpk</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Cpk → DPMO/σ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 MSA/GRR</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 TUR/AQL</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">5 FMEA RPN</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Cp / Cpk — יכולת תהליך</div>
+<div class="cg">
+  <div><label>USL — גבול עליון (mm)</label><input id="cpk-usl" type="number" value="10.1" step="0.01" oninput="calcCpkFull()"></div>
+  <div><label>LSL — גבול תחתון (mm)</label><input id="cpk-lsl" type="number" value="9.9" step="0.01" oninput="calcCpkFull()"></div>
+  <div><label>x̄ — ממוצע מדידות</label><input id="cpk-mean" type="number" value="10.02" step="0.001" oninput="calcCpkFull()"></div>
+  <div><label>σ — סטיית תקן</label><input id="cpk-std" type="number" value="0.015" step="0.001" oninput="calcCpkFull()"></div>
+</div>
+<div class="res" id="qc-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · DPMO ← מ-Cpk</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Cpk ← ← ← ↑ ← העתק מ-1</div>
+<div class="cg">
+  <div><label>Cpk (ממחשבון 1)</label><input id="dpmo-cpk" type="number" value="1.33" step="0.01" oninput="calcDPMOFull()"></div>
+  <div><label>מספר הזדמנויות (DPO)</label><input id="dpmo-opp" type="number" value="1" min="1" oninput="calcDPMOFull()"></div>
+</div>
+<div class="res" id="qc-res2">—</div>
+<button class="copy-btn" onclick="copyCpkToDpmo()">⬆ קבל Cpk ממחשבון 1</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · GRR — ניתוח מדידה</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">MSA Gauge R&R</div>
+<div class="cg">
+  <div><label>EV — שונות ציוד (Equipment)</label><input id="grr-ev" type="number" value="0.03" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>AV — שונות מפעיל (Appraiser)</label><input id="grr-av" type="number" value="0.02" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>TV — שונות כוללת (Total)</label><input id="grr-tv" type="number" value="0.12" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>Tolerance — פס סובלנות</label><input id="grr-tol" type="number" value="0.2" step="0.01" oninput="calcGRRFull()"></div>
+</div>
+<div class="res" id="qc-res3">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · TUR — יחס מדידה</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Test Uncertainty Ratio</div>
+<div class="cg">
+  <div><label>Tolerance — פס (mm)</label><input id="tur-tol" type="number" value="0.1" step="0.01" oninput="calcTURFull()"></div>
+  <div><label>U — אי-ודאות מדידה (mm)</label><input id="tur-u" type="number" value="0.005" step="0.001" oninput="calcTURFull()"></div>
+</div>
+<div class="res" id="qc-res4">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · AQL — דגימה</div>
+<div class="cg">
+  <div><label>גודל מנה N</label><input id="aql-n" type="number" value="500" oninput="calcAQLFull()"></div>
+  <div><label>AQL (%)</label>
+  <select id="aql-q" onchange="calcAQLFull()">
+    <option value="0.065">0.065%</option><option value="0.1">0.1%</option><option value="0.15">0.15%</option>
+    <option value="0.25">0.25%</option><option value="0.4">0.4%</option><option value="0.65">0.65%</option>
+    <option value="1.0" selected>1.0%</option><option value="1.5">1.5%</option><option value="2.5">2.5%</option>
+    <option value="4.0">4.0%</option><option value="6.5">6.5%</option>
+  </select></div>
+  <div><label>רמת בדיקה</label>
+  <select id="aql-lvl" onchange="calcAQLFull()">
+    <option value="I">I — מופחתת</option><option value="II" selected>II — רגילה</option>
+    <option value="III">III — מוגברת</option>
+  </select></div>
+</div>
+<div class="res" id="qc-res5">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · FMEA — RPN</div>
+<div class="cg">
+  <div><label>S — חומרה (1-10)</label><input id="fm-s" type="number" value="7" min="1" max="10" oninput="calcFMEAFull()"></div>
+  <div><label>O — הסתברות (1-10)</label><input id="fm-o" type="number" value="5" min="1" max="10" oninput="calcFMEAFull()"></div>
+  <div><label>D — גילוי (1-10)</label><input id="fm-d" type="number" value="6" min="1" max="10" oninput="calcFMEAFull()"></div>
+</div>
+<div class="res" id="qc-res6">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== COSTS ====================== -->
+<div id="calc-costs" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">זרימה: </span>
+  <span class="flow-step">1 חומר + זמן → עלות</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 BOM → עלות כוללת</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 עלות יחידה + רווח</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · עלות חלק — תמחיר</div>
+<div class="cg">
+  <div><label>עלות חומר (₪/kg)</label><input id="pr-mat" type="number" value="25" oninput="calcPricingFull()"></div>
+  <div><label>משקל חלק (kg)</label><input id="pr-wt" type="number" value="0.5" step="0.1" oninput="calcPricingFull()"></div>
+  <div><label>זמן מכונה (דקות)</label><input id="pr-tm" type="number" value="30" oninput="calcPricingFull()"></div>
+  <div><label>עלות מכונה (₪/שעה)</label><input id="pr-mh" type="number" value="120" oninput="calcPricingFull()"></div>
+  <div><label>זמן הכנה (Setup דקות)</label><input id="pr-setup" type="number" value="20" oninput="calcPricingFull()"></div>
+  <div><label>כמות בהפקה</label><input id="pr-qty" type="number" value="50" oninput="calcPricingFull()"></div>
+  <div><label>תקורה (%)</label><input id="pr-oh" type="number" value="30" oninput="calcPricingFull()"></div>
+  <div><label>רווח (%)</label><input id="pr-mg" type="number" value="20" oninput="calcPricingFull()"></div>
+</div>
+<div class="res" id="pr-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · BOM — חמרים + עבודה</div>
+<div class="cg">
+  <div><label>עלות חומרים (₪)</label><input id="bm2-mat" type="number" value="200" oninput="calcBOMFull()"></div>
+  <div><label>עלות עבודה ישירה (₪)</label><input id="bm2-lab" type="number" value="150" oninput="calcBOMFull()"></div>
+  <div><label>חלקי רכש (₪)</label><input id="bm2-buy" type="number" value="80" oninput="calcBOMFull()"></div>
+  <div><label>תקורה (%)</label><input id="bm2-oh" type="number" value="35" oninput="calcBOMFull()"></div>
+  <div><label>% פסולת</label><input id="bm2-scr" type="number" value="3" oninput="calcBOMFull()"></div>
+</div>
+<div class="res" id="pr-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · עלות יחידה ← מ-1+2</div>
+<div class="cg">
+  <div><label>עלות ייצור (₪) ← מ-1</label><input id="uc2-prod" type="number" value="50" oninput="calcUCFull()"></div>
+  <div><label>מחיר מטרה (₪)</label><input id="uc2-tgt" type="number" value="80" oninput="calcUCFull()"></div>
+  <div><label>כמות יחידות</label><input id="uc2-qty" type="number" value="100" oninput="calcUCFull()"></div>
+  <div><label>עלות משלוח לחתיכה (₪)</label><input id="uc2-ship" type="number" value="2" oninput="calcUCFull()"></div>
+</div>
+<div class="res" id="pr-res3">—</div>
+<button class="copy-btn" onclick="copyProdToCost()">⬆ קבל עלות ממחשבון 1</button>
+</div>
+
+</div></div>
+
+<!-- ====================== FLUIDS ====================== -->
+<div id="calc-fluids" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">הידראוליקה — לחץ/זרימה</div>
+<div class="cg">
+  <div><label>סוג חישוב</label>
+  <select id="hy-type" onchange="calcHydroFull()">
+    <option value="pressure">לחץ → כוח</option><option value="flow">זרימה → מהירות</option>
+    <option value="pump">משאבה → הספק</option>
+  </select></div>
+  <div><label>לחץ P (bar)</label><input id="hy-p" type="number" value="100" oninput="calcHydroFull()"></div>
+  <div><label>קוטר בוכנה (mm)</label><input id="hy-d" type="number" value="50" oninput="calcHydroFull()"></div>
+  <div><label>זרימה Q (L/min)</label><input id="hy-q" type="number" value="20" oninput="calcHydroFull()"></div>
+  <div><label>η — יעילות (%)</label><input id="hy-eta" type="number" value="85" oninput="calcHydroFull()"></div>
+</div>
+<div class="res" id="fl-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">O-Ring — כיווץ וקידוח</div>
+<div class="cg">
+  <div><label>d — קוטר חתך חוט (mm)</label><input id="or-d" type="number" value="3.5" step="0.1" oninput="calcORingFull()"></div>
+  <div><label>ID — קוטר פנימי O-Ring (mm)</label><input id="or-id" type="number" value="50" oninput="calcORingFull()"></div>
+  <div><label>שימוש</label>
+  <select id="or-app" onchange="calcORingFull()">
+    <option value="static_face">Static Face Seal</option><option value="static_radial">Static Radial Seal</option>
+    <option value="dynamic">Dynamic Seal</option>
+  </select></div>
+  <div><label>חומר O-Ring</label>
+  <select id="or-mat" onchange="calcORingFull()">
+    <option value="NBR">NBR (Nitrile) — סטנדרט</option><option value="EPDM">EPDM — מים/אוויר</option>
+    <option value="FKM">FKM (Viton) — כימיקלים</option><option value="Silicone">Silicone — T גבוהה</option>
+  </select></div>
+</div>
+<div class="res" id="fl-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Faraday — ציפוי אלקטרוכימי</div>
+<div class="cg">
+  <div><label>I — זרם (A)</label><input id="far-i" type="number" value="10" oninput="calcFaradayFull()"></div>
+  <div><label>t — זמן (דקות)</label><input id="far-t" type="number" value="60" oninput="calcFaradayFull()"></div>
+  <div><label>תהליך ציפוי</label>
+  <select id="far-proc" onchange="calcFaradayFull()">
+    <option value="cr,52,6,6.9">כרום קשה (Cr)</option><option value="ni,58.7,2,8.9">ניקל (Ni)</option>
+    <option value="zn,65.4,2,7.1">אבץ (Zn)</option><option value="cu,63.5,2,8.9">נחושת (Cu)</option>
+    <option value="au,197,1,19.3">זהב (Au)</option><option value="ag,107.9,1,10.5">כסף (Ag)</option>
+  </select></div>
+  <div><label>שטח ציפוי (cm²)</label><input id="far-a" type="number" value="100" oninput="calcFaradayFull()"></div>
+</div>
+<div class="res" id="fl-res3">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== ADHESIVES ====================== -->
+<div id="calc-adhesives" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Loctite — מומנט שחרור</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Threadlocker Break-Loose Torque</div>
+<div class="cg">
+  <div><label>מוצר Loctite</label>
+  <select id="lt-prod" onchange="calcLoctiteFull()">
+    <option value="222,1.5">222 — Blue Low Strength</option>
+    <option value="243,2.5" selected>243 — Blue Medium Strength</option>
+    <option value="263,4.0">263 — Red High Strength</option>
+    <option value="270,5.0">270 — Red Max Strength</option>
+    <option value="290,2.0">290 — Green Wicking</option>
+  </select></div>
+  <div><label>מידת בורג</label>
+  <select id="lt-size" onchange="calcLoctiteFull()">
+    <option value="3">M3</option><option value="4">M4</option><option value="5">M5</option>
+    <option value="6" selected>M6</option><option value="8">M8</option><option value="10">M10</option>
+    <option value="12">M12</option>
+  </select></div>
+</div>
+<div class="res" id="ad-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">הדבקה — כוח ושטח</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Lap Joint Shear Strength</div>
+<div class="cg">
+  <div><label>סוג דבק</label>
+  <select id="ad-type" onchange="calcAdhesiveFull()">
+    <option value="12">Epoxy 2-Part — 12 MPa</option>
+    <option value="25">Structural Epoxy — 25 MPa</option>
+    <option value="8">Acrylic MMA — 8 MPa</option>
+    <option value="6">Polyurethane — 6 MPa</option>
+    <option value="4">Silicone RTV — 4 MPa</option>
+    <option value="15">Loctite EA 9466 — 15 MPa</option>
+    <option value="30">Henkel Hysol EA 9394 — 30 MPa</option>
+  </select></div>
+  <div><label>שטח הדבקה (mm²)</label><input id="ad-area" type="number" value="500" oninput="calcAdhesiveFull()"></div>
+  <div><label>SF — מקדם בטיחות</label><input id="ad-sf" type="number" value="3" step="0.5" oninput="calcAdhesiveFull()"></div>
+  <div><label>עומס נדרש (N)</label><input id="ad-load" type="number" value="3000" oninput="calcAdhesiveFull()"></div>
+</div>
+<div class="res" id="ad-res2">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== INSERTS ====================== -->
+<div id="calc-inserts" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">STI Drill — Helicoil</div>
+<div class="cg">
+  <div><label>מידה</label>
+  <select id="ins2-size" onchange="calcInsDrillFull()">
+    <option value="3,0.5,3.6">M3 × 0.5</option><option value="4,0.7,4.7">M4 × 0.7</option>
+    <option value="5,0.8,5.9">M5 × 0.8</option><option value="6,1.0,7.0" selected>M6 × 1.0</option>
+    <option value="8,1.25,9.2">M8 × 1.25</option><option value="10,1.5,11.3">M10 × 1.5</option>
+    <option value="12,1.75,13.5">M12 × 1.75</option><option value="16,2.0,17.7">M16 × 2.0</option>
+    <option value="20,2.5,22.0">M20 × 2.5</option>
+  </select></div>
+  <div><label>עומק</label>
+  <select id="ins2-depth" onchange="calcInsDrillFull()">
+    <option value="1">1D</option><option value="1.5" selected>1.5D</option>
+    <option value="2">2D</option><option value="2.5">2.5D</option>
+  </select></div>
+</div>
+<div class="res" id="ins-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Rivet Nut — Hole Size</div>
+<div class="cg">
+  <div><label>מידה</label>
+  <select id="rn2-size" onchange="calcRivetNutFull()">
+    <option value="3,5.4">M3</option><option value="4,6.4">M4</option><option value="5,7.7" selected>M5</option>
+    <option value="6,9.0">M6</option><option value="8,11.5">M8</option><option value="10,14.0">M10</option>
+    <option value="12,16.5">M12</option>
+  </select></div>
+  <div><label>סוג</label>
+  <select id="rn2-type" onchange="calcRivetNutFull()">
+    <option value="round">Round Body</option><option value="hex">Hex Body</option>
+  </select></div>
+  <div><label>עובי חומר (mm)</label><input id="rn2-thick" type="number" value="2.0" step="0.5" oninput="calcRivetNutFull()"></div>
+</div>
+<div class="res" id="ins-res2">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== TOLERANCES & GD&T ====================== -->
+<div id="calc-tolgdt" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · גבולות כוננת (Fit Limits)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">חישוב גבולות חור/ציר וסוג כוננת מ-ES/EI/es/ei</div>
+<div class="cg">
+  <div><label>מידה נומינלית (mm)</label><input id="ft2-nom" type="number" value="50" step="0.1" oninput="calcFitCentral()"></div>
+  <div><label>סטייה עליונה חור ES (μm)</label><input id="ft2-es" type="number" value="25" step="1" oninput="calcFitCentral()"></div>
+  <div><label>סטייה תחתונה חור EI (μm)</label><input id="ft2-ei" type="number" value="0" step="1" oninput="calcFitCentral()"></div>
+  <div><label>סטייה עליונה ציר es (μm)</label><input id="ft2-esh" type="number" value="-25" step="1" oninput="calcFitCentral()"></div>
+  <div><label>סטייה תחתונה ציר ei (μm)</label><input id="ft2-eih" type="number" value="-50" step="1" oninput="calcFitCentral()"></div>
+</div>
+<div class="res" id="ft2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · שרשראות סובלנות (Stack-up)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Worst Case מול RSS — עד 5 חוליות (0=לא בשימוש)</div>
+<div class="cg">
+  <div><label>חוליה 1 (mm)</label><input id="su2-1" type="number" value="0.10" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>חוליה 2 (mm)</label><input id="su2-2" type="number" value="0.05" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>חוליה 3 (mm)</label><input id="su2-3" type="number" value="0.08" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>חוליה 4 (mm)</label><input id="su2-4" type="number" value="0" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>חוליה 5 (mm)</label><input id="su2-5" type="number" value="0" step="0.01" oninput="calcStackupCentral()"></div>
+</div>
+<div class="res" id="su2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · GD&T Position — בונוס MMC</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">חישוב בונוס סובלנות ואזור סובלנות כולל</div>
+<div class="cg">
+  <div><label>⌀ בסובלנות בסיסית (mm) — ⊕⌀Ø A|B|C</label><input id="gdz-base" type="number" value="0.20" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>MMC — גודל במצב חומר מרבי (mm)</label><input id="gdz-mmc" type="number" value="10.00" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>גודל בפועל שנמדד (mm)</label><input id="gdz-actual" type="number" value="10.15" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>סוג מאפיין</label><select id="gdz-type" onchange="calcGdtPosZone()">
+    <option value="hole">חור (MMC=קטן ביותר)</option>
+    <option value="pin">ציר/פין (MMC=גדול ביותר)</option>
+  </select></div>
+</div>
+<div class="res" id="gdz-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · ממיר יחידות הנדסי</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">אורך · לחץ/מאמץ · מומנט · טמפרטורה</div>
+<div class="cg">
+  <div><label>אורך: מ"מ ↔ אינץ'</label><input id="uc2-mm" type="number" value="25.4" step="0.1" oninput="calcUnitConv('len','mm')"></div>
+  <div><label>&nbsp;</label><input id="uc2-in" type="number" value="1" step="0.01" oninput="calcUnitConv('len','in')"></div>
+  <div><label>מאמץ: MPa ↔ psi</label><input id="uc2-mpa" type="number" value="100" step="1" oninput="calcUnitConv('stress','mpa')"></div>
+  <div><label>&nbsp;</label><input id="uc2-psi" type="number" value="14504" step="1" oninput="calcUnitConv('stress','psi')"></div>
+  <div><label>מומנט: N·m ↔ lbf·ft</label><input id="uc2-nm" type="number" value="10" step="0.1" oninput="calcUnitConv('torque','nm')"></div>
+  <div><label>&nbsp;</label><input id="uc2-lbft" type="number" value="7.376" step="0.01" oninput="calcUnitConv('torque','lbft')"></div>
+  <div><label>טמפ': °C ↔ °F</label><input id="uc2-c" type="number" value="20" step="1" oninput="calcUnitConv('temp','c')"></div>
+  <div><label>&nbsp;</label><input id="uc2-f" type="number" value="68" step="1" oninput="calcUnitConv('temp','f')"></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+<footer>METAL HUB · פורטל ידע הנדסי מכני · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">חזרה לעמוד הראשי</a></footer>
+
+<script>
+function showCalc(id,btn){
+  document.querySelectorAll('.calc-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.calc-tab').forEach(t=>t.classList.remove('active'));
+  var el=document.getElementById('calc-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function calcAQLFull(){
+  const N=parseInt(document.getElementById('aql-n').value)||500;
+  const aql=parseFloat(document.getElementById('aql-q').value)||1.0;
+  const lvl=document.getElementById('aql-lvl').value;
+  const codeLetter={'I':{2:'A',9:'B',16:'C',26:'D',51:'E',91:'F',151:'G',281:'H',501:'J',1201:'K',3201:'L',10001:'M',35001:'N',150001:'P',500001:'Q'},'II':{2:'A',9:'B',16:'C',26:'D',51:'E',91:'F',151:'G',281:'H',501:'J',1201:'K',3201:'L',10001:'M',35001:'N',150001:'P',500001:'Q'},'III':{2:'B',9:'C',16:'D',26:'E',51:'F',91:'G',151:'H',281:'J',501:'K',1201:'L',3201:'M',10001:'N',35001:'P',150001:'Q',500001:'R'}};
+  const sampleMap={'A':2,'B':3,'C':5,'D':8,'E':13,'F':20,'G':32,'H':50,'J':80,'K':125,'L':200,'M':315,'N':500,'P':800,'Q':1250,'R':2000};
+  const aqlMap={0.065:{A:[0,1],B:[0,1],C:[0,1],D:[0,1],E:[0,1],F:[0,1],G:[1,2],H:[1,2],J:[2,3],K:[3,4],L:[5,6],M:[7,8],N:[10,11],P:[14,15],Q:[21,22]},0.1:{A:[0,1],B:[0,1],C:[0,1],D:[0,1],E:[0,1],F:[1,2],G:[1,2],H:[2,3],J:[3,4],K:[5,6],L:[7,8],M:[10,11],N:[14,15],P:[21,22],Q:[21,22]},1.0:{A:[0,1],B:[0,1],C:[0,1],D:[0,1],E:[1,2],F:[1,2],G:[2,3],H:[3,4],J:[5,6],K:[7,8],L:[10,11],M:[14,15],N:[21,22],P:[21,22],Q:[21,22]},2.5:{A:[0,1],B:[0,1],C:[0,1],D:[1,2],E:[1,2],F:[2,3],G:[3,4],H:[5,6],J:[7,8],K:[10,11],L:[14,15],M:[21,22],N:[21,22],P:[21,22],Q:[21,22]},4.0:{A:[0,1],B:[0,1],C:[1,2],D:[1,2],E:[2,3],F:[3,4],G:[5,6],H:[7,8],J:[10,11],K:[14,15],L:[21,22],M:[21,22],N:[21,22],P:[21,22],Q:[21,22]}};
+  const cl=Object.entries(codeLetter[lvl]||codeLetter['II']).reverse().find(([k])=>N>=parseInt(k));
+  const code=cl?cl[1]:'J';
+  const n=sampleMap[code]||80;
+  const ac=aqlMap[aql]?aqlMap[aql][code]:null;
+  document.getElementById('qc-res5').innerHTML=
+    `<b>Code Letter:</b> ${code}<br>
+     <b>גודל דגימה:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${n} יחידות</span><br>
+     ${ac?`<b>Ac/Re:</b> ${ac[0]} / ${ac[1]}`:'<span style="color:var(--muted)">בדוק טבלה</span>'}`;
+}
+
+function calcAdhesiveFull(){
+  const tau=parseFloat(document.getElementById('ad-type').value)||12;
+  const area=parseFloat(document.getElementById('ad-area').value)||500;
+  const SF=parseFloat(document.getElementById('ad-sf').value)||3;
+  const load=parseFloat(document.getElementById('ad-load').value)||3000;
+  const Fmax=tau*area;
+  const Fallow=Fmax/SF;
+  const ok=Fallow>=load;
+  const col=ok?'var(--green)':'var(--red)';
+  const min_area=load*SF/tau;
+  document.getElementById('ad-res2').innerHTML=
+    `<b>F_max:</b> ${(Fmax/1000).toFixed(2)} kN<br>
+     <b>F_allow (SF=${SF}):</b> <span style="color:${col};font-size:16px;font-weight:800">${(Fallow/1000).toFixed(2)} kN</span><br>
+     ${ok?'✅ מספיק':'❌ לא מספיק — שטח מינימום: '+min_area.toFixed(0)+' mm²'}`;
+}
+
+function calcBOMFull(){
+  const mat=parseFloat(document.getElementById('bm2-mat').value)||200;
+  const lab=parseFloat(document.getElementById('bm2-lab').value)||150;
+  const buy=parseFloat(document.getElementById('bm2-buy').value)||80;
+  const oh=(parseFloat(document.getElementById('bm2-oh').value)||35)/100;
+  const scr=(parseFloat(document.getElementById('bm2-scr').value)||3)/100;
+  const direct=mat+lab+buy;
+  const total=direct*(1+oh)*(1+scr);
+  document.getElementById('pr-res2').innerHTML=
+    `<b>ישיר:</b> ₪${direct.toFixed(2)}<br>
+     <b>+תקורה+פסולת:</b> <span style="color:var(--green);font-size:16px;font-weight:800">₪${total.toFixed(2)}</span>`;
+}
+
+function calcBeamFull(){
+  const type=document.getElementById('bm-type').value;
+  const L=parseFloat(document.getElementById('bm-l').value)||500;
+  const F=parseFloat(document.getElementById('bm-f').value)||1000;
+  const E=parseFloat(document.getElementById('bm-e').value)||210;
+  const I=parseFloat(document.getElementById('bm-i').value)||100000;
+  const c=parseFloat(document.getElementById('bm-c').value)||25;
+  let Mmax,delta,label;
+  switch(type){
+    case 'ss_center': Mmax=F*L/4; delta=F*Math.pow(L,3)/(48*E*1000*I); label='Simply Supported - P Center'; break;
+    case 'ss_udl':    Mmax=F*L/8; delta=5*F*Math.pow(L,3)/(384*E*1000*I); label='Simply Supported - UDL'; break;
+    case 'cant_end':  Mmax=F*L;   delta=F*Math.pow(L,3)/(3*E*1000*I); label='Cantilever - P End'; break;
+    case 'cant_udl':  Mmax=F*L/2; delta=F*Math.pow(L,3)/(8*E*1000*I); label='Cantilever - UDL'; break;
+    default:          Mmax=F*L/4; delta=F*Math.pow(L,3)/(48*E*1000*I); label='';
+  }
+  const sigma=(Mmax*c)/I;
+  document.getElementById('mec-res2').innerHTML=
+    `<b>${label}</b><br>
+     <b>M_max:</b> ${(Mmax/1000).toFixed(2)} N·m<br>
+     <b>σ_max:</b> <span style="color:var(--green);font-size:15px;font-weight:800">${sigma.toFixed(1)} MPa</span><br>
+     <b>δ_max:</b> <span style="color:var(--yellow,#fde047);font-weight:700">${delta.toFixed(3)} mm</span>`;
+}
+
+function calcBearFull2(){
+  const C=parseFloat(document.getElementById('bc-c').value)||25.5;
+  const Fr=parseFloat(document.getElementById('bc-fr').value)||5000;
+  const Fa=parseFloat(document.getElementById('bc-fa').value)||1000;
+  const e=parseFloat(document.getElementById('bc-e').value)||0.30;
+  const Y=parseFloat(document.getElementById('bc-y').value)||1.8;
+  const n=parseFloat(document.getElementById('bc-n').value)||1450;
+  const p=parseFloat(document.getElementById('bc-type').value)||3;
+  const ratio=Fa/Fr;
+  const P=ratio>e?0.56*Fr+Y*Fa:Fr;
+  const L10h=(1e6/(60*n))*Math.pow((C*1000)/P,p);
+  const col=L10h>20000?'var(--green)':L10h>5000?'var(--orange)':'var(--red)';
+  document.getElementById('br-res1').innerHTML=
+    `<b>Fa/Fr:</b> ${ratio.toFixed(3)} ${ratio>e?'> e → X=0.56':'≤ e → X=1'}<br>
+     <b>P:</b> ${(P/1000).toFixed(2)} kN<br>
+     <b>L10h:</b> <span style="color:${col};font-size:16px;font-weight:800">${L10h.toFixed(0)} שעות</span><br>
+     <small style="color:var(--muted)">${L10h>20000?'✅ טוב':L10h>5000?'⚠️ סביר':'❌ קצר — שקול C גדול יותר'}</small>`;
+}
+
+function calcBelleville(){
+  const OD=parseFloat(document.getElementById('bv-od').value)||50;
+  const ID=parseFloat(document.getElementById('bv-id').value)||25.4;
+  const t=parseFloat(document.getElementById('bv-t').value)||2;
+  const h0=parseFloat(document.getElementById('bv-h').value)||1.8;
+  const E=parseFloat(document.getElementById('bv-e').value)||210;
+  const arr=document.getElementById('bv-arr').value;
+  const ratio=OD/ID;
+  const K1=((ratio-1)/ratio)/((ratio+1)/(ratio-1)-2/Math.log(ratio));
+  const Emod=E*1000;
+  const deltaFull=h0;
+  const F=(4*Emod/(1-0.3*0.3))*Math.pow(t,4)/(K1*Math.pow(OD/2,2))*deltaFull/t*((deltaFull/t-0.5)*deltaFull/t+1)*0.001;
+  let Fout=F,note='';
+  if(arr==='2p'){Fout=F*2;note='מקביל ×2 → כפול כוח';}
+  else if(arr==='2s'){Fout=F;note='טורי ×2 → כפול תזוזה';}
+  else if(arr==='4p'){Fout=F*4;note='מקביל ×4';}
+  document.getElementById('sp-res3').innerHTML=
+    `<b>F (צלחת אחת, נסיגה מלאה):</b> ~${F.toFixed(0)} N<br>
+     <b>סידור:</b> ${Fout.toFixed(0)} N<br>
+     <small style="color:var(--muted)">${note||'יחידה'} | h₀/t=${(h0/t).toFixed(2)}</small>`;
+}
+
+function calcCpkFull(){
+  const usl=parseFloat(document.getElementById('cpk-usl').value)||10.1;
+  const lsl=parseFloat(document.getElementById('cpk-lsl').value)||9.9;
+  const mean=parseFloat(document.getElementById('cpk-mean').value)||10.02;
+  const std=parseFloat(document.getElementById('cpk-std').value)||0.015;
+  const cpu=(usl-mean)/(3*std);
+  const cpl=(mean-lsl)/(3*std);
+  const cpk=Math.min(cpu,cpl);
+  const cp=(usl-lsl)/(6*std);
+  const col=cpk>=1.67?'var(--green)':cpk>=1.33?'var(--yellow,#fde047)':cpk>=1.0?'var(--orange)':'var(--red)';
+  const grade=cpk>=1.67?'Six Sigma ✅':cpk>=1.33?'✅ מקובל':cpk>=1.0?'⚠️ גבולי':'❌ לא מסוגל';
+  document.getElementById('qc-res1').innerHTML=
+    `<b>Cp:</b> ${cp.toFixed(3)} · <b>Cpu:</b> ${cpu.toFixed(3)} · <b>Cpl:</b> ${cpl.toFixed(3)}<br>
+     <b>Cpk:</b> <span style="color:${col};font-size:18px;font-weight:800">${cpk.toFixed(3)}</span> — ${grade}`;
+  document.getElementById('dpmo-cpk').value=cpk.toFixed(3);
+  calcDPMOFull();
+}
+
+function calcCuttingForce(){
+  const kc=parseFloat(document.getElementById('fc-kc').value)||1500;
+  const ft=parseFloat(document.getElementById('fc-ft').value)||0.4;
+  const vc=parseFloat(document.getElementById('fc-vc').value)||120;
+  const eta=(parseFloat(document.getElementById('fc-eta').value)||80)/100;
+  const Fc=kc*ft;
+  const Pc=(Fc*vc)/60000/eta;
+  const col=Pc>15?'var(--red)':Pc>7?'var(--orange)':'var(--green)';
+  document.getElementById('m-res3').innerHTML=
+    `<b>Fc:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${Fc.toFixed(0)} N</span><br>
+     <b>Pc נדרש:</b> <span style="color:${col};font-weight:700">${Pc.toFixed(2)} kW</span><br>
+     <small style="color:var(--muted)">Fc = kc × ap × fn = kc × A_chip</small>`;
+}
+
+function calcDPMOFull(){
+  const cpk=parseFloat(document.getElementById('dpmo-cpk').value)||1.33;
+  const opp=parseInt(document.getElementById('dpmo-opp').value)||1;
+  const z=cpk*3;
+  const defect_rate=0.5*(1-erf(z/Math.sqrt(2)));
+  const dpmo=defect_rate*1e6/opp;
+  const sigma_lvl=z;
+  function erf(x){const a=[0.254829592,-0.284496736,1.421413741,-1.453152027,1.061405429],p=0.3275911;const t=1/(1+p*Math.abs(x));const y=1-(((((a[4]*t+a[3])*t)+a[2])*t+a[1])*t+a[0])*t*Math.exp(-x*x);return x<0?-y:y;}
+  const col=dpmo<3.4?'var(--green)':dpmo<233?'var(--yellow,#fde047)':dpmo<6210?'var(--orange)':'var(--red)';
+  document.getElementById('qc-res2').innerHTML=
+    `<b>Z:</b> ${z.toFixed(3)}σ<br>
+     <b>DPMO:</b> <span style="color:${col};font-size:16px;font-weight:800">${dpmo.toFixed(1)}</span><br>
+     <b>Yield:</b> ${(100-dpmo/10000).toFixed(4)}%`;
+}
+
+function calcDrillTap(){
+  const sv=document.getElementById('dr-size').value.split(',');
+  const d=parseFloat(sv[0]),p=parseFloat(sv[1]);
+  const depth=parseFloat(document.getElementById('dr-depth').value)||1.5;
+  const mat=document.getElementById('dr-mat').value;
+  const drillDiam=(d-p).toFixed(2);
+  const depthMm=(d*depth).toFixed(1);
+  const matMap={al:'Al — Vc=30-60m/min',steel:'פלדה — Vc=15-30m/min',ss:'SS — Vc=10-20m/min',ci:'CI — Vc=20-40m/min'};
+  document.getElementById('m-res5').innerHTML=
+    `<b>קדח:</b> <span style="color:var(--green);font-size:16px;font-weight:800">⌀${drillDiam}mm</span><br>
+     <b>עומק ארבול:</b> ${depthMm}mm (${depth}×D)<br>
+     <b>עומק קידוח:</b> ${(d*depth*1.3).toFixed(1)}mm (כולל נקודה)<br>
+     <b>חומר:</b> <span style="color:var(--muted)">${matMap[mat]}</span>`;
+}
+
+function calcFMEAFull(){
+  const S=parseInt(document.getElementById('fm-s').value)||7;
+  const O=parseInt(document.getElementById('fm-o').value)||5;
+  const D=parseInt(document.getElementById('fm-d').value)||6;
+  const RPN=S*O*D;
+  const col=RPN>=200?'var(--red)':RPN>=100?'var(--orange)':RPN>=50?'var(--yellow,#fde047)':'var(--green)';
+  const action=RPN>=200?'⛔ נדרשת פעולה מיידית!':RPN>=100?'⚠️ נדרש שיפור':RPN>=50?'📋 בדוק':'✅ מקובל';
+  document.getElementById('qc-res6').innerHTML=
+    `<b>RPN:</b> <span style="color:${col};font-size:24px;font-weight:800">${RPN}</span><br>
+     <b>= S${S} × O${O} × D${D}</b><br>
+     <span style="color:${col}">${action}</span>`;
+}
+
+function calcFaradayFull(){
+  const I=parseFloat(document.getElementById('far-i').value)||10;
+  const tMin=parseFloat(document.getElementById('far-t').value)||60;
+  const pv=document.getElementById('far-proc').value.split(',');
+  const [name,M,n_el,rho]=[pv[0],parseFloat(pv[1]),parseFloat(pv[2]),parseFloat(pv[3])];
+  const A=parseFloat(document.getElementById('far-a').value)||100;
+  const F_const=96485;
+  const t=tMin*60;
+  const mass=(I*t*M)/(n_el*F_const);
+  const vol=mass/rho;
+  const thickness=vol/A*10;
+  document.getElementById('fl-res3').innerHTML=
+    `<b>משקל ציפוי:</b> ${(mass*1000).toFixed(3)} מ"ג<br>
+     <b>עובי:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${thickness.toFixed(2)} μm</span><br>
+     <small style="color:var(--muted)">על ${A} cm² | ${name}</small>`;
+}
+
+function calcFatigueGoodman(){
+  const sa=parseFloat(document.getElementById('fat-sa').value)||0;
+  const sm=parseFloat(document.getElementById('fat-sm').value)||0;
+  const Se=parseFloat(document.getElementById('fat-se').value)||300;
+  const Sut=parseFloat(document.getElementById('fat-sut').value)||600;
+  const usage = sa/Se + sm/Sut;
+  const SF = 1/usage;
+  const sfColor = SF>=2?'var(--green)':(SF>=1?'var(--yellow)':'var(--red)');
+  document.getElementById('fat-result').innerHTML=
+    `יחס ניצול Goodman: <b>${(usage*100).toFixed(1)}%</b><br>`+
+    `מקדם בטיחות עייפות (SF): <b style="color:${sfColor};font-size:16px;font-weight:800">${SF.toFixed(2)}</b>${SF<1?' ⚠️ כשל עייפות צפוי!':''}`;
+}
+
+function calcFitCentral(){
+  const nom=parseFloat(document.getElementById('ft2-nom').value)||50;
+  const ES=parseFloat(document.getElementById('ft2-es').value)||0;
+  const EI=parseFloat(document.getElementById('ft2-ei').value)||0;
+  const es=parseFloat(document.getElementById('ft2-esh').value)||0;
+  const ei=parseFloat(document.getElementById('ft2-eih').value)||0;
+  const holeMax=nom+ES/1000, holeMin=nom+EI/1000;
+  const shaftMax=nom+es/1000, shaftMin=nom+ei/1000;
+  const clearMax=holeMax-shaftMin, clearMin=holeMin-shaftMax;
+  const isClearance = clearMin>=0;
+  const isInterference = clearMax<=0;
+  const fitType = isClearance?'הזזה (Clearance)':(isInterference?'לחץ (Interference)':'מעבר (Transition)');
+  const fitColor = isClearance?'var(--green)':(isInterference?'var(--red)':'var(--blue)');
+  document.getElementById('ft2-result').innerHTML=
+    `חור: <b>⌀${holeMin.toFixed(3)} – ${holeMax.toFixed(3)}mm</b> · ציר: <b>⌀${shaftMin.toFixed(3)} – ${shaftMax.toFixed(3)}mm</b><br>`+
+    `טווח כוננת: <b>${clearMin>=0?'+':''}${(clearMin*1000).toFixed(0)}μm עד ${clearMax>=0?'+':''}${(clearMax*1000).toFixed(0)}μm</b><br>`+
+    `סוג כוננת: <b style="color:${fitColor}">${fitType}</b>`;
+}
+
+function calcGRRFull(){
+  const EV=parseFloat(document.getElementById('grr-ev').value)||0.03;
+  const AV=parseFloat(document.getElementById('grr-av').value)||0.02;
+  const TV=parseFloat(document.getElementById('grr-tv').value)||0.12;
+  const tol=parseFloat(document.getElementById('grr-tol').value)||0.2;
+  const GRR=Math.sqrt(EV*EV+AV*AV);
+  const pct_tv=GRR/TV*100;
+  const pct_tol=GRR/tol*100;
+  const col=pct_tol<=10?'var(--green)':pct_tol<=30?'var(--orange)':'var(--red)';
+  const grade=pct_tol<=10?'✅ מצוין':pct_tol<=30?'⚠️ תלוי יישום':'❌ לא מקובל';
+  document.getElementById('qc-res3').innerHTML=
+    `<b>GRR:</b> ${GRR.toFixed(4)}<br>
+     <b>%GRR/TV:</b> ${pct_tv.toFixed(1)}%<br>
+     <b>%GRR/Tol:</b> <span style="color:${col};font-size:16px;font-weight:800">${pct_tol.toFixed(1)}%</span> — ${grade}`;
+}
+
+function calcGdtPosZone(){
+  const base=parseFloat(document.getElementById('gdz-base').value)||0.2;
+  const mmc=parseFloat(document.getElementById('gdz-mmc').value)||10;
+  const actual=parseFloat(document.getElementById('gdz-actual').value)||10;
+  const type=document.getElementById('gdz-type').value;
+  let bonus;
+  if(type==='hole'){
+    bonus = actual - mmc;
+  } else {
+    bonus = mmc - actual;
+  }
+  bonus = Math.max(0, bonus);
+  const total = base + bonus;
+  document.getElementById('gdz-result').innerHTML=
+    `בונוס סובלנות: <b style="color:var(--orange)">+${bonus.toFixed(3)}mm</b><br>`+
+    `אזור סובלנות כולל: <b style="color:var(--green);font-size:16px;font-weight:800">⌀${total.toFixed(3)}mm</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">בסיס ⌀${base.toFixed(3)} + בונוס ${bonus.toFixed(3)}</span>`;
+}
+
+function calcGearLewisNew(){
+  const m=parseFloat(document.getElementById('gl-m').value)||2;
+  const b=parseFloat(document.getElementById('gl-b').value)||30;
+  const Ft=parseFloat(document.getElementById('gl-ft').value)||2000;
+  const Y=parseFloat(document.getElementById('gl-y').value)||0.308;
+  const Kv=parseFloat(document.getElementById('gl-kv').value)||1.3;
+  const sigma=(Ft*Kv)/(m*b*Y);
+  const col=sigma>200?'var(--red)':sigma>150?'var(--orange)':'var(--green)';
+  document.getElementById('gr-res3').innerHTML=
+    `<b>σ_b (Lewis):</b> <span style="color:${col};font-size:16px;font-weight:800">${sigma.toFixed(1)} MPa</span><br>
+     <small style="color:var(--muted)">σ = Ft·Kv / (m·b·Y) | Y=${Y}</small>`;
+}
+
+function calcGearNew(){
+  const m=parseFloat(document.getElementById('gr-m').value)||2;
+  const z=parseInt(document.getElementById('gr-z').value)||20;
+  const a=parseFloat(document.getElementById('gr-a').value)||20;
+  const b=parseFloat(document.getElementById('gr-b').value)||30;
+  const d=m*z; const da=d+2*m; const df=d-2.5*m; const rb=d/2*Math.cos(a*Math.PI/180);
+  document.getElementById('gr-res1').innerHTML=
+    `<b>d (PCD):</b> <span style="color:var(--green);font-weight:800">${d.toFixed(1)} mm</span><br>
+     <b>da (OD):</b> ${da.toFixed(1)} mm · <b>df (root):</b> ${df.toFixed(1)} mm<br>
+     <b>rb (base):</b> ${rb.toFixed(2)} mm · <b>p (pitch):</b> ${(Math.PI*m).toFixed(3)} mm`;
+}
+
+function calcGearPairNew(){
+  const m=parseFloat(document.getElementById('gp-m').value)||2;
+  const z1=parseInt(document.getElementById('gp-z1').value)||18;
+  const z2=parseInt(document.getElementById('gp-z2').value)||54;
+  const P=parseFloat(document.getElementById('gp-p').value)||5;
+  const n1=parseFloat(document.getElementById('gp-n1').value)||1450;
+  const ratio=z2/z1; const n2=n1/ratio;
+  const T1=(P*60*1000)/(2*Math.PI*n1);
+  const d1=m*z1; const Ft=(T1*1000)/(d1/2);
+  const c=(m*(z1+z2))/2;
+  document.getElementById('gr-res2').innerHTML=
+    `<b>i (יחס):</b> ${ratio.toFixed(3)}<br>
+     <b>n₂:</b> ${n2.toFixed(0)} RPM · <b>C:</b> ${c.toFixed(1)} mm<br>
+     <b>T₁:</b> ${T1.toFixed(1)} N·m · <b>Ft:</b> <span style="color:var(--green);font-weight:800">${Ft.toFixed(0)} N</span>`;
+  document.getElementById('gl-ft').value=Ft.toFixed(0);
+}
+
+function calcHertz(){
+  const type=document.getElementById('hz-type').value;
+  const F=parseFloat(document.getElementById('hz-f').value)||1000;
+  const R1=parseFloat(document.getElementById('hz-r1').value)||10;
+  const R2=parseFloat(document.getElementById('hz-r2').value)||99999;
+  const E=parseFloat(document.getElementById('hz-e').value)||210;
+  const nu=parseFloat(document.getElementById('hz-nu').value)||0.3;
+  const Estar=E*1000/(2*(1-nu*nu));
+  const R2eff=R2>9000?1e12:R2;
+  const Rstar=1/(1/R1+1/R2eff);
+  let p0,a,res;
+  if(type==='sphere_flat'||type==='sphere_sphere'){
+    a=Math.pow((3*F*Rstar)/(4*Estar),1/3);
+    p0=(3*F)/(2*Math.PI*a*a);
+    res=`<b>a (רדיוס מגע):</b> ${a.toFixed(3)} mm<br><b>p₀ (לחץ מקסימום):</b> <span style="color:var(--green);font-size:15px;font-weight:800">${(p0/1).toFixed(0)} MPa</span>`;
+  } else {
+    const b=Math.pow((4*F*Rstar)/(Math.PI*Estar),0.5);
+    p0=(2*F)/(Math.PI*b);
+    res=`<b>b (רוחב מגע):</b> ${b.toFixed(3)} mm<br><b>p₀ (לחץ מקסימום):</b> <span style="color:var(--green);font-size:15px;font-weight:800">${p0.toFixed(0)} MPa</span>`;
+  }
+  document.getElementById('mec-res3').innerHTML=res;
+}
+
+function calcHydroFull(){
+  const type=document.getElementById('hy-type').value;
+  const P=parseFloat(document.getElementById('hy-p').value)||100;
+  const d=parseFloat(document.getElementById('hy-d').value)||50;
+  const Q=parseFloat(document.getElementById('hy-q').value)||20;
+  const eta=(parseFloat(document.getElementById('hy-eta').value)||85)/100;
+  const A=Math.PI*Math.pow(d/2,2);
+  let res='';
+  if(type==='pressure'){
+    const F=P*1e5*A*1e-6;
+    const v=(Q/60000)/A*1000;
+    res=`<b>כוח:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${(F/1000).toFixed(2)} kN</span><br><b>מהירות בוכנה:</b> ${v.toFixed(0)} mm/s`;
+  } else if(type==='flow'){
+    const v=(Q/60000)/A*1000;
+    res=`<b>מהירות:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${v.toFixed(2)} m/s</span><br><b>= ${(v*1000).toFixed(0)} mm/s</b>`;
+  } else {
+    const kw=P*Q*1e5/60/1000000/eta;
+    res=`<b>הספק משאבה:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${kw.toFixed(2)} kW</span>`;
+  }
+  document.getElementById('fl-res1').innerHTML=res;
+}
+
+function calcInsDrillFull(){
+  const vals=(document.getElementById('ins2-size').value||'6,1.0,7.0').split(',');
+  const d=parseFloat(vals[0]),pitch=parseFloat(vals[1]),sti=parseFloat(vals[2]);
+  const mult=parseFloat(document.getElementById('ins2-depth').value)||1.5;
+  const depth=(d*mult).toFixed(1);
+  document.getElementById('ins-res1').innerHTML=
+    `<b>STI Drill:</b> <span style="color:var(--green);font-size:16px;font-weight:800">⌀${sti}mm</span><br>
+     <b>Standard Drill:</b> ⌀${(d-pitch).toFixed(2)}mm (לא לSTI!)<br>
+     <b>עומק ${mult}D:</b> ${depth}mm`;
+}
+
+function calcLoctiteFull(){
+  const pv=document.getElementById('lt-prod').value.split(',');
+  const [prod,fac]=[pv[0],parseFloat(pv[1])];
+  const size=parseInt(document.getElementById('lt-size').value)||6;
+  const breakTorque=fac*size*0.3;
+  const prevTorque=breakTorque*0.6;
+  document.getElementById('ad-res1').innerHTML=
+    `<b>Loctite ${prod} — M${size}</b><br>
+     <b>מומנט שבירה:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${breakTorque.toFixed(1)} N·m</span><br>
+     <b>מומנט מניעה:</b> ${prevTorque.toFixed(1)} N·m`;
+}
+
+function calcMachining(){
+  const matVc=document.getElementById('m-vc-mat').value;
+  let vc=parseFloat(document.getElementById('m-vc').value)||120;
+  if(matVc!=='custom') vc=parseFloat(matVc);
+  document.getElementById('m-vc').value=vc;
+  const d=parseFloat(document.getElementById('m-d').value)||50;
+  const fn=parseFloat(document.getElementById('m-fn').value)||0.2;
+  const ap=parseFloat(document.getElementById('m-ap').value)||2;
+  const rpm=(1000*vc)/(Math.PI*d);
+  const vf=rpm*fn;
+  const mrr=vc*fn*ap*1000;
+  document.getElementById('m-res1').innerHTML=
+    `<b>RPM:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${rpm.toFixed(0)}</span><br>
+     <b>Vf:</b> ${vf.toFixed(0)} mm/min<br>
+     <b>MRR:</b> ${mrr.toFixed(0)} mm³/min<br>
+     <small style="color:var(--muted)">RPM = 1000×Vc / (π×D)</small>`;
+  document.getElementById('tc-rpm').value=rpm.toFixed(0);
+  document.getElementById('tc-fn').value=fn;
+  document.getElementById('fc-vc').value=vc;
+  document.getElementById('fc-ft').value=(fn*ap).toFixed(3);
+}
+
+function calcMachiningTime(){
+  const L=parseFloat(document.getElementById('tc-len').value)||200;
+  const rpm=parseFloat(document.getElementById('tc-rpm').value)||764;
+  const fn=parseFloat(document.getElementById('tc-fn').value)||0.2;
+  const passes=parseInt(document.getElementById('tc-pass').value)||1;
+  const vf=rpm*fn;
+  const tc=(L/vf)*passes;
+  const tcMin=tc.toFixed(2);
+  const tcSec=(tc*60).toFixed(1);
+  document.getElementById('m-res2').innerHTML=
+    `<b>Vf:</b> ${vf.toFixed(0)} mm/min<br>
+     <b>זמן עיבוד:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${tcMin} דקות</span> (${tcSec} שניות)<br>
+     <b>${passes} מעברים:</b> סה"כ ${(tc*passes).toFixed(2)} דקות`;
+}
+
+function calcNdm2(){
+  const d=parseFloat(document.getElementById('ndm-d').value)||25;
+  const D=parseFloat(document.getElementById('ndm-D').value)||52;
+  const n=parseFloat(document.getElementById('ndm-n').value)||12000;
+  const dm=(d+D)/2;
+  const ndm=dm*n;
+  let lub='',col='var(--green)';
+  if(ndm<50000){lub='גריז (Grease) — ✅';col='var(--green)';}
+  else if(ndm<250000){lub='גריז / שמן — ⚠️ תלוי';col='var(--yellow,#fde047)';}
+  else{lub='שמן (Oil) נדרש! — ❌ גריז לא מספיק';col='var(--red)';}
+  document.getElementById('br-res2').innerHTML=
+    `<b>dm:</b> ${dm.toFixed(1)} mm<br>
+     <b>ndm:</b> <span style="color:${col};font-size:16px;font-weight:800">${ndm.toFixed(0)}</span><br>
+     <b>סיכה:</b> ${lub}`;
+}
+
+function calcORingFull(){
+  const d=parseFloat(document.getElementById('or-d').value)||3.5;
+  const id=parseFloat(document.getElementById('or-id').value)||50;
+  const app=document.getElementById('or-app').value;
+  const mat=document.getElementById('or-mat').value;
+  const compMap={'static_face':{min:15,max:30},'static_radial':{min:10,max:25},'dynamic':{min:10,max:20}};
+  const comp=compMap[app]||{min:15,max:25};
+  const groove_d=d*(1-comp.min/100);
+  const groove_max=d*(1-comp.max/100);
+  const matMap={NBR:'-40 עד 120°C · שמן/דלק',EPDM:'-40 עד 150°C · מים/גז',FKM:'-20 עד 200°C · כימיקלים',Silicone:'-60 עד 200°C · טמפ\' גבוהה'};
+  document.getElementById('fl-res2').innerHTML=
+    `<b>כיווץ:</b> ${comp.min}-${comp.max}%<br>
+     <b>עומק חריץ:</b> ${groove_max.toFixed(3)}-${groove_d.toFixed(3)} mm<br>
+     <b>רוחב חריץ:</b> ${(d*1.25).toFixed(2)} mm<br>
+     <small style="color:var(--muted)">${mat}: ${matMap[mat]}</small>`;
+}
+
+function calcPlanetaryNew(){
+  const zS=parseInt(document.getElementById('pl-zs').value)||20;
+  const zP=parseInt(document.getElementById('pl-zp').value)||20;
+  const n=parseFloat(document.getElementById('pl-n').value)||1450;
+  const P=parseFloat(document.getElementById('pl-p').value)||5;
+  const zR=zS+2*zP;
+  const i=1+zR/zS;
+  const nOut=n/i;
+  const Tout=(P*60*1000)/(2*Math.PI*nOut);
+  document.getElementById('gr-res5').innerHTML=
+    `<b>zR (Ring):</b> ${zR}<br>
+     <b>i:</b> ${i.toFixed(3)} · <b>n_out:</b> ${nOut.toFixed(0)} RPM<br>
+     <b>T_out:</b> <span style="color:var(--green);font-weight:800">${Tout.toFixed(1)} N·m</span>`;
+}
+
+function calcPressFit(){
+  const delta=parseFloat(document.getElementById('pf-delta').value)||0.04;
+  const D=parseFloat(document.getElementById('pf-d').value)||50;
+  const alpha=parseFloat(document.getElementById('pf-alpha').value)||0.0000115;
+  const margin=parseFloat(document.getElementById('pf-margin').value)||30;
+  const dT_min = delta/(alpha*D);
+  const dT_total = dT_min + margin;
+  document.getElementById('pf-result').innerHTML=
+    `ΔT מינימלי (רק לחפיפה): <b>${dT_min.toFixed(0)}°C</b><br>`+
+    `ΔT מומלץ (עם מרווח): <b style="color:var(--green);font-size:16px;font-weight:800">${dT_total.toFixed(0)}°C</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">חמם ל-${dT_total.toFixed(0)}°C מעל טמפ' הבית לפני הרכבה</span>`;
+}
+
+function calcPricingFull(){
+  const mat=parseFloat(document.getElementById('pr-mat').value)||25;
+  const wt=parseFloat(document.getElementById('pr-wt').value)||0.5;
+  const tm=parseFloat(document.getElementById('pr-tm').value)||30;
+  const mh=parseFloat(document.getElementById('pr-mh').value)||120;
+  const setup=parseFloat(document.getElementById('pr-setup').value)||20;
+  const qty=parseFloat(document.getElementById('pr-qty').value)||50;
+  const oh=(parseFloat(document.getElementById('pr-oh').value)||30)/100;
+  const mg=(parseFloat(document.getElementById('pr-mg').value)||20)/100;
+  const matCost=mat*wt;
+  const machCost=(tm/60)*mh;
+  const setupCost=(setup/60)*mh/qty;
+  const direct=matCost+machCost+setupCost;
+  const total=direct*(1+oh)*(1+mg);
+  document.getElementById('pr-res1').innerHTML=
+    `<b>חומר:</b> ₪${matCost.toFixed(2)} · <b>מכונה:</b> ₪${machCost.toFixed(2)} · <b>הכנה:</b> ₪${setupCost.toFixed(2)}<br>
+     <b>עלות ישירה:</b> ₪${direct.toFixed(2)}<br>
+     <b>מחיר מכירה:</b> <span style="color:var(--green);font-size:16px;font-weight:800">₪${total.toFixed(2)}</span>`;
+  document.getElementById('uc2-prod').value=total.toFixed(2);
+}
+
+function calcRaFinish(){
+  const fn=parseFloat(document.getElementById('raf-fn').value)||0.15;
+  const r=parseFloat(document.getElementById('raf-r').value)||0.8;
+  const ra = (fn*fn)/(8*r)*1000;
+  let quality, color;
+  if(ra<=0.8){quality='גמר עדין מאוד';color='var(--green)';}
+  else if(ra<=1.6){quality='גמר טוב';color='var(--green)';}
+  else if(ra<=3.2){quality='כללי';color='var(--yellow)';}
+  else {quality='גס';color='var(--orange)';}
+  document.getElementById('raf-result').innerHTML=
+    `Ra צפוי: <b style="color:${color};font-size:16px;font-weight:800">${ra.toFixed(2)}μm</b> — ${quality}<br>`+
+    `<span style="color:var(--muted);font-size:11px">Ra≈fn²/(8×Rε)×1000. Wiper Insert = הזנה כפולה באותו Ra</span>`;
+}
+
+function calcRackNew(){
+  const m=parseFloat(document.getElementById('rp-m').value)||2;
+  const z=parseInt(document.getElementById('rp-z').value)||20;
+  const n=parseFloat(document.getElementById('rp-n').value)||100;
+  const d=m*z;
+  const v=(Math.PI*d*n)/60000;
+  document.getElementById('gr-res4').innerHTML=
+    `<b>d Pinion:</b> ${d} mm<br>
+     <b>מהירות Linear:</b> <span style="color:var(--green);font-weight:800">${v.toFixed(3)} m/s</span><br>
+     <span style="color:var(--muted);font-size:11px">= ${(v*1000).toFixed(0)} mm/s · ${(v*60).toFixed(2)} m/min</span>`;
+}
+
+function calcRivetNutFull(){
+  const vals=(document.getElementById('rn2-size').value||'5,7.7').split(',');
+  const size=parseInt(vals[0]),hole=parseFloat(vals[1]);
+  const type=document.getElementById('rn2-type').value;
+  const thick=parseFloat(document.getElementById('rn2-thick').value)||2.0;
+  const grips={3:[0,2],4:[0,3],5:[0,3.5],6:[0,4],8:[0,5],10:[0,6],12:[0,6.5]};
+  const g=grips[size]||[0,4];
+  const ok=thick<=g[1];
+  document.getElementById('ins-res2').innerHTML=
+    `<b>קוטר חור:</b> <span style="color:var(--green);font-size:16px;font-weight:800">⌀${hole}mm</span><br>
+     <b>עובי ${thick}mm:</b> <span style="color:${ok?'var(--green)':'var(--red)'};font-weight:700">${ok?'✅ בטווח':'❌ מחוץ לטווח!'}</span>`;
+}
+
+function calcRpmToVc(){
+  const rpm=parseFloat(document.getElementById('rv-rpm').value)||1000;
+  const d=parseFloat(document.getElementById('rv-d').value)||50;
+  const vc=(Math.PI*d*rpm)/1000;
+  document.getElementById('m-res6').innerHTML=
+    `<b>Vc:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${vc.toFixed(1)} m/min</span><br>
+     <b>=${(vc/60).toFixed(2)} m/s</b>`;
+}
+
+function calcShaftFull(){
+  const P=parseFloat(document.getElementById('sh-p').value)||7.5;
+  const n=parseFloat(document.getElementById('sh-n').value)||1450;
+  const tau_sel=parseFloat(document.getElementById('sh-tau').value)||60;
+  const tau_c=parseFloat(document.getElementById('sh-tau-c').value)||60;
+  const tau=tau_sel||tau_c;
+  const SF=parseFloat(document.getElementById('sh-sf').value)||2;
+  const T=(P*60*1000)/(2*Math.PI*n);
+  const tau_allow=tau/SF;
+  const d=Math.pow((16*T)/(Math.PI*tau_allow),1/3);
+  const d_std=[10,12,15,17,20,25,30,35,40,45,50,55,60,70,80,90,100];
+  const d_round=d_std.find(x=>x>=d)||Math.ceil(d/5)*5;
+  document.getElementById('mec-res1').innerHTML=
+    `<b>T:</b> ${T.toFixed(1)} N·m<br>
+     <b>d מינימום:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${d.toFixed(1)} mm</span><br>
+     <b>מידה תקנית:</b> <span style="color:var(--yellow,#fde047);font-weight:700">⌀${d_round}mm</span><br>
+     <small style="color:var(--muted)">τ_allow=${tau_allow.toFixed(0)} MPa</small>`;
+}
+
+function calcSineBarNew(){
+  const Ls=[100,125,150,200,250];
+  const L=parseFloat(document.getElementById('sb-l').value)||150;
+  const a=parseFloat(document.getElementById('sb-a').value)||30;
+  const h=L*Math.sin(a*Math.PI/180);
+  document.getElementById('m-res4').innerHTML=
+    `<b>h (גובה שקע):</b> <span style="color:var(--green);font-size:16px;font-weight:800">${h.toFixed(4)} mm</span><br>
+     <small style="color:var(--muted)">h = ${L}mm × sin(${a}°) = ${h.toFixed(4)}mm</small>`;
+}
+
+function calcSpringComp(){
+  const d=parseFloat(document.getElementById('sp2-d').value)||3;
+  const D=parseFloat(document.getElementById('sp2-D').value)||25;
+  const n=parseFloat(document.getElementById('sp2-n').value)||8;
+  const G=parseFloat(document.getElementById('sp2-G').value)||80;
+  const F=parseFloat(document.getElementById('sp2-f').value)||100;
+  const Lf=parseFloat(document.getElementById('sp2-lf').value)||80;
+  const C=D/d;
+  const Kw=(4*C-1)/(4*C-4)+0.615/C;
+  const k=(G*1000*Math.pow(d,4))/(8*Math.pow(D,3)*n);
+  const delta=F/k;
+  const tau=Kw*(8*F*D)/(Math.PI*Math.pow(d,3));
+  const Ls=(n+2)*d;
+  const col=tau>800?'var(--red)':tau>600?'var(--orange)':'var(--green)';
+  document.getElementById('sp-res1').innerHTML=
+    `<b>k (קשיחות):</b> <span style="color:var(--green);font-size:15px;font-weight:800">${k.toFixed(2)} N/mm</span><br>
+     <b>δ בF=${F}N:</b> ${delta.toFixed(2)} mm · <b>Ls:</b> ${Ls.toFixed(1)} mm<br>
+     <b>τ (Wahl):</b> <span style="color:${col};font-weight:700">${tau.toFixed(0)} MPa</span> | C=${C.toFixed(1)} Kw=${Kw.toFixed(3)}`;
+}
+
+function calcStackupCentral(){
+  const vals=[1,2,3,4,5].map(i=>parseFloat(document.getElementById('su2-'+i).value)||0).filter(v=>v!==0);
+  if(!vals.length){document.getElementById('su2-result').innerHTML='הכנס לפחות ערך אחד';return;}
+  const wc=vals.reduce((a,b)=>a+Math.abs(b),0);
+  const rss=Math.sqrt(vals.reduce((a,b)=>a+b*b,0));
+  const savings=((wc-rss)/wc*100);
+  document.getElementById('su2-result').innerHTML=
+    `חוליות בשימוש: <b>${vals.length}</b><br>`+
+    `Worst Case: <b style="color:var(--red)">±${wc.toFixed(3)}mm</b><br>`+
+    `RSS (סטטיסטי): <b style="color:var(--green)">±${rss.toFixed(3)}mm</b><br>`+
+    `חיסכון ברוחב הסובלנות: <b>${savings.toFixed(0)}%</b>`;
+}
+
+function calcTURFull(){
+  const tol=parseFloat(document.getElementById('tur-tol').value)||0.1;
+  const U=parseFloat(document.getElementById('tur-u').value)||0.005;
+  const tur=tol/(2*U);
+  const col=tur>=4?'var(--green)':tur>=2?'var(--orange)':'var(--red)';
+  document.getElementById('qc-res4').innerHTML=
+    `<b>TUR:</b> <span style="color:${col};font-size:18px;font-weight:800">${tur.toFixed(2)} : 1</span><br>
+     <small>${tur>=4?'✅ ANSI Z540.3':tur>=2?'⚠️ ILAC G8':'❌ כלי מדידה לא מתאים'}</small>`;
+}
+
+function calcTapDrill(){
+  const D=parseFloat(document.getElementById('tap-d').value)||10;
+  const P=parseFloat(document.getElementById('tap-p').value)||1.5;
+  const eng=parseFloat(document.getElementById('tap-eng').value)||75;
+  // Practical shop formula: 75% = D-P (universal quick rule), 100% = D-1.083P, 65% = D-0.85P
+  const multiplier = eng>=100 ? 1.083 : (eng>=75 ? 1.000 : 0.850);
+  const drill = D - multiplier*P;
+  document.getElementById('tap-result').innerHTML=
+    `קוטר קדח: <b style="color:var(--green);font-size:16px;font-weight:800">⌀${drill.toFixed(2)}mm</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">M${D}×${P} @ ${eng}% אחיזה — קדח סטנדרטי הקרוב ביותר: ⌀${(Math.round(drill*10)/10).toFixed(1)}mm</span>`;
+}
+
+function calcTorque(){
+  const sv=document.getElementById('tq-size').value.split(',');
+  const d=parseFloat(sv[0]),p=parseFloat(sv[1]);
+  const gv=document.getElementById('tq-grade').value.split(',');
+  const fy=parseFloat(gv[0]);
+  const K=parseFloat(document.getElementById('tq-k').value)||0.17;
+  const pct=(parseFloat(document.getElementById('tq-pct').value)||70)/100;
+  const As=Math.PI/4*Math.pow(d-0.9382*p,2);
+  const F=As*fy*pct;
+  const T=K*F*d/1000;
+  document.getElementById('mec-res5').innerHTML=
+    `<b>As:</b> ${As.toFixed(1)} mm²<br>
+     <b>F (כוח הידוק):</b> ${(F/1000).toFixed(2)} kN<br>
+     <b>T הידוק:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${T.toFixed(1)} N·m</span>`;
+}
+
+function calcTorsionSprNew(){
+  const d=parseFloat(document.getElementById('st2-d').value)||3;
+  const D=parseFloat(document.getElementById('st2-D').value)||25;
+  const n=parseFloat(document.getElementById('st2-n').value)||8;
+  const E=parseFloat(document.getElementById('st2-E').value)||207;
+  const T=parseFloat(document.getElementById('st2-T').value)||500;
+  const k=(E*1000*Math.pow(d,4))/(64*D*n);
+  const theta=T/k*180/Math.PI;
+  const sigma=(32*T)/(Math.PI*Math.pow(d,3));
+  document.getElementById('sp-res2').innerHTML=
+    `<b>k_T:</b> ${k.toFixed(2)} N·mm/°<br>
+     <b>θ בT=${T}N·mm:</b> ${theta.toFixed(2)}°<br>
+     <b>σ:</b> ${sigma.toFixed(0)} MPa`;
+}
+
+function calcUCFull(){
+  const prod=parseFloat(document.getElementById('uc2-prod').value)||50;
+  const tgt=parseFloat(document.getElementById('uc2-tgt').value)||80;
+  const qty=parseFloat(document.getElementById('uc2-qty').value)||100;
+  const ship=parseFloat(document.getElementById('uc2-ship').value)||2;
+  const uc=prod+ship;
+  const margin=(tgt-uc)/tgt*100;
+  const total=uc*qty;
+  const col=margin>20?'var(--green)':margin>10?'var(--yellow,#fde047)':'var(--red)';
+  document.getElementById('pr-res3').innerHTML=
+    `<b>עלות יחידה:</b> ₪${uc.toFixed(2)}<br>
+     <b>שולי רווח:</b> <span style="color:${col};font-size:16px;font-weight:800">${margin.toFixed(1)}%</span><br>
+     <b>סה"כ ${qty} יחידות:</b> ₪${total.toFixed(0)}`;
+}
+
+function calcUnitConv(group, source){
+  if(group==='len'){
+    if(source==='mm'){ const mm=parseFloat(document.getElementById('uc2-mm').value)||0; document.getElementById('uc2-in').value=(mm/25.4).toFixed(4); }
+    else { const inch=parseFloat(document.getElementById('uc2-in').value)||0; document.getElementById('uc2-mm').value=(inch*25.4).toFixed(3); }
+  } else if(group==='stress'){
+    if(source==='mpa'){ const mpa=parseFloat(document.getElementById('uc2-mpa').value)||0; document.getElementById('uc2-psi').value=(mpa*145.038).toFixed(0); }
+    else { const psi=parseFloat(document.getElementById('uc2-psi').value)||0; document.getElementById('uc2-mpa').value=(psi/145.038).toFixed(2); }
+  } else if(group==='torque'){
+    if(source==='nm'){ const nm=parseFloat(document.getElementById('uc2-nm').value)||0; document.getElementById('uc2-lbft').value=(nm*0.737562).toFixed(3); }
+    else { const lbft=parseFloat(document.getElementById('uc2-lbft').value)||0; document.getElementById('uc2-nm').value=(lbft/0.737562).toFixed(3); }
+  } else if(group==='temp'){
+    if(source==='c'){ const c=parseFloat(document.getElementById('uc2-c').value)||0; document.getElementById('uc2-f').value=(c*9/5+32).toFixed(1); }
+    else { const f=parseFloat(document.getElementById('uc2-f').value)||0; document.getElementById('uc2-c').value=((f-32)*5/9).toFixed(1); }
+  }
+}
+
+function calcVonMisesCentral(){
+  const s=parseFloat(document.getElementById('vm2-s').value)||0;
+  const t=parseFloat(document.getElementById('vm2-t').value)||0;
+  const Sy=parseFloat(document.getElementById('vm2-sy').value)||350;
+  const sv=Math.sqrt(s*s+3*t*t);
+  const SF=Sy/sv;
+  const sfColor = SF>=2?'var(--green)':(SF>=1.2?'var(--yellow)':'var(--red)');
+  document.getElementById('vm2-result').innerHTML=
+    `מאמץ Von Mises (σv): <b>${sv.toFixed(1)}</b> MPa<br>`+
+    `מקדם בטיחות (SF): <b style="color:${sfColor}">${SF.toFixed(2)}</b>${SF<1?' ⚠️ כשל!':''}`;
+}
+
+function calcWtNew(){
+  const sh=document.getElementById('wt-sh').value;
+  const unitEl=document.getElementById('wt-unit');
+  const unit=unitEl?unitEl.value:'mm';
+  const toMM = unit==='in' ? 25.4 : 1;
+  const d1=(parseFloat(document.getElementById('wt-d1').value)||50)*toMM;
+  const d2=(parseFloat(document.getElementById('wt-d2').value)||100)*toMM;
+  const d3=(parseFloat(document.getElementById('wt-d3').value)||5)*toMM;
+  const d4=(parseFloat(document.getElementById('wt-d4').value)||30)*toMM;
+  const qty=parseInt(document.getElementById('wt-qty').value)||1;
+  const rho=parseFloat(document.getElementById('wt-mt').value)||7.85;
+  let vol=0;
+  switch(sh){
+    case 'bar':  vol=Math.PI*Math.pow(d1/2,2)*d2; break;
+    case 'rect': vol=d1*d2*d3; break;
+    case 'tube': vol=Math.PI*(Math.pow(d1/2,2)-Math.pow(d1/2-d3,2))*d2; break;
+    case 'plate':vol=d1*d2*d3; break;
+    case 'hex':  vol=Math.pow(d1,2)*Math.sqrt(3)/2*d2; break;
+    case 'ring': vol=Math.PI*(Math.pow(d1/2,2)-Math.pow(d1/2-d3,2))*d2; break;
+  }
+  const massEach=vol*rho*1e-6;
+  const massTotal=massEach*qty;
+  document.getElementById('mec-res4').innerHTML=
+    `<b>נפח ליחידה:</b> ${(vol/1000).toFixed(1)} cm³<br>
+     <b>משקל ליחידה:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${massEach.toFixed(3)} kg</span> (${(massEach*1000).toFixed(1)} גרם)<br>
+     ${qty>1?`<b>משקל כולל (${qty} יח\'):</b> <span style="color:var(--orange);font-size:16px;font-weight:800">${massTotal.toFixed(3)} kg</span><br>`:''}
+     <span style="color:var(--muted);font-size:11px">ρ=${rho} g/cm³${unit==='in'?' · מידות הוזנו באינץ\' והומרו ל-mm':''}</span>`;
+}
+
+function copyCpkToDpmo(){calcDPMOFull();}
+
+function copyFtToLewis(){
+  const r2=document.getElementById('gr-res2').innerText;
+  const m=r2.match(/Ft:\s*([\d.]+)/);
+  if(m){document.getElementById('gl-ft').value=parseFloat(m[1]).toFixed(0);calcGearLewisNew();}
+}
+
+function copyProdToCost(){calcUCFull();}
+
+function copyRpmToTime(){
+  const r1=document.getElementById('m-res1').innerText;
+  const m=r1.match(/RPM:\s*([\d.]+)/);
+  if(m){document.getElementById('tc-rpm').value=parseFloat(m[1]).toFixed(0);calcMachiningTime();}
+}
+
+function copyVcToForce(){
+  const vc=document.getElementById('m-vc').value;
+  document.getElementById('fc-vc').value=vc;calcCuttingForce();
+}
+
+function decodeBear2(){
+  const num=document.getElementById('bc-num2').value.trim().toUpperCase();
+  if(!num){document.getElementById('br-res3').innerHTML='הכנס מספר מסב';return;}
+  const typeMap={'6':'Deep Groove Ball','7':'Angular Contact Ball','N':'Cylindrical Roller','NU':'Cylindrical Roller','NN':'Double Row Cylindrical','23':'Spherical Roller','22':'Spherical Roller','32':'Tapered Roller','51':'Thrust Ball','53':'Thrust Ball'};
+  const suffMap={'2RS':'Sealed both sides (Rubber)','ZZ':'Shielded both sides (Metal)','2Z':'Shielded both sides','RS':'Sealed one side','Z':'Shielded one side','C3':'Clearance C3 (loose)','C2':'Clearance C2 (tight)','P5':'Precision P5','P4':'Precision P4','B':'40° contact angle','P':'15° contact angle','NR':'Snap Ring Groove'};
+  let type='',code='',suf=[];
+  const pfx=num.match(/^([A-Z]+)/);
+  const dig=num.match(/(\d{2,4})/);
+  if(pfx) type=typeMap[pfx[1]]||pfx[1];
+  else if(dig){ const t=num.charAt(0); type=typeMap[t]||'Unknown'; }
+  if(dig){
+    const dc=dig[1];
+    if(dc.length===4){const s=parseInt(dc.substring(0,2));const bs=parseInt(dc.substring(2))*5;type+=' | Series '+s+' | bore '+bs+'mm';}
+    else if(dc.length>=2){const s=parseInt(dc.charAt(0));const bcode=parseInt(dc.substring(1));
+      let bore=bcode<=3?[10,12,15,17][bcode]:bcode*5;
+      type+=' | Series '+s+' | bore '+bore+'mm';}
+  }
+  for(const [s,d2] of Object.entries(suffMap)){if(num.includes(s))suf.push(d2);}
+  document.getElementById('br-res3').innerHTML=
+    `<b style="color:var(--cyan,#67e8f9)">${num}</b><br><b>סוג:</b> ${type||'?'}<br>`+
+    (suf.length?suf.map(s=>`<span class="mc-badge b-blue">${s}</span>`).join(' '):'');
+}
+
+function shapeChangeCalc(){
+  const sh=document.getElementById('wt-sh').value;
+  const unitEl=document.getElementById('wt-unit');
+  const unit=unitEl?unitEl.value:'mm';
+  const u = unit==='in' ? '(inch)' : '(mm)';
+  const l1=document.getElementById('wt-l1');
+  const l2=document.getElementById('wt-l2');
+  const l3=document.getElementById('wt-l3');
+  const g3=document.getElementById('wt-g3');
+  const g4=document.getElementById('wt-g4');
+  switch(sh){
+    case 'bar':   l1.textContent='קוטר '+u; l2.textContent='אורך '+u; g3.style.display='none'; g4.style.display='none'; break;
+    case 'rect':  l1.textContent='רוחב '+u; l2.textContent='גובה '+u; l3.textContent='אורך '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'tube':  l1.textContent='קוטר חיצוני '+u; l2.textContent='אורך '+u; l3.textContent='עובי דופן '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'plate': l1.textContent='אורך '+u; l2.textContent='רוחב '+u; l3.textContent='עובי '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'hex':   l1.textContent='מקצה למקצה '+u; l2.textContent='אורך '+u; g3.style.display='none'; g4.style.display='none'; break;
+    case 'ring':  l1.textContent='OD '+u; l2.textContent='אורך '+u; l3.textContent='עובי דופן '+u; g3.style.display='block'; g4.style.display='none'; break;
+  }
+  calcWtNew();
+}
+
+function showCalc(id,btn){
+  document.querySelectorAll('.calc-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.calc-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('calc-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+
+</script>
+</body>
+</html>
