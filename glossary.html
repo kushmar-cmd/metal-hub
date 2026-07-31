@@ -203,6 +203,8 @@ fetch('glossary.json').then(r=>r.json()).then(d=>{
 }).catch(e=>console.error('glossary load failed',e));
 
 function filterG(){
+  var gcDiv0=document.getElementById('gcats');
+  if(gcDiv0) gcDiv0.style.display='';
   var q=(document.getElementById('gs').value||'').toLowerCase();
   var gl=document.getElementById('glist');
   if(!gl||!GLOSSARY.length)return;
@@ -334,6 +336,25 @@ document.addEventListener('keydown', function(e){
 })();
 
 
+function showSingleTerm(term){
+  const norm = s => (s||'').trim().toLowerCase();
+  const match = GLOSSARY.find(t => norm(t.he) === norm(term));
+  if(!match){ return false; }
+  const gl = document.getElementById('glist');
+  const gc = document.getElementById('gcount');
+  if(gc) gc.textContent = 'תוצאה עבור "' + match.he + '"';
+  const expDiv = match.expand ? '<div class="gi-expand" id="gx-single" style="display:block">'+escH(match.expand)+'</div>' : '';
+  gl.innerHTML = '<div class="gi" style="border-color:var(--blue)">'+
+    '<div style="display:flex;justify-content:space-between;align-items:flex-start">'+
+    '<div><div class="gi-he">'+escH(match.he)+'</div>'+
+    '<div class="gi-en">'+match.en+(match.abbr?' · <span class="gi-abbr">'+match.abbr+'</span>':'')+'</div></div></div>'+
+    '<div class="gi-def">'+escH(match.def)+'</div>'+
+    expDiv+
+    '<div style="margin-top:12px"><a href="glossary.html" style="font-size:11px;color:var(--blue);text-decoration:none">← חזרה לכל המילון</a></div>'+
+    '</div>';
+  return true;
+}
+
 (function(){
   const hash = location.hash.slice(1);
   if(!hash) return;
@@ -342,21 +363,16 @@ document.addEventListener('keydown', function(e){
   if(term){
     const tryApply = function(){
       if(!GLOSSARY || !GLOSSARY.length){ setTimeout(tryApply, 100); return; }
-      document.getElementById('gs').value = term;
-      filterG();
-      setTimeout(function(){
-        const items = document.querySelectorAll('.gi-he');
-        for(const el of items){
-          if(el.textContent.trim() === term){
-            const card = el.closest('.gi');
-            if(card){
-              card.scrollIntoView({behavior:'smooth', block:'center'});
-              if(card.getAttribute('onclick')) card.click();
-            }
-            break;
-          }
-        }
-      }, 100);
+      const gcDiv = document.getElementById('gcats');
+      if(gcDiv) gcDiv.style.display = 'none';
+      const gs = document.getElementById('gs');
+      if(gs) gs.value = term;
+      const ok = showSingleTerm(term);
+      if(!ok){
+        // fallback: exact term not found, do a normal search instead
+        filterG();
+      }
+      window.scrollTo({top:0, behavior:'smooth'});
     };
     tryApply();
   }
