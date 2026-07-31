@@ -6,23 +6,23 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>קורוזיה ותאימות גלוונית — סדרת גלוון, PREN, מניעה | METAL HUB</title>
-<meta name="description" content="מדריך קורוזיה ותאימות גלוונית: סדרת גלוון (Galvanic Series), זוגות מתכות מסוכנים למגע, PREN (עמידות נירוסטה לחורים), ושיטות מניעת קורוזיה גלוונית.">
-<meta name="keywords" content="קורוזיה, תאימות גלוונית, סדרת גלוון, PREN, קורוזיה גלוונית, זוגות מתכות מסוכנים">
+<title>קורוזיה ותאימות גלוונית — סוגים, בדיקות, מניעה, PREN, תקנים | METAL HUB</title>
+<meta name="description" content="מדריך קורוזיה מקיף: סדרת גלוון, זוגות מתכות מסוכנים, PREN, שיטות מניעה, סוגי קורוזיה (Pitting, Crevice, SCC, Intergranular ועוד), שיטות בדיקה (Salt Spray, ASTM), קורוזיה בסביבות שונות, ותקנים.">
+<meta name="keywords" content="קורוזיה, תאימות גלוונית, סדרת גלוון, PREN, Pitting Corrosion, Stress Corrosion Cracking, Salt Spray Test, NACE MR0175">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://metal.kushmar.com/corrosion.html">
 <meta property="og:title" content="קורוזיה ותאימות גלוונית — מדריך מקיף | METAL HUB">
-<meta property="og:description" content="סדרת גלוון, זוגות מסוכנים, PREN, ומניעת קורוזיה גלוונית — מדריך מקיף.">
+<meta property="og:description" content="סדרת גלוון, PREN, סוגי קורוזיה, בדיקות, מניעה, ותקנים — מדריך קורוזיה מקיף.">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="METAL HUB">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "קורוזיה ותאימות גלוונית — סדרת גלוון, PREN",
-  "description": "מדריך קורוזיה ותאימות גלוונית: סדרת גלוון, זוגות מתכות מסוכנים, PREN, מניעת קורוזיה גלוונית",
-  "about": ["Corrosion", "Galvanic Series", "Galvanic Corrosion", "PREN"],
+  "headline": "קורוזיה ותאימות גלוונית — סוגים, בדיקות, מניעה, PREN, תקנים",
+  "description": "מדריך קורוזיה מקיף: סדרת גלוון, PREN, סוגי קורוזיה, שיטות בדיקה, סביבות ספציפיות, תקנים",
+  "about": ["Corrosion", "Galvanic Series", "PREN", "Pitting Corrosion", "Stress Corrosion Cracking", "Salt Spray Test"],
   "url": "https://metal.kushmar.com/corrosion.html",
   "inLanguage": "he-IL",
   "isAccessibleForFree": true,
@@ -50,12 +50,22 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
 .ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;padding:8px;background:var(--surface);border-right:2px solid var(--blue);border-radius:0 5px 5px 0}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px;unicode-bidi:plaintext}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;direction:ltr;font-weight:600;unicode-bidi:plaintext}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
-th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border)}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
 th{color:var(--blue);font-weight:700;background:var(--surface)}
 .yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+.corr-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.corr-tab:hover,.corr-tab.active{background:var(--red);color:#fff;border-color:var(--red);font-weight:700}
+.corr-sec{display:none}.corr-sec.active{display:block}
 footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 @media(max-width:600px){.grid2,.grid3{grid-template-columns:1fr}}
 </style>
@@ -72,11 +82,25 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <div class="card">
 <h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">קורוזיה ותאימות גלוונית — מדריך מקיף</h1>
 <p style="font-size:13px;line-height:1.9;color:var(--muted)">
-מדריך הנדסי לקורוזיה ותאימות גלוונית: <b>סדרת גלוון</b> (Galvanic Series במי ים), זיהוי <b>זוגות מתכות מסוכנים</b> למגע ישיר, <b>PREN</b> (מדד עמידות נירוסטה לקורוזיה חורית), ושיטות מניעה מעשיות למניעת קורוזיה גלוונית במפגשי חומרים שונים.
+מדריך קורוזיה מקיף: <b>סדרת גלוון</b>, זוגות מתכות מסוכנים, <b>PREN</b>, שיטות מניעה, <b>סוגי קורוזיה</b> (Pitting, Crevice, SCC, Intergranular ועוד), שיטות <b>בדיקה</b> (Salt Spray, ASTM), קורוזיה בסביבות שונות, ותקנים מרכזיים.
 </p>
 </div>
 
-<div id="sec-corrosion" class="section">
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="corr-tab active" onclick="showCorr('galvanic',this)">⚡ סדרת גלוון</button>
+  <button class="corr-tab" onclick="showCorr('pairs',this)">🚨 זוגות מסוכנים</button>
+  <button class="corr-tab" onclick="showCorr('pren',this)">🔢 PREN</button>
+  <button class="corr-tab" onclick="showCorr('prevent',this)">🛡️ מניעה</button>
+  <button class="corr-tab" onclick="showCorr('types',this)">📚 סוגי קורוזיה</button>
+  <button class="corr-tab" onclick="showCorr('testing',this)">🧪 בדיקות</button>
+  <button class="corr-tab" onclick="showCorr('env',this)">🌍 סביבות</button>
+  <button class="corr-tab" onclick="showCorr('standards',this)">📋 תקנים</button>
+</div>
+</div>
+
+<!-- ============ GALVANIC SERIES (existing) ============ -->
+<div id="corr-galvanic" class="corr-sec active">
 <div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--red)">
 <div style="display:flex;align-items:center;gap:12px"><span style="font-size:32px">⚡</span><div><div style="font-size:18px;font-weight:800;color:var(--red)">קורוזיה ותאימות גלוונית</div><div style="font-size:12px;color:var(--muted)">סדרת גלוון · זוגות מסוכנים · PREN · מניעה</div></div></div></div>
 <div class="card"><div class="ctitle">⚡ סדרת גלוון — Galvanic Series (מים ים)</div>
@@ -98,7 +122,6 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <tr><td><b>ניקל</b></td><td>-250</td></tr>
 <tr><td><b>SS 304 (active)</b></td><td>-300</td></tr>
 <tr><td><b>טיטניום Grade 2</b></td><td>-50 עד -300*</td></tr>
-<!-- Ti: -50mV passive (oxide), -300mV active -->
 <tr><td><b>כסף (Noble!)</b></td><td>-150</td></tr></table>
 </div>
 <div>
@@ -115,11 +138,14 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <tr><td><b>מגנזיום AZ31</b></td><td>-1600</td></tr>
 <tr style="background:var(--surface)"><td colspan="2" style="text-align:center;color:var(--muted);font-size:11px">הפרש >250mV = סכנת קורוזיה גלוונית!
 * Ti = passive (oxide) בסביבה רגילה: ~-50mV. Active (ללא oxide): ~-300mV</td></tr></table>
-<div class="note" style="margin-top:8px"><b>⚠️ CFRP + Al</b> = הפרש ~950mV = קורוזיה קשה! חובה Glass ply barrier.<br><b>⚠️ SS + Al</b> = הפרש ~650mV = קורוזיה. בידוד או ציפוי.<a href="https://www.youtube.com/results?search_query=galvanic%20corrosion%20demonstration%20experiment%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+<div class="note" style="margin-top:8px"><b>⚠️ CFRP + Al</b> = הפרש ~950mV = קורוזיה קשה! חובה Glass ply barrier.<br><b>⚠️ SS + Al</b> = הפרש ~650mV = קורוזיה. בידוד או ציפוי.<a href="https://www.youtube.com/results?search_query=galvanic%20corrosion%20demonstration%20experiment%20explained" target="_blank" class="yt-btn">▶ YouTube</a></div>
 </div>
 </div>
 </div>
-<div class="grid2">
+</div>
+
+<!-- ============ DANGEROUS PAIRS (existing) ============ -->
+<div id="corr-pairs" class="corr-sec">
 <div class="card"><div class="ctitle">🚨 זוגות מסוכנים — מה לא לשלב</div>
 <table><tr><th>חיבור</th><th>הפרש mV</th><th>סיכון</th><th>מניעה</th></tr>
 <tr><td>CFRP + Al</td><td>~950</td><td style="color:var(--red)">קריטי!</td><td>Glass ply barrier, Sealant</td></tr>
@@ -129,7 +155,19 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <tr><td>SS + פלדה</td><td>~520</td><td style="color:var(--orange)">בינוני</td><td>Zinc plate, צבע</td></tr>
 <tr><td>Al 7075 + Al 6061</td><td>~50</td><td style="color:var(--green)">נמוך</td><td>בד"כ מקובל</td></tr>
 <tr><td>Ti + SS</td><td>~250</td><td style="color:var(--yellow)">גבולי</td><td>בסביבת ים — בידוד</td></tr>
-<tr><td>Cd + SS</td><td>~550</td><td style="color:var(--orange)">בינוני</td><td>פופולרי בתעופה בכוונה (Cd=אנודי)</td></tr></table><a href="https://www.youtube.com/results?search_query=dissimilar%20metal%20corrosion%20failure%20examples" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+<tr><td>Cd + SS</td><td>~550</td><td style="color:var(--orange)">בינוני</td><td>פופולרי בתעופה בכוונה (Cd=אנודי)</td></tr></table><a href="https://www.youtube.com/results?search_query=dissimilar%20metal%20corrosion%20failure%20examples" target="_blank" class="yt-btn">▶ YouTube</a></div>
+<div class="card"><div class="ctitle">📐 חוק שטח היחס (Area Ratio Rule)</div>
+<div style="font-size:13px;line-height:1.9">
+כלל קריטי שרבים מתעלמים ממנו: <b>לא רק ההפרש בפוטנציאל קובע — גם היחס בין השטחים!</b><br><br>
+<b style="color:var(--red)">אנודה קטנה + קתודה גדולה = אסון</b> — בורג פלדה (אנודי) בתוך לוח נירוסטה (קתודי) גדול: כל הזרם הגלווני מתרכז בשטח קטן = קורוזיה מהירה וקטסטרופלית של הבורג.<br><br>
+<b style="color:var(--green)">אנודה גדולה + קתודה קטנה = יחסית בטוח</b> — לוח פלדה עם ברגי נירוסטה קטנים: הזרם מתפזר על שטח גדול = קצב קורוזיה איטי, לרוב מקובל.
+</div>
+<div class="note">כלל אצבע: <b>לעולם אל תשים חומר אנודי (פעיל) בשטח קטן ליד חומר קתודי (אציל) בשטח גדול</b> — גם אם ההפרש בפוטנציאל נמוך יחסית.</div>
+</div>
+</div>
+
+<!-- ============ PREN (existing) ============ -->
+<div id="corr-pren" class="corr-sec">
 <div class="card"><div class="ctitle">🔢 PREN — עמידות קורוזיה אל-חלד</div>
 <div style="font-family:monospace;background:var(--surface);border-radius:8px;padding:12px;font-size:13px;color:var(--text);margin-bottom:10px">
 PREN = %Cr + 3.3×%Mo + 16×%N
@@ -142,24 +180,168 @@ PREN = %Cr + 3.3×%Mo + 16×%N
 <tr><td>SS 2507 Super</td><td>>40</td><td>ים קשה</td></tr>
 <tr><td>904L</td><td>~36</td><td>חומצה</td></tr>
 <tr><td>Hastelloy C276</td><td>~70+</td><td>הכל</td></tr></table>
-<div class="note">PREN>35 = עמיד Pitting בסביבת ים. PREN>40 = Super Duplex = תנאים קשים ביותר.<a href="https://www.youtube.com/results?search_query=pitting%20crevice%20corrosion%20stainless%20steel%20identification%20examples" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div></div>
+<div class="note">PREN>35 = עמיד Pitting בסביבת ים. PREN>40 = Super Duplex = תנאים קשים ביותר.<a href="https://www.youtube.com/results?search_query=pitting%20crevice%20corrosion%20stainless%20steel%20identification%20examples" target="_blank" class="yt-btn">▶ YouTube</a></div></div>
+<div class="card"><div class="ctitle">🌡️ Critical Pitting Temperature (CPT)</div>
+<div style="font-size:13px;line-height:1.9">
+המדד המעשי ביותר להשוואת נירוסטות: הטמפרטורה שמעליה מתחילה Pitting בתמיסת FeCl₃ סטנדרטית (ASTM G48). ככל שגבוה יותר — עמיד יותר.
 </div>
+<table><tr><th>סגסוגת</th><th>CPT (°C)</th></tr>
+<tr><td>SS 316L</td><td>~15°C</td></tr>
+<tr><td>SS 2205 Duplex</td><td>~30°C</td></tr>
+<tr><td>SS 2507 Super Duplex</td><td>~55°C</td></tr>
+<tr><td>254 SMO</td><td>~70°C</td></tr></table>
+</div>
+</div>
+
+<!-- ============ PREVENTION (existing) ============ -->
+<div id="corr-prevent" class="corr-sec">
 <div class="card"><div class="ctitle">🛡️ שיטות מניעת קורוזיה</div>
 <div class="grid3">
 <div><h3 style="color:var(--blue)">בחירת חומר</h3><div style="font-size:12px;color:var(--muted);line-height:2">✅ SS 316L במקום 304 לסביבת ים<br>✅ Ti-Grade 2 — עמיד לכל<br>✅ Al 5083 לסביבת ים<br>✅ PREN>35 לים פתוח</div></div>
 <div><h3 style="color:var(--green)">ציפויים הגנתיים</h3><div style="font-size:12px;color:var(--muted);line-height:2">✅ Zinc (קרבני) לפלדה<br>✅ Alodine + Primer לAl<br>✅ Passivation לSS<br>✅ Cadmium לתעופה<br>✅ HDG לחיצוני</div></div>
-<div><h3 style="color:var(--orange)">בידוד גלוונית</h3><div style="font-size:12px;color:var(--muted);line-height:2">✅ Nylon washer בין חומרים<br>✅ Glass ply barrier (CFRP+Al)<br>✅ Faying Surface Sealant<br>✅ Anodize + Sealant<br>✅ PR-1422 / PR-1776</div><a href="https://www.youtube.com/results?search_query=corrosion%20prevention%20coating%20galvanic%20isolation%20methods" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+<div><h3 style="color:var(--orange)">בידוד גלוונית</h3><div style="font-size:12px;color:var(--muted);line-height:2">✅ Nylon washer בין חומרים<br>✅ Glass ply barrier (CFRP+Al)<br>✅ Faying Surface Sealant<br>✅ Anodize + Sealant<br>✅ PR-1422 / PR-1776</div><a href="https://www.youtube.com/results?search_query=corrosion%20prevention%20coating%20galvanic%20isolation%20methods" target="_blank" class="yt-btn">▶ YouTube</a></div>
+</div></div>
+<div class="card"><div class="ctitle">⚡ הגנה קתודית (Cathodic Protection)</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">אנודת קרבן (Sacrificial Anode)</div>
+<div style="font-size:12px;line-height:1.8">מתכת אנודית יותר (Zn, Mg, Al) מקורבנת במקום המבנה המוגן. נפוצה בצנרת קבורה, גופי ספינות, מכלי דלק תת-קרקעיים. פשוט, ללא צורך בחשמל, אך דורש החלפה תקופתית.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">זרם מוטבע (Impressed Current)</div>
+<div style="font-size:12px;line-height:1.8">מקור מתח חיצוני דוחף זרם דרך אנודה אינרטית (טיטניום מצופה) להגנת המבנה. יעיל למבנים גדולים (צינורות ארוכים, מבני ים) אך דורש תחזוקה חשמלית.</div></div>
 </div></div>
 </div>
 
-<!-- ADDITIVE MFG -->
+<!-- ============ TYPES OF CORROSION (new) ============ -->
+<div id="corr-types" class="corr-sec">
+<div class="card"><div class="ctitle">📚 סוגי קורוזיה עיקריים</div>
+<div style="font-size:13px;line-height:1.9;color:var(--muted)">
+זיהוי נכון של סוג הקורוזיה הוא הצעד הראשון בפתרון הבעיה — כל סוג דורש אסטרטגיית מניעה שונה לחלוטין.
+</div></div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Uniform Corrosion — קורוזיה אחידה</div>
+<div class="spec-row"><span class="spec-key">מנגנון</span><span class="spec-val">התקפה אחידה על כל השטח החשוף</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">נמוכה — צפויה, ניתנת לחישוב</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">חלודה על פלדה חשופה לאטמוספרה</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">הכי "ידידותית" מבין סוגי הקורוזיה — קצב אחיד מאפשר תכנון Corrosion Allowance (עובי נוסף בתכן).</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">Pitting Corrosion — קורוזיה נקודתית</div>
+<div class="spec-row"><span class="spec-key">מנגנון</span><span class="spec-val">חדירת כלוריד דרך שכבת פסיביות מקומית</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">גבוהה מאוד — קשה לזהות, חודרת לעומק</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">SS 304 בסביבת ים/כלור</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">מסוכנת כי הנזק החיצוני נראה קטן ("חור סיכה") בעוד שמתחתיו יכולה להיות חלולית עמוקה — סיבה מובילה לכשלי צנרת פתאומיים.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Crevice Corrosion — קורוזיה בסדק</div>
+<div class="spec-row"><span class="spec-key">מנגנון</span><span class="spec-val">תא חמצן דל בסדקים/מפרקים/אטמים</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">גבוהה — מתפתחת בשקט מתחת לפני השטח</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">מתחת לאטמי O-Ring, ברגים, שכבות דבוקות</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">דומה מנגנונית ל-Pitting אך מתחילה תמיד באזור גיאומטרי מוגן (סדק, מרווח) — תכן טוב ("Crevice-Free Design") מונע אותה מראש.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">Stress Corrosion Cracking (SCC)</div>
+<div class="spec-row"><span class="spec-key">מנגנון</span><span class="spec-val">שילוב מאמץ מתיחה + סביבה קורוזיבית ספציפית</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">קריטית — כשל פתאומי וחמקמק</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">פליז + אמוניה, SS + כלוריד בטמפ' גבוהה</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">מסוכנת ביותר בתעשייה — סדק שגדל מבלי אזהרה ויזואלית עד לשבר שביר פתאומי. דורשת שילוב ספציפי של חומר+מאמץ+סביבה.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Intergranular Corrosion — בין-גבישית</div>
+<div class="spec-row"><span class="spec-key">מנגנון</span><span class="spec-val">התקפה לאורך גבולות גרגר, לרוב אחרי ריתוך</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">גבוהה — מחלישה את החומר ללא סימן חיצוני</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">"Weld Decay" ב-SS 304 לא-מיוצב</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">נגרמת מ-Sensitization — שקיעת קרביד כרום בגבולות גרגר באזור המושפע-חום (HAZ). פתרון: SS "L" grade (304L, 316L) עם פחמן נמוך.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--yellow)">Erosion-Corrosion</div>
+<div class="spec-row"><span class="spec-key">מנגנון</span><span class="spec-val">זרימה מהירה שוחקת את שכבת ההגנה</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">בינונית-גבוהה — תלוית מהירות זרימה</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">מפנות צנרת, משאבות, שסתומים</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">שילוב מכני+כימי: הזרימה מסירה פיזית את שכבת התחמוצת המגנה לפני שהיא מספיקה להתחדש. פתרון: הגדלת רדיוס עקומות, הפחתת מהירות.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Fretting Corrosion</div>
+<div class="spec-row"><span class="spec-key">מנגנון</span><span class="spec-val">תזוזה מחזורית זעירה בין שתי משטחים במגע</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">בינונית — לרוב באזורי מגע/הרכבה</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">חיבורי Press-fit, מסבים, ברגים תחת רטט</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">התזוזה הזעירה (מיקרונים) שוברת את שכבת החמצון שוב ושוב, יוצרת אבקת חמצון אדומה-חומה אופיינית ("Fretting Debris").</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">Hydrogen Embrittlement</div>
+<div class="spec-row"><span class="spec-key">מנגנון</span><span class="spec-val">חדירת מימן אטומי לרשת הגבישית, מפחית גמישות</span></div>
+<div class="spec-row"><span class="spec-key">חומרה</span><span class="spec-val">קריטית — שבר שביר פתאומי ללא אזהרה</span></div>
+<div class="spec-row"><span class="spec-key">דוגמה</span><span class="spec-val">ברגים מצופים אבץ בציפוי אלקטרוליטי לא-נכון</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">סכנה עיקרית בציפוי אלקטרוליטי (Electroplating) של פלדות בעלות חוזק גבוה — חובה Bake-out תוך 4 שעות מהציפוי (ASTM B850) להוצאת המימן.</div>
+</div>
+</div>
+</div>
 
+<!-- ============ CORROSION TESTING (new) ============ -->
+<div id="corr-testing" class="corr-sec">
+<div class="card"><div class="ctitle">🧪 שיטות בדיקת קורוזיה</div>
+<div style="font-size:13px;line-height:1.9;color:var(--muted)">
+בדיקות מואצות מדמות שנים של חשיפה סביבתית בשבועות בודדים — כלי חיוני לאישור חומר/ציפוי לפני ייצור סדרתי.
+</div></div>
+<table><tr><th>שיטה</th><th>תקן</th><th>משך אופייני</th><th>מדמה</th></tr>
+<tr><td>Salt Spray (Fog) Test</td><td>ASTM B117</td><td>24-1000+ שעות</td><td>סביבה ימית/מלח</td></tr>
+<tr><td>Cyclic Corrosion Test (CCT)</td><td>ASTM D5894 / GMW14872</td><td>שבועות</td><td>מחזורי לחות/יובש/מלח — ריאלי יותר</td></tr>
+<tr><td>Immersion Test</td><td>ASTM G31</td><td>ימים-שבועות</td><td>טבילה מתמדת בכימיקל/תמיסה</td></tr>
+<tr><td>Potentiodynamic Polarization</td><td>ASTM G5 / G61</td><td>שעות</td><td>מדידה חשמלית — קצב קורוזיה מדויק</td></tr>
+<tr><td>Pitting Resistance (FeCl₃)</td><td>ASTM G48</td><td>72 שעות</td><td>עמידות Pitting/Crevice בנירוסטה</td></tr>
+<tr><td>Intergranular Corrosion Test</td><td>ASTM A262</td><td>ימים</td><td>רגישות Sensitization בריתוכי SS</td></tr>
+<tr><td>Stress Corrosion Test</td><td>ASTM G30 / G36</td><td>ימים-שבועות</td><td>SCC תחת מאמץ מתמשך</td></tr>
+<tr><td>Humidity/Condensation Test</td><td>ASTM D2247</td><td>ימים</td><td>לחות גבוהה מתמדת (100% RH)</td></tr></table>
+<div class="note">⚠️ <b>קורלציה בין Salt Spray לביצועים בשטח אינה ליניארית!</b> "500 שעות Salt Spray" הוא מדד יחסי להשוואת חומרים/ציפויים — לא תחזית ישירה לזמן חיים בפועל בסביבה אמיתית.</div>
 
-<!-- HYDRAULICS -->
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">קריטריון הערכה — דירוג חזותי</div>
+<div style="font-size:12px;line-height:1.8">רוב תקני Salt Spray מדרגים לפי <b>% שטח מושפע מקורוזיה אדומה</b> (Red Rust) לפי ASTM D610, או לפי זמן עד להופעת הקורוזיה הראשונה על משטח מצופה.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">קצב קורוזיה אלקטרוכימי</div>
+<div style="font-size:12px;line-height:1.8">Potentiodynamic Polarization נותנת ערך מספרי (mm/year) מתוך עקומת Tafel — הרבה יותר מהיר ומדויק מבדיקת Salt Spray, אך דורש ציוד מעבדה ייעודי.</div></div>
+</div>
+</div>
+
+<!-- ============ SPECIFIC ENVIRONMENTS (new) ============ -->
+<div id="corr-env" class="corr-sec">
+<div class="card"><div class="ctitle">🌍 קורוזיה בסביבות ספציפיות</div></div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">🌊 סביבה ימית/אטמוספרית</div>
+<div style="font-size:12px;line-height:1.9">כלוריד (Cl⁻) מהמלח הוא המניע העיקרי ל-Pitting. חומרים מומלצים: SS 316L (PREN>24), Al 5083/5086, Ti Grade 2. הימנע: SS 304 רגיל, פלדת פחמן לא מוגנת, נחושת ליד אלומיניום.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">🏭 סביבה כימית/תעשייתית</div>
+<div style="font-size:12px;line-height:1.9">תלוי לחלוטין בכימיקל הספציפי — אין "פתרון אחד לכל". חומצה גופרתית מרוכזת = פלדת פחמן דווקא עמידה (שכבת סולפט מגנה); מדוללת = הרסנית לפלדה. חובה בדיקת תאימות כימית ספציפית (Corrosion Chart).</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">🔥 חמצון בטמפרטורה גבוהה</div>
+<div style="font-size:12px;line-height:1.9">מעל ~500°C מנגנון שונה לחלוטין מקורוזיה רטובה — חמצון ישיר של המתכת באוויר. דורש סגסוגות עם Cr/Ni גבוה (SS 310, Inconel 600/601) שיוצרות שכבת תחמוצת מגנה יציבה בחום.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">🏗️ קרקע/תת-קרקעי</div>
+<div style="font-size:12px;line-height:1.9">קורוזיה תלוית התנגדות קרקע (Soil Resistivity) וזרמים תועים (Stray Currents). צנרת קבורה מוגנת בד"כ בשילוב: ציפוי חיצוני (Coal Tar/FBE) + הגנה קתודית (אנודת קרבן או זרם מוטבע).</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">🧊 קריוגני</div>
+<div style="font-size:12px;line-height:1.9">בטמפרטורות נמוכות קצב הקורוזיה עצמו יורד משמעותית, אך יש לבדוק שבריריות בקור (Brittle Fracture) של החומר עצמו — לא כל חומר עמיד-קורוזיה מתאים גם לטמפ' קריוגניות.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--teal)">💧 מים מותפלים/DI Water</div>
+<div style="font-size:12px;line-height:1.9">מים נטולי מינרלים (DI/RO) הם למעשה תוקפניים יותר מכימיקלים "אגרסיביים" למראה — חוסר יונים גורם למים "לשאוב" יונים מהמתכת עצמה. דורש SS 316L או פלסטיק (PVDF/PTFE) במערכות טיהור מים.</div></div>
+</div>
+</div>
+
+<!-- ============ STANDARDS (new) ============ -->
+<div id="corr-standards" class="corr-sec">
+<div class="card"><div class="ctitle">📋 תקנים מרכזיים בתחום הקורוזיה</div></div>
+<table><tr><th>תקן</th><th>נושא</th></tr>
+<tr><td>ASTM B117</td><td>Salt Spray (Fog) Testing — הבדיקה הנפוצה ביותר</td></tr>
+<tr><td>ASTM G31</td><td>Laboratory Immersion Corrosion Testing</td></tr>
+<tr><td>ASTM G48</td><td>Pitting and Crevice Corrosion Resistance (FeCl₃)</td></tr>
+<tr><td>ASTM G5 / G61</td><td>Potentiodynamic Polarization Measurements</td></tr>
+<tr><td>ASTM A262</td><td>Intergranular Attack Susceptibility (Stainless)</td></tr>
+<tr><td>ASTM G30 / G36 / G38</td><td>Stress Corrosion Cracking Testing</td></tr>
+<tr><td>NACE MR0175 / ISO 15156</td><td>חומרים לסביבת נפט/גז חמצני (Sour Service)</td></tr>
+<tr><td>ASTM B850</td><td>Post-Coating Baking למניעת Hydrogen Embrittlement</td></tr>
+<tr><td>ISO 9223/9224</td><td>סיווג קורוזיביות אטמוספרית (C1-CX)</td></tr>
+<tr><td>ASTM D1654 / D610</td><td>הערכת דירוג קורוזיה על משטחים מצופים</td></tr></table>
+<div class="note">💡 <b>NACE MR0175</b> קריטי בתעשיית נפט/גז — קובע אילו חומרים מותרים בסביבת H₂S (Sour Service) כדי למנוע Sulfide Stress Cracking, תת-סוג של SCC.</div>
+</div>
+
 
 </div>
 
 <footer>METAL HUB · פורטל ידע הנדסי מכני · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">חזרה לעמוד הראשי</a></footer>
 
+<script>
+function showCorr(id,btn){
+  document.querySelectorAll('.corr-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.corr-tab').forEach(t=>t.classList.remove('active'));
+  var el=document.getElementById('corr-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+</script>
 </body>
 </html>
