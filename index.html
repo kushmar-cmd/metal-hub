@@ -3119,6 +3119,11 @@ function navigateToResult(tab, sub, anchor) {
       setTimeout(function(){ openMat(anchor); }, 100);
       return;
     }
+    // מילון — פתח את המונח הספציפי ישירות
+    if (anchor && tab === 'glossary') {
+      setTimeout(function(){ showSingleGlossTerm(decodeURIComponent(anchor)); }, 100);
+      return;
+    }
     const fn = SUB_FNS[tab];
     if (fn && sub) {
       fn(sub);
@@ -5557,7 +5562,7 @@ document.getElementById('gsearch').addEventListener('input',function(){
 
   ov.innerHTML='<div style="margin-bottom:12px;font-size:12px;color:var(--muted)">נמצאו '+results.length+' תוצאות עבור "<b style=\'color:var(--text)\'">'+this.value+'</b>" — לחץ על תוצאה לניווט</div>'+
     '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">'+
-    results.map(r=>`<div class="sri" style="cursor:${r.tab?'pointer':'default'}" onclick="navigateToResult('${r.tab||"home"}','${r.sub||""}','${r.matId||""}')">
+    results.map(r=>`<div class="sri" style="cursor:${r.tab?'pointer':'default'}" onclick="navigateToResult('${r.tab||"home"}','${r.sub||""}','${r.matId||(r.tab==='glossary'?encodeURIComponent(r.he):'')}')">
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
         <span style="font-size:15px">${r.icon}</span>
         <span style="font-size:10px;color:var(--blue)">${r.cat}</span>${r.sub?`<span style="font-size:9px;color:var(--muted);margin-right:4px"> › ${r.sub}</span>`:''}
@@ -5892,6 +5897,29 @@ function buildMats(){
   });filterG();
 })();
 function escH(s){if(!s)return '';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function showSingleGlossTerm(term){
+  const norm = s => (s||'').trim().toLowerCase();
+  const match = GLOSSARY.find(t => norm(t.he) === norm(term));
+  if(!match){ return false; }
+  const gcDiv = document.getElementById('gcats');
+  if(gcDiv) gcDiv.style.display = 'none';
+  const gs = document.getElementById('gs');
+  if(gs) gs.value = term;
+  const gl = document.getElementById('glist');
+  const gc = document.getElementById('gcount');
+  if(gc) gc.textContent = 'תוצאה עבור "' + match.he + '"';
+  const expDiv = match.expand ? '<div class="gi-expand" id="gx-single" style="display:block">'+escH(match.expand)+'</div>' : '';
+  gl.innerHTML = '<div class="gi" style="border-color:var(--blue)">'+
+    '<div style="display:flex;justify-content:space-between;align-items:flex-start">'+
+    '<div><div class="gi-he">'+escH(match.he)+'</div>'+
+    '<div class="gi-en">'+match.en+(match.abbr?' · <span class="gi-abbr">'+match.abbr+'</span>':'')+'</div></div></div>'+
+    '<div class="gi-def">'+escH(match.def)+'</div>'+
+    expDiv+
+    '<div style="margin-top:12px"><a href="#" onclick="const g=document.getElementById(\'gcats\');if(g)g.style.display=\'\';document.getElementById(\'gs\').value=\'\';filterG();return false;" style="font-size:11px;color:var(--blue);text-decoration:none">← חזרה לכל המילון</a></div>'+
+    '</div>';
+  return true;
+}
+
 function filterG(){
   var q=(document.getElementById('gs').value||'').toLowerCase();
   var gl=document.getElementById('glist');
