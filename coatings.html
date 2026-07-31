@@ -52,8 +52,8 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 .machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
 .machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
 .machine-card:hover{border-color:var(--blue)}
-.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
-.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px;unicode-bidi:plaintext}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
 .b-blue{background:#1f6feb;color:#fff}
 .b-green{background:#2ea44f;color:#fff}
 .b-orange{background:#d97706;color:#000}
@@ -64,9 +64,9 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 .pro{color:var(--green)}
 .spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
 .spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
-.spec-val{color:var(--orange);text-align:left;direction:ltr;font-weight:600}
+.spec-val{color:var(--orange);text-align:left;direction:ltr;font-weight:600;unicode-bidi:plaintext}
 table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
-th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border)}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
 th{color:var(--blue);font-weight:700;background:var(--surface)}
 .coat-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s}
 .coat-tab:hover,.coat-tab.active{background:var(--orange);color:#000;border-color:var(--orange);font-weight:700}
