@@ -755,6 +755,7 @@ document.getElementById('gsearch').addEventListener('input', function(){
       const page = PAGE_FOR_TAB[r.tab] || '';
       let href = page;
       if(r.matId) href += '#mat=' + r.matId;
+      else if(r.tab === 'glossary') href += '#term=' + encodeURIComponent(r.he);
       else if(r.sub) href += '#sub=' + encodeURIComponent(r.sub);
       return '<a class="sri" style="display:block;text-decoration:none;color:inherit" href="'+href+'">'+
         '<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">'+
