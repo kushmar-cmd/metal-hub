@@ -69,7 +69,7 @@ a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 1
 a.home-link:hover{color:var(--text);border-color:var(--muted)}
 header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
-#main{max-width:1100px;width:100%;margin:76px auto 0;padding:20px 16px 60px}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
 .ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
@@ -99,6 +99,9 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 #soverlay.active{display:block}
 .sri{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:8px}
 .sri:hover{border-color:var(--blue)}
+#nav{background:var(--surface);border-bottom:2px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px;position:sticky;top:52px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4);margin-top:52px}
+.tab{padding:8px 13px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
+.tab:hover{color:var(--text);background:var(--border)}.tab.active{color:#fff;background:var(--blue)}
 </style>
 </head>
 <body>
@@ -137,10 +140,42 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <div id="topbar">
   <a class="logo" href="https://metal.kushmar.com/" title="חזרה לדף הבית">METAL <span>HUB</span></a>
   <input id="gsearch" type="search" placeholder="🔍 חיפוש — חומרים, GD&T, הברגות, ריתוך..." autocomplete="off">
-  <button class="nav-arrow" id="nav-prev" onclick="navStep(1)" title="קטגוריה הבאה">&#10095;</button>
-  <button class="nav-arrow" id="nav-next" onclick="navStep(-1)" title="קטגוריה קודמת">&#10094;</button>
-</div>
+  </div>
 <div id="soverlay"></div>
+<div id="nav">
+  <a class="tab" href="https://metal.kushmar.com/">🏠 בית</a>
+  <a class="tab" href="mfgtech.html">🏭 טכנולוגיות</a>
+  <a class="tab" href="materials.html">🧱 חומרים</a>
+  <a class="tab" href="coatings.html">🎨 ציפויים</a>
+  <a class="tab" href="heat.html">🔥 טיפולי חום</a>
+  <a class="tab" href="gdt.html">⊕ GD&T</a>
+  <a class="tab" href="inspection.html">🔍 בדיקה ואיכות</a>
+  <a class="tab" href="pricing.html">💰 תמחיר</a>
+  <a class="tab" href="tol.html">📏 סובלנויות</a>
+  <a class="tab" href="surface.html">✦ טיב שטח</a>
+  <a class="tab" href="threads.html">🔩 הברגות</a>
+  <a class="tab" href="welding.html">⚡ ריתוך</a>
+  <a class="tab" href="machining.html">🔧 עיבוד מכני</a>
+  <a class="tab" href="fasteners.html">🔗 חיבורים</a>
+  <a class="tab" href="inserts.html">🔩 קשיחים</a>
+  <a class="tab" href="standards.html">📋 תקנים</a>
+  <a class="tab" href="bearings.html">⚙️ מסבים</a>
+  <a class="tab" href="gears.html">⚙️ גירים</a>
+  <a class="tab" href="seals.html">🔵 אטמים</a>
+  <a class="tab" href="springs.html">🌀 קפיצים</a>
+  <a class="tab" href="corrosion.html">⚡ קורוזיה</a>
+    <a class="tab" href="hydraulics.html">💧 הידראוליקה</a>
+  <a class="tab" href="stress.html">📊 עומסים</a>
+  <a class="tab" href="fmea.html">⚠️ FMEA</a>
+  <a class="tab" href="changes.html">📄 שינויים</a>
+  <a class="tab" href="dfm.html">🏗️ תכן לייצור</a>
+  <a class="tab" href="pressure.html">🔬 בדיקות לחץ</a>
+  <a class="tab" href="chem.html">🧪 כימיה</a>
+  <a class="tab" href="calc.html">🧮 מחשבונים</a>
+  <a class="tab" href="glossary.html">📖 מילון</a>
+  <a class="tab" href="https://metal.kushmar.com/">🔐 שאל AI</a>
+</div>
+
 
 <div id="main">
 
@@ -732,6 +767,15 @@ document.addEventListener('keydown', function(e){
     }, 150);
   }
 })();
+
+(function(){
+  const cur = location.pathname.split('/').pop();
+  document.querySelectorAll('#nav .tab').forEach(function(t){
+    const href = t.getAttribute('href');
+    if(href && href === cur) t.classList.add('active');
+  });
+})();
+
 </script>
 </body>
 </html>
