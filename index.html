@@ -2151,12 +2151,16 @@ function calcBom(){
 
 
 
+const NAV_PAGES = ['index.html','mfgtech.html','materials.html','coatings.html','heat.html','gdt.html','inspection.html','pricing.html','tol.html','surface.html','threads.html','welding.html','machining.html','fasteners.html','inserts.html','standards.html','bearings.html','gears.html','seals.html','springs.html','corrosion.html','hydraulics.html','stress.html','fmea.html','changes.html','chem.html','dfm.html','pressure.html','calc.html','glossary.html'];
 function navStep(dir){
-  const tabs=Array.from(document.querySelectorAll('#nav .tab'));
-  const cur=tabs.findIndex(t=>t.classList.contains('active'));
-  const next=(cur+dir+tabs.length)%tabs.length;
-  tabs[next].click();
-  tabs[next].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  const idx = 0; // we are always on index.html when this runs on the homepage
+  const next = (idx + dir + NAV_PAGES.length) % NAV_PAGES.length;
+  const target = NAV_PAGES[next];
+  if(target === 'index.html'){
+    showTab('home', document.querySelector('.tab'));
+    return;
+  }
+  location.href = target;
 }
 
 

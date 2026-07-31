@@ -69,7 +69,7 @@ a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 1
 a.home-link:hover{color:var(--text);border-color:var(--muted)}
 header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
-#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+#main{max-width:1100px;width:100%;margin:76px auto 0;padding:20px 16px 60px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
 .ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
@@ -96,6 +96,16 @@ th{color:var(--blue);font-weight:700;background:var(--surface)}
 .gdt-anim{background:var(--bg);border-radius:8px;margin-bottom:12px;padding:14px;border:1px solid var(--border)}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+#topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;gap:12px;height:52px;position:fixed;top:0;left:0;right:0;z-index:100}
+#gsearch{flex:1;max-width:340px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text);font-size:13px}
+#gsearch:focus{outline:none;border-color:var(--blue)}
+.nav-arrow{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 13px;color:var(--text);cursor:pointer;font-size:18px;font-weight:700;line-height:1;flex-shrink:0;transition:all .15s}
+.nav-arrow:hover{background:var(--blue);color:#000;border-color:var(--blue)}
+.nav-arrow:active{transform:scale(.92)}
+#soverlay{display:none;position:fixed;top:96px;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:90;padding:20px;overflow-y:auto}
+#soverlay.active{display:block}
+.sri{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:8px}
+.sri:hover{border-color:var(--blue)}
 </style>
 </head>
 <body>
@@ -131,10 +141,13 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <div class="engSpark s5"></div>
 </div>
 
-<header>
-  <div class="logo">METAL <span>HUB</span></div>
-  <a class="home-link" href="https://metal.kushmar.com/">→ חזרה לעמוד הראשי</a>
-</header>
+<div id="topbar">
+  <a class="logo" href="https://metal.kushmar.com/" title="חזרה לדף הבית">METAL <span>HUB</span></a>
+  <input id="gsearch" type="search" placeholder="🔍 חיפוש — חומרים, GD&T, הברגות, ריתוך..." autocomplete="off">
+  <button class="nav-arrow" id="nav-prev" onclick="navStep(1)" title="קטגוריה הבאה">&#10095;</button>
+  <button class="nav-arrow" id="nav-next" onclick="navStep(-1)" title="קטגוריה קודמת">&#10094;</button>
+</div>
+<div id="soverlay"></div>
 
 <div id="main">
 
@@ -862,6 +875,78 @@ setInterval(function(){
 
 
 initGDT();
+
+const NAV_PAGES = ['index.html','mfgtech.html','materials.html','coatings.html','heat.html','gdt.html','inspection.html','pricing.html','tol.html','surface.html','threads.html','welding.html','machining.html','fasteners.html','inserts.html','standards.html','bearings.html','gears.html','seals.html','springs.html','corrosion.html','hydraulics.html','stress.html','fmea.html','changes.html','chem.html','dfm.html','pressure.html','calc.html','glossary.html'];
+
+function navStep(dir){
+  let cur = location.pathname.split('/').pop() || 'index.html';
+  if(cur === '') cur = 'index.html';
+  let idx = NAV_PAGES.indexOf(cur);
+  if(idx < 0) idx = 0;
+  const next = (idx + dir + NAV_PAGES.length) % NAV_PAGES.length;
+  const target = NAV_PAGES[next];
+  location.href = (target === 'index.html') ? 'https://metal.kushmar.com/' : target;
+}
+
+const PAGE_FOR_TAB = {mfgtech:'mfgtech.html',materials:'materials.html',coatings:'coatings.html',heat:'heat.html',gdt:'gdt.html',inspection:'inspection.html',pricing:'pricing.html',tol:'tol.html',surface:'surface.html',threads:'threads.html',welding:'welding.html',machining:'machining.html',fasteners:'fasteners.html',inserts:'inserts.html',standards:'standards.html',bearings:'bearings.html',gears:'gears.html',seals:'seals.html',springs:'springs.html',corrosion:'corrosion.html',hydraulics:'hydraulics.html',stress:'stress.html',fmea:'fmea.html',changes:'changes.html',chem:'chem.html',dfm:'dfm.html',pressure:'pressure.html',calc:'calc.html',glossary:'glossary.html'};
+
+let SEARCH_INDEX = [];
+fetch('search-index.json').then(r=>r.json()).then(d=>{SEARCH_INDEX=d;}).catch(e=>console.error('search index load failed',e));
+
+document.getElementById('gsearch').addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+  const ov = document.getElementById('soverlay');
+  if(!q){ov.classList.remove('active');return;}
+  ov.classList.add('active');
+
+  const results = SEARCH_INDEX.filter(item=>{
+    const full=(item.he+' '+(item.en||'')+' '+(item.def||'')+' '+(item.cat||'')).toLowerCase();
+    return full.includes(q);
+  }).slice(0,40);
+
+  if(!results.length){
+    ov.innerHTML='<div style="color:var(--muted);text-align:center;padding:40px;font-size:15px">לא נמצאו תוצאות עבור "<b style="color:var(--text)">'+this.value+'</b>"<br><span style="font-size:12px">נסה מונח אחר</span></div>';
+    return;
+  }
+
+  ov.innerHTML='<div style="margin-bottom:12px;font-size:12px;color:var(--muted)">נמצאו '+results.length+' תוצאות עבור "<b style="color:var(--text)">'+this.value+'</b>" — לחץ על תוצאה לניווט</div>'+
+    '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">'+
+    results.map(r=>{
+      const page = PAGE_FOR_TAB[r.tab] || '';
+      let href = page;
+      if(r.matId) href += '#mat=' + r.matId;
+      else if(r.sub) href += '#sub=' + encodeURIComponent(r.sub);
+      return '<a class="sri" style="display:block;text-decoration:none;color:inherit" href="'+href+'">'+
+        '<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">'+
+        '<span style="font-size:15px">'+r.icon+'</span>'+
+        '<span style="font-size:10px;color:var(--blue)">'+r.cat+'</span></div>'+
+        '<div style="font-weight:700;font-size:13px">'+r.he+'</div>'+
+        (r.en?'<div style="font-size:11px;color:var(--muted)">'+r.en+'</div>':'')+
+        '<div style="font-size:11px;color:var(--muted);margin-top:4px">'+(r.def||'').slice(0,100)+'</div>'+
+        '</a>';
+    }).join('') + '</div>';
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    document.getElementById('soverlay').classList.remove('active');
+    document.getElementById('gsearch').value = '';
+  }
+});
+
+(function(){
+  const hash = location.hash.slice(1);
+  if(!hash) return;
+  const params = new URLSearchParams(hash);
+  const sub = params.get('sub');
+  if(sub && typeof show_gd === 'function'){
+    setTimeout(function(){
+      const btn = document.querySelector('[onclick*="'+sub+'"]');
+      show_gd(sub, btn);
+      if(btn) btn.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 150);
+  }
+})();
 </script>
 </body>
 </html>
