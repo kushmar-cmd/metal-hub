@@ -42,6 +42,29 @@
   --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
 }
 html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:rtl;text-align:right}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
 a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
 a.home-link:hover{color:var(--text);border-color:var(--muted)}
 header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -77,6 +100,37 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </style>
 </head>
 <body>
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
 
 <header>
   <div class="logo">METAL <span>HUB</span></div>
