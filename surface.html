@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <link rel="canonical" href="https://metal.kushmar.com/surface.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/surface.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/surface.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/surface.html">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -73,7 +76,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
 .ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
 .machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
-.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
 .machine-card:hover{border-color:var(--blue)}
 .mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
 .mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
@@ -289,7 +292,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
 <div class="machine-card" style="grid-column:span 2">
 <div class="mc-title" style="color:var(--yellow,#fde047)">N-Grade — טבלה מלאה</div>
-<table style="font-size:11px;margin-top:6px">
+<div style="overflow-x:auto"><table style="font-size:11px;margin-top:6px">
 <tr><th>N</th><th>Ra μm</th><th>Ra μin</th><th>Rz μm</th><th>שיטת עיבוד</th><th>שימוש</th><th>עלות</th></tr>
 <tr style="color:var(--red)"><td><b>N1</b></td><td>0.025</td><td>1</td><td>0.1</td><td>ליטוש מראה / לאפינג</td><td>אופטיקה, אטמי פיסטון</td><td>×50</td></tr>
 <tr style="color:var(--red)"><td><b>N2</b></td><td>0.05</td><td>2</td><td>0.2</td><td>Superfinish / לאפינג</td><td>גלגורות מסבים, שסתומים</td><td>×30</td></tr>
@@ -303,7 +306,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <tr><td>N10</td><td>12.5</td><td>500</td><td>50</td><td>ניסור / כרסום גס</td><td>חיתוך גלם</td><td>×1</td></tr>
 <tr><td>N11</td><td>25</td><td>1000</td><td>100</td><td>ניסור / חיתוך להבה</td><td>גלם לפני עיבוד</td><td>×1</td></tr>
 <tr><td>N12</td><td>50</td><td>2000</td><td>200</td><td>יציקה חול / חישול</td><td>גלם</td><td>—</td></tr>
-</table>
+</table></div>
 <div class="tip-box">▸ <b>★ N7 (Ra 1.6)</b> = ברירת מחדל סבירה לרוב המשטחים הפונקציונליים<br>▸ <b>N8 (Ra 3.2)</b> = ISO 2768 כללי — מספיק ל-90% מהמשטחים<br>▸ כל ירידה ב-N = ×1.5–2 בעלות!</div>
 </div>
 
@@ -360,7 +363,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
 <div class="machine-card" style="grid-column:span 2">
 <div class="mc-title" style="color:var(--yellow,#fde047)">טווח Ra לפי תהליך ייצור</div>
-<table style="font-size:10px;margin-top:6px">
+<div style="overflow-x:auto"><table style="font-size:10px;margin-top:6px">
 <tr><th>תהליך</th><th>Ra Min (μm)</th><th>Ra Max (μm)</th><th>Ra טיפוסי</th><th>הערה</th></tr>
 <tr style="background:rgba(239,68,68,0.05)"><td>Superfinish</td><td>0.01</td><td>0.1</td><td>0.025–0.05</td><td>גלגורות מסבים, מדחסים</td></tr>
 <tr style="background:rgba(239,68,68,0.05)"><td>לאפינג</td><td>0.01</td><td>0.4</td><td>0.05–0.1</td><td>שסתומים, Gauge Blocks</td></tr>
@@ -381,7 +384,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <tr style="background:rgba(74,222,128,0.05)"><td>חיתוך להבה</td><td>12.5</td><td>50</td><td>25</td><td>Oxy-Fuel / Plasma</td></tr>
 <tr style="background:rgba(74,222,128,0.05)"><td>יציקת חול</td><td>12.5</td><td>50</td><td>25</td><td>Sand Casting</td></tr>
 <tr style="background:rgba(74,222,128,0.05)"><td>Die Casting</td><td>0.8</td><td>6.3</td><td>1.6–3.2</td><td>תבנית חדשה</td></tr>
-</table>
+</table></div>
 <a href="https://www.youtube.com/results?search_query=surface%20finish%20comparison%20machining%20processes%20Ra" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
 
 <div class="machine-card">
@@ -465,7 +468,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
 <div class="machine-card" style="grid-column:span 2">
 <div class="mc-title" style="color:var(--yellow,#fde047)">Ra מומלץ לפי יישום הנדסי</div>
-<table style="font-size:11px;margin-top:6px">
+<div style="overflow-x:auto"><table style="font-size:11px;margin-top:6px">
 <tr><th>יישום</th><th>Ra (μm)</th><th>Rz (μm)</th><th>שיטה</th><th>הערות</th></tr>
 <tr><td>גלגורת מסב</td><td>0.025–0.05</td><td>0.1–0.2</td><td>Superfinish</td><td>Rsk שלילי חובה</td></tr>
 <tr><td>ציר מסב</td><td>0.1–0.4</td><td>0.4–1.6</td><td>שחיקה</td><td>h5/h6 + Ra</td></tr>
@@ -485,7 +488,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <tr><td>חוט הברגה</td><td>1.6–3.2</td><td>6.3–12.5</td><td>חריטה / ארבול</td><td>כללי</td></tr>
 <tr><td>שן גיר</td><td>0.4–1.6</td><td>1.6–6.3</td><td>שחיקה / Shaving</td><td>תלוי AGMA Quality</td></tr>
 <tr><td>מגלש מדריכי CNC</td><td>0.2–0.8</td><td>0.8–3.2</td><td>שחיקה</td><td>+ Turcite/Scraped</td></tr>
-</table>
+</table></div>
 <a href="https://www.youtube.com/results?search_query=surface%20roughness%20requirements%20engineering%20applications" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
 
 </div></div></div>
