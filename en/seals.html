@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://metal.kushmar.com/en/seals.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/seals.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/seals.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/seals.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seals &amp; Gaskets Guide — O-Ring Size Chart, Material Selection, Groove Design, Mechanical Seals | METAL HUB</title>
+<meta name="description" content="Complete seals and gaskets guide: O-Ring size charts (AS568/ISO 3601), seal material selection (NBR, FKM, EPDM, PTFE), seal types, mechanical face seals, flange gaskets, O-Ring groove design, and a squeeze/fill calculator.">
+<meta name="keywords" content="O-ring size chart, O-ring material selection, seal types, mechanical seal, gasket types, O-ring groove design, AS568, ISO 3601, NBR FKM EPDM">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/en/seals.html">
+<meta property="og:title" content="Seals &amp; Gaskets Guide — O-Ring Charts, Materials, Groove Design | METAL HUB">
+<meta property="og:description" content="Complete seals guide: O-Ring size charts, material selection, seal types, mechanical seals, gaskets, and groove design.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Seals & Gaskets Guide — O-Ring, Mechanical Seals, Gaskets",
+  "description": "Complete seals and gaskets guide: O-Ring size charts, material selection, seal types, mechanical face seals, flange gaskets, and groove design",
+  "about": ["O-Ring", "Seals", "Gaskets", "Mechanical Seal", "AS568", "ISO 3601", "Groove Design"],
+  "url": "https://metal.kushmar.com/en/seals.html",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-purple{background:#8957e5;color:#fff}
+.b-red{background:#cf222e;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.tip-box{background:rgba(253,224,71,0.08);border:1px solid var(--yellow,#fde047);border-radius:6px;padding:8px 12px;margin-top:8px;font-size:11px;line-height:1.8}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a href="https://metal.kushmar.com/seals.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Seals &amp; Gaskets Guide</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+A complete guide to <b>seals and gaskets</b>: <b>O-Ring size charts</b> (AS568/ISO 3601), seal material selection (NBR, FKM, EPDM, PTFE), seal types, <b>mechanical face seals</b>, flange gaskets, O-Ring groove design, and a squeeze/fill calculator.
+</p>
+</div>
+
+<div id="sec-seals" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1117);border-color:var(--blue)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔵</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--blue)">Seals &amp; Gaskets</div>
+    <div style="font-size:12px;color:var(--muted)">O-Ring · Mechanical · Lip Seal · Gasket · Materials · Groove Design · Calculator</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="sl-tab active" onclick="showSl('oring',this)">🔵 O-Ring</button>
+  <button class="sl-tab" onclick="showSl('materials',this)">🧪 Materials</button>
+  <button class="sl-tab" onclick="showSl('types',this)">⚙️ Seal Types</button>
+  <button class="sl-tab" onclick="showSl('mechanical',this)">🌀 Mechanical Seal</button>
+  <button class="sl-tab" onclick="showSl('gaskets',this)">📋 Gaskets</button>
+  <button class="sl-tab" onclick="showSl('groove',this)">📐 Groove Design</button>
+  <button class="sl-tab" onclick="showSl('calc',this)">🧮 Calculator</button>
+  <button class="sl-tab" onclick="showSl('standards',this)">📋 Standards</button>
+</div>
+
+<style>
+.sl-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.sl-tab:hover,.sl-tab.active{background:var(--blue);color:#000;border-color:var(--blue);font-weight:700}
+.sl-sec{display:none}.sl-sec.active{display:block}
+</style>
+
+<!-- ==================== O-RING ==================== -->
+<div id="sl-oring" class="sl-sec active">
+<div class="card"><div class="ctitle">🔵 O-Ring — Sizes and Principles</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AS568 — Common O-Ring Sizes</div>
+<div><span class="mc-badge b-blue">ANSI/AS568</span><span class="mc-badge b-orange">Common in the US</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>AS568</th><th>ID (mm)</th><th>Cord d₂</th><th>AS568</th><th>ID (mm)</th><th>Cord d₂</th></tr>
+<tr><td>-006</td><td>2.90</td><td>1.78</td><td>-210</td><td>13.87</td><td>3.53</td></tr>
+<tr><td>-008</td><td>4.48</td><td>1.78</td><td>-214</td><td>19.18</td><td>3.53</td></tr>
+<tr><td>-010</td><td>6.07</td><td>1.78</td><td>-220</td><td>28.17</td><td>3.53</td></tr>
+<tr><td>-012</td><td>7.65</td><td>1.78</td><td>-225</td><td>38.00</td><td>3.53</td></tr>
+<tr><td>-014</td><td>9.25</td><td>1.78</td><td>-309</td><td>22.23</td><td>5.33</td></tr>
+<tr><td>-109</td><td>8.74</td><td>2.62</td><td>-316</td><td>36.17</td><td>5.33</td></tr>
+<tr><td>-116</td><td>22.23</td><td>2.62</td><td>-325</td><td>58.42</td><td>5.33</td></tr>
+<tr><td>-125</td><td>41.28</td><td>2.62</td><td>-330</td><td>64.77</td><td>5.33</td></tr>
+<tr><td>-130</td><td>53.34</td><td>2.62</td><td>-425</td><td>88.57</td><td>6.99</td></tr>
+<tr><td>-145</td><td>88.62</td><td>2.62</td><td>-432</td><td>107.32</td><td>6.99</td></tr>
+<tr><td>-206</td><td>6.07</td><td>3.53</td><td>-440</td><td>125.07</td><td>6.99</td></tr>
+<tr><td>-208</td><td>8.74</td><td>3.53</td><td>-450</td><td>150.57</td><td>6.99</td></tr>
+</table>
+<div class="tip-box">▸ Outer diameter OD = ID + 2×d₂<br>▸ -1xx = d₂=1.78mm · -2xx = d₂=3.53mm · -3xx = d₂=5.33mm · -4xx = d₂=6.99mm</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ISO 3601 — Metric Sizes</div>
+<div><span class="mc-badge b-green">ISO 3601</span><span class="mc-badge b-blue">European</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Size</th><th>ID (mm)</th><th>Cord d₂ (mm)</th><th>Use</th></tr>
+<tr><td>6×1.5</td><td>6.0</td><td>1.5</td><td>Small general</td></tr>
+<tr><td>8×1.5</td><td>8.0</td><td>1.5</td><td>General</td></tr>
+<tr><td>10×1.5</td><td>10.0</td><td>1.5</td><td>General</td></tr>
+<tr><td>10×2</td><td>10.0</td><td>2.0</td><td>General</td></tr>
+<tr><td>12×2</td><td>12.0</td><td>2.0</td><td>Common</td></tr>
+<tr><td>16×2</td><td>16.0</td><td>2.0</td><td>Common</td></tr>
+<tr><td>20×2.5</td><td>20.0</td><td>2.5</td><td>Common</td></tr>
+<tr><td>25×3</td><td>25.0</td><td>3.0</td><td>Common</td></tr>
+<tr><td>30×3</td><td>30.0</td><td>3.0</td><td>Common</td></tr>
+<tr><td>40×4</td><td>40.0</td><td>4.0</td><td>Large</td></tr>
+<tr><td>50×5</td><td>50.0</td><td>5.0</td><td>Large</td></tr>
+<tr><td>100×5.5</td><td>100.0</td><td>5.5</td><td>Very large</td></tr>
+</table>
+<div class="tip-box">▸ ISO 3601-1: sizes. ISO 3601-3: tolerances. ISO 3601-4: materials<br>▸ Metric is more common than AS568 outside the US</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Squeeze</div>
+<div><span class="mc-badge b-orange">Critical!</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Application Type</th><th>Squeeze %</th><th>Fill %</th><th>Note</th></tr>
+<tr><td>Static — internal</td><td>15–25%</td><td>65–80%</td><td>Most common</td></tr>
+<tr><td>Static — external</td><td>15–25%</td><td>65–80%</td><td>Face seal</td></tr>
+<tr><td>Dynamic axial</td><td>10–20%</td><td>55–70%</td><td>Piston, rod</td></tr>
+<tr><td>Dynamic rotary</td><td>5–15%</td><td>50–65%</td><td>↓friction</td></tr>
+<tr><td>Cryogenic</td><td>20–30%</td><td>70–85%</td><td>Shrinkage in cold</td></tr>
+<tr><td>High temperature</td><td>20–25%</td><td>70–85%</td><td>Compression set</td></tr>
+</table>
+<div class="spec-row"><span class="spec-key">Formula</span><span class="spec-val">Squeeze% = (d₂ - h) / d₂ × 100</span></div>
+<div class="spec-row"><span class="spec-key">Fill%</span><span class="spec-val">= π×d₂²/(4×h×w) × 100</span></div>
+<div class="tip-box">▸ Too little squeeze = leakage. Too much = compression set = leakage!<br>▸ Always check Fill — the O-ring needs room to expand under pressure</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=O-ring+groove+design+squeeze+compression+seal" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Stretch</div>
+<div class="spec-row"><span class="spec-key">Ideal stretch</span><span class="spec-val">1–5% — an O-ring slightly larger than the groove</span></div>
+<div class="spec-row"><span class="spec-key">Maximum</span><span class="spec-val">6% — above this = ↓cord diameter = ↓squeeze!</span></div>
+<div class="spec-row"><span class="spec-key">Compression</span><span class="spec-val">Up to 3% (O-ring larger than the groove)</span></div>
+<div class="spec-row"><span class="spec-key">Formula</span><span class="spec-val">Stretch% = (Groove ID − O-ring ID) / O-ring ID × 100</span></div>
+<div class="tip-box">▸ A stretched O-ring = a smaller cord diameter = less squeeze!<br>▸ Choose an O-ring with an ID slightly smaller than the groove — 1-3% stretch</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== MATERIALS ==================== -->
+<div id="sl-materials" class="sl-sec">
+<div class="card"><div class="ctitle">🧪 Seal Materials — Selection by Application</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Seal Material Comparison — Full Table</div>
+<div style="overflow-x:auto"><table style="font-size:10px;margin-top:6px">
+<tr><th>Material</th><th>Abbr.</th><th>Range °C</th><th>Mineral Oil</th><th>Fuel</th><th>Water/Steam</th><th>Acids</th><th>Bases</th><th>Cryogenic</th><th>Use</th><th>Price</th></tr>
+<tr><td><b>Buna-N / Nitrile</b></td><td>NBR</td><td>−40 / +120</td><td>✅ Excellent</td><td>✅ Good</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>❌</td><td>Hydraulics, oil, most common</td><td>★</td></tr>
+<tr><td><b>Viton</b></td><td>FKM</td><td>−20 / +200</td><td>✅</td><td>✅ Excellent</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>❌</td><td>Defense, chemical, high temp</td><td>★★★</td></tr>
+<tr><td><b>EPDM</b></td><td>EPDM</td><td>−50 / +150</td><td>❌</td><td>❌</td><td>✅ Excellent</td><td>✅</td><td>✅</td><td>⚠️</td><td>Water, steam, brakes — not for oil!</td><td>★</td></tr>
+<tr><td><b>Silicone</b></td><td>VMQ</td><td>−60 / +220</td><td>⚠️</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>⚠️</td><td>Food, medical, extreme temp</td><td>★★</td></tr>
+<tr><td><b>PTFE</b></td><td>PTFE</td><td>−200 / +260</td><td>✅</td><td>✅</td><td>✅</td><td>✅ Excellent</td><td>✅ Excellent</td><td>✅</td><td>Aggressive chemicals, universal</td><td>★★★</td></tr>
+<tr><td><b>Neoprene</b></td><td>CR</td><td>−40 / +120</td><td>⚠️</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>⚠️</td><td>Air, freon, outdoor environment</td><td>★</td></tr>
+<tr><td><b>HNBR</b></td><td>HNBR</td><td>−30 / +150</td><td>✅</td><td>✅</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>❌</td><td>Improved NBR — automotive, H₂S oil</td><td>★★</td></tr>
+<tr><td><b>Kalrez</b></td><td>FFKM</td><td>−20 / +315</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>⚠️</td><td>All chemicals — very expensive!</td><td>★★★★★</td></tr>
+<tr><td><b>Polyurethane</b></td><td>AU/EU</td><td>−30 / +100</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>❌</td><td>❌</td><td>❌</td><td>U-Cup, wiper — mechanical strength</td><td>★★</td></tr>
+<tr><td><b>Natural Rubber</b></td><td>NR</td><td>−50 / +80</td><td>❌</td><td>❌</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>⚠️</td><td>Water, air, vibration</td><td>★</td></tr>
+<tr><td><b>Butyl</b></td><td>IIR</td><td>−50 / +120</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>⚠️</td><td>Gas sealing — tubes, reservoirs</td><td>★</td></tr>
+<tr><td><b>Viton GF</b></td><td>FKM-GF</td><td>−40 / +200</td><td>✅</td><td>✅</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>✅</td><td>Cryogenic Viton — LNG, LN₂</td><td>★★★★</td></tr>
+</table></div>
+<div class="tip-box">▸ <b>Golden rule:</b> NBR = the first to try (cheap + oil-resistant). If unsuitable ← FKM<br>▸ <b>EPDM + oil = ❌ immediate!</b> Swelling and failure<br>▸ <b>Cryogenics:</b> PTFE (excellent), Viton-GLT/GF (good), NBR (❌)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Shore A Hardness — Effect on Performance</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Shore A</th><th>Characteristic</th><th>Max Pressure</th><th>Use</th></tr>
+<tr><td>40–50</td><td>Very soft</td><td>10 bar</td><td>Delicate sealing, light contact</td></tr>
+<tr><td>60–70</td><td>Standard</td><td>70 bar</td><td>General static — ← most common</td></tr>
+<tr><td>70–80</td><td>Medium hard</td><td>200 bar</td><td>Dynamic, moderate pressures</td></tr>
+<tr><td>80–90</td><td>Hard</td><td>400 bar</td><td>High pressures + backup</td></tr>
+<tr><td>90+</td><td>Very hard</td><td>700 bar+</td><td>With a backup ring only</td></tr>
+</table>
+<div class="tip-box">▸ Shore 70 = the default for most applications<br>▸ High pressure → higher Shore → ↓extrusion<br>▸ Maximum extrusion gap: 0.05–0.1mm at Shore 70</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Compression Set</div>
+<div class="spec-row"><span class="spec-key">Definition</span><span class="spec-val">Percent of permanent set after sustained load — the O-ring doesn't return to its shape</span></div>
+<div class="spec-row"><span class="spec-key">Formula</span><span class="spec-val">CS% = (d₀ − d₁) / (d₀ − d_spacer) × 100</span></div>
+<div class="spec-row"><span class="spec-key">NBR 70</span><span class="spec-val">CS ≈ 20% after 70°C/22h</span></div>
+<div class="spec-row"><span class="spec-key">FKM</span><span class="spec-val">CS ≈ 15% after 175°C/22h</span></div>
+<div class="spec-row"><span class="spec-key">Silicone</span><span class="spec-val">CS ≈ 30–50% — relatively high!</span></div>
+<div class="spec-row"><span class="spec-key">PTFE</span><span class="spec-val">CS ≈ 60–70% — cold flow!</span></div>
+<div class="tip-box">▸ High CS = the O-ring "stays flat" ← ↓squeeze ← leakage<br>▸ High temperature = ↑CS faster<br>▸ Kalrez CS = 5–15% — the best</div>
+<a href="https://www.youtube.com/results?search_query=O-ring%20compression%20set%20explained%20testing" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+</div></div></div>
+
+<!-- ==================== TYPES ==================== -->
+<div id="sl-types" class="sl-sec">
+<div class="card"><div class="ctitle">⚙️ Seal Types — All Types</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">O-Ring</div>
+<div><span class="mc-badge b-blue">Most Common</span><span class="mc-badge b-green">Static+Dynamic</span></div>
+<div class="spec-row"><span class="spec-key">Max pressure</span><span class="spec-val">Static: 700 bar · Dynamic: 100 bar (no backup)</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">Up to 0.5 m/s axial · up to 2 m/s rotary</span></div>
+<div class="spec-row"><span class="spec-key">Advantages</span><span class="spec-val">Cheap, available, easy to install, bidirectional</span></div>
+<div class="spec-row"><span class="spec-key">Disadvantages</span><span class="spec-val">Extrusion at high pressure, spiral failure in dynamic use</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=O-ring+seal+how+it+works+selection+design" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">X-Ring / Quad-Ring</div>
+<div><span class="mc-badge b-green">Dynamic</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">4 lips instead of 2 — ↓spiral failure in dynamic use</span></div>
+<div class="spec-row"><span class="spec-key">Pressure</span><span class="spec-val">Up to 400 bar</span></div>
+<div class="spec-row"><span class="spec-key">Advantage over O-ring</span><span class="spec-val">↓friction, ↓torsion, ↑dynamic durability</span></div>
+<div class="spec-row"><span class="spec-key">Disadvantage</span><span class="spec-val">More expensive, less available</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Hydraulic piston, rod, reciprocating</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Backup Ring</div>
+<div><span class="mc-badge b-red">High Pressure</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A PTFE/nylon ring on the pressure side — prevents extrusion</span></div>
+<div class="spec-row"><span class="spec-key">Pressure with backup</span><span class="spec-val">Up to 700 bar!</span></div>
+<div class="spec-row"><span class="spec-key">Single Backup</span><span class="spec-val">Unidirectional pressure — backup on the pressure side</span></div>
+<div class="spec-row"><span class="spec-key">Double Backup</span><span class="spec-val">Bidirectional pressure — backup on both sides</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">PTFE (spiral-wound), nylon, polyester</span></div>
+<div class="tip-box">▸ Extrusion gap: ≥70 bar → backup mandatory!<br>▸ Maximum gap: 0.05–0.1mm depending on Shore</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">U-Cup / Lip Seal</div>
+<div><span class="mc-badge b-blue">Piston/Rod</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A flexible lip pressed by pressure — self-energizing</span></div>
+<div class="spec-row"><span class="spec-key">Pressure</span><span class="spec-val">Up to 500 bar</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">Up to 1 m/s (polyurethane)</span></div>
+<div class="spec-row"><span class="spec-key">Directionality</span><span class="spec-val">Unidirectional! Orient toward the pressure</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Polyurethane, NBR, FKM, PTFE</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Hydraulic cylinders, pneumatic, actuators</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=U-cup+lip+seal+hydraulic+cylinder+rod+piston+seal" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Wiper / Scraper Seal</div>
+<div><span class="mc-badge b-orange">Rod Cleaning</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Scrapes dirt off the rod as it enters the cylinder</span></div>
+<div class="spec-row"><span class="spec-key">Position</span><span class="spec-val">Outermost — the cylinder head</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Polyurethane, NBR, PTFE</span></div>
+<div class="spec-row"><span class="spec-key">Failure without it</span><span class="spec-val">Dirt enters → scratches chrome plating → leakage!</span></div>
+<div class="tip-box">▸ Wiper + rod seal = a complete rod protection set<br>▸ Always replace the wiper when replacing the rod seal</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">V-Ring Seal</div>
+<div><span class="mc-badge b-green">Rotating Shaft</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A rubber ring pressed against the shaft shoulder — self-clamping</span></div>
+<div class="spec-row"><span class="spec-key">Pressure</span><span class="spec-val">Low — not for sealing under pressure</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">Up to 12 m/s</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Protecting grease-lubricated bearings + dirt barrier</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">No groove needed! Installs directly on the shaft</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturers</span><span class="spec-val">SKF V-Ring, Freudenberg</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">PTFE Lip Seal / Rotary Shaft</div>
+<div><span class="mc-badge b-purple">High Speed</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A PTFE lip on a rotating shaft — ↓friction</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">Up to 20 m/s! (vs. NBR 6 m/s)</span></div>
+<div class="spec-row"><span class="spec-key">Temperature</span><span class="spec-val">−200 to +260°C</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Thermal shaft, high-speed pumps, chemical</span></div>
+<div class="spec-row"><span class="spec-key">Shaft Ra</span><span class="spec-val">Ra 0.2–0.8μm — must pay attention!</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Metal C-Ring / E-Ring</div>
+<div><span class="mc-badge b-red">Extreme</span><span class="mc-badge b-orange">Temp+Pressure</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A metal ring (SS/Inconel) that compresses elastically</span></div>
+<div class="spec-row"><span class="spec-key">Pressure</span><span class="spec-val">Up to 700 bar</span></div>
+<div class="spec-row"><span class="spec-key">Temperature</span><span class="spec-val">Up to 600°C (Inconel)</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Jet engines, aerospace, nuclear reactors</span></div>
+<div class="spec-row"><span class="spec-key">Cost</span><span class="spec-val">Very high — used only in critical applications</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=metal+C-ring+seal+high+pressure+temperature+aerospace" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== MECHANICAL ==================== -->
+<div id="sl-mechanical" class="sl-sec">
+<div class="card"><div class="ctitle">🌀 Mechanical Face Seal</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Operating Principle</div>
+<div><span class="mc-badge b-blue">Zero Leakage</span><span class="mc-badge b-orange">Pumps</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">2 lapped faces (primary/mating ring) pressed against each other — ↓leakage</span></div>
+<div class="spec-row"><span class="spec-key">Primary Ring</span><span class="spec-val">A ring rotating with the shaft (carbon/SiC/WC)</span></div>
+<div class="spec-row"><span class="spec-key">Mating Ring</span><span class="spec-val">A stationary ring in the pump housing (SiC/SS/ceramic)</span></div>
+<div class="spec-row"><span class="spec-key">Spring</span><span class="spec-val">Presses the primary ring against the mating ring</span></div>
+<div class="spec-row"><span class="spec-key">Allowed leakage</span><span class="spec-val">3–5 drops/hour — a mechanical seal isn't absolute zero leakage</span></div>
+<div class="spec-row"><span class="spec-key">Durability</span><span class="spec-val">10,000–50,000 operating hours</span></div>
+<div class="tip-box">▸ A thin liquid film between the faces = enables free rotation + ↓wear<br>▸ Never run dry! → immediate failure<br>▸ Flushing Plan (API 682) = cools + cleans the faces</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=mechanical+seal+how+it+works+pump+face+seal+principle" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Face Materials</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Pair</th><th>Primary</th><th>Mating</th><th>Use</th></tr>
+<tr><td>Common</td><td>Carbon</td><td>SiC</td><td>Water, coolant, most fluids</td></tr>
+<tr><td>Hard</td><td>SiC</td><td>SiC</td><td>Abrasive fluids</td></tr>
+<tr><td>Chemical</td><td>Carbon</td><td>Alumina</td><td>Chemicals, acids</td></tr>
+<tr><td>High temp</td><td>WC</td><td>SiC</td><td>Temperature + abrasive</td></tr>
+</table>
+<div class="tip-box">▸ Never carbon-carbon! ← ↑wear, ↑heat<br>▸ SiC vs. SiC = for fluids with solids (slurry)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Mechanical Seal Types</div>
+<div class="spec-row"><span class="spec-key">Single Seal</span><span class="spec-val">One face pair — ← most common. Minor leakage to atmosphere</span></div>
+<div class="spec-row"><span class="spec-key">Double Seal</span><span class="spec-val">Two face pairs + barrier fluid — zero leakage to atmosphere</span></div>
+<div class="spec-row"><span class="spec-key">Tandem</span><span class="spec-val">Two face pairs + quench — backup for failure</span></div>
+<div class="spec-row"><span class="spec-key">Cartridge</span><span class="spec-val">A pre-assembled unit — ↓installation errors</span></div>
+<div class="spec-row"><span class="spec-key">API 682</span><span class="spec-val">The oil industry standard — Plans 11/13/23/53A/53B</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Mechanical Seal Failures — Diagnosis</div>
+<div class="spec-row"><span class="spec-key">Dry Running</span><span class="spec-val">Scorching, chipping, sudden failure — ↑↑common!</span></div>
+<div class="spec-row"><span class="spec-key">Cavitation</span><span class="spec-val">Face erosion from bubbles — ↑flow, ↓NPSH</span></div>
+<div class="spec-row"><span class="spec-key">Misalignment</span><span class="spec-val">Uneven wear — check pump alignment</span></div>
+<div class="spec-row"><span class="spec-key">Crystallization</span><span class="spec-val">Salts crystallizing on the faces — ↑flushing</span></div>
+<div class="spec-row"><span class="spec-key">Coking</span><span class="spec-val">Hot fluids hardening — ↑quench</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== GASKETS ==================== -->
+<div id="sl-gaskets" class="sl-sec">
+<div class="card"><div class="ctitle">📋 Gaskets — Flange and Joint Seals</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Gasket Types</div>
+<div style="overflow-x:auto"><table style="font-size:11px;margin-top:6px">
+<tr><th>Type</th><th>Material</th><th>Pressure</th><th>Temp.</th><th>Use</th><th>Standard</th></tr>
+<tr><td><b>Spiral Wound</b></td><td>SS/Graphite</td><td>Up to 250 bar</td><td>Up to 800°C</td><td>Chemical piping, oil</td><td>ASME B16.20</td></tr>
+<tr><td><b>Ring Joint (RTJ)</b></td><td>SS/Iron/Monel</td><td>Up to 700 bar!</td><td>Up to 650°C</td><td>HP piping, coal</td><td>ASME B16.20</td></tr>
+<tr><td><b>Kammprofile</b></td><td>SS+Graphite</td><td>Up to 200 bar</td><td>Up to 600°C</td><td>Special flanges</td><td>ASME B16.20</td></tr>
+<tr><td><b>Full Face Flat</b></td><td>Rubber/PTFE</td><td>Up to 20 bar</td><td>Up to 150°C</td><td>Cast iron flanges</td><td>ASME B16.21</td></tr>
+<tr><td><b>Raised Face (RF)</b></td><td>Spiral/Graphite</td><td>Up to 250 bar</td><td>Up to 500°C</td><td>SS/CS flanges</td><td>ASME B16.5</td></tr>
+<tr><td><b>Metal Jacketed</b></td><td>SS/Al+Fiber</td><td>Up to 100 bar</td><td>Up to 400°C</td><td>Heat exchangers</td><td>—</td></tr>
+<tr><td><b>Graphite Sheet</b></td><td>Flexible graphite</td><td>Up to 100 bar</td><td>Up to 450°C</td><td>Chemical, steam</td><td>—</td></tr>
+<tr><td><b>PTFE Sheet</b></td><td>Virgin PTFE</td><td>Up to 25 bar</td><td>Up to 200°C</td><td>Aggressive chemicals</td><td>—</td></tr>
+<tr><td><b>Compressed Fiber</b></td><td>Aramid/glass</td><td>Up to 50 bar</td><td>Up to 300°C</td><td>General, water, air</td><td>—</td></tr>
+</table></div>
+<a href="https://www.youtube.com/results?search_query=gasket%20types%20comparison%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Spiral Wound Gasket — Details</div>
+<div><span class="mc-badge b-orange">Very Common</span></div>
+<div class="spec-row"><span class="spec-key">Structure</span><span class="spec-val">V-shaped metal strip + filler wound in a spiral</span></div>
+<div class="spec-row"><span class="spec-key">Inner Ring</span><span class="spec-val">Marked yellow — SS304/316</span></div>
+<div class="spec-row"><span class="spec-key">Filler</span><span class="spec-val">Graphite (general) / PTFE (chemical)</span></div>
+<div class="spec-row"><span class="spec-key">Winding</span><span class="spec-val">SS304 / SS316 / Inconel</span></div>
+<div class="spec-row"><span class="spec-key">Color coding</span><span class="spec-val">Green=graphite · white=PTFE · blue=mica</span></div>
+<div class="spec-row"><span class="spec-key">Seating Stress</span><span class="spec-val">Minimum: 69 MPa (ASME)</span></div>
+<div class="tip-box">▸ Inner ring is mandatory! Prevents buckling under vacuum<br>▸ Storage: flat + dry — don't compress!</div>
+<a href="https://www.youtube.com/results?search_query=spiral%20wound%20gasket%20installation%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Ring Type Joint (RTJ)</div>
+<div><span class="mc-badge b-red">High Pressure</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A soft metal ring in a groove — ← pressure clamps it tighter</span></div>
+<div class="spec-row"><span class="spec-key">Shape R</span><span class="spec-val">Oval — relatively low pressures</span></div>
+<div class="spec-row"><span class="spec-key">Shape RX</span><span class="spec-val">Pressure energized — ← self-clamping</span></div>
+<div class="spec-row"><span class="spec-key">Shape BX</span><span class="spec-val">Super high pressure — subsea, wellhead</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Must be softer than the flange! Iron &lt; CS &lt; SS &lt; Monel</span></div>
+<div class="tip-box">▸ RTJ is single-use! Never reuse<br>▸ The groove must be clean and free of defects</div>
+<a href="https://www.youtube.com/results?search_query=ring%20type%20joint%20RTJ%20gasket%20installation%20flange" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Flange Facing</div>
+<div class="spec-row"><span class="spec-key">RF (Raised Face)</span><span class="spec-val">Ra 3.2–6.3μm · Serrated finish (ASME B16.5)</span></div>
+<div class="spec-row"><span class="spec-key">FF (Full Face)</span><span class="spec-val">Cast iron flanges — full face gasket</span></div>
+<div class="spec-row"><span class="spec-key">RTJ Groove</span><span class="spec-val">Ra 0.8μm — polished! For RTJ</span></div>
+<div class="spec-row"><span class="spec-key">TG (Tongue &amp; Groove)</span><span class="spec-val">↑gasket retention — precise</span></div>
+<div class="spec-row"><span class="spec-key">MF (Male/Female)</span><span class="spec-val">Male/female — gasket held in place</span></div>
+<div class="tip-box">▸ Serrated finish: 125–250 AARH = Ra 3.2–6.3μm<br>▸ Stock finish: Ra 12.5μm — not suitable for a spiral-wound gasket!</div>
+<a href="https://www.youtube.com/results?search_query=flange%20facing%20types%20raised%20face%20flat%20face%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+</div></div></div>
+
+<!-- ==================== GROOVE DESIGN ==================== -->
+<div id="sl-groove" class="sl-sec">
+<div class="card"><div class="ctitle">📐 O-Ring Groove Design — per ISO 3601 and Parker</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Groove Dimensions — Piston Seal (Internal)</div>
+<div style="overflow-x:auto"><table style="font-size:11px;margin-top:6px">
+<tr><th>Cord d₂</th><th>Groove Depth h</th><th>Groove Width w</th><th>Corner R</th><th>Ra Required</th><th>Squeeze%</th></tr>
+<tr><td>1.5 mm</td><td>1.15–1.20</td><td>2.0–2.2</td><td>0.2–0.4</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>1.78 mm</td><td>1.37–1.42</td><td>2.4–2.6</td><td>0.2–0.4</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>2.0 mm</td><td>1.55–1.60</td><td>2.7–2.9</td><td>0.2–0.4</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>2.62 mm</td><td>2.05–2.10</td><td>3.5–3.8</td><td>0.4–0.8</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>3.0 mm</td><td>2.35–2.40</td><td>4.0–4.3</td><td>0.4–0.8</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>3.53 mm</td><td>2.75–2.85</td><td>4.7–5.1</td><td>0.4–0.8</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>4.0 mm</td><td>3.15–3.25</td><td>5.4–5.7</td><td>0.4–0.8</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>5.0 mm</td><td>3.90–4.05</td><td>6.7–7.2</td><td>0.8–1.2</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>5.33 mm</td><td>4.15–4.30</td><td>7.1–7.6</td><td>0.8–1.2</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+<tr><td>6.99 mm</td><td>5.45–5.65</td><td>9.4–10.0</td><td>0.8–1.2</td><td>Ra 0.4–0.8</td><td>15–22%</td></tr>
+</table></div>
+<div class="tip-box">▸ Groove surface Ra: 0.4–0.8μm (static) · 0.2–0.4μm (dynamic)<br>▸ Corner R is mandatory! A sharp corner = cuts the O-ring<br>▸ Lay: ⊥ to the offset direction — reduces leakage</div>
+<a href="https://www.youtube.com/results?search_query=O-ring%20groove%20design%20piston%20seal%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Face Seal — Groove for Face Sealing</div>
+<div class="spec-row"><span class="spec-key">Squeeze</span><span class="spec-val">20–30% — higher than a piston seal</span></div>
+<div class="spec-row"><span class="spec-key">Dimensions</span><span class="spec-val">Like piston but h smaller by 10–15%</span></div>
+<div class="spec-row"><span class="spec-key">Surface Ra</span><span class="spec-val">Ra 0.4–1.6μm — less critical than dynamic</span></div>
+<div class="spec-row"><span class="spec-key">Dovetail Groove</span><span class="spec-val">Holds the O-ring during disassembly — for vertical faces</span></div>
+<a href="https://www.youtube.com/results?search_query=O-ring%20face%20seal%20groove%20design" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Required Ra on Shaft / Cylinder</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Application</th><th>Ra (μm)</th><th>Method</th></tr>
+<tr><td>Dynamic shaft (rod seal)</td><td>0.1–0.4</td><td>Grinding</td></tr>
+<tr><td>Hydraulic cylinder (bore)</td><td>0.2–0.8</td><td>Honing</td></tr>
+<tr><td>Piston (piston seal)</td><td>0.2–0.8</td><td>Honing</td></tr>
+<tr><td>Face seal (static)</td><td>0.4–1.6</td><td>Milling/turning</td></tr>
+<tr><td>Rotary shaft seal</td><td>0.2–0.5</td><td>Grinding</td></tr>
+<tr><td>O-Ring groove (dynamic)</td><td>0.4–0.8</td><td>Finish turning</td></tr>
+<tr><td>O-Ring groove (static)</td><td>0.8–1.6</td><td>Turning</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== CALCULATOR ==================== -->
+<div id="sl-calc" class="sl-sec">
+<div class="card"><div class="ctitle">🧮 O-Ring Seat Calculator</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Squeeze and Fill Calculator</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:8px">Enter O-Ring and groove data for automatic calculation</div>
+<div class="cg">
+  <div><label>Cord Diameter d₂ (mm)</label><input id="or-d2" type="number" value="3.53" step="0.01" oninput="calcOring()"></div>
+  <div><label>Groove Depth h (mm)</label><input id="or-h" type="number" value="2.80" step="0.01" oninput="calcOring()"></div>
+  <div><label>Groove Width w (mm)</label><input id="or-w" type="number" value="4.80" step="0.01" oninput="calcOring()"></div>
+  <div><label>Application Type</label>
+  <select id="or-type" onchange="calcOring()">
+    <option value="static_internal">Static — internal (piston)</option>
+    <option value="static_face">Static — face</option>
+    <option value="dynamic_axial">Dynamic — axial (reciprocating)</option>
+    <option value="dynamic_rotary">Dynamic — rotary (rotating)</option>
+  </select></div>
+  <div><label>O-Ring Inner Diameter ID (mm)</label><input id="or-id" type="number" value="25.0" step="0.1" oninput="calcOring()"></div>
+  <div><label>Groove Diameter ID (mm)</label><input id="or-gid" type="number" value="25.5" step="0.1" oninput="calcOring()"></div>
+</div>
+<div id="or-result" class="res" style="margin-top:10px">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Quick Reference Table</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>d₂</th><th>Static Squeeze</th><th>Recommended h</th></tr>
+<tr><td>1.78</td><td>15–25%</td><td>1.37–1.52</td></tr>
+<tr><td>2.62</td><td>15–25%</td><td>2.05–2.23</td></tr>
+<tr><td>3.53</td><td>15–25%</td><td>2.75–2.99</td></tr>
+<tr><td>5.33</td><td>15–25%</td><td>4.15–4.53</td></tr>
+<tr><td>6.99</td><td>15–25%</td><td>5.45–5.94</td></tr>
+</table>
+<div class="tip-box">▸ Squeeze = (d₂ − h) / d₂ × 100<br>▸ Fill = π×d₂² / (4×h×w) × 100<br>▸ Stretch = (Groove ID − OR ID) / OR ID × 100</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== STANDARDS ==================== -->
+<div id="sl-standards" class="sl-sec">
+<div class="card"><div class="ctitle">📋 Standards and Specifications — Seals</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">O-Ring Standards</div>
+<div class="spec-row"><span class="spec-key">AS568</span><span class="spec-val">ANSI — O-Ring sizes (common in the US)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 3601</span><span class="spec-val">Metric — sizes + tolerances + materials</span></div>
+<div class="spec-row"><span class="spec-key">BS 1806</span><span class="spec-val">British (superseded by ISO 3601)</span></div>
+<div class="spec-row"><span class="spec-key">DIN 3771</span><span class="spec-val">German (superseded by ISO 3601)</span></div>
+<div class="spec-row"><span class="spec-key">MIL-G-5514</span><span class="spec-val">Defense — critical O-Rings</span></div>
+<div class="spec-row"><span class="spec-key">Parker O-Ring Handbook</span><span class="spec-val">ORD 5700 — a complete design guide</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Flange Gasket Standards</div>
+<div class="spec-row"><span class="spec-key">ASME B16.20</span><span class="spec-val">Spiral Wound + Ring Joint Gaskets</span></div>
+<div class="spec-row"><span class="spec-key">ASME B16.21</span><span class="spec-val">Gaskets for Flanged Joints</span></div>
+<div class="spec-row"><span class="spec-key">EN 1514</span><span class="spec-val">Flanges and their joints — gasket dimensions</span></div>
+<div class="spec-row"><span class="spec-key">ASME B16.5</span><span class="spec-val">Pipe Flanges (including facing finish)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Mechanical Seal Standards</div>
+<div class="spec-row"><span class="spec-key">API 682</span><span class="spec-val">Shaft Sealing Systems — Pumps (Oil &amp; Gas)</span></div>
+<div class="spec-row"><span class="spec-key">API 610</span><span class="spec-val">Centrifugal Pumps — Seal Requirements</span></div>
+<div class="spec-row"><span class="spec-key">ISO 21049</span><span class="spec-val">Pumps Shaft Sealing Systems (=API 682)</span></div>
+<div class="spec-row"><span class="spec-key">EN 12756</span><span class="spec-val">Mechanical Seals — Dimensions</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturers</span><span class="spec-val">John Crane, Flowserve, EagleBurgmann, Burgmann</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Seal Material Standards</div>
+<div class="spec-row"><span class="spec-key">ISO 1629</span><span class="spec-val">Rubber — Nomenclature (NBR, FKM, EPDM...)</span></div>
+<div class="spec-row"><span class="spec-key">ASTM D2000</span><span class="spec-val">Classification of Rubber Materials</span></div>
+<div class="spec-row"><span class="spec-key">SAE J200</span><span class="spec-val">= ASTM D2000 (defense/automotive)</span></div>
+<div class="spec-row"><span class="spec-key">AMS 7276</span><span class="spec-val">FKM O-Ring Compounds (aerospace)</span></div>
+<div class="spec-row"><span class="spec-key">FDA 21 CFR</span><span class="spec-val">Food Grade Elastomers</span></div>
+<div class="spec-row"><span class="spec-key">USP Class VI</span><span class="spec-val">Medical Grade — biocompatibility</span></div>
+</div>
+
+</div></div></div>
+
+</div>
+
+
+
+</div>
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+function showSl(id,btn){
+  document.querySelectorAll('.sl-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.sl-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('sl-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function calcOring(){
+  const d2=parseFloat(document.getElementById('or-d2').value)||3.53;
+  const h=parseFloat(document.getElementById('or-h').value)||2.95;
+  const w=parseFloat(document.getElementById('or-w').value)||4.8;
+  const type=document.getElementById('or-type').value;
+  const squeeze=((d2-h)/d2*100);
+  const glandArea=h*w;
+  const orArea=Math.PI*(d2/2)**2;
+  const fill=(orArea/glandArea*100);
+  const sqOk = type==='static' ? (squeeze>=15&&squeeze<=25) : (squeeze>=10&&squeeze<=20);
+  const fillOk = fill<=80;
+  const sqColor = sqOk?'var(--green)':'var(--red)';
+  const fillColor = fillOk?'var(--green)':'var(--red)';
+  document.getElementById('or-result').innerHTML=
+    `Squeeze: <b style="color:${sqColor}">${squeeze.toFixed(1)}%</b> ${sqOk?'✅':'⚠️'} · Fill: <b style="color:${fillColor}">${fill.toFixed(1)}%</b> ${fillOk?'✅':'⚠️'}<br>Groove depth h=<b>${h}mm</b> · Cord d₂=<b>${d2}mm</b>`;
+}
+
+</script>
+</body>
+</html>
