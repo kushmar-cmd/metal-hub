@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://metal.kushmar.com/en/corrosion.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/corrosion.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/corrosion.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/corrosion.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corrosion &amp; Galvanic Compatibility Guide — Galvanic Series, PREN, Corrosion Types, Testing | METAL HUB</title>
+<meta name="description" content="Complete corrosion guide: galvanic series, dangerous metal pairs, PREN and stainless steel selection, prevention methods, corrosion types (pitting, crevice, SCC, intergranular, and more), testing methods (salt spray, ASTM), corrosion by environment, and key standards.">
+<meta name="keywords" content="galvanic corrosion chart, galvanic series, PREN stainless steel, pitting corrosion, crevice corrosion, stress corrosion cracking, salt spray test, corrosion resistance chart, dissimilar metal corrosion">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/en/corrosion.html">
+<meta property="og:title" content="Corrosion &amp; Galvanic Compatibility Guide | METAL HUB">
+<meta property="og:description" content="Complete corrosion guide: galvanic series, dangerous metal pairs, PREN, corrosion types, testing methods, and standards.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Corrosion & Galvanic Compatibility Guide",
+  "description": "Complete corrosion guide: galvanic series, dangerous metal pairs, PREN, prevention methods, corrosion types, testing methods, corrosion by environment, and standards",
+  "about": ["Corrosion", "Galvanic Series", "PREN", "Pitting Corrosion", "Stress Corrosion Cracking", "Salt Spray Test"],
+  "url": "https://metal.kushmar.com/en/corrosion.html",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;padding:8px;background:var(--surface);border-left:2px solid var(--blue);border-radius:5px 0 0 5px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+.corr-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.corr-tab:hover,.corr-tab.active{background:var(--red);color:#fff;border-color:var(--red);font-weight:700}
+.corr-sec{display:none}.corr-sec.active{display:block}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+@media(max-width:600px){.grid2,.grid3{grid-template-columns:1fr}}
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a href="https://metal.kushmar.com/corrosion.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Corrosion &amp; Galvanic Compatibility Guide</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+A comprehensive corrosion guide: <b>galvanic series</b>, dangerous metal pairs, <b>PREN</b>, prevention methods, <b>corrosion types</b> (pitting, crevice, SCC, intergranular, and more), <b>testing</b> methods (salt spray, ASTM), corrosion in different environments, and key standards.
+</p>
+</div>
+
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="corr-tab active" onclick="showCorr('galvanic',this)">&#9889; Galvanic Series</button>
+  <button class="corr-tab" onclick="showCorr('pairs',this)">&#128680; Dangerous Pairs</button>
+  <button class="corr-tab" onclick="showCorr('pren',this)">&#128290; PREN</button>
+  <button class="corr-tab" onclick="showCorr('prevent',this)">&#128737;&#65039; Prevention</button>
+  <button class="corr-tab" onclick="showCorr('types',this)">&#128218; Corrosion Types</button>
+  <button class="corr-tab" onclick="showCorr('testing',this)">&#129514; Testing</button>
+  <button class="corr-tab" onclick="showCorr('env',this)">&#127757; Environments</button>
+  <button class="corr-tab" onclick="showCorr('standards',this)">&#128203; Standards</button>
+</div>
+</div>
+
+<!-- ============ GALVANIC SERIES (existing) ============ -->
+<div id="corr-galvanic" class="corr-sec active">
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--red)">
+<div style="display:flex;align-items:center;gap:12px"><span style="font-size:32px">&#9889;</span><div><div style="font-size:18px;font-weight:800;color:var(--red)">Corrosion &amp; Galvanic Compatibility</div><div style="font-size:12px;color:var(--muted)">Galvanic Series · Dangerous Pairs · PREN · Prevention</div></div></div></div>
+<div class="card"><div class="ctitle">&#9889; Galvanic Series (Seawater)</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:8px">&#8593; Cathodic (noble) — protected</div>
+<table><tr><th>Metal/Alloy</th><th>Potential mV</th></tr>
+<tr><td style="color:#ffd700"><b>Gold, Platinum</b></td><td>+1200</td></tr>
+<tr><td><b>Graphite/Carbon</b></td><td>+300</td></tr>
+<tr><td><b>CFRP (Carbon)</b></td><td>+200</td></tr>
+<tr><td><b>Hastelloy C</b></td><td>+100</td></tr>
+<tr><td><b>Inconel 625</b></td><td>+50</td></tr>
+<tr><td><b>Monel 400</b></td><td>+20</td></tr>
+<tr><td><b>SS 316L (passive)</b></td><td>-50</td></tr>
+<tr><td><b>SS 304 (passive)</b></td><td>-80</td></tr>
+<tr><td><b>Copper C110</b></td><td>-100</td></tr>
+<tr><td><b>Bronze</b></td><td>-150</td></tr>
+<tr><td><b>Brass</b></td><td>-200</td></tr>
+<tr><td><b>Nickel</b></td><td>-250</td></tr>
+<tr><td><b>SS 304 (active)</b></td><td>-300</td></tr>
+<tr><td><b>Titanium Grade 2</b></td><td>-50 to -300*</td></tr>
+<tr><td><b>Silver (Noble!)</b></td><td>-150</td></tr></table>
+</div>
+<div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:8px">&#8595; Anodic (active) — corroding</div>
+<table><tr><th>Metal/Alloy</th><th>Potential mV</th></tr>
+<tr><td><b>Lead</b></td><td>-450</td></tr>
+<tr><td><b>Steel A36</b></td><td>-600</td></tr>
+<tr><td><b>Cast Iron</b></td><td>-650</td></tr>
+<tr><td><b>Aluminum 7075</b></td><td>-700</td></tr>
+<tr><td><b>Aluminum 6061</b></td><td>-750</td></tr>
+<tr><td><b>Aluminum 1100</b></td><td>-780</td></tr>
+<tr><td><b>Cadmium</b></td><td>-800</td></tr>
+<tr><td><b>Zinc</b></td><td>-900</td></tr>
+<tr><td><b>Magnesium AZ31</b></td><td>-1600</td></tr>
+<tr style="background:var(--surface)"><td colspan="2" style="text-align:center;color:var(--muted);font-size:11px">A difference &gt;250mV = galvanic corrosion risk!
+* Ti = passive (oxide) in normal environments: ~-50mV. Active (no oxide): ~-300mV</td></tr></table>
+<div class="note" style="margin-top:8px"><b>&#9888;&#65039; CFRP + Al</b> = ~950mV difference = severe corrosion! A glass-ply barrier is mandatory.<br><b>&#9888;&#65039; SS + Al</b> = ~650mV difference = corrosion. Isolation or coating required.<a href="https://www.youtube.com/results?search_query=galvanic%20corrosion%20demonstration%20experiment%20explained" target="_blank" class="yt-btn">&#9654; YouTube</a></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ DANGEROUS PAIRS (existing) ============ -->
+<div 
+id="corr-pairs" class="corr-sec">
+<div class="card"><div class="ctitle">&#128680; Dangerous Pairs — What Not to Combine</div>
+<table><tr><th>Joint</th><th>mV Difference</th><th>Risk</th><th>Prevention</th></tr>
+<tr><td>CFRP + Al</td><td>~950</td><td style="color:var(--red)">Critical!</td><td>Glass ply barrier, sealant</td></tr>
+<tr><td>SS 304 + Al</td><td>~670</td><td style="color:var(--red)">High</td><td>Alodine + primer, isolation</td></tr>
+<tr><td>SS 304 + Mg</td><td>~1500</td><td style="color:var(--red)">Critical!</td><td>Never combine! Mg destroyed</td></tr>
+<tr><td>Copper + Al</td><td>~650</td><td style="color:var(--red)">High</td><td>Nylon washer isolation</td></tr>
+<tr><td>SS + Steel</td><td>~520</td><td style="color:var(--orange)">Medium</td><td>Zinc plating, paint</td></tr>
+<tr><td>Al 7075 + Al 6061</td><td>~50</td><td style="color:var(--green)">Low</td><td>Generally acceptable</td></tr>
+<tr><td>Ti + SS</td><td>~250</td><td style="color:var(--yellow)">Borderline</td><td>Isolation in marine environments</td></tr>
+<tr><td>Cd + SS</td><td>~550</td><td style="color:var(--orange)">Medium</td><td>Popular in aerospace intentionally (Cd=anodic)</td></tr></table><a href="https://www.youtube.com/results?search_query=dissimilar%20metal%20corrosion%20failure%20examples" target="_blank" class="yt-btn">&#9654; YouTube</a></div>
+<div class="card"><div class="ctitle">&#128208; The Area Ratio Rule</div>
+<div style="font-size:13px;line-height:1.9">
+A critical rule many overlook: <b>it's not only the potential difference that matters — the area ratio matters too!</b><br><br>
+<b style="color:var(--red)">Small anode + large cathode = disaster</b> — a steel bolt (anodic) in a large stainless plate (cathodic): all the galvanic current concentrates on a small area = fast, catastrophic corrosion of the bolt.<br><br>
+<b style="color:var(--green)">Large anode + small cathode = relatively safe</b> — a steel plate with small stainless bolts: the current spreads over a large area = a slow corrosion rate, usually acceptable.
+</div>
+<div class="note">Rule of thumb: <b>never place an anodic (active) material as a small area next to a cathodic (noble) material as a large area</b> — even if the potential difference is relatively low.</div>
+</div>
+</div>
+
+<!-- ============ PREN (existing) ============ -->
+<div 
+id="corr-pren" class="corr-sec">
+<div class="card"><div class="ctitle">&#128290; PREN — Stainless Steel Corrosion Resistance</div>
+<div style="font-family:monospace;background:var(--surface);border-radius:8px;padding:12px;font-size:13px;color:var(--text);margin-bottom:10px">
+PREN = %Cr + 3.3&#215;%Mo + 16&#215;%N
+</div>
+<table><tr><th>Alloy</th><th>PREN</th><th>Use</th></tr>
+<tr><td>SS 304</td><td>~18</td><td>Interior, food</td></tr>
+<tr><td>SS 316L</td><td>~24</td><td>Light marine, chemical</td></tr>
+<tr><td>SS 317L</td><td>~30</td><td>Medium marine</td></tr>
+<tr><td>SS 2205 Duplex</td><td>~35</td><td>Marine, oil/gas</td></tr>
+<tr><td>SS 2507 Super</td><td>&gt;40</td><td>Severe marine</td></tr>
+<tr><td>904L</td><td>~36</td><td>Acid</td></tr>
+<tr><td>Hastelloy C276</td><td>~70+</td><td>Everything</td></tr></table>
+<div class="note">PREN&gt;35 = pitting-resistant in marine environments. PREN&gt;40 = Super Duplex = the harshest conditions.<a href="https://www.youtube.com/results?search_query=pitting%20crevice%20corrosion%20stainless%20steel%20identification%20examples" target="_blank" class="yt-btn">&#9654; YouTube</a></div></div>
+<div class="card"><div class="ctitle">&#127777;&#65039; Critical Pitting Temperature (CPT)</div>
+<div style="font-size:13px;line-height:1.9">
+The most practical measure for comparing stainless steels: the temperature above which pitting begins in a standard FeCl&#8323; solution (ASTM G48). The higher, the more resistant.
+</div>
+<table><tr><th>Alloy</th><th>CPT (&#176;C)</th></tr>
+<tr><td>SS 316L</td><td>~15&#176;C</td></tr>
+<tr><td>SS 2205 Duplex</td><td>~30&#176;C</td></tr>
+<tr><td>SS 2507 Super Duplex</td><td>~55&#176;C</td></tr>
+<tr><td>254 SMO</td><td>~70&#176;C</td></tr></table>
+</div>
+</div>
+
+<!-- ============ PREVENTION (existing) ============ -->
+<div 
+id="corr-prevent" class="corr-sec">
+<div class="card"><div class="ctitle">&#128737;&#65039; Corrosion Prevention Methods</div>
+<div class="grid3">
+<div><h3 style="color:var(--blue)">Material Selection</h3><div style="font-size:12px;color:var(--muted);line-height:2">&#9989; SS 316L instead of 304 for marine environments<br>&#9989; Ti-Grade 2 — resistant to everything<br>&#9989; Al 5083 for marine environments<br>&#9989; PREN&gt;35 for open sea</div></div>
+<div><h3 style="color:var(--green)">Protective Coatings</h3><div style="font-size:12px;color:var(--muted);line-height:2">&#9989; Zinc (sacrificial) for steel<br>&#9989; Alodine + primer for Al<br>&#9989; Passivation for SS<br>&#9989; Cadmium for aerospace<br>&#9989; HDG for exterior use</div></div>
+<div><h3 style="color:var(--orange)">Galvanic Isolation</h3><div style="font-size:12px;color:var(--muted);line-height:2">&#9989; Nylon washer between materials<br>&#9989; Glass ply barrier (CFRP+Al)<br>&#9989; Faying surface sealant<br>&#9989; Anodize + sealant<br>&#9989; PR-1422 / PR-1776</div><a href="https://www.youtube.com/results?search_query=corrosion%20prevention%20coating%20galvanic%20isolation%20methods" target="_blank" class="yt-btn">&#9654; YouTube</a></div>
+</div></div>
+<div class="card"><div class="ctitle">&#9889; Cathodic Protection</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Sacrificial Anode</div>
+<div style="font-size:12px;line-height:1.8">A more anodic metal (Zn, Mg, Al) is sacrificed in place of the protected structure. Common in buried piping, ship hulls, underground fuel tanks. Simple, no electricity needed, but requires periodic replacement.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Impressed Current</div>
+<div style="font-size:12px;line-height:1.8">An external power source drives current through an inert anode (coated titanium) to protect the structure. Effective for large structures (long pipelines, marine structures) but requires electrical maintenance.</div></div>
+</div></div>
+</div>
+
+<!-- ============ TYPES OF CORROSION (new) ============ -->
+<div 
+id="corr-types" class="corr-sec">
+<div class="card"><div class="ctitle">&#128218; Main Types of Corrosion</div>
+<div style="font-size:13px;line-height:1.9;color:var(--muted)">
+Correctly identifying the type of corrosion is the first step in solving the problem — each type requires a completely different prevention strategy.
+</div></div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Uniform Corrosion</div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">Uniform attack across the entire exposed surface</span></div>
+<div class="spec-row"><span class="spec-key">Severity</span><span class="spec-val">Low — predictable, calculable</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">Rust on steel exposed to the atmosphere</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">The most "friendly" type of corrosion — a uniform rate allows for a corrosion allowance (extra thickness in design).</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">Pitting Corrosion</div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">Chloride penetration through a local passive layer</span></div>
+<div class="spec-row"><span class="spec-key">Severity</span><span class="spec-val">Very high — hard to detect, penetrates deep</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">SS 304 in a marine/chlorine environment</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">Dangerous because the external damage looks small ("pinhole") while a deep cavity can form beneath it — a leading cause of sudden piping failures.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Crevice Corrosion</div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">An oxygen-depleted cell in cracks/joints/seals</span></div>
+<div class="spec-row"><span class="spec-key">Severity</span><span class="spec-val">High — develops quietly beneath the surface</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">Beneath O-Ring seals, bolts, bonded layers</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">Mechanistically similar to pitting but always starts in a geometrically protected area (crack, gap) — good design ("crevice-free design") prevents it from the start.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">Stress Corrosion Cracking (SCC)</div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">Combined tensile stress + a specific corrosive environment</span></div>
+<div class="spec-row"><span class="spec-key">Severity</span><span class="spec-val">Critical — sudden and elusive failure</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">Brass + ammonia, SS + chloride at high temperature</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">Among the most dangerous in industry — a crack that grows with no visual warning until sudden brittle fracture. Requires a specific combination of material+stress+environment.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Intergranular Corrosion</div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">Attack along grain boundaries, usually after welding</span></div>
+<div class="spec-row"><span class="spec-key">Severity</span><span class="spec-val">High — weakens the material with no external sign</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">"Weld decay" in unstabilized SS 304</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">Caused by sensitization — chromium carbide precipitation at grain boundaries in the heat-affected zone (HAZ). Solution: "L" grade SS (304L, 316L) with low carbon.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--yellow)">Erosion-Corrosion</div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">Fast flow erodes the protective layer</span></div>
+<div class="spec-row"><span class="spec-key">Severity</span><span class="spec-val">Medium-high — depends on flow velocity</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">Pipe elbows, pumps, valves</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">A mechanical+chemical combination: the flow physically removes the protective oxide layer before it can regenerate. Solution: larger bend radius, reduced velocity.</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Fretting Corrosion</div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">Tiny cyclic movement between two contacting surfaces</span></div>
+<div class="spec-row"><span class="spec-key">Severity</span><span class="spec-val">Medium — usually at contact/assembly areas</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">Press-fit joints, bearings, bolts under vibration</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">The tiny (micron-scale) movement repeatedly breaks the oxide layer, creating characteristic reddish-brown oxide powder ("fretting debris").</div>
+</div>
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">Hydrogen Embrittlement</div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">Atomic hydrogen penetrates the crystal lattice, reducing ductility</span></div>
+<div class="spec-row"><span class="spec-key">Severity</span><span class="spec-val">Critical — sudden brittle fracture with no warning</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">Zinc-electroplated bolts with improper plating</span></div>
+<div style="font-size:11px;color:var(--muted);margin-top:6px">A major risk in electroplating of high-strength steels — a bake-out within 4 hours of plating (ASTM B850) is mandatory to remove the hydrogen.</div>
+</div>
+</div>
+</div>
+
+<!-- ============ CORROSION TESTING (new) ============ -->
+<div 
+id="corr-testing" class="corr-sec">
+<div class="card"><div class="ctitle">&#129514; Corrosion Testing Methods</div>
+<div style="font-size:13px;line-height:1.9;color:var(--muted)">
+Accelerated tests simulate years of environmental exposure in just a few weeks — an essential tool for approving a material/coating before series production.
+</div></div>
+<table><tr><th>Method</th><th>Standard</th><th>Typical Duration</th><th>Simulates</th></tr>
+<tr><td>Salt Spray (Fog) Test</td><td>ASTM B117</td><td>24-1000+ hours</td><td>Marine/salt environment</td></tr>
+<tr><td>Cyclic Corrosion Test (CCT)</td><td>ASTM D5894 / GMW14872</td><td>Weeks</td><td>Cyclic humidity/dry/salt — more realistic</td></tr>
+<tr><td>Immersion Test</td><td>ASTM G31</td><td>Days-weeks</td><td>Continuous immersion in a chemical/solution</td></tr>
+<tr><td>Potentiodynamic Polarization</td><td>ASTM G5 / G61</td><td>Hours</td><td>Electrical measurement — precise corrosion rate</td></tr>
+<tr><td>Pitting Resistance (FeCl&#8323;)</td><td>ASTM G48</td><td>72 hours</td><td>Pitting/crevice resistance in stainless steel</td></tr>
+<tr><td>Intergranular Corrosion Test</td><td>ASTM A262</td><td>Days</td><td>Sensitization susceptibility in SS welds</td></tr>
+<tr><td>Stress Corrosion Test</td><td>ASTM G30 / G36</td><td>Days-weeks</td><td>SCC under sustained stress</td></tr>
+<tr><td>Humidity/Condensation Test</td><td>ASTM D2247</td><td>Days</td><td>Constant high humidity (100% RH)</td></tr></table>
+<div class="note">&#9888;&#65039; <b>The correlation between salt spray and field performance is not linear!</b> "500 hours salt spray" is a relative measure for comparing materials/coatings — not a direct prediction of actual service life in a real environment.</div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Evaluation Criteria — Visual Rating</div>
+<div style="font-size:12px;line-height:1.8">Most salt spray standards rate by <b>% of area affected by red rust</b> per ASTM D610, or by time to first appearance of corrosion on a coated surface.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Electrochemical Corrosion Rate</div>
+<div style="font-size:12px;line-height:1.8">Potentiodynamic polarization gives a numerical value (mm/year) from a Tafel curve — much faster and more precise than a salt spray test, but requires dedicated lab equipment.</div></div>
+</div>
+</div>
+
+<!-- ============ SPECIFIC ENVIRONMENTS (new) ============ -->
+<div 
+id="corr-env" class="corr-sec">
+<div class="card"><div class="ctitle">&#127757; Corrosion in Specific Environments</div></div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">&#127754; Marine/Atmospheric Environment</div>
+<div style="font-size:12px;line-height:1.9">Chloride (Cl&#8315;) from salt is the main driver of pitting. Recommended materials: SS 316L (PREN&gt;24), Al 5083/5086, Ti Grade 2. Avoid: standard SS 304, unprotected carbon steel, copper next to aluminum.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">&#127981; Chemical/Industrial Environment</div>
+<div style="font-size:12px;line-height:1.9">Completely dependent on the specific chemical — there's no "one solution fits all". Concentrated sulfuric acid = carbon steel is actually resistant (a protective sulfate layer forms); diluted = destructive to steel. A specific chemical compatibility check (corrosion chart) is mandatory.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">&#128293; High-Temperature Oxidation</div>
+<div style="font-size:12px;line-height:1.9">Above ~500°C the mechanism is completely different from wet corrosion — direct oxidation of the metal in air. Requires high-Cr/Ni alloys (SS 310, Inconel 600/601) that form a stable protective oxide layer at heat.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">&#127959;&#65039; Soil/Underground</div>
+<div style="font-size:12px;line-height:1.9">Corrosion depends on soil resistivity and stray currents. Buried piping is usually protected by a combination of: external coating (coal tar/FBE) + cathodic protection (sacrificial anode or impressed current).</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">&#129737; Cryogenic</div>
+<div style="font-size:12px;line-height:1.9">At low temperatures the corrosion rate itself drops significantly, but brittle fracture of the material itself must be checked — not every corrosion-resistant material is also suitable for cryogenic temperatures.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--teal)">&#128167; Desalinated/DI Water</div>
+<div style="font-size:12px;line-height:1.9">Mineral-free water (DI/RO) is actually more aggressive than seemingly "aggressive" chemicals — the lack of ions causes the water to "pull" ions from the metal itself. Requires SS 316L or plastic (PVDF/PTFE) in water purification systems.</div></div>
+</div>
+</div>
+
+<!-- ============ STANDARDS (new) ============ -->
+<div 
+id="corr-standards" class="corr-sec">
+<div class="card"><div class="ctitle">&#128203; Key Corrosion Standards</div></div>
+<table><tr><th>Standard</th><th>Topic</th></tr>
+<tr><td>ASTM B117</td><td>Salt Spray (Fog) Testing — the most common test</td></tr>
+<tr><td>ASTM G31</td><td>Laboratory Immersion Corrosion Testing</td></tr>
+<tr><td>ASTM G48</td><td>Pitting and Crevice Corrosion Resistance (FeCl&#8323;)</td></tr>
+<tr><td>ASTM G5 / G61</td><td>Potentiodynamic Polarization Measurements</td></tr>
+<tr><td>ASTM A262</td><td>Intergranular Attack Susceptibility (Stainless)</td></tr>
+<tr><td>ASTM G30 / G36 / G38</td><td>Stress Corrosion Cracking Testing</td></tr>
+<tr><td>NACE MR0175 / ISO 15156</td><td>Materials for sour oil/gas environments (Sour Service)</td></tr>
+<tr><td>ASTM B850</td><td>Post-Coating Baking to prevent hydrogen embrittlement</td></tr>
+<tr><td>ISO 9223/9224</td><td>Atmospheric corrosivity classification (C1-CX)</td></tr>
+<tr><td>ASTM D1654 / D610</td><td>Corrosion rating evaluation on coated surfaces</td></tr></table>
+<div class="note">&#128161; <b>NACE MR0175</b> is critical in the oil/gas industry — it determines which materials are permitted in H&#8322;S environments (sour service) to prevent sulfide stress cracking, a subtype of SCC.</div>
+</div>
+
+
+</div>
+
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+
+function showCorr(id,btn){
+  document.querySelectorAll('.corr-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.corr-tab').forEach(t=>t.classList.remove('active'));
+  var el=document.getElementById('corr-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+</script>
+</body>
+</html>
