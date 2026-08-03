@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<link rel="canonical" href="https://metal.kushmar.com/en/hydraulics.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/hydraulics.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/hydraulics.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/hydraulics.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hydraulics &amp; Pneumatics Guide — Circuit Design, Valves, Cylinders, Calculators | METAL HUB</title>
+<meta name="description" content="Complete hydraulics and pneumatics guide: Pascal's principle and formulas, circuit components, valve types, oil viscosity and cleanliness, pneumatic systems, accumulators and filters, and interactive calculators for cylinder force, power, buckling, and accumulator sizing.">
+<meta name="keywords" content="hydraulic circuit, hydraulic valve types, hydraulic cylinder force calculator, pneumatic system, hydraulic oil viscosity ISO VG, accumulator sizing, hydraulic pump types">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/en/hydraulics.html">
+<meta property="og:title" content="Hydraulics &amp; Pneumatics Guide | METAL HUB">
+<meta property="og:description" content="Complete hydraulics guide: circuit components, valves, oils, pneumatics, accumulators, and calculators.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Hydraulics & Pneumatics Guide",
+  "description": "Complete hydraulics and pneumatics guide: circuit components, valve types, oils, pneumatic systems, accumulators, and interactive calculators",
+  "about": ["Hydraulics", "Pneumatics", "Hydraulic Circuit", "Hydraulic Valves", "Hydraulic Cylinder", "Accumulator"],
+  "url": "https://metal.kushmar.com/en/hydraulics.html",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.tip-box{background:rgba(253,224,71,0.08);border:1px solid var(--yellow,#fde047);border-radius:6px;padding:8px 12px;margin-top:8px;font-size:11px;line-height:1.8}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+    <a href="https://metal.kushmar.com/hydraulics.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Hydraulics &amp; Pneumatics Guide</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+A complete guide to <b>hydraulics and pneumatics</b>: Pascal's principle and formulas, <b>circuit components</b>, valve types, oil viscosity and cleanliness, pneumatic systems, accumulators and filters, and <b>interactive calculators</b> for cylinder force, power, buckling, and accumulator sizing.
+</p>
+</div>
+
+<div id="sec-hydraulics" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1f2e);border-color:var(--blue)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">💧</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--blue)">Hydraulics &amp; Pneumatics</div>
+    <div style="font-size:12px;color:var(--muted)">Principles · Circuit · Valves · Oils · Pneumatics · Components · Calculators · Standards</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="hy-tab active" onclick="showHy('basics',this)">📐 Principles &amp; Formulas</button>
+  <button class="hy-tab" onclick="showHy('circuit',this)">🔄 Hydraulic Circuit</button>
+  <button class="hy-tab" onclick="showHy('valves',this)">🔧 Valves</button>
+  <button class="hy-tab" onclick="showHy('oil',this)">🛢️ Oils &amp; Lubrication</button>
+  <button class="hy-tab" onclick="showHy('pneumatic',this)">💨 Pneumatics</button>
+  <button class="hy-tab" onclick="showHy('components',this)">⚙️ Components</button>
+  <button class="hy-tab" onclick="showHy('calc',this)">🧮 Calculators</button>
+  <button class="hy-tab" onclick="showHy('standards',this)">📋 Standards</button>
+</div>
+
+<style>
+.hy-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.hy-tab:hover,.hy-tab.active{background:var(--blue);color:#000;border-color:var(--blue);font-weight:700}
+.hy-sec{display:none}.hy-sec.active{display:block}
+</style>
+
+<!-- ==================== BASICS ==================== -->
+<div id="hy-basics" class="hy-sec active">
+<div class="card"><div class="ctitle">📐 Pascal's Principle and Basic Formulas</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Core Formulas</div>
+<div style="background:var(--surface);border-radius:8px;padding:12px;font-family:monospace;font-size:12px;line-height:2.2;color:var(--text)">
+<div style="color:var(--blue)">// Pascal's Principle — pressure in a closed fluid is transmitted equally in every direction</div>
+<div><span style="color:var(--orange)">F</span> = P × A &nbsp;&nbsp;<span style="color:var(--muted)">// Force [N]. P=[Pa], A=[m²]</span></div>
+<div><span style="color:var(--orange)">P</span> = F / A &nbsp;&nbsp;<span style="color:var(--muted)">// Pressure [Pa=N/m²]</span></div>
+<div style="color:var(--blue)">// Convenient pressure conversions</div>
+<div><span style="color:var(--muted)">1 bar = 100,000 Pa = 10.2 kgf/cm² = 14.5 PSI</span></div>
+<div><span style="color:var(--muted)">1 MPa = 10 bar = 145 PSI</span></div>
+<div style="color:var(--blue)">// Flow rate and velocity</div>
+<div><span style="color:var(--orange)">Q</span> = A × v &nbsp;&nbsp;<span style="color:var(--muted)">// [m³/s] → ×60000 = [L/min]</span></div>
+<div><span style="color:var(--orange)">v</span> = Q / A &nbsp;&nbsp;<span style="color:var(--muted)">// Piston speed from flow rate</span></div>
+<div style="color:var(--blue)">// Hydraulic power</div>
+<div><span style="color:var(--orange)">P_kW</span> = p[bar] × Q[L/min] / 600</div>
+<div style="color:var(--blue)">// Piston areas (rod-side cylinder)</div>
+<div><span style="color:var(--orange)">A_ext</span> = π×D²/4 &nbsp;&nbsp;<span style="color:var(--muted)">// Extend area (full)</span></div>
+<div><span style="color:var(--orange)">A_ret</span> = π(D²−d²)/4 &nbsp;&nbsp;<span style="color:var(--muted)">// Retract area (minus rod)</span></div>
+</div>
+<div class="tip-box">▸ Retract area is always smaller than extend area → faster retract speed at the same flow rate, but lower force!<br>▸ Typical area ratio (Regeneration): 1.6:1 to 2:1</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Typical Operating Pressures</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>System</th><th>Pressure (bar)</th></tr>
+<tr><td>Industrial pneumatics</td><td>4-8</td></tr>
+<tr><td>Light mobile hydraulics</td><td>150-180</td></tr>
+<tr><td>Mobile hydraulics (excavators)</td><td>250-350</td></tr>
+<tr><td>Industrial hydraulics</td><td>140-210</td></tr>
+<tr><td>Hydraulic presses</td><td>300-700</td></tr>
+<tr><td>Aerospace systems</td><td>210-280 bar</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">System Efficiency — Loss Sources</div>
+<div class="spec-row"><span class="spec-key">Pump</span><span class="spec-val">85-95% (Gear low, Piston high)</span></div>
+<div class="spec-row"><span class="spec-key">Valves</span><span class="spec-val">Δp loss at every pass — heat!</span></div>
+<div class="spec-row"><span class="spec-key">Piping</span><span class="spec-val">Flow friction — depends on velocity²</span></div>
+<div class="spec-row"><span class="spec-key">Fixed System</span><span class="spec-val">Typically 60-70% — excess returns to Relief</span></div>
+<div class="spec-row"><span class="spec-key">Load-Sensing System</span><span class="spec-val">80-90% — significant savings</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== CIRCUIT ==================== -->
+<div id="hy-circuit" class="hy-sec">
+<div class="card"><div class="ctitle">🔄 Hydraulic Circuit — Core Components</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Pumps</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Type</th><th>Max Pressure</th><th>Efficiency</th><th>Use</th></tr>
+<tr><td>Gear</td><td>250 bar</td><td>85-90%</td><td>Cheap, general</td></tr>
+<tr><td>Vane</td><td>175 bar</td><td>85-92%</td><td>Quiet, medium</td></tr>
+<tr><td>Axial Piston Fixed</td><td>350 bar</td><td>92-95%</td><td>Fixed flow, heavy duty</td></tr>
+<tr><td>Axial Piston Variable</td><td>420 bar</td><td>90-94%</td><td>Load-Sensing, efficient</td></tr>
+<tr><td>Radial Piston</td><td>700 bar</td><td>92-96%</td><td>Extreme pressure</td></tr>
+</table>
+<div class="tip-box">▸ Variable Displacement = adjusts volume on demand — the basis for energy savings<br>▸ Piston is always more expensive but more efficient and durable than Gear</div>
+<a href="https://www.youtube.com/results?search_query=hydraulic%20pump%20how%20it%20works%20gear%20vane%20piston" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Hydraulic Motors</div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">The reverse of a pump — flow creates rotation</span></div>
+<div class="spec-row"><span class="spec-key">Gerotor/Orbit</span><span class="spec-val">High torque, low RPM — wheel drive</span></div>
+<div class="spec-row"><span class="spec-key">Axial Piston</span><span class="spec-val">High RPM, excellent efficiency — hydrostatic</span></div>
+<div class="spec-row"><span class="spec-key">Torque</span><span class="spec-val">T[Nm] = p[bar]×V[cc/rev]/(20×π)</span></div>
+<a href="https://www.youtube.com/results?search_query=hydraulic%20motor%20how%20it%20works%20animation" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Hydraulic Cylinder — Construction</div>
+<div class="spec-row"><span class="spec-key">Tube</span><span class="spec-val">Honed bore Ra 0.1-0.4μm</span></div>
+<div class="spec-row"><span class="spec-key">Piston</span><span class="spec-val">Seal + Wear Ring — side bearing</span></div>
+<div class="spec-row"><span class="spec-key">Rod</span><span class="spec-val">Hard Chrome plated 20-40μm</span></div>
+<div class="spec-row"><span class="spec-key">Gland</span><span class="spec-val">Rod Seal + Wiper + Bushing</span></div>
+<div class="spec-row"><span class="spec-key">Cushion</span><span class="spec-val">Built-in end deceleration (see Seals tab)</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=hydraulic+cylinder+components+construction+explained" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Reservoir — Oil Tank</div>
+<div class="spec-row"><span class="spec-key">Volume</span><span class="spec-val">3-5× pump flow rate per minute [liters]</span></div>
+<div class="spec-row"><span class="spec-key">Function</span><span class="spec-val">Cooling, dirt settling, air release</span></div>
+<div class="spec-row"><span class="spec-key">Baffle Plate</span><span class="spec-val">Separates suction from return — prevents short-flow</span></div>
+<div class="spec-row"><span class="spec-key">Breather</span><span class="spec-val">Air filter at inlet/outlet as level changes</span></div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Basic Circuit Diagram — Component Sequence</div>
+<div style="font-size:12px;color:var(--muted);line-height:2">
+Reservoir → Suction filter → Pump → Relief valve (protection) → Directional control valve (DCV) → Cylinder/motor → Flow control valve (speed) → Return filter → Reservoir
+</div>
+<div class="tip-box">▸ Relief always right after the pump — the circuit's first line of protection<br>▸ Return filter is no less critical than suction — it catches component wear debris</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== VALVES ==================== -->
+<div id="hy-valves" class="hy-sec">
+<div class="card"><div class="ctitle">🔧 Hydraulic and Pneumatic Valves</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Full Valve Table</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Valve</th><th>Function</th><th>Note</th></tr>
+<tr><td><b>Relief Valve</b></td><td>Limits maximum pressure</td><td>First line of protection — mandatory in every circuit</td></tr>
+<tr><td><b>Check Valve</b></td><td>One-direction flow</td><td>Cracking 0.3-3 bar</td></tr>
+<tr><td><b>Pilot Operated Check</b></td><td>Load Holding lock</td><td>Prevents piston drift</td></tr>
+<tr><td><b>Directional Valve 4/3</b></td><td>Piston direction — 4 ports 3 positions</td><td>Closed/Open/Float/Tandem</td></tr>
+<tr><td><b>Flow Control</b></td><td>Flow/speed regulation</td><td>Meter-In / Meter-Out</td></tr>
+<tr><td><b>Pressure Reducing</b></td><td>Reduces pressure for a secondary circuit</td><td>Normally open</td></tr>
+<tr><td><b>Sequence Valve</b></td><td>Triggers action B after A</td><td>By pressure threshold</td></tr>
+<tr><td><b>Counterbalance Valve</b></td><td>Supports a hanging load</td><td>Prevents free fall</td></tr>
+<tr><td><b>Proportional Valve</b></td><td>Continuous electrical control</td><td>±5% hysteresis</td></tr>
+<tr><td><b>Servo Valve</b></td><td>High precision with feedback</td><td>±0.1% — simulators</td></tr>
+</table>
+<a href="https://www.youtube.com/results?search_query=hydraulic%20valve%20types%20explained%20directional%20relief" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Meter-In vs Meter-Out</div>
+<div class="spec-row"><span class="spec-key">Meter-In</span><span class="spec-val">Restricts incoming flow — positive (raising) load</span></div>
+<div class="spec-row"><span class="spec-key">Meter-Out</span><span class="spec-val">Restricts outgoing flow — negative (lowering/falling) load</span></div>
+<div class="tip-box">▸ Meter-Out prevents cavitation with an overrunning load — the safe choice for lifts and cranes</div>
+<a href="https://www.youtube.com/results?search_query=hydraulic%20meter%20in%20meter%20out%20flow%20control%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DCV — Center Position Coding</div>
+<div class="spec-row"><span class="spec-key">Closed Center</span><span class="spec-val">All ports blocked — load locked</span></div>
+<div class="spec-row"><span class="spec-key">Open Center</span><span class="spec-val">P-T open — pump idles at zero pressure</span></div>
+<div class="spec-row"><span class="spec-key">Float Center</span><span class="spec-val">A,B to T — piston free to move</span></div>
+<div class="spec-row"><span class="spec-key">Tandem Center</span><span class="spec-val">P-T open, A,B closed — common in forklifts</span></div>
+<a href="https://www.youtube.com/results?search_query=directional%20control%20valve%20DCV%204/3%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+</div></div></div>
+
+<!-- ==================== OIL ==================== -->
+<div id="hy-oil" class="hy-sec">
+<div class="card"><div class="ctitle">🛢️ Oils, Lubrication, and Cleanliness</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Viscosity Grades — ISO VG</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>ISO VG</th><th>cSt @40°C</th><th>Hydraulics</th><th>Gear</th></tr>
+<tr><td>VG 10</td><td>10</td><td>Cold systems</td><td>—</td></tr>
+<tr><td>VG 22</td><td>22</td><td>Light-duty tools</td><td>—</td></tr>
+<tr><td><b style="color:var(--orange)">VG 32 ★</b></td><td>32</td><td>Standard hydraulics</td><td>—</td></tr>
+<tr><td><b style="color:var(--orange)">VG 46 ★</b></td><td>46</td><td>Medium hydraulics (most common)</td><td>—</td></tr>
+<tr><td>VG 68</td><td>68</td><td>Heavy-duty hydraulics</td><td>—</td></tr>
+<tr><td>VG 100</td><td>100</td><td>Lathes</td><td>Light gear</td></tr>
+<tr><td>VG 150</td><td>150</td><td>—</td><td>Medium gear</td></tr>
+<tr><td>VG 220</td><td>220</td><td>—</td><td>Heavy gear (automotive)</td></tr>
+<tr><td>VG 320</td><td>320</td><td>—</td><td>Industrial gear</td></tr>
+<tr><td>VG 680</td><td>680</td><td>—</td><td>Gearbox — mill drive</td></tr>
+</table>
+<div class="tip-box">▸ Choose VG so viscosity at operating temperature is 16-36cSt at the pump<br>▸ High Viscosity Index (VI) = less sensitive to temperature changes</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Oil Cleanliness — ISO 4406</div>
+<div class="spec-row"><span class="spec-key">Code</span><span class="spec-val">Particles at 4/6/14 micron (e.g. 18/16/13)</span></div>
+<div class="spec-row"><span class="spec-key">General Hydraulics</span><span class="spec-val">20/18/15</span></div>
+<div class="spec-row"><span class="spec-key">Proportional</span><span class="spec-val">18/16/13</span></div>
+<div class="spec-row"><span class="spec-key">Servo</span><span class="spec-val">16/14/11</span></div>
+<div class="tip-box">▸ Every lower number = half the particles! 80% of hydraulic failures are caused by contamination</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Oil Additives</div>
+<div class="spec-row"><span class="spec-key">Anti-Wear (AW)</span><span class="spec-val">Zinc — high-pressure contact protection</span></div>
+<div class="spec-row"><span class="spec-key">Anti-Foam</span><span class="spec-val">Prevents foam that causes cavitation</span></div>
+<div class="spec-row"><span class="spec-key">Anti-Oxidant</span><span class="spec-val">Extends oil life — prevents oxidation</span></div>
+<div class="spec-row"><span class="spec-key">Anti-Rust</span><span class="spec-val">Prevents corrosion on metal</span></div>
+<div class="spec-row"><span class="spec-key">Demulsifier</span><span class="spec-val">Separates water from oil quickly</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Temperature Control</div>
+<div class="spec-row"><span class="spec-key">Operating Range</span><span class="spec-val">30-60°C ideal</span></div>
+<div class="spec-row"><span class="spec-key">Above 70°C</span><span class="spec-val">Accelerated oxidation, seal wear</span></div>
+<div class="spec-row"><span class="spec-key">Below 10°C</span><span class="spec-val">High viscosity — cavitation at suction</span></div>
+<div class="spec-row"><span class="spec-key">Oil Cooler</span><span class="spec-val">Air/Water Cooler — required above 15kW loss</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== PNEUMATIC ==================== -->
+<div id="hy-pneumatic" class="hy-sec">
+<div class="card"><div class="ctitle">💨 Pneumatics — Principles and Components</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Comparison to Hydraulics</div>
+<div class="spec-row"><span class="spec-key">Operating Pressure</span><span class="spec-val">4-8 bar (vs. 150-350 in hydraulics)</span></div>
+<div class="spec-row"><span class="spec-key">Efficiency</span><span class="spec-val">~40% (hydraulics ~90%) — compressed air</span></div>
+<div class="spec-row"><span class="spec-key">Force</span><span class="spec-val">F=P×A — same formula, lower pressure</span></div>
+<div class="spec-row"><span class="spec-key">Advantages</span><span class="spec-val">Clean, safe (no fluid burst risk), fast, cheap</span></div>
+<div class="spec-row"><span class="spec-key">Disadvantages</span><span class="spec-val">Low force, noisy, imprecise (air compressibility)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">FRL — Air Preparation Unit</div>
+<div class="spec-row"><span class="spec-key">Filter</span><span class="spec-val">Moisture and dirt filter — 5-40 micron</span></div>
+<div class="spec-row"><span class="spec-key">Regulator</span><span class="spec-val">Stabilizes a constant working pressure</span></div>
+<div class="spec-row"><span class="spec-key">Lubricator</span><span class="spec-val">Adds an oil mist (older components only!)</span></div>
+<div class="tip-box">▸ FRL always at the inlet of every pneumatic system — without it, fast failure follows</div>
+<a href="https://www.youtube.com/results?search_query=pneumatic%20FRL%20filter%20regulator%20lubricator%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Air Dryers</div>
+<div class="spec-row"><span class="spec-key">Refrigerated</span><span class="spec-val">Dew Point 3-10°C — general purpose</span></div>
+<div class="spec-row"><span class="spec-key">Desiccant</span><span class="spec-val">Dew Point down to −40°C — critical/outdoor</span></div>
+<div class="spec-row"><span class="spec-key">Membrane</span><span class="spec-val">Compact, no electricity — small lines</span></div>
+<a href="https://www.youtube.com/results?search_query=compressed%20air%20dryer%20refrigerant%20desiccant%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Actuation Components</div>
+<div class="spec-row"><span class="spec-key">Cylinder</span><span class="spec-val">Single/Double Acting — like hydraulic</span></div>
+<div class="spec-row"><span class="spec-key">Rotary Actuator</span><span class="spec-val">Rotation up to 360° — Rack/Vane</span></div>
+<div class="spec-row"><span class="spec-key">Air Motor</span><span class="spec-val">Rotating tools — safety (explosive zones)</span></div>
+<div class="spec-row"><span class="spec-key">Grippers</span><span class="spec-val">Pneumatic clamps — robotics</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== COMPONENTS ==================== -->
+<div id="hy-components" class="hy-sec">
+<div class="card"><div class="ctitle">⚙️ System Accessories</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Accumulator</div>
+<div class="spec-row"><span class="spec-key">Bladder</span><span class="spec-val">Rubber bladder — most common, fast response</span></div>
+<div class="spec-row"><span class="spec-key">Piston</span><span class="spec-val">Large volumes, durable</span></div>
+<div class="spec-row"><span class="spec-key">Diaphragm</span><span class="spec-val">Small volumes, compact</span></div>
+<div class="spec-row"><span class="spec-key">Pre-Charge</span><span class="spec-val">80-90% of minimum operating pressure</span></div>
+<div class="tip-box">▸ Uses: emergency backup (brakes!), pulse absorption, peak flow supplementation<br>▸ PED standard for large volumes — periodic inspection mandatory</div>
+<a href="https://www.youtube.com/results?search_query=hydraulic%20accumulator%20how%20it%20works%20bladder" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Filters — Filtration</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Location</th><th>Rating (μm)</th><th>Function</th></tr>
+<tr><td>Suction</td><td>100-150</td><td>Pump protection from debris</td></tr>
+<tr><td>Pressure</td><td>10-25</td><td>Protects sensitive valves</td></tr>
+<tr><td>Return</td><td>10-25</td><td>Catches component wear debris</td></tr>
+<tr><td>Off-Line/Kidney</td><td>3-6</td><td>Continuous cleaning — critical systems</td></tr>
+</table>
+<a href="https://www.youtube.com/results?search_query=hydraulic%20filter%20how%20it%20works%20cutaway" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Piping and Flow</div>
+<div class="spec-row"><span class="spec-key">Suction Line</span><span class="spec-val">Maximum velocity 1.2 m/s</span></div>
+<div class="spec-row"><span class="spec-key">Pressure Line</span><span class="spec-val">Velocity 4-6 m/s</span></div>
+<div class="spec-row"><span class="spec-key">Return Line</span><span class="spec-val">Velocity 2-3 m/s</span></div>
+<div class="tip-box">▸ Too fast = heat and pressure losses. Too slow = expensive, unnecessary piping</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Cylinder — End-of-Stroke Deceleration</div>
+<div class="spec-row"><span class="spec-key">Cushion</span><span class="spec-val">A built-in plunger decelerates before stroke end</span></div>
+<div class="spec-row"><span class="spec-key">Adjustment</span><span class="spec-val">A screw on both sides — separate per direction</span></div>
+<div class="spec-row"><span class="spec-key">Without Cushion</span><span class="spec-val">Hydraulic shock, anchor breakage</span></div>
+<a href="https://www.youtube.com/results?search_query=hydraulic%20cylinder%20cushioning%20end%20of%20stroke%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+</div></div></div>
+
+<!-- ==================== CALCULATORS ==================== -->
+<div id="hy-calc" class="hy-sec">
+<div class="card"><div class="ctitle">🧮 Hydraulics Calculators</div>
+<div class="machine-grid">
+
+<!-- CALC 1: PISTON FORCE/SPEED -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Piston Force and Speed</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px">Calculate force, speed, and required flow rate for a cylinder</div>
+<div class="cg">
+  <div><label>Pressure P (bar)</label><input id="hy-p" type="number" value="200" oninput="calcHydro()"></div>
+  <div><label>Piston Diameter D (mm)</label><input id="hy-d" type="number" value="63" oninput="calcHydro()"></div>
+  <div><label>Rod Diameter d (mm)</label><input id="hy-rod" type="number" value="36" oninput="calcHydro()"></div>
+  <div><label>Flow Rate Q (L/min)</label><input id="hy-q" type="number" value="40" oninput="calcHydro()"></div>
+</div>
+<div class="res" id="hy-result">—</div>
+</div>
+
+<!-- CALC 2: FLOW & POWER -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Required Flow and Power</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px">Calculate required motor power for a pump given pressure and flow</div>
+<div class="cg">
+  <div><label>Operating Pressure P (bar)</label><input id="hy-p2" type="number" value="180" oninput="calcHydroPower()"></div>
+  <div><label>Pump Flow Rate Q (L/min)</label><input id="hy-q2" type="number" value="60" oninput="calcHydroPower()"></div>
+  <div><label>Pump Efficiency (%)</label><input id="hy-eff" type="number" value="90" oninput="calcHydroPower()"></div>
+</div>
+<div class="res" id="hy-result2">—</div>
+</div>
+
+<!-- CALC 3: BUCKLING -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Rod Buckling Check</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px">Check if the cylinder rod is stable against buckling (Euler)</div>
+<div class="cg">
+  <div><label>Rod Diameter d (mm)</label><input id="hy-bd" type="number" value="36" oninput="calcBuckling()"></div>
+  <div><label>Free Stroke Length L (mm)</label><input id="hy-bl" type="number" value="800" oninput="calcBuckling()"></div>
+  <div><label>End Condition K</label>
+  <select id="hy-bk" onchange="calcBuckling()">
+    <option value="2">Cantilever (Free-Fixed) K=2</option>
+    <option value="1" selected>Pinned Both Ends K=1</option>
+    <option value="0.7">Fixed-Pinned K=0.7</option>
+    <option value="0.5">Fixed-Fixed K=0.5</option>
+  </select></div>
+  <div><label>Applied Force F (kN)</label><input id="hy-bf" type="number" value="30" oninput="calcBuckling()"></div>
+</div>
+<div class="res" id="hy-result3">—</div>
+</div>
+
+<!-- CALC 4: ACCUMULATOR SIZING -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Accumulator Sizing</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px">Calculate required accumulator volume using gas law (isothermal)</div>
+<div class="cg">
+  <div><label>Maximum Pressure P1 (bar)</label><input id="hy-p1" type="number" value="200" oninput="calcAccumulator()"></div>
+  <div><label>Minimum Pressure P2 (bar)</label><input id="hy-p2b" type="number" value="150" oninput="calcAccumulator()"></div>
+  <div><label>Required Fluid Volume ΔV (L)</label><input id="hy-dv" type="number" value="2" oninput="calcAccumulator()"></div>
+  <div><label>Pre-Charge P0 (bar)</label><input id="hy-p0" type="number" value="135" oninput="calcAccumulator()"></div>
+</div>
+<div class="res" id="hy-result4">—</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== STANDARDS ==================== -->
+<div id="hy-standards" class="hy-sec">
+<div class="card"><div class="ctitle">📋 Standards — Hydraulics and Pneumatics</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Piping and Component Standards</div>
+<div class="spec-row"><span class="spec-key">ISO 4413</span><span class="spec-val">Safety of hydraulic systems</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4414</span><span class="spec-val">Safety of pneumatic systems</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4406</span><span class="spec-val">Oil cleanliness code</span></div>
+<div class="spec-row"><span class="spec-key">ISO 6149</span><span class="spec-val">O-Ring Boss (ORB) fittings</span></div>
+<div class="spec-row"><span class="spec-key">SAE J514</span><span class="spec-val">JIC 37° fittings</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Oil and Filtration Standards</div>
+<div class="spec-row"><span class="spec-key">ISO VG 3448</span><span class="spec-val">Industrial viscosity grades</span></div>
+<div class="spec-row"><span class="spec-key">ISO 11171</span><span class="spec-val">Particle counter calibration</span></div>
+<div class="spec-row"><span class="spec-key">NAS 1638</span><span class="spec-val">Older cleanliness standard (still in use)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Accumulator Standards</div>
+<div class="spec-row"><span class="spec-key">PED 2014/68/EU</span><span class="spec-val">European pressure equipment — mandatory above a threshold volume</span></div>
+<div class="spec-row"><span class="spec-key">ASME VIII</span><span class="spec-val">American pressure vessels</span></div>
+<div class="spec-row"><span class="spec-key">ISO 10771</span><span class="spec-val">Accumulator fatigue testing</span></div>
+</div>
+
+</div></div></div>
+
+</div>
+
+
+
+</div>
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+function showHy(id,btn){
+  document.querySelectorAll('.hy-sec').forEach(function(s){s.classList.remove('active')});
+  document.querySelectorAll('.hy-tab').forEach(function(t){t.classList.remove('active')});
+  var el=document.getElementById('hy-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(id==='calc'){setTimeout(function(){calcHydro();calcHydroPower();calcBuckling();calcAccumulator();},50);}
+}
+
+function calcHydro(){
+  var p=parseFloat(document.getElementById('hy-p').value)||200;
+  var D=parseFloat(document.getElementById('hy-d').value)||63;
+  var d=parseFloat(document.getElementById('hy-rod').value)||36;
+  var q=parseFloat(document.getElementById('hy-q').value)||40;
+  var Aext=Math.PI*D*D/4;
+  var Aret=Math.PI*(D*D-d*d)/4;
+  var Fext=p*0.1*Aext;
+  var Fret=p*0.1*Aret;
+  var vExt=(q*1000000/60)/Aext;
+  var vRet=(q*1000000/60)/Aret;
+  var pwr=p*q/600;
+  var r=document.getElementById('hy-result');
+  if(r){
+    r.innerHTML='<table style="font-size:12px;width:100%">'+
+    '<tr><td><b>Extend Force (Push)</b></td><td>'+(Fext/1000).toFixed(1)+' kN</td></tr>'+
+    '<tr><td><b>Retract Force (Pull)</b></td><td>'+(Fret/1000).toFixed(1)+' kN</td></tr>'+
+    '<tr><td><b>Extend Speed</b></td><td>'+vExt.toFixed(0)+' mm/s</td></tr>'+
+    '<tr><td><b>Retract Speed</b></td><td>'+vRet.toFixed(0)+' mm/s</td></tr>'+
+    '<tr><td><b>Required Power</b></td><td>'+pwr.toFixed(2)+' kW</td></tr>'+
+    '</table>';
+  }
+}
+
+function calcHydroPower(){
+  var p=parseFloat(document.getElementById('hy-p2').value)||180;
+  var q=parseFloat(document.getElementById('hy-q2').value)||60;
+  var eff=parseFloat(document.getElementById('hy-eff').value)||90;
+  var hydKw=p*q/600;
+  var motorKw=hydKw/(eff/100);
+  var motorHp=motorKw*1.341;
+  var r=document.getElementById('hy-result2');
+  if(r){
+    r.innerHTML='<table style="font-size:12px;width:100%">'+
+    '<tr><td><b>Hydraulic Power</b></td><td>'+hydKw.toFixed(2)+' kW</td></tr>'+
+    '<tr><td><b>Required Motor Power</b></td><td>'+motorKw.toFixed(2)+' kW ('+motorHp.toFixed(1)+' HP)</td></tr>'+
+    '<tr><td colspan="2" style="font-size:10px;color:var(--muted)">Choose a motor ~10-15% larger than the calculation as a reserve</td></tr>'+
+    '</table>';
+  }
+}
+
+function calcBuckling(){
+  var d=parseFloat(document.getElementById('hy-bd').value)||36;
+  var L=parseFloat(document.getElementById('hy-bl').value)||800;
+  var K=parseFloat(document.getElementById('hy-bk').value)||1;
+  var F=parseFloat(document.getElementById('hy-bf').value)||30;
+  var E=210000;
+  var I=Math.PI*Math.pow(d,4)/64;
+  var Le=K*L;
+  var Pcr=(Math.PI*Math.PI*E*I)/(Le*Le);
+  var PcrKn=Pcr/1000;
+  var SF=PcrKn/F;
+  var ok=SF>=3;
+  var r=document.getElementById('hy-result3');
+  if(r){
+    r.innerHTML='<table style="font-size:12px;width:100%">'+
+    '<tr><td><b>Critical Force (Euler)</b></td><td style="color:'+(ok?'var(--green)':'var(--red)')+'">'+PcrKn.toFixed(1)+' kN</td></tr>'+
+    '<tr><td><b>Safety Factor</b></td><td style="color:'+(ok?'var(--green)':'var(--red)')+'"><b>'+SF.toFixed(2)+'x</b></td></tr>'+
+    '</table>'+
+    '<div style="margin-top:8px;padding:8px;background:var(--bg);border-radius:6px;font-size:11px">'+
+    (ok?'<span style="color:var(--green);font-weight:700">✅ Stable — SF≥3</span>':'<span style="color:var(--red);font-weight:700">⚠️ Buckling risk! Increase rod diameter or reduce stroke</span>')+
+    '</div>';
+  }
+}
+
+function calcAccumulator(){
+  var P1=parseFloat(document.getElementById('hy-p1').value)||200;
+  var P2=parseFloat(document.getElementById('hy-p2b').value)||150;
+  var dV=parseFloat(document.getElementById('hy-dv').value)||2;
+  var P0=parseFloat(document.getElementById('hy-p0').value)||135;
+  var V0=dV/((P0/P2)-(P0/P1));
+  var r=document.getElementById('hy-result4');
+  if(r){
+    if(V0<=0||!isFinite(V0)){
+      r.innerHTML='<div style="color:var(--red)">Check the data — P0 must be lower than P2</div>';
+      return;
+    }
+    r.innerHTML='<table style="font-size:12px;width:100%">'+
+    '<tr><td><b>Required Accumulator Volume</b></td><td><b>'+V0.toFixed(2)+' L</b></td></tr>'+
+    '<tr><td colspan="2" style="font-size:10px;color:var(--muted)">Approximate isothermal calculation — add 20-30% for fast action</td></tr>'+
+    '</table>';
+  }
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
+
+</script>
+</body>
+</html>
