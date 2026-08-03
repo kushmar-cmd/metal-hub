@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
 <meta charset="UTF-8">
 <link rel="canonical" href="https://metal.kushmar.com/inspection.html">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -41,6 +42,13 @@
   --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
   --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
 }
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
 html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:rtl;text-align:right}
 #engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 #engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
@@ -149,6 +157,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <div id="topbar">
   <a class="logo" href="https://metal.kushmar.com/" title="חזרה לדף הבית">METAL <span>HUB</span></a>
   <input id="gsearch" type="search" placeholder="🔍 חיפוש — חומרים, GD&T, הברגות, ריתוך..." autocomplete="off">
+  <button class="night-toggle" onclick="toggleTheme()" title="מצב יום/לילה" id="theme-btn">☀️</button>
   </div>
 <div id="soverlay"></div>
 <div id="nav">
@@ -2030,6 +2039,20 @@ document.addEventListener('keydown', function(e){
   });
 })();
 
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
 </script>
 </body>
 </html>

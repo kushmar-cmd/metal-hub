@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -2362,9 +2363,17 @@ function show_thr(id,btn){document.querySelectorAll('.thr-sec').forEach(s=>s.cla
 function show_gd(id,btn){document.querySelectorAll('.gd-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.gd-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('gd-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function toggleTheme(){
   document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
-  document.getElementById('theme-btn').textContent = 
-    document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
 }
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
 
 /* ============ GD&T INTERACTIVE WIDGETS (replaces static gdtAnimSVG) ============ */
 
