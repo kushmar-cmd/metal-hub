@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
 <meta charset="UTF-8">
 <link rel="canonical" href="https://metal.kushmar.com/en/gdt.html">
 <link rel="alternate" hreflang="he" href="https://metal.kushmar.com/gdt.html">
@@ -45,6 +46,13 @@
   --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
   --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
 }
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
 html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
 #engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 #engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
@@ -84,7 +92,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 .spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
 .spec-val{color:var(--orange);text-align:left;font-weight:600}
 table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
-th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
 th{color:var(--blue);font-weight:700;background:var(--surface)}
 .gd-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s}
 .gd-tab:hover,.gd-tab.active{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:700}
@@ -143,6 +151,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <header>
   <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
   <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
     <a href="https://metal.kushmar.com/gdt.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
     <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
   </div>
@@ -869,6 +878,20 @@ setInterval(function(){
 
 initGDT();
 
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
 </script>
 </body>
 </html>
