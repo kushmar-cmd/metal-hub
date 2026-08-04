@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<link rel="canonical" href="https://metal.kushmar.com/en/inserts.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/inserts.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/inserts.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/inserts.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Threaded Inserts Guide — Helicoil, Keensert, Time-Sert, Rivet Nut, PEM | METAL HUB</title>
+<meta name="description" content="Complete threaded insert guide: Helicoil/STI wire inserts, Keensert, Time-Sert, rivet nuts, PEM self-clinching inserts, plastic inserts (ultrasonic, heat-set), Rosan aerospace inserts, E-Z Lok, comparison table, and drill-size calculators.">
+<meta name="keywords" content="helicoil insert, keensert, time-sert, rivet nut, PEM self clinching insert, threaded insert types, STI tap drill chart, heat set insert 3D printing">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/en/inserts.html">
+<meta property="og:title" content="Threaded Inserts Guide — Helicoil, Keensert, Rivet Nut | METAL HUB">
+<meta property="og:description" content="Complete threaded insert guide: Helicoil, Keensert, Time-Sert, rivet nuts, PEM, plastic inserts, and Rosan aerospace inserts.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Threaded Inserts Guide — Helicoil, Keensert, Time-Sert, Rivet Nut, PEM",
+  "description": "Complete threaded insert guide: Helicoil/STI, Keensert, Time-Sert, rivet nuts, PEM self-clinching inserts, plastic inserts, Rosan aerospace inserts, and E-Z Lok",
+  "about": ["Threaded Inserts", "Helicoil", "Keensert", "Time-Sert", "Rivet Nut", "PEM Insert", "Rosan Insert"],
+  "url": "https://metal.kushmar.com/en/inserts.html",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-red{background:#cf222e;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.ins-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.ins-tab:hover,.ins-tab.active{background:var(--purple,#bc8cff);color:#000;border-color:var(--purple,#bc8cff);font-weight:700}
+.ins-sec{display:none}.ins-sec.active{display:block}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+    <a href="https://metal.kushmar.com/inserts.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+
+<div id="sec-inserts" class="section">
+
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a0d2e);border-color:var(--purple,#bc8cff)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔩</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--purple,#bc8cff)">Rigid — Threaded Inserts</div>
+    <div style="font-size:12px;color:var(--muted)">Helicoil · Keensert · Time-Sert · Rivet Nut · Press-fit · Plastic · Rosan · E-Z Lok · Comparison · Calculators</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="ins-tab active" onclick="showIns('helicoil',this)">🌀 Helicoil / STI</button>
+  <button class="ins-tab" onclick="showIns('keensert',this)">🔐 Keensert</button>
+  <button class="ins-tab" onclick="showIns('timesert',this)">🔧 Time-Sert</button>
+  <button class="ins-tab" onclick="showIns('rivetnut',this)">🔴 Rivet Nut</button>
+  <button class="ins-tab" onclick="showIns('press_fit',this)">⚙️ Press-fit / PEM</button>
+  <button class="ins-tab" onclick="showIns('plastic_insert',this)">🔵 For Plastic</button>
+  <button class="ins-tab" onclick="showIns('rosan',this)">✈️ Rosan / Aerospace</button>
+  <button class="ins-tab" onclick="showIns('ezlok',this)">🟢 E-Z Lok</button>
+  <button class="ins-tab" onclick="showIns('comparison',this)">📊 Comparison</button>
+  <button class="ins-tab" onclick="showIns('calc_ins',this)">🧮 Calculators</button>
+</div>
+
+<!-- ===== HELICOIL ===== -->
+<div id="ins-helicoil" class="ins-sec active">
+<div class="card"><div class="ctitle">🌀 Helicoil / Wire Thread Insert — STI</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">What is a Helicoil?</div>
+<div><span class="mc-badge" style="background:var(--purple,#bc8cff);color:#000">Most Common</span><span class="mc-badge b-blue">NASM 21209</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A coiled stainless steel wire inserted into an STI hole → a new thread</span></div>
+<div class="spec-row"><span class="spec-key">Strength</span><span class="spec-val">Stronger than the original thread in Al! ×1.5-2 pull-out</span></div>
+<div class="spec-row"><span class="spec-key">Insert Material</span><span class="spec-val">SS 304 · SS 316 · Phosphor Bronze · Inconel 600</span></div>
+<div class="spec-row"><span class="spec-key">Sizes</span><span class="spec-val">M3 to M39 · UNC 4-40 to 3/4"-10</span></div>
+<div class="spec-row"><span class="spec-key">Depth</span><span class="spec-val">1D · 1.5D (common) · 2D · 2.5D · 3D</span></div>
+<div class="spec-row"><span class="spec-key">Standards</span><span class="spec-val">NASM 21209 · MIL-I-8846 · DIN 8140 · BS 4255</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Thread repair · Al/Mg → ↑strength · engines · aerospace</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.helicoil.com" target="_blank" style="color:var(--blue)">Helicoil (Stanley)</a> · <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff ENSAT</a> · <a href="https://www.recoil.com.au" target="_blank" style="color:var(--blue)">Recoil</a></div>
+<a href="https://www.youtube.com/results?search_query=helicoil%20wire%20thread%20insert%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">STI Tap Drill — Helicoil Drills</div>
+<div><span class="mc-badge b-orange">Larger than standard!</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Important</span><span class="spec-val">STI Tap = larger than Standard! Use the table only</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Size</th><th>Pitch</th><th>STI Drill</th><th>Standard Drill</th></tr>
+<tr><td>M3</td><td>0.5</td><td>3.6mm</td><td>2.5mm</td></tr>
+<tr><td>M4</td><td>0.7</td><td>4.7mm</td><td>3.3mm</td></tr>
+<tr><td>M5</td><td>0.8</td><td>5.9mm</td><td>4.2mm</td></tr>
+<tr><td>M6</td><td>1.0</td><td>7.0mm</td><td>5.0mm</td></tr>
+<tr><td>M8</td><td>1.25</td><td>9.2mm</td><td>6.8mm</td></tr>
+<tr><td>M10</td><td>1.5</td><td>11.3mm</td><td>8.5mm</td></tr>
+<tr><td>M12</td><td>1.75</td><td>13.5mm</td><td>10.2mm</td></tr>
+<tr><td>M16</td><td>2.0</td><td>17.7mm</td><td>14.0mm</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Installation Process</div>
+<div><span class="mc-badge b-blue">5 Steps</span></div>
+<div class="spec-row"><span class="spec-key">1. Drill</span><span class="spec-val">STI Tap Drill — per table</span></div>
+<div class="spec-row"><span class="spec-key">2. STI Tap</span><span class="spec-val">Helicoil tap (not standard!)</span></div>
+<div class="spec-row"><span class="spec-key">3. Insertion</span><span class="spec-val">Insertion tool ← threads in ← insert</span></div>
+<div class="spec-row"><span class="spec-key">4. Break Tang</span><span class="spec-val">Notch (Tanged) → break the tang ← inside the tool</span></div>
+<div class="spec-row"><span class="spec-key">5. Tangless</span><span class="spec-val">No tang — no breaking needed! (aerospace)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Minimum depth: 1.5D · Recommended: 2D for high loads</div>
+<a href="https://www.youtube.com/results?search_query=helicoil%20installation%20process%20tap%20insert%20tang" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Tangless Helicoil</div>
+<div><span class="mc-badge b-blue">NASM 21209-3T</span><span class="mc-badge b-green">Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">No tang to break → ↓time · ↓risk</span></div>
+<div class="spec-row"><span class="spec-key">Insertion</span><span class="spec-val">Special insertion tool ← ←</span></div>
+<div class="spec-row"><span class="spec-key">Removal</span><span class="spec-val">Removable ← special extraction tool</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">NASM 21209-3T · AS1085 (USAF)</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Aerospace · hard-to-reach areas · clean room</span></div>
+<a href="https://www.youtube.com/results?search_query=tangless%20helicoil%20insert%20installation" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Recoil — Equivalent to Helicoil</div>
+<div><span class="mc-badge b-green">Australia</span><span class="mc-badge b-blue">STI Compatible</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturer</span><span class="spec-val">Recoil — Australia · Snap-on Industrial</span></div>
+<div class="spec-row"><span class="spec-key">Compatibility</span><span class="spec-val">Compatible with Helicoil ← the same STI taps!</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">↓price vs. Helicoil · Tangless available</span></div>
+<div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">SS 304 · SS 316 · Phosphor Bronze</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.recoil.com.au" target="_blank" style="color:var(--blue)">recoil.com.au</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Helicoil Applications</div>
+<div><span class="mc-badge b-orange">When to Use</span></div>
+<div class="spec-row"><span class="spec-key">Thread Repair</span><span class="spec-val">A stripped/seized thread → Helicoil = like new</span></div>
+<div class="spec-row"><span class="spec-key">Al/Mg → Steel</span><span class="spec-val">A steel bolt in Al → Helicoil protects!</span></div>
+<div class="spec-row"><span class="spec-key">Engine Heads</span><span class="spec-val">Clean ← tap ← insert ← back to service</span></div>
+<div class="spec-row"><span class="spec-key">Lathe Body</span><span class="spec-val">Helicoil in cast iron ← ↑pull-out</span></div>
+<div class="spec-row"><span class="spec-key">Not Recommended</span><span class="spec-val">Very high pressures — Keensert is preferable</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== KEENSERT ===== -->
+<div id="ins-keensert" class="ins-sec">
+<div class="card"><div class="ctitle">🔐 Keensert / Key-Lock Insert — Solid Rigid</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">What is a Keensert?</div>
+<div><span class="mc-badge b-red">Solid!</span><span class="mc-badge b-blue">NASM 33537</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A solid stainless steel insert with locking keys</span></div>
+<div class="spec-row"><span class="spec-key">Locking</span><span class="spec-val">4 keys bite into the parent material → never rotates</span></div>
+<div class="spec-row"><span class="spec-key">Strength</span><span class="spec-val">↑↑ Pull-out vs. Helicoil — recommended for heavy loads</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">SS 303 · SS 316 · Inconel 718</span></div>
+<div class="spec-row"><span class="spec-key">Sizes</span><span class="spec-val">M6 to M39 · #10-32 to 1"-8</span></div>
+<div class="spec-row"><span class="spec-key">Standards</span><span class="spec-val">NASM 33537 · MS122073 · DIN 8140 Type D</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Aerospace · defense · heavy loads · repeated-use Al</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff (ENSAT)</a> · <a href="https://www.kato-fastening.com" target="_blank" style="color:var(--blue)">KATO Locking</a> · <a href="https://www.stanleyengineeredfastening.com" target="_blank" style="color:var(--blue)">Keensert (Stanley)</a></div>
+<a href="https://www.youtube.com/results?search_query=keensert%20insert%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Keensert Drill Chart</div>
+<div><span class="mc-badge b-orange">Special drill!</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Size</th><th>Pitch</th><th>Drill</th><th>Min Depth</th></tr>
+<tr><td>M6</td><td>1.0</td><td>8.0mm</td><td>9.0mm</td></tr>
+<tr><td>M8</td><td>1.25</td><td>10.5mm</td><td>12.0mm</td></tr>
+<tr><td>M10</td><td>1.5</td><td>12.5mm</td><td>15.0mm</td></tr>
+<tr><td>M12</td><td>1.75</td><td>15.0mm</td><td>18.0mm</td></tr>
+<tr><td>M16</td><td>2.0</td><td>20.0mm</td><td>24.0mm</td></tr>
+<tr><td>M20</td><td>2.5</td><td>25.0mm</td><td>30.0mm</td></tr>
+</table>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ Mandatory to use a Keensert Tap (different from standard!)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Keensert Installation Process</div>
+<div><span class="mc-badge b-blue">4 Steps</span></div>
+<div class="spec-row"><span class="spec-key">1. Drill</span><span class="spec-val">Keensert Drill Size</span></div>
+<div class="spec-row"><span class="spec-key">2. Tap</span><span class="spec-val">Keensert Tap (not STI, not Standard!)</span></div>
+<div class="spec-row"><span class="spec-key">3. Insertion</span><span class="spec-val">Special insertion driver ← bolt inserted</span></div>
+<div class="spec-row"><span class="spec-key">4. Key Lock</span><span class="spec-val">A locking tool strikes the keys inward → locks!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ Cannot be removed after key locking — permanent!</div>
+<a href="https://www.youtube.com/results?search_query=keensert%20insert%20installation%20process%20keys" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Keensert vs Helicoil</div>
+<div><span class="mc-badge b-green">Comparison</span></div>
+<div class="spec-row"><span class="spec-key">Pull-out Strength</span><span class="spec-val">Keensert ↑↑ vs. Helicoil</span></div>
+<div class="spec-row"><span class="spec-key">Size Repair</span><span class="spec-val">Both — Helicoil easier</span></div>
+<div class="spec-row"><span class="spec-key">Removal</span><span class="spec-val">Helicoil ✅ · Keensert ❌ (permanent)</span></div>
+<div class="spec-row"><span class="spec-key">Price</span><span class="spec-val">Keensert more expensive</span></div>
+<div class="spec-row"><span class="spec-key">Heavy Load</span><span class="spec-val">Keensert preferable</span></div>
+<div class="spec-row"><span class="spec-key">Quick Repair</span><span class="spec-val">Helicoil preferable</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== TIMESERT ===== -->
+<div id="ins-timesert" class="ins-sec">
+<div class="card"><div class="ctitle">🔧 Time-Sert / Solid Thread Repair</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Time-Sert — a Solid Insert with a Flange</div>
+<div><span class="mc-badge b-orange">Engine head repair</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A solid insert + flange → locks at the top</span></div>
+<div class="spec-row"><span class="spec-key">Locking</span><span class="spec-val">The flange expands on installation → mechanical lock</span></div>
+<div class="spec-row"><span class="spec-key">Strength</span><span class="spec-val">Very high — the flange carries shear load</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Mild Steel (FineTech) · SS 303</span></div>
+<div class="spec-row"><span class="spec-key">Main Use</span><span class="spec-val">Engine head bolts (M8/M10/M11/M12) · Al wheel taps</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">No special Helicoil Tap needed — Standard Tap!</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.time-sert.com" target="_blank" style="color:var(--blue)">Time-Sert</a> · <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff TRISERT</a></div>
+<a href="https://www.youtube.com/results?search_query=timesert%20insert%20installation%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">ENSAT — Böllhoff Solid Insert</div>
+<div><span class="mc-badge b-blue">DIN 16903</span><span class="mc-badge b-green">Common in Europe</span></div>
+<div class="spec-row"><span class="spec-key">Types</span><span class="spec-val">Type 140 (Hex Drive) · Type 302 (Slot Drive) · Type 160</span></div>
+<div class="spec-row"><span class="spec-key">DIN 16903</span><span class="spec-val">European ENSAT standard</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A larger external thread + standard internal · locks by threading</span></div>
+<div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">Steel · SS 303 · Brass</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Repair · Al/Zn die casting · rigid plastic</span></div>
+<div class="spec-row"><span class="spec-key">Tool</span><span class="spec-val">Standard Tap + Hex insertion driver</span></div>
+<a href="https://www.youtube.com/results?search_query=ensat%20bollhoff%20insert%20installation%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Locking vs Non-Locking</div>
+<div><span class="mc-badge b-orange">Selection</span></div>
+<div class="spec-row"><span class="spec-key">Non-Locking</span><span class="spec-val">Removable · repair only</span></div>
+<div class="spec-row"><span class="spec-key">Locking</span><span class="spec-val">Locks the flange · permanent · high loads</span></div>
+<div class="spec-row"><span class="spec-key">When Locking?</span><span class="spec-val">Engine heads · dynamic loads · vibration</span></div>
+<div class="spec-row"><span class="spec-key">Prevailing Torque</span><span class="spec-val">The insert deforms slightly → counter-rotation force</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== RIVET NUT ===== -->
+<div id="ins-rivetnut" class="ins-sec">
+<div class="card"><div class="ctitle">🔴 Rivet Nut / Blind Nut / Nutsert</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rivet Nut — Principle</div>
+<div><span class="mc-badge b-blue">One-sided access</span><span class="mc-badge b-orange">PEM · Avdel</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Inserted into a hole → pulled → expands → locks</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">One-sided access only! ← like a Pop Rivet</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Al · SS · Mild Steel · Cu-Ni · Monel</span></div>
+<div class="spec-row"><span class="spec-key">Sizes</span><span class="spec-val">M3 to M16 · #6-32 to 1/2"-13</span></div>
+<div class="spec-row"><span class="spec-key">Material Thickness</span><span class="spec-val">0.5-6mm depending on size</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Electrical equipment · automotive · enclosures · sheet metal</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.pemnet.com" target="_blank" style="color:var(--blue)">PEM (Parker)</a> · <a href="https://www.avdelglobal.com" target="_blank" style="color:var(--blue)">Avdel (Textron)</a> · <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff</a></div>
+<a href="https://www.youtube.com/results?search_query=rivet%20nut%20how%20it%20works%20mechanism" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rivet Nut Types</div>
+<div><span class="mc-badge b-green">4 Main Types</span></div>
+<div class="spec-row"><span class="spec-key">Round Body</span><span class="spec-val">Most common · rotates in a round hole · up to 15kN</span></div>
+<div class="spec-row"><span class="spec-key">Hex Body</span><span class="spec-val">↑strength · doesn't rotate! · for vibration</span></div>
+<div class="spec-row"><span class="spec-key">Flat Head</span><span class="spec-val">Flat head · doesn't protrude</span></div>
+<div class="spec-row"><span class="spec-key">Countersunk (CSK)</span><span class="spec-val">Sinks into the surface → aerodynamic</span></div>
+<div class="spec-row"><span class="spec-key">Large Flange</span><span class="spec-val">Soft/thin material → ↑grip</span></div>
+<div class="spec-row"><span class="spec-key">Sealed</span><span class="spec-val">A sealed back → sealing · marine · outdoor</span></div>
+<a href="https://www.youtube.com/results?search_query=rivet%20nut%20types%20comparison%20round%20hex" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rivet Nut — Hole Sizes</div>
+<div><span class="mc-badge b-blue">Hole Size</span></div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Size</th><th>Drill (Round)</th><th>Drill (Hex)</th><th>Max Thickness</th></tr>
+<tr><td>M3</td><td>5.4mm</td><td>—</td><td>2.0mm</td></tr>
+<tr><td>M4</td><td>6.4mm</td><td>6.4mm</td><td>3.0mm</td></tr>
+<tr><td>M5</td><td>7.7mm</td><td>7.8mm</td><td>3.5mm</td></tr>
+<tr><td>M6</td><td>9.0mm</td><td>9.0mm</td><td>4.0mm</td></tr>
+<tr><td>M8</td><td>11.5mm</td><td>11.5mm</td><td>5.0mm</td></tr>
+<tr><td>M10</td><td>14.0mm</td><td>14.0mm</td><td>6.0mm</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Installation Tools</div>
+<div><span class="mc-badge b-orange">Hand · Pneumatic · Electric</span></div>
+<div class="spec-row"><span class="spec-key">Hand Tool</span><span class="spec-val">From M3 to M10 · for small quantities</span></div>
+<div class="spec-row"><span class="spec-key">Pneumatic</span><span class="spec-val">↑speed · from M3 to M16</span></div>
+<div class="spec-row"><span class="spec-key">Cordless (Avdel)</span><span class="spec-val">Mobility · consistent · M4-M12</span></div>
+<div class="spec-row"><span class="spec-key">Press (Auto)</span><span class="spec-val">Production line: precise force</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Check Pull Force per item! ← tightening intensity is critical</div>
+<a href="https://www.youtube.com/results?search_query=rivet%20nut%20installation%20tool%20hand%20pneumatic" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+</div></div></div>
+
+<!-- ===== PRESS FIT ===== -->
+<div id="ins-press_fit" class="ins-sec">
+<div class="card"><div class="ctitle">⚙️ Press-fit / Self-Clinching Inserts — PEM</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Self-Clinching Standoff / Nut</div>
+<div><span class="mc-badge b-blue">PEM</span><span class="mc-badge b-orange">Thin metal sheets</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Press ← ← insert seats ← material flows around it</span></div>
+<div class="spec-row"><span class="spec-key">Result</span><span class="spec-val">A permanent joint ← high push-out force</span></div>
+<div class="spec-row"><span class="spec-key">Minimum Thickness</span><span class="spec-val">0.5-1.5mm (depending on size and material)</span></div>
+<div class="spec-row"><span class="spec-key">Sheet Materials</span><span class="spec-val">Al (Hard) · Steel · SS · Copper</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Soft Al</span><span class="spec-val">Soft Al (1xxx) ← not suitable! PEM falls out</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">PCB · signage · electrical cabinets · electronics</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.pemnet.com" target="_blank" style="color:var(--blue)">PEM (Parker Hannifin)</a></div>
+<a href="https://www.youtube.com/results?search_query=self%20clinching%20nut%20press%20installation%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Main PEM Types</div>
+<div><span class="mc-badge b-green">S · SS · SO · SOFS</span></div>
+<div class="spec-row"><span class="spec-key">S (Nut)</span><span class="spec-val">Press-in nut · M2 to M10 · steel</span></div>
+<div class="spec-row"><span class="spec-key">SS (Nut SS)</span><span class="spec-val">Stainless · M2-M10</span></div>
+<div class="spec-row"><span class="spec-key">SO (Standoff)</span><span class="spec-val">Spacer + thread · M2-M8 · adds height</span></div>
+<div class="spec-row"><span class="spec-key">SOFS (Floating)</span><span class="spec-val">Thread floats ± 0.5mm · ← compensates for misalignment</span></div>
+<div class="spec-row"><span class="spec-key">K (Stud)</span><span class="spec-val">Fixed stud · M2-M8</span></div>
+<div class="spec-row"><span class="spec-key">FH (Flush Head)</span><span class="spec-val">Flush head · aerodynamic</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Installing PEM</div>
+<div><span class="mc-badge b-blue">Press + Anvil</span></div>
+<div class="spec-row"><span class="spec-key">Tool</span><span class="spec-val">A press (Hand/Pneumatic/C-Press) + a matching anvil</span></div>
+<div class="spec-row"><span class="spec-key">Installation Force</span><span class="spec-val">0.3-35kN depending on size (from PEM chart)</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Anvil</span><span class="spec-val">Mandatory! Without an anvil = a bent sheet</span></div>
+<div class="spec-row"><span class="spec-key">Testing</span><span class="spec-val">Push-out Force Test · Torque Test per PEM Spec</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Never with a hammer! Press only</div>
+<a href="https://www.youtube.com/results?search_query=PEM%20insert%20installation%20press%20process%20sheet%20metal" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Spirol / HAEGER Alternatives</div>
+<div><span class="mc-badge b-green">PEM Equivalents</span></div>
+<div class="spec-row"><span class="spec-key">Spirol</span><span class="spec-val">Coiled Pins + Inserts · self-clinching</span></div>
+<div class="spec-row"><span class="spec-key">HAEGER</span><span class="spec-val">A machine manufacturer + unique insert</span></div>
+<div class="spec-row"><span class="spec-key">Böllhoff RIVKLE</span><span class="spec-val">Blind Rivet Element</span></div>
+<div class="spec-row"><span class="spec-key">Captive Nut</span><span class="spec-val">A retained nut ← held within a frame</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><a href="https://www.spirol.com" target="_blank" style="color:var(--blue)">spirol.com</a> · <a href="https://www.haeger.com" target="_blank" style="color:var(--blue)">haeger.com</a></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== PLASTIC ===== -->
+<div id="ins-plastic_insert" class="ins-sec">
+<div class="card"><div class="ctitle">🔵 Inserts for Plastic — Plastic Threaded Inserts</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Ultrasonic Insert</div>
+<div><span class="mc-badge b-blue">Thermoplastic</span><span class="mc-badge b-orange">↑strength</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">20-40kHz vibration ← local heat ← the plastic melts around the insert</span></div>
+<div class="spec-row"><span class="spec-key">Insert Material</span><span class="spec-val">Brass H59 usually · SS · Al</span></div>
+<div class="spec-row"><span class="spec-key">Suitable Plastics</span><span class="spec-val">PA · ABS · PC · POM · PBT · PEEK</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">↑↑ pull-out strength · fast · clean</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Not for</span><span class="spec-val">Thermoset (Epoxy/Phenol) — doesn't melt!</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Consumer products · medical · electronic equipment</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.böllhoff.com" target="_blank" style="color:var(--blue)">Böllhoff AMTEC</a> · <a href="https://www.accu.co.uk" target="_blank" style="color:var(--blue)">Accu</a> · <a href="https://www.pemnet.com" target="_blank" style="color:var(--blue)">PEM Plastic</a></div>
+<a href="https://www.youtube.com/results?search_query=ultrasonic%20insert%20installation%20plastic%20welding" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Heat-Set Insert</div>
+<div><span class="mc-badge b-red">Heat</span><span class="mc-badge b-blue">3D Print</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Heat (soldering iron/oven) ← the insert sinks into soft plastic</span></div>
+<div class="spec-row"><span class="spec-key">Installation Temp.</span><span class="spec-val">150-300°C depending on plastic</span></div>
+<div class="spec-row"><span class="spec-key">PLA</span><span class="spec-val">150-180°C</span></div>
+<div class="spec-row"><span class="spec-key">ABS / PETG</span><span class="spec-val">200-240°C</span></div>
+<div class="spec-row"><span class="spec-key">⭐ 3D Print</span><span class="spec-val">A 3D printer → Heat-Set Inserts = the common solution!</span></div>
+<div class="spec-row"><span class="spec-key">Tool</span><span class="spec-val">Soldering iron + special tip · Weller · Hakko</span></div>
+<a href="https://www.youtube.com/results?search_query=heat%20set%20insert%20installation%20soldering%20iron%203d%20printing" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Press-in Insert — Cold Press</div>
+<div><span class="mc-badge b-green">Simple</span><span class="mc-badge b-orange">↓strength</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Press ← ← a tight fit</span></div>
+<div class="spec-row"><span class="spec-key">Strength</span><span class="spec-val">Relatively low — ↓pull-out</span></div>
+<div class="spec-row"><span class="spec-key">Knurled Body</span><span class="spec-val">A grooved body → ↑grip</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Rigid plastic · low loads</span></div>
+<div class="spec-row"><span class="spec-key">Not Suitable</span><span class="spec-val">Dynamic loads · vibration</span></div>
+<a href="https://www.youtube.com/results?search_query=press%20in%20insert%20installation%20cold%20process%20plastic" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Expansion Insert</div>
+<div><span class="mc-badge b-blue">Thermoset · Composites</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A tightened bolt → the insert body expands</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Thermoset plastics · composites · rigid plastic</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">No heat — suitable for Thermoset!</span></div>
+<div class="spec-row"><span class="spec-key">Strength</span><span class="spec-val">Medium · depends on host material</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.spirol.com" target="_blank" style="color:var(--blue)">Spirol</a> · <a href="https://www.kvt-fastening.com" target="_blank" style="color:var(--blue)">KVT</a></div>
+<a href="https://www.youtube.com/results?search_query=expansion%20insert%20installation%20plastic" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Molded-in Insert</div>
+<div><span class="mc-badge b-orange">Strongest</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">The insert sits in the mold ← molded around it</span></div>
+<div class="spec-row"><span class="spec-key">Strength</span><span class="spec-val">↑↑↑ Highest — part of the part's structure</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Drawback</span><span class="spec-val">Complicates tooling · the insert must be held in place</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Critical molded products · medical · aerospace</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ===== ROSAN ===== -->
+<div id="ins-rosan" class="ins-sec">
+<div class="card"><div class="ctitle">✈️ Rosan / Aviation Inserts</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rosan Insert — What Is It?</div>
+<div><span class="mc-badge b-blue">NAS1130</span><span class="mc-badge b-red">Aerospace Only</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A solid insert with a Locking Ring → locks after insertion</span></div>
+<div class="spec-row"><span class="spec-key">Locking Ring</span><span class="spec-val">An Al/Ti ring is pressed ← ← the insert fully locks</span></div>
+<div class="spec-row"><span class="spec-key">Strength</span><span class="spec-val">↑↑↑ Pull-out — aerospace certified</span></div>
+<div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">Ti · SS A286 · Inconel · Al 7075</span></div>
+<div class="spec-row"><span class="spec-key">Standards</span><span class="spec-val">NAS1130 · MS21209 · AS4536</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Aircraft frame · structural Al/Ti · critical joints</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.roosanite.com" target="_blank" style="color:var(--blue)">Rosan Inc.</a> · <a href="https://www.lisi-aerospace.com" target="_blank" style="color:var(--blue)">LISI Aerospace</a> · <a href="https://www.aviall.com" target="_blank" style="color:var(--blue)">Aviall</a></div>
+<a href="https://www.youtube.com/results?search_query=rosan%20insert%20aerospace%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rosan Types</div>
+<div><span class="mc-badge b-green">A · B · C · D</span></div>
+<div class="spec-row"><span class="spec-key">Type A</span><span class="spec-val">Standard — regular wall</span></div>
+<div class="spec-row"><span class="spec-key">Type B (Thin)</span><span class="spec-val">Thin wall — ↑strength</span></div>
+<div class="spec-row"><span class="spec-key">Type C (Nut)</span><span class="spec-val">With a hex nut for counter-rotation</span></div>
+<div class="spec-row"><span class="spec-key">Type D (Double)</span><span class="spec-val">A double seat — high loads</span></div>
+<div class="spec-row"><span class="spec-key">Sealed</span><span class="spec-val">With a seal — pressure/fluid environments</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Spiralock — Aviation Locking</div>
+<div><span class="mc-badge b-blue">MIL-DTL-18240</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Internal thread with a wide 30° wedge ramp ← locks</span></div>
+<div class="spec-row"><span class="spec-key">Not Needed</span><span class="spec-val">Nyloc / Loctite / Safety Wire — ← Spiralock alone</span></div>
+<div class="spec-row"><span class="spec-key">Self-Lock</span><span class="spec-val">Vibration → the bolt doesn't loosen! ← guaranteed</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Aerospace · defense · space · rocket engines</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.spiralock.com" target="_blank" style="color:var(--blue)">Spiralock (Stanley)</a></div>
+<a href="https://www.youtube.com/results?search_query=spiralock%20thread%20locking%20mechanism%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+</div></div></div>
+
+<!-- ===== E-Z LOK ===== -->
+<div id="ins-ezlok" class="ins-sec">
+<div class="card"><div class="ctitle">🟢 E-Z Lok — Inserts for Soft Materials</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">E-Z Lok — Principle</div>
+<div><span class="mc-badge b-green">Al · Wood · Plastic</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">An insert with a coarse external thread → screwed in by rotation</span></div>
+<div class="spec-row"><span class="spec-key">External</span><span class="spec-val">Coarse thread/knurl → grip in soft material</span></div>
+<div class="spec-row"><span class="spec-key">Internal</span><span class="spec-val">A standard M thread</span></div>
+<div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">Brass · SS · Al · Zinc</span></div>
+<div class="spec-row"><span class="spec-key">Host Materials</span><span class="spec-val">Wood · plastic · soft Al · MDF · foam</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Furniture · models · enclosures · prototyping</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.ezlok.com" target="_blank" style="color:var(--blue)">E-Z Lok</a> · <a href="https://www.rockler.com" target="_blank" style="color:var(--blue)">Rockler (wood)</a></div>
+<a href="https://www.youtube.com/results?search_query=ez%20lok%20insert%20installation%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">E-Z Lok Types</div>
+<div><span class="mc-badge b-green">By host material</span></div>
+<div class="spec-row"><span class="spec-key">Through-Thread</span><span class="spec-val">External thread ← hand-turned</span></div>
+<div class="spec-row"><span class="spec-key">Flush Press-In</span><span class="spec-val">Press + knurl · ← plastic</span></div>
+<div class="spec-row"><span class="spec-key">Knife Thread</span><span class="spec-val">Sharp teeth → self-cutting · wood</span></div>
+<div class="spec-row"><span class="spec-key">Wood Insert</span><span class="spec-val">Barrel Nut / Tee Nut for furniture</span></div>
+<div class="spec-row"><span class="spec-key">Locking</span><span class="spec-val">Internal Nyloc ← ↓vibration loosening</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Tee Nut / Barrel Nut — Furniture</div>
+<div><span class="mc-badge b-orange">Wood / MDF</span></div>
+<div class="spec-row"><span class="spec-key">Tee Nut</span><span class="spec-val">A flange + teeth → hammered in ← ←</span></div>
+<div class="spec-row"><span class="spec-key">Barrel Nut</span><span class="spec-val">Cylindrical ← inserted · ← knock-down furniture</span></div>
+<div class="spec-row"><span class="spec-key">Cross Dowel</span><span class="spec-val">Replaces a Barrel Nut · ↑strength</span></div>
+<div class="spec-row"><span class="spec-key">Sizes</span><span class="spec-val">M4 · M5 · M6 · M8 — the common ones</span></div>
+<a href="https://www.youtube.com/results?search_query=tee%20nut%20barrel%20nut%20furniture%20installation" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+</div></div></div>
+
+<!-- ===== COMPARISON ===== -->
+<div id="ins-comparison" class="ins-sec">
+<div class="card"><div class="ctitle">📊 Comparison Table — All Rigid Insert Types</div>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Type</th><th>Principle</th><th>Pull-out Strength</th><th>Permanent/Removable</th><th>Access</th><th>Host Material</th><th>Main Use</th><th>Relative Price</th></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Helicoil STI</b></td><td>Coiled wire</td><td>⭐⭐⭐⭐</td><td>Removable ✅</td><td>One-sided</td><td>Any metal</td><td>Repair · Al</td><td>💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Keensert</b></td><td>Solid + keys</td><td>⭐⭐⭐⭐⭐</td><td>Permanent ❌</td><td>One-sided</td><td>Al · steel</td><td>Aerospace · heavy</td><td>💰💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Time-Sert</b></td><td>Solid + flange</td><td>⭐⭐⭐⭐⭐</td><td>Permanent ❌</td><td>One-sided</td><td>Al · CI</td><td>Engine heads</td><td>💰💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Rivet Nut</b></td><td>Expanding</td><td>⭐⭐⭐</td><td>Permanent ❌</td><td>One-sided ✅</td><td>Sheet · Al</td><td>Enclosures · automotive</td><td>💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">PEM Self-Clinch</b></td><td>Press</td><td>⭐⭐⭐⭐</td><td>Permanent ❌</td><td>Two-sided</td><td>Sheet 0.5-3mm</td><td>PCB · electronics</td><td>💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Ultrasonic Insert</b></td><td>Vibration</td><td>⭐⭐⭐⭐</td><td>Permanent ❌</td><td>One-sided</td><td>Thermoplastic</td><td>Consumer products</td><td>💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Heat-Set Insert</b></td><td>Heat</td><td>⭐⭐⭐</td><td>Permanent ❌</td><td>One-sided</td><td>PLA/ABS/PC</td><td>3D printing</td><td>💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">Rosan NAS1130</b></td><td>Locking Ring</td><td>⭐⭐⭐⭐⭐</td><td>Permanent ❌</td><td>One-sided</td><td>Structural Al/Ti</td><td>Aerospace</td><td>💰💰💰💰</td></tr>
+<tr><td><b style="color:var(--purple,#bc8cff)">E-Z Lok</b></td><td>Coarse thread</td><td>⭐⭐</td><td>Removable ✅</td><td>One-sided</td><td>Wood · plastic</td><td>Furniture · models</td><td>💰</td></tr>
+</table></div>
+
+<div class="machine-grid" style="margin-top:16px">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Quick Selection Guide</div>
+<div><span class="mc-badge b-green">Key Questions</span></div>
+<div class="spec-row"><span class="spec-key">Quick thread repair</span><span class="spec-val">→ Helicoil STI</span></div>
+<div class="spec-row"><span class="spec-key">Heavy load / defense</span><span class="spec-val">→ Keensert</span></div>
+<div class="spec-row"><span class="spec-key">Engine head</span><span class="spec-val">→ Time-Sert</span></div>
+<div class="spec-row"><span class="spec-key">Sheet metal / one-sided access</span><span class="spec-val">→ Rivet Nut</span></div>
+<div class="spec-row"><span class="spec-key">Thin metal sheet (PCB)</span><span class="spec-val">→ PEM Self-Clinching</span></div>
+<div class="spec-row"><span class="spec-key">3D-printed plastic</span><span class="spec-val">→ Heat-Set Insert</span></div>
+<div class="spec-row"><span class="spec-key">Aerospace / certified</span><span class="spec-val">→ Rosan / Keensert</span></div>
+<div class="spec-row"><span class="spec-key">Wood / soft material</span><span class="spec-val">→ E-Z Lok / Tee Nut</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Key Standards</div>
+<div><span class="mc-badge b-blue">Standards</span></div>
+<div class="spec-row"><span class="spec-key">NASM 21209</span><span class="spec-val">Helicoil / Wire Thread Insert</span></div>
+<div class="spec-row"><span class="spec-key">NASM 33537</span><span class="spec-val">Key-Lock Insert (Keensert)</span></div>
+<div class="spec-row"><span class="spec-key">NAS1130</span><span class="spec-val">Rosan Inserts (Aviation)</span></div>
+<div class="spec-row"><span class="spec-key">DIN 8140</span><span class="spec-val">Wire Thread Inserts (EU)</span></div>
+<div class="spec-row"><span class="spec-key">DIN 16903</span><span class="spec-val">Solid Inserts (ENSAT)</span></div>
+<div class="spec-row"><span class="spec-key">MIL-I-8846</span><span class="spec-val">Military Wire Insert</span></div>
+<div class="spec-row"><span class="spec-key">IFI-432</span><span class="spec-val">Self-Clinching Fasteners (PEM)</span></div>
+</div>
+</div>
+</div></div>
+
+<!-- ===== CALC ===== -->
+<div id="ins-calc_ins" class="ins-sec">
+<div class="card"><div class="ctitle">🧮 Insert Calculators — Pre-Drill Calculator</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">STI Drill Calculator — Helicoil</div>
+<div class="cg">
+<div><label>Metric Size</label>
+<select id="ins-size" onchange="calcInsDrill()">
+<option value="3,0.5,3.6">M3 × 0.5</option>
+<option value="4,0.7,4.7">M4 × 0.7</option>
+<option value="5,0.8,5.9">M5 × 0.8</option>
+<option value="6,1.0,7.0" selected>M6 × 1.0</option>
+<option value="8,1.25,9.2">M8 × 1.25</option>
+<option value="10,1.5,11.3">M10 × 1.5</option>
+<option value="12,1.75,13.5">M12 × 1.75</option>
+<option value="16,2.0,17.7">M16 × 2.0</option>
+<option value="20,2.5,22.0">M20 × 2.5</option>
+</select></div>
+<div><label>Insert Depth</label>
+<select id="ins-depth-mult" onchange="calcInsDrill()">
+<option value="1">1D — minimum</option>
+<option value="1.5" selected>1.5D — recommended</option>
+<option value="2">2D — heavy</option>
+<option value="2.5">2.5D — aerospace</option>
+<option value="3">3D — maximum</option>
+</select></div>
+</div>
+<div id="ins-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--purple,#bc8cff)">Rivet Nut Calculator — Hole Size</div>
+<div class="cg">
+<div><label>Size</label>
+<select id="rn-size" onchange="calcRivetNut()">
+<option value="3,5.4">M3 (5.4mm)</option>
+<option value="4,6.4">M4 (6.4mm)</option>
+<option value="5,7.7" selected>M5 (7.7mm)</option>
+<option value="6,9.0">M6 (9.0mm)</option>
+<option value="8,11.5">M8 (11.5mm)</option>
+<option value="10,14.0">M10 (14.0mm)</option>
+<option value="12,16.5">M12 (16.5mm)</option>
+</select></div>
+<div><label>Type</label>
+<select id="rn-type" onchange="calcRivetNut()">
+<option value="round">Round Body</option>
+<option value="hex">Hex Body</option>
+</select></div>
+<div><label>Material Thickness (mm)</label><input id="rn-thick" type="number" value="2.0" step="0.5" min="0.5" oninput="calcRivetNut()"></div>
+</div>
+<div id="rn-result" class="res">—</div>
+</div>
+
+</div></div></div>
+</div>
+
+
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+function showIns(id,btn){
+  document.querySelectorAll('.ins-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.ins-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('ins-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function calcInsDrill(){
+  const vals=(document.getElementById('ins-size').value||'6,1.0,7.0').split(',');
+  const d=parseFloat(vals[0]),pitch=parseFloat(vals[1]),sti=parseFloat(vals[2]);
+  const mult=parseFloat(document.getElementById('ins-depth-mult').value)||1.5;
+  const depth=(d*mult).toFixed(1);
+  const std=(d-pitch).toFixed(2);
+  document.getElementById('ins-result').innerHTML=
+    '<b>M'+d+'×'+pitch+'</b><br>'+
+    '🔩 <b>STI Drill:</b> <span style="color:var(--green);font-size:16px;font-weight:800">'+sti+'mm</span><br>'+
+    '📏 <b>Standard Drill:</b> <span style="color:var(--muted)">'+std+'mm (not for STI!)</span><br>'+
+    '📐 <b>Depth '+mult+'D:</b> <span style="color:var(--blue);font-weight:700">'+depth+'mm</span><br>'+
+    '<small style="color:var(--muted)">STI Tap only! A Standard Tap will not fit</small>';
+}
+
+function calcRivetNut(){
+  const vals=(document.getElementById('rn-size').value||'5,7.7').split(',');
+  const size=parseInt(vals[0]),hole=parseFloat(vals[1]);
+  const type=document.getElementById('rn-type').value;
+  const thick=parseFloat(document.getElementById('rn-thick').value)||2.0;
+  const grips={'3':[0,2],'4':[0,3],'5':[0,3.5],'6':[0,4],'8':[0,5],'10':[0,6],'12':[0,6.5]};
+  const g=grips[size]||[0,4];
+  const ok=thick>=g[0]&&thick<=g[1];
+  const col=ok?'var(--green)':'var(--red)';
+  document.getElementById('rn-result').innerHTML=
+    '<b>Hole Diameter:</b> <span style="color:var(--green);font-size:16px;font-weight:800">'+hole+'mm</span><br>'+
+    '<b>Type:</b> '+type+'<br>'+
+    '<b>Thickness '+thick+'mm:</b> <span style="color:'+col+';font-weight:700">'+(ok?'✅ In range ('+g[0]+'-'+g[1]+'mm)':'❌ Out of range!')+'</span><br>'+
+    '<small style="color:var(--muted)">Check the Pull Force per the manufacturer</small>';
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
+
+</script>
+</body>
+</html>

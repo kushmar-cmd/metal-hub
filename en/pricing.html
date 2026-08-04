@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<link rel="canonical" href="https://metal.kushmar.com/en/pricing.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/pricing.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/pricing.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/pricing.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Machining Cost Calculator &amp; Pricing Guide — Material, Rates, Quoting | METAL HUB</title>
+<meta name="description" content="Professional manufacturing cost estimating: interactive machining cost calculator with real-world presets, machine hour rates, raw material prices, coating and heat treatment costs, inspection and testing prices, assembly and welding rates, quotation structure, and pricing formulas.">
+<meta name="keywords" content="CNC machining cost calculator, machine shop hourly rate, material cost per kg, manufacturing quote template, machining price estimate, overhead rate manufacturing, buy to fly ratio">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/en/pricing.html">
+<meta property="og:title" content="Machining Cost Calculator &amp; Pricing Guide | METAL HUB">
+<meta property="og:description" content="Interactive cost calculator, machine rates, material prices, and pricing formulas for manufacturing.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Machining Cost Calculator & Pricing Guide",
+  "description": "Professional manufacturing cost estimating: cost calculator, machine rates, material prices, finishing costs, inspection prices, assembly rates, and pricing formulas",
+  "about": ["Machining Cost", "Manufacturing Pricing", "Machine Shop Rates", "Material Cost", "Quotation", "Buy-to-Fly"],
+  "url": "https://metal.kushmar.com/en/pricing.html",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--text);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.tip-box{background:rgba(253,224,71,0.08);border:1px solid var(--yellow,#fde047);border-radius:6px;padding:8px 12px;margin-top:8px;font-size:11px;line-height:1.8}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+    <a href="https://metal.kushmar.com/pricing.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+
+<div id="sec-pricing" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a150d);border-color:var(--orange,#fb923c)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">💰</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--orange,#fb923c)">Professional Manufacturing Cost Estimating</div>
+    <div style="font-size:12px;color:var(--muted)">Machining · Raw Material · Rates · BOM · Quoting · Finishing · Inspection · Assembly · Formulas</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="prc-tab active" onclick="showPrc('calc',this)">🧮 Cost Calculator</button>
+  <button class="prc-tab" onclick="showPrc('rates',this)">⏱️ Machine Rates</button>
+  <button class="prc-tab" onclick="showPrc('material',this)">🧱 Raw Material Prices</button>
+  <button class="prc-tab" onclick="showPrc('finish',this)">🎨 Coating &amp; Finish</button>
+  <button class="prc-tab" onclick="showPrc('testing',this)">🔍 Inspection &amp; Quality</button>
+  <button class="prc-tab" onclick="showPrc('assembly',this)">🔧 Assembly &amp; Labor</button>
+  <button class="prc-tab" onclick="showPrc('quote',this)">📄 Quotation</button>
+  <button class="prc-tab" onclick="showPrc('formulas',this)">📊 Formulas &amp; Metrics</button>
+</div>
+
+<style>
+.prc-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.prc-tab:hover,.prc-tab.active{background:var(--orange,#fb923c);color:#000;border-color:var(--orange,#fb923c);font-weight:700}
+.prc-sec{display:none}.prc-sec.active{display:block}
+</style>
+
+<!-- ==================== CALCULATOR ==================== -->
+<div id="prc-calc" class="prc-sec active">
+<div class="card"><div class="ctitle">🧮 Cost Calculator — Machined Part</div>
+
+<div class="tip-box" style="margin-bottom:14px">
+<b>How to use:</b> Fill in the 4 cards from top to bottom. The result updates automatically.<br>
+<b>Not sure what to enter?</b> Click one of the examples below — the calculator will populate with realistic values for a typical part.
+</div>
+
+<!-- PRESETS -->
+<div style="margin-bottom:14px">
+<div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--orange,#fb923c)">⚡ Ready-made examples — click to load:</div>
+<div style="display:flex;flex-wrap:wrap;gap:5px">
+  <div style="width:100%;font-size:10px;color:var(--muted);margin-bottom:2px">⚙️ Turning:</div>
+  <button class="prc-tab" onclick="loadPreset('pin')" style="font-size:10px">📌 Simple Pin</button>
+  <button class="prc-tab" onclick="loadPreset('shaft')" style="font-size:10px">⚙️ Precision Shaft</button>
+  <button class="prc-tab" onclick="loadPreset('swiss')" style="font-size:10px">🏥 Medical Swiss</button>
+  <div style="width:100%;font-size:10px;color:var(--muted);margin-bottom:2px;margin-top:4px">⚙️ Milling:</div>
+  <button class="prc-tab" onclick="loadPreset('bracket')" style="font-size:10px">📐 Simple Al Bracket</button>
+  <button class="prc-tab" onclick="loadPreset('pocket')" style="font-size:10px">🔲 Internal Pocket</button>
+  <button class="prc-tab" onclick="loadPreset('plate')" style="font-size:10px">📋 SS Plate</button>
+  <button class="prc-tab" onclick="loadPreset('housing')" style="font-size:10px">🏗️ Complex Housing</button>
+  <button class="prc-tab" onclick="loadPreset('mold')" style="font-size:10px">💎 3D Mold</button>
+  <button class="prc-tab" onclick="loadPreset('aero')" style="font-size:10px">✈️ Aerospace 5-Axis</button>
+</div>
+</div>
+
+<div class="machine-grid">
+
+<!-- ===== CARD 1: RAW MATERIAL ===== -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">📦 Step 1 — Raw Material</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px;line-height:1.6">
+How much material do you need to buy to produce one part? The finished part's weight is multiplied by the waste factor (BTF) — because more material always goes in than remains in the finished part.
+</div>
+<div class="cg">
+  <div>
+    <label>Finished Part Weight (kg)</label>
+    <div style="font-size:9px;color:var(--muted)">Weigh the part or calculate from CAD. Not the raw stock — the finished part!</div>
+    <input id="pc-wt" type="number" value="0.3" step="0.05" oninput="calcFullPrice()">
+  </div>
+  <div>
+    <label>Waste Factor — Buy-to-Fly (BTF)</label>
+    <div style="font-size:9px;color:var(--muted)">How many kg of raw stock you need to buy for every kg of finished part. BTF 1.3 = 30% waste.</div>
+    <select id="pc-btf" onchange="calcFullPrice()">
+      <option value="1.1">1.1 — Bar shaft, almost no waste</option>
+      <option value="1.3" selected>1.3 — Turning + light milling (common)</option>
+      <option value="1.6">1.6 — Pockets / complex profile</option>
+      <option value="2.5">2.5 — Deep pockets / thin walls</option>
+      <option value="4.0">4.0 — Hog-out from plate (lots of waste)</option>
+      <option value="8.0">8.0 — Monolithic aerospace (most material becomes chips)</option>
+    </select>
+  </div>
+  <div>
+    <label>Material Type (₪ per kg)</label>
+    <div style="font-size:9px;color:var(--muted)">Approximate price per kg of bar/plate at medium quantity in Israel.</div>
+    <select id="pc-mat" onchange="calcFullPrice()">
+      <option value="8">Steel 1018/20 (~₪8) — cheapest</option>
+      <option value="12">Steel 1045 (~₪12) — general</option>
+      <option value="15">12L14 Free-Cut (~₪15) — excellent machinability</option>
+      <option value="18">Steel 4140 (~₪18) — high strength</option>
+      <option value="28">Steel 4340 (~₪28) — aerospace/defense</option>
+      <option value="45">SS 303 (~₪45) — stainless + machinability</option>
+      <option value="55">SS 304 (~₪55) — general stainless</option>
+      <option value="75">SS 316L (~₪75) — stainless, chemical/marine</option>
+      <option value="120">SS 17-4PH (~₪120) — hardened stainless</option>
+      <option value="38" selected>Al 6061-T6 (~₪38) — general aluminum</option>
+      <option value="58">Al 7075-T6 (~₪58) — aerospace aluminum</option>
+      <option value="600">Ti-6Al-4V (~₪600) — titanium (expensive!)</option>
+      <option value="1200">Inconel 718 (~₪1200) — superalloy (very expensive!)</option>
+      <option value="90">Brass C360 (~₪90) — excellent machinability</option>
+      <option value="75">Bronze C932 (~₪75) — bearings/bushings</option>
+      <option value="40">POM / Delrin (~₪40) — engineering plastic</option>
+    </select>
+  </div>
+</div>
+<div class="res" id="pc-r1" style="margin-top:8px">—</div>
+</div>
+
+<!-- ===== CARD 2: MACHINING ===== -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">⚙️ Step 2 — Machining</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px;line-height:1.6">
+How long it takes to set up the machine (Setup) and how long the machine runs on each part. Setup is divided across the whole quantity — the more parts, the lower the setup cost per part.
+</div>
+<div class="cg">
+  <div>
+    <label>Total Setup (minutes)</label>
+    <div style="font-size:9px;color:var(--muted)">Machine setup time: fixturing, tool setting, zero setting, first-article run. If there are 2 OPs (setups) — add both together.</div>
+    <input id="pc-setup" type="number" value="45" step="5" oninput="calcFullPrice()">
+  </div>
+  <div>
+    <label>Machine Time per Part (minutes)</label>
+    <div style="font-size:9px;color:var(--muted)">How many minutes the machine runs on one part, including all operations (OPs). A simple pin = 2-5 minutes. A complex part = 60-120 minutes.</div>
+    <input id="pc-mach" type="number" value="25" step="1" oninput="calcFullPrice()">
+  </div>
+  <div>
+    <label>Machine Type (₪ per hour)</label>
+    <div style="font-size:9px;color:var(--muted)">Machine hour rate including: operator, machine depreciation, electricity, cutting tools, coolant. A more advanced machine = a higher rate.</div>
+    <select id="pc-rate" onchange="calcFullPrice()">
+      <option value="200">Manual Lathe — ₪200/hr</option>
+      <option value="300">CNC Lathe 2-Axis — ₪300/hr</option>
+      <option value="400">CNC Lathe Y+C+Live — ₪400/hr</option>
+      <option value="350" selected>VMC 3-Axis (CNC Mill) — ₪350/hr</option>
+      <option value="450">VMC 3-Axis Large — ₪450/hr</option>
+      <option value="550">VMC 5-Axis (3+2) — ₪550/hr</option>
+      <option value="700">VMC 5-Axis Simultaneous — ₪700/hr</option>
+      <option value="500">HMC + Pallet — ₪500/hr</option>
+      <option value="300">Surface Grinding — ₪300/hr</option>
+      <option value="350">Cylindrical Grinding — ₪350/hr</option>
+      <option value="600">EDM Wire — ₪600/hr</option>
+      <option value="700">EDM Sinker — ₪700/hr</option>
+      <option value="450">Swiss-Type — ₪450/hr</option>
+      <option value="500">Fiber Laser — ₪500/hr</option>
+      <option value="150">Sawing / Drilling — ₪150/hr</option>
+    </select>
+  </div>
+  <div>
+    <label>Order Quantity</label>
+    <div style="font-size:9px;color:var(--muted)">The larger the quantity, the lower the setup cost per part. 1 part = expensive. 1000 parts = cheap.</div>
+    <input id="pc-qty" type="number" value="20" min="1" oninput="calcFullPrice()">
+  </div>
+</div>
+<div class="res" id="pc-r2" style="margin-top:8px">—</div>
+</div>
+
+<!-- ===== CARD 3: FINISH AND EXTRAS ===== -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">🎨 Step 3 — Finish, Inspection &amp; Extras</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px;line-height:1.6">
+Additional costs after machining: coating (anodize, zinc...), heat treatment (hardening), quality inspection, and cleaning/finishing. Not every part needs everything — select only what's relevant.
+</div>
+<div class="cg">
+  <div>
+    <label>Coating (₪ per part)</label>
+    <div style="font-size:9px;color:var(--muted)">A protective coating against corrosion/wear. Price per part at medium series.</div>
+    <select id="pc-coat" onchange="calcFullPrice()">
+      <option value="0" selected>No coating</option>
+      <option value="12">Anodize Type II — ₪12 (Al only)</option>
+      <option value="25">Anodize Type III Hard — ₪25 (Al only)</option>
+      <option value="12">Zinc — ₪12 (steel)</option>
+      <option value="18">Electroless Nickel — ₪18 (any metal)</option>
+      <option value="30">Hard Chrome — ₪30 (wear)</option>
+      <option value="8">Black Oxide — ₪8 (steel, cheap)</option>
+      <option value="10">Passivation — ₪10 (stainless)</option>
+      <option value="15">Alodine / Chem Film — ₪15 (Al)</option>
+      <option value="25">Powder Coat (painting) — ₪25</option>
+    </select>
+  </div>
+  <div>
+    <label>Heat Treatment (₪ per part)</label>
+    <div style="font-size:9px;color:var(--muted)">Hardening, softening, or improving mechanical properties. Required for steels that need hardness.</div>
+    <select id="pc-ht" onchange="calcFullPrice()">
+      <option value="0" selected>None</option>
+      <option value="15">Q&amp;T Hardening — ₪15 (4140, 4340)</option>
+      <option value="25">Carburizing / Nitriding — ₪25 (hard layer)</option>
+      <option value="40">Vacuum — ₪40 (cutting tools, aerospace)</option>
+      <option value="10">Stress Relief — ₪10 (after welding)</option>
+    </select>
+  </div>
+  <div>
+    <label>Quality Inspection (₪ per part)</label>
+    <div style="font-size:9px;color:var(--muted)">Measurement, report, CMM. A simple part = basic inspection. Aerospace = full FAI + CMM.</div>
+    <select id="pc-insp" onchange="calcFullPrice()">
+      <option value="0">None — internal QC only (₪0)</option>
+      <option value="15" selected>Basic Measurement — ₪15</option>
+      <option value="40">Measurement + Written Report — ₪40</option>
+      <option value="80">Full FAI (AS9102) — ₪80</option>
+      <option value="100">CMM + Report — ₪100</option>
+      <option value="35">NDT — PT / MT — ₪35</option>
+    </select>
+  </div>
+  <div>
+    <label>Deburr / Finish Cleaning (₪ per part)</label>
+    <div style="font-size:9px;color:var(--muted)">Removing burrs, edge breaking, cleaning. Almost every part requires at least manual deburring.</div>
+    <select id="pc-deb" onchange="calcFullPrice()">
+      <option value="0">None (₪0)</option>
+      <option value="8" selected>Manual Deburr — ₪8</option>
+      <option value="15">Tumbling — ₪15</option>
+      <option value="30">Electropolish — ₪30 (stainless)</option>
+      <option value="12">Bead Blast — ₪12 (matte finish)</option>
+    </select>
+  </div>
+</div>
+<div class="res" id="pc-r3" style="margin-top:8px">—</div>
+</div>
+
+<!-- ===== CARD 4: SUMMARY ===== -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">💰 Step 4 — Summary &amp; Price</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:8px;line-height:1.6">
+<b>Overhead</b> = costs not directly tied to the part: rent, electricity, insurance, management, coolant. Typically 25-40%.<br>
+<b>Margin</b> = what's left for the shop after all expenses. 15-25% is typical in Israel.
+</div>
+<div class="cg">
+  <div>
+    <label>Overhead (%)</label>
+    <div style="font-size:9px;color:var(--muted)">A small shop ~25%. Medium ~30%. Large/aerospace ~35-45%.</div>
+    <input id="pc-oh" type="number" value="30" oninput="calcFullPrice()">
+  </div>
+  <div>
+    <label>Margin (%)</label>
+    <div style="font-size:9px;color:var(--muted)">Gross margin on the price. 15% = competitive. 20% = reasonable. 25%+ = premium/aerospace.</div>
+    <input id="pc-margin" type="number" value="20" oninput="calcFullPrice()">
+  </div>
+</div>
+<div id="pc-summary" style="background:var(--surface);border:1px solid var(--orange,#fb923c);border-radius:8px;padding:14px;margin-top:10px;font-size:13px;line-height:2.2">—</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== RATES ==================== -->
+<div id="prc-rates" class="prc-sec">
+<div class="card"><div class="ctitle">⏱️ Machine Rates — Israeli Market 2024-2026</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Machine Hour Rates — Israel</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:6px">Price range reflects: shop size, region, workload, urgency</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Machine</th><th>Low ₪/hr</th><th>Average ₪/hr</th><th>High ₪/hr</th><th>Setup ₪</th><th>Notes</th></tr>
+<tr><td>Manual Lathe</td><td>180</td><td>250</td><td>350</td><td>100–200</td><td>Individual parts, repairs</td></tr>
+<tr><td>CNC Lathe 2-Axis</td><td>280</td><td>350</td><td>450</td><td>200–500</td><td>Haas/Doosan/Mazak</td></tr>
+<tr><td>CNC Lathe Y+C+Sub</td><td>380</td><td>500</td><td>650</td><td>400–800</td><td>Done-In-One</td></tr>
+<tr><td>Swiss-Type</td><td>400</td><td>550</td><td>750</td><td>500–1500</td><td>Long setup!</td></tr>
+<tr><td>VMC 3-Axis</td><td>300</td><td>450</td><td>600</td><td>200–600</td><td>Haas VF / Mazak</td></tr>
+<tr><td>VMC 5-Axis (3+2)</td><td>500</td><td>650</td><td>850</td><td>400–1000</td><td>DMG/Hermle</td></tr>
+<tr><td>VMC 5-Axis Sim</td><td>650</td><td>800</td><td>1200</td><td>600–2000</td><td>Aerospace, impellers</td></tr>
+<tr><td>HMC + Pallet</td><td>450</td><td>600</td><td>800</td><td>300–800</td><td>Production series</td></tr>
+<tr><td>Surface Grinding</td><td>250</td><td>350</td><td>500</td><td>150–400</td><td>Flat surfaces</td></tr>
+<tr><td>Cylindrical Grinding</td><td>300</td><td>400</td><td>600</td><td>200–500</td><td>OD/ID</td></tr>
+<tr><td>Centerless Grinding</td><td>250</td><td>350</td><td>500</td><td>500–2000</td><td>High setup, mass production</td></tr>
+<tr><td>EDM Wire</td><td>500</td><td>700</td><td>1000</td><td>300–800</td><td>By hour or by cut length</td></tr>
+<tr><td>EDM Sinker</td><td>600</td><td>800</td><td>1200</td><td>500–2000</td><td>+electrode cost</td></tr>
+<tr><td>Drill Press</td><td>120</td><td>200</td><td>300</td><td>50–200</td><td>Simple holes</td></tr>
+<tr><td>Band Saw</td><td>80</td><td>150</td><td>250</td><td>50–100</td><td>Cutting raw stock</td></tr>
+<tr><td>CNC Bending</td><td>200</td><td>350</td><td>500</td><td>200–600</td><td>Amada/Trumpf</td></tr>
+<tr><td>Fiber Laser</td><td>400</td><td>600</td><td>900</td><td>100–300</td><td>By hour or by meter</td></tr>
+<tr><td>Waterjet</td><td>350</td><td>500</td><td>750</td><td>100–300</td><td>Any material</td></tr>
+</table>
+<div class="tip-box">▸ <b>Setup = fixed!</b> On a run of 100 ← Setup/part = marginal. On a run of 1 ← Setup = 50% of the price<br>▸ <b>Urgency:</b> ×1.3–2.0 over the regular rate<br>▸ <b>Night/weekend:</b> ×1.25–1.5 premium<br>▸ <b>Aerospace/defense:</b> ×1.3–1.5 (documentation + traceability)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Labor Rates</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Work</th><th>₪/hour</th><th>Note</th></tr>
+<tr><td>Grinding / Deburr</td><td>120–180</td><td>Manual</td></tr>
+<tr><td>Mechanical Assembly</td><td>150–250</td><td>Experienced technician</td></tr>
+<tr><td>TIG Welder</td><td>200–350</td><td>Aerospace: 350–500</td></tr>
+<tr><td>MIG Welder</td><td>180–280</td><td>Structural</td></tr>
+<tr><td>Quality Control</td><td>180–300</td><td>Including CMM</td></tr>
+<tr><td>CNC Programming</td><td>200–400</td><td>CAM offline</td></tr>
+<tr><td>Fixture Design</td><td>250–450</td><td>Fixture / Jig</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== MATERIAL ==================== -->
+<div id="prc-material" class="prc-sec">
+<div class="card"><div class="ctitle">🧱 Raw Material Prices — Israeli Market</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Material Price per kg — Israel 2024-2026</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:6px">Approximate prices, depend on quantity, supplier, period. Bar ⌀20-100mm</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Material</th><th>₪/kg</th><th>₪/kg (small)</th><th>Typical MOQ</th><th>Availability</th><th>Notes</th></tr>
+<tr><td>Steel 1018/1020</td><td>7–10</td><td>12–18</td><td>6m bar</td><td>★★★★★</td><td>Off the shelf</td></tr>
+<tr><td>Steel 1045</td><td>10–15</td><td>18–25</td><td>6m bar</td><td>★★★★★</td><td>Off the shelf</td></tr>
+<tr><td>Steel 4140</td><td>15–22</td><td>25–35</td><td>6m bar</td><td>★★★★</td><td>Common</td></tr>
+<tr><td>Steel 4340</td><td>22–35</td><td>35–50</td><td>3m bar</td><td>★★★</td><td>Order</td></tr>
+<tr><td>12L14 Free-Cut</td><td>12–18</td><td>20–30</td><td>6m bar</td><td>★★★★</td><td>↑machinability</td></tr>
+<tr><td>SS 303</td><td>40–55</td><td>60–80</td><td>3m bar</td><td>★★★★</td><td>↑machinability vs 304</td></tr>
+<tr><td>SS 304/304L</td><td>45–60</td><td>65–90</td><td>3m bar</td><td>★★★★★</td><td>Off the shelf</td></tr>
+<tr><td>SS 316/316L</td><td>60–80</td><td>85–120</td><td>3m bar</td><td>★★★★</td><td>Common</td></tr>
+<tr><td>SS 17-4PH</td><td>100–140</td><td>150–200</td><td>Order</td><td>★★</td><td>2–4 weeks</td></tr>
+<tr><td>Al 6061-T6</td><td>30–42</td><td>45–65</td><td>3m bar</td><td>★★★★★</td><td>Off the shelf</td></tr>
+<tr><td>Al 7075-T6</td><td>50–65</td><td>70–95</td><td>3m bar</td><td>★★★★</td><td>Aerospace</td></tr>
+<tr><td>Al 2024-T4</td><td>45–60</td><td>65–85</td><td>Order</td><td>★★★</td><td>Aerospace</td></tr>
+<tr><td>Ti-6Al-4V Grade 5</td><td>450–700</td><td>700–1000</td><td>Order</td><td>★★</td><td>4–8 weeks</td></tr>
+<tr><td>Inconel 718</td><td>900–1400</td><td>1200–2000</td><td>Order</td><td>★</td><td>6–12 weeks</td></tr>
+<tr><td>Copper C110</td><td>70–90</td><td>100–140</td><td>3m bar</td><td>★★★★</td><td>Conductivity</td></tr>
+<tr><td>Brass C360</td><td>70–100</td><td>110–150</td><td>3m bar</td><td>★★★★</td><td>Free-Cut</td></tr>
+<tr><td>POM (Delrin)</td><td>35–50</td><td>55–75</td><td>1m bar</td><td>★★★★</td><td>Engineering plastic</td></tr>
+<tr><td>Nylon PA66</td><td>30–45</td><td>50–70</td><td>1m bar</td><td>★★★★</td><td>Engineering plastic</td></tr>
+<tr><td>PEEK</td><td>800–1200</td><td>1200–1800</td><td>Order</td><td>★★</td><td>Medical/aerospace</td></tr>
+</table>
+<div class="tip-box">▸ <b>Quantity:</b> price per kg drops 20–40% on an order of 100kg+<br>▸ <b>Israeli suppliers:</b> Metalux, MLS, Almet, Standard Metals, A.L.M<br>▸ <b>Material certificate:</b> Mill Cert (3.1) = +₪5–15/part</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Buy-to-Fly — Waste Factor</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Part Type</th><th>BTF</th><th>Explanation</th></tr>
+<tr><td>Simple shaft / bushing</td><td>1.1–1.3</td><td>Minimal waste from bar</td></tr>
+<tr><td>Regular turned part</td><td>1.3–1.5</td><td>Turning + milling</td></tr>
+<tr><td>Complex milled part</td><td>1.5–2.5</td><td>Pockets, holes</td></tr>
+<tr><td>Structural Aerospace</td><td>3–8</td><td>Hog-out from plate</td></tr>
+<tr><td>Monolithic Wing Rib</td><td>10–25!</td><td>90%+ of material becomes chips</td></tr>
+</table>
+<div class="tip-box">▸ <b>BTF 10 = you buy 10kg, 1kg remains in the part!</b><br>▸ Ti-6Al-4V at BTF 10 = raw material = ×10 the final weight ×₪600/kg = very expensive<br>▸ <b>Near Net Shape:</b> casting/forging ← BTF 1.5–3 ← saves material</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== FINISH ==================== -->
+<div id="prc-finish" class="prc-sec">
+<div class="card"><div class="ctitle">🎨 Coating, Finish &amp; Heat Treatment — Prices</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Coatings — Price per Part</div>
+<div style="font-size:10px;color:var(--muted);margin-bottom:6px">Medium part ~100-500cm². Price per part, not per batch</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Coating</th><th>₪/part (series)</th><th>₪/part (single)</th><th>Lead Time</th></tr>
+<tr><td>Anodize Type II</td><td>10–20</td><td>30–60</td><td>3–5 days</td></tr>
+<tr><td>Anodize Type II Dyed</td><td>15–30</td><td>40–80</td><td>5–7 days</td></tr>
+<tr><td>Anodize Type III (Hard)</td><td>25–45</td><td>60–120</td><td>5–10 days</td></tr>
+<tr><td>Zinc Plating</td><td>10–20</td><td>25–50</td><td>3–5 days</td></tr>
+<tr><td>Electroless Nickel EN</td><td>20–35</td><td>50–90</td><td>5–7 days</td></tr>
+<tr><td>Hard Chrome</td><td>30–60</td><td>80–150</td><td>7–14 days</td></tr>
+<tr><td>Black Oxide</td><td>8–15</td><td>20–40</td><td>2–3 days</td></tr>
+<tr><td>Alodine (Chem Film)</td><td>10–20</td><td>25–50</td><td>3–5 days</td></tr>
+<tr><td>Passivation (SS)</td><td>8–15</td><td>20–40</td><td>2–5 days</td></tr>
+<tr><td>Powder Coat Paint</td><td>20–40</td><td>50–100</td><td>5–7 days</td></tr>
+<tr><td>Epoxy Wet Paint</td><td>30–60</td><td>70–150</td><td>5–10 days</td></tr>
+<tr><td>Electroless Nickel</td><td>25–45</td><td>60–120</td><td>5–10 days</td></tr>
+<tr><td>Cadmium (QQ-P-416)</td><td>40–80</td><td>100–200</td><td>10–21 days</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Heat Treatments — Price</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Treatment</th><th>₪/part (series)</th><th>₪/part (single)</th><th>Lead Time</th></tr>
+<tr><td>Hardening + Tempering (Q&amp;T)</td><td>15–30</td><td>40–80</td><td>3–7 days</td></tr>
+<tr><td>Carburizing</td><td>25–50</td><td>60–120</td><td>5–10 days</td></tr>
+<tr><td>Nitriding</td><td>30–60</td><td>70–150</td><td>7–14 days</td></tr>
+<tr><td>Vacuum Hardening</td><td>40–80</td><td>100–200</td><td>5–10 days</td></tr>
+<tr><td>Stress Relief</td><td>10–20</td><td>25–50</td><td>2–5 days</td></tr>
+<tr><td>Annealing</td><td>10–20</td><td>25–50</td><td>2–5 days</td></tr>
+<tr><td>Induction Hardening</td><td>20–40</td><td>50–100</td><td>3–7 days</td></tr>
+<tr><td>Cryogenic Treatment</td><td>30–60</td><td>80–150</td><td>5–10 days</td></tr>
+</table>
+<div class="tip-box">▸ <b>Minimum batch:</b> most heat treaters charge a minimum ₪200–500 per batch<br>▸ <b>Certificate:</b> a heat treat certificate = +₪20–50/part<br>▸ <b>Israeli suppliers:</b> Sherutei Chom, Metam, ITC, Palgei Chom</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== TESTING ==================== -->
+<div id="prc-testing" class="prc-sec">
+<div class="card"><div class="ctitle">🔍 Inspection &amp; Quality — Costs</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Mechanical Testing — Prices</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Test</th><th>₪/test</th><th>Note</th></tr>
+<tr><td>Dimensional Measurement (calipers + micrometer)</td><td>Internal</td><td>Part of manufacturing cost</td></tr>
+<tr><td>CMM — up to 10 dimensions</td><td>80–150</td><td>Per part</td></tr>
+<tr><td>CMM — Full FAI (50+ dimensions)</td><td>200–500</td><td>AS9102</td></tr>
+<tr><td>Surface Roughness Ra</td><td>20–40</td><td>Per point</td></tr>
+<tr><td>Hardness Test HRC</td><td>15–30</td><td>Per point</td></tr>
+<tr><td>Micro Hardness Test HV</td><td>40–80</td><td>Case depth profile</td></tr>
+<tr><td>Tensile Test</td><td>150–300</td><td>Specimen + test</td></tr>
+<tr><td>Charpy Impact</td><td>100–200</td><td>3 specimens minimum</td></tr>
+<tr><td>Fatigue Test</td><td>500–2000</td><td>Per specimen, run-out</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">NDT — Non-Destructive Testing</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Method</th><th>₪/part</th><th>₪/m weld</th><th>Note</th></tr>
+<tr><td>PT (Dye Penetrant)</td><td>30–60</td><td>40–80</td><td>Simple and cheap</td></tr>
+<tr><td>MT (Magnetic Particle)</td><td>30–60</td><td>40–80</td><td>Ferromagnetic only</td></tr>
+<tr><td>UT (Ultrasonic)</td><td>60–150</td><td>80–200</td><td>Thickness + cracks</td></tr>
+<tr><td>RT (Radiographic)</td><td>150–400</td><td>200–500</td><td>Radiation — ← expensive</td></tr>
+<tr><td>PAUT (Phased Array)</td><td>100–250</td><td>150–350</td><td>Replaces RT</td></tr>
+<tr><td>He Leak Test</td><td>100–300</td><td>—</td><td>Sealing</td></tr>
+<tr><td>Hydro Test</td><td>80–200</td><td>—</td><td>For pressure vessels</td></tr>
+</table>
+<div class="tip-box">▸ <b>NDT for welds:</b> AWS D1.1 = PT minimum, ASME VIII = RT/UT<br>▸ <b>100% RT:</b> ×3–5 the cost vs. Spot (10%) — consider if it's required<br>▸ <b>PAUT replaces RT:</b> ↓cost, ↓time, ← ← ← ← the trend!</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== ASSEMBLY ==================== -->
+<div id="prc-assembly" class="prc-sec">
+<div class="card"><div class="ctitle">🔧 Assembly &amp; Additional Work — Costs</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Assembly — Rates</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Work</th><th>₪/hour</th><th>₪/part (typical)</th></tr>
+<tr><td>Simple Mechanical Assembly</td><td>150–220</td><td>10–50</td></tr>
+<tr><td>Complex Assembly + Calibration</td><td>200–350</td><td>50–200</td></tr>
+<tr><td>Press-Fit (Bearings, Pins)</td><td>180–280</td><td>15–60</td></tr>
+<tr><td>Helicoil / Insert Installation</td><td>—</td><td>5–15 per unit</td></tr>
+<tr><td>Bonding Loctite/Epoxy</td><td>180–250</td><td>10–40</td></tr>
+<tr><td>Dowel Pin + Reaming</td><td>200–300</td><td>20–60</td></tr>
+<tr><td>Safety Wiring</td><td>200–350</td><td>15–40 per bolt</td></tr>
+<tr><td>Balancing (Dynamic)</td><td>—</td><td>100–500</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Welding — Rates</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Type</th><th>₪/hour</th><th>₪/m seam</th><th>Notes</th></tr>
+<tr><td>MIG/MAG Steel</td><td>180–280</td><td>40–80</td><td>Structural</td></tr>
+<tr><td>TIG SS</td><td>250–400</td><td>80–150</td><td>Piping, vessels</td></tr>
+<tr><td>TIG Al</td><td>250–400</td><td>80–150</td><td>AC, ← ← difficult</td></tr>
+<tr><td>TIG Aerospace (AWS/NADCAP)</td><td>350–550</td><td>120–250</td><td>+documentation</td></tr>
+<tr><td>Robot Welding</td><td>300–450</td><td>20–50</td><td>Series ← ← ↓</td></tr>
+<tr><td>Laser Welding</td><td>400–700</td><td>60–150</td><td>Precise, ↓HAZ</td></tr>
+<tr><td>Electron Beam</td><td>600–1200</td><td>150–400</td><td>Vacuum, Ti/SS</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Additional Services</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Service</th><th>Price</th><th>Notes</th></tr>
+<tr><td>Laser Marking</td><td>₪5–20/part</td><td>P/N, S/N, logo</td></tr>
+<tr><td>CNC Engraving</td><td>₪10–30/part</td><td>Deep text</td></tr>
+<tr><td>Special Packaging</td><td>₪10–50/part</td><td>VCI, desiccant</td></tr>
+<tr><td>Masking for Coating</td><td>₪15–50/part</td><td>Threaded holes, seats</td></tr>
+<tr><td>Mill Cert 3.1</td><td>₪15–50</td><td>Material certificate</td></tr>
+<tr><td>FAIR / AS9102</td><td>₪200–500</td><td>First article</td></tr>
+<tr><td>PPAP Level 3</td><td>₪500–2000</td><td>Automotive — 18 elements</td></tr>
+<tr><td>Certificate of Conformance</td><td>₪20–50</td><td>Basic CoC</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== QUOTE ==================== -->
+<div id="prc-quote" class="prc-sec">
+<div class="card"><div class="ctitle">📄 Quotation — Structure and Method</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Professional Quote Structure</div>
+<div class="spec-row"><span class="spec-key">1. Header</span><span class="spec-val">Company name, logo, date, quote number, validity</span></div>
+<div class="spec-row"><span class="spec-key">2. Customer Details</span><span class="spec-val">Name, contact person, email, RFQ Reference</span></div>
+<div class="spec-row"><span class="spec-key">3. Technical Description</span><span class="spec-val">P/N, Rev, material, quantity, attached drawing</span></div>
+<div class="spec-row"><span class="spec-key">4. Unit Price</span><span class="spec-val">Breakdown: material + machining + finish + inspection</span></div>
+<div class="spec-row"><span class="spec-key">5. NRE</span><span class="spec-val">Non-Recurring: fixture, programming, special tooling</span></div>
+<div class="spec-row"><span class="spec-key">6. Lead Time</span><span class="spec-val">Business days! FAI + series</span></div>
+<div class="spec-row"><span class="spec-key">7. MOQ</span><span class="spec-val">Minimum quantity + price breaks</span></div>
+<div class="spec-row"><span class="spec-key">8. Payment Terms</span><span class="spec-val">Net 30/60, deposit?, currency</span></div>
+<div class="spec-row"><span class="spec-key">9. Exclusions</span><span class="spec-val">What's not included! (coating? NDT? packaging? cert?)</span></div>
+<div class="spec-row"><span class="spec-key">10. Signature</span><span class="spec-val">Quote validity (30/60 days), T&amp;C</span></div>
+<div class="tip-box">▸ <b>Price Break:</b> 10/50/100/500 units — with a price reduction<br>▸ <b>Validity:</b> 30 days standard. Special materials = 14 days<br>▸ <b>NRE:</b> always separate! The customer pays it once</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Lead Time — Typical Delivery Times</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Stage</th><th>Days (regular)</th><th>Days (rush)</th></tr>
+<tr><td>Material Order (stock)</td><td>1–3</td><td>0–1</td></tr>
+<tr><td>Material Order (special)</td><td>14–42</td><td>7–21</td></tr>
+<tr><td>CAM Programming</td><td>1–3</td><td>0.5–1</td></tr>
+<tr><td>Machining (simple part)</td><td>3–5</td><td>1–2</td></tr>
+<tr><td>Machining (complex part)</td><td>7–14</td><td>3–7</td></tr>
+<tr><td>Coating</td><td>5–10</td><td>3–5</td></tr>
+<tr><td>Heat Treatment</td><td>5–10</td><td>3–5</td></tr>
+<tr><td>NDT</td><td>3–7</td><td>1–3</td></tr>
+<tr><td>FAI + Report</td><td>3–5</td><td>1–2</td></tr>
+<tr><td>Packaging + Shipping</td><td>1–2</td><td>0.5–1</td></tr>
+</table>
+<div class="tip-box">▸ <b>Typical total:</b> 3–4 weeks (simple) · 6–8 weeks (complex+coating)<br>▸ <b>Urgency:</b> ×1.3–2.0 price premium — price it in advance!</div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== FORMULAS ==================== -->
+<div id="prc-formulas" class="prc-sec">
+<div class="card"><div class="ctitle">📊 Pricing Formulas &amp; Metrics</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Basic Formulas</div>
+<div class="spec-row"><span class="spec-key">Material Cost</span><span class="spec-val">= finished weight × BTF × ₪/kg</span></div>
+<div class="spec-row"><span class="spec-key">Machining Cost</span><span class="spec-val">= (Setup/quantity + machine time) × rate</span></div>
+<div class="spec-row"><span class="spec-key">Direct Cost</span><span class="spec-val">= material + machining + finish + inspection</span></div>
+<div class="spec-row"><span class="spec-key">Full Cost</span><span class="spec-val">= direct cost × (1 + overhead%)</span></div>
+<div class="spec-row"><span class="spec-key">Selling Price</span><span class="spec-val">= full cost × (1 + margin%)</span></div>
+<div class="spec-row"><span class="spec-key">NRE</span><span class="spec-val">= fixture + programming + tooling + first FAI</span></div>
+<div class="spec-row"><span class="spec-key">Break-Even</span><span class="spec-val">= NRE / (price − variable cost)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Performance Metrics — KPIs</div>
+<div class="spec-row"><span class="spec-key">OEE</span><span class="spec-val">= Availability × Performance × Quality</span></div>
+<div class="spec-row"><span class="spec-key">OEE World Class</span><span class="spec-val">≥ 85%</span></div>
+<div class="spec-row"><span class="spec-key">Scrap Rate</span><span class="spec-val">= scrap / production quantity. Target: &lt; 2%</span></div>
+<div class="spec-row"><span class="spec-key">On-Time Delivery</span><span class="spec-val">≥ 95%. &lt; 90% = a problem!</span></div>
+<div class="spec-row"><span class="spec-key">Setup Ratio</span><span class="spec-val">= setup time / production time. Target: &lt; 15%</span></div>
+<div class="spec-row"><span class="spec-key">Spindle Utilization</span><span class="spec-val">Spindle hours / available hours. Target: &gt; 60%</span></div>
+<div class="spec-row"><span class="spec-key">Cost/Part Trend</span><span class="spec-val">↓ with the learning curve — Wright's Law: C_n = C₁ × n^b</span></div>
+<div class="tip-box">▸ <b>Learning Curve:</b> 80% LC = every quantity doubling ← ↓20% cost<br>▸ <b>Wright's Law:</b> b = log(LC)/log(2) = log(0.8)/log(2) = −0.322</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange,#fb923c)">Overhead — What Does It Include?</div>
+<div class="spec-row"><span class="spec-key">Rent / Depreciation</span><span class="spec-val">Building, machines, equipment</span></div>
+<div class="spec-row"><span class="spec-key">Electricity + Water</span><span class="spec-val">CNC = 15–40 kW × ₪0.5/kWh</span></div>
+<div class="spec-row"><span class="spec-key">Coolant + Oils</span><span class="spec-val">Replaced every 3–6 months</span></div>
+<div class="spec-row"><span class="spec-key">Cutting Tools</span><span class="spec-val">Usually 5–15% of machining cost</span></div>
+<div class="spec-row"><span class="spec-key">Insurance</span><span class="spec-val">Facility + equipment + product liability</span></div>
+<div class="spec-row"><span class="spec-key">Administration</span><span class="spec-val">Accounting, purchasing, management</span></div>
+<div class="spec-row"><span class="spec-key">Maintenance</span><span class="spec-val">Preventive + corrective + spare parts</span></div>
+<div class="spec-row"><span class="spec-key">Typical Total</span><span class="spec-val">25–45% of direct cost</span></div>
+<div class="tip-box">▸ <b>Small shop:</b> overhead 25–35%<br>▸ <b>Medium shop:</b> 30–40%<br>▸ <b>Large shop + AS9100:</b> 35–50%<br>▸ <b>Cutting tools:</b> figure 8–12% of the machine hour cost</div>
+</div>
+
+</div></div></div>
+
+</div>
+
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+function showPrc(id,btn){
+  document.querySelectorAll('.prc-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.prc-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('prc-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function loadPreset(p){
+  const presets={
+    pin:{wt:0.05,btf:1.1,mat:15,setup:15,mach:3,rate:300,qty:100,coat:0,ht:0,insp:0,deb:0,oh:25,margin:15,
+         desc:'12L14 Pin ⌀8×40, CNC lathe, 100 units'},
+    bracket:{wt:0.25,btf:1.5,mat:38,setup:40,mach:18,rate:350,qty:30,coat:12,ht:0,insp:15,deb:8,oh:30,margin:20,
+         desc:'Al 6061 Bracket, VMC 3-axis, 2 OPs, 30 units'},
+    shaft:{wt:0.8,btf:1.2,mat:18,setup:45,mach:35,rate:300,qty:15,coat:0,ht:15,insp:40,deb:8,oh:30,margin:20,
+         desc:'4140 Shaft ⌀30×120, CNC lathe, Q&T, 15 units'},
+    housing:{wt:2.5,btf:2.0,mat:55,setup:90,mach:75,rate:450,qty:10,coat:18,ht:0,insp:100,deb:15,oh:35,margin:25,
+         desc:'SS 304 Housing, large VMC 3-axis, 3 OPs, CMM, 10 units'},
+    aero:{wt:1.2,btf:4.0,mat:58,setup:120,mach:90,rate:700,qty:5,coat:25,ht:0,insp:100,deb:15,oh:40,margin:25,
+         desc:'7075 Aerospace Bracket, 5-axis Sim, FAI+Anodize, 5 units'},
+    pocket:{wt:0.4,btf:1.8,mat:38,setup:50,mach:30,rate:350,qty:25,coat:12,ht:0,insp:15,deb:8,oh:30,margin:20,
+         desc:'Al 6061 Internal Pocket, VMC 3-axis, 1 OP, anodize, 25 units'},
+    plate:{wt:1.8,btf:1.5,mat:55,setup:60,mach:45,rate:350,qty:15,coat:10,ht:0,insp:40,deb:8,oh:30,margin:20,
+         desc:'SS 304 Plate with holes and margins, VMC 3-axis, 15 units'},
+    mold:{wt:5.0,btf:2.2,mat:18,setup:120,mach:180,rate:550,qty:1,coat:0,ht:25,insp:100,deb:30,oh:35,margin:25,
+         desc:'3D Mold from 4140, VMC 5-axis, ball mill, 1 unit'},
+    swiss:{wt:0.008,btf:1.15,mat:120,setup:90,mach:2,rate:450,qty:500,coat:10,ht:0,insp:15,deb:0,oh:30,margin:20,
+         desc:'17-4PH Medical Screw, Swiss-Type, 500 units'}
+  };
+  const d=presets[p]; if(!d) return;
+  document.getElementById('pc-wt').value=d.wt;
+  const btfSel=document.getElementById('pc-btf');
+  for(let o of btfSel.options){if(parseFloat(o.value)==d.btf||Math.abs(parseFloat(o.value)-d.btf)<0.2){o.selected=true;break;}}
+  const matSel=document.getElementById('pc-mat');
+  for(let o of matSel.options){if(parseFloat(o.value)==d.mat){o.selected=true;break;}}
+  document.getElementById('pc-setup').value=d.setup;
+  document.getElementById('pc-mach').value=d.mach;
+  const rateSel=document.getElementById('pc-rate');
+  for(let o of rateSel.options){if(parseFloat(o.value)==d.rate){o.selected=true;break;}}
+  document.getElementById('pc-qty').value=d.qty;
+  const coatSel=document.getElementById('pc-coat');
+  for(let o of coatSel.options){if(parseFloat(o.value)==d.coat){o.selected=true;break;}}
+  const htSel=document.getElementById('pc-ht');
+  for(let o of htSel.options){if(parseFloat(o.value)==d.ht){o.selected=true;break;}}
+  const inspSel=document.getElementById('pc-insp');
+  for(let o of inspSel.options){if(parseFloat(o.value)==d.insp){o.selected=true;break;}}
+  const debSel=document.getElementById('pc-deb');
+  for(let o of debSel.options){if(parseFloat(o.value)==d.deb){o.selected=true;break;}}
+  document.getElementById('pc-oh').value=d.oh;
+  document.getElementById('pc-margin').value=d.margin;
+  calcFullPrice();
+}
+
+function calcFullPrice(){
+  const wt=parseFloat(document.getElementById('pc-wt').value)||0.3;
+  const btf=parseFloat(document.getElementById('pc-btf').value)||1.3;
+  const matPrice=parseFloat(document.getElementById('pc-mat').value)||38;
+  const setupMin=parseFloat(document.getElementById('pc-setup').value)||45;
+  const machMin=parseFloat(document.getElementById('pc-mach').value)||25;
+  const rate=parseFloat(document.getElementById('pc-rate').value)||350;
+  const qty=parseInt(document.getElementById('pc-qty').value)||20;
+  const coat=parseFloat(document.getElementById('pc-coat').value)||0;
+  const ht=parseFloat(document.getElementById('pc-ht').value)||0;
+  const insp=parseFloat(document.getElementById('pc-insp').value)||15;
+  const deb=parseFloat(document.getElementById('pc-deb').value)||8;
+  const oh=(parseFloat(document.getElementById('pc-oh').value)||30)/100;
+  const margin=(parseFloat(document.getElementById('pc-margin').value)||20)/100;
+  
+  const matCost=wt*btf*matPrice;
+  const setupCost=(setupMin/60)*rate/qty;
+  const machCost=(machMin/60)*rate;
+  const finishCost=coat+ht+insp+deb;
+  const directCost=matCost+setupCost+machCost+finishCost;
+  const overheadAmt=directCost*oh;
+  const fullCost=directCost+overheadAmt;
+  const sellPrice=fullCost*(1+margin);
+  const profitAbs=sellPrice-fullCost;
+  
+  document.getElementById('pc-r1').innerHTML=
+    '<b>Material:</b> '+wt+'kg × '+btf+' (BTF) × '+matPrice+'₪/kg = <b style="color:var(--green)">'+matCost.toFixed(0)+'₪</b>';
+  document.getElementById('pc-r2').innerHTML=
+    '<b>Setup/part:</b> '+(setupMin)+' min × '+rate+'₪/hr ÷ '+qty+' = '+setupCost.toFixed(0)+'₪ · '+
+    '<b>Machine:</b> '+machMin+' min × '+rate+'₪/hr = '+machCost.toFixed(0)+'₪ · '+
+    '<b style="color:var(--green)">Total '+(setupCost+machCost).toFixed(0)+'₪</b>';
+  document.getElementById('pc-r3').innerHTML=
+    'Coating '+coat+'₪ + heat '+ht+'₪ + inspection '+insp+'₪ + deburr '+deb+'₪ = <b style="color:var(--green)">'+finishCost.toFixed(0)+'₪</b>';
+  
+  document.getElementById('pc-summary').innerHTML=
+    '<table style="width:100%;font-size:12px">'+
+    '<tr><td>Raw material</td><td style="text-align:right">'+matCost.toFixed(0)+'₪</td></tr>'+
+    '<tr><td>Setup / part</td><td style="text-align:right">'+setupCost.toFixed(0)+'₪</td></tr>'+
+    '<tr><td>Machine time</td><td style="text-align:right">'+machCost.toFixed(0)+'₪</td></tr>'+
+    '<tr><td>Finish + inspection</td><td style="text-align:right">'+finishCost.toFixed(0)+'₪</td></tr>'+
+    '<tr style="border-top:1px solid var(--border)"><td><b>Direct cost</b></td><td style="text-align:right"><b>'+directCost.toFixed(0)+'₪</b></td></tr>'+
+    '<tr><td>Overhead '+(oh*100).toFixed(0)+'%</td><td style="text-align:right">'+overheadAmt.toFixed(0)+'₪</td></tr>'+
+    '<tr style="border-top:1px solid var(--border)"><td><b>Full cost</b></td><td style="text-align:right"><b>'+fullCost.toFixed(0)+'₪</b></td></tr>'+
+    '<tr><td>Margin '+(margin*100).toFixed(0)+'%</td><td style="text-align:right">'+profitAbs.toFixed(0)+'₪</td></tr>'+
+    '</table>'+
+    '<div style="margin-top:10px;padding:12px;background:var(--bg);border-radius:6px;text-align:center">'+
+    '<div style="font-size:28px;font-weight:900;color:var(--green)">₪'+sellPrice.toFixed(0)+' / part</div>'+
+    '<div style="font-size:12px;color:var(--muted);margin-top:4px">'+qty+' units × ₪'+sellPrice.toFixed(0)+' = total order ₪'+(sellPrice*qty).toFixed(0)+'</div>'+
+    '</div>';
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
+
+</script>
+</body>
+</html>

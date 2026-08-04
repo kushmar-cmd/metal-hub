@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<link rel="canonical" href="https://metal.kushmar.com/en/pressure.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/pressure.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/pressure.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/pressure.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pressure Testing &amp; Cryogenics Guide — Hydrostatic, Pneumatic, Leak Test, Burst Test | METAL HUB</title>
+<meta name="description" content="Complete pressure testing and cryogenic engineering guide: hydrostatic and pneumatic pressure tests, leak testing methods (helium, bubble, pressure decay), burst and proof testing, cryogenic materials and equipment, vacuum technology, pressure fatigue, and standards.">
+<meta name="keywords" content="hydrostatic pressure test, pneumatic test safety, helium leak test, burst test pressure vessel, cryogenic materials, vacuum pump types, pressure vessel standards ASME">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/en/pressure.html">
+<meta property="og:title" content="Pressure Testing &amp; Cryogenics Guide | METAL HUB">
+<meta property="og:description" content="Complete guide: hydrostatic/pneumatic testing, leak detection, burst testing, cryogenics, vacuum technology, and standards.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Pressure Testing & Cryogenics Guide",
+  "description": "Complete pressure testing and cryogenic engineering guide: hydrostatic/pneumatic testing, leak detection, burst testing, cryogenic materials, vacuum technology, and standards",
+  "about": ["Pressure Testing", "Hydrostatic Test", "Pneumatic Test", "Leak Testing", "Cryogenics", "Vacuum Technology", "Burst Test"],
+  "url": "https://metal.kushmar.com/en/pressure.html",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-purple{background:#8957e5;color:#fff}
+.b-red{background:#cf222e;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.tip-box{background:rgba(253,224,71,0.08);border:1px solid var(--yellow,#fde047);border-radius:6px;padding:8px 12px;margin-top:8px;font-size:11px;line-height:1.8}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+    <a href="https://metal.kushmar.com/pressure.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+
+<div id="sec-pressure" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1a17);border-color:var(--cyan,#67e8f9)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔬</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--cyan,#67e8f9)">Pressure Testing &amp; Cryogenics</div>
+    <div style="font-size:12px;color:var(--muted)">Hydrostatic · Pneumatic · Leak Test · Burst · Cryogenic · Vacuum · Proof · Fatigue</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
+  <button class="prs-tab active" onclick="showPrs('hydro',this)">💧 Hydrostatic</button>
+  <button class="prs-tab" onclick="showPrs('pneumatic',this)">💨 Pneumatic</button>
+  <button class="prs-tab" onclick="showPrs('leak',this)">🔎 Leak Test</button>
+  <button class="prs-tab" onclick="showPrs('burst',this)">💥 Burst / Proof</button>
+  <button class="prs-tab" onclick="showPrs('cryo',this)">🧊 Cryogenics</button>
+  <button class="prs-tab" onclick="showPrs('vacuum',this)">🌀 Vacuum</button>
+  <button class="prs-tab" onclick="showPrs('fatigue',this)">🔄 Pressure Fatigue</button>
+  <button class="prs-tab" onclick="showPrs('standards_p',this)">📋 Standards</button>
+</div>
+
+<style>
+.prs-tab{padding:6px 12px;border:1px solid var(--border);border-radius:16px;background:var(--bg);color:var(--muted);cursor:pointer;font-size:11px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.prs-tab:hover,.prs-tab.active{background:var(--cyan,#67e8f9);color:#000;border-color:var(--cyan,#67e8f9);font-weight:700}
+.prs-sec{display:none}.prs-sec.active{display:block}
+</style>
+
+<!-- ==================== HYDROSTATIC ==================== -->
+<div id="prs-hydro" class="prs-sec active">
+<div class="card"><div class="ctitle">💧 Hydrostatic Pressure Test</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Hydrostatic Principles</div>
+<div><span class="mc-badge b-blue">Water / Oil</span><span class="mc-badge b-green">Safe</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Fill the pressure vessel with liquid (water/oil) + raise pressure to the test value</span></div>
+<div class="spec-row"><span class="spec-key">Test Pressure</span><span class="spec-val">1.25×–1.5× working pressure (MAWP) — depends on standard</span></div>
+<div class="spec-row"><span class="spec-key">Hold Time</span><span class="spec-val">10–30 minutes minimum (depends on wall thickness and volume)</span></div>
+<div class="spec-row"><span class="spec-key">Medium</span><span class="spec-val">Clean water (with corrosion inhibitor) / oil / glycol</span></div>
+<div class="spec-row"><span class="spec-key">Key Advantage</span><span class="spec-val">A non-compressible liquid — failure doesn't cause an explosion!</span></div>
+<div class="spec-row"><span class="spec-key">Measurement</span><span class="spec-val">A calibrated gauge ±1% FS — at the highest point</span></div>
+<div class="spec-row"><span class="spec-key">Pass Criterion</span><span class="spec-val">No pressure drop, no visible leakage, no distortion</span></div>
+<div class="spec-row"><span class="spec-key">Temperature</span><span class="spec-val">Minimum 5°C above MDMT (brittle fracture analysis) — prevents brittle failure</span></div>
+<div class="tip-box">▸ <b>Air Release:</b> Opening a vent at the highest point before testing is mandatory<br>▸ <b>Safety:</b> ← no personnel near pressure lines during pressurization<br>▸ <b>Draining:</b> after testing — drain + dry + preserve</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=hydrostatic+pressure+test+procedure+piping+vessel" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Hydrostatic Test Equipment</div>
+<div class="spec-row"><span class="spec-key">Test Pump</span><span class="spec-val">Manual/electric hydro pump — up to 700 bar</span></div>
+<div class="spec-row"><span class="spec-key">Pressure Gauge</span><span class="spec-val">Calibrated, range 1.5×–4× test pressure, accuracy ±1%</span></div>
+<div class="spec-row"><span class="spec-key">Safety Valve</span><span class="spec-val">Relief Valve — calibrated to 1.1× test pressure</span></div>
+<div class="spec-row"><span class="spec-key">Valves</span><span class="spec-val">Blind Flanges / Test Caps / Expansion Plugs</span></div>
+<div class="spec-row"><span class="spec-key">Pressure Recorder</span><span class="spec-val">Chart Recorder / Data Logger — continuous documentation</span></div>
+<div class="spec-row"><span class="spec-key">Fill Piping</span><span class="spec-val">High-Pressure Hose — rated ×4 test pressure</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturers</span><span class="spec-val">Maximator, Haskel, Parker, Graco, Rice Hydro</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Piping Hydro Test</div>
+<div><span class="mc-badge b-blue">ASME B31.3</span></div>
+<div class="spec-row"><span class="spec-key">Test Pressure</span><span class="spec-val">1.5 × Design Pressure (ASME B31.3)</span></div>
+<div class="spec-row"><span class="spec-key">Time</span><span class="spec-val">10 minutes minimum after stabilizing</span></div>
+<div class="spec-row"><span class="spec-key">Preparation</span><span class="spec-val">Disconnect sensitive instruments, safety valves, expansion joints</span></div>
+<div class="spec-row"><span class="spec-key">Venting</span><span class="spec-val">Open an air vent at the highest point — mandatory!</span></div>
+<div class="spec-row"><span class="spec-key">Documentation</span><span class="spec-val">Test Pack: P&amp;ID, Test Boundary, Gauge Cert, Results</span></div>
+<div class="spec-row"><span class="spec-key">Reinstatement</span><span class="spec-val">Restoring instruments + safety valves after testing</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=piping+hydrostatic+test+ASME+B31.3+procedure+step+by+step" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Vessel Hydro Test</div>
+<div><span class="mc-badge b-orange">ASME VIII</span></div>
+<div class="spec-row"><span class="spec-key">Test Pressure</span><span class="spec-val">1.3 × MAWP × (σ_test/σ_design) — ASME VIII Div.1</span></div>
+<div class="spec-row"><span class="spec-key">Time</span><span class="spec-val">30 minutes minimum</span></div>
+<div class="spec-row"><span class="spec-key">Visual Inspection</span><span class="spec-val">Inspect all welds + nozzles at test pressure</span></div>
+<div class="spec-row"><span class="spec-key">Distortion</span><span class="spec-val">Diameter measurement before/after — permanent distortion = failure</span></div>
+<div class="spec-row"><span class="spec-key">Head Types</span><span class="spec-val">Ellipsoidal (2:1) / Torispherical / Hemispherical / Flat</span></div>
+<div class="spec-row"><span class="spec-key">MDMT</span><span class="spec-val">Minimum Design Metal Temperature — Charpy Impact Test</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=pressure+vessel+hydrostatic+test+ASME+VIII+procedure" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== PNEUMATIC ==================== -->
+<div id="prs-pneumatic" class="prs-sec">
+<div class="card"><div class="ctitle">💨 Pneumatic Pressure Test</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Pneumatic Principles</div>
+<div><span class="mc-badge b-red">High Risk!</span><span class="mc-badge b-blue">Air / N₂</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Raising pressure with air/inert gas — high stored energy!</span></div>
+<div class="spec-row"><span class="spec-key">Test Pressure</span><span class="spec-val">1.1 × Design Pressure (ASME B31.3) — lower than hydro!</span></div>
+<div class="spec-row"><span class="spec-key">When Required</span><span class="spec-val">When water isn't allowed (catalyst, O₂ lines, drying not feasible)</span></div>
+<div class="spec-row"><span class="spec-key">Danger!</span><span class="spec-val">Compressed gas = explosion! ×1000 the energy of liquid!</span></div>
+<div class="spec-row"><span class="spec-key">Protection</span><span class="spec-val">Barricade / safety distance / remote monitoring</span></div>
+<div class="spec-row"><span class="spec-key">Pressurization</span><span class="spec-val">Gradual! 25% → 50% → 75% → 100% with a hold at each step</span></div>
+<div class="spec-row"><span class="spec-key">Inert Gas</span><span class="spec-val">N₂ preferred — ← ← prevents oxidation + safe</span></div>
+<div class="tip-box">▸ <b>Prohibited:</b> pneumatic testing without safety engineer approval!<br>▸ <b>Relief Valve:</b> mandatory at 1.1× test pressure<br>▸ <b>Stored Energy:</b> E = P×V — a ⌀6" pipe 100m long at 10 bar = like TNT!<br>▸ <b>Sensitive Leak Test:</b> soap solution / Snoop — bubble testing</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=pneumatic+pressure+test+safety+procedure+nitrogen+piping" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Hydrostatic vs. Pneumatic Comparison</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Parameter</th><th>Hydrostatic</th><th>Pneumatic</th></tr>
+<tr><td>Medium</td><td>Water / Oil</td><td>Air / N₂</td></tr>
+<tr><td>Test Pressure (B31.3)</td><td>1.5× Design</td><td>1.1× Design</td></tr>
+<tr><td>Explosion Risk</td><td>Very low</td><td>Very high!</td></tr>
+<tr><td>Stored Energy</td><td>Minimal</td><td>Enormous</td></tr>
+<tr><td>Leak Detection</td><td>Good (water visible)</td><td>Needs soap/Helium</td></tr>
+<tr><td>Drying</td><td>Required after</td><td>Not required</td></tr>
+<tr><td>Weight</td><td>Heavy (water)</td><td>Light (air)</td></tr>
+<tr><td>Special Approval</td><td>No</td><td>Yes — safety engineer!</td></tr>
+</table>
+</div>
+
+</div></div></div>
+
+<!-- ==================== LEAK TEST ==================== -->
+<div id="prs-leak" class="prs-sec">
+<div class="card"><div class="ctitle">🔎 Leak Testing Methods</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Bubble Test</div>
+<div><span class="mc-badge b-green">Simple</span><span class="mc-badge b-blue">Common</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Soap solution / Snoop on joints + internal pressure</span></div>
+<div class="spec-row"><span class="spec-key">Sensitivity</span><span class="spec-val">~10⁻³ mbar·L/s — medium</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Gas piping, HVAC, flange connections, welds</span></div>
+<div class="spec-row"><span class="spec-key">Products</span><span class="spec-val">Snoop / Leak-Tec / regular soap solution</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ASME V Art.10 / ASTM E515</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Helium Leak Test</div>
+<div><span class="mc-badge b-purple">High Sensitivity</span><span class="mc-badge b-orange">Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Helium (a very small molecule) + a mass spectrometer</span></div>
+<div class="spec-row"><span class="spec-key">Sensitivity</span><span class="spec-val">Up to 10⁻¹² mbar·L/s — the most sensitive!</span></div>
+<div class="spec-row"><span class="spec-key">Sniffer Mode</span><span class="spec-val">He inside, sniffer outside — fast, less sensitive</span></div>
+<div class="spec-row"><span class="spec-key">Vacuum Mode</span><span class="spec-val">He outside, vacuum + MS inside — ↑↑sensitivity</span></div>
+<div class="spec-row"><span class="spec-key">Bombing</span><span class="spec-val">He pressurized → removed → measure escaping He (sealed components)</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Space, nuclear, semiconductors, industrial HVAC, medical</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ASME V Art.10 / MIL-STD-1246 / ASTM E499</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturers</span><span class="spec-val">Pfeiffer, Agilent (Varian), Leybold, Inficon</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=helium+leak+test+mass+spectrometer+vacuum+sniffer+procedure" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Pressure Decay</div>
+<div><span class="mc-badge b-blue">Mass Production</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Pressurize → wait → measure the drop over a fixed time</span></div>
+<div class="spec-row"><span class="spec-key">Sensitivity</span><span class="spec-val">~10⁻³–10⁻⁴ mbar·L/s — medium-high</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">Automatic, fast, Go/No-Go — production line</span></div>
+<div class="spec-row"><span class="spec-key">Drawback</span><span class="spec-val">Temperature sensitive! ΔT=1°C → significant ΔP</span></div>
+<div class="spec-row"><span class="spec-key">Improvement</span><span class="spec-val">Differential Pressure — a Reference Volume cancels ΔT</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturers</span><span class="spec-val">ATEQ, InterTech, Cincinnati Test Systems</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=pressure+decay+leak+test+automated+production+line+ATEQ" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Flow Test</div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Measuring gas flow through a leak — Mass Flow Meter</span></div>
+<div class="spec-row"><span class="spec-key">Sensitivity</span><span class="spec-val">~10⁻²–10⁻⁴ mbar·L/s</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">Fast, not temperature-sensitive</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Automotive parts, faucets, valves, connectors</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Dye Penetrant</div>
+<div><span class="mc-badge b-green">NDT</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Penetrant dye → cleaning → developer → glowing cracks</span></div>
+<div class="spec-row"><span class="spec-key">Visible</span><span class="spec-val">Red dye — regular light</span></div>
+<div class="spec-row"><span class="spec-key">Fluorescent</span><span class="spec-val">UV (black light) — ↑↑sensitivity</span></div>
+<div class="spec-row"><span class="spec-key">Limitation</span><span class="spec-val">Surface-open cracks only</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ASME V Art.6 / ASTM E165 / ISO 3452</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturers</span><span class="spec-val">Magnaflux, Sherwin, MR Chemie, Helling</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=dye+penetrant+testing+liquid+penetrant+inspection+procedure+NDT" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Ultrasonic Testing</div>
+<div><span class="mc-badge b-purple">NDT</span><span class="mc-badge b-blue">Thickness + Cracks</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Sound waves 1–25MHz → reflection from a defect/back wall</span></div>
+<div class="spec-row"><span class="spec-key">Straight Beam</span><span class="spec-val">Wall thickness — 0° probe</span></div>
+<div class="spec-row"><span class="spec-key">Angle Beam</span><span class="spec-val">Weld cracks — 45°/60°/70° shear wave</span></div>
+<div class="spec-row"><span class="spec-key">TOFD</span><span class="spec-val">Time of Flight Diffraction — ↑defect sizing accuracy</span></div>
+<div class="spec-row"><span class="spec-key">Phased Array</span><span class="spec-val">PAUT — full electronic scanning</span></div>
+<div class="spec-row"><span class="spec-key">Couplant</span><span class="spec-val">Gel / water / glycerin — mandatory!</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ASME V Art.4+5 / ASTM E114 / ISO 17640</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturers</span><span class="spec-val">Olympus, GE/Baker Hughes, Sonatest, Zetec</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=ultrasonic+testing+UT+phased+array+TOFD+weld+inspection+NDT" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== BURST / PROOF ==================== -->
+<div id="prs-burst" class="prs-sec">
+<div class="card"><div class="ctitle">💥 Burst Test / Proof Test</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Proof Test</div>
+<div><span class="mc-badge b-green">Non-Destructive</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Raising pressure above working pressure, below yield — proving integrity</span></div>
+<div class="spec-row"><span class="spec-key">Pressure</span><span class="spec-val">1.25×–1.5× MAWP — depends on standard</span></div>
+<div class="spec-row"><span class="spec-key">Distortion</span><span class="spec-val">Permanent deformation prohibited! (= Fail)</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Pressure vessels, pipes, gas cylinders, fittings</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ASME VIII / PED 2014/68/EU / EN 13445</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Burst Test</div>
+<div><span class="mc-badge b-red">Destructive!</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Raising pressure to failure — determining Burst Pressure</span></div>
+<div class="spec-row"><span class="spec-key">Medium</span><span class="spec-val">Water only! (safety)</span></div>
+<div class="spec-row"><span class="spec-key">Safety Factor</span><span class="spec-val">Burst/MAWP ≥ 4 (ASME) / ≥ 3 (EN)</span></div>
+<div class="spec-row"><span class="spec-key">Measurement</span><span class="spec-val">Pressure, volume, distortion — real-time</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Design validation, R&amp;D, material failure, QA sampling</span></div>
+<div class="spec-row"><span class="spec-key">Barlow</span><span class="spec-val">P_burst = 2×S×t/D — Barlow's formula for pipe</span></div>
+<div class="tip-box">▸ <b>Barlow:</b> P = 2×UTS×t/OD — thin-wall pipe<br>▸ <b>Sphere:</b> P = 2×UTS×t/R<br>▸ SF=4 → MAWP = Burst/4</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=burst+test+pressure+vessel+pipe+hydraulic+destructive+test" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Charpy Impact Test</div>
+<div><span class="mc-badge b-blue">ASTM E23</span><span class="mc-badge b-orange">Low Temp.</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">A pendulum hammer → a V-Notch specimen → fracture energy (Joules)</span></div>
+<div class="spec-row"><span class="spec-key">Temperature</span><span class="spec-val">Tested at MDMT or lower</span></div>
+<div class="spec-row"><span class="spec-key">Minimum Value</span><span class="spec-val">20J–27J for carbon steels (ASME VIII UCS-66)</span></div>
+<div class="spec-row"><span class="spec-key">Specimen</span><span class="spec-val">10×10×55mm · V-Notch 2mm depth, 45°</span></div>
+<div class="spec-row"><span class="spec-key">Transition Curve</span><span class="spec-val">The ductile→brittle transition curve — DBTT</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Cryogenics, LNG, pressure vessels, bridges</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=Charpy+impact+test+V+notch+transition+temperature+brittle+ductile" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== CRYOGENICS ==================== -->
+<div id="prs-cryo" class="prs-sec">
+<div class="card"><div class="ctitle">🧊 Cryogenic Engineering</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Cryogenic Temperatures — Scale</div>
+<div><span class="mc-badge b-blue">Below 120K</span></div>
+<div class="spec-row"><span class="spec-key">Definition</span><span class="spec-val">Cryogenic = below 120K (−150°C)</span></div>
+<div class="spec-row"><span class="spec-key">LNG</span><span class="spec-val">−162°C (111K) — liquid methane</span></div>
+<div class="spec-row"><span class="spec-key">LOX</span><span class="spec-val">−183°C (90K) — liquid oxygen</span></div>
+<div class="spec-row"><span class="spec-key">LN₂</span><span class="spec-val">−196°C (77K) — liquid nitrogen</span></div>
+<div class="spec-row"><span class="spec-key">LAr</span><span class="spec-val">−186°C (87K) — liquid argon</span></div>
+<div class="spec-row"><span class="spec-key">LH₂</span><span class="spec-val">−253°C (20K) — liquid hydrogen</span></div>
+<div class="spec-row"><span class="spec-key">LHe</span><span class="spec-val">−269°C (4K) — liquid helium</span></div>
+<div class="spec-row"><span class="spec-key">Absolute Zero</span><span class="spec-val">0K = −273.15°C — absolute zero</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Materials for Cryogenics</div>
+<div><span class="mc-badge b-green">Allowed</span><span class="mc-badge b-red">Prohibited</span></div>
+<div class="spec-row"><span class="spec-key">✅ SS 304/304L</span><span class="spec-val">Austenitic — ↑toughness in cold · the #1 choice</span></div>
+<div class="spec-row"><span class="spec-key">✅ SS 316/316L</span><span class="spec-val">↑corrosion resistance + cryogenic</span></div>
+<div class="spec-row"><span class="spec-key">✅ 9% Nickel Steel</span><span class="spec-val">ASTM A553 — LNG tanks · down to −196°C</span></div>
+<div class="spec-row"><span class="spec-key">✅ Al 5083/6061</span><span class="spec-val">FCC — no ductile-brittle transition!</span></div>
+<div class="spec-row"><span class="spec-key">✅ Inconel 718</span><span class="spec-val">Nickel superalloy — space/rockets</span></div>
+<div class="spec-row"><span class="spec-key">✅ PTFE/Kel-F</span><span class="spec-val">Seals — flexible even at 77K</span></div>
+<div class="spec-row"><span class="spec-key">❌ Carbon Steel</span><span class="spec-val">BCC → brittle! DBTT above −40°C</span></div>
+<div class="spec-row"><span class="spec-key">❌ Ferritic SS</span><span class="spec-val">BCC → brittle in cryogenic conditions!</span></div>
+<div class="spec-row"><span class="spec-key">❌ NBR/Buna-N</span><span class="spec-val">Hardens and cracks — replace with PTFE/Viton-GLT</span></div>
+<div class="tip-box">▸ <b>Rule: FCC = good, BCC = bad in cryogenics</b><br>▸ Austenitic SS + Al + Cu + Ni = FCC = ductile in cold<br>▸ Carbon Steel + Ferritic SS + Martensitic = BCC = brittle!</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=cryogenic+materials+selection+stainless+steel+LNG+low+temperature" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Cryogenic Valves &amp; Piping</div>
+<div class="spec-row"><span class="spec-key">Extended Bonnet</span><span class="spec-val">A valve with an extended neck — packing kept away from the cold source</span></div>
+<div class="spec-row"><span class="spec-key">Vacuum Jacket</span><span class="spec-val">Piping with a vacuum jacket — thermal insulation</span></div>
+<div class="spec-row"><span class="spec-key">MLI</span><span class="spec-val">Multi-Layer Insulation — aluminum layers under vacuum</span></div>
+<div class="spec-row"><span class="spec-key">Perlite</span><span class="spec-val">Granular insulation under vacuum — LN₂/LOX tanks</span></div>
+<div class="spec-row"><span class="spec-key">Bellows Sealed</span><span class="spec-val">A bellows-sealed valve — zero leak</span></div>
+<div class="spec-row"><span class="spec-key">BOG</span><span class="spec-val">Boil-Off Gas — evaporating gas — must be managed!</span></div>
+<div class="spec-row"><span class="spec-key">Cooldown Rate</span><span class="spec-val">50–100°C/hr maximum — ← prevents thermal shock</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=cryogenic+valve+piping+LNG+vacuum+jacketed+insulation+design" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Cryogenic Treatment</div>
+<div><span class="mc-badge b-blue">Cutting Tools</span><span class="mc-badge b-orange">Retained Austenite</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Cooling to −196°C ← converts retained austenite → martensite</span></div>
+<div class="spec-row"><span class="spec-key">Deep Cryo</span><span class="spec-val">−196°C for 24–36h → slow warming</span></div>
+<div class="spec-row"><span class="spec-key">Shallow Cryo</span><span class="spec-val">−80°C (CO₂) — less effective</span></div>
+<div class="spec-row"><span class="spec-key">Advantages</span><span class="spec-val">↑tool life ×2–5 · ↑wear resistance · ↑dimensional stability</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">HSS/carbide cutting tools, F1 engines, gears, valves</span></div>
+<div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">D2, M2, H13, 52100, 440C — tool and bearing steels</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=cryogenic+treatment+tool+steel+retained+austenite+deep+cryo+process" target="_blank">▶ YouTube</a>
+</div>
+
+</div></div></div>
+
+<!-- ==================== VACUUM ==================== -->
+<div id="prs-vacuum" class="prs-sec">
+<div class="card"><div class="ctitle">🌀 Vacuum Technology</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Vacuum Ranges</div>
+<table style="font-size:11px;margin-top:6px">
+<tr><th>Range</th><th>Pressure</th><th>Use</th></tr>
+<tr><td>Rough Vacuum</td><td>1000–1 mbar</td><td>Drying, evacuation, packaging</td></tr>
+<tr><td>Medium Vacuum</td><td>1–10⁻³ mbar</td><td>Leak testing, PVD coating prep</td></tr>
+<tr><td>High Vacuum</td><td>10⁻³–10⁻⁷ mbar</td><td>PVD/CVD, silicon, accelerators</td></tr>
+<tr><td>Ultra-High (UHV)</td><td>10⁻⁷–10⁻¹² mbar</td><td>Space, particle physics, MBE</td></tr>
+</table>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Vacuum Pumps</div>
+<div class="spec-row"><span class="spec-key">Rotary Vane</span><span class="spec-val">Oil-sealed — Rough Vacuum down to 10⁻² mbar</span></div>
+<div class="spec-row"><span class="spec-key">Scroll</span><span class="spec-val">Oil-free (Dry) — clean, quiet</span></div>
+<div class="spec-row"><span class="spec-key">Roots Blower</span><span class="spec-val">A booster — ↑flow, needs a backing pump</span></div>
+<div class="spec-row"><span class="spec-key">Turbo Molecular</span><span class="spec-val">High Vacuum — 10⁻¹⁰ mbar, 50,000+ RPM rotation</span></div>
+<div class="spec-row"><span class="spec-key">Diffusion</span><span class="spec-val">Boiling oil — cheap, reliable, less clean</span></div>
+<div class="spec-row"><span class="spec-key">Cryo Pump</span><span class="spec-val">Gas capture on a cold surface 10–20K — UHV</span></div>
+<div class="spec-row"><span class="spec-key">Ion Pump</span><span class="spec-val">Ionization + sputter — UHV, maintenance-free</span></div>
+<div class="spec-row"><span class="spec-key">Manufacturers</span><span class="spec-val">Edwards, Pfeiffer, Leybold, Busch, Agilent</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=vacuum+pump+types+rotary+vane+turbo+molecular+cryo+pump+comparison" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Vacuum Gauges</div>
+<div class="spec-row"><span class="spec-key">Pirani</span><span class="spec-val">Thermal — 1000–10⁻³ mbar</span></div>
+<div class="spec-row"><span class="spec-key">Capacitance (CDG)</span><span class="spec-val">Accurate, gas-independent — 1000–10⁻⁴ mbar</span></div>
+<div class="spec-row"><span class="spec-key">Cold Cathode</span><span class="spec-val">Penning — High Vacuum 10⁻²–10⁻⁹ mbar</span></div>
+<div class="spec-row"><span class="spec-key">Hot Cathode</span><span class="spec-val">Bayard-Alpert — UHV 10⁻⁴–10⁻¹¹ mbar</span></div>
+<div class="spec-row"><span class="spec-key">RGA</span><span class="spec-val">Residual Gas Analyzer — gas composition analysis</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== FATIGUE ==================== -->
+<div id="prs-fatigue" class="prs-sec">
+<div class="card"><div class="ctitle">🔄 Pressure Fatigue &amp; Cycling</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Pressure Cycling Fatigue</div>
+<div><span class="mc-badge b-red">Safety-Critical</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Repeated pressure cycles → fatigue cracking → failure</span></div>
+<div class="spec-row"><span class="spec-key">S-N Curve</span><span class="spec-val">Stress vs. cycles — ASME VIII-2 Appendix 5</span></div>
+<div class="spec-row"><span class="spec-key">Design Cycles</span><span class="spec-val">If N&gt;1000 cycles — fatigue analysis is required!</span></div>
+<div class="spec-row"><span class="spec-key">Stress Range</span><span class="spec-val">Δσ = σ_max − σ_min — what determines fatigue</span></div>
+<div class="spec-row"><span class="spec-key">Nozzle/Weld</span><span class="spec-val">↑stress concentration — the critical point!</span></div>
+<div class="spec-row"><span class="spec-key">Autofrettage</span><span class="spec-val">Over-pressure → residual compressive stresses → ↑fatigue life</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Gas cylinders, accumulators, heat exchangers, reactors</span></div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=pressure+vessel+fatigue+analysis+cycling+S-N+curve+ASME" target="_blank">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Autofrettage</div>
+<div><span class="mc-badge b-green">↑Fatigue Life</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Very high internal pressure → plastic flow → residual compressive stresses</span></div>
+<div class="spec-row"><span class="spec-key">Improvement</span><span class="spec-val">Fatigue life ×3–10!</span></div>
+<div class="spec-row"><span class="spec-key">Hydraulic</span><span class="spec-val">Water/oil at very high pressure</span></div>
+<div class="spec-row"><span class="spec-key">Swage</span><span class="spec-val">A mandrel passed through the bore — small piping</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Gun barrels, Common Rail fuel injectors, HP piping</span></div>
+</div>
+
+</div></div></div>
+
+<!-- ==================== STANDARDS ==================== -->
+<div id="prs-standards_p" class="prs-sec">
+<div class="card"><div class="ctitle">📋 Standards — Pressure Testing &amp; Cryogenics</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Pressure Vessel Standards</div>
+<div class="spec-row"><span class="spec-key">ASME VIII Div.1</span><span class="spec-val">Pressure Vessels — fixed rules (the most common)</span></div>
+<div class="spec-row"><span class="spec-key">ASME VIII Div.2</span><span class="spec-val">Pressure Vessels — analysis + rules (↑pressures, ↓weight)</span></div>
+<div class="spec-row"><span class="spec-key">EN 13445</span><span class="spec-val">European Pressure Vessels — harmonized with PED</span></div>
+<div class="spec-row"><span class="spec-key">PED 2014/68/EU</span><span class="spec-val">Pressure Equipment Directive — CE marking mandatory</span></div>
+<div class="spec-row"><span class="spec-key">EN 13480</span><span class="spec-val">Industrial Piping — European</span></div>
+<div class="spec-row"><span class="spec-key">AD 2000</span><span class="spec-val">German pressure vessel standard — TÜV</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Piping Standards</div>
+<div class="spec-row"><span class="spec-key">ASME B31.1</span><span class="spec-val">Power Piping — power plants, steam</span></div>
+<div class="spec-row"><span class="spec-key">ASME B31.3</span><span class="spec-val">Process Piping — chemical, oil, gas (the most common)</span></div>
+<div class="spec-row"><span class="spec-key">ASME B31.4</span><span class="spec-val">Pipeline Transportation — oil</span></div>
+<div class="spec-row"><span class="spec-key">ASME B31.8</span><span class="spec-val">Gas Transmission — natural gas</span></div>
+<div class="spec-row"><span class="spec-key">API 570</span><span class="spec-val">Piping Inspection — ongoing maintenance</span></div>
+<div class="spec-row"><span class="spec-key">API 510</span><span class="spec-val">Pressure Vessel Inspection — maintenance</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">NDT / Testing Standards</div>
+<div class="spec-row"><span class="spec-key">ASME V</span><span class="spec-val">Nondestructive Examination — all NDT methods</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E165</span><span class="spec-val">Liquid Penetrant — PT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E709</span><span class="spec-val">Magnetic Particle — MT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E114</span><span class="spec-val">Ultrasonic — UT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E94</span><span class="spec-val">Radiographic — RT</span></div>
+<div class="spec-row"><span class="spec-key">ASTM E499</span><span class="spec-val">Leak Testing — He MS</span></div>
+<div class="spec-row"><span class="spec-key">ISO 5817</span><span class="spec-val">Weld Quality — B/C/D acceptance</span></div>
+<div class="spec-row"><span class="spec-key">SNT-TC-1A</span><span class="spec-val">NDT Personnel Qualification — Level I/II/III</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--cyan,#67e8f9)">Cryogenics Standards</div>
+<div class="spec-row"><span class="spec-key">CGA S-1.1</span><span class="spec-val">Pressure Relief Devices — gas cylinders</span></div>
+<div class="spec-row"><span class="spec-key">EIGA Doc 24</span><span class="spec-val">Liquid Oxygen / Nitrogen Storage</span></div>
+<div class="spec-row"><span class="spec-key">EN 13458</span><span class="spec-val">Cryogenic Vessels — vacuum insulated</span></div>
+<div class="spec-row"><span class="spec-key">NFPA 55</span><span class="spec-val">Compressed &amp; Liquefied Gases — safety</span></div>
+<div class="spec-row"><span class="spec-key">ASTM A553</span><span class="spec-val">9% Nickel Steel — LNG tanks</span></div>
+<div class="spec-row"><span class="spec-key">API 620 App.Q</span><span class="spec-val">LNG Storage — giant LNG tanks</span></div>
+</div>
+
+</div></div></div>
+
+</div>
+
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+
+function showPrs(id,btn){
+  document.querySelectorAll('.prs-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.prs-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('prs-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
+
+</script>
+</body>
+</html>
