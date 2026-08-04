@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Chemistry — Adhesives, Sealants, Loctite, Electroplating | METAL HUB</title>
+<meta name="description" content="Engineering chemistry guide: industrial adhesives, Loctite (Threadlocker), electroplating and Faraday's law, and more — with live adhesive, Loctite, and electroplating calculators plus 29 instructional videos.">
+<meta name="keywords" content="engineering chemistry, adhesives, Loctite, threadlocker, sealants, electroplating, anodizing, MSDS, SDS, industrial gases, chemical compatibility">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://metal.kushmar.com/en/chem.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/chem.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/chem.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/chem.html">
+<meta property="og:title" content="Engineering Chemistry — Adhesives, Sealants, Loctite, Electroplating">
+<meta property="og:description" content="Engineering chemistry guide covering adhesives, sealants, threadlockers, lubricants, cleaners, fuels, gases, electrochemistry, coatings, and chemical safety — with live calculators.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://metal.kushmar.com/en/chem.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Engineering Chemistry — Adhesives, Sealants, Loctite, Electroplating",
+  "description": "Engineering chemistry guide: industrial adhesives, Loctite (Threadlocker), electroplating and Faraday's law, cutting fluids, industrial gases, chemical compatibility, and safety data sheets.",
+  "url": "https://metal.kushmar.com/en/chem.html",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<script>
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.documentElement.classList.add('light-mode');
+  }
+})();
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-red{background:#cf222e;color:#fff}
+.b-purple{background:#8957e5;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+</style>
+</head>
+<body>
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+    <a href="https://metal.kushmar.com/chem.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Engineering Chemistry</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">Industrial adhesives, Loctite threadlockers, sealants, lubricants, cleaners, fuels, industrial gases, electrochemistry &amp; plating, coatings, and chemical safety data — with live calculators for adhesive quantity, Loctite selection, and electroplating thickness.</p>
+</div>
+
+<div id="sec-chem" class="section">
+
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1535);border-color:#bc8cff">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🧪</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:#bc8cff">Engineering Chemistry</div>
+    <div style="font-size:12px;color:var(--muted)">Adhesives · Sealing · Fuels · Lubrication · Cleaning · Protection · MSDS · Chemical Compatibility</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="chem-tab active" onclick="showChem('adhesives',this)">🔗 Adhesives</button>
+  <button class="chem-tab" onclick="showChem('sealants',this)">🔒 Sealing &amp; Gaskets</button>
+  <button class="chem-tab" onclick="showChem('threadlocker',this)">🔩 Threadlocker</button>
+  <button class="chem-tab" onclick="showChem('lubspec',this)">⚙️ Specialty Lubrication</button>
+  <button class="chem-tab" onclick="showChem('cleaners',this)">🧹 Cleaning &amp; Degreasing</button>
+  <button class="chem-tab" onclick="showChem('protection',this)">🛡️ Temporary Protection</button>
+  <button class="chem-tab" onclick="showChem('fuels',this)">⛽ Fuels</button>
+  <button class="chem-tab" onclick="showChem('explosives',this)">💥 Explosives</button>
+  <button class="chem-tab" onclick="showChem('coolants',this)">💧 Cutting Fluids</button>
+  <button class="chem-tab" onclick="showChem('coatings_chem',this)">🎨 Chemical Coatings</button>
+  <button class="chem-tab" onclick="showChem('msds',this)">📋 MSDS / SDS</button>
+  <button class="chem-tab" onclick="showChem('compatibility',this)">⚗️ Chemical Compatibility</button>
+  <button class="chem-tab" onclick="showChem('gases',this)">⚗️ Industrial Gases</button>
+  <button class="chem-tab" onclick="showChem('ndt_chem',this)">🔬 Chemical NDT</button>
+  <button class="chem-tab" onclick="showChem('electrochem',this)">⚡ Electrochemistry</button>
+  <button class="chem-tab" onclick="showChem('paints',this)">🎨 Paints &amp; Primers</button>
+  <button class="chem-tab" onclick="showChem('brazing',this)">🔥 Brazing &amp; Stop-off</button>
+  <button class="chem-tab" onclick="showChem('batteries',this)">🔋 Batteries</button>
+  <button class="chem-tab" onclick="showChem('acids',this)">⚠️ Acids &amp; Bases</button>
+  <button class="chem-tab" onclick="showChem('calc_chem',this)">🧮 Calculators</button>
+</div>
+
+<!-- ===== ADHESIVES ===== -->
+<div id="chem-adhesives" class="chem-sec active">
+<div class="card"><div class="ctitle">🔗 Engineering Adhesives</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Epoxy</div>
+<div><span class="mc-badge b-purple">Two-Component</span><span class="mc-badge b-green">High Strength</span><span class="mc-badge b-blue">Structural</span></div>
+<div class="spec-row"><span class="spec-key">Tensile Strength</span><span class="spec-val">20-70 MPa</span></div>
+<div class="spec-row"><span class="spec-key">Shear Strength</span><span class="spec-val">15-40 MPa</span></div>
+<div class="spec-row"><span class="spec-key">Cure</span><span class="spec-val">5 minutes to 24 hours (by type)</span></div>
+<div class="spec-row"><span class="spec-key">Temp. Resistance</span><span class="spec-val">up to 120°C (special up to 200°C)</span></div>
+<div class="spec-row"><span class="spec-key">Mix Ratio</span><span class="spec-val">1:1 or 2:1 (A:B)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>Common Products:</b><br>
+3M DP420 — structural epoxy, 45 min cure<br>
+Loctite EA 9466 — industrial, 24 hours<br>
+Araldite 2011 — excellent general purpose<br>
+MasterBond EP21 — aerospace grade<br>
+<span style="color:var(--green)">✓</span> Metal, ceramic, CFRP, glass<br>
+<span style="color:var(--red)">✗</span> PE, PP, PTFE — won't bond!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.3m.com" target="_blank" style="color:var(--blue)">3M</a> · <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.3m.com" target="_blank" style="color:var(--blue)">3M</a> · <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a></div><a href="https://www.youtube.com/results?search_query=epoxy%20adhesive%20application%20mixing%20curing%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Cyanoacrylate — CA / Super Glue</div>
+<div><span class="mc-badge b-blue">Fast</span><span class="mc-badge b-green">Single-Component</span><span class="mc-badge b-orange">Moisture-Accelerated</span></div>
+<div class="spec-row"><span class="spec-key">Fixture Time</span><span class="spec-val">5-60 seconds</span></div>
+<div class="spec-row"><span class="spec-key">Full Cure</span><span class="spec-val">24 hours</span></div>
+<div class="spec-row"><span class="spec-key">Shear Strength</span><span class="spec-val">10-25 MPa</span></div>
+<div class="spec-row"><span class="spec-key">Viscosity</span><span class="spec-val">Liquid / Gel / Thick</span></div>
+<div class="spec-row"><span class="spec-key">Temp. Resistance</span><span class="spec-val">up to 80°C (special 120°C)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>Loctite 401/406/495/4861</b><br>
+Loctite 401 — general, tight-fit joints<br>
+Loctite 406 — plastic-specific<br>
+Loctite 4861 — flexible (not brittle)<br>
+<span style="color:var(--red)">⚠️</span> Blooming (fogging) on clear plastic<br>
+<span style="color:var(--orange)">Activator 7386</span> = instant cure on any surface
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.permabond.com" target="_blank" style="color:var(--blue)">Permabond</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.permabond.com" target="_blank" style="color:var(--blue)">Permabond</a></div><a href="https://www.youtube.com/results?search_query=cyanoacrylate%20super%20glue%20application%20bonding%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">MS-Polymer / Hybrid</div>
+<div><span class="mc-badge b-green">Flexible</span><span class="mc-badge b-blue">Sealant+Adhesive</span><span class="mc-badge b-orange">Solvent-Free</span></div>
+<div class="spec-row"><span class="spec-key">Elastic Modulus</span><span class="spec-val">0.5-3 MPa (flexible!)</span></div>
+<div class="spec-row"><span class="spec-key">Elongation at Break</span><span class="spec-val">200-600%</span></div>
+<div class="spec-row"><span class="spec-key">Cure</span><span class="spec-val">air moisture, 3-5mm/24h</span></div>
+<div class="spec-row"><span class="spec-key">UV Resistance</span><span class="spec-val">Excellent (no yellowing)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Sika 11FC / Sikaflex 252 — automotive<br>
+Soudal Fix All — general purpose<br>
+Bostik MSP — construction and industry<br>
+<span style="color:var(--green)">✓</span> Paintable, water/UV resistant, -40°C to +90°C<br>
+<span style="color:var(--green)">✓</span> Excellent for joining dissimilar materials (metal-plastic)
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.sika.com" target="_blank" style="color:var(--blue)">Sika</a> · <a href="https://www.bostik.com" target="_blank" style="color:var(--blue)">Bostik</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.sika.com" target="_blank" style="color:var(--blue)">Sika</a> · <a href="https://www.bostik.com" target="_blank" style="color:var(--blue)">Bostik</a></div><a href="https://www.youtube.com/results?search_query=MS%20polymer%20hybrid%20adhesive%20application%20sealant" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">PU — Polyurethane</div>
+<div><span class="mc-badge b-orange">Flexible-Structural</span><span class="mc-badge b-blue">Vibration Resistant</span></div>
+<div class="spec-row"><span class="spec-key">Shear Strength</span><span class="spec-val">5-20 MPa</span></div>
+<div class="spec-row"><span class="spec-key">Elongation at Break</span><span class="spec-val">100-400%</span></div>
+<div class="spec-row"><span class="spec-key">Cure</span><span class="spec-val">moisture, 24-72 hours</span></div>
+<div class="spec-row"><span class="spec-key">Temp.</span><span class="spec-val">-40°C to +100°C</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+3M 3532 — automotive PU<br>
+Sikaflex 221 — panel bonding+sealing<br>
+<span style="color:var(--orange)">⚠️</span> sensitive above 100°C<br>
+<span style="color:var(--green)">✓</span> excellent vibration and impact absorption
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.sika.com" target="_blank" style="color:var(--blue)">Sika</a> · <a href="https://www.3m.com" target="_blank" style="color:var(--blue)">3M</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.sika.com" target="_blank" style="color:var(--blue)">Sika</a> · <a href="https://www.3m.com" target="_blank" style="color:var(--blue)">3M</a></div><a href="https://www.youtube.com/results?search_query=polyurethane%20adhesive%20sealant%20application%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">UV Adhesive</div>
+<div><span class="mc-badge b-blue">Instant</span><span class="mc-badge b-green">Optical</span><span class="mc-badge b-purple">Clean</span></div>
+<div class="spec-row"><span class="spec-key">Cure</span><span class="spec-val">3-30 seconds at 365nm</span></div>
+<div class="spec-row"><span class="spec-key">Shear Strength</span><span class="spec-val">15-30 MPa</span></div>
+<div class="spec-row"><span class="spec-key">Clarity</span><span class="spec-val">Optical &gt;95%</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Loctite 352/358/3105<br>
+Dymax 3-20793<br>
+<span style="color:var(--green)">✓</span> Optics, glass, medical<br>
+<span style="color:var(--red)">✗</span> Must be UV-transparent!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.dymax.com" target="_blank" style="color:var(--blue)">Dymax</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.dymax.com" target="_blank" style="color:var(--blue)">Dymax</a></div><a href="https://www.youtube.com/results?search_query=UV%20curing%20adhesive%20light%20cure%20application%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Structural Adhesive</div>
+<div><span class="mc-badge b-red">Very High Strength</span><span class="mc-badge b-orange">Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">Shear Strength</span><span class="spec-val">25-50 MPa</span></div>
+<div class="spec-row"><span class="spec-key">T-Peel</span><span class="spec-val">3-8 kN/m</span></div>
+<div class="spec-row"><span class="spec-key">Temp.</span><span class="spec-val">up to 175°C (structural epoxy)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+3M AF163-2 — aerospace Film Adhesive<br>
+Cytec FM300 — Aerospace Grade<br>
+Loctite Hysol 9394 — heavy industry<br>
+Redux 312 — CFRP Bonding<br>
+<span style="color:var(--orange)">⚠️</span> usually requires hot cure (120-175°C)
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.3m.com" target="_blank" style="color:var(--blue)">3M</a> · <a href="https://www.solvay.com" target="_blank" style="color:var(--blue)">Solvay / Cytec</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.3m.com" target="_blank" style="color:var(--blue)">3M</a> · <a href="https://www.solvay.com" target="_blank" style="color:var(--blue)">Solvay / Cytec</a></div><a href="https://www.youtube.com/results?search_query=structural%20adhesive%20bonding%20application%20aerospace" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div>
+
+<div style="margin-top:14px">
+<table><tr><th>Adhesive Type</th><th>Shear Strength</th><th>Flexibility</th><th>Cure</th><th>Temp. Resistance</th><th>Relative Price</th><th>Main Use</th></tr>
+<tr><td>Cyanoacrylate</td><td>10-25 MPa</td><td>Brittle</td><td>Seconds</td><td>80°C</td><td style="color:var(--green)">Cheap</td><td>Quick repairs</td></tr>
+<tr><td>Epoxy 2K</td><td>20-70 MPa</td><td>Rigid</td><td>5 min-24h</td><td>120°C</td><td style="color:var(--orange)">Medium</td><td>Structural, potting</td></tr>
+<tr><td>MS-Polymer</td><td>3-8 MPa</td><td>Very High</td><td>24-72h</td><td>90°C</td><td style="color:var(--orange)">Medium</td><td>Panels, sealing</td></tr>
+<tr><td>PU</td><td>5-20 MPa</td><td>High</td><td>24-72h</td><td>100°C</td><td style="color:var(--orange)">Medium</td><td>Vibration, flexibility</td></tr>
+<tr><td>UV</td><td>15-30 MPa</td><td>Medium</td><td>Seconds</td><td>120°C</td><td style="color:var(--red)">Expensive</td><td>Optics, glass</td></tr>
+<tr><td>Film Epoxy</td><td>30-50 MPa</td><td>Low</td><td>120-175°C</td><td>175°C</td><td style="color:var(--red)">Very Expensive</td><td>Aerospace, CFRP</td></tr>
+</table></div>
+
+</div></div>
+
+<!-- ===== SEALANTS ===== -->
+<div id="chem-sealants" class="chem-sec">
+<div class="card"><div class="ctitle">🔒 Sealing &amp; Gaskets</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">RTV Silicone (Moisture Cure)</div>
+<div><span class="mc-badge b-blue">Flexible</span><span class="mc-badge b-green">-60°C to +300°C</span></div>
+<div class="spec-row"><span class="spec-key">Operating Temp.</span><span class="spec-val">-60°C to +300°C</span></div>
+<div class="spec-row"><span class="spec-key">Max Pressure</span><span class="spec-val">up to 10 bar (static)</span></div>
+<div class="spec-row"><span class="spec-key">Cure</span><span class="spec-val">air moisture, 24h</span></div>
+<div class="spec-row"><span class="spec-key">Oil Resistance</span><span class="spec-val">RTV red/black version</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Loctite 5910 (black) — oil, fuel<br>
+Loctite 5926 (grey) — coolant<br>
+Permatex Ultra Grey — very common<br>
+Permatex Ultra Black — engine oil<br>
+<span style="color:var(--red)">⚠️</span> Not for sealing gas under high pressure!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.permatex.com" target="_blank" style="color:var(--blue)">Permatex</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.permatex.com" target="_blank" style="color:var(--blue)">Permatex</a></div><a href="https://www.youtube.com/results?search_query=RTV%20silicone%20gasket%20maker%20application%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Anaerobic Gasket Maker</div>
+<div><span class="mc-badge b-orange">Air-Free Cure</span><span class="mc-badge b-red">Metal Only</span></div>
+<div class="spec-row"><span class="spec-key">Loctite 510</span><span class="spec-val">high temp., up to 200°C</span></div>
+<div class="spec-row"><span class="spec-key">Loctite 515</span><span class="spec-val">general, rigid, up to 150°C</span></div>
+<div class="spec-row"><span class="spec-key">Loctite 518</span><span class="spec-val">flexible, low cleanup</span></div>
+<div class="spec-row"><span class="spec-key">Pressure</span><span class="spec-val">up to 35 bar (depends on product)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Cure: 24h full, 1h fixture<br>
+<span style="color:var(--green)">✓</span> Covered joints (not open channels)<br>
+<span style="color:var(--red)">✗</span> Not for plastic, not for passive aluminum
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.permabond.com" target="_blank" style="color:var(--blue)">Permabond</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.permabond.com" target="_blank" style="color:var(--blue)">Permabond</a></div><a href="https://www.youtube.com/results?search_query=anaerobic%20gasket%20maker%20application%20flange%20sealant" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">PTFE Tape (Thread Seal Tape)</div>
+<div><span class="mc-badge b-green">Gas+Water</span><span class="mc-badge b-blue">Threading</span></div>
+<div class="spec-row"><span class="spec-key">Thickness</span><span class="spec-val">0.075-0.25mm</span></div>
+<div class="spec-row"><span class="spec-key">Pressure</span><span class="spec-val">up to 100 bar (water/gas)</span></div>
+<div class="spec-row"><span class="spec-key">Temp.</span><span class="spec-val">-200°C to +260°C</span></div>
+<div class="spec-row"><span class="spec-key">Wrap Direction</span><span class="spec-val">in the thread direction (clockwise)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+White — general water/gas<br>
+Yellow (thick) — high-pressure gas<br>
+Blue — oil systems<br>
+<span style="color:var(--red)">⚠️</span> Not for BSP Female! Male only
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.saint-gobain.com" target="_blank" style="color:var(--blue)">Saint-Gobain</a> · <a href="https://www.3m.com" target="_blank" style="color:var(--blue)">3M</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.saint-gobain.com" target="_blank" style="color:var(--blue)">Saint-Gobain</a> · <a href="https://www.3m.com" target="_blank" style="color:var(--blue)">3M</a></div><a href="https://www.youtube.com/results?search_query=PTFE%20thread%20tape%20application%20how%20to%20wrap" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Spiral Wound Gasket</div>
+<div><span class="mc-badge b-red">High Pressure</span><span class="mc-badge b-orange">High Temp.</span></div>
+<div class="spec-row"><span class="spec-key">Pressure</span><span class="spec-val">up to 400 bar</span></div>
+<div class="spec-row"><span class="spec-key">Temp.</span><span class="spec-val">up to 800°C (Graphite)</span></div>
+<div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">SS 316+Graphite / SS+PTFE</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ASME B16.20</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Inner Ring prevents collapse<br>
+Outer Ring = centering<br>
+<span style="color:var(--green)">✓</span> Industrial piping, process, API
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.klingergroup.com" target="_blank" style="color:var(--blue)">Klinger</a> · <a href="https://www.garlock.com" target="_blank" style="color:var(--blue)">Garlock</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.klingergroup.com" target="_blank" style="color:var(--blue)">Klinger</a> · <a href="https://www.garlock.com" target="_blank" style="color:var(--blue)">Garlock</a></div><a href="https://www.youtube.com/results?search_query=spiral%20wound%20gasket%20installation%20flange%20assembly" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Sheet Gaskets</div>
+<div><span class="mc-badge b-blue">Die-Cut to Shape</span><span class="mc-badge b-green">Cheap</span></div>
+<div class="spec-row"><span class="spec-key">Cork</span><span class="spec-val">low oil/gas, -40°C to +120°C</span></div>
+<div class="spec-row"><span class="spec-key">Compressed Fiber</span><span class="spec-val">Klinger, Garlock — medium pressure</span></div>
+<div class="spec-row"><span class="spec-key">Graphite</span><span class="spec-val">high temp., aggressive chemicals</span></div>
+<div class="spec-row"><span class="spec-key">PTFE</span><span class="spec-val">chemicals, food, acids</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<span style="color:var(--orange)">Torque</span> minimum: 40-70% of Bolt Proof Load<br>
+Over-torque = extrusion → leak!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.klingergroup.com" target="_blank" style="color:var(--blue)">Klinger</a> · <a href="https://www.garlock.com" target="_blank" style="color:var(--blue)">Garlock</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.klingergroup.com" target="_blank" style="color:var(--blue)">Klinger</a> · <a href="https://www.garlock.com" target="_blank" style="color:var(--blue)">Garlock</a></div><a href="https://www.youtube.com/results?search_query=gasket%20cutting%20sheet%20material%20installation" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Thread Sealant — Loctite 55/577</div>
+<div><span class="mc-badge b-blue">Threading</span><span class="mc-badge b-green">Disassembly Possible</span></div>
+<div class="spec-row"><span class="spec-key">Loctite 55</span><span class="spec-val">PTFE cord, water/gas, manual</span></div>
+<div class="spec-row"><span class="spec-key">Loctite 577</span><span class="spec-val">anaerobic, liquid, NPT/BSP</span></div>
+<div class="spec-row"><span class="spec-key">Pressure up to</span><span class="spec-val">400 bar (577)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Loctite 55: instant, can pressurize immediately<br>
+Loctite 577: 24h cure, stronger
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.permatex.com" target="_blank" style="color:var(--blue)">Permatex</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.permatex.com" target="_blank" style="color:var(--blue)">Permatex</a></div><a href="https://www.youtube.com/results?search_query=thread%20sealant%20pipe%20dope%20application" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div></div></div>
+
+<!-- ===== THREADLOCKER ===== -->
+<div id="chem-threadlocker" class="chem-sec">
+<div class="card"><div class="ctitle">🔩 Threadlocker</div>
+<table><tr><th>Product</th><th>Color</th><th>Strength</th><th>Max Diameter</th><th>Temp.</th><th>Use</th><th>Disassembly</th></tr>
+<tr><td><b>Loctite 222</b></td><td style="color:var(--purple)">Purple</td><td style="color:var(--green)">Low</td><td>M6</td><td>150°C</td><td>small bolts, adjustment, sensors</td><td>manual</td></tr>
+<tr><td><b>Loctite 243</b></td><td style="color:var(--blue)">Blue</td><td style="color:var(--orange)">Medium</td><td>M20</td><td>150°C</td><td>general bolts M6-M20, most common</td><td>hand tool</td></tr>
+<tr><td><b>Loctite 248</b></td><td style="color:var(--blue)">Blue</td><td style="color:var(--orange)">Medium</td><td>M20</td><td>150°C</td><td>243 in stick form — convenient in the field</td><td>hand tool</td></tr>
+<tr><td><b>Loctite 263</b></td><td style="color:var(--red)">Red</td><td style="color:var(--red)">High</td><td>M36</td><td>150°C</td><td>large bolts, severe vibration</td><td>heat 250°C</td></tr>
+<tr><td><b>Loctite 271</b></td><td style="color:var(--red)">Red</td><td style="color:var(--red)">High</td><td>M36</td><td>150°C</td><td>permanent! agitator, shaft, locking rings</td><td>heat 250°C</td></tr>
+<tr><td><b>Loctite 277</b></td><td style="color:var(--red)">Red</td><td style="color:var(--red)">Very High</td><td>M72</td><td>150°C</td><td>very large bolts, anchoring</td><td>heat 300°C</td></tr>
+<tr><td><b>Loctite 290</b></td><td style="color:var(--green)">Green</td><td style="color:var(--orange)">Medium</td><td>M20</td><td>150°C</td><td>penetrates an already-tightened bolt! Wicking</td><td>hand tool</td></tr>
+</table>
+<div style="margin-top:14px">
+<table><tr><th>Retaining Product</th><th>Color</th><th>Shear Strength</th><th>Use</th></tr>
+<tr><td><b>Loctite 603</b></td><td style="color:var(--green)">Green</td><td>15 MPa</td><td>axial bearings, shaft-sleeve. Disassembly possible</td></tr>
+<tr><td><b>Loctite 638</b></td><td style="color:var(--green)">Green</td><td>25 MPa</td><td>large interfaces, heavy bearings. Permanent!</td></tr>
+<tr><td><b>Loctite 648</b></td><td style="color:var(--green)">Green</td><td>30 MPa</td><td>high temp. up to 175°C, engines</td></tr>
+<tr><td><b>Loctite 660</b></td><td style="color:var(--orange)">Brown</td><td>17 MPa</td><td>Quick Metal — gap filling up to 0.25mm</td></tr>
+</table></div>
+<div style="background:var(--surface);padding:12px;border-radius:8px;margin-top:12px;font-size:12px;color:var(--muted);line-height:2">
+<b style="color:var(--text)">💡 Important Rules:</b><br>
+• Clean with IPA/Acetone before application — grease prevents curing<br>
+• Activator 7471 (purple) ← accelerates cure and passive metals (Al, SS, brass)<br>
+• Working time: 5-10 minutes | Full cure: 24 hours<br>
+• Maximum gap: 0.1-0.15mm (anaerobic won't cure in a large gap!)<br>
+• <b style="color:var(--red)">290 only</b> = Wicking Grade — penetrates an already-tight thread
+</div>
+
+</div></div>
+
+<!-- ===== LUBRICATION SPECIAL ===== -->
+<div id="chem-lubspec" class="chem-sec">
+<div class="card"><div class="ctitle">⚙️ Specialty Lubricants</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">MoS2 — Molybdenum Disulfide</div>
+<div><span class="mc-badge b-blue">Dry Film</span><span class="mc-badge b-green">High Loads</span></div>
+<div class="spec-row"><span class="spec-key">Friction Coefficient</span><span class="spec-val">μ = 0.03-0.05</span></div>
+<div class="spec-row"><span class="spec-key">Temp. (Vacuum)</span><span class="spec-val">-180°C to +450°C</span></div>
+<div class="spec-row"><span class="spec-key">Temp. (Air)</span><span class="spec-val">up to +350°C (oxidizes above)</span></div>
+<div class="spec-row"><span class="spec-key">Load</span><span class="spec-val">up to 1500 MPa (Contact Pressure)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Molykote D-321R — dry spray<br>
+Molykote 321 — space, vacuum<br>
+<span style="color:var(--green)">✓</span> Stainless bolts (prevents Galling!)<br>
+<span style="color:var(--green)">✓</span> Space equipment, vacuum, clean<br>
+<span style="color:var(--red)">✗</span> Not for high humidity + load environments
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote (Dow)</a> · <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote (Dow)</a> · <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a></div><a href="https://www.youtube.com/results?search_query=moly%20MoS2%20lubricant%20application%20anti%20seize" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Anti-Seize</div>
+<div><span class="mc-badge b-orange">Stainless</span><span class="mc-badge b-red">High Temp.</span></div>
+<div class="spec-row"><span class="spec-key">Copper Anti-Seize</span><span class="spec-val">up to 1100°C, exhaust, agitator</span></div>
+<div class="spec-row"><span class="spec-key">Nickel Anti-Seize</span><span class="spec-val">up to 1400°C, stainless, galvanized</span></div>
+<div class="spec-row"><span class="spec-key">Silver Anti-Seize</span><span class="spec-val">up to 900°C, nickel, safety-critical</span></div>
+<div class="spec-row"><span class="spec-key">K Factor</span><span class="spec-val">K=0.13-0.15 (vs. K=0.2 dry)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Loctite C5-A (copper)<br>
+Molykote P-37 (nickel)<br>
+<span style="color:var(--red)">⚠️</span> Reduce tightening torque by 20-30%!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote (Dow)</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.henkel.com/brands/loctite" target="_blank" style="color:var(--blue)">Henkel / Loctite</a> · <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote (Dow)</a></div><a href="https://www.youtube.com/results?search_query=anti%20seize%20compound%20application%20thread%20bolt" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">PTFE Lubricants</div>
+<div><span class="mc-badge b-green">Clean</span><span class="mc-badge b-blue">Food</span><span class="mc-badge b-purple">Chemical</span></div>
+<div class="spec-row"><span class="spec-key">Friction Coefficient</span><span class="spec-val">μ = 0.04-0.10</span></div>
+<div class="spec-row"><span class="spec-key">Temp.</span><span class="spec-val">-200°C to +260°C</span></div>
+<div class="spec-row"><span class="spec-key">Chemical Resistance</span><span class="spec-val">almost everything</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Molykote G-4500 — FDA approved<br>
+DuPont Krytox — high performance<br>
+Chemours — PFPE oils<br>
+<span style="color:var(--green)">✓</span> Food contact, O-rings, chemical valves
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemours.com" target="_blank" style="color:var(--blue)">Chemours / Krytox</a> · <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote (Dow)</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemours.com" target="_blank" style="color:var(--blue)">Chemours / Krytox</a> · <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote (Dow)</a></div></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Graphite Dry Lube</div>
+<div><span class="mc-badge b-orange">Conductive</span><span class="mc-badge b-green">High Temp.</span></div>
+<div class="spec-row"><span class="spec-key">Friction Coefficient</span><span class="spec-val">μ = 0.1-0.15</span></div>
+<div class="spec-row"><span class="spec-key">Max Temp.</span><span class="spec-val">up to 450°C (air)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+WD-40 Dry PTFE/Graphite<br>
+<span style="color:var(--green)">✓</span> Locks, cables, printers<br>
+<span style="color:var(--red)">✗</span> Messy! Not for white parts
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote (Dow)</a> · <a href="https://www.wd40.com" target="_blank" style="color:var(--blue)">WD-40 Specialist</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote (Dow)</a> · <a href="https://www.wd40.com" target="_blank" style="color:var(--blue)">WD-40 Specialist</a></div></div>
+</div></div></div>
+
+<!-- ===== CLEANERS ===== -->
+<div id="chem-cleaners" class="chem-sec">
+<div class="card"><div class="ctitle">🧹 Cleaners &amp; Penetrants</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Penetrating Oil</div>
+<div><span class="mc-badge b-orange">Seized Bolts</span></div>
+<div class="spec-row"><span class="spec-key">WD-40</span><span class="spec-val">common, medium — not the best!</span></div>
+<div class="spec-row"><span class="spec-key">PB Blaster</span><span class="spec-val">very good, popular in the US</span></div>
+<div class="spec-row"><span class="spec-key">Kroil</span><span class="spec-val">the best — deep penetration</span></div>
+<div class="spec-row"><span class="spec-key">Loctite LB 8009</span><span class="spec-val">nickel Anti-Seize + Penetrant</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>The good recipe:</b> 50% Acetone + 50% ATF<br>
+Soak 24-48 hours → heat → try<br>
+<span style="color:var(--orange)">⚠️</span> WD-40 = Water Displacement, not a lubricant!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.wd40.com" target="_blank" style="color:var(--blue)">WD-40</a> · <a href="https://www.crcindustries.com" target="_blank" style="color:var(--blue)">CRC Industries</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.wd40.com" target="_blank" style="color:var(--blue)">WD-40</a> · <a href="https://www.crcindustries.com" target="_blank" style="color:var(--blue)">CRC Industries</a></div></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Degreaser</div>
+<div><span class="mc-badge b-blue">Before Coating</span><span class="mc-badge b-green">Before Welding</span></div>
+<div class="spec-row"><span class="spec-key">IPA (Isopropanol)</span><span class="spec-val">safe, volatile, general</span></div>
+<div class="spec-row"><span class="spec-key">Acetone</span><span class="spec-val">strong, fast, dissolves plastic!</span></div>
+<div class="spec-row"><span class="spec-key">MEK</span><span class="spec-val">very strong, CFRP prep</span></div>
+<div class="spec-row"><span class="spec-key">Aqueous Degreaser</span><span class="spec-val">Brulin, Chemkleen — safe</span></div>
+<div class="spec-row"><span class="spec-key">Vapor Degreasing</span><span class="spec-val">Novec, TCE — thorough cleaning</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Before TIG welding: Acetone/IPA<br>
+Before coating: Alkaline Clean → DI Water<br>
+Before Loctite: IPA, full drying<br>
+<span style="color:var(--red)">⚠️</span> No Acetone on plastic/paint!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall / BASF</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall / BASF</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel</a></div></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Ultrasonic Cleaning</div>
+<div><span class="mc-badge b-blue">40 kHz</span><span class="mc-badge b-green">Thorough Cleaning</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">cavitation — bubbles implode dirt away</span></div>
+<div class="spec-row"><span class="spec-key">Fluids</span><span class="spec-val">water+cleaner / IPA</span></div>
+<div class="spec-row"><span class="spec-key">Temp.</span><span class="spec-val">40-70°C for maximum effectiveness</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Ideal: precision parts, injectors, medical<br>
+<span style="color:var(--red)">⚠️</span> Not for parts with sensitive rubber seals!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.elma-ultrasonic.com" target="_blank" style="color:var(--blue)">Elma Ultrasonic</a> · <a href="https://www.bransonic.com" target="_blank" style="color:var(--blue)">Branson (Emerson)</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.elma-ultrasonic.com" target="_blank" style="color:var(--blue)">Elma Ultrasonic</a> · <a href="https://www.bransonic.com" target="_blank" style="color:var(--blue)">Branson (Emerson)</a></div><a href="https://www.youtube.com/results?search_query=ultrasonic%20cleaning%20process%20parts%20washer" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div>
+
+</div></div>
+
+<!-- ===== PROTECTION ===== -->
+<div id="chem-protection" class="chem-sec">
+<div class="card"><div class="ctitle">🛡️ Temporary Protection</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">VCI — Vapor Corrosion Inhibitor</div>
+<div><span class="mc-badge b-blue">Vapors</span><span class="mc-badge b-green">No Contact</span></div>
+<div class="spec-row"><span class="spec-key">VCI Paper</span><span class="spec-val">wrap, steel/Al/copper</span></div>
+<div class="spec-row"><span class="spec-key">VCI Poly Bag</span><span class="spec-val">bag, any metal</span></div>
+<div class="spec-row"><span class="spec-key">VCI Emitter</span><span class="spec-val">chip box for crate</span></div>
+<div class="spec-row"><span class="spec-key">Protection</span><span class="spec-val">12-24 months (closed storage)</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Zerust / Cortec / Daubert<br>
+<span style="color:var(--green)">✓</span> No residue left! Just open and use<br>
+<span style="color:var(--red)">⚠️</span> Not effective if packaging isn't sealed!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.zerust.com" target="_blank" style="color:var(--blue)">Zerust (NTI)</a> · <a href="https://www.cortecvci.com" target="_blank" style="color:var(--blue)">Cortec</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.zerust.com" target="_blank" style="color:var(--blue)">Zerust (NTI)</a> · <a href="https://www.cortecvci.com" target="_blank" style="color:var(--blue)">Cortec</a></div><a href="https://www.youtube.com/results?search_query=VCI%20vapor%20corrosion%20inhibitor%20packaging%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Cosmoline / Tectyl</div>
+<div><span class="mc-badge b-orange">Long-Term</span><span class="mc-badge b-red">Military</span></div>
+<div class="spec-row"><span class="spec-key">Cosmoline</span><span class="spec-val">wax/oil, military marine storage</span></div>
+<div class="spec-row"><span class="spec-key">Tectyl 506</span><span class="spec-val">steel, MIL-PRF-16173</span></div>
+<div class="spec-row"><span class="spec-key">Tectyl 511M</span><span class="spec-val">flexible, -40°C</span></div>
+<div class="spec-row"><span class="spec-key">Protection</span><span class="spec-val">2-5 years</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Removal: Mineral Spirits / Stoddard Solvent<br>
+MIL-PRF-16173 Grade 1-4<br>
+<span style="color:var(--green)">✓</span> Weapons, military equipment, field storage
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.valvoline.com" target="_blank" style="color:var(--blue)">Valvoline / Tectyl</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel / Bonderite</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.valvoline.com" target="_blank" style="color:var(--blue)">Valvoline / Tectyl</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel / Bonderite</a></div><a href="https://www.youtube.com/results?search_query=cosmoline%20rust%20preventive%20coating%20application%20removal" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">LPS / CRC — Protective Spray</div>
+<div><span class="mc-badge b-blue">Volatile</span><span class="mc-badge b-green">Light</span></div>
+<div class="spec-row"><span class="spec-key">LPS-1</span><span class="spec-val">light, volatile, electronics</span></div>
+<div class="spec-row"><span class="spec-key">LPS-2</span><span class="spec-val">general, 12 months</span></div>
+<div class="spec-row"><span class="spec-key">LPS-3</span><span class="spec-val">heavy, 2 years</span></div>
+<div class="spec-row"><span class="spec-key">CRC 3-36</span><span class="spec-val">common alternative</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<span style="color:var(--green)">✓</span> After every machining operation — spray immediately!<br>
+Storage: dry crate + LPS-2 = enough for a year
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.lps-labs.com" target="_blank" style="color:var(--blue)">LPS Laboratories</a> · <a href="https://www.crcindustries.com" target="_blank" style="color:var(--blue)">CRC Industries</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.lps-labs.com" target="_blank" style="color:var(--blue)">LPS Laboratories</a> · <a href="https://www.crcindustries.com" target="_blank" style="color:var(--blue)">CRC Industries</a></div></div>
+</div></div></div>
+
+<!-- ===== FUELS ===== -->
+<div id="chem-fuels" class="chem-sec">
+<div class="card"><div class="ctitle">⛽ Engineering Fuels</div>
+<table><tr><th>Fuel</th><th>Full Name</th><th>LHV MJ/kg</th><th>Density kg/L</th><th>Flash Point °C</th><th>Use</th></tr>
+<tr><td><b style="color:var(--blue)">Jet-A</b></td><td>Aviation Kerosene</td><td>43.2</td><td>0.80</td><td>38°C</td><td>global civil aviation</td></tr>
+<tr><td><b style="color:var(--blue)">JP-8</b></td><td>Jet Propellant 8</td><td>43.2</td><td>0.80</td><td>38°C</td><td>military aviation (NATO F-34)</td></tr>
+<tr><td><b style="color:var(--orange)">JP-4</b></td><td>Jet Propellant 4</td><td>43.5</td><td>0.76</td><td>-23°C</td><td>less common, cold environments</td></tr>
+<tr><td><b style="color:var(--green)">AVGAS 100LL</b></td><td>Aviation Gasoline</td><td>43.7</td><td>0.72</td><td>-40°C</td><td>piston aviation engines</td></tr>
+<tr><td><b style="color:var(--red)">RP-1</b></td><td>Rocket Propellant 1</td><td>43.4</td><td>0.82</td><td>62°C</td><td>rockets (F-1, Merlin, RD-180)</td></tr>
+<tr><td><b style="color:var(--red)">LH2</b></td><td>Liquid Hydrogen</td><td>120.0</td><td>0.071</td><td>-253°C</td><td>rockets (RS-25, Ariane 5 upper)</td></tr>
+<tr><td><b style="color:var(--red)">MMH</b></td><td>Monomethylhydrazine</td><td>26.8</td><td>0.87</td><td>17°C</td><td>apogee engines, satellites</td></tr>
+<tr><td><b style="color:var(--red)">UDMH</b></td><td>Unsym. Dimethylhydrazine</td><td>28.4</td><td>0.79</td><td>-15°C</td><td>Soviet rockets, Titan</td></tr>
+<tr><td><b>LOX</b></td><td>Liquid Oxygen</td><td>—</td><td>1.14</td><td>-183°C</td><td>oxidizer — with RP-1/LH2/CH4</td></tr>
+<tr><td><b>N2O4</b></td><td>Nitrogen Tetroxide</td><td>—</td><td>1.44</td><td>—</td><td>hypergolic oxidizer with MMH/UDMH</td></tr>
+<tr><td><b>LNG/LCH4</b></td><td>Liquid Methane</td><td>55.5</td><td>0.42</td><td>-161°C</td><td>Raptor, Prometheus (future)</td></tr>
+<tr><td><b>HTPB</b></td><td>Solid Rocket Fuel (Binder)</td><td>43.0</td><td>—</td><td>—</td><td>solid propellant — Ariane, SLS Boosters</td></tr>
+</table>
+</div></div>
+
+<!-- ===== EXPLOSIVES ===== -->
+<div id="chem-explosives" class="chem-sec">
+<div class="card"><div class="ctitle">💥 Explosives (Engineering Reference Only)</div>
+<div style="background:rgba(239,68,68,0.08);border:1px solid var(--red);border-radius:8px;padding:12px;margin-bottom:14px;font-size:12px;color:var(--red)">
+⚠️ Information for engineering reference only — classifications, physical properties, professional applications. No synthesis, preparation, or activation details.
+</div>
+<table><tr><th>Material</th><th>VOD m/s</th><th>Density g/cm³</th><th>RE Factor</th><th>UN Classification</th><th>Use</th></tr>
+<tr><td><b>TNT</b></td><td>6,900</td><td>1.65</td><td>1.00 (baseline)</td><td>Class 1.1D</td><td>reference, ordnance, mining</td></tr>
+<tr><td><b>RDX (Cyclonite)</b></td><td>8,750</td><td>1.82</td><td>1.60</td><td>Class 1.1D</td><td>military, C-4, shaped charges</td></tr>
+<tr><td><b>PETN</b></td><td>8,400</td><td>1.77</td><td>1.66</td><td>Class 1.1D</td><td>Primacord, Detonator Cord</td></tr>
+<tr><td><b>HMX (Octogen)</b></td><td>9,100</td><td>1.91</td><td>1.70</td><td>Class 1.1D</td><td>advanced ordnance, solid rockets</td></tr>
+<tr><td><b>ANFO</b></td><td>4,500</td><td>0.85</td><td>0.74</td><td>Class 1.5D</td><td>commercial mining, construction</td></tr>
+<tr><td><b>Emulsion</b></td><td>5,500</td><td>1.15</td><td>0.90</td><td>Class 1.5D</td><td>commercial mining, water resistant</td></tr>
+<tr><td><b>C-4</b></td><td>8,050</td><td>1.59</td><td>1.34</td><td>Class 1.1D</td><td>flexible military explosive (RDX+Binder)</td></tr>
+<tr><td><b>Semtex</b></td><td>7,700</td><td>1.55</td><td>1.28</td><td>Class 1.1D</td><td>RDX/PETN+DMDNB marker</td></tr>
+<tr><td><b>Black Powder</b></td><td>400</td><td>1.7</td><td>—</td><td>Class 1.1D</td><td>ignition, fireworks, delay mechanisms</td></tr>
+</table>
+<div style="margin-top:14px" class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">UN Classifications — Class 1</div>
+<div class="spec-row"><span class="spec-key">1.1</span><span class="spec-val">mass explosion hazard</span></div>
+<div class="spec-row"><span class="spec-key">1.2</span><span class="spec-val">projection hazard without mass explosion</span></div>
+<div class="spec-row"><span class="spec-key">1.3</span><span class="spec-val">fire + minor blast</span></div>
+<div class="spec-row"><span class="spec-key">1.4</span><span class="spec-val">minor hazard (pyrotechnics)</span></div>
+<div class="spec-row"><span class="spec-key">1.5</span><span class="spec-val">very insensitive explosive</span></div>
+<div class="spec-row"><span class="spec-key">1.6</span><span class="spec-val">extremely insensitive articles</span></div>
+</div>
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Industry Companies</div>
+<div class="spec-row"><span class="spec-key">Dyno Nobel</span><span class="spec-val">mining, ANFO, emulsion</span></div>
+<div class="spec-row"><span class="spec-key">Orica</span><span class="spec-val">Australia — global mining</span></div>
+<div class="spec-row"><span class="spec-key">Maxam</span><span class="spec-val">Spain — military + commercial</span></div>
+<div class="spec-row"><span class="spec-key">Chemring</span><span class="spec-val">UK — defense</span></div>
+<div class="spec-row"><span class="spec-key">BAE Systems</span><span class="spec-val">ordnance + explosives</span></div>
+<div class="spec-row"><span class="spec-key">Elbit / IMI</span><span class="spec-val">Israel</span></div>
+</div>
+</div></div></div>
+
+<!-- ===== COOLANTS ===== -->
+<div id="chem-coolants" class="chem-sec">
+<div class="card"><div class="ctitle">💧 Coolants &amp; Cutting Fluids</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Soluble Oil — Emulsion</div>
+<div><span class="mc-badge b-blue">3-10%</span><span class="mc-badge b-green">Very Common</span></div>
+<div class="spec-row"><span class="spec-key">Concentration</span><span class="spec-val">3-5% finishing · 5-10% roughing</span></div>
+<div class="spec-row"><span class="spec-key">Cooling</span><span class="spec-val">excellent (mostly water)</span></div>
+<div class="spec-row"><span class="spec-key">Lubrication</span><span class="spec-val">medium</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Blaser Blasocut / Castrol Hysol<br>
+<b>Maintenance pH:</b> 8.5-9.5<br>
+<span style="color:var(--red)">⚠️</span> Mold growth if concentration too low!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.blaser.com" target="_blank" style="color:var(--blue)">Blaser Swisslube</a> · <a href="https://www.castrol.com" target="_blank" style="color:var(--blue)">Castrol Industrial</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.blaser.com" target="_blank" style="color:var(--blue)">Blaser Swisslube</a> · <a href="https://www.castrol.com" target="_blank" style="color:var(--blue)">Castrol Industrial</a></div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Neat Oil — Pure Cutting Oil</div>
+<div><span class="mc-badge b-orange">100%</span><span class="mc-badge b-red">Maximum Lubrication</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">threading, EDM, grinding, Ti</span></div>
+<div class="spec-row"><span class="spec-key">Cooling</span><span class="spec-val">relatively poor</span></div>
+<div class="spec-row"><span class="spec-key">Lubrication</span><span class="spec-val">excellent</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Castrol Hyspin / Blaser BS46<br>
+<span style="color:var(--green)">✓</span> Titanium, stainless, carbide tools
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.blaser.com" target="_blank" style="color:var(--blue)">Blaser Swisslube</a> · <a href="https://www.fuchs.com" target="_blank" style="color:var(--blue)">Fuchs Lubricants</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.blaser.com" target="_blank" style="color:var(--blue)">Blaser Swisslube</a> · <a href="https://www.fuchs.com" target="_blank" style="color:var(--blue)">Fuchs Lubricants</a></div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">MQL — Minimum Quantity</div>
+<div><span class="mc-badge b-green">Green</span><span class="mc-badge b-blue">50ml/h</span></div>
+<div class="spec-row"><span class="spec-key">Quantity</span><span class="spec-val">only 10-100 ml/hour!</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">clean, green, aluminum/CFRP</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<span style="color:var(--green)">✓</span> CFRP, Al — ↓cost, ↑finish<br>
+<span style="color:var(--red)">✗</span> Not for stainless/Ti under high load
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.blaser.com" target="_blank" style="color:var(--blue)">Blaser Swisslube</a> · <a href="https://www.fuchs.com" target="_blank" style="color:var(--blue)">Fuchs Lubricants</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.blaser.com" target="_blank" style="color:var(--blue)">Blaser Swisslube</a> · <a href="https://www.fuchs.com" target="_blank" style="color:var(--blue)">Fuchs Lubricants</a></div></div>
+</div></div></div>
+
+<!-- ===== CHEMICAL COATINGS ===== -->
+<div id="chem-coatings_chem" class="chem-sec">
+<div class="card"><div class="ctitle">🎨 Chemical Coatings</div>
+<table><tr><th>Coating</th><th>Thickness</th><th>Hardness HV</th><th>μ Friction</th><th>Temp.</th><th>Use</th></tr>
+<tr><td><b>Parylene C/N</b></td><td>1-50μm</td><td>—</td><td>0.25</td><td>125°C</td><td>electronics, medical, insulation</td></tr>
+<tr><td><b>Cerakote H-Series</b></td><td>15-25μm</td><td>~H4 Pencil</td><td>0.15</td><td>260°C</td><td>firearms, aluminum parts</td></tr>
+<tr><td><b>Xylan PTFE</b></td><td>15-40μm</td><td>—</td><td>0.05-0.10</td><td>260°C</td><td>bolts, fasteners, stainless</td></tr>
+<tr><td><b>Molykote D-321R</b></td><td>5-15μm</td><td>—</td><td>0.04</td><td>350°C</td><td>MoS2 Dry Film, space</td></tr>
+<tr><td><b>Powder Coat Epoxy</b></td><td>60-120μm</td><td>H2-H4</td><td>—</td><td>120°C</td><td>structural, aesthetic, steel</td></tr>
+<tr><td><b>Powder Coat Polyester</b></td><td>60-120μm</td><td>H2-H3</td><td>—</td><td>120°C</td><td>outdoor, UV</td></tr>
+<tr><td><b>Alodine (Chromate)</b></td><td>0.5-5μm</td><td>—</td><td>—</td><td>175°C</td><td>Al primer, MIL-DTL-5541</td></tr>
+<tr><td><b>Nickel Chemical (EN)</b></td><td>5-75μm</td><td>500-600</td><td>0.1</td><td>350°C</td><td>precision, wear, corrosion</td></tr>
+</table></div></div>
+
+<!-- ===== MSDS ===== -->
+<div id="chem-msds" class="chem-sec">
+<div class="card"><div class="ctitle">📋 MSDS / SDS — Material Safety Data Sheet</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">SDS Structure — 16 Sections</div>
+<div class="spec-row"><span class="spec-key">1</span><span class="spec-val">Identification of the substance and manufacturer</span></div>
+<div class="spec-row"><span class="spec-key">2</span><span class="spec-val">Hazard identification (GHS)</span></div>
+<div class="spec-row"><span class="spec-key">3</span><span class="spec-val">Composition / information on ingredients</span></div>
+<div class="spec-row"><span class="spec-key">4</span><span class="spec-val">First-aid measures</span></div>
+<div class="spec-row"><span class="spec-key">5</span><span class="spec-val">Fire-fighting measures</span></div>
+<div class="spec-row"><span class="spec-key">6</span><span class="spec-val">Accidental release measures</span></div>
+<div class="spec-row"><span class="spec-key">7</span><span class="spec-val">Handling and storage</span></div>
+<div class="spec-row"><span class="spec-key">8</span><span class="spec-val">Exposure controls / PPE</span></div>
+<div class="spec-row"><span class="spec-key">9-16</span><span class="spec-val">Properties / stability / regulatory</span></div>
+
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.sigmaaldrich.com" target="_blank" style="color:var(--blue)">Sigma-Aldrich (Merck)</a> · <a href="https://pubchem.ncbi.nlm.nih.gov" target="_blank" style="color:var(--blue)">PubChem (NIH)</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.sigmaaldrich.com" target="_blank" style="color:var(--blue)">Sigma-Aldrich (Merck)</a> · <a href="https://pubchem.ncbi.nlm.nih.gov" target="_blank" style="color:var(--blue)">PubChem (NIH)</a></div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">GHS Pictograms</div>
+<div class="spec-row"><span class="spec-key">💣 GHS01</span><span class="spec-val">Explosive</span></div>
+<div class="spec-row"><span class="spec-key">🔥 GHS02</span><span class="spec-val">Flammable</span></div>
+<div class="spec-row"><span class="spec-key">🔺 GHS03</span><span class="spec-val">Oxidizer</span></div>
+<div class="spec-row"><div class="spec-row"><span class="spec-key">🔴 GHS04</span><span class="spec-val">Gas Under Pressure</span></div>
+<div class="spec-row"><span class="spec-key">⚗ GHS05</span><span class="spec-val">Corrosive</span></div>
+<div class="spec-row"><span class="spec-key">☠ GHS06</span><span class="spec-val">Toxic</span></div>
+<div class="spec-row"><span class="spec-key">⚠ GHS07</span><span class="spec-val">Harmful / Irritant</span></div>
+<div class="spec-row"><span class="spec-key">🫁 GHS08</span><span class="spec-val">Health Hazard</span></div>
+<div class="spec-row"><span class="spec-key">🌊 GHS09</span><span class="spec-val">Environmental Hazard</span></div>
+
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://unece.org/ghs" target="_blank" style="color:var(--blue)">UNECE / GHS</a> · <a href="https://echa.europa.eu" target="_blank" style="color:var(--blue)">ECHA (EU)</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://unece.org/ghs" target="_blank" style="color:var(--blue)">UNECE / GHS</a> · <a href="https://echa.europa.eu" target="_blank" style="color:var(--blue)">ECHA (EU)</a></div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">H &amp; P Statements</div>
+<div class="spec-row"><span class="spec-key">H200-299</span><span class="spec-val">Physical hazards</span></div>
+<div class="spec-row"><span class="spec-key">H300-399</span><span class="spec-val">Health hazards</span></div>
+<div class="spec-row"><span class="spec-key">H400-499</span><span class="spec-val">Environmental hazards</span></div>
+
+<div class="spec-row"><span class="spec-key">P200-299</span><span class="spec-val">Prevention</span></div>
+<div class="spec-row"><span class="spec-key">P300-399</span><span class="spec-val">Response to incident</span></div>
+<div class="spec-row"><span class="spec-key">P400-499</span><span class="spec-val">Storage</span></div>
+<div class="spec-row"><span class="spec-key">P500-599</span><span class="spec-val">Disposal</span></div>
+
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://echa.europa.eu" target="_blank" style="color:var(--blue)">ECHA (EU)</a> · <a href="https://www.osha.gov" target="_blank" style="color:var(--blue)">OSHA (US)</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://echa.europa.eu" target="_blank" style="color:var(--blue)">ECHA (EU)</a> · <a href="https://www.osha.gov" target="_blank" style="color:var(--blue)">OSHA (US)</a></div></div>
+</div>
+<div style="margin-top:12px;background:var(--surface);padding:12px;border-radius:8px;font-size:12px;color:var(--muted);line-height:2">
+<b style="color:var(--text)">Storage by Compatibility Group:</b><br>
+🔴 Oxidizers ← not near ← 🟡 Flammables<br>
+☠ Acids ← not near ← 🟣 Bases<br>
+💧 Water-reactive ← not near ← any liquid<br>
+<b>Israeli Law:</b> Hazardous Materials Regulations 2008 + Clean Air Regulations<br>
+<b>GHS in Israel:</b> SII 16 / Hazardous Materials Regulations
+</div></div></div></div>
+
+<!-- ===== COMPATIBILITY ===== -->
+<div id="chem-compatibility" class="chem-sec">
+<div class="card"><div class="ctitle">⚗️ Chemical Compatibility</div>
+<div style="overflow-x:auto"><table>
+<tr><th>Material / Fluid</th><th>Steel</th><th>SS 316</th><th>Al 6061</th><th>Copper</th><th>Bronze</th><th>Buna-N</th><th>Viton</th><th>PTFE</th><th>Polycarbonate</th></tr>
+<tr><td><b>Water (up to 60°C)</b></td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td></tr>
+<tr><td><b>Seawater</b></td><td style="color:var(--red)">❌</td><td style="color:var(--orange)">⚠</td><td style="color:var(--orange)">⚠</td><td style="color:var(--red)">❌</td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td></tr>
+<tr><td><b>Hydraulic Oil</b></td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--orange)">⚠</td></tr>
+<tr><td><b>Fuel (Diesel)</b></td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--orange)">⚠</td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--red)">❌</td></tr>
+<tr><td><b>Acetone</b></td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--orange)">⚠</td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--red)">❌</td></tr>
+<tr><td><b>Hydrochloric Acid HCl</b></td><td style="color:var(--red)">❌</td><td style="color:var(--orange)">⚠</td><td style="color:var(--red)">❌</td><td style="color:var(--red)">❌</td><td style="color:var(--red)">❌</td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--orange)">⚠</td></tr>
+<tr><td><b>NaOH — Base</b></td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--red)">❌</td><td style="color:var(--orange)">⚠</td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--red)">❌</td></tr>
+<tr><td><b>H2O2 — Hydrogen Peroxide</b></td><td style="color:var(--red)">❌</td><td style="color:var(--orange)">⚠</td><td style="color:var(--orange)">⚠</td><td style="color:var(--red)">❌</td><td style="color:var(--red)">❌</td><td style="color:var(--red)">❌</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--orange)">⚠</td></tr>
+<tr><td><b>IPA</b></td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td><td style="color:var(--green)">✅</td></tr>
+<tr><td><b>Ammonia NH3</b></td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--orange)">⚠</td><td style="color:var(--red)">❌</td><td style="color:var(--red)">❌</td><td style="color:var(--orange)">⚠</td><td style="color:var(--orange)">⚠</td><td style="color:var(--green)">✅</td><td style="color:var(--orange)">⚠</td></tr>
+</table></div>
+<div style="margin-top:8px;font-size:11px;color:var(--muted)">✅ Compatible · ⚠ Check concentration/temp. · ❌ Not suitable</div>
+</div></div>
+
+<!-- ===== CALC CHEM ===== -->
+<div id="chem-calc_chem" class="chem-sec">
+<div class="card"><div class="ctitle">🧮 Chemical Calculators</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:#bc8cff">Adhesive Quantity Calculator</div>
+<div class="cg">
+<div><label>Length (mm)</label><input type="number" id="adh-l" value="100" oninput="calcAdhesive()"></div>
+<div><label>Width (mm)</label><input type="number" id="adh-w" value="50" oninput="calcAdhesive()"></div>
+<div><label>Layer Thickness (mm)</label><input type="number" id="adh-t" value="0.2" step="0.05" oninput="calcAdhesive()"></div>
+<div><label>Adhesive Type</label>
+<select id="adh-type" onchange="calcAdhesive()">
+<option value="1.2">Epoxy (1.2 g/cm³)</option>
+<option value="1.05">PU (1.05 g/cm³)</option>
+<option value="1.19">Cyanoacrylate (1.19 g/cm³)</option>
+<option value="1.1">MS-Polymer (1.1 g/cm³)</option>
+</select></div>
+</div>
+<div id="adh-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:#bc8cff">Loctite Calculator by Diameter</div>
+<div class="cg">
+<div><label>Bolt Diameter (mm)</label><input type="number" id="ltk-d" value="8" oninput="calcLoctite()"></div>
+<div><label>Application</label>
+<select id="ltk-use" onchange="calcLoctite()">
+<option value="vib">Vibration prevention (medium)</option>
+<option value="perm">Permanent / severe vibration</option>
+<option value="micro">Small bolts M1-M6</option>
+<option value="wicking">Already-tight thread</option>
+</select></div>
+</div>
+<div id="ltk-result" class="res">—</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== GASES ===== -->
+<div id="chem-gases" class="chem-sec">
+<div class="card"><div class="ctitle">⚗️ Industrial Gases</div>
+<table><tr><th>Gas</th><th>Symbol</th><th>Cylinder Color</th><th>Storage Pressure</th><th>Boiling Point</th><th>Main Use</th><th>Hazard</th></tr>
+<tr><td><b>Argon</b></td><td>Ar</td><td style="color:var(--blue)">Dark Blue</td><td>200 bar</td><td>-186°C</td><td>TIG/MIG welding, PVD coating</td><td>asphyxiation (inert)</td></tr>
+<tr><td><b>Nitrogen</b></td><td>N2</td><td style="color:var(--muted)">Grey/Black</td><td>200 bar</td><td>-196°C</td><td>nitriding, pressure testing, drying, laser</td><td>asphyxiation</td></tr>
+<tr><td><b>Helium</b></td><td>He</td><td style="color:var(--orange)">Brown</td><td>200 bar</td><td>-269°C</td><td>Al/Ti welding, leak testing, MRI</td><td>asphyxiation</td></tr>
+<tr><td><b>CO2</b></td><td>CO2</td><td style="color:var(--green)">Dark Green</td><td>50-60 bar</td><td>-78°C (sublime)</td><td>MIG, MAG welding, cooling</td><td>asphyxiation at high concentration</td></tr>
+<tr><td><b>Oxygen</b></td><td>O2</td><td style="color:var(--blue)">Blue</td><td>200 bar</td><td>-183°C</td><td>Oxyfuel cutting, welding, LOX</td><td>flammable! keep away from oil</td></tr>
+<tr><td><b>Acetylene</b></td><td>C2H2</td><td style="color:var(--orange)">Yellow/Orange</td><td>15 bar (max!)</td><td>-84°C</td><td>Oxy-Acetylene cutting/welding</td><td>very flammable! max 1.5 bar use pressure</td></tr>
+<tr><td><b>Hydrogen</b></td><td>H2</td><td style="color:var(--red)">Red</td><td>200-700 bar</td><td>-253°C</td><td>LH2 rockets, hydrogen fuel, Al welding</td><td>very flammable! range 4-75% in oxygen</td></tr>
+<tr><td><b>SF6</b></td><td>SF6</td><td style="color:var(--muted)">White</td><td>6-7 bar</td><td>-64°C</td><td>electrical insulation, GIS switchgear</td><td>very strong GHG (23,500×CO2)</td></tr>
+<tr><td><b>Propane</b></td><td>C3H8</td><td style="color:var(--orange)">Orange</td><td>8-12 bar</td><td>-42°C</td><td>cutting, brazing, heating, HVOF</td><td>flammable, heavier than air</td></tr>
+<tr><td><b>Ar/CO2 (75/25)</b></td><td>C25</td><td style="color:var(--blue)">Blue/Green</td><td>200 bar</td><td>—</td><td>steel MIG — most common!</td><td>asphyxiation</td></tr>
+<tr><td><b>Ar/He (50/50)</b></td><td>ArHe</td><td>—</td><td>200 bar</td><td>—</td><td>aluminum TIG, fast welding</td><td>asphyxiation</td></tr>
+<tr><td><b>Ar/H2 (2-5%)</b></td><td>—</td><td>—</td><td>200 bar</td><td>—</td><td>stainless TIG — ↑speed, ↑penetration</td><td>flammable in H2 mix</td></tr>
+</table>
+<div style="margin-top:14px" class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Gas Selection for Welding</div>
+<div class="spec-row"><span class="spec-key">TIG Steel</span><span class="spec-val">Ar 100%</span></div>
+<div class="spec-row"><span class="spec-key">TIG Stainless</span><span class="spec-val">Ar 100% / Ar+2%H2</span></div>
+<div class="spec-row"><span class="spec-key">TIG Aluminum</span><span class="spec-val">Ar 100% / Ar+He</span></div>
+<div class="spec-row"><span class="spec-key">TIG Titanium</span><span class="spec-val">Ar 100% (99.999% purity!)</span></div>
+<div class="spec-row"><span class="spec-key">MIG Steel</span><span class="spec-val">Ar/CO2 75/25 (C25)</span></div>
+<div class="spec-row"><span class="spec-key">MIG Stainless</span><span class="spec-val">Ar/CO2/He (98/1/1)</span></div>
+<div class="spec-row"><span class="spec-key">MIG Aluminum</span><span class="spec-val">Ar 100%</span></div>
+<div class="spec-row"><span class="spec-key">FCAW</span><span class="spec-val">CO2 100% / Ar+CO2</span></div>
+
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.linde.com" target="_blank" style="color:var(--blue)">Linde</a> · <a href="https://www.airproducts.com" target="_blank" style="color:var(--blue)">Air Products</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.linde.com" target="_blank" style="color:var(--blue)">Linde</a> · <a href="https://www.airproducts.com" target="_blank" style="color:var(--blue)">Air Products</a></div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Gas Companies</div>
+<div class="spec-row"><span class="spec-key"><a href="https://www.linde.com" target="_blank" style="color:var(--blue)">Linde</a></span><span class="spec-val">global — largest</span></div>
+<div class="spec-row"><span class="spec-key"><a href="https://www.airproducts.com" target="_blank" style="color:var(--blue)">Air Products</a></span><span class="spec-val">US/global</span></div>
+<div class="spec-row"><span class="spec-key"><a href="https://www.airliquide.com" target="_blank" style="color:var(--blue)">Air Liquide</a></span><span class="spec-val">France/global</span></div>
+<div class="spec-row"><span class="spec-key">Maxima Gas</span><span class="spec-val">Israel — most common</span></div>
+<div class="spec-row"><span class="spec-key">Maxima Israel</span><span class="spec-val">Ar, N2, CO2, liquid tanks</span></div>
+<div class="spec-row"><span class="spec-key">Gas Company</span><span class="spec-val">Israel — LPG, acetylene</span></div>
+</div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Gas Safety</div>
+<div class="spec-row"><span class="spec-key">Storage</span><span class="spec-val">upright, chained to wall, ventilated area</span></div>
+<div class="spec-row"><span class="spec-key">O2 + Oil</span><span class="spec-val">fire hazard! never!</span></div>
+<div class="spec-row"><span class="spec-key">C2H2 Pressure</span><span class="spec-val">max 1.5 bar use!</span></div>
+<div class="spec-row"><span class="spec-key">H2 Detection</span><span class="spec-val">H2 detector mandatory — invisible, rises</span></div>
+<div class="spec-row"><span class="spec-key">Vessel Entry</span><span class="spec-val">prohibited! Confined Space Permit</span></div>
+<div class="spec-row"><span class="spec-key">Israeli Standard</span><span class="spec-val">SII 198 + gas safety regulations</span></div>
+</div>
+</div>
+</div></div>
+
+<!-- ===== NDT CHEM ===== -->
+<div id="chem-ndt_chem" class="chem-sec">
+<div class="card"><div class="ctitle">🔬 Liquid Penetrant &amp; Magnetic Testing</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">PT — Liquid Penetrant Testing</div>
+<div><span class="mc-badge b-blue">Type I</span><span class="mc-badge b-orange">Type II</span><span class="mc-badge b-green">4 Steps</span></div>
+<div class="spec-row"><span class="spec-key">Type I</span><span class="spec-val">Fluorescent (UV 365nm)</span></div>
+<div class="spec-row"><span class="spec-key">Type II</span><span class="spec-val">Visible Dye (red/white)</span></div>
+<div class="spec-row"><span class="spec-key">Method A</span><span class="spec-val">Water Washable</span></div>
+<div class="spec-row"><span class="spec-key">Method B</span><span class="spec-val">Post-Emulsifiable, Lipophilic</span></div>
+<div class="spec-row"><span class="spec-key">Method C</span><span class="spec-val">Solvent Removable</span></div>
+<div class="spec-row"><span class="spec-key">Method D</span><span class="spec-val">Post-Emulsifiable, Hydrophilic</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Standard: ASTM E165 / EN ISO 3452<br>
+<b>Magnaflux</b> ZL-27A (Fluorescent) / SKL-SP2 (Visible)
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.magnaflux.com" target="_blank" style="color:var(--blue)">Magnaflux (ITW)</a> · <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.magnaflux.com" target="_blank" style="color:var(--blue)">Magnaflux (ITW)</a> · <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall</a></div><a href="https://www.youtube.com/results?search_query=liquid%20dye%20penetrant%20testing%20process%20NDT" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">PT — Process Sequence</div>
+<div class="spec-row"><span class="spec-key">1. Pre-cleaning</span><span class="spec-val">Cleaner/Remover — removes grease/paint</span></div>
+<div class="spec-row"><span class="spec-key">2. Penetrant Application</span><span class="spec-val">spray/dip — 10-30 minute dwell</span></div>
+<div class="spec-row"><span class="spec-key">3. Excess Removal</span><span class="spec-val">water/solvent — carefully! don't wash out of cracks</span></div>
+<div class="spec-row"><span class="spec-key">4. Developer</span><span class="spec-val">white/dry — draws Penetrant from cracks</span></div>
+<div class="spec-row"><span class="spec-key">5. Inspection</span><span class="spec-val">UV (Type I) / visible light (Type II)</span></div>
+<div class="spec-row"><span class="spec-key">6. Final Cleaning</span><span class="spec-val">Developer removal</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>Sensitivity Levels:</b> 1/2 common for industry | 3/4 aerospace<br>
+Sensitivity: 1/2T (fine) to 1 (coarse)
+</div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">MT — Magnetic Particle Testing</div>
+<div><span class="spec-key">Liquid Magnetic</span><span class="spec-val">Magnaflux 14HF — black</span></div>
+<div class="spec-row"><span class="spec-key">Fluorescent</span><span class="spec-val">Magnaflux 14AM — UV</span></div>
+<div class="spec-row"><span class="spec-key">Yoke</span><span class="spec-val">manual magnetization — AC/DC</span></div>
+<div class="spec-row"><span class="spec-key">Coil</span><span class="spec-val">long parts — Longitudinal</span></div>
+<div class="spec-row"><span class="spec-key">Contact</span><span class="spec-val">Circular magnetization</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Standard: ASTM E709 / EN ISO 9934<br>
+<span style="color:var(--red)">⚠️</span> Ferritic steel only! Not austenitic SS/Al
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.magnaflux.com" target="_blank" style="color:var(--blue)">Magnaflux (ITW)</a> · <a href="https://www.parker.com" target="_blank" style="color:var(--blue)">Parker Research</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.magnaflux.com" target="_blank" style="color:var(--blue)">Magnaflux (ITW)</a> · <a href="https://www.parker.com" target="_blank" style="color:var(--blue)">Parker Research</a></div><a href="https://www.youtube.com/results?search_query=magnetic%20particle%20testing%20process%20MT%20NDT" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Etch Inspection</div>
+<div><span class="mc-badge b-red">Grinding Burn</span><span class="mc-badge b-orange">Nital Etch</span></div>
+<div class="spec-row"><span class="spec-key">Nital 2-3%</span><span class="spec-val">HNO3 in Methanol — steel</span></div>
+<div class="spec-row"><span class="spec-key">Keller's</span><span class="spec-val">HF+HCl+HNO3+H2O — aluminum</span></div>
+<div class="spec-row"><span class="spec-key">Marble's</span><span class="spec-val">CuSO4+HCl+H2O — stainless</span></div>
+<div class="spec-row"><span class="spec-key">Vilella's</span><span class="spec-val">Picric acid+HCl — fine steel</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>Grinding Burn:</b> black = softening | white = Re-hardened<br>
+Standard: ASTM F2338 / AMS 2440<br>
+<span style="color:var(--red)">⚠️</span> HF — very dangerous! Butyl gloves mandatory
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel / Turco</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel / Turco</a></div><a href="https://www.youtube.com/results?search_query=macro%20etch%20inspection%20process%20metal%20grain" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div>
+</div></div>
+
+<!-- ===== ELECTROCHEMISTRY ===== -->
+<div id="chem-electrochem" class="chem-sec">
+<div class="card"><div class="ctitle">⚡ Electrochemistry &amp; Plating</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Anodizing Chemistry</div>
+<div><span class="mc-badge b-blue">Type II</span><span class="mc-badge b-orange">Type III Hard</span></div>
+<div class="spec-row"><span class="spec-key">Bath</span><span class="spec-val">H2SO4 15-20% (180-200 g/L)</span></div>
+<div class="spec-row"><span class="spec-key">Type II Temp.</span><span class="spec-val">18-22°C</span></div>
+<div class="spec-row"><span class="spec-key">Type III Temp.</span><span class="spec-val">0-5°C (! cold)</span></div>
+<div class="spec-row"><span class="spec-key">Current</span><span class="spec-val">1.5-3 A/dm² (Type II) | 3-5 (III)</span></div>
+<div class="spec-row"><span class="spec-key">Growth Rate</span><span class="spec-val">~0.4μm/minute (Type II)</span></div>
+<div class="spec-row"><span class="spec-key">Ratio</span><span class="spec-val">50% penetration into Al, 50% growth outward</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>Sealing:</b> boiling water (DI) 96°C/30min or Nickel Acetate<br>
+<b>Dyeing:</b> before Sealing — organic/inorganic dye<br>
+<span style="color:var(--red)">⚠️</span> H2SO4 + electricity = H2 evolves! ventilation mandatory
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.atotech.com" target="_blank" style="color:var(--blue)">Atotech</a> · <a href="https://www.macdermidenthone.com" target="_blank" style="color:var(--blue)">MacDermid Enthone</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.atotech.com" target="_blank" style="color:var(--blue)">Atotech</a> · <a href="https://www.macdermidenthone.com" target="_blank" style="color:var(--blue)">MacDermid Enthone</a></div><a href="https://www.youtube.com/results?search_query=anodizing%20process%20aluminum%20electrochemical%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Electroplating</div>
+<div class="spec-row"><span class="spec-key">Zinc</span><span class="spec-val">ZnSO4/ZnCl2 — 50-100 g/L, pH 4-6</span></div>
+<div class="spec-row"><span class="spec-key">Nickel</span><span class="spec-val">NiSO4 300g/L — Watts Bath</span></div>
+<div class="spec-row"><span class="spec-key">Chrome</span><span class="spec-val">CrO3 250g/L + H2SO4 — TOXIC!</span></div>
+<div class="spec-row"><span class="spec-key">Gold</span><span class="spec-val">Au-Citrate / Au-Cyanide</span></div>
+<div class="spec-row"><span class="spec-key">Copper</span><span class="spec-val">CuSO4 200g/L + H2SO4</span></div>
+<div class="spec-row"><span class="spec-key">Silver</span><span class="spec-val">AgCN — Cyanide Bath</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>Faraday's Formula:</b> m = (M × I × t) / (n × F)<br>
+m=weight[g], M=molar mass, I=current[A], t=time[s], n=valence, F=96485<br>
+<span style="color:var(--red)">⚠️</span> Hex Chrome = Cr6+ — carcinogenic! REACH/RoHS
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.atotech.com" target="_blank" style="color:var(--blue)">Atotech</a> · <a href="https://www.macdermidenthone.com" target="_blank" style="color:var(--blue)">MacDermid Enthone</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.atotech.com" target="_blank" style="color:var(--blue)">Atotech</a> · <a href="https://www.macdermidenthone.com" target="_blank" style="color:var(--blue)">MacDermid Enthone</a></div><a href="https://www.youtube.com/results?search_query=electroplating%20process%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Electroless Nickel — EN</div>
+<div><span class="mc-badge b-green">No Electricity</span><span class="mc-badge b-blue">100% Uniform</span></div>
+<div class="spec-row"><span class="spec-key">Mechanism</span><span class="spec-val">chemical reduction — NaH2PO2</span></div>
+<div class="spec-row"><span class="spec-key">Low P (2-5%)</span><span class="spec-val">HRC 65 after HT, magnetic</span></div>
+<div class="spec-row"><span class="spec-key">Mid P (6-9%)</span><span class="spec-val">HRC 52, general</span></div>
+<div class="spec-row"><span class="spec-key">High P (10-13%)</span><span class="spec-val">HRC 48, maximum corrosion resistance</span></div>
+<div class="spec-row"><span class="spec-key">Hardening HT</span><span class="spec-val">400°C/1h → HRC 65-70!</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Advantage: uniform thickness on holes/slots/complex parts<br>
+<span style="color:var(--green)">✓</span> ↑wear resistance, ↑hardness, ↑corrosion resistance
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.macdermidenthone.com" target="_blank" style="color:var(--blue)">MacDermid Enthone</a> · <a href="https://www.atotech.com" target="_blank" style="color:var(--blue)">Atotech</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.macdermidenthone.com" target="_blank" style="color:var(--blue)">MacDermid Enthone</a> · <a href="https://www.atotech.com" target="_blank" style="color:var(--blue)">Atotech</a></div><a href="https://www.youtube.com/results?search_query=electroless%20nickel%20plating%20process%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Passivation</div>
+<div><span class="mc-badge b-blue">Stainless</span><span class="mc-badge b-orange">AMS 2700</span></div>
+<div class="spec-row"><span class="spec-key">Method 1</span><span class="spec-val">HNO3 20-25%, 49-60°C, 30min</span></div>
+<div class="spec-row"><span class="spec-key">Method 2</span><span class="spec-val">HNO3 20-45%, 21-38°C, 30min</span></div>
+<div class="spec-row"><span class="spec-key">Citric Acid</span><span class="spec-val">4-10%, 49-71°C, 20min — safer!</span></div>
+<div class="spec-row"><span class="spec-key">Test</span><span class="spec-val">Copper Sulfate Test / Salt Spray 48h</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Standard: AMS 2700 / ASTM A967 / MIL-DTL-14538<br>
+Purpose: remove free Fe → resistant Cr2O3 layer
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel / Bonderite</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel / Bonderite</a></div><a href="https://www.youtube.com/results?search_query=stainless%20steel%20passivation%20process%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div>
+<div style="margin-top:14px">
+<div class="ctitle" style="font-size:14px">🧮 Faraday Calculator — Plating Thickness</div>
+<div class="cg">
+<div><label>Current I (Ampere)</label><input type="number" id="far-i" value="5" step="0.5" oninput="calcFaraday()"></div>
+<div><label>Time (minutes)</label><input type="number" id="far-t" value="30" oninput="calcFaraday()"></div>
+<div><label>Area (dm²)</label><input type="number" id="far-a" value="2" step="0.1" oninput="calcFaraday()"></div>
+<div><label>Metal</label>
+<select id="far-metal" onchange="calcFaraday()">
+<option value="65.38,2,7.13">Zinc</option>
+<option value="58.69,2,8.90">Nickel</option>
+<option value="63.55,2,8.96">Copper</option>
+<option value="197.0,3,19.3">Gold</option>
+<option value="107.9,1,10.5">Silver</option>
+<option value="52.0,3,7.19">Chrome</option>
+</select></div>
+</div>
+<div id="far-result" class="res">—</div>
+</div>
+</div></div>
+
+<!-- ===== PAINTS ===== -->
+<div id="chem-paints" class="chem-sec">
+<div class="card"><div class="ctitle">🎨 Paints &amp; Primers</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Paint System</div>
+<div class="spec-row"><span class="spec-key">Step 1: Surface Prep</span><span class="spec-val">Sa 2.5 / Sa 3 Blast / SSPC-SP10</span></div>
+<div class="spec-row"><span class="spec-key">Step 2: Wash Primer</span><span class="spec-val">Etch Primer — 5-10μm</span></div>
+<div class="spec-row"><span class="spec-key">Step 3: Primer</span><span class="spec-val">Epoxy/Zinc Rich — 50-75μm</span></div>
+<div class="spec-row"><span class="spec-key">Step 4: MidCoat</span><span class="spec-val">HB Epoxy — 100-150μm (optional)</span></div>
+<div class="spec-row"><span class="spec-key">Step 5: Topcoat</span><span class="spec-val">PU/Acrylic — 50-75μm</span></div>
+<div class="spec-row"><span class="spec-key">Total DFT</span><span class="spec-val">200-350μm (marine: up to 500μm)</span></div>
+<a href="https://www.youtube.com/results?search_query=paint%20system%20primer%20topcoat%20application%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Primer Types</div>
+<div class="spec-row"><span class="spec-key">Zinc Rich Epoxy</span><span class="spec-val">&gt;80% Zn — cathodic protection, steel</span></div>
+<div class="spec-row"><span class="spec-key">Zinc Phosphate</span><span class="spec-val">mechanical protection, medium</span></div>
+<div class="spec-row"><span class="spec-key">Epoxy Primer</span><span class="spec-val">adhesion + barrier — general use</span></div>
+<div class="spec-row"><span class="spec-key">Wash Primer (Etch)</span><span class="spec-val">PVB+Phosphoric — Al/steel/Zn</span></div>
+<div class="spec-row"><span class="spec-key">Alodine 1200</span><span class="spec-val">Chromate Conversion — Al primer</span></div>
+<div class="spec-row"><span class="spec-key">Epoxy MIL-PRF-23377</span><span class="spec-val">aerospace — Type I/II</span></div>
+
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.jotun.com" target="_blank" style="color:var(--blue)">Jotun</a> · <a href="https://www.akzonobel.com" target="_blank" style="color:var(--blue)">AkzoNobel</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.jotun.com" target="_blank" style="color:var(--blue)">Jotun</a> · <a href="https://www.akzonobel.com" target="_blank" style="color:var(--blue)">AkzoNobel</a></div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Topcoat</div>
+<div class="spec-row"><span class="spec-key">Polyurethane (PU)</span><span class="spec-val">↑UV, ↑flexibility, ↑appearance — outdoor</span></div>
+<div class="spec-row"><span class="spec-key">Epoxy Topcoat</span><span class="spec-val">↑chemical, ↓UV — indoor</span></div>
+<div class="spec-row"><span class="spec-key">Alkyd</span><span class="spec-val">cheap, ↓performance, simple exteriors</span></div>
+<div class="spec-row"><span class="spec-key">MIL-PRF-85285</span><span class="spec-val">aerospace PU — CAM Gray</span></div>
+<div class="spec-row"><span class="spec-key">Interthane 990</span><span class="spec-val">Akzo Nobel — common in industry</span></div>
+
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.akzonobel.com" target="_blank" style="color:var(--blue)">AkzoNobel / Interthane</a> · <a href="https://www.jotun.com" target="_blank" style="color:var(--blue)">Jotun / Hardtop</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.akzonobel.com" target="_blank" style="color:var(--blue)">AkzoNobel / Interthane</a> · <a href="https://www.jotun.com" target="_blank" style="color:var(--blue)">Jotun / Hardtop</a></div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">DFT — Dry Film Thickness</div>
+<div class="spec-row"><span class="spec-key">WFT → DFT</span><span class="spec-val">DFT = WFT × (VS%/100)</span></div>
+<div class="spec-row"><span class="spec-key">VS% Epoxy</span><span class="spec-val">~60-80%</span></div>
+<div class="spec-row"><span class="spec-key">VS% PU</span><span class="spec-val">~55-75%</span></div>
+<div class="spec-row"><span class="spec-key">Measurement</span><span class="spec-val">Elcometer 456 / DeFelsko PosiTest</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Theoretical coverage: Coverage = (VS% × 10) / DFT[μm] = m²/L<br>
+Standard: ISO 19840 / SSPC PA-2
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.elcometer.com" target="_blank" style="color:var(--blue)">Elcometer</a> · <a href="https://www.defelsko.com" target="_blank" style="color:var(--blue)">DeFelsko</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.elcometer.com" target="_blank" style="color:var(--blue)">Elcometer</a> · <a href="https://www.defelsko.com" target="_blank" style="color:var(--blue)">DeFelsko</a></div></div>
+</div>
+<table style="margin-top:14px"><tr><th>Manufacturer</th><th>Product</th><th>Type</th><th>Use</th></tr>
+<tr><td><a href="https://www.jotun.com" target="_blank" style="color:var(--blue)">Jotun</a></td><td>Jotamastic / Hardtop XP</td><td>Epoxy/PU</td><td>marine, oil/gas, infrastructure</td></tr>
+<tr><td><a href="https://www.hempel.com" target="_blank" style="color:var(--blue)">Hempel</a></td><td>Hempadur / Hempathane</td><td>Epoxy/PU</td><td>shipping, industry</td></tr>
+<tr><td><a href="https://www.sherwin-williams.com" target="_blank" style="color:var(--blue)">Sherwin-Williams</a></td><td>Macropoxy / Hi-Temp</td><td>Epoxy/HB</td><td>infrastructure, industry</td></tr>
+<tr><td><a href="https://www.sika.com" target="_blank" style="color:var(--blue)">Sika</a></td><td>Sikacor / Sikafloor</td><td>Epoxy</td><td>flooring, construction</td></tr>
+<tr><td><a href="https://www.akzonobel.com" target="_blank" style="color:var(--blue)">AkzoNobel</a></td><td>Interzinc / Interthane</td><td>Zinc/PU</td><td>aerospace, marine, automotive</td></tr>
+</table>
+</div></div>
+
+<!-- ===== BRAZING ===== -->
+<div id="chem-brazing" class="chem-sec">
+<div class="card"><div class="ctitle">🔥 Brazing, Soldering &amp; Stop-off</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Brazing (&gt;450°C)</div>
+<div class="spec-row"><span class="spec-key">Silver Brazing</span><span class="spec-val">Ag 45-72%, temp. 620-900°C</span></div>
+<div class="spec-row"><span class="spec-key">Copper Brazing</span><span class="spec-val">Cu 99%, protective atmosphere, 1080°C</span></div>
+<div class="spec-row"><span class="spec-key">Nickel Brazing</span><span class="spec-val">BNi-2/BNi-8, aerospace, 1000-1200°C</span></div>
+<div class="spec-row"><span class="spec-key">Aluminum Brazing</span><span class="spec-val">AlSi 4047/4343, 580-610°C</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>Flux (Borax):</b> AWS FB1-A — oxide removal<br>
+<b>Vacuum Brazing:</b> nickel/copper — no Flux!<br>
+Lucas-Milhaupt, Harris Products, Handy&amp;Harman
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.lucasmilhaupt.com" target="_blank" style="color:var(--blue)">Lucas-Milhaupt</a> · <a href="https://www.harrisproductsgroup.com" target="_blank" style="color:var(--blue)">Harris Products</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.lucasmilhaupt.com" target="_blank" style="color:var(--blue)">Lucas-Milhaupt</a> · <a href="https://www.harrisproductsgroup.com" target="_blank" style="color:var(--blue)">Harris Products</a></div><a href="https://www.youtube.com/results?search_query=brazing%20process%20how%20it%20works%20torch%20furnace" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Soldering (&lt;450°C)</div>
+<div class="spec-row"><span class="spec-key">Sn63/Pb37</span><span class="spec-val">183°C — eutectic, electronics</span></div>
+<div class="spec-row"><span class="spec-key">SAC305 (Lead-Free)</span><span class="spec-val">Sn96.5/Ag3/Cu0.5 — 217°C, RoHS</span></div>
+<div class="spec-row"><span class="spec-key">Sn50/Pb50</span><span class="spec-val">215°C — plumbing</span></div>
+<div class="spec-row"><span class="spec-key">Flux Rosin</span><span class="spec-val">RMA/RA — electronics</span></div>
+<div class="spec-row"><span class="spec-key">Flux No-Clean</span><span class="spec-val">SMD — no rinse</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+IPC J-STD-006 — solder alloy classification<br>
+Kester, Multicore, Alpha Metals
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.kester.com" target="_blank" style="color:var(--blue)">Kester</a> · <a href="https://www.alphametals.com" target="_blank" style="color:var(--blue)">Alpha Metals</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.kester.com" target="_blank" style="color:var(--blue)">Kester</a> · <a href="https://www.alphametals.com" target="_blank" style="color:var(--blue)">Alpha Metals</a></div><a href="https://www.youtube.com/results?search_query=soldering%20process%20how%20it%20works%20basics" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Stop-off — Heat Treatment Masking</div>
+<div class="spec-row"><span class="spec-key">Stop-off Paint</span><span class="spec-val">Dy-Kote 29A — nitriding prevention</span></div>
+<div class="spec-row"><span class="spec-key">Stop-off Clay</span><span class="spec-val">modeling, welding, chasing</span></div>
+<div class="spec-row"><span class="spec-key">Copper Plate</span><span class="spec-val">copper plating = carbon barrier</span></div>
+<div class="spec-row"><span class="spec-key">Nickel Plate</span><span class="spec-val">nitriding barrier up to 700°C</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+<b>Pickle Paste SS:</b> HNO3+HF gel — welding/stains<br>
+Boro-Wolf 60 / Derustit — SS cleaning<br>
+<span style="color:var(--red)">⚠️</span> HF in pickling — Butyl gloves mandatory!
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.sifcoasc.com" target="_blank" style="color:var(--blue)">Dy-Kote (Sifco)</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel / Bonderite</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.sifcoasc.com" target="_blank" style="color:var(--blue)">Dy-Kote (Sifco)</a> · <a href="https://www.henkel.com" target="_blank" style="color:var(--blue)">Henkel / Bonderite</a></div><a href="https://www.youtube.com/results?search_query=stop%20off%20masking%20heat%20treatment%20selective%20carburizing" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Pickle &amp; Descaling</div>
+<div class="spec-row"><span class="spec-key">SS Pickle Paste</span><span class="spec-val">HNO3+HF — welding stains/rust</span></div>
+<div class="spec-row"><span class="spec-key">Carbon Steel</span><span class="spec-val">HCl 10-20% / H2SO4 — Mill Scale</span></div>
+<div class="spec-row"><span class="spec-key">Al Etch</span><span class="spec-val">NaOH 5-10% → HNO3 Bright Dip</span></div>
+<div class="spec-row"><span class="spec-key">Ti Pickle</span><span class="spec-val">HF+HNO3 — Alpha Case removal</span></div>
+<div style="font-size:11px;margin-top:8px;color:var(--muted)">
+Manufacturers: Chemetall, Henkel, MacDermid<br>
+Turco 4181 — safety-critical SS Pickling
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall</a> · <a href="https://www.macdermidenthone.com" target="_blank" style="color:var(--blue)">MacDermid Enthone</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemetall.com" target="_blank" style="color:var(--blue)">Chemetall</a> · <a href="https://www.macdermidenthone.com" target="_blank" style="color:var(--blue)">MacDermid Enthone</a></div><a href="https://www.youtube.com/results?search_query=pickling%20descaling%20process%20metal%20acid%20stainless" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div>
+</div></div>
+
+<!-- ===== BATTERIES ===== -->
+<div id="chem-batteries" class="chem-sec">
+<div class="card"><div class="ctitle">🔋 Battery Chemistry</div>
+<table><tr><th>Technology</th><th>Nominal Voltage</th><th>Energy Density Wh/kg</th><th>Cycle Life</th><th>C-Rate</th><th>Operating Temp.</th><th>Application</th></tr>
+<tr><td><b style="color:var(--green)">Li-ion NMC</b></td><td>3.6-3.7V</td><td>150-220</td><td>500-1000</td><td>1-3C</td><td>-20 to +60°C</td><td>EV, laptop, power tools</td></tr>
+<tr><td><b style="color:var(--green)">LiFePO4 (LFP)</b></td><td>3.2V</td><td>90-160</td><td>2000-4000</td><td>1-5C</td><td>-30 to +60°C</td><td>solar energy, safe EV</td></tr>
+<tr><td><b style="color:var(--blue)">Li-ion NCA</b></td><td>3.6V</td><td>200-260</td><td>500-1000</td><td>1-3C</td><td>-20 to +60°C</td><td>Tesla, power tools</td></tr>
+<tr><td><b style="color:var(--blue)">LiPo</b></td><td>3.7V</td><td>150-200</td><td>300-500</td><td>1-20C</td><td>-20 to +60°C</td><td>drones, RC, robotics</td></tr>
+<tr><td><b style="color:var(--orange)">NiMH</b></td><td>1.2V</td><td>60-120</td><td>500-1000</td><td>0.2-1C</td><td>-20 to +50°C</td><td>toys, Hybrid (Prius)</td></tr>
+<tr><td><b style="color:var(--orange)">Lead-Acid</b></td><td>2.0V/cell</td><td>30-50</td><td>200-500</td><td>0.05-1C</td><td>-40 to +50°C</td><td>vehicles, UPS, SLA</td></tr>
+<tr><td><b style="color:var(--muted)">Alkaline</b></td><td>1.5V</td><td>80-150</td><td>1 (primary)</td><td>0.1C</td><td>-20 to +55°C</td><td>consumer products</td></tr>
+<tr><td><b style="color:var(--red)">Solid State (future)</b></td><td>3.8V</td><td>300-400</td><td>&gt;5000</td><td>1-10C</td><td>-30 to +100°C</td><td>EV Gen-Next</td></tr>
+</table>
+<div style="margin-top:14px" class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">BMS — Battery Management</div>
+<div class="spec-row"><span class="spec-key">SOC</span><span class="spec-val">State of Charge — OCV / Coulomb</span></div>
+<div class="spec-row"><span class="spec-key">SOH</span><span class="spec-val">State of Health — current capacity</span></div>
+<div class="spec-row"><span class="spec-key">Upper Cutoff</span><span class="spec-val">4.2V (NMC) / 3.65V (LFP)</span></div>
+<div class="spec-row"><span class="spec-key">Lower Cutoff</span><span class="spec-val">2.5-3.0V (NMC) / 2.5V (LFP)</span></div>
+<div class="spec-row"><span class="spec-key">Thermal Runaway</span><span class="spec-val">&gt;130-150°C — danger!</span></div>
+</div>
+<div class="machine-card">
+<div class="mc-title" style="color:#bc8cff">Leading Companies</div>
+<div class="spec-row"><span class="spec-key"><a href="https://www.catl.com" target="_blank" style="color:var(--blue)">CATL</a></span><span class="spec-val">China — global leader</span></div>
+<div class="spec-row"><span class="spec-key"><a href="https://www.panasonic.com" target="_blank" style="color:var(--blue)">Panasonic</a></span><span class="spec-val">Japan — Tesla Partner</span></div>
+<div class="spec-row"><span class="spec-key">LG Energy</span><span class="spec-val">Korea — EV, Consumer</span></div>
+<div class="spec-row"><span class="spec-key">Samsung SDI</span><span class="spec-val">Korea — 18650/Pouch</span></div>
+<div class="spec-row"><span class="spec-key">BYD</span><span class="spec-val">China — Blade LFP</span></div>
+</div>
+</div>
+</div></div>
+
+<!-- ===== ACIDS ===== -->
+<div id="chem-acids" class="chem-sec">
+<div class="card"><div class="ctitle">⚠️ Industrial Acids &amp; Bases</div>
+<div style="background:rgba(251,146,60,0.08);border:1px solid var(--orange);border-radius:8px;padding:10px;margin-bottom:14px;font-size:12px;color:var(--orange)">
+⚠️ Information for professional use only. Acids require PPE, proper ventilation, and appropriate training.
+</div>
+<table><tr><th>Material</th><th>Formula</th><th>Commercial Concentration</th><th>pH (1%)</th><th>Industrial Use</th><th>Main Hazard</th><th>PPE</th></tr>
+<tr><td><b style="color:var(--red)">H2SO4 — Sulfuric</b></td><td>H2SO4</td><td>96-98%</td><td>~1</td><td>steel Pickling, plating, Anodize, Lead-Acid batteries</td><td>severe burns, exothermic with water!</td><td>Face shield + Butyl</td></tr>
+<tr><td><b style="color:var(--orange)">HCl — Hydrochloric</b></td><td>HCl</td><td>30-37%</td><td>~1</td><td>Pickling, Mill Scale removal, pH control, Al Etch</td><td>dangerous fumes! corrosive + irritant</td><td>Mask + Neoprene</td></tr>
+<tr><td><b style="color:var(--orange)">HNO3 — Nitric</b></td><td>HNO3</td><td>65-70%</td><td>~1</td><td>SS passivation, Al Bright Dip, cleaning</td><td>strong oxidizer! toxic orange NO2</td><td>Face shield + Butyl</td></tr>
+<tr><td><b style="color:var(--red)">HF — Fluoride</b></td><td>HF</td><td>48-49%</td><td>~3</td><td>Al Etch, Ti Pickle, ceramic cleaning, glass Etching</td><td>lethal! deep penetration with no immediate pain</td><td>Butyl + Full Face + shield</td></tr>
+<tr><td><b style="color:var(--blue)">H3PO4 — Phosphoric</b></td><td>H3PO4</td><td>75-85%</td><td>~2</td><td>steel Phosphating (Bonderite), scale cleaning</td><td>moderate corrosive</td><td>Neoprene</td></tr>
+<tr><td><b style="color:var(--blue)">Citric Acid</b></td><td>C6H8O7</td><td>50%</td><td>~3</td><td>SS passivation (safer than HNO3), scale cleaning</td><td>minimal</td><td>PVC gloves</td></tr>
+<tr><td><b style="color:var(--green)">NaOH — Caustic Soda</b></td><td>NaOH</td><td>50%</td><td>~13</td><td>Al Etch (Caustic), degreasing</td><td>burns! Al oxidizes releasing H2</td><td>Face shield + Neoprene</td></tr>
+<tr><td><b style="color:var(--green)">KOH — Potassium Hydroxide</b></td><td>KOH</td><td>45-50%</td><td>~13</td><td>Alkaline Electrolyte in batteries, cleaning</td><td>severe burns</td><td>Face shield + Neoprene</td></tr>
+<tr><td><b style="color:var(--muted)">NH3 — Ammonia</b></td><td>NH3</td><td>25-30%</td><td>~11</td><td>gas nitriding, cleaning, pH adjustment</td><td>pungent fumes! Immediately Dangerous</td><td>SCBA + Butyl</td></tr>
+</table>
+<div style="margin-top:14px" class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">⚠️ HF — Hydrogen Fluoride</div>
+<div style="font-size:11px;color:var(--muted);line-height:2">
+HF penetrates skin with no immediate pain!<br>
+F⁻ binds Ca²⁺ ← cardiac arrest at large exposure<br>
+<b>First treatment:</b> Calcium Gluconate Gel immediately!<br>
+<b>APF (Antidote):</b> must be kept on hand in the work area<br>
+<b>Exposure &gt;160cm²</b> = life-threatening → hospital immediately<br>
+<b>PPE:</b> Butyl Rubber, Face Shield, Apron
+</div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.honeywell.com" target="_blank" style="color:var(--blue)">Honeywell</a> · <a href="https://www.orbia.com" target="_blank" style="color:var(--blue)">Mexichem / Orbia</a></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.honeywell.com" target="_blank" style="color:var(--blue)">Honeywell</a> · <a href="https://www.orbia.com" target="_blank" style="color:var(--blue)">Mexichem / Orbia</a></div></div>
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Neutralization &amp; Storage</div>
+<div class="spec-row"><span class="spec-key">Acid + Water</span><span class="spec-val">always acid into water! never the reverse</span></div>
+<div class="spec-row"><span class="spec-key">Acid Neutralization</span><span class="spec-val">dilute NaOH / Na2CO3 / Lime</span></div>
+<div class="spec-row"><span class="spec-key">Base Neutralization</span><span class="spec-val">dilute H2SO4/HCl</span></div>
+<div class="spec-row"><span class="spec-key">Storage Groups</span><span class="spec-val">acids ← far from ← bases</span></div>
+<div class="spec-row"><span class="spec-key">HF Storage</span><span class="spec-val">HDPE only! not glass</span></div>
+<div class="spec-row"><span class="spec-key">Spills</span><span class="spec-val">Spill Kit: Acid Neutralizer mandatory</span></div>
+</div>
+</div>
+</div></div>
+</div>
+
+
+</div>
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+
+function showChem(id,btn){
+  document.querySelectorAll('.chem-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.chem-tab').forEach(t=>t.classList.remove('active'));
+  var el=document.getElementById('chem-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function showChem(id,btn){
+  document.querySelectorAll('.chem-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.chem-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('chem-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function calcAdhesive(){
+  var l=parseFloat(document.getElementById('adh-l').value)||0;
+  var w=parseFloat(document.getElementById('adh-w').value)||0;
+  var t=parseFloat(document.getElementById('adh-t').value)||0.2;
+  var rho=parseFloat(document.getElementById('adh-type').value)||1.2;
+  var vol=(l*w*t)/1000; // cm³
+  var mass=vol*rho;
+  document.getElementById('adh-result').innerHTML=
+    '<b>Volume:</b> '+vol.toFixed(3)+' cm³<br>'+
+    '<b>Adhesive weight:</b> '+mass.toFixed(2)+' grams<br>'+
+    '<b>+ 20% waste:</b> '+(mass*1.2).toFixed(2)+' grams';
+}
+
+function calcLoctite(){
+  var d=parseFloat(document.getElementById('ltk-d').value)||8;
+  var use=document.getElementById('ltk-use').value;
+  var rec='';
+  if(use==='micro') rec='<b style="color:var(--purple)">Loctite 222</b> — purple, low, M1-M6';
+  else if(use==='vib'){
+    if(d<=20) rec='<b style="color:var(--blue)">Loctite 243</b> — blue, medium, M6-M20';
+    else rec='<b style="color:var(--red)">Loctite 263</b> — red, high, M20-M36';
+  }
+  else if(use==='perm'){
+    if(d<=36) rec='<b style="color:var(--red)">Loctite 271</b> — red, high, permanent';
+    else rec='<b style="color:var(--red)">Loctite 277</b> — red, very high, M36+';
+  }
+  else if(use==='wicking') rec='<b style="color:var(--green)">Loctite 290</b> — green, Wicking Grade, for tight thread';
+  document.getElementById('ltk-result').innerHTML='Recommendation: '+rec+
+    '<br><small style="color:var(--muted)">Diameter: M'+d+' | Full cure: 24h | Cleaning: IPA before</small>';
+}
+
+function calcFaraday(){
+  var i=parseFloat(document.getElementById('far-i').value)||5;
+  var t=parseFloat(document.getElementById('far-t').value)*60||1800;
+  var a=parseFloat(document.getElementById('far-a').value)||2;
+  var sel=document.getElementById('far-metal').value.split(',');
+  var M=parseFloat(sel[0]), n=parseFloat(sel[1]), rho=parseFloat(sel[2]);
+  var F=96485;
+  var m=(M*i*t)/(n*F);
+  var vol=m/rho;
+  var thk=(vol/a)*10000; // μm
+  document.getElementById('far-result').innerHTML=
+    '<b>Deposited weight:</b> '+m.toFixed(4)+' grams<br>'+
+    '<b>Average thickness:</b> '+thk.toFixed(2)+' μm<br>'+
+    '<b>At current density:</b> '+(i/a).toFixed(2)+' A/dm²<br>'+
+    '<small style="color:var(--muted)">Molar mass='+M+' | Valence='+n+' | Density='+rho+' g/cm³</small>';
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
+
+
+</script>
+</body>
+</html>

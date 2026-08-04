@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<link rel="canonical" href="https://metal.kushmar.com/en/bearings.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/bearings.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/bearings.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/bearings.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bearings Guide — Types, Selection, L10 Life, Mounting, Calculators | METAL HUB</title>
+<meta name="description" content="Complete bearing reference: bearing types (ball, roller, thrust, needle), selection guide, ISO designation coding, L10 bearing life calculation, mounting and fits, lubrication, damage and failure analysis, linear bearings and guide rails, standards, and interactive calculators including a bearing number decoder.">
+<meta name="keywords" content="bearing types comparison, bearing fit tolerance, L10 bearing life calculator, bearing designation decoder, deep groove ball bearing, tapered roller bearing, linear guide rail, bearing failure analysis">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/en/bearings.html">
+<meta property="og:title" content="Bearings Guide — Types, Selection, L10 Life, Calculators | METAL HUB">
+<meta property="og:description" content="Complete bearings guide: types, selection, L10 life, mounting, lubrication, damage analysis, and calculators.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Bearings Guide — Types, Selection, L10 Life, Mounting, Calculators",
+  "description": "Complete bearing reference: types, selection, ISO coding, L10 life, mounting, lubrication, damage analysis, linear bearings, standards, and calculators",
+  "about": ["Bearings", "Ball Bearing", "Roller Bearing", "L10 Bearing Life", "Bearing Failure Analysis", "Linear Guide Rail"],
+  "url": "https://metal.kushmar.com/en/bearings.html",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-red{background:#cf222e;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+    <a href="https://metal.kushmar.com/bearings.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Bearings — Complete Guide</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+A complete engineering reference for bearings: <b>ball, roller, thrust, and needle</b> bearing types, an <b>L10 bearing life calculator</b>, ISO designation decoding, mounting and fits, lubrication, and failure analysis — with live interactive calculators.
+</p>
+</div>
+
+<div id="sec-bearings" class="section">
+<style>
+.bear-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.bear-tab:hover,.bear-tab.active{background:var(--orange);color:#000;border-color:var(--orange);font-weight:700}
+.bear-sec{display:none}.bear-sec.active{display:block}
+</style>
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a2d1a);border-color:var(--orange)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">⚙️</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--orange)">Bearings</div>
+    <div style="font-size:12px;color:var(--muted)">Types · Selection · L10 Bearing Life · Mounting · Lubrication · Damage · Linear · Standards</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="bear-tab active" onclick="showBear('types',this)">⚙️ Bearing Types</button>
+  <button class="bear-tab" onclick="showBear('selection',this)">🎯 Bearing Selection</button>
+  <button class="bear-tab" onclick="showBear('coding',this)">🔢 ISO Coding</button>
+  <button class="bear-tab" onclick="showBear('life',this)">📊 L10 Bearing Life</button>
+  <button class="bear-tab" onclick="showBear('mounting',this)">🔧 Mounting &amp; Fits</button>
+  <button class="bear-tab" onclick="showBear('lubrication',this)">💧 Lubrication</button>
+  <button class="bear-tab" onclick="showBear('damage',this)">⚠️ Damage &amp; Failures</button>
+  <button class="bear-tab" onclick="showBear('linear',this)">📏 Linear &amp; Rails</button>
+  <button class="bear-tab" onclick="showBear('standards',this)">🏆 Standards &amp; Manufacturers</button>
+  <button class="bear-tab" onclick="showBear('calc_bear',this)">🧮 Calculators</button>
+</div>
+
+<!-- ===== TYPES ===== -->
+<div id="bear-types" class="bear-sec active">
+<div class="card"><div class="ctitle">⚙️ Bearing Types</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Deep Groove Ball</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">6xxx</span><span class="mc-badge b-green">Most Common</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">⭐⭐⭐ — Good</span></div>
+<div class="spec-row"><span class="spec-key">Axial Load</span><span class="spec-val">⭐⭐ — Both directions, limited</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">⭐⭐⭐⭐⭐ — Very high</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Electric motors · pumps · gearboxes</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">Simple · quiet · cheap · available everywhere</span></div>
+<div class="spec-row"><span class="spec-key">Coding</span><span class="spec-val">6205 = DG · series 2 · ⌀25mm bore</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">FAG (Schaeffler)</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a></div>
+<a href="https://www.youtube.com/results?search_query=deep%20groove%20ball%20bearing%20how%20it%20works%20animation" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Angular Contact Ball</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">7xxx</span><span class="mc-badge b-blue">In Pairs!</span></div>
+<div class="spec-row"><span class="spec-key">Contact Angles</span><span class="spec-val">15° · 25° · 40° — ↑angle=↑axial</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">⭐⭐⭐ — Good</span></div>
+<div class="spec-row"><span class="spec-key">Axial Load</span><span class="spec-val">⭐⭐⭐⭐ — one direction</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">⭐⭐⭐⭐ — High</span></div>
+<div class="spec-row"><span class="spec-key">Arrangements</span><span class="spec-val">DB (Back-to-Back) · DF (Face-to-Face) · DT (Tandem)</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Spindles · CNC shafts · gears</span></div>
+<div class="spec-row"><span class="spec-key">Note</span><span class="spec-val">Always in pairs! One alone won't work</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">FAG</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">NTN</a></div>
+<a href="https://www.youtube.com/results?search_query=angular%20contact%20ball%20bearing%20animation%20preload%20arrangement" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Tapered Roller</div>
+<div><span class="mc-badge" style="background:var(--red);color:#fff">3xxxx</span><span class="mc-badge b-orange">Preload Mandatory</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">⭐⭐⭐⭐ — Very heavy</span></div>
+<div class="spec-row"><span class="spec-key">Axial Load</span><span class="spec-val">⭐⭐⭐⭐⭐ — Very heavy</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">⭐⭐⭐ — Medium</span></div>
+<div class="spec-row"><span class="spec-key">Contact Angle</span><span class="spec-val">10°-16° (Light) · 25°-29° (Steep)</span></div>
+<div class="spec-row"><span class="spec-key">Preload</span><span class="spec-val">Must be calibrated! Otherwise contact is lost</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Automotive axle · milling · bevel gear · pump</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ISO 355 · ANSI/ABMA 19.1/19.2</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.timken.com" target="_blank" style="color:var(--blue)">Timken</a> · <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">NTN</a></div>
+<a href="https://www.youtube.com/results?search_query=tapered%20roller%20bearing%20animation%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Cylindrical Roller</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">NU/NJ/NF</span><span class="mc-badge b-red">High Radial</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">⭐⭐⭐⭐⭐ — Very high!</span></div>
+<div class="spec-row"><span class="spec-key">NU — Axial Load</span><span class="spec-val">❌ — None at all</span></div>
+<div class="spec-row"><span class="spec-key">NJ/NF — Axial Load</span><span class="spec-val">⭐⭐ — one direction only</span></div>
+<div class="spec-row"><span class="spec-key">NNU/NN</span><span class="spec-val">Double row — double radial load</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">⭐⭐⭐⭐ — High</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Gearboxes · main shafts · large motors</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">INA/FAG</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a></div>
+<a href="https://www.youtube.com/results?search_query=cylindrical%20roller%20bearing%20animation" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Spherical Roller</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">2xxxx</span><span class="mc-badge b-green">Self-Aligning</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">⭐⭐⭐⭐⭐ — Very heavy</span></div>
+<div class="spec-row"><span class="spec-key">Axial Load</span><span class="spec-val">⭐⭐⭐ — Both directions</span></div>
+<div class="spec-row"><span class="spec-key">Self-Alignment</span><span class="spec-val">Up to 1°-2.5° — compensates for shaft error</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">⭐⭐⭐ — Medium-high</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Mining · paper · cable · heavy equipment</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.timken.com" target="_blank" style="color:var(--blue)">Timken</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">NTN</a></div>
+<a href="https://www.youtube.com/results?search_query=spherical%20roller%20bearing%20self%20aligning%20animation" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Self-Aligning Ball</div>
+<div><span class="mc-badge" style="background:var(--blue);color:#000">1xxx/2xxx</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">⭐⭐ — Low-medium</span></div>
+<div class="spec-row"><span class="spec-key">Axial Load</span><span class="spec-val">⭐ — Very limited</span></div>
+<div class="spec-row"><span class="spec-key">Self-Alignment</span><span class="spec-val">Up to 2°-3° — spherical raceway</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Agriculture · Plummer Block · long shafts</span></div>
+<div class="spec-row"><span class="spec-key">Note</span><span class="spec-val">Cheap and light, but weak. Not for heavy loads</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">FAG</a></div>
+<a href="https://www.youtube.com/results?search_query=self%20aligning%20ball%20bearing%20animation%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Thrust Ball</div>
+<div><span class="mc-badge" style="background:var(--red);color:#fff">5xxx</span><span class="mc-badge b-orange">Axial Only!</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">❌ — Absolutely prohibited!</span></div>
+<div class="spec-row"><span class="spec-key">Axial Load</span><span class="spec-val">⭐⭐⭐⭐ — one direction (single) / two (double)</span></div>
+<div class="spec-row"><span class="spec-key">Arrangements</span><span class="spec-val">51xxx = single · 52xxx = double</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">⭐⭐ — Low-medium</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Pistons · valves · lifting mechanisms · jacks</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a> · <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">INA</a></div>
+<a href="https://www.youtube.com/results?search_query=thrust%20ball%20bearing%20animation%20axial%20load" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Needle Roller</div>
+<div><span class="mc-badge" style="background:var(--orange);color:#000">NA/NK/HK/IR</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">⭐⭐⭐⭐⭐ — Very high for its size</span></div>
+<div class="spec-row"><span class="spec-key">Axial Load</span><span class="spec-val">❌ — Zero</span></div>
+<div class="spec-row"><span class="spec-key">L/D Ratio</span><span class="spec-val">3-10 (long vs. diameter)</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">Very small OD! Saves space</span></div>
+<div class="spec-row"><span class="spec-key">NA — with Inner Ring</span><span class="spec-val">Regular shaft, easy to disassemble</span></div>
+<div class="spec-row"><span class="spec-key">NK/HK — without Ring</span><span class="spec-val">Shaft needs Ra≤0.4μm, HRC58+</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Crankshaft · steering column · universal joint</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">INA (Schaeffler)</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">NTN</a></div>
+<a href="https://www.youtube.com/results?search_query=needle%20roller%20bearing%20animation%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">CARB / Toroidal</div>
+<div><span class="mc-badge" style="background:var(--purple,#bc8cff);color:#000">C xxx</span><span class="mc-badge b-blue">SKF Patent</span></div>
+<div class="spec-row"><span class="spec-key">Radial Load</span><span class="spec-val">⭐⭐⭐⭐⭐ — Very high</span></div>
+<div class="spec-row"><span class="spec-key">Self-Alignment</span><span class="spec-val">⭐⭐⭐⭐⭐ — Full! angle + length</span></div>
+<div class="spec-row"><span class="spec-key">Axial Displacement</span><span class="spec-val">⭐⭐⭐⭐⭐ — Completely free</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Paper machine rolls · mining · large industrial motors</span></div>
+<div class="spec-row"><span class="spec-key">Note</span><span class="spec-val">Replaces Spherical Roller when self-alignment is also needed</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF (exclusive)</a></div>
+<a href="https://www.youtube.com/results?search_query=CARB%20toroidal%20roller%20bearing%20SKF%20animation" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+</div>
+
+<div style="margin-top:16px">
+<table><tr><th>Bearing Type</th><th>Coding</th><th>Radial</th><th>Axial</th><th>Speed</th><th>Self-Aligning</th><th>Typical Use</th></tr>
+<tr><td>Deep Groove Ball</td><td>6xxx</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>❌</td><td>Motors, pumps</td></tr>
+<tr><td>Angular Contact Ball</td><td>7xxx</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>❌</td><td>CNC spindle, gears</td></tr>
+<tr><td>Tapered Roller</td><td>3xxxx</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>❌</td><td>Automotive, milling</td></tr>
+<tr><td>Cylindrical Roller</td><td>NU/NJ</td><td>⭐⭐⭐⭐⭐</td><td>⭐/❌</td><td>⭐⭐⭐⭐</td><td>❌</td><td>Gearboxes, large motors</td></tr>
+<tr><td>Spherical Roller</td><td>2xxxx</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>Mining, paper</td></tr>
+<tr><td>Self-Aligning Ball</td><td>1xxx/2xxx</td><td>⭐⭐</td><td>⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>Agriculture, Plummer Block</td></tr>
+<tr><td>Thrust Ball</td><td>5xxx</td><td>❌</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td><td>❌</td><td>Lifting, valves</td></tr>
+<tr><td>Needle Roller</td><td>NA/NK/HK</td><td>⭐⭐⭐⭐⭐</td><td>❌</td><td>⭐⭐⭐</td><td>❌</td><td>Crankshaft, steering</td></tr>
+</table></div>
+</div></div>
+
+<!-- ===== SELECTION ===== -->
+<div id="bear-selection" class="bear-sec">
+<div class="card"><div class="ctitle">🎯 Bearing Selection Guide</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Bearing Selection Steps</div>
+<div><span class="mc-badge b-blue">6 Steps</span></div>
+<div class="spec-row"><span class="spec-key">1. Loads</span><span class="spec-val">Fr (radial) · Fa (axial) · direction · dynamics</span></div>
+<div class="spec-row"><span class="spec-key">2. Speed</span><span class="spec-val">n (RPM) · ndm ≤ 500K grease · 750K oil</span></div>
+<div class="spec-row"><span class="spec-key">3. Service Life</span><span class="spec-val">Required L10h: 20K hours industrial · 50K+ critical</span></div>
+<div class="spec-row"><span class="spec-key">4. Dimensions</span><span class="spec-val">bore (d) ← shaft · OD (D) ← housing · B width</span></div>
+<div class="spec-row"><span class="spec-key">5. Environment</span><span class="spec-val">Temperature · humidity · contamination · vibration</span></div>
+<div class="spec-row"><span class="spec-key">6. Size Selection</span><span class="spec-val">C/P ≥ (L10h × 60n / 10⁶)^(1/p)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Equivalent Dynamic Load P</div>
+<div><span class="mc-badge b-orange">P = X·Fr + Y·Fa</span></div>
+<div class="spec-row"><span class="spec-key">X — Radial Factor</span><span class="spec-val">1.0 if Fa/Fr ≤ e · 0.56 if Fa/Fr &gt; e</span></div>
+<div class="spec-row"><span class="spec-key">Y — Axial Factor</span><span class="spec-val">0 if Fa/Fr ≤ e · from catalog if &gt; e</span></div>
+<div class="spec-row"><span class="spec-key">e — Contact Factor</span><span class="spec-val">0.22-0.44 (depends on bearing and load)</span></div>
+<div class="spec-row"><span class="spec-key">6205 Example</span><span class="spec-val">Fr=5kN, Fa=1kN, e=0.30 → P=5×1+0=5kN</span></div>
+<div class="spec-row"><span class="spec-key">Static P0</span><span class="spec-val">P0 = X0·Fr + Y0·Fa (for static load)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">X, Y, e — from the manufacturer's catalog only!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Clearance — Internal Clearance</div>
+<div><span class="mc-badge b-blue">C2 · CN · C3 · C4 · C5</span></div>
+<div class="spec-row"><span class="spec-key">C2</span><span class="spec-val">Small clearance — high precision, preload</span></div>
+<div class="spec-row"><span class="spec-key">CN (Normal)</span><span class="spec-val">Default — most applications</span></div>
+<div class="spec-row"><span class="spec-key">C3</span><span class="spec-val">Large clearance — high temp., press-fit mounting</span></div>
+<div class="spec-row"><span class="spec-key">C4</span><span class="spec-val">Very large clearance — very high temp.</span></div>
+<div class="spec-row"><span class="spec-key">Rule of Thumb</span><span class="spec-val">Press-fit mounting → C3. Temp. &gt;80°C → C3</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Too little clearance = overheating = failure. Too much = vibration and noise</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Bearing Precision — Precision Class</div>
+<div><span class="mc-badge b-green">P0-P2</span><span class="mc-badge b-blue">ISO 492</span></div>
+<div class="spec-row"><span class="spec-key">P0 (Normal)</span><span class="spec-val">Default · general industry</span></div>
+<div class="spec-row"><span class="spec-key">P6</span><span class="spec-val">↑precision · general machinery, plummer block</span></div>
+<div class="spec-row"><span class="spec-key">P5</span><span class="spec-val">↑↑precision · CNC shaft, spindle</span></div>
+<div class="spec-row"><span class="spec-key">P4</span><span class="spec-val">↑↑↑ · precision shaft, metrology</span></div>
+<div class="spec-row"><span class="spec-key">P2 (Ultra)</span><span class="spec-val">Gyroscopes, watch spindles, space</span></div>
+<div class="spec-row"><span class="spec-key">Relative Price</span><span class="spec-val">P0=1× · P6=3× · P5=8× · P4=20×</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Bearings for Extreme Temperatures</div>
+<div><span class="mc-badge b-red">Above 120°C</span></div>
+<div class="spec-row"><span class="spec-key">Stabilization S1</span><span class="spec-val">Up to 150°C — coding SN1</span></div>
+<div class="spec-row"><span class="spec-key">Stabilization S2</span><span class="spec-val">Up to 200°C — coding SN2</span></div>
+<div class="spec-row"><span class="spec-key">Stabilization S3</span><span class="spec-val">Up to 250°C — coding SN3</span></div>
+<div class="spec-row"><span class="spec-key">Stainless 440C</span><span class="spec-val">Up to 200°C · anti-corrosion</span></div>
+<div class="spec-row"><span class="spec-key">Ceramic Si3N4</span><span class="spec-val">Up to 700°C · ↑speed · ↓weight</span></div>
+<div class="spec-row"><span class="spec-key">Full Ceramic</span><span class="spec-val">ZrO2/Al2O3 — electrical, corrosion</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF</a> · <a href="https://www.cerobear.com" target="_blank" style="color:var(--blue)">Cerobear (ceramic)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Bearings for Special Conditions</div>
+<div><span class="mc-badge b-orange">Clean Room · Vacuum · Food</span></div>
+<div class="spec-row"><span class="spec-key">Clean Room</span><span class="spec-val">ESD/PFPE grease · S/S · ISO Class 3</span></div>
+<div class="spec-row"><span class="spec-key">Vacuum</span><span class="spec-val">PFPE grease · or MoS2 Dry Film · UHV</span></div>
+<div class="spec-row"><span class="spec-key">Food — USDA H1</span><span class="spec-val">NSF H1 grease · S/S seals · FDA</span></div>
+<div class="spec-row"><span class="spec-key">Marine/Humidity</span><span class="spec-val">Stainless 440C · anti-water grease</span></div>
+<div class="spec-row"><span class="spec-key">Magnetic</span><span class="spec-val">Full ceramic bearing — non-conductive</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF Food Line</a> · <a href="https://www.igus.com" target="_blank" style="color:var(--blue)">Igus (plastic)</a></div>
+</div>
+</div></div></div>
+
+<!-- ===== CODING ===== -->
+<div id="bear-coding" class="bear-sec">
+<div class="card"><div class="ctitle">🔢 ISO Bearing Designation</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">ISO Designation Structure — 6-2-05-ZZ-C3</div>
+<div><span class="mc-badge b-blue">ISO 15 / ISO 355</span></div>
+<div class="spec-row"><span class="spec-key">Digit 1 — Type</span><span class="spec-val">1=Self-Aligning Ball · 2=Spherical Roller · 3=Tapered · 6=DG · 7=AC · N=Roller · 5=Thrust</span></div>
+<div class="spec-row"><span class="spec-key">Digit 2 — Diameter Series</span><span class="spec-val">0=Extra Light · 1=Extra Light · 2=Light · 3=Medium · 4=Heavy</span></div>
+<div class="spec-row"><span class="spec-key">Digits 3-4 — bore</span><span class="spec-val">00=10 · 01=12 · 02=15 · 03=17 · 04+=×5mm</span></div>
+<div class="spec-row"><span class="spec-key">Seals</span><span class="spec-val">Z=metal shield · ZZ=×2 · RS=rubber · 2RS=×2 · RZ=low-friction seal</span></div>
+<div class="spec-row"><span class="spec-key">Clearance</span><span class="spec-val">C2/CN/C3/C4/C5</span></div>
+<div class="spec-row"><span class="spec-key">Precision</span><span class="spec-val">P0(unmarked)/P6/P5/P4/P2</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">S=stainless · W=Stainless · X=special</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Example: <b>6205-2RS-C3</b> = DG · series 2 · bore 25mm · rubber×2 · large clearance</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Angular Contact — Special Coding</div>
+<div><span class="mc-badge b-orange">7xxx + Suffixes</span></div>
+<div class="spec-row"><span class="spec-key">B</span><span class="spec-val">40° contact angle (7205B)</span></div>
+<div class="spec-row"><span class="spec-key">C</span><span class="spec-val">15° contact angle</span></div>
+<div class="spec-row"><span class="spec-key">AC</span><span class="spec-val">25° contact angle — most common</span></div>
+<div class="spec-row"><span class="spec-key">DB</span><span class="spec-val">Back-to-Back pair — ↑rigidity</span></div>
+<div class="spec-row"><span class="spec-key">DF</span><span class="spec-val">Face-to-Face pair — ↑alignment</span></div>
+<div class="spec-row"><span class="spec-key">DT</span><span class="spec-val">Tandem — ↑axial single direction</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Example: <b>7205BECBJ</b> = AC 40° · Universal · P4</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Tapered Roller — ABMA Coding</div>
+<div><span class="mc-badge b-red">30xxx / L/M series</span></div>
+<div class="spec-row"><span class="spec-key">Series 30</span><span class="spec-val">30205 = light angle ~12°</span></div>
+<div class="spec-row"><span class="spec-key">Series 31/32</span><span class="spec-val">medium angle ~15°</span></div>
+<div class="spec-row"><span class="spec-key">Series 33</span><span class="spec-val">steep angle ~25°</span></div>
+<div class="spec-row"><span class="spec-key">Timken L/M/LM</span><span class="spec-val">Unique coding — L44643/L44610 (Cup/Cone)</span></div>
+<div class="spec-row"><span class="spec-key">Cup</span><span class="spec-val">Outer ring</span></div>
+<div class="spec-row"><span class="spec-key">Cone</span><span class="spec-val">Inner ring + rollers</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.timken.com" target="_blank" style="color:var(--blue)">Timken (world leader)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Bearing Number Decoder</div>
+<div><span class="mc-badge b-green">Quick Tool</span></div>
+<div class="cg">
+<div><label>Bearing Number</label><input type="text" id="br-num" value="6205" placeholder="6205 / 7310B / NU208" oninput="decodeBearing()"></div>
+</div>
+<div id="br-decode" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:2;color:var(--muted)">Enter a bearing number to decode</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== LIFE ===== -->
+<div id="bear-life" class="bear-sec">
+<div class="card"><div class="ctitle">📊 L10 Bearing Life Calculation</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">L10 — Basic Rating Life</div>
+<div><span class="mc-badge b-blue">ISO 281</span><span class="mc-badge b-green">90% Survival</span></div>
+<div class="spec-row"><span class="spec-key">L10 (million revolutions)</span><span class="spec-val">L10 = (C/P)^p</span></div>
+<div class="spec-row"><span class="spec-key">p — Exponent</span><span class="spec-val">3 for ball · 10/3 for roller</span></div>
+<div class="spec-row"><span class="spec-key">L10h (hours)</span><span class="spec-val">L10h = L10 × 10⁶ / (60 × n)</span></div>
+<div class="spec-row"><span class="spec-key">C — Dynamic Load</span><span class="spec-val">From manufacturer catalog (kN)</span></div>
+<div class="spec-row"><span class="spec-key">P — Equivalent Load</span><span class="spec-val">P = XFr + YFa</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">L10 = 90% of bearings will survive at least L10 hours</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">aISO Life — Modified Rating</div>
+<div><span class="mc-badge b-orange">ISO 281:2007</span><span class="mc-badge b-blue">More Accurate</span></div>
+<div class="spec-row"><span class="spec-key">Lnm = a1 × aISO × L10</span><span class="spec-val">— modified life</span></div>
+<div class="spec-row"><span class="spec-key">a1 — Reliability Factor</span><span class="spec-val">90%=1.0 · 95%=0.64 · 99%=0.21</span></div>
+<div class="spec-row"><span class="spec-key">aISO — Condition Factor</span><span class="spec-val">Lubrication + contamination + load</span></div>
+<div class="spec-row"><span class="spec-key">κ = ν/ν₁</span><span class="spec-val">ν=actual viscosity · ν₁=required</span></div>
+<div class="spec-row"><span class="spec-key">κ≥2 + Cleanliness</span><span class="spec-val">aISO up to 50! → L10m up to ×50</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">SKF/FAG calculation tool: SKF Bearing Calculator</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Recommended L10h by Application</div>
+<div><span class="mc-badge b-orange">Reference Values</span></div>
+<div class="spec-row"><span class="spec-key">Home Appliances</span><span class="spec-val">1,000-2,000 hours</span></div>
+<div class="spec-row"><span class="spec-key">General Electric Motor</span><span class="spec-val">20,000-30,000 hours</span></div>
+<div class="spec-row"><span class="spec-key">Industrial 8h/day</span><span class="spec-val">20,000-30,000 hours</span></div>
+<div class="spec-row"><span class="spec-key">Industrial 24h/day</span><span class="spec-val">40,000-50,000 hours</span></div>
+<div class="spec-row"><span class="spec-key">Continuous Heavy Duty</span><span class="spec-val">60,000-100,000 hours</span></div>
+<div class="spec-row"><span class="spec-key">Aerospace — Critical</span><span class="spec-val">Per specific TBO (1,500-8,000h)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">L10h Calculator</div>
+<div class="cg">
+<div><label>C — Dynamic Load (kN)</label><input id="br-c" type="number" value="25.5" step="0.1" oninput="calcBearing()"></div>
+<div><label>Fr — Radial (N)</label><input id="br-fr" type="number" value="5000" oninput="calcBearing()"></div>
+<div><label>Fa — Axial (N)</label><input id="br-fa" type="number" value="1000" oninput="calcBearing()"></div>
+<div><label>e (from catalog)</label><input id="br-e" type="number" value="0.30" step="0.01" oninput="calcBearing()"></div>
+<div><label>Y (from catalog)</label><input id="br-y" type="number" value="1.8" step="0.1" oninput="calcBearing()"></div>
+<div><label>n — Speed (RPM)</label><input id="br-n" type="number" value="1450" oninput="calcBearing()"></div>
+<div><label>Type</label><select id="br-type" onchange="calcBearing()"><option value="3">Ball (p=3)</option><option value="3.333">Roller (p=10/3)</option></select></div>
+</div>
+<div class="res" id="br-result">—</div>
+</div>
+
+</div></div></div>
+
+<!-- ===== MOUNTING ===== -->
+<div id="bear-mounting" class="bear-sec">
+<div class="card"><div class="ctitle">🔧 Mounting &amp; Fits</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Shaft Fits</div>
+<div><span class="mc-badge b-blue">ISO 286</span><span class="mc-badge b-orange">Internal Rotation</span></div>
+<div class="spec-row"><span class="spec-key">j5, js5</span><span class="spec-val">Light transition — hand movable</span></div>
+<div class="spec-row"><span class="spec-key">k5, m5</span><span class="spec-val">Light interference — tap required (common)</span></div>
+<div class="spec-row"><span class="spec-key">n5, p5</span><span class="spec-val">Interference — light shocks</span></div>
+<div class="spec-row"><span class="spec-key">r5, s5</span><span class="spec-val">Heavy interference — heavy shocks</span></div>
+<div class="spec-row"><span class="spec-key">Rule of Thumb</span><span class="spec-val">Rotating ring = interference · fixed ring = transition</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Inner ring rotates ← interference on shaft<br>Outer ring rotates ← interference on housing</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Housing Fits</div>
+<div><span class="mc-badge b-green">H7 — Common</span></div>
+<div class="spec-row"><span class="spec-key">H8, G7</span><span class="spec-val">Free transition — hand movable</span></div>
+<div class="spec-row"><span class="spec-key">H7 (common)</span><span class="spec-val">Transition — standard for most applications</span></div>
+<div class="spec-row"><span class="spec-key">J7, JS7</span><span class="spec-val">Light interference transition</span></div>
+<div class="spec-row"><span class="spec-key">K7, M7</span><span class="spec-val">Light interference — medium loads</span></div>
+<div class="spec-row"><span class="spec-key">N7, P7</span><span class="spec-val">Interference — heavy loads/shocks</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">H7: outer ring easily disassembled<br>P7: cannot be disassembled without tools</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Mounting Methods</div>
+<div><span class="mc-badge b-orange">Cold · Hot · Press</span></div>
+<div class="spec-row"><span class="spec-key">Tap + Pad</span><span class="spec-val">Cold mounting — bore≤50mm · ↑damage risk!</span></div>
+<div class="spec-row"><span class="spec-key">Press Fit</span><span class="spec-val">bore 50-150mm · up to 200kN · precise</span></div>
+<div class="spec-row"><span class="spec-key">Induction Heating</span><span class="spec-val">ΔT = Δd / (α × d) → 80-120°C typical</span></div>
+<div class="spec-row"><span class="spec-key">SKF Induction Heater</span><span class="spec-val">TMBH1/TIH030 · up to 250°C · safe</span></div>
+<div class="spec-row"><span class="spec-key">Freezing (small bearing)</span><span class="spec-val">Liquid N2 (-196°C) → shrinks the bore</span></div>
+<div class="spec-row"><span class="spec-key">SKF Mounting Tools</span><span class="spec-val">TMFT · TMHN · TMFK — no damage to rollers!</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b>⚠️ Never strike the rolling elements!</b> Force must pass through the ring only<br><b style="color:var(--text)">Tool Manufacturer:</b> <a href="https://www.skf.com/tools" target="_blank" style="color:var(--blue)">SKF Mounting Tools</a></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20mounting%20installation%20heat%20induction%20press%20fit" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Surface Finish Requirements</div>
+<div><span class="mc-badge b-blue">ISO 1101</span></div>
+<div class="spec-row"><span class="spec-key">Ra Shaft (bore ≤80mm)</span><span class="spec-val">Ra ≤ 0.8μm (N6)</span></div>
+<div class="spec-row"><span class="spec-key">Ra Shaft (bore &gt;80mm)</span><span class="spec-val">Ra ≤ 1.6μm (N7)</span></div>
+<div class="spec-row"><span class="spec-key">Ra Housing</span><span class="spec-val">Ra ≤ 1.6μm (N7)</span></div>
+<div class="spec-row"><span class="spec-key">Shaft Roundness</span><span class="spec-val">≤ IT5/2 = ~5μm for ⌀50mm</span></div>
+<div class="spec-row"><span class="spec-key">Housing Roundness</span><span class="spec-val">≤ IT6/2 = ~8μm for ⌀80mm</span></div>
+<div class="spec-row"><span class="spec-key">Shoulder Support</span><span class="spec-val">Squareness ≤ IT4 · r ≤ bearing r_min</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Poor finish = ↓bearing life by up to 50%!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Preload</div>
+<div><span class="mc-badge b-blue">Angular Contact · Tapered</span></div>
+<div class="spec-row"><span class="spec-key">Purpose</span><span class="spec-val">↑precision · ↓vibration · ↑rigidity · ↓noise</span></div>
+<div class="spec-row"><span class="spec-key">Spring Preload</span><span class="spec-val">Constant spring — flexible, less precise</span></div>
+<div class="spec-row"><span class="spec-key">Rigid Preload</span><span class="spec-val">Spacer — precise, hard to calibrate</span></div>
+<div class="spec-row"><span class="spec-key">Light / Medium / Heavy</span><span class="spec-val">A/B/C — SKF coding</span></div>
+<div class="spec-row"><span class="spec-key">⚠️ Too High Preload</span><span class="spec-val">Overheating · wear · premature failure!</span></div>
+<div class="spec-row"><span class="spec-key">DB — Back-to-Back</span><span class="spec-val">↑moment rigidity · DB recommended for most cases</span></div>
+<div class="spec-row"><span class="spec-key">DF — Face-to-Face</span><span class="spec-val">↑alignment · small space</span></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20preload%20explained%20animation%20spindle" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div></div></div>
+
+<!-- ===== LUBRICATION ===== -->
+<div id="bear-lubrication" class="bear-sec">
+<div class="card"><div class="ctitle">💧 Bearing Lubrication</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Grease Lubrication</div>
+<div><span class="mc-badge b-green">70% of Bearings</span><span class="mc-badge b-blue">NLGI 2 — Default</span></div>
+<div class="spec-row"><span class="spec-key">NLGI 1</span><span class="spec-val">Softer · high speed · low temperature</span></div>
+<div class="spec-row"><span class="spec-key">NLGI 2</span><span class="spec-val">Standard · default for most bearings</span></div>
+<div class="spec-row"><span class="spec-key">NLGI 3</span><span class="spec-val">Thicker · vertical orientation · ↓leakage</span></div>
+<div class="spec-row"><span class="spec-key">Fill Quantity</span><span class="spec-val">30-50% of the free space volume (no more!)</span></div>
+<div class="spec-row"><span class="spec-key">Over-Greasing</span><span class="spec-val">→ excess heat → failure!</span></div>
+<div class="spec-row"><span class="spec-key">Relubrication Interval</span><span class="spec-val">tf = 14,000/n × (dm/2)^{-0.5} hours (SKF)</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.skf.com/lubricants" target="_blank" style="color:var(--blue)">SKF LGMT2</a> · <a href="https://www.klueberlubrication.com" target="_blank" style="color:var(--blue)">Klüber</a> · <a href="https://www.molykote.com" target="_blank" style="color:var(--blue)">Molykote</a></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20grease%20lubrication%20methods%20relubrication" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Oil Lubrication</div>
+<div><span class="mc-badge b-blue">High Speed</span><span class="mc-badge b-orange">ISO VG</span></div>
+<div class="spec-row"><span class="spec-key">Splash / Bath</span><span class="spec-val">Half-diameter immersion · ↓rpm · simple</span></div>
+<div class="spec-row"><span class="spec-key">Circulating Oil</span><span class="spec-val">Pump + cooling · high speeds</span></div>
+<div class="spec-row"><span class="spec-key">Oil Jet</span><span class="spec-val">Oil jet ← ↑↑rpm · aerospace · CNC</span></div>
+<div class="spec-row"><span class="spec-key">Oil-Air (MQL)</span><span class="spec-val">≤2ml/h · Clean Room · extreme speed</span></div>
+<div class="spec-row"><span class="spec-key">ISO VG 46</span><span class="spec-val">⌀25-60mm bore · n &gt; 3000 RPM</span></div>
+<div class="spec-row"><span class="spec-key">ISO VG 100</span><span class="spec-val">⌀60-100mm bore · n 1000-3000 RPM</span></div>
+<div class="spec-row"><span class="spec-key">ISO VG 220</span><span class="spec-val">Heavy loads · n &lt; 1000 RPM</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.shell.com" target="_blank" style="color:var(--blue)">Shell Omala</a> · <a href="https://www.exxonmobil.com" target="_blank" style="color:var(--blue)">Mobil SHC</a></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20oil%20lubrication%20methods%20bath%20jet%20mist" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Grease by Temperature</div>
+<div><span class="mc-badge b-red">Important!</span></div>
+<div class="spec-row"><span class="spec-key">Mineral Grease NLGI 2</span><span class="spec-val">-20°C to +120°C</span></div>
+<div class="spec-row"><span class="spec-key">Lithium Grease</span><span class="spec-val">-40°C to +150°C</span></div>
+<div class="spec-row"><span class="spec-key">Polyurea Grease</span><span class="spec-val">-30°C to +180°C · ↑durability</span></div>
+<div class="spec-row"><span class="spec-key">Silicone Grease</span><span class="spec-val">-60°C to +200°C · food/clean</span></div>
+<div class="spec-row"><span class="spec-key">PFPE (Perfluoro) Grease</span><span class="spec-val">-60°C to +250°C · vacuum · corrosion</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.chemours.com/krytox" target="_blank" style="color:var(--blue)">Krytox PFPE</a> · <a href="https://www.klueberlubrication.com" target="_blank" style="color:var(--blue)">Klüber Petamo</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">ndm — Speed Parameter</div>
+<div><span class="mc-badge b-orange">n × dm ≤ 500,000</span></div>
+<div class="spec-row"><span class="spec-key">dm</span><span class="spec-val">dm = (bore + OD) / 2 — pitch diameter</span></div>
+<div class="spec-row"><span class="spec-key">ndm ≤ 500,000</span><span class="spec-val">→ Grease suitable</span></div>
+<div class="spec-row"><span class="spec-key">ndm 500K-750K</span><span class="spec-val">→ Special grease or oil</span></div>
+<div class="spec-row"><span class="spec-key">ndm &gt; 750,000</span><span class="spec-val">→ Oil mandatory</span></div>
+<div class="spec-row"><span class="spec-key">Example: 6205</span><span class="spec-val">dm=(25+52)/2=38.5mm · n=12,000rpm · ndm=462K ← Grease ✅</span></div>
+</div>
+</div></div></div>
+
+<!-- ===== DAMAGE ===== -->
+<div id="bear-damage" class="bear-sec">
+<div class="card"><div class="ctitle">⚠️ Bearing Failure Analysis</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Fatigue Spalling</div>
+<div><span class="mc-badge b-red">30% of All Failures</span></div>
+<div class="spec-row"><span class="spec-key">Appearance</span><span class="spec-val">Flakes on the raceway · ↑noise</span></div>
+<div class="spec-row"><span class="spec-key">Cause</span><span class="spec-val">Cyclic load → subsurface crack → spalling</span></div>
+<div class="spec-row"><span class="spec-key">Accelerating Factors</span><span class="spec-val">Overload · insufficient lubrication · contamination</span></div>
+<div class="spec-row"><span class="spec-key">Prevention</span><span class="spec-val">C/P ≥ 3 · cleanliness · correct lubrication</span></div>
+<div class="spec-row"><span class="spec-key">Early Detection</span><span class="spec-val">Vibration monitoring (SKF IMx) · Shock Pulse SPM</span></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20spalling%20fatigue%20failure%20examples" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Brinelling</div>
+<div><span class="mc-badge b-orange">True / False Brinelling</span></div>
+<div class="spec-row"><span class="spec-key">True Brinelling</span><span class="spec-val">Static load exceeding P0 → permanent indentation</span></div>
+<div class="spec-row"><span class="spec-key">False Brinelling</span><span class="spec-val">Vibration during rest → fretting wear</span></div>
+<div class="spec-row"><span class="spec-key">Appearance</span><span class="spec-val">Evenly-spaced indentations at rolling element pitch</span></div>
+<div class="spec-row"><span class="spec-key">True Prevention</span><span class="spec-val">C0/P0 ≥ 4 · upsize the bearing</span></div>
+<div class="spec-row"><span class="spec-key">False Prevention</span><span class="spec-val">EP grease · SRB/TRB bearing type · avoid contact</span></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20brinelling%20false%20brinelling%20failure%20examples" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Fluting</div>
+<div><span class="mc-badge b-red">Electrical Current!</span></div>
+<div class="spec-row"><span class="spec-key">Appearance</span><span class="spec-val">Parallel grooves on the raceway · dark discoloration</span></div>
+<div class="spec-row"><span class="spec-key">Cause</span><span class="spec-val">VFD current passing through the bearing ← EDM discharges</span></div>
+<div class="spec-row"><span class="spec-key">VFD Bearing</span><span class="spec-val">VFD motors → high CMRV level</span></div>
+<div class="spec-row"><span class="spec-key">Prevention</span><span class="spec-val">Insulated bearing (HV/H) · grounding brush · bonding</span></div>
+<div class="spec-row"><span class="spec-key">SKF Hybrid</span><span class="spec-val">Si3N4 balls → electrical insulation!</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.skf.com" target="_blank" style="color:var(--blue)">SKF Insocoat / Hybrid</a></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20fluting%20electrical%20erosion%20failure%20VFD" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Contamination</div>
+<div><span class="mc-badge b-orange">20% of All Failures</span></div>
+<div class="spec-row"><span class="spec-key">Appearance</span><span class="spec-val">Denting · accelerated wear · spalling</span></div>
+<div class="spec-row"><span class="spec-key">Sources</span><span class="spec-val">Dust · debris · chips · water</span></div>
+<div class="spec-row"><span class="spec-key">ISO 4406</span><span class="spec-val">Oil cleanliness: -/16/13 ← minimum</span></div>
+<div class="spec-row"><span class="spec-key">Prevention</span><span class="spec-val">Good seals · oil filtration · proper storage</span></div>
+<div class="spec-row"><span class="spec-key">SPM Shock Pulse</span><span class="spec-val">Contamination detection → dBsv &gt; dBi + 20dB = problem</span></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20contamination%20failure%20examples%20debris" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Smearing</div>
+<div><span class="mc-badge b-red">High Speed!</span></div>
+<div class="spec-row"><span class="spec-key">Appearance</span><span class="spec-val">Directional scratches · material transfer</span></div>
+<div class="spec-row"><span class="spec-key">Cause</span><span class="spec-val">Slipping during acceleration/deceleration · Skidding</span></div>
+<div class="spec-row"><span class="spec-key">Susceptible Bearings</span><span class="spec-val">NU (cylindrical roller) · high-speed bearings</span></div>
+<div class="spec-row"><span class="spec-key">Prevention</span><span class="spec-val">Light preload · EP grease · ↓acceleration</span></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20smearing%20scuffing%20failure%20examples" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Misalignment</div>
+<div><span class="mc-badge b-orange">10% of All Failures</span></div>
+<div class="spec-row"><span class="spec-key">Appearance</span><span class="spec-val">Asymmetric wear · increased heat</span></div>
+<div class="spec-row"><span class="spec-key">Causes</span><span class="spec-val">Mounting error · housing distortion · bent shaft</span></div>
+<div class="spec-row"><span class="spec-key">DG Ball Threshold</span><span class="spec-val">Maximum 0.1° (6') — very sensitive!</span></div>
+<div class="spec-row"><span class="spec-key">Prevention</span><span class="spec-val">Self-Aligning · CARB · laser alignment</span></div>
+<div class="spec-row"><span class="spec-key">Laser Alignment</span><span class="spec-val">≤0.05mm/m Offset · ≤0.05mm/m Angular</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Alignment Tools:</b> <a href="https://www.skf.com/alignment" target="_blank" style="color:var(--blue)">SKF TKSA</a> · <a href="https://www.pruftechnik.com" target="_blank" style="color:var(--blue)">Pruftechnik</a></div>
+<a href="https://www.youtube.com/results?search_query=bearing%20misalignment%20failure%20examples" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div></div></div>
+
+<!-- ===== LINEAR ===== -->
+<div id="bear-linear" class="bear-sec">
+<div class="card"><div class="ctitle">📏 Linear Bearings &amp; Guide Rails</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Linear Ball Bearing</div>
+<div><span class="mc-badge b-blue">LM/LMUU</span><span class="mc-badge b-orange">Smooth Shaft</span></div>
+<div class="spec-row"><span class="spec-key">LM6UU</span><span class="spec-val">bore 6mm · OD 12mm · L 19mm</span></div>
+<div class="spec-row"><span class="spec-key">LM8UU</span><span class="spec-val">bore 8mm — 3D Printers, light CNC</span></div>
+<div class="spec-row"><span class="spec-key">LM16UU</span><span class="spec-val">bore 16mm — medium CNC</span></div>
+<div class="spec-row"><span class="spec-key">Dynamic Load</span><span class="spec-val">C = 30-200N typical</span></div>
+<div class="spec-row"><span class="spec-key">Shaft</span><span class="spec-val">Smooth: Ra≤0.4μm · HRC60+ · h6</span></div>
+<div class="spec-row"><span class="spec-key">Seals</span><span class="spec-val">LMUU=none · LMFUU=flanged · Open=LMO</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.hiwin.com" target="_blank" style="color:var(--blue)">HIWIN</a> · <a href="https://www.thomsonindustries.com" target="_blank" style="color:var(--blue)">Thomson</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a></div>
+<a href="https://www.youtube.com/results?search_query=linear%20ball%20bearing%20how%20it%20works%20CNC" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Linear Guide Rail</div>
+<div><span class="mc-badge b-green">↑Precision</span><span class="mc-badge b-blue">HG/EG/MG Series</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Carriage + Rail · ball/roller</span></div>
+<div class="spec-row"><span class="spec-key">Precision</span><span class="spec-val">Normal/High/Precision/Super P (±3μm)</span></div>
+<div class="spec-row"><span class="spec-key">Preload</span><span class="spec-val">Z0/ZA/ZB/ZC — ↑Preload=↑rigidity</span></div>
+<div class="spec-row"><span class="spec-key">HIWIN HG Series</span><span class="spec-val">Equal loads in 4 directions — common in CNC</span></div>
+<div class="spec-row"><span class="spec-key">HIWIN EG Series</span><span class="spec-val">Compact · light loads</span></div>
+<div class="spec-row"><span class="spec-key">Roller Guideway</span><span class="spec-val">↑rigidity · ↑load · ↑price · HIWIN RG</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.hiwin.com" target="_blank" style="color:var(--blue)">HIWIN</a> · <a href="https://www.thmcnc.com" target="_blank" style="color:var(--blue)">THK</a> · <a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">NSK</a></div>
+<a href="https://www.youtube.com/results?search_query=linear%20guide%20rail%20how%20it%20works%20CNC%20machine" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Slide Bushing — Plastic Linear Bushing</div>
+<div><span class="mc-badge b-green">No Lubrication</span><span class="mc-badge b-orange">Igus</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">PTFE + polyamide / iglidur J/G/X</span></div>
+<div class="spec-row"><span class="spec-key">Lubrication</span><span class="spec-val">Self-Lubricated — no oil/grease!</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">Quiet · anti-magnetic · light · chemical resistant</span></div>
+<div class="spec-row"><span class="spec-key">Drawback</span><span class="spec-val">↓load · ↓speed vs. balls</span></div>
+<div class="spec-row"><span class="spec-key">PV limit</span><span class="spec-val">0.28 m/s × 0.1 MPa = 0.028 W/m²</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturer:</b> <a href="https://www.igus.com" target="_blank" style="color:var(--blue)">Igus (world leader)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Crossed Roller Bearing</div>
+<div><span class="mc-badge b-blue">↑↑Precision</span><span class="mc-badge b-orange">Rotary + Linear</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Rollers at alternating 90° — 4-way loading</span></div>
+<div class="spec-row"><span class="spec-key">Runout</span><span class="spec-val">≤ 1-5μm — very high precision</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">Rotary table · A/B axis · robotics</span></div>
+<div class="spec-row"><span class="spec-key">Arrangement</span><span class="spec-val">Internal/External ring split</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><b style="color:var(--text)">Manufacturers:</b> <a href="https://www.thmcnc.com" target="_blank" style="color:var(--blue)">THK</a> · <a href="https://www.iko.com" target="_blank" style="color:var(--blue)">IKO</a> · <a href="https://www.hiwin.com" target="_blank" style="color:var(--blue)">HIWIN</a></div>
+<a href="https://www.youtube.com/results?search_query=crossed%20roller%20bearing%20how%20it%20works%20precision" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a></div>
+</div></div></div>
+
+<!-- ===== STANDARDS ===== -->
+<div id="bear-standards" class="bear-sec">
+<div class="card"><div class="ctitle">🏆 Leading Standards &amp; Manufacturers</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">International Standards</div>
+<div><span class="mc-badge b-blue">ISO · ABMA · JIS</span></div>
+<div class="spec-row"><span class="spec-key">ISO 15</span><span class="spec-val">Radial Bearings — dimensions</span></div>
+<div class="spec-row"><span class="spec-key">ISO 76</span><span class="spec-val">Static Load Ratings</span></div>
+<div class="spec-row"><span class="spec-key">ISO 281</span><span class="spec-val">Dynamic Load Ratings + L10 Life</span></div>
+<div class="spec-row"><span class="spec-key">ISO 355</span><span class="spec-val">Tapered Roller Bearings</span></div>
+<div class="spec-row"><span class="spec-key">ISO 492</span><span class="spec-val">Tolerances for Radial Bearings</span></div>
+<div class="spec-row"><span class="spec-key">ABMA 9/11</span><span class="spec-val">Ball/Roller Bearings (USA)</span></div>
+<div class="spec-row"><span class="spec-key">JIS B 1512</span><span class="spec-val">Rolling Bearings (Japan)</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">SKF — Sweden</div>
+<div><span class="mc-badge b-blue">World Leader #1</span></div>
+<div class="spec-row"><span class="spec-key">HQ</span><span class="spec-val">Gothenburg, Sweden · 1907</span></div>
+<div class="spec-row"><span class="spec-key">Products</span><span class="spec-val">All bearing types · CARB · Explorer</span></div>
+<div class="spec-row"><span class="spec-key">Tools</span><span class="spec-val">SKF Bearing Calculator · IMx Monitor</span></div>
+<div class="spec-row"><span class="spec-key">Catalog</span><span class="spec-val">Bearing &amp; Units Catalogue (PDF)</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.skf.com" target="_blank" style="color:var(--blue)">skf.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Schaeffler — FAG / INA — Germany</div>
+<div><span class="mc-badge b-orange">World #2</span></div>
+<div class="spec-row"><span class="spec-key">FAG</span><span class="spec-val">Rolling Bearings · High Precision</span></div>
+<div class="spec-row"><span class="spec-key">INA</span><span class="spec-val">Needle Rollers · Linear · Engine</span></div>
+<div class="spec-row"><span class="spec-key">Tools</span><span class="spec-val">BEARINX · Lifetime Explorer</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.schaeffler.com" target="_blank" style="color:var(--blue)">schaeffler.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">NSK · NTN · JTEKT — Japan</div>
+<div><span class="mc-badge b-green">Japan — World #3-5</span></div>
+<div class="spec-row"><span class="spec-key">NSK</span><span class="spec-val">Precision · Automotive · since 1916</span></div>
+<div class="spec-row"><span class="spec-key">NTN</span><span class="spec-val">Aerospace · Industrial · since 1918</span></div>
+<div class="spec-row"><span class="spec-key">JTEKT (Koyo)</span><span class="spec-val">Toyota Group · Steering</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.nsk.com" target="_blank" style="color:var(--blue)">nsk.com</a> · <a href="https://www.ntn-snr.com" target="_blank" style="color:var(--blue)">ntn-snr.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Timken — USA</div>
+<div><span class="mc-badge b-orange">King of Tapered</span></div>
+<div class="spec-row"><span class="spec-key">HQ</span><span class="spec-val">North Canton, Ohio · 1899</span></div>
+<div class="spec-row"><span class="spec-key">Specialty</span><span class="spec-val">Tapered Roller · Steel · Alloys</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">Automotive · Rail · Aerospace · Mining</span></div>
+<div style="font-size:11px;margin-top:6px;border-top:1px solid var(--border);padding-top:5px;color:var(--muted)"><a href="https://www.timken.com" target="_blank" style="color:var(--blue)">timken.com</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--orange)">Suppliers in Israel</div>
+<div><span class="mc-badge b-green">🇮🇱 Israel</span></div>
+<div class="spec-row"><span class="spec-key">Amrai</span><span class="spec-val">SKF and FAG distributor — nationwide</span></div>
+<div class="spec-row"><span class="spec-key">Dan-Roller</span><span class="spec-val">Bearings, wheels, rails</span></div>
+<div class="spec-row"><span class="spec-key">Techni-Roll</span><span class="spec-val">Industrial bearings, consulting</span></div>
+<div class="spec-row"><span class="spec-key">Rama</span><span class="spec-val">Bearings + technical hardware</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">High-precision bearings — SKF/FAG via direct import</div>
+</div>
+</div></div></div>
+
+<!-- ===== CALC ===== -->
+<div id="bear-calc_bear" class="bear-sec">
+<div class="card"><div class="ctitle">🧮 Bearing Calculators</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange)">L10h Calculator — Bearing Life</div>
+<div class="cg">
+<div><label>C — Dynamic Load (kN)</label><input id="bc-c" type="number" value="25.5" step="0.1" oninput="calcBearFull()"></div>
+<div><label>Fr — Radial Load (N)</label><input id="bc-fr" type="number" value="5000" oninput="calcBearFull()"></div>
+<div><label>Fa — Axial Load (N)</label><input id="bc-fa" type="number" value="1000" oninput="calcBearFull()"></div>
+<div><label>e (from catalog, 0.22-0.44)</label><input id="bc-e" type="number" value="0.30" step="0.01" oninput="calcBearFull()"></div>
+<div><label>Y (from catalog, 1.4-2.5)</label><input id="bc-y" type="number" value="1.8" step="0.1" oninput="calcBearFull()"></div>
+<div><label>n — Speed (RPM)</label><input id="bc-n" type="number" value="1450" oninput="calcBearFull()"></div>
+<div><label>Bearing Type</label>
+<select id="bc-type" onchange="calcBearFull()">
+<option value="3">Ball (p=3)</option>
+<option value="3.333">Roller (p=10/3)</option>
+</select></div>
+</div>
+<div id="bc-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange)">ndm Calculator — Maximum Speed</div>
+<div class="cg">
+<div><label>d — Bore Diameter (mm)</label><input id="ndm-d" type="number" value="25" oninput="calcNdm()"></div>
+<div><label>D — Outer Diameter (mm)</label><input id="ndm-D" type="number" value="52" oninput="calcNdm()"></div>
+<div><label>n — Speed (RPM)</label><input id="ndm-n" type="number" value="12000" oninput="calcNdm()"></div>
+</div>
+<div id="ndm-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--orange)">Bearing Number Decoder</div>
+<div class="cg">
+<div><label>Bearing Number (e.g.: 6205-2RS-C3)</label>
+<input id="bc-num" type="text" value="6205" placeholder="6205 / 7310B / NU208" oninput="decodeBearFull()"></div>
+</div>
+<div id="bc-decode" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:2;color:var(--muted)">Enter a bearing number to decode</div>
+</div>
+
+</div></div></div>
+</div>
+
+
+
+</div>
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+function decodeBearingNum(num,targetId){
+  const el=document.getElementById(targetId||'br-decode');
+  if(!num||num.length<3){el.innerHTML='Enter a bearing number';return;}
+  let out=[];
+  const boreCode=num.replace(/[^0-9]/g,'').slice(-2);
+  const boreNum=parseInt(boreCode);
+  let bore='?';
+  if(boreNum<=3){bore=['10','12','15','17'][boreNum]+'mm';}
+  else{bore=(boreNum*5)+'mm';}
+  let type='?';
+  const first=num[0];
+  if(first==='6')type='Deep Groove Ball';
+  else if(first==='7')type='Angular Contact Ball';
+  else if(first==='1')type='Self-Aligning Ball';
+  else if(first==='2')type='Spherical Roller';
+  else if(first==='3')type='Tapered Roller';
+  else if(first==='5')type='Thrust Ball';
+  else if(num.startsWith('NU'))type='Cylindrical Roller (NU — no axial)';
+  else if(num.startsWith('NJ'))type='Cylindrical Roller (NJ — partial axial)';
+  else if(num.startsWith('NA'))type='Needle Roller (with inner ring)';
+  else if(num.startsWith('NK'))type='Needle Roller (without inner ring)';
+  let series='?';
+  const s=num.replace(/[^0-9]/g,'')[0];
+  if(s==='0'||s==='1')series='Extra Light';
+  else if(s==='2')series='Light';
+  else if(s==='3')series='Medium';
+  else if(s==='4')series='Heavy';
+  let seals='-';
+  if(num.includes('2RS'))seals='Rubber seals both sides (2RS)';
+  else if(num.includes('RS'))seals='Rubber seal one side';
+  else if(num.includes('ZZ'))seals='Metal shield both sides (ZZ)';
+  else if(num.includes('Z'))seals='Metal shield one side (Z)';
+  let cl='CN (Normal)';
+  if(num.includes('C3'))cl='C3 (large clearance)';
+  else if(num.includes('C4'))cl='C4 (very large clearance)';
+  else if(num.includes('C2'))cl='C2 (small clearance)';
+  let angle='';
+  if(num.includes('B'))angle=' | Angle: 40°';
+  else if(num.includes('AC'))angle=' | Angle: 25°';
+  else if(num.includes('C')&&type.includes('Angular'))angle=' | Angle: 15°';
+  out=[
+    '<b style="color:var(--orange)">'+num+'</b>',
+    '📐 <b>Type:</b> '+type,
+    '📏 <b>Bore:</b> '+bore,
+    '📊 <b>Series:</b> '+series+angle,
+    '🛡️ <b>Protection:</b> '+seals,
+    '⚙️ <b>Clearance:</b> '+cl
+  ];
+  el.innerHTML=out.join('<br>');
+}
+
+function showBear(id,btn){
+  document.querySelectorAll('.bear-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.bear-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('bear-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function calcBearing(){
+  const C=parseFloat(document.getElementById('br-c').value)||0;
+  const Fr=parseFloat(document.getElementById('br-fr').value)||0;
+  const Fa=parseFloat(document.getElementById('br-fa').value)||0;
+  const e=parseFloat(document.getElementById('br-e').value)||0.3;
+  const Y=parseFloat(document.getElementById('br-y').value)||1.8;
+  const n=parseFloat(document.getElementById('br-n').value)||1450;
+  const p=parseFloat(document.getElementById('br-type').value)||3;
+  const P = Fa/Fr > e ? 0.56*Fr + Y*Fa : Fr;
+  const ratio = (C*1000)/P;
+  const L10rev = Math.pow(ratio, p) * 1e6;
+  const L10h = L10rev / (60*n);
+  const el = document.getElementById('br-result');
+  el.innerHTML = `Equivalent load P = <b>${P.toFixed(0)} N</b> · L10 = <b>${Math.round(L10h).toLocaleString()} hours</b> · C/P = <b>${ratio.toFixed(2)}</b><br><small style="color:var(--muted)">L10 (million revolutions) = ${(L10rev/1e6).toFixed(1)}M</small>`;
+}
+
+function calcBearFull(){
+  const C=parseFloat(document.getElementById('bc-c').value)||25.5;
+  const Fr=parseFloat(document.getElementById('bc-fr').value)||5000;
+  const Fa=parseFloat(document.getElementById('bc-fa').value)||1000;
+  const e=parseFloat(document.getElementById('bc-e').value)||0.30;
+  const Y=parseFloat(document.getElementById('bc-y').value)||1.8;
+  const n=parseFloat(document.getElementById('bc-n').value)||1450;
+  const p=parseFloat(document.getElementById('bc-type').value)||3;
+  const X=Fa/Fr>e?0.56:1.0;
+  const Yf=Fa/Fr>e?Y:0;
+  const P=(X*Fr+Yf*Fa)/1000;
+  const L10=Math.pow(C/P,p);
+  const L10h=L10*1e6/(60*n);
+  const col=L10h>20000?'var(--green)':L10h>5000?'var(--orange)':'var(--red)';
+  document.getElementById('bc-result').innerHTML=
+    '<b>P =</b> '+P.toFixed(2)+'kN &nbsp;|&nbsp; <b>L10 =</b> '+L10.toFixed(0)+'M revolutions<br>'+
+    '<b>L10h =</b> <span style="color:'+col+';font-size:16px;font-weight:800">'+Math.round(L10h).toLocaleString()+'</span> hours<br>'+
+    '<small style="color:var(--muted)">X='+X+' Y='+Yf.toFixed(1)+' p='+p+'</small>';
+}
+
+function decodeBearing(){
+  const num = document.getElementById('br-num').value.trim().toUpperCase();
+  const el = document.getElementById('br-decode');
+  let type='', series='', bore='', note='';
+  const match = num.match(/^([A-Z]*)(\d)(\d)(\d{2})(.*)$/);
+  if(!match){el.innerHTML='<span style="color:var(--red)">Format not recognized</span>';return;}
+  const prefix=match[1], w=match[2], d=match[3], boreCode=match[4], suffix=match[5];
+  const types={'6':'Deep Groove Ball','7':'Angular Contact Ball','1':'Self-Aligning Ball','2':'Spherical Roller','3':'Tapered Roller (first row)','N':'Cylindrical Roller NU','NU':'Cylindrical NU','NJ':'Cylindrical NJ','51':'Thrust Ball'};
+  const series2={'0':'Extra Light Width','1':'Extra Light','2':'Light','3':'Medium','4':'Heavy'};
+  const boreN=parseInt(boreCode);
+  if(boreN<=03) bore=['10mm','12mm','15mm','17mm'][boreN]||boreCode;
+  else bore=(boreN*5)+'mm';
+  const fullType=prefix||w;
+  const suffixMap={ZZ:'two metal shields',RS:'one rubber seal','2RS':'two rubber seals',C3:'large clearance (C3)',C4:'very large clearance',B:'40° contact angle',P5:'P5 precision',P6:'P6 precision'};
+  const suffixDesc=Object.entries(suffixMap).filter(([k])=>suffix.includes(k)).map(([,v])=>v).join(' · ')||'Standard';
+  el.innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+      <div><b style="color:var(--blue)">Type:</b> ${types[fullType]||types[w]||'—'}</div>
+      <div><b style="color:var(--orange)">Series:</b> ${series2[d]||d}</div>
+      <div><b style="color:var(--green)">Inner Diameter:</b> ${bore}</div>
+      <div><b style="color:var(--purple)">Suffixes:</b> ${suffixDesc}</div>
+    </div>`;
+}
+
+function calcNdm(){
+  const d=parseFloat(document.getElementById('ndm-d').value)||25;
+  const D=parseFloat(document.getElementById('ndm-D').value)||52;
+  const n=parseFloat(document.getElementById('ndm-n').value)||12000;
+  const dm=(d+D)/2;
+  const ndm=n*dm;
+  const status=ndm<500000?'✅ Grease suitable':ndm<750000?'⚠️ Special grease / oil':' ❌ Oil mandatory!';
+  const col=ndm<500000?'var(--green)':ndm<750000?'var(--orange)':'var(--red)';
+  document.getElementById('ndm-result').innerHTML=
+    '<b>dm =</b> '+dm+'mm &nbsp;|&nbsp; <b>n×dm =</b> <span style="color:'+col+';font-size:16px;font-weight:800">'+Math.round(ndm).toLocaleString()+'</span> — '+status;
+}
+
+function decodeBearFull(){
+  const num=document.getElementById('bc-num').value.trim().toUpperCase();
+  decodeBearingNum(num,'bc-decode');
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
+
+</script>
+</body>
+</html>

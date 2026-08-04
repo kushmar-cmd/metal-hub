@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<link rel="canonical" href="https://metal.kushmar.com/en/calc.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/calc.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/calc.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/calc.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Engineering Calculators — 47 Live Tools: Machining, GD&T, Gears, Bearings, Pricing | METAL HUB</title>
+<meta name="description" content="47 live engineering calculators in one place: machining, tolerances and GD&T, mechanics, gears, bearings, springs, chemistry, quality inspection, hydraulics, pricing, and units — with linked workflows between calculators.">
+<meta name="keywords" content="engineering calculator, GD&T calculator, gear ratio calculator, bearing life calculator, Cpk calculator, machining RPM calculator, unit converter engineering, spring rate calculator">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metal.kushmar.com/en/calc.html">
+<meta property="og:title" content="Engineering Calculators — 47 Live Tools | METAL HUB">
+<meta property="og:description" content="47 live engineering calculators: machining, GD&T, mechanics, gears, bearings, springs, quality, pricing, fluids, and units.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:site_name" content="METAL HUB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Engineering Calculators — 47 Live Tools",
+  "description": "47 live engineering calculators: machining, tolerances/GD&T, mechanics, gears, bearings, springs, quality/SPC, pricing, fluids, bonding, inserts, and units",
+  "about": ["Engineering Calculators", "GD&T Calculator", "Gear Calculator", "Bearing Life Calculator", "Cpk Calculator", "Machining Calculator"],
+  "url": "https://metal.kushmar.com/en/calc.html",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "Organization",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+    <a href="https://metal.kushmar.com/calc.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Engineering Calculators</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+47 live engineering calculators in one place: <b>machining</b>, tolerances and GD&amp;T, mechanics, gears, bearings, springs, quality/SPC, pricing, fluids, bonding, and inserts — with <b>linked workflows</b> that pass values between calculators.
+</p>
+</div>
+
+<div id="sec-calc" class="section">
+<style>
+.calc-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.calc-tab:hover,.calc-tab.active{background:var(--yellow,#fde047);color:#000;border-color:var(--yellow,#fde047);font-weight:700}
+.calc-sec{display:none}.calc-sec.active{display:block}
+.flow-arrow{color:var(--yellow,#fde047);font-weight:700;font-size:16px;margin:0 4px}
+.flow-bar{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;font-size:12px;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.flow-step{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;color:var(--text);cursor:pointer;font-size:11px}
+.flow-step:hover{border-color:var(--yellow,#fde047);color:var(--yellow,#fde047)}
+.copy-btn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-size:10px;cursor:pointer;color:var(--muted);margin-right:6px}
+.copy-btn:hover{color:var(--yellow,#fde047);border-color:var(--yellow,#fde047)}
+</style>
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1a0d);border-color:var(--yellow,#fde047)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🧮</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--yellow,#fde047)">Engineering Calculators</div>
+    <div style="font-size:12px;color:var(--muted)">Machining · Mechanics · Gears · Bearings · Springs · SPC Quality · Pricing · Fluids · Bonding · Inserts</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="calc-tab active" onclick="showCalc('machining',this)">⚙️ Machining</button>
+  <button class="calc-tab" onclick="showCalc('mechanics',this)">🔩 Mechanics &amp; Structures</button>
+  <button class="calc-tab" onclick="showCalc('gears',this)">⚙️ Gears</button>
+  <button class="calc-tab" onclick="showCalc('bearings',this)">🔵 Bearings</button>
+  <button class="calc-tab" onclick="showCalc('springs',this)">🌀 Springs</button>
+  <button class="calc-tab" onclick="showCalc('quality',this)">📊 SPC Quality</button>
+  <button class="calc-tab" onclick="showCalc('costs',this)">💰 Pricing &amp; Costs</button>
+  <button class="calc-tab" onclick="showCalc('fluids',this)">💧 Fluids</button>
+  <button class="calc-tab" onclick="showCalc('adhesives',this)">🔗 Bonding</button>
+  <button class="calc-tab" onclick="showCalc('inserts',this)">🔩 Inserts</button>
+  <button class="calc-tab" onclick="showCalc('tolgdt',this)">📐 Tolerances &amp; GD&amp;T</button>
+</div>
+
+<!-- ====================== MACHINING ====================== -->
+<div id="calc-machining" class="calc-sec active">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Calculation flow: </span>
+  <span class="flow-step" onclick="document.getElementById('m-vc').focus()">1 Vc Cutting Speed</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('rpm-feed').focus()">2 RPM + Feed</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('tc-len').focus()">3 Machining Time</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('fc-ft').focus()">4 Cutting Force</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('dr-d').focus()">5 Drilling &amp; Tapping</span>
+</div>
+
+<div class="machine-grid">
+
+<!-- 1: Vc → RPM + MRR -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Cutting Speed → RPM</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Enter Vc ← get RPM + Vf + MRR</div>
+<div class="cg">
+  <div><label>Vc — Cutting Speed (m/min)</label>
+  <select id="m-vc-mat" onchange="calcMachining()">
+    <option value="80">Steel C45 — 80</option><option value="120">Steel 4140 Q&amp;T — 120</option>
+    <option value="200">SS 304 — 200</option><option value="400">Al 6061 — 400</option>
+    <option value="60">Ti-6Al-4V — 60</option><option value="150">Cast Iron GCI — 150</option>
+    <option value="custom">Custom →</option>
+  </select></div>
+  <div><label>Custom Vc (m/min)</label><input id="m-vc" type="number" value="120" oninput="calcMachining()"></div>
+  <div><label>D — Tool/Material Diameter (mm)</label><input id="m-d" type="number" value="50" oninput="calcMachining()"></div>
+  <div><label>fn — Feed per Rev (mm/rev)</label><input id="m-fn" type="number" value="0.2" step="0.05" oninput="calcMachining()"></div>
+  <div><label>ap — Depth of Cut (mm)</label><input id="m-ap" type="number" value="2" step="0.5" oninput="calcMachining()"></div>
+</div>
+<div class="res" id="m-res1">—</div>
+</div>
+
+<!-- 2: זמן עיבוד -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Machining Time ← from RPM</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">RPM + feed from calculator 1 → time tc</div>
+<div class="cg">
+  <div><label>L — Machining Length (mm)</label><input id="tc-len" type="number" value="200" oninput="calcMachiningTime()"></div>
+  <div><label>RPM (calculator 1 ↑)</label><input id="tc-rpm" type="number" value="764" oninput="calcMachiningTime()"></div>
+  <div><label>fn — Feed (mm/rev)</label><input id="tc-fn" type="number" value="0.2" step="0.05" oninput="calcMachiningTime()"></div>
+  <div><label>Number of Passes</label><input id="tc-pass" type="number" value="1" min="1" oninput="calcMachiningTime()"></div>
+</div>
+<div class="res" id="m-res2">—</div>
+<button class="copy-btn" onclick="copyRpmToTime()">⬆ Get RPM from calculator 1</button>
+</div>
+
+<!-- 3: כוח חיתוך -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Cutting Force &amp; Power Consumption</div>
+<div class="cg">
+  <div><label>kc — Specific Force (N/mm²)</label>
+  <select id="fc-kc" onchange="calcCuttingForce()">
+    <option value="1500">Steel C45 — 1500</option><option value="2200">Steel 4140 — 2200</option>
+    <option value="2000">SS 304 — 2000</option><option value="700">Al 6061 — 700</option>
+    <option value="1100">Ti-6Al-4V — 1100</option><option value="900">Cast Iron — 900</option>
+  </select></div>
+  <div><label>Ft — Chip Cross-Section (mm²) = ap × fn</label><input id="fc-ft" type="number" value="0.4" step="0.05" oninput="calcCuttingForce()"></div>
+  <div><label>Vc (m/min) ← from calculator 1</label><input id="fc-vc" type="number" value="120" oninput="calcCuttingForce()"></div>
+  <div><label>η — Spindle Efficiency (%)</label><input id="fc-eta" type="number" value="80" oninput="calcCuttingForce()"></div>
+</div>
+<div class="res" id="m-res3">—</div>
+<button class="copy-btn" onclick="copyVcToForce()">⬆ Get Vc from calculator 1</button>
+</div>
+
+<!-- 4: Sin Bar -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Sine Bar — Surface Angle</div>
+<div class="cg">
+  <div><label>L — Sine Bar Length (mm)</label>
+  <select id="sb-l" onchange="calcSineBarNew()">
+    <option value="100">100mm</option><option value="125">125mm</option>
+    <option value="150">150mm (common)</option><option value="200">200mm</option><option value="250">250mm</option>
+  </select></div>
+  <div><label>α — Required Angle (°)</label><input id="sb-a" type="number" value="30" step="0.01" oninput="calcSineBarNew()"></div>
+</div>
+<div class="res" id="m-res4">—</div>
+</div>
+
+<!-- 5: קידוח וארבל -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · Drill &amp; Tap</div>
+<div class="cg">
+  <div><label>Metric Size</label>
+  <select id="dr-size" onchange="calcDrillTap()">
+    <option value="3,0.5">M3 × 0.5</option><option value="4,0.7">M4 × 0.7</option>
+    <option value="5,0.8">M5 × 0.8</option><option value="6,1.0" selected>M6 × 1.0</option>
+    <option value="8,1.25">M8 × 1.25</option><option value="10,1.5">M10 × 1.5</option>
+    <option value="12,1.75">M12 × 1.75</option><option value="14,2.0">M14 × 2.0</option>
+    <option value="16,2.0">M16 × 2.0</option><option value="20,2.5">M20 × 2.5</option>
+    <option value="24,3.0">M24 × 3.0</option><option value="30,3.5">M30 × 3.5</option>
+  </select></div>
+  <div><label>Thread Depth (× D)</label>
+  <select id="dr-depth" onchange="calcDrillTap()">
+    <option value="1">1D</option><option value="1.5" selected>1.5D</option>
+    <option value="2">2D</option><option value="2.5">2.5D</option>
+  </select></div>
+  <div><label>Material</label>
+  <select id="dr-mat" onchange="calcDrillTap()">
+    <option value="al">Aluminum</option><option value="steel" selected>Steel</option>
+    <option value="ss">Stainless</option><option value="ci">Cast Iron</option>
+  </select></div>
+</div>
+<div class="res" id="m-res5">—</div>
+</div>
+
+<!-- 6: RPM → Vc (הפוך) -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · RPM → Vc (Reverse)</div>
+<div class="cg">
+  <div><label>RPM (revolutions per minute)</label><input id="rv-rpm" type="number" value="1000" oninput="calcRpmToVc()"></div>
+  <div><label>D — Diameter (mm)</label><input id="rv-d" type="number" value="50" oninput="calcRpmToVc()"></div>
+</div>
+<div class="res" id="m-res6">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">7 · Tap Drill Size</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Metric thread → drill diameter by thread engagement percentage</div>
+<div class="cg">
+  <div><label>D — Nominal Diameter (mm)</label><input id="tap-d" type="number" value="10" step="0.5" oninput="calcTapDrill()"></div>
+  <div><label>P — Thread Pitch (mm)</label><input id="tap-p" type="number" value="1.5" step="0.05" oninput="calcTapDrill()"></div>
+  <div><label>% Thread Engagement</label><select id="tap-eng" onchange="calcTapDrill()">
+    <option value="100">100% (soft materials only)</option>
+    <option value="75" selected>75% (standard — almost always sufficient)</option>
+    <option value="65">65% (hard materials — Ti/Inconel/SS)</option>
+  </select></div>
+</div>
+<div class="res" id="tap-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">8 · Turning Surface Finish (Ra)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Expected Ra from feed and tool nose radius</div>
+<div class="cg">
+  <div><label>fn — Feed per Rev (mm/rev)</label><input id="raf-fn" type="number" value="0.15" step="0.01" oninput="calcRaFinish()"></div>
+  <div><label>Rε — Tool Nose Radius (mm)</label><input id="raf-r" type="number" value="0.8" step="0.1" oninput="calcRaFinish()"></div>
+</div>
+<div class="res" id="raf-result">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== MECHANICS ====================== -->
+<div id="calc-mechanics" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Force/Torque</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Shaft/Beam Stress</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Size Selection</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 Weight</span>
+</div>
+
+<div class="machine-grid">
+
+<!-- ציר מומנט פיתול -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Shaft — Torque and Power</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">P → T → τ → minimum diameter</div>
+<div class="cg">
+  <div><label>P — Power (kW)</label><input id="sh-p" type="number" value="7.5" step="0.5" oninput="calcShaftFull()"></div>
+  <div><label>n — Speed (RPM)</label><input id="sh-n" type="number" value="1450" oninput="calcShaftFull()"></div>
+  <div><label>τ_allow — Allowable Shear Stress (MPa)</label>
+  <select id="sh-tau" onchange="calcShaftFull()">
+    <option value="40">Steel 1045 N — 40</option><option value="60">Steel 4140 Q&amp;T — 60</option>
+    <option value="80">Steel 4340 — 80</option><option value="30">SS 304 — 30</option>
+    <option value="25">Al 6061-T6 — 25</option><option value="custom">Custom ↓</option>
+  </select></div>
+  <div><label>Custom τ_allow (MPa)</label><input id="sh-tau-c" type="number" value="60" oninput="calcShaftFull()"></div>
+  <div><label>SF — Safety Factor</label><input id="sh-sf" type="number" value="2" step="0.5" oninput="calcShaftFull()"></div>
+</div>
+<div class="res" id="mec-res1">—</div>
+</div>
+
+<!-- קורה -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Beam — Bending and Deflection</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Simply Supported · Cantilever</div>
+<div class="cg">
+  <div><label>Beam Type</label>
+  <select id="bm-type" onchange="calcBeamFull()">
+    <option value="ss_center">Simply Supported — Center Load</option>
+    <option value="ss_udl">Simply Supported — UDL</option>
+    <option value="cant_end">Cantilever — End Load</option>
+    <option value="cant_udl">Cantilever — UDL</option>
+  </select></div>
+  <div><label>L — Length (mm)</label><input id="bm-l" type="number" value="500" oninput="calcBeamFull()"></div>
+  <div><label>F — Load (N)</label><input id="bm-f" type="number" value="1000" oninput="calcBeamFull()"></div>
+  <div><label>E — Young's Modulus (GPa)</label>
+  <select id="bm-e" onchange="calcBeamFull()">
+    <option value="210">Steel — 210</option><option value="193">SS 304 — 193</option>
+    <option value="69">Al 6061 — 69</option><option value="114">Ti-6Al-4V — 114</option>
+  </select></div>
+  <div><label>I — Moment of Inertia (mm⁴)</label><input id="bm-i" type="number" value="100000" oninput="calcBeamFull()"></div>
+  <div><label>c — Distance from Center (mm) for σ</label><input id="bm-c" type="number" value="25" oninput="calcBeamFull()"></div>
+</div>
+<div class="res" id="mec-res2">—</div>
+</div>
+
+<!-- לחץ Hertz -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Hertz Contact Stress</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Ball/roller on a surface/shaft</div>
+<div class="cg">
+  <div><label>Contact Type</label>
+  <select id="hz-type" onchange="calcHertz()">
+    <option value="sphere_flat">Sphere on flat surface</option>
+    <option value="sphere_sphere">Sphere on sphere</option>
+    <option value="cyl_flat">Cylinder on flat surface</option>
+    <option value="cyl_cyl">Cylinder on cylinder</option>
+  </select></div>
+  <div><label>F — Load (N)</label><input id="hz-f" type="number" value="1000" oninput="calcHertz()"></div>
+  <div><label>R₁ — Radius 1 (mm)</label><input id="hz-r1" type="number" value="10" oninput="calcHertz()"></div>
+  <div><label>R₂ — Radius 2 (mm, ∞=flat)</label><input id="hz-r2" type="number" value="99999" oninput="calcHertz()"></div>
+  <div><label>E — Material (GPa)</label>
+  <select id="hz-e" onchange="calcHertz()">
+    <option value="210">Steel — 210</option><option value="193">SS — 193</option>
+    <option value="69">Al — 69</option>
+  </select></div>
+  <div><label>ν — Poisson's Ratio</label><input id="hz-nu" type="number" value="0.3" step="0.01" oninput="calcHertz()"></div>
+</div>
+<div class="res" id="mec-res3">—</div>
+</div>
+
+<!-- משקל -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Material Weight</div>
+<div class="cg">
+  <div><label>Shape</label>
+  <select id="wt-sh" onchange="shapeChangeCalc()">
+    <option value="bar">Round Bar</option><option value="rect">Rectangular Profile</option>
+    <option value="tube">Tube</option><option value="plate">Plate</option>
+    <option value="hex">Hexagon</option><option value="ring">Ring</option>
+  </select></div>
+  <div><label>Units</label>
+  <select id="wt-unit" onchange="shapeChangeCalc()">
+    <option value="mm">Millimeter (mm)</option>
+    <option value="in">Inch</option>
+  </select></div>
+  <div><label id="wt-l1">Diameter (mm)</label><input id="wt-d1" type="number" value="50" oninput="calcWtNew()"></div>
+  <div><label id="wt-l2">Length/Height (mm)</label><input id="wt-d2" type="number" value="100" oninput="calcWtNew()"></div>
+  <div id="wt-g3"><label id="wt-l3">Wall Thickness / Width (mm)</label><input id="wt-d3" type="number" value="5" oninput="calcWtNew()"></div>
+  <div id="wt-g4" style="display:none"><label id="wt-l4">Depth (mm)</label><input id="wt-d4" type="number" value="30" oninput="calcWtNew()"></div>
+  <div><label>Quantity (units)</label><input id="wt-qty" type="number" value="1" min="1" step="1" oninput="calcWtNew()"></div>
+  <div><label>Material (g/cm³)</label>
+  <select id="wt-mt" onchange="calcWtNew()">
+    <optgroup label="Steels"><option value="7.85" selected>Steel 1018-4340 (7.85)</option><option value="7.76">H13 Tool Steel (7.76)</option><option value="8.16">M2 HSS (8.16)</option></optgroup>
+    <optgroup label="Stainless"><option value="7.93">SS 304/304L (7.93)</option><option value="7.99">SS 316/316L (7.99)</option><option value="7.78">SS 17-4PH (7.78)</option><option value="7.78">SS 15-5PH (7.78)</option><option value="7.82">SS 2205 Duplex (7.82)</option><option value="7.81">SS 2507 Super Duplex (7.81)</option></optgroup>
+    <optgroup label="Aluminum"><option value="2.71">Al 6061-T6 (2.71)</option><option value="2.81">Al 7075-T6 (2.81)</option><option value="2.78">Al 2024-T4 (2.78)</option><option value="2.68">Al 5052 (2.68)</option><option value="2.83">Al 7050 (2.83)</option></optgroup>
+    <optgroup label="Titanium"><option value="4.43">Ti-6Al-4V (4.43)</option><option value="4.51">Ti Grade 2 (4.51)</option></optgroup>
+    <optgroup label="Copper &amp; Brass"><option value="8.96">Copper C110 (8.96)</option><option value="8.50">Brass C260 (8.50)</option><option value="8.83">Bronze C932 (8.83)</option></optgroup>
+    <optgroup label="Nickel &amp; Superalloys"><option value="8.19">Inconel 718 (8.19)</option><option value="8.44">Inconel 625 (8.44)</option><option value="8.47">Inconel 600 (8.47)</option><option value="8.89">Hastelloy C276 (8.89)</option></optgroup>
+    <optgroup label="Magnesium &amp; Zinc"><option value="1.77">Mg AZ31B (1.77)</option><option value="6.60">Zamak 3 Die Cast (6.60)</option></optgroup>
+    <optgroup label="Plastic"><option value="1.14">Nylon PA66 (1.14)</option><option value="1.41">POM Acetal (1.41)</option><option value="1.20">PC Polycarbonate (1.20)</option><option value="0.91">PP (0.91)</option><option value="1.31">PEEK (1.31)</option></optgroup>
+  </select></div>
+</div>
+<div class="res" id="mec-res4">—</div>
+</div>
+
+<!-- מומנט הידוק בורג -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · Bolt Tightening Torque</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">ISO 898-1 · K·F·d</div>
+<div class="cg">
+  <div><label>Size</label>
+  <select id="tq-size" onchange="calcTorque()">
+    <option value="3,0.5">M3</option><option value="4,0.7">M4</option><option value="5,0.8">M5</option>
+    <option value="6,1.0" selected>M6</option><option value="8,1.25">M8</option><option value="10,1.5">M10</option>
+    <option value="12,1.75">M12</option><option value="16,2.0">M16</option><option value="20,2.5">M20</option>
+    <option value="24,3.0">M24</option><option value="30,3.5">M30</option>
+  </select></div>
+  <div><label>Strength Grade</label>
+  <select id="tq-grade" onchange="calcTorque()">
+    <option value="400,0.9">4.6 — Fy=240MPa</option><option value="400,0.9">4.8</option>
+    <option value="640,0.9">8.8 — Fy=640MPa ★</option><option value="940,0.9">10.9 — Fy=940MPa</option>
+    <option value="1100,0.9">12.9 — Fy=1100MPa</option><option value="450,0.9">A2-70 SS</option>
+    <option value="600,0.9">A4-80 SS</option>
+  </select></div>
+  <div><label>K — Nut Factor (0.15-0.20)</label>
+  <select id="tq-k" onchange="calcTorque()">
+    <option value="0.12">0.12 — MoS₂/PTFE</option><option value="0.15">0.15 — light oil</option>
+    <option value="0.17" selected>0.17 — dry treated</option><option value="0.20">0.20 — dry</option>
+    <option value="0.22">0.22 — rusty/coarse</option>
+  </select></div>
+  <div><label>% of Proof Load</label><input id="tq-pct" type="number" value="70" min="50" max="90" oninput="calcTorque()"></div>
+</div>
+<div class="res" id="mec-res5">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · Von Mises — Equivalent Stress</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Combined bending+torsion/shear to a safety factor</div>
+<div class="cg">
+  <div><label>σ — Normal Stress (MPa)</label><input id="vm2-s" type="number" value="150" step="5" oninput="calcVonMisesCentral()"></div>
+  <div><label>τ — Shear Stress (MPa)</label><input id="vm2-t" type="number" value="60" step="5" oninput="calcVonMisesCentral()"></div>
+  <div><label>Sy — Yield Strength (MPa)</label><input id="vm2-sy" type="number" value="350" step="10" oninput="calcVonMisesCentral()"></div>
+</div>
+<div class="res" id="vm2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">7 · Fatigue — Goodman Diagram</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Safety factor for combined fatigue load (mean+alternating)</div>
+<div class="cg">
+  <div><label>σa — Alternating Stress (MPa)</label><input id="fat-sa" type="number" value="80" step="5" oninput="calcFatigueGoodman()"></div>
+  <div><label>σm — Mean Stress (MPa)</label><input id="fat-sm" type="number" value="50" step="5" oninput="calcFatigueGoodman()"></div>
+  <div><label>Se — Endurance Limit (MPa)</label><input id="fat-se" type="number" value="300" step="10" oninput="calcFatigueGoodman()"></div>
+  <div><label>Sut — Ultimate Strength (MPa)</label><input id="fat-sut" type="number" value="600" step="10" oninput="calcFatigueGoodman()"></div>
+</div>
+<div class="res" id="fat-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">8 · Press-Fit / Shrink-Fit — Mounting Heat</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">ΔT required to heat the housing before press-fit assembly</div>
+<div class="cg">
+  <div><label>Interference δ (mm, total diametral)</label><input id="pf-delta" type="number" value="0.04" step="0.005" oninput="calcPressFit()"></div>
+  <div><label>⌀ Nominal D (mm)</label><input id="pf-d" type="number" value="50" step="1" oninput="calcPressFit()"></div>
+  <div><label>Housing Material (expansion coefficient α)</label><select id="pf-alpha" onchange="calcPressFit()">
+    <option value="0.0000115">Steel (α=11.5×10⁻⁶)</option>
+    <option value="0.0000165">Stainless (α=16.5×10⁻⁶)</option>
+    <option value="0.0000230">Aluminum (α=23×10⁻⁶)</option>
+    <option value="0.0000090">Titanium (α=9×10⁻⁶)</option>
+  </select></div>
+  <div><label>Additional Safety Margin (°C)</label><input id="pf-margin" type="number" value="30" step="5" oninput="calcPressFit()"></div>
+</div>
+<div class="res" id="pf-result">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== GEARS ====================== -->
+<div id="calc-gears" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Module + Teeth</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Gear Pair + Ratio</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Ft from pair 2 ↓</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 Lewis Strength</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">5 Planetary / Rack</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Gear Geometry</div>
+<div class="cg">
+  <div><label>Module m</label>
+  <select id="gr-m" onchange="calcGearNew()">
+    <option value="0.5">0.5</option><option value="0.8">0.8</option><option value="1">1</option>
+    <option value="1.25">1.25</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+    <option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option>
+    <option value="5">5</option><option value="6">6</option><option value="8">8</option><option value="10">10</option>
+  </select></div>
+  <div><label>z — Number of Teeth</label><input id="gr-z" type="number" value="20" min="6" oninput="calcGearNew()"></div>
+  <div><label>Pressure Angle α</label>
+  <select id="gr-a" onchange="calcGearNew()">
+    <option value="20" selected>20°</option><option value="14.5">14.5°</option><option value="25">25°</option>
+  </select></div>
+  <div><label>Tooth Width b (mm)</label><input id="gr-b" type="number" value="30" oninput="calcGearNew()"></div>
+</div>
+<div class="res" id="gr-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Gear Pair ← from 1</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Calculates Ft ← ← calculator 3 will use it</div>
+<div class="cg">
+  <div><label>m (from calculator 1)</label>
+  <select id="gp-m" onchange="calcGearPairNew()">
+    <option value="1">1</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+    <option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+  </select></div>
+  <div><label>z₁ — Pinion</label><input id="gp-z1" type="number" value="18" min="6" oninput="calcGearPairNew()"></div>
+  <div><label>z₂ — Gear</label><input id="gp-z2" type="number" value="54" min="6" oninput="calcGearPairNew()"></div>
+  <div><label>P — Power (kW)</label><input id="gp-p" type="number" value="5" step="0.5" oninput="calcGearPairNew()"></div>
+  <div><label>n₁ — Input RPM</label><input id="gp-n1" type="number" value="1450" oninput="calcGearPairNew()"></div>
+</div>
+<div class="res" id="gr-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Lewis Strength ← Ft from 2</div>
+<div class="cg">
+  <div><label>m</label><input id="gl-m" type="number" value="2" step="0.5" oninput="calcGearLewisNew()"></div>
+  <div><label>b (mm)</label><input id="gl-b" type="number" value="30" oninput="calcGearLewisNew()"></div>
+  <div><label>Ft (N) ← from calculator 2</label><input id="gl-ft" type="number" value="2000" oninput="calcGearLewisNew()"></div>
+  <div><label>Y Factor (Lewis)</label>
+  <select id="gl-y" onchange="calcGearLewisNew()">
+    <option value="0.245">z=12</option><option value="0.261">z=14</option><option value="0.277">z=16</option>
+    <option value="0.290">z=18</option><option value="0.308" selected>z=20</option><option value="0.322">z=25</option>
+    <option value="0.340">z=30</option><option value="0.369">z=40</option><option value="0.408">z=75</option>
+    <option value="0.422">z=∞ (rack)</option>
+  </select></div>
+  <div><label>Kv — Load Factor</label>
+  <select id="gl-kv" onchange="calcGearLewisNew()">
+    <option value="1.1">1.1 — fast/↑precision</option><option value="1.3" selected>1.3 — regular</option>
+    <option value="1.5">1.5 — slow/coarse</option>
+  </select></div>
+</div>
+<div class="res" id="gr-res3">—</div>
+<button class="copy-btn" onclick="copyFtToLewis()">⬆ Get Ft from calculator 2</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Rack &amp; Pinion</div>
+<div class="cg">
+  <div><label>m</label>
+  <select id="rp-m" onchange="calcRackNew()">
+    <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option>
+    <option value="4">4</option><option value="5">5</option>
+  </select></div>
+  <div><label>z — Pinion Teeth</label><input id="rp-z" type="number" value="20" oninput="calcRackNew()"></div>
+  <div><label>n — RPM</label><input id="rp-n" type="number" value="100" oninput="calcRackNew()"></div>
+</div>
+<div class="res" id="gr-res4">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · Planetary Gearbox</div>
+<div class="cg">
+  <div><label>zS — Sun</label><input id="pl-zs" type="number" value="20" oninput="calcPlanetaryNew()"></div>
+  <div><label>zP — Planet</label><input id="pl-zp" type="number" value="20" oninput="calcPlanetaryNew()"></div>
+  <div><label>n₁ — Input RPM</label><input id="pl-n" type="number" value="1450" oninput="calcPlanetaryNew()"></div>
+  <div><label>P — Power (kW)</label><input id="pl-p" type="number" value="5" oninput="calcPlanetaryNew()"></div>
+</div>
+<div class="res" id="gr-res5">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== BEARINGS ====================== -->
+<div id="calc-bearings" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Loads Fr + Fa</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Equivalent P → L10h</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 ndm Speed Check</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 Designation Decoder</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1+2 · L10h — Full Bearing Life</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Calculates P from loads → L10h</div>
+<div class="cg">
+  <div><label>C — Dynamic Load (kN)</label><input id="bc-c" type="number" value="25.5" step="0.1" oninput="calcBearFull2()"></div>
+  <div><label>Fr — Radial Load (N)</label><input id="bc-fr" type="number" value="5000" oninput="calcBearFull2()"></div>
+  <div><label>Fa — Axial Load (N)</label><input id="bc-fa" type="number" value="1000" oninput="calcBearFull2()"></div>
+  <div><label>e (from catalog)</label><input id="bc-e" type="number" value="0.30" step="0.01" oninput="calcBearFull2()"></div>
+  <div><label>Y (from catalog)</label><input id="bc-y" type="number" value="1.8" step="0.1" oninput="calcBearFull2()"></div>
+  <div><label>n — Speed (RPM)</label><input id="bc-n" type="number" value="1450" oninput="calcBearFull2()"></div>
+  <div><label>Bearing Type</label>
+  <select id="bc-type" onchange="calcBearFull2()">
+    <option value="3">Ball (p=3)</option><option value="3.333">Roller (p=10/3)</option>
+  </select></div>
+</div>
+<div class="res" id="br-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · ndm — Speed Check</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Determine whether grease suffices</div>
+<div class="cg">
+  <div><label>d — bore (mm)</label><input id="ndm-d" type="number" value="25" oninput="calcNdm2()"></div>
+  <div><label>D — OD (mm)</label><input id="ndm-D" type="number" value="52" oninput="calcNdm2()"></div>
+  <div><label>n — RPM</label><input id="ndm-n" type="number" value="12000" oninput="calcNdm2()"></div>
+</div>
+<div class="res" id="br-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Bearing Decoder</div>
+<div class="cg">
+  <div><label>Bearing Number</label><input type="text" id="bc-num2" value="6205-2RS-C3" placeholder="6205 / NU208 / 7310B" oninput="decodeBear2()"></div>
+</div>
+<div id="br-res3" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:2;color:var(--muted)">Enter a bearing number</div>
+</div>
+
+</div></div>
+
+<!-- ====================== SPRINGS ====================== -->
+<div id="calc-springs" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Choose Material → G/E</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Dimensions → k + δ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Stress τ/σ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 Wahl Check</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1+2+3 · Compression/Extension Spring</div>
+<div class="cg">
+  <div><label>d — Wire Diameter (mm)</label><input id="sp2-d" type="number" value="3" step="0.1" oninput="calcSpringComp()"></div>
+  <div><label>D — Mean Diameter (mm)</label><input id="sp2-D" type="number" value="25" oninput="calcSpringComp()"></div>
+  <div><label>n — Active Coils</label><input id="sp2-n" type="number" value="8" min="2" oninput="calcSpringComp()"></div>
+  <div><label>G (GPa)</label>
+  <select id="sp2-G" onchange="calcSpringComp()">
+    <option value="80">C Steel / Cr-V / Cr-Si (80)</option><option value="69">SS 302/304 (69)</option>
+    <option value="72">SS 17-7PH (72)</option><option value="77">Inconel 718 (77)</option>
+    <option value="44">Phosphor Bronze (44)</option><option value="48">Beryllium Cu (48)</option>
+  </select></div>
+  <div><label>F — Load (N)</label><input id="sp2-f" type="number" value="100" oninput="calcSpringComp()"></div>
+  <div><label>Lf — Free Length (mm)</label><input id="sp2-lf" type="number" value="80" oninput="calcSpringComp()"></div>
+</div>
+<div class="res" id="sp-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Torsion Spring</div>
+<div class="cg">
+  <div><label>d (mm)</label><input id="st2-d" type="number" value="3" step="0.1" oninput="calcTorsionSprNew()"></div>
+  <div><label>D (mm)</label><input id="st2-D" type="number" value="25" oninput="calcTorsionSprNew()"></div>
+  <div><label>n — Coils</label><input id="st2-n" type="number" value="8" oninput="calcTorsionSprNew()"></div>
+  <div><label>E (GPa)</label>
+  <select id="st2-E" onchange="calcTorsionSprNew()">
+    <option value="207">Steel (207)</option><option value="193">SS (193)</option><option value="200">Inconel (200)</option>
+  </select></div>
+  <div><label>T — Torque (N·mm)</label><input id="st2-T" type="number" value="500" oninput="calcTorsionSprNew()"></div>
+</div>
+<div class="res" id="sp-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Belleville Washer</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">DIN 2093 — disc spring</div>
+<div class="cg">
+  <div><label>OD — Outer Diameter (mm)</label><input id="bv-od" type="number" value="50" oninput="calcBelleville()"></div>
+  <div><label>ID — Inner Diameter (mm)</label><input id="bv-id" type="number" value="25.4" oninput="calcBelleville()"></div>
+  <div><label>t — Thickness (mm)</label><input id="bv-t" type="number" value="2" step="0.1" oninput="calcBelleville()"></div>
+  <div><label>h₀ — Cone Height (mm)</label><input id="bv-h" type="number" value="1.8" step="0.1" oninput="calcBelleville()"></div>
+  <div><label>E (GPa)</label><input id="bv-e" type="number" value="210" oninput="calcBelleville()"></div>
+  <div><label>Arrangement</label>
+  <select id="bv-arr" onchange="calcBelleville()">
+    <option value="1">Single × 1</option><option value="2p">Parallel × 2</option>
+    <option value="2s">Series × 2</option><option value="4p">Parallel × 4</option>
+  </select></div>
+</div>
+<div class="res" id="sp-res3">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== QUALITY ====================== -->
+<div id="calc-quality" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Measurements → Cpk</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Cpk → DPMO/σ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 MSA/GRR</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 TUR/AQL</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">5 FMEA RPN</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Cp / Cpk — Process Capability</div>
+<div class="cg">
+  <div><label>USL — Upper Limit (mm)</label><input id="cpk-usl" type="number" value="10.1" step="0.01" oninput="calcCpkFull()"></div>
+  <div><label>LSL — Lower Limit (mm)</label><input id="cpk-lsl" type="number" value="9.9" step="0.01" oninput="calcCpkFull()"></div>
+  <div><label>x̄ — Measurement Mean</label><input id="cpk-mean" type="number" value="10.02" step="0.001" oninput="calcCpkFull()"></div>
+  <div><label>σ — Standard Deviation</label><input id="cpk-std" type="number" value="0.015" step="0.001" oninput="calcCpkFull()"></div>
+</div>
+<div class="res" id="qc-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · DPMO ← from Cpk</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Cpk ← ← ← ↑ ← copy from 1</div>
+<div class="cg">
+  <div><label>Cpk (from calculator 1)</label><input id="dpmo-cpk" type="number" value="1.33" step="0.01" oninput="calcDPMOFull()"></div>
+  <div><label>Number of Opportunities (DPO)</label><input id="dpmo-opp" type="number" value="1" min="1" oninput="calcDPMOFull()"></div>
+</div>
+<div class="res" id="qc-res2">—</div>
+<button class="copy-btn" onclick="copyCpkToDpmo()">⬆ Get Cpk from calculator 1</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · GRR — Measurement System Analysis</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">MSA Gauge R&amp;R</div>
+<div class="cg">
+  <div><label>EV — Equipment Variation</label><input id="grr-ev" type="number" value="0.03" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>AV — Appraiser Variation</label><input id="grr-av" type="number" value="0.02" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>TV — Total Variation</label><input id="grr-tv" type="number" value="0.12" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>Tolerance — Tolerance Band</label><input id="grr-tol" type="number" value="0.2" step="0.01" oninput="calcGRRFull()"></div>
+</div>
+<div class="res" id="qc-res3">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · TUR — Measurement Ratio</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Test Uncertainty Ratio</div>
+<div class="cg">
+  <div><label>Tolerance — Band (mm)</label><input id="tur-tol" type="number" value="0.1" step="0.01" oninput="calcTURFull()"></div>
+  <div><label>U — Measurement Uncertainty (mm)</label><input id="tur-u" type="number" value="0.005" step="0.001" oninput="calcTURFull()"></div>
+</div>
+<div class="res" id="qc-res4">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · AQL — Sampling</div>
+<div class="cg">
+  <div><label>Lot Size N</label><input id="aql-n" type="number" value="500" oninput="calcAQLFull()"></div>
+  <div><label>AQL (%)</label>
+  <select id="aql-q" onchange="calcAQLFull()">
+    <option value="0.065">0.065%</option><option value="0.1">0.1%</option><option value="0.15">0.15%</option>
+    <option value="0.25">0.25%</option><option value="0.4">0.4%</option><option value="0.65">0.65%</option>
+    <option value="1.0" selected>1.0%</option><option value="1.5">1.5%</option><option value="2.5">2.5%</option>
+    <option value="4.0">4.0%</option><option value="6.5">6.5%</option>
+  </select></div>
+  <div><label>Inspection Level</label>
+  <select id="aql-lvl" onchange="calcAQLFull()">
+    <option value="I">I — Reduced</option><option value="II" selected>II — Normal</option>
+    <option value="III">III — Tightened</option>
+  </select></div>
+</div>
+<div class="res" id="qc-res5">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · FMEA — RPN</div>
+<div class="cg">
+  <div><label>S — Severity (1-10)</label><input id="fm-s" type="number" value="7" min="1" max="10" oninput="calcFMEAFull()"></div>
+  <div><label>O — Occurrence (1-10)</label><input id="fm-o" type="number" value="5" min="1" max="10" oninput="calcFMEAFull()"></div>
+  <div><label>D — Detection (1-10)</label><input id="fm-d" type="number" value="6" min="1" max="10" oninput="calcFMEAFull()"></div>
+</div>
+<div class="res" id="qc-res6">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== COSTS ====================== -->
+<div id="calc-costs" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Material + Time → Cost</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 BOM → Total Cost</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Unit Cost + Margin</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Part Cost — Pricing</div>
+<div class="cg">
+  <div><label>Material Cost (₪/kg)</label><input id="pr-mat" type="number" value="25" oninput="calcPricingFull()"></div>
+  <div><label>Part Weight (kg)</label><input id="pr-wt" type="number" value="0.5" step="0.1" oninput="calcPricingFull()"></div>
+  <div><label>Machine Time (minutes)</label><input id="pr-tm" type="number" value="30" oninput="calcPricingFull()"></div>
+  <div><label>Machine Cost (₪/hour)</label><input id="pr-mh" type="number" value="120" oninput="calcPricingFull()"></div>
+  <div><label>Setup Time (minutes)</label><input id="pr-setup" type="number" value="20" oninput="calcPricingFull()"></div>
+  <div><label>Production Quantity</label><input id="pr-qty" type="number" value="50" oninput="calcPricingFull()"></div>
+  <div><label>Overhead (%)</label><input id="pr-oh" type="number" value="30" oninput="calcPricingFull()"></div>
+  <div><label>Margin (%)</label><input id="pr-mg" type="number" value="20" oninput="calcPricingFull()"></div>
+</div>
+<div class="res" id="pr-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · BOM — Materials + Labor</div>
+<div class="cg">
+  <div><label>Material Cost (₪)</label><input id="bm2-mat" type="number" value="200" oninput="calcBOMFull()"></div>
+  <div><label>Direct Labor Cost (₪)</label><input id="bm2-lab" type="number" value="150" oninput="calcBOMFull()"></div>
+  <div><label>Purchased Parts (₪)</label><input id="bm2-buy" type="number" value="80" oninput="calcBOMFull()"></div>
+  <div><label>Overhead (%)</label><input id="bm2-oh" type="number" value="35" oninput="calcBOMFull()"></div>
+  <div><label>Scrap %</label><input id="bm2-scr" type="number" value="3" oninput="calcBOMFull()"></div>
+</div>
+<div class="res" id="pr-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Unit Cost ← from 1+2</div>
+<div class="cg">
+  <div><label>Production Cost (₪) ← from 1</label><input id="uc2-prod" type="number" value="50" oninput="calcUCFull()"></div>
+  <div><label>Target Price (₪)</label><input id="uc2-tgt" type="number" value="80" oninput="calcUCFull()"></div>
+  <div><label>Unit Quantity</label><input id="uc2-qty" type="number" value="100" oninput="calcUCFull()"></div>
+  <div><label>Shipping Cost per Unit (₪)</label><input id="uc2-ship" type="number" value="2" oninput="calcUCFull()"></div>
+</div>
+<div class="res" id="pr-res3">—</div>
+<button class="copy-btn" onclick="copyProdToCost()">⬆ Get cost from calculator 1</button>
+</div>
+
+</div></div>
+
+<!-- ====================== FLUIDS ====================== -->
+<div id="calc-fluids" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Hydraulics — Pressure/Flow</div>
+<div class="cg">
+  <div><label>Calculation Type</label>
+  <select id="hy-type" onchange="calcHydroFull()">
+    <option value="pressure">Pressure → Force</option><option value="flow">Flow → Velocity</option>
+    <option value="pump">Pump → Power</option>
+  </select></div>
+  <div><label>Pressure P (bar)</label><input id="hy-p" type="number" value="100" oninput="calcHydroFull()"></div>
+  <div><label>Piston Diameter (mm)</label><input id="hy-d" type="number" value="50" oninput="calcHydroFull()"></div>
+  <div><label>Flow Q (L/min)</label><input id="hy-q" type="number" value="20" oninput="calcHydroFull()"></div>
+  <div><label>η — Efficiency (%)</label><input id="hy-eta" type="number" value="85" oninput="calcHydroFull()"></div>
+</div>
+<div class="res" id="fl-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">O-Ring — Squeeze and Groove</div>
+<div class="cg">
+  <div><label>d — Cross-Section Diameter (mm)</label><input id="or-d" type="number" value="3.5" step="0.1" oninput="calcORingFull()"></div>
+  <div><label>ID — O-Ring Inner Diameter (mm)</label><input id="or-id" type="number" value="50" oninput="calcORingFull()"></div>
+  <div><label>Application</label>
+  <select id="or-app" onchange="calcORingFull()">
+    <option value="static_face">Static Face Seal</option><option value="static_radial">Static Radial Seal</option>
+    <option value="dynamic">Dynamic Seal</option>
+  </select></div>
+  <div><label>O-Ring Material</label>
+  <select id="or-mat" onchange="calcORingFull()">
+    <option value="NBR">NBR (Nitrile) — standard</option><option value="EPDM">EPDM — water/air</option>
+    <option value="FKM">FKM (Viton) — chemicals</option><option value="Silicone">Silicone — high T</option>
+  </select></div>
+</div>
+<div class="res" id="fl-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Faraday — Electrochemical Coating</div>
+<div class="cg">
+  <div><label>I — Current (A)</label><input id="far-i" type="number" value="10" oninput="calcFaradayFull()"></div>
+  <div><label>t — Time (minutes)</label><input id="far-t" type="number" value="60" oninput="calcFaradayFull()"></div>
+  <div><label>Coating Process</label>
+  <select id="far-proc" onchange="calcFaradayFull()">
+    <option value="cr,52,6,6.9">Hard Chrome (Cr)</option><option value="ni,58.7,2,8.9">Nickel (Ni)</option>
+    <option value="zn,65.4,2,7.1">Zinc (Zn)</option><option value="cu,63.5,2,8.9">Copper (Cu)</option>
+    <option value="au,197,1,19.3">Gold (Au)</option><option value="ag,107.9,1,10.5">Silver (Ag)</option>
+  </select></div>
+  <div><label>Coating Area (cm²)</label><input id="far-a" type="number" value="100" oninput="calcFaradayFull()"></div>
+</div>
+<div class="res" id="fl-res3">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== ADHESIVES ====================== -->
+<div id="calc-adhesives" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Loctite — Break-Loose Torque</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Threadlocker Break-Loose Torque</div>
+<div class="cg">
+  <div><label>Loctite Product</label>
+  <select id="lt-prod" onchange="calcLoctiteFull()">
+    <option value="222,1.5">222 — Blue Low Strength</option>
+    <option value="243,2.5" selected>243 — Blue Medium Strength</option>
+    <option value="263,4.0">263 — Red High Strength</option>
+    <option value="270,5.0">270 — Red Max Strength</option>
+    <option value="290,2.0">290 — Green Wicking</option>
+  </select></div>
+  <div><label>Bolt Size</label>
+  <select id="lt-size" onchange="calcLoctiteFull()">
+    <option value="3">M3</option><option value="4">M4</option><option value="5">M5</option>
+    <option value="6" selected>M6</option><option value="8">M8</option><option value="10">M10</option>
+    <option value="12">M12</option>
+  </select></div>
+</div>
+<div class="res" id="ad-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Bonding — Force and Area</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Lap Joint Shear Strength</div>
+<div class="cg">
+  <div><label>Adhesive Type</label>
+  <select id="ad-type" onchange="calcAdhesiveFull()">
+    <option value="12">Epoxy 2-Part — 12 MPa</option>
+    <option value="25">Structural Epoxy — 25 MPa</option>
+    <option value="8">Acrylic MMA — 8 MPa</option>
+    <option value="6">Polyurethane — 6 MPa</option>
+    <option value="4">Silicone RTV — 4 MPa</option>
+    <option value="15">Loctite EA 9466 — 15 MPa</option>
+    <option value="30">Henkel Hysol EA 9394 — 30 MPa</option>
+  </select></div>
+  <div><label>Bond Area (mm²)</label><input id="ad-area" type="number" value="500" oninput="calcAdhesiveFull()"></div>
+  <div><label>SF — Safety Factor</label><input id="ad-sf" type="number" value="3" step="0.5" oninput="calcAdhesiveFull()"></div>
+  <div><label>Required Load (N)</label><input id="ad-load" type="number" value="3000" oninput="calcAdhesiveFull()"></div>
+</div>
+<div class="res" id="ad-res2">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== INSERTS ====================== -->
+<div id="calc-inserts" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">STI Drill — Helicoil</div>
+<div class="cg">
+  <div><label>Size</label>
+  <select id="ins2-size" onchange="calcInsDrillFull()">
+    <option value="3,0.5,3.6">M3 × 0.5</option><option value="4,0.7,4.7">M4 × 0.7</option>
+    <option value="5,0.8,5.9">M5 × 0.8</option><option value="6,1.0,7.0" selected>M6 × 1.0</option>
+    <option value="8,1.25,9.2">M8 × 1.25</option><option value="10,1.5,11.3">M10 × 1.5</option>
+    <option value="12,1.75,13.5">M12 × 1.75</option><option value="16,2.0,17.7">M16 × 2.0</option>
+    <option value="20,2.5,22.0">M20 × 2.5</option>
+  </select></div>
+  <div><label>Depth</label>
+  <select id="ins2-depth" onchange="calcInsDrillFull()">
+    <option value="1">1D</option><option value="1.5" selected>1.5D</option>
+    <option value="2">2D</option><option value="2.5">2.5D</option>
+  </select></div>
+</div>
+<div class="res" id="ins-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Rivet Nut — Hole Size</div>
+<div class="cg">
+  <div><label>Size</label>
+  <select id="rn2-size" onchange="calcRivetNutFull()">
+    <option value="3,5.4">M3</option><option value="4,6.4">M4</option><option value="5,7.7" selected>M5</option>
+    <option value="6,9.0">M6</option><option value="8,11.5">M8</option><option value="10,14.0">M10</option>
+    <option value="12,16.5">M12</option>
+  </select></div>
+  <div><label>Type</label>
+  <select id="rn2-type" onchange="calcRivetNutFull()">
+    <option value="round">Round Body</option><option value="hex">Hex Body</option>
+  </select></div>
+  <div><label>Material Thickness (mm)</label><input id="rn2-thick" type="number" value="2.0" step="0.5" oninput="calcRivetNutFull()"></div>
+</div>
+<div class="res" id="ins-res2">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== TOLERANCES & GD&T ====================== -->
+<div id="calc-tolgdt" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Fit Limits</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Calculate hole/shaft limits and fit type from ES/EI/es/ei</div>
+<div class="cg">
+  <div><label>Nominal Size (mm)</label><input id="ft2-nom" type="number" value="50" step="0.1" oninput="calcFitCentral()"></div>
+  <div><label>Hole Upper Deviation ES (μm)</label><input id="ft2-es" type="number" value="25" step="1" oninput="calcFitCentral()"></div>
+  <div><label>Hole Lower Deviation EI (μm)</label><input id="ft2-ei" type="number" value="0" step="1" oninput="calcFitCentral()"></div>
+  <div><label>Shaft Upper Deviation es (μm)</label><input id="ft2-esh" type="number" value="-25" step="1" oninput="calcFitCentral()"></div>
+  <div><label>Shaft Lower Deviation ei (μm)</label><input id="ft2-eih" type="number" value="-50" step="1" oninput="calcFitCentral()"></div>
+</div>
+<div class="res" id="ft2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Tolerance Stack-up</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Worst Case vs. RSS — up to 5 links (0=unused)</div>
+<div class="cg">
+  <div><label>Link 1 (mm)</label><input id="su2-1" type="number" value="0.10" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>Link 2 (mm)</label><input id="su2-2" type="number" value="0.05" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>Link 3 (mm)</label><input id="su2-3" type="number" value="0.08" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>Link 4 (mm)</label><input id="su2-4" type="number" value="0" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>Link 5 (mm)</label><input id="su2-5" type="number" value="0" step="0.01" oninput="calcStackupCentral()"></div>
+</div>
+<div class="res" id="su2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · GD&amp;T Position — MMC Bonus</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Calculating tolerance bonus and total tolerance zone</div>
+<div class="cg">
+  <div><label>⌀ Basic Tolerance (mm) — ⊕⌀Ø A|B|C</label><input id="gdz-base" type="number" value="0.20" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>MMC — Maximum Material Condition Size (mm)</label><input id="gdz-mmc" type="number" value="10.00" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>Actual Measured Size (mm)</label><input id="gdz-actual" type="number" value="10.15" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>Feature Type</label><select id="gdz-type" onchange="calcGdtPosZone()">
+    <option value="hole">Hole (MMC=smallest)</option>
+    <option value="pin">Shaft/Pin (MMC=largest)</option>
+  </select></div>
+</div>
+<div class="res" id="gdz-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Engineering Unit Converter</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Length · Pressure/Stress · Torque · Temperature</div>
+<div class="cg">
+  <div><label>Length: mm ↔ inch</label><input id="uc2-mm" type="number" value="25.4" step="0.1" oninput="calcUnitConv('len','mm')"></div>
+  <div><label>&nbsp;</label><input id="uc2-in" type="number" value="1" step="0.01" oninput="calcUnitConv('len','in')"></div>
+  <div><label>Stress: MPa ↔ psi</label><input id="uc2-mpa" type="number" value="100" step="1" oninput="calcUnitConv('stress','mpa')"></div>
+  <div><label>&nbsp;</label><input id="uc2-psi" type="number" value="14504" step="1" oninput="calcUnitConv('stress','psi')"></div>
+  <div><label>Torque: N·m ↔ lbf·ft</label><input id="uc2-nm" type="number" value="10" step="0.1" oninput="calcUnitConv('torque','nm')"></div>
+  <div><label>&nbsp;</label><input id="uc2-lbft" type="number" value="7.376" step="0.01" oninput="calcUnitConv('torque','lbft')"></div>
+  <div><label>Temp: °C ↔ °F</label><input id="uc2-c" type="number" value="20" step="1" oninput="calcUnitConv('temp','c')"></div>
+  <div><label>&nbsp;</label><input id="uc2-f" type="number" value="68" step="1" oninput="calcUnitConv('temp','f')"></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+function showCalc(id,btn){
+  document.querySelectorAll('.calc-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.calc-tab').forEach(t=>t.classList.remove('active'));
+  var el=document.getElementById('calc-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function calcAQLFull(){
+  const N=parseInt(document.getElementById('aql-n').value)||500;
+  const aql=parseFloat(document.getElementById('aql-q').value)||1.0;
+  const lvl=document.getElementById('aql-lvl').value;
+  const codeLetter={'I':{2:'A',9:'B',16:'C',26:'D',51:'E',91:'F',151:'G',281:'H',501:'J',1201:'K',3201:'L',10001:'M',35001:'N',150001:'P',500001:'Q'},'II':{2:'A',9:'B',16:'C',26:'D',51:'E',91:'F',151:'G',281:'H',501:'J',1201:'K',3201:'L',10001:'M',35001:'N',150001:'P',500001:'Q'},'III':{2:'B',9:'C',16:'D',26:'E',51:'F',91:'G',151:'H',281:'J',501:'K',1201:'L',3201:'M',10001:'N',35001:'P',150001:'Q',500001:'R'}};
+  const sampleMap={'A':2,'B':3,'C':5,'D':8,'E':13,'F':20,'G':32,'H':50,'J':80,'K':125,'L':200,'M':315,'N':500,'P':800,'Q':1250,'R':2000};
+  const aqlMap={0.065:{A:[0,1],B:[0,1],C:[0,1],D:[0,1],E:[0,1],F:[0,1],G:[1,2],H:[1,2],J:[2,3],K:[3,4],L:[5,6],M:[7,8],N:[10,11],P:[14,15],Q:[21,22]},0.1:{A:[0,1],B:[0,1],C:[0,1],D:[0,1],E:[0,1],F:[1,2],G:[1,2],H:[2,3],J:[3,4],K:[5,6],L:[7,8],M:[10,11],N:[14,15],P:[21,22],Q:[21,22]},1.0:{A:[0,1],B:[0,1],C:[0,1],D:[0,1],E:[1,2],F:[1,2],G:[2,3],H:[3,4],J:[5,6],K:[7,8],L:[10,11],M:[14,15],N:[21,22],P:[21,22],Q:[21,22]},2.5:{A:[0,1],B:[0,1],C:[0,1],D:[1,2],E:[1,2],F:[2,3],G:[3,4],H:[5,6],J:[7,8],K:[10,11],L:[14,15],M:[21,22],N:[21,22],P:[21,22],Q:[21,22]},4.0:{A:[0,1],B:[0,1],C:[1,2],D:[1,2],E:[2,3],F:[3,4],G:[5,6],H:[7,8],J:[10,11],K:[14,15],L:[21,22],M:[21,22],N:[21,22],P:[21,22],Q:[21,22]}};
+  const cl=Object.entries(codeLetter[lvl]||codeLetter['II']).reverse().find(([k])=>N>=parseInt(k));
+  const code=cl?cl[1]:'J';
+  const n=sampleMap[code]||80;
+  const ac=aqlMap[aql]?aqlMap[aql][code]:null;
+  document.getElementById('qc-res5').innerHTML=
+    `<b>Code Letter:</b> ${code}<br>
+     <b>Sample Size:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${n} units</span><br>
+     ${ac?`<b>Ac/Re:</b> ${ac[0]} / ${ac[1]}`:'<span style="color:var(--muted)">Check the table</span>'}`;
+}
+
+function calcAdhesiveFull(){
+  const tau=parseFloat(document.getElementById('ad-type').value)||12;
+  const area=parseFloat(document.getElementById('ad-area').value)||500;
+  const SF=parseFloat(document.getElementById('ad-sf').value)||3;
+  const load=parseFloat(document.getElementById('ad-load').value)||3000;
+  const Fmax=tau*area;
+  const Fallow=Fmax/SF;
+  const ok=Fallow>=load;
+  const col=ok?'var(--green)':'var(--red)';
+  const min_area=load*SF/tau;
+  document.getElementById('ad-res2').innerHTML=
+    `<b>F_max:</b> ${(Fmax/1000).toFixed(2)} kN<br>
+     <b>F_allow (SF=${SF}):</b> <span style="color:${col};font-size:16px;font-weight:800">${(Fallow/1000).toFixed(2)} kN</span><br>
+     ${ok?'✅ Sufficient':'❌ Not sufficient — minimum area: '+min_area.toFixed(0)+' mm²'}`;
+}
+
+function calcBOMFull(){
+  const mat=parseFloat(document.getElementById('bm2-mat').value)||200;
+  const lab=parseFloat(document.getElementById('bm2-lab').value)||150;
+  const buy=parseFloat(document.getElementById('bm2-buy').value)||80;
+  const oh=(parseFloat(document.getElementById('bm2-oh').value)||35)/100;
+  const scr=(parseFloat(document.getElementById('bm2-scr').value)||3)/100;
+  const direct=mat+lab+buy;
+  const total=direct*(1+oh)*(1+scr);
+  document.getElementById('pr-res2').innerHTML=
+    `<b>Direct:</b> ₪${direct.toFixed(2)}<br>
+     <b>+Overhead+Scrap:</b> <span style="color:var(--green);font-size:16px;font-weight:800">₪${total.toFixed(2)}</span>`;
+}
+
+function calcBeamFull(){
+  const type=document.getElementById('bm-type').value;
+  const L=parseFloat(document.getElementById('bm-l').value)||500;
+  const F=parseFloat(document.getElementById('bm-f').value)||1000;
+  const E=parseFloat(document.getElementById('bm-e').value)||210;
+  const I=parseFloat(document.getElementById('bm-i').value)||100000;
+  const c=parseFloat(document.getElementById('bm-c').value)||25;
+  let Mmax,delta,label;
+  switch(type){
+    case 'ss_center': Mmax=F*L/4; delta=F*Math.pow(L,3)/(48*E*1000*I); label='Simply Supported - P Center'; break;
+    case 'ss_udl':    Mmax=F*L/8; delta=5*F*Math.pow(L,3)/(384*E*1000*I); label='Simply Supported - UDL'; break;
+    case 'cant_end':  Mmax=F*L;   delta=F*Math.pow(L,3)/(3*E*1000*I); label='Cantilever - P End'; break;
+    case 'cant_udl':  Mmax=F*L/2; delta=F*Math.pow(L,3)/(8*E*1000*I); label='Cantilever - UDL'; break;
+    default:          Mmax=F*L/4; delta=F*Math.pow(L,3)/(48*E*1000*I); label='';
+  }
+  const sigma=(Mmax*c)/I;
+  document.getElementById('mec-res2').innerHTML=
+    `<b>${label}</b><br>
+     <b>M_max:</b> ${(Mmax/1000).toFixed(2)} N·m<br>
+     <b>σ_max:</b> <span style="color:var(--green);font-size:15px;font-weight:800">${sigma.toFixed(1)} MPa</span><br>
+     <b>δ_max:</b> <span style="color:var(--yellow,#fde047);font-weight:700">${delta.toFixed(3)} mm</span>`;
+}
+
+function calcBearFull2(){
+  const C=parseFloat(document.getElementById('bc-c').value)||25.5;
+  const Fr=parseFloat(document.getElementById('bc-fr').value)||5000;
+  const Fa=parseFloat(document.getElementById('bc-fa').value)||1000;
+  const e=parseFloat(document.getElementById('bc-e').value)||0.30;
+  const Y=parseFloat(document.getElementById('bc-y').value)||1.8;
+  const n=parseFloat(document.getElementById('bc-n').value)||1450;
+  const p=parseFloat(document.getElementById('bc-type').value)||3;
+  const ratio=Fa/Fr;
+  const P=ratio>e?0.56*Fr+Y*Fa:Fr;
+  const L10h=(1e6/(60*n))*Math.pow((C*1000)/P,p);
+  const col=L10h>20000?'var(--green)':L10h>5000?'var(--orange)':'var(--red)';
+  document.getElementById('br-res1').innerHTML=
+    `<b>Fa/Fr:</b> ${ratio.toFixed(3)} ${ratio>e?'> e → X=0.56':'≤ e → X=1'}<br>
+     <b>P:</b> ${(P/1000).toFixed(2)} kN<br>
+     <b>L10h:</b> <span style="color:${col};font-size:16px;font-weight:800">${L10h.toFixed(0)} hours</span><br>
+     <small style="color:var(--muted)">${L10h>20000?'✅ Good':L10h>5000?'⚠️ Reasonable':'❌ Short — consider a larger C'}</small>`;
+}
+
+function calcBelleville(){
+  const OD=parseFloat(document.getElementById('bv-od').value)||50;
+  const ID=parseFloat(document.getElementById('bv-id').value)||25.4;
+  const t=parseFloat(document.getElementById('bv-t').value)||2;
+  const h0=parseFloat(document.getElementById('bv-h').value)||1.8;
+  const E=parseFloat(document.getElementById('bv-e').value)||210;
+  const arr=document.getElementById('bv-arr').value;
+  const ratio=OD/ID;
+  const K1=((ratio-1)/ratio)/((ratio+1)/(ratio-1)-2/Math.log(ratio));
+  const Emod=E*1000;
+  const deltaFull=h0;
+  const F=(4*Emod/(1-0.3*0.3))*Math.pow(t,4)/(K1*Math.pow(OD/2,2))*deltaFull/t*((deltaFull/t-0.5)*deltaFull/t+1)*0.001;
+  let Fout=F,note='';
+  if(arr==='2p'){Fout=F*2;note='Parallel ×2 → double force';}
+  else if(arr==='2s'){Fout=F;note='Series ×2 → double travel';}
+  else if(arr==='4p'){Fout=F*4;note='Parallel ×4';}
+  document.getElementById('sp-res3').innerHTML=
+    `<b>F (single disc, full deflection):</b> ~${F.toFixed(0)} N<br>
+     <b>Arrangement:</b> ${Fout.toFixed(0)} N<br>
+     <small style="color:var(--muted)">${note||'Single'} | h₀/t=${(h0/t).toFixed(2)}</small>`;
+}
+
+function calcCpkFull(){
+  const usl=parseFloat(document.getElementById('cpk-usl').value)||10.1;
+  const lsl=parseFloat(document.getElementById('cpk-lsl').value)||9.9;
+  const mean=parseFloat(document.getElementById('cpk-mean').value)||10.02;
+  const std=parseFloat(document.getElementById('cpk-std').value)||0.015;
+  const cpu=(usl-mean)/(3*std);
+  const cpl=(mean-lsl)/(3*std);
+  const cpk=Math.min(cpu,cpl);
+  const cp=(usl-lsl)/(6*std);
+  const col=cpk>=1.67?'var(--green)':cpk>=1.33?'var(--yellow,#fde047)':cpk>=1.0?'var(--orange)':'var(--red)';
+  const grade=cpk>=1.67?'Six Sigma ✅':cpk>=1.33?'✅ Acceptable':cpk>=1.0?'⚠️ Borderline':'❌ Not capable';
+  document.getElementById('qc-res1').innerHTML=
+    `<b>Cp:</b> ${cp.toFixed(3)} · <b>Cpu:</b> ${cpu.toFixed(3)} · <b>Cpl:</b> ${cpl.toFixed(3)}<br>
+     <b>Cpk:</b> <span style="color:${col};font-size:18px;font-weight:800">${cpk.toFixed(3)}</span> — ${grade}`;
+  document.getElementById('dpmo-cpk').value=cpk.toFixed(3);
+  calcDPMOFull();
+}
+
+function calcCuttingForce(){
+  const kc=parseFloat(document.getElementById('fc-kc').value)||1500;
+  const ft=parseFloat(document.getElementById('fc-ft').value)||0.4;
+  const vc=parseFloat(document.getElementById('fc-vc').value)||120;
+  const eta=(parseFloat(document.getElementById('fc-eta').value)||80)/100;
+  const Fc=kc*ft;
+  const Pc=(Fc*vc)/60000/eta;
+  const col=Pc>15?'var(--red)':Pc>7?'var(--orange)':'var(--green)';
+  document.getElementById('m-res3').innerHTML=
+    `<b>Fc:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${Fc.toFixed(0)} N</span><br>
+     <b>Pc Required:</b> <span style="color:${col};font-weight:700">${Pc.toFixed(2)} kW</span><br>
+     <small style="color:var(--muted)">Fc = kc × ap × fn = kc × A_chip</small>`;
+}
+
+function calcDPMOFull(){
+  const cpk=parseFloat(document.getElementById('dpmo-cpk').value)||1.33;
+  const opp=parseInt(document.getElementById('dpmo-opp').value)||1;
+  const z=cpk*3;
+  const defect_rate=0.5*(1-erf(z/Math.sqrt(2)));
+  const dpmo=defect_rate*1e6/opp;
+  const sigma_lvl=z;
+  function erf(x){const a=[0.254829592,-0.284496736,1.421413741,-1.453152027,1.061405429],p=0.3275911;const t=1/(1+p*Math.abs(x));const y=1-(((((a[4]*t+a[3])*t)+a[2])*t+a[1])*t+a[0])*t*Math.exp(-x*x);return x<0?-y:y;}
+  const col=dpmo<3.4?'var(--green)':dpmo<233?'var(--yellow,#fde047)':dpmo<6210?'var(--orange)':'var(--red)';
+  document.getElementById('qc-res2').innerHTML=
+    `<b>Z:</b> ${z.toFixed(3)}σ<br>
+     <b>DPMO:</b> <span style="color:${col};font-size:16px;font-weight:800">${dpmo.toFixed(1)}</span><br>
+     <b>Yield:</b> ${(100-dpmo/10000).toFixed(4)}%`;
+}
+
+function calcDrillTap(){
+  const sv=document.getElementById('dr-size').value.split(',');
+  const d=parseFloat(sv[0]),p=parseFloat(sv[1]);
+  const depth=parseFloat(document.getElementById('dr-depth').value)||1.5;
+  const mat=document.getElementById('dr-mat').value;
+  const drillDiam=(d-p).toFixed(2);
+  const depthMm=(d*depth).toFixed(1);
+  const matMap={al:'Al — Vc=30-60m/min',steel:'Steel — Vc=15-30m/min',ss:'SS — Vc=10-20m/min',ci:'CI — Vc=20-40m/min'};
+  document.getElementById('m-res5').innerHTML=
+    `<b>Drill:</b> <span style="color:var(--green);font-size:16px;font-weight:800">⌀${drillDiam}mm</span><br>
+     <b>Tap Depth:</b> ${depthMm}mm (${depth}×D)<br>
+     <b>Drill Depth:</b> ${(d*depth*1.3).toFixed(1)}mm (including point)<br>
+     <b>Material:</b> <span style="color:var(--muted)">${matMap[mat]}</span>`;
+}
+
+function calcFMEAFull(){
+  const S=parseInt(document.getElementById('fm-s').value)||7;
+  const O=parseInt(document.getElementById('fm-o').value)||5;
+  const D=parseInt(document.getElementById('fm-d').value)||6;
+  const RPN=S*O*D;
+  const col=RPN>=200?'var(--red)':RPN>=100?'var(--orange)':RPN>=50?'var(--yellow,#fde047)':'var(--green)';
+  const action=RPN>=200?'⛔ Immediate action required!':RPN>=100?'⚠️ Improvement needed':RPN>=50?'📋 Review':'✅ Acceptable';
+  document.getElementById('qc-res6').innerHTML=
+    `<b>RPN:</b> <span style="color:${col};font-size:24px;font-weight:800">${RPN}</span><br>
+     <b>= S${S} × O${O} × D${D}</b><br>
+     <span style="color:${col}">${action}</span>`;
+}
+
+function calcFaradayFull(){
+  const I=parseFloat(document.getElementById('far-i').value)||10;
+  const tMin=parseFloat(document.getElementById('far-t').value)||60;
+  const pv=document.getElementById('far-proc').value.split(',');
+  const [name,M,n_el,rho]=[pv[0],parseFloat(pv[1]),parseFloat(pv[2]),parseFloat(pv[3])];
+  const A=parseFloat(document.getElementById('far-a').value)||100;
+  const F_const=96485;
+  const t=tMin*60;
+  const mass=(I*t*M)/(n_el*F_const);
+  const vol=mass/rho;
+  const thickness=vol/A*10;
+  document.getElementById('fl-res3').innerHTML=
+    `<b>Coating Weight:</b> ${(mass*1000).toFixed(3)} mg<br>
+     <b>Thickness:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${thickness.toFixed(2)} μm</span><br>
+     <small style="color:var(--muted)">on ${A} cm² | ${name}</small>`;
+}
+
+function calcFatigueGoodman(){
+  const sa=parseFloat(document.getElementById('fat-sa').value)||0;
+  const sm=parseFloat(document.getElementById('fat-sm').value)||0;
+  const Se=parseFloat(document.getElementById('fat-se').value)||300;
+  const Sut=parseFloat(document.getElementById('fat-sut').value)||600;
+  const usage = sa/Se + sm/Sut;
+  const SF = 1/usage;
+  const sfColor = SF>=2?'var(--green)':(SF>=1?'var(--yellow)':'var(--red)');
+  document.getElementById('fat-result').innerHTML=
+    `Goodman utilization ratio: <b>${(usage*100).toFixed(1)}%</b><br>`+
+    `Fatigue safety factor (SF): <b style="color:${sfColor};font-size:16px;font-weight:800">${SF.toFixed(2)}</b>${SF<1?' ⚠️ Fatigue failure expected!':''}`;
+}
+
+function calcFitCentral(){
+  const nom=parseFloat(document.getElementById('ft2-nom').value)||50;
+  const ES=parseFloat(document.getElementById('ft2-es').value)||0;
+  const EI=parseFloat(document.getElementById('ft2-ei').value)||0;
+  const es=parseFloat(document.getElementById('ft2-esh').value)||0;
+  const ei=parseFloat(document.getElementById('ft2-eih').value)||0;
+  const holeMax=nom+ES/1000, holeMin=nom+EI/1000;
+  const shaftMax=nom+es/1000, shaftMin=nom+ei/1000;
+  const clearMax=holeMax-shaftMin, clearMin=holeMin-shaftMax;
+  const isClearance = clearMin>=0;
+  const isInterference = clearMax<=0;
+  const fitType = isClearance?'Clearance':(isInterference?'Interference':'Transition');
+  const fitColor = isClearance?'var(--green)':(isInterference?'var(--red)':'var(--blue)');
+  document.getElementById('ft2-result').innerHTML=
+    `Hole: <b>⌀${holeMin.toFixed(3)} – ${holeMax.toFixed(3)}mm</b> · Shaft: <b>⌀${shaftMin.toFixed(3)} – ${shaftMax.toFixed(3)}mm</b><br>`+
+    `Fit Range: <b>${clearMin>=0?'+':''}${(clearMin*1000).toFixed(0)}μm to ${clearMax>=0?'+':''}${(clearMax*1000).toFixed(0)}μm</b><br>`+
+    `Fit Type: <b style="color:${fitColor}">${fitType}</b>`;
+}
+
+function calcGRRFull(){
+  const EV=parseFloat(document.getElementById('grr-ev').value)||0.03;
+  const AV=parseFloat(document.getElementById('grr-av').value)||0.02;
+  const TV=parseFloat(document.getElementById('grr-tv').value)||0.12;
+  const tol=parseFloat(document.getElementById('grr-tol').value)||0.2;
+  const GRR=Math.sqrt(EV*EV+AV*AV);
+  const pct_tv=GRR/TV*100;
+  const pct_tol=GRR/tol*100;
+  const col=pct_tol<=10?'var(--green)':pct_tol<=30?'var(--orange)':'var(--red)';
+  const grade=pct_tol<=10?'✅ Excellent':pct_tol<=30?'⚠️ Depends on application':'❌ Not acceptable';
+  document.getElementById('qc-res3').innerHTML=
+    `<b>GRR:</b> ${GRR.toFixed(4)}<br>
+     <b>%GRR/TV:</b> ${pct_tv.toFixed(1)}%<br>
+     <b>%GRR/Tol:</b> <span style="color:${col};font-size:16px;font-weight:800">${pct_tol.toFixed(1)}%</span> — ${grade}`;
+}
+
+function calcGdtPosZone(){
+  const base=parseFloat(document.getElementById('gdz-base').value)||0.2;
+  const mmc=parseFloat(document.getElementById('gdz-mmc').value)||10;
+  const actual=parseFloat(document.getElementById('gdz-actual').value)||10;
+  const type=document.getElementById('gdz-type').value;
+  let bonus;
+  if(type==='hole'){
+    bonus = actual - mmc;
+  } else {
+    bonus = mmc - actual;
+  }
+  bonus = Math.max(0, bonus);
+  const total = base + bonus;
+  document.getElementById('gdz-result').innerHTML=
+    `Tolerance Bonus: <b style="color:var(--orange)">+${bonus.toFixed(3)}mm</b><br>`+
+    `Total Tolerance Zone: <b style="color:var(--green);font-size:16px;font-weight:800">⌀${total.toFixed(3)}mm</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">Base ⌀${base.toFixed(3)} + Bonus ${bonus.toFixed(3)}</span>`;
+}
+
+function calcGearLewisNew(){
+  const m=parseFloat(document.getElementById('gl-m').value)||2;
+  const b=parseFloat(document.getElementById('gl-b').value)||30;
+  const Ft=parseFloat(document.getElementById('gl-ft').value)||2000;
+  const Y=parseFloat(document.getElementById('gl-y').value)||0.308;
+  const Kv=parseFloat(document.getElementById('gl-kv').value)||1.3;
+  const sigma=(Ft*Kv)/(m*b*Y);
+  const col=sigma>200?'var(--red)':sigma>150?'var(--orange)':'var(--green)';
+  document.getElementById('gr-res3').innerHTML=
+    `<b>σ_b (Lewis):</b> <span style="color:${col};font-size:16px;font-weight:800">${sigma.toFixed(1)} MPa</span><br>
+     <small style="color:var(--muted)">σ = Ft·Kv / (m·b·Y) | Y=${Y}</small>`;
+}
+
+function calcGearNew(){
+  const m=parseFloat(document.getElementById('gr-m').value)||2;
+  const z=parseInt(document.getElementById('gr-z').value)||20;
+  const a=parseFloat(document.getElementById('gr-a').value)||20;
+  const b=parseFloat(document.getElementById('gr-b').value)||30;
+  const d=m*z; const da=d+2*m; const df=d-2.5*m; const rb=d/2*Math.cos(a*Math.PI/180);
+  document.getElementById('gr-res1').innerHTML=
+    `<b>d (PCD):</b> <span style="color:var(--green);font-weight:800">${d.toFixed(1)} mm</span><br>
+     <b>da (OD):</b> ${da.toFixed(1)} mm · <b>df (root):</b> ${df.toFixed(1)} mm<br>
+     <b>rb (base):</b> ${rb.toFixed(2)} mm · <b>p (pitch):</b> ${(Math.PI*m).toFixed(3)} mm`;
+}
+
+function calcGearPairNew(){
+  const m=parseFloat(document.getElementById('gp-m').value)||2;
+  const z1=parseInt(document.getElementById('gp-z1').value)||18;
+  const z2=parseInt(document.getElementById('gp-z2').value)||54;
+  const P=parseFloat(document.getElementById('gp-p').value)||5;
+  const n1=parseFloat(document.getElementById('gp-n1').value)||1450;
+  const ratio=z2/z1; const n2=n1/ratio;
+  const T1=(P*60*1000)/(2*Math.PI*n1);
+  const d1=m*z1; const Ft=(T1*1000)/(d1/2);
+  const c=(m*(z1+z2))/2;
+  document.getElementById('gr-res2').innerHTML=
+    `<b>i (ratio):</b> ${ratio.toFixed(3)}<br>
+     <b>n₂:</b> ${n2.toFixed(0)} RPM · <b>C:</b> ${c.toFixed(1)} mm<br>
+     <b>T₁:</b> ${T1.toFixed(1)} N·m · <b>Ft:</b> <span style="color:var(--green);font-weight:800">${Ft.toFixed(0)} N</span>`;
+  document.getElementById('gl-ft').value=Ft.toFixed(0);
+}
+
+function calcHertz(){
+  const type=document.getElementById('hz-type').value;
+  const F=parseFloat(document.getElementById('hz-f').value)||1000;
+  const R1=parseFloat(document.getElementById('hz-r1').value)||10;
+  const R2=parseFloat(document.getElementById('hz-r2').value)||99999;
+  const E=parseFloat(document.getElementById('hz-e').value)||210;
+  const nu=parseFloat(document.getElementById('hz-nu').value)||0.3;
+  const Estar=E*1000/(2*(1-nu*nu));
+  const R2eff=R2>9000?1e12:R2;
+  const Rstar=1/(1/R1+1/R2eff);
+  let p0,a,res;
+  if(type==='sphere_flat'||type==='sphere_sphere'){
+    a=Math.pow((3*F*Rstar)/(4*Estar),1/3);
+    p0=(3*F)/(2*Math.PI*a*a);
+    res=`<b>a (contact radius):</b> ${a.toFixed(3)} mm<br><b>p₀ (peak pressure):</b> <span style="color:var(--green);font-size:15px;font-weight:800">${(p0/1).toFixed(0)} MPa</span>`;
+  } else {
+    const b=Math.pow((4*F*Rstar)/(Math.PI*Estar),0.5);
+    p0=(2*F)/(Math.PI*b);
+    res=`<b>b (contact width):</b> ${b.toFixed(3)} mm<br><b>p₀ (peak pressure):</b> <span style="color:var(--green);font-size:15px;font-weight:800">${p0.toFixed(0)} MPa</span>`;
+  }
+  document.getElementById('mec-res3').innerHTML=res;
+}
+
+function calcHydroFull(){
+  const type=document.getElementById('hy-type').value;
+  const P=parseFloat(document.getElementById('hy-p').value)||100;
+  const d=parseFloat(document.getElementById('hy-d').value)||50;
+  const Q=parseFloat(document.getElementById('hy-q').value)||20;
+  const eta=(parseFloat(document.getElementById('hy-eta').value)||85)/100;
+  const A=Math.PI*Math.pow(d/2,2);
+  let res='';
+  if(type==='pressure'){
+    const F=P*1e5*A*1e-6;
+    const v=(Q/60000)/A*1000;
+    res=`<b>Force:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${(F/1000).toFixed(2)} kN</span><br><b>Piston Speed:</b> ${v.toFixed(0)} mm/s`;
+  } else if(type==='flow'){
+    const v=(Q/60000)/A*1000;
+    res=`<b>Velocity:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${v.toFixed(2)} m/s</span><br><b>= ${(v*1000).toFixed(0)} mm/s</b>`;
+  } else {
+    const kw=P*Q*1e5/60/1000000/eta;
+    res=`<b>Pump Power:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${kw.toFixed(2)} kW</span>`;
+  }
+  document.getElementById('fl-res1').innerHTML=res;
+}
+
+function calcInsDrillFull(){
+  const vals=(document.getElementById('ins2-size').value||'6,1.0,7.0').split(',');
+  const d=parseFloat(vals[0]),pitch=parseFloat(vals[1]),sti=parseFloat(vals[2]);
+  const mult=parseFloat(document.getElementById('ins2-depth').value)||1.5;
+  const depth=(d*mult).toFixed(1);
+  document.getElementById('ins-res1').innerHTML=
+    `<b>STI Drill:</b> <span style="color:var(--green);font-size:16px;font-weight:800">⌀${sti}mm</span><br>
+     <b>Standard Drill:</b> ⌀${(d-pitch).toFixed(2)}mm (not for STI!)<br>
+     <b>Depth ${mult}D:</b> ${depth}mm`;
+}
+
+function calcLoctiteFull(){
+  const pv=document.getElementById('lt-prod').value.split(',');
+  const [prod,fac]=[pv[0],parseFloat(pv[1])];
+  const size=parseInt(document.getElementById('lt-size').value)||6;
+  const breakTorque=fac*size*0.3;
+  const prevTorque=breakTorque*0.6;
+  document.getElementById('ad-res1').innerHTML=
+    `<b>Loctite ${prod} — M${size}</b><br>
+     <b>Break-Loose Torque:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${breakTorque.toFixed(1)} N·m</span><br>
+     <b>Prevailing Torque:</b> ${prevTorque.toFixed(1)} N·m`;
+}
+
+function calcMachining(){
+  const matVc=document.getElementById('m-vc-mat').value;
+  let vc=parseFloat(document.getElementById('m-vc').value)||120;
+  if(matVc!=='custom') vc=parseFloat(matVc);
+  document.getElementById('m-vc').value=vc;
+  const d=parseFloat(document.getElementById('m-d').value)||50;
+  const fn=parseFloat(document.getElementById('m-fn').value)||0.2;
+  const ap=parseFloat(document.getElementById('m-ap').value)||2;
+  const rpm=(1000*vc)/(Math.PI*d);
+  const vf=rpm*fn;
+  const mrr=vc*fn*ap*1000;
+  document.getElementById('m-res1').innerHTML=
+    `<b>RPM:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${rpm.toFixed(0)}</span><br>
+     <b>Vf:</b> ${vf.toFixed(0)} mm/min<br>
+     <b>MRR:</b> ${mrr.toFixed(0)} mm³/min<br>
+     <small style="color:var(--muted)">RPM = 1000×Vc / (π×D)</small>`;
+  document.getElementById('tc-rpm').value=rpm.toFixed(0);
+  document.getElementById('tc-fn').value=fn;
+  document.getElementById('fc-vc').value=vc;
+  document.getElementById('fc-ft').value=(fn*ap).toFixed(3);
+}
+
+function calcMachiningTime(){
+  const L=parseFloat(document.getElementById('tc-len').value)||200;
+  const rpm=parseFloat(document.getElementById('tc-rpm').value)||764;
+  const fn=parseFloat(document.getElementById('tc-fn').value)||0.2;
+  const passes=parseInt(document.getElementById('tc-pass').value)||1;
+  const vf=rpm*fn;
+  const tc=(L/vf)*passes;
+  const tcMin=tc.toFixed(2);
+  const tcSec=(tc*60).toFixed(1);
+  document.getElementById('m-res2').innerHTML=
+    `<b>Vf:</b> ${vf.toFixed(0)} mm/min<br>
+     <b>Machining Time:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${tcMin} minutes</span> (${tcSec} seconds)<br>
+     <b>${passes} passes:</b> total ${(tc*passes).toFixed(2)} minutes`;
+}
+
+function calcNdm2(){
+  const d=parseFloat(document.getElementById('ndm-d').value)||25;
+  const D=parseFloat(document.getElementById('ndm-D').value)||52;
+  const n=parseFloat(document.getElementById('ndm-n').value)||12000;
+  const dm=(d+D)/2;
+  const ndm=dm*n;
+  let lub='',col='var(--green)';
+  if(ndm<50000){lub='Grease — ✅';col='var(--green)';}
+  else if(ndm<250000){lub='Grease / Oil — ⚠️ depends';col='var(--yellow,#fde047)';}
+  else{lub='Oil required! — ❌ Grease insufficient';col='var(--red)';}
+  document.getElementById('br-res2').innerHTML=
+    `<b>dm:</b> ${dm.toFixed(1)} mm<br>
+     <b>ndm:</b> <span style="color:${col};font-size:16px;font-weight:800">${ndm.toFixed(0)}</span><br>
+     <b>Lubrication:</b> ${lub}`;
+}
+
+function calcORingFull(){
+  const d=parseFloat(document.getElementById('or-d').value)||3.5;
+  const id=parseFloat(document.getElementById('or-id').value)||50;
+  const app=document.getElementById('or-app').value;
+  const mat=document.getElementById('or-mat').value;
+  const compMap={'static_face':{min:15,max:30},'static_radial':{min:10,max:25},'dynamic':{min:10,max:20}};
+  const comp=compMap[app]||{min:15,max:25};
+  const groove_d=d*(1-comp.min/100);
+  const groove_max=d*(1-comp.max/100);
+  const matMap={NBR:'-40 to 120°C · oil/fuel',EPDM:'-40 to 150°C · water/gas',FKM:'-20 to 200°C · chemicals',Silicone:'-60 to 200°C · high temp.'};
+  document.getElementById('fl-res2').innerHTML=
+    `<b>Squeeze:</b> ${comp.min}-${comp.max}%<br>
+     <b>Groove Depth:</b> ${groove_max.toFixed(3)}-${groove_d.toFixed(3)} mm<br>
+     <b>Groove Width:</b> ${(d*1.25).toFixed(2)} mm<br>
+     <small style="color:var(--muted)">${mat}: ${matMap[mat]}</small>`;
+}
+
+function calcPlanetaryNew(){
+  const zS=parseInt(document.getElementById('pl-zs').value)||20;
+  const zP=parseInt(document.getElementById('pl-zp').value)||20;
+  const n=parseFloat(document.getElementById('pl-n').value)||1450;
+  const P=parseFloat(document.getElementById('pl-p').value)||5;
+  const zR=zS+2*zP;
+  const i=1+zR/zS;
+  const nOut=n/i;
+  const Tout=(P*60*1000)/(2*Math.PI*nOut);
+  document.getElementById('gr-res5').innerHTML=
+    `<b>zR (Ring):</b> ${zR}<br>
+     <b>i:</b> ${i.toFixed(3)} · <b>n_out:</b> ${nOut.toFixed(0)} RPM<br>
+     <b>T_out:</b> <span style="color:var(--green);font-weight:800">${Tout.toFixed(1)} N·m</span>`;
+}
+
+function calcPressFit(){
+  const delta=parseFloat(document.getElementById('pf-delta').value)||0.04;
+  const D=parseFloat(document.getElementById('pf-d').value)||50;
+  const alpha=parseFloat(document.getElementById('pf-alpha').value)||0.0000115;
+  const margin=parseFloat(document.getElementById('pf-margin').value)||30;
+  const dT_min = delta/(alpha*D);
+  const dT_total = dT_min + margin;
+  document.getElementById('pf-result').innerHTML=
+    `Minimum ΔT (interference only): <b>${dT_min.toFixed(0)}°C</b><br>`+
+    `Recommended ΔT (with margin): <b style="color:var(--green);font-size:16px;font-weight:800">${dT_total.toFixed(0)}°C</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">Heat to ${dT_total.toFixed(0)}°C above the housing temperature before mounting</span>`;
+}
+
+function calcPricingFull(){
+  const mat=parseFloat(document.getElementById('pr-mat').value)||25;
+  const wt=parseFloat(document.getElementById('pr-wt').value)||0.5;
+  const tm=parseFloat(document.getElementById('pr-tm').value)||30;
+  const mh=parseFloat(document.getElementById('pr-mh').value)||120;
+  const setup=parseFloat(document.getElementById('pr-setup').value)||20;
+  const qty=parseFloat(document.getElementById('pr-qty').value)||50;
+  const oh=(parseFloat(document.getElementById('pr-oh').value)||30)/100;
+  const mg=(parseFloat(document.getElementById('pr-mg').value)||20)/100;
+  const matCost=mat*wt;
+  const machCost=(tm/60)*mh;
+  const setupCost=(setup/60)*mh/qty;
+  const direct=matCost+machCost+setupCost;
+  const total=direct*(1+oh)*(1+mg);
+  document.getElementById('pr-res1').innerHTML=
+    `<b>Material:</b> ₪${matCost.toFixed(2)} · <b>Machine:</b> ₪${machCost.toFixed(2)} · <b>Setup:</b> ₪${setupCost.toFixed(2)}<br>
+     <b>Direct Cost:</b> ₪${direct.toFixed(2)}<br>
+     <b>Selling Price:</b> <span style="color:var(--green);font-size:16px;font-weight:800">₪${total.toFixed(2)}</span>`;
+  document.getElementById('uc2-prod').value=total.toFixed(2);
+}
+
+function calcRaFinish(){
+  const fn=parseFloat(document.getElementById('raf-fn').value)||0.15;
+  const r=parseFloat(document.getElementById('raf-r').value)||0.8;
+  const ra = (fn*fn)/(8*r)*1000;
+  let quality, color;
+  if(ra<=0.8){quality='Very fine finish';color='var(--green)';}
+  else if(ra<=1.6){quality='Good finish';color='var(--green)';}
+  else if(ra<=3.2){quality='General';color='var(--yellow)';}
+  else {quality='Coarse';color='var(--orange)';}
+  document.getElementById('raf-result').innerHTML=
+    `Expected Ra: <b style="color:${color};font-size:16px;font-weight:800">${ra.toFixed(2)}μm</b> — ${quality}<br>`+
+    `<span style="color:var(--muted);font-size:11px">Ra≈fn²/(8×Rε)×1000. Wiper Insert = double the feed at the same Ra</span>`;
+}
+
+function calcRackNew(){
+  const m=parseFloat(document.getElementById('rp-m').value)||2;
+  const z=parseInt(document.getElementById('rp-z').value)||20;
+  const n=parseFloat(document.getElementById('rp-n').value)||100;
+  const d=m*z;
+  const v=(Math.PI*d*n)/60000;
+  document.getElementById('gr-res4').innerHTML=
+    `<b>d Pinion:</b> ${d} mm<br>
+     <b>Linear Speed:</b> <span style="color:var(--green);font-weight:800">${v.toFixed(3)} m/s</span><br>
+     <span style="color:var(--muted);font-size:11px">= ${(v*1000).toFixed(0)} mm/s · ${(v*60).toFixed(2)} m/min</span>`;
+}
+
+function calcRivetNutFull(){
+  const vals=(document.getElementById('rn2-size').value||'5,7.7').split(',');
+  const size=parseInt(vals[0]),hole=parseFloat(vals[1]);
+  const type=document.getElementById('rn2-type').value;
+  const thick=parseFloat(document.getElementById('rn2-thick').value)||2.0;
+  const grips={3:[0,2],4:[0,3],5:[0,3.5],6:[0,4],8:[0,5],10:[0,6],12:[0,6.5]};
+  const g=grips[size]||[0,4];
+  const ok=thick<=g[1];
+  document.getElementById('ins-res2').innerHTML=
+    `<b>Hole Diameter:</b> <span style="color:var(--green);font-size:16px;font-weight:800">⌀${hole}mm</span><br>
+     <b>Thickness ${thick}mm:</b> <span style="color:${ok?'var(--green)':'var(--red)'};font-weight:700">${ok?'✅ In range':'❌ Out of range!'}</span>`;
+}
+
+function calcRpmToVc(){
+  const rpm=parseFloat(document.getElementById('rv-rpm').value)||1000;
+  const d=parseFloat(document.getElementById('rv-d').value)||50;
+  const vc=(Math.PI*d*rpm)/1000;
+  document.getElementById('m-res6').innerHTML=
+    `<b>Vc:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${vc.toFixed(1)} m/min</span><br>
+     <b>=${(vc/60).toFixed(2)} m/s</b>`;
+}
+
+function calcShaftFull(){
+  const P=parseFloat(document.getElementById('sh-p').value)||7.5;
+  const n=parseFloat(document.getElementById('sh-n').value)||1450;
+  const tau_sel=parseFloat(document.getElementById('sh-tau').value)||60;
+  const tau_c=parseFloat(document.getElementById('sh-tau-c').value)||60;
+  const tau=tau_sel||tau_c;
+  const SF=parseFloat(document.getElementById('sh-sf').value)||2;
+  const T=(P*60*1000)/(2*Math.PI*n);
+  const tau_allow=tau/SF;
+  const d=Math.pow((16*T)/(Math.PI*tau_allow),1/3);
+  const d_std=[10,12,15,17,20,25,30,35,40,45,50,55,60,70,80,90,100];
+  const d_round=d_std.find(x=>x>=d)||Math.ceil(d/5)*5;
+  document.getElementById('mec-res1').innerHTML=
+    `<b>T:</b> ${T.toFixed(1)} N·m<br>
+     <b>Minimum d:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${d.toFixed(1)} mm</span><br>
+     <b>Standard Size:</b> <span style="color:var(--yellow,#fde047);font-weight:700">⌀${d_round}mm</span><br>
+     <small style="color:var(--muted)">τ_allow=${tau_allow.toFixed(0)} MPa</small>`;
+}
+
+function calcSineBarNew(){
+  const Ls=[100,125,150,200,250];
+  const L=parseFloat(document.getElementById('sb-l').value)||150;
+  const a=parseFloat(document.getElementById('sb-a').value)||30;
+  const h=L*Math.sin(a*Math.PI/180);
+  document.getElementById('m-res4').innerHTML=
+    `<b>h (gauge block height):</b> <span style="color:var(--green);font-size:16px;font-weight:800">${h.toFixed(4)} mm</span><br>
+     <small style="color:var(--muted)">h = ${L}mm × sin(${a}°) = ${h.toFixed(4)}mm</small>`;
+}
+
+function calcSpringComp(){
+  const d=parseFloat(document.getElementById('sp2-d').value)||3;
+  const D=parseFloat(document.getElementById('sp2-D').value)||25;
+  const n=parseFloat(document.getElementById('sp2-n').value)||8;
+  const G=parseFloat(document.getElementById('sp2-G').value)||80;
+  const F=parseFloat(document.getElementById('sp2-f').value)||100;
+  const Lf=parseFloat(document.getElementById('sp2-lf').value)||80;
+  const C=D/d;
+  const Kw=(4*C-1)/(4*C-4)+0.615/C;
+  const k=(G*1000*Math.pow(d,4))/(8*Math.pow(D,3)*n);
+  const delta=F/k;
+  const tau=Kw*(8*F*D)/(Math.PI*Math.pow(d,3));
+  const Ls=(n+2)*d;
+  const col=tau>800?'var(--red)':tau>600?'var(--orange)':'var(--green)';
+  document.getElementById('sp-res1').innerHTML=
+    `<b>k (rate):</b> <span style="color:var(--green);font-size:15px;font-weight:800">${k.toFixed(2)} N/mm</span><br>
+     <b>δ at F=${F}N:</b> ${delta.toFixed(2)} mm · <b>Ls:</b> ${Ls.toFixed(1)} mm<br>
+     <b>τ (Wahl):</b> <span style="color:${col};font-weight:700">${tau.toFixed(0)} MPa</span> | C=${C.toFixed(1)} Kw=${Kw.toFixed(3)}`;
+}
+
+function calcStackupCentral(){
+  const vals=[1,2,3,4,5].map(i=>parseFloat(document.getElementById('su2-'+i).value)||0).filter(v=>v!==0);
+  if(!vals.length){document.getElementById('su2-result').innerHTML='Enter at least one value';return;}
+  const wc=vals.reduce((a,b)=>a+Math.abs(b),0);
+  const rss=Math.sqrt(vals.reduce((a,b)=>a+b*b,0));
+  const savings=((wc-rss)/wc*100);
+  document.getElementById('su2-result').innerHTML=
+    `Links used: <b>${vals.length}</b><br>`+
+    `Worst Case: <b style="color:var(--red)">±${wc.toFixed(3)}mm</b><br>`+
+    `RSS (statistical): <b style="color:var(--green)">±${rss.toFixed(3)}mm</b><br>`+
+    `Tolerance band savings: <b>${savings.toFixed(0)}%</b>`;
+}
+
+function calcTURFull(){
+  const tol=parseFloat(document.getElementById('tur-tol').value)||0.1;
+  const U=parseFloat(document.getElementById('tur-u').value)||0.005;
+  const tur=tol/(2*U);
+  const col=tur>=4?'var(--green)':tur>=2?'var(--orange)':'var(--red)';
+  document.getElementById('qc-res4').innerHTML=
+    `<b>TUR:</b> <span style="color:${col};font-size:18px;font-weight:800">${tur.toFixed(2)} : 1</span><br>
+     <small>${tur>=4?'✅ ANSI Z540.3':tur>=2?'⚠️ ILAC G8':'❌ Measurement tool not suitable'}</small>`;
+}
+
+function calcTapDrill(){
+  const D=parseFloat(document.getElementById('tap-d').value)||10;
+  const P=parseFloat(document.getElementById('tap-p').value)||1.5;
+  const eng=parseFloat(document.getElementById('tap-eng').value)||75;
+  // Practical shop formula: 75% = D-P (universal quick rule), 100% = D-1.083P, 65% = D-0.85P
+  const multiplier = eng>=100 ? 1.083 : (eng>=75 ? 1.000 : 0.850);
+  const drill = D - multiplier*P;
+  document.getElementById('tap-result').innerHTML=
+    `Drill Diameter: <b style="color:var(--green);font-size:16px;font-weight:800">⌀${drill.toFixed(2)}mm</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">M${D}×${P} @ ${eng}% engagement — nearest standard drill: ⌀${(Math.round(drill*10)/10).toFixed(1)}mm</span>`;
+}
+
+function calcTorque(){
+  const sv=document.getElementById('tq-size').value.split(',');
+  const d=parseFloat(sv[0]),p=parseFloat(sv[1]);
+  const gv=document.getElementById('tq-grade').value.split(',');
+  const fy=parseFloat(gv[0]);
+  const K=parseFloat(document.getElementById('tq-k').value)||0.17;
+  const pct=(parseFloat(document.getElementById('tq-pct').value)||70)/100;
+  const As=Math.PI/4*Math.pow(d-0.9382*p,2);
+  const F=As*fy*pct;
+  const T=K*F*d/1000;
+  document.getElementById('mec-res5').innerHTML=
+    `<b>As:</b> ${As.toFixed(1)} mm²<br>
+     <b>F (clamp force):</b> ${(F/1000).toFixed(2)} kN<br>
+     <b>Tightening T:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${T.toFixed(1)} N·m</span>`;
+}
+
+function calcTorsionSprNew(){
+  const d=parseFloat(document.getElementById('st2-d').value)||3;
+  const D=parseFloat(document.getElementById('st2-D').value)||25;
+  const n=parseFloat(document.getElementById('st2-n').value)||8;
+  const E=parseFloat(document.getElementById('st2-E').value)||207;
+  const T=parseFloat(document.getElementById('st2-T').value)||500;
+  const k=(E*1000*Math.pow(d,4))/(64*D*n);
+  const theta=T/k*180/Math.PI;
+  const sigma=(32*T)/(Math.PI*Math.pow(d,3));
+  document.getElementById('sp-res2').innerHTML=
+    `<b>k_T:</b> ${k.toFixed(2)} N·mm/°<br>
+     <b>θ at T=${T}N·mm:</b> ${theta.toFixed(2)}°<br>
+     <b>σ:</b> ${sigma.toFixed(0)} MPa`;
+}
+
+function calcUCFull(){
+  const prod=parseFloat(document.getElementById('uc2-prod').value)||50;
+  const tgt=parseFloat(document.getElementById('uc2-tgt').value)||80;
+  const qty=parseFloat(document.getElementById('uc2-qty').value)||100;
+  const ship=parseFloat(document.getElementById('uc2-ship').value)||2;
+  const uc=prod+ship;
+  const margin=(tgt-uc)/tgt*100;
+  const total=uc*qty;
+  const col=margin>20?'var(--green)':margin>10?'var(--yellow,#fde047)':'var(--red)';
+  document.getElementById('pr-res3').innerHTML=
+    `<b>Unit Cost:</b> ₪${uc.toFixed(2)}<br>
+     <b>Profit Margin:</b> <span style="color:${col};font-size:16px;font-weight:800">${margin.toFixed(1)}%</span><br>
+     <b>Total ${qty} units:</b> ₪${total.toFixed(0)}`;
+}
+
+function calcUnitConv(group, source){
+  if(group==='len'){
+    if(source==='mm'){ const mm=parseFloat(document.getElementById('uc2-mm').value)||0; document.getElementById('uc2-in').value=(mm/25.4).toFixed(4); }
+    else { const inch=parseFloat(document.getElementById('uc2-in').value)||0; document.getElementById('uc2-mm').value=(inch*25.4).toFixed(3); }
+  } else if(group==='stress'){
+    if(source==='mpa'){ const mpa=parseFloat(document.getElementById('uc2-mpa').value)||0; document.getElementById('uc2-psi').value=(mpa*145.038).toFixed(0); }
+    else { const psi=parseFloat(document.getElementById('uc2-psi').value)||0; document.getElementById('uc2-mpa').value=(psi/145.038).toFixed(2); }
+  } else if(group==='torque'){
+    if(source==='nm'){ const nm=parseFloat(document.getElementById('uc2-nm').value)||0; document.getElementById('uc2-lbft').value=(nm*0.737562).toFixed(3); }
+    else { const lbft=parseFloat(document.getElementById('uc2-lbft').value)||0; document.getElementById('uc2-nm').value=(lbft/0.737562).toFixed(3); }
+  } else if(group==='temp'){
+    if(source==='c'){ const c=parseFloat(document.getElementById('uc2-c').value)||0; document.getElementById('uc2-f').value=(c*9/5+32).toFixed(1); }
+    else { const f=parseFloat(document.getElementById('uc2-f').value)||0; document.getElementById('uc2-c').value=((f-32)*5/9).toFixed(1); }
+  }
+}
+
+function calcVonMisesCentral(){
+  const s=parseFloat(document.getElementById('vm2-s').value)||0;
+  const t=parseFloat(document.getElementById('vm2-t').value)||0;
+  const Sy=parseFloat(document.getElementById('vm2-sy').value)||350;
+  const sv=Math.sqrt(s*s+3*t*t);
+  const SF=Sy/sv;
+  const sfColor = SF>=2?'var(--green)':(SF>=1.2?'var(--yellow)':'var(--red)');
+  document.getElementById('vm2-result').innerHTML=
+    `Von Mises Stress (σv): <b>${sv.toFixed(1)}</b> MPa<br>`+
+    `Safety Factor (SF): <b style="color:${sfColor}">${SF.toFixed(2)}</b>${SF<1?' ⚠️ Failure!':''}`;
+}
+
+function calcWtNew(){
+  const sh=document.getElementById('wt-sh').value;
+  const unitEl=document.getElementById('wt-unit');
+  const unit=unitEl?unitEl.value:'mm';
+  const toMM = unit==='in' ? 25.4 : 1;
+  const d1=(parseFloat(document.getElementById('wt-d1').value)||50)*toMM;
+  const d2=(parseFloat(document.getElementById('wt-d2').value)||100)*toMM;
+  const d3=(parseFloat(document.getElementById('wt-d3').value)||5)*toMM;
+  const d4=(parseFloat(document.getElementById('wt-d4').value)||30)*toMM;
+  const qty=parseInt(document.getElementById('wt-qty').value)||1;
+  const rho=parseFloat(document.getElementById('wt-mt').value)||7.85;
+  let vol=0;
+  switch(sh){
+    case 'bar':  vol=Math.PI*Math.pow(d1/2,2)*d2; break;
+    case 'rect': vol=d1*d2*d3; break;
+    case 'tube': vol=Math.PI*(Math.pow(d1/2,2)-Math.pow(d1/2-d3,2))*d2; break;
+    case 'plate':vol=d1*d2*d3; break;
+    case 'hex':  vol=Math.pow(d1,2)*Math.sqrt(3)/2*d2; break;
+    case 'ring': vol=Math.PI*(Math.pow(d1/2,2)-Math.pow(d1/2-d3,2))*d2; break;
+  }
+  const massEach=vol*rho*1e-6;
+  const massTotal=massEach*qty;
+  document.getElementById('mec-res4').innerHTML=
+    `<b>Volume per Unit:</b> ${(vol/1000).toFixed(1)} cm³<br>
+     <b>Weight per Unit:</b> <span style="color:var(--green);font-size:16px;font-weight:800">${massEach.toFixed(3)} kg</span> (${(massEach*1000).toFixed(1)} g)<br>
+     ${qty>1?`<b>Total Weight (${qty} units):</b> <span style="color:var(--orange);font-size:16px;font-weight:800">${massTotal.toFixed(3)} kg</span><br>`:''}
+     <span style="color:var(--muted);font-size:11px">ρ=${rho} g/cm³${unit==='in'?' · dimensions entered in inches and converted to mm':''}</span>`;
+}
+
+function copyCpkToDpmo(){calcDPMOFull();}
+
+function copyFtToLewis(){
+  const r2=document.getElementById('gr-res2').innerText;
+  const m=r2.match(/Ft:\s*([\d.]+)/);
+  if(m){document.getElementById('gl-ft').value=parseFloat(m[1]).toFixed(0);calcGearLewisNew();}
+}
+
+function copyProdToCost(){calcUCFull();}
+
+function copyRpmToTime(){
+  const r1=document.getElementById('m-res1').innerText;
+  const m=r1.match(/RPM:\s*([\d.]+)/);
+  if(m){document.getElementById('tc-rpm').value=parseFloat(m[1]).toFixed(0);calcMachiningTime();}
+}
+
+function copyVcToForce(){
+  const vc=document.getElementById('m-vc').value;
+  document.getElementById('fc-vc').value=vc;calcCuttingForce();
+}
+
+function decodeBear2(){
+  const num=document.getElementById('bc-num2').value.trim().toUpperCase();
+  if(!num){document.getElementById('br-res3').innerHTML='Enter a bearing number';return;}
+  const typeMap={'6':'Deep Groove Ball','7':'Angular Contact Ball','N':'Cylindrical Roller','NU':'Cylindrical Roller','NN':'Double Row Cylindrical','23':'Spherical Roller','22':'Spherical Roller','32':'Tapered Roller','51':'Thrust Ball','53':'Thrust Ball'};
+  const suffMap={'2RS':'Sealed both sides (Rubber)','ZZ':'Shielded both sides (Metal)','2Z':'Shielded both sides','RS':'Sealed one side','Z':'Shielded one side','C3':'Clearance C3 (loose)','C2':'Clearance C2 (tight)','P5':'Precision P5','P4':'Precision P4','B':'40° contact angle','P':'15° contact angle','NR':'Snap Ring Groove'};
+  let type='',code='',suf=[];
+  const pfx=num.match(/^([A-Z]+)/);
+  const dig=num.match(/(\d{2,4})/);
+  if(pfx) type=typeMap[pfx[1]]||pfx[1];
+  else if(dig){ const t=num.charAt(0); type=typeMap[t]||'Unknown'; }
+  if(dig){
+    const dc=dig[1];
+    if(dc.length===4){const s=parseInt(dc.substring(0,2));const bs=parseInt(dc.substring(2))*5;type+=' | Series '+s+' | bore '+bs+'mm';}
+    else if(dc.length>=2){const s=parseInt(dc.charAt(0));const bcode=parseInt(dc.substring(1));
+      let bore=bcode<=3?[10,12,15,17][bcode]:bcode*5;
+      type+=' | Series '+s+' | bore '+bore+'mm';}
+  }
+  for(const [s,d2] of Object.entries(suffMap)){if(num.includes(s))suf.push(d2);}
+  document.getElementById('br-res3').innerHTML=
+    `<b style="color:var(--cyan,#67e8f9)">${num}</b><br><b>Type:</b> ${type||'?'}<br>`+
+    (suf.length?suf.map(s=>`<span class="mc-badge b-blue">${s}</span>`).join(' '):'');
+}
+
+function shapeChangeCalc(){
+  const sh=document.getElementById('wt-sh').value;
+  const unitEl=document.getElementById('wt-unit');
+  const unit=unitEl?unitEl.value:'mm';
+  const u = unit==='in' ? '(inch)' : '(mm)';
+  const l1=document.getElementById('wt-l1');
+  const l2=document.getElementById('wt-l2');
+  const l3=document.getElementById('wt-l3');
+  const g3=document.getElementById('wt-g3');
+  const g4=document.getElementById('wt-g4');
+  switch(sh){
+    case 'bar':   l1.textContent='Diameter '+u; l2.textContent='Length '+u; g3.style.display='none'; g4.style.display='none'; break;
+    case 'rect':  l1.textContent='Width '+u; l2.textContent='Height '+u; l3.textContent='Length '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'tube':  l1.textContent='Outer Diameter '+u; l2.textContent='Length '+u; l3.textContent='Wall Thickness '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'plate': l1.textContent='Length '+u; l2.textContent='Width '+u; l3.textContent='Thickness '+u; g3.style.display='block'; g4.style.display='none'; break;
+    case 'hex':   l1.textContent='Across Flats '+u; l2.textContent='Length '+u; g3.style.display='none'; g4.style.display='none'; break;
+    case 'ring':  l1.textContent='OD '+u; l2.textContent='Length '+u; l3.textContent='Wall Thickness '+u; g3.style.display='block'; g4.style.display='none'; break;
+  }
+  calcWtNew();
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
+
+</script>
+</body>
+</html>
