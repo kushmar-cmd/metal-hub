@@ -82,7 +82,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 .ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
 .note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;padding:8px;background:var(--surface);border-right:2px solid var(--blue);border-radius:0 5px 5px 0}
 .machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
-.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
 .machine-card:hover{border-color:var(--blue)}
 .mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
 table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
@@ -112,6 +112,10 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 .tab{padding:8px 13px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
 .tab:hover{color:var(--text);background:var(--border)}.tab.active{color:#fff;background:var(--blue)}
 </style>
+<link rel="canonical" href="https://metal.kushmar.com/mfgtech.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/mfgtech.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/mfgtech.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/mfgtech.html">
 </head>
 <body>
 <div id="engBg" aria-hidden="true">
@@ -232,7 +236,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 .mfg-tab:hover,.mfg-tab.active{background:var(--green);color:#000;border-color:var(--green);font-weight:700}
 .mfg-sec{display:none}.mfg-sec.active{display:block}
 .machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;margin-bottom:14px}
-.machine-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px}
+.machine-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;min-width:0}
 .machine-card:hover{border-color:var(--green)}
 .mc-title{font-size:14px;font-weight:800;color:var(--green);margin-bottom:8px}
 .mc-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:10px;margin:2px;font-weight:600;unicode-bidi:plaintext}
