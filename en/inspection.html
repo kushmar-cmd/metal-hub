@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inspection &amp; Quality Control — CMM, NDT, SPC, Gage R&amp;R | METAL HUB</title>
+<meta name="description" content="Comprehensive guide to inspection and quality in manufacturing: handheld measuring tools, CMM, NDT, SPC, calibration, and live quality calculators — Cpk, Gage R&amp;R, TUR, DPMO, AQL, and Sine Bar.">
+<meta name="keywords" content="inspection, quality control, CMM, NDT, SPC, Gage R&R, calibration, AQL, Cpk, hardness testing, metrology">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://metal.kushmar.com/en/inspection.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/inspection.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/inspection.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/inspection.html">
+<meta property="og:title" content="Inspection &amp; Quality Control — CMM, NDT, SPC, Gage R&amp;R">
+<meta property="og:description" content="Comprehensive engineering guide to inspection and quality control: measuring tools, CMM, NDT, SPC, hardness testing, calibration, sampling, and quality standards.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://metal.kushmar.com/en/inspection.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Inspection & Quality Control — CMM, NDT, SPC, Gage R&R",
+  "description": "Comprehensive guide to inspection and quality in manufacturing: handheld measuring tools, CMM, NDT, SPC, calibration, hardness testing, sampling plans, and quality management standards.",
+  "url": "https://metal.kushmar.com/en/inspection.html",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "METAL HUB",
+    "url": "https://metal.kushmar.com/"
+  }
+}
+</script>
+<script>
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.documentElement.classList.add('light-mode');
+  }
+})();
+</script>
+</head>
+<body>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:ltr;text-align:left}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-red{background:#cf222e;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+.insp-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.insp-tab:hover,.insp-tab.active{background:var(--blue);color:#000;border-color:var(--blue);font-weight:700}
+.insp-sec{display:none}
+.insp-sec.active{display:block}
+.conv-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+.pro{color:var(--green)}
+.con{color:var(--red)}
+</style>
+</head>
+<body>
+<div id="engBg" aria-hidden="true">
+  <div id="engBgGrid"></div>
+  <svg class="engGear engGear1" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear2" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear3" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear4" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg class="engGear engGear5" viewBox="0 0 200 200"><use href="#gearShape"/></svg>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="gearShape">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="10"/>
+        <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="6"/>
+        <g stroke="currentColor" stroke-width="12" stroke-linecap="round">
+          <line x1="100" y1="12" x2="100" y2="32"/>
+          <line x1="100" y1="168" x2="100" y2="188"/>
+          <line x1="12" y1="100" x2="32" y2="100"/>
+          <line x1="168" y1="100" x2="188" y2="100"/>
+          <line x1="37" y1="37" x2="51" y2="51"/>
+          <line x1="149" y1="149" x2="163" y2="163"/>
+          <line x1="37" y1="163" x2="51" y2="149"/>
+          <line x1="149" y1="51" x2="163" y2="37"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+  <div class="engSpark s1"></div>
+  <div class="engSpark s2"></div>
+  <div class="engSpark s3"></div>
+  <div class="engSpark s4"></div>
+  <div class="engSpark s5"></div>
+</div>
+
+<header>
+  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+    <a href="https://metal.kushmar.com/inspection.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap">עברית</a>
+    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+  </div>
+</header>
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Inspection &amp; Quality Control</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">A complete engineering reference for inspection and quality: <b>handheld measuring tools, CMM, optical measurement, hardness testing, NDT, SPC, Gage R&amp;R, AQL sampling, calibration, incoming QC, and quality management standards</b> — with live calculators for Cpk, Gage R&amp;R, TUR, DPMO, AQL, and Sine Bar.</p>
+</div>
+
+<div id="sec-inspection" class="section">
+
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1a2e);border-color:var(--blue)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔍</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--blue)">Inspection &amp; Quality Control</div>
+    <div style="font-size:12px;color:var(--muted)">Measuring Tools · CMM · NDT · SPC · Gage R&amp;R · Calibration · AQL · Quality Standards</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="insp-tab active" onclick="showInsp('gauges',this)">📏 Handheld Measuring Tools</button>
+  <button class="insp-tab" onclick="showInsp('cmm',this)">🤖 CMM &amp; Spatial Measurement</button>
+  <button class="insp-tab" onclick="showInsp('surface_meas',this)">✦ Surface Finish Measurement</button>
+  <button class="insp-tab" onclick="showInsp('optical',this)">🔭 Optical &amp; Laser Measurement</button>
+  <button class="insp-tab" onclick="showInsp('hardness',this)">💎 Hardness Testing</button>
+  <button class="insp-tab" onclick="showInsp('ndt_methods',this)">⚡ NDT — Non-Destructive Testing</button>
+  <button class="insp-tab" onclick="showInsp('spc',this)">📊 SPC — Statistical Process Control</button>
+  <button class="insp-tab" onclick="showInsp('gagerr',this)">📐 Gage R&amp;R — MSA</button>
+  <button class="insp-tab" onclick="showInsp('sampling',this)">🎯 AQL &amp; Sampling Plans</button>
+  <button class="insp-tab" onclick="showInsp('calibration',this)">⚖️ Calibration &amp; Traceability</button>
+  <button class="insp-tab" onclick="showInsp('incoming',this)">📦 Incoming QC</button>
+  <button class="insp-tab" onclick="showInsp('qstandards',this)">🏆 Quality Standards</button>
+  <button class="insp-tab" onclick="showInsp('calc_qc',this)">🧮 Calculators</button>
+</div>
+
+<!-- ===== GAUGES ===== -->
+<div id="insp-gauges" class="insp-sec active">
+<div class="card"><div class="ctitle">📏 Handheld Measuring Instruments</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Vernier Caliper</div>
+<div><span class="mc-badge b-blue">±0.02-0.05mm</span><span class="mc-badge b-green">Versatile</span></div>
+<div class="spec-row"><span class="spec-key">Range</span><span class="spec-val">0-150 / 0-200 / 0-300mm</span></div>
+<div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">0.02mm (vernier) · 0.01mm (digital)</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±0.02-0.05mm (JIS B7507)</span></div>
+<div class="spec-row"><span class="spec-key">Measurements</span><span class="spec-val">outside · inside · depth · step</span></div>
+<div class="spec-row"><span class="spec-key">Types</span><span class="spec-val">Analog / Digital / Dial / Carbon Fiber</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Not suitable for critical measurements under IT8 — use a micrometer!<br>
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.sylvac.ch" target="_blank" style="color:var(--blue)">Sylvac</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Outside Micrometer</div>
+<div><span class="mc-badge b-green">±0.004mm</span><span class="mc-badge b-blue">IT6-IT7</span></div>
+<div class="spec-row"><span class="spec-key">Range</span><span class="spec-val">0-25, 25-50... every 25mm (up to 3000mm)</span></div>
+<div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">0.001mm · 0.0001mm (digital)</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±0.002-0.004mm</span></div>
+<div class="spec-row"><span class="spec-key">Spindle Pitch</span><span class="spec-val">0.5mm — one turn = 0.5mm</span></div>
+<div class="spec-row"><span class="spec-key">Measuring Force</span><span class="spec-val">5-10N (Ratchet Thimble)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Calibrate with a Slip Gauge (gauge block) before use!<br>
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Inside Micrometer / Bore Gauge</div>
+<div><span class="mc-badge b-blue">IT7-IT8</span><span class="mc-badge b-green">Precision Bores</span></div>
+<div class="spec-row"><span class="spec-key">Tubular Inside Mic</span><span class="spec-val">5-210mm, ±0.005mm</span></div>
+<div class="spec-row"><span class="spec-key">Bore Gauge (dial)</span><span class="spec-val">6-450mm, ±0.003mm</span></div>
+<div class="spec-row"><span class="spec-key">Telescoping Gauge</span><span class="spec-val">8-150mm, transfer to micrometer</span></div>
+<div class="spec-row"><span class="spec-key">3-Point Bore Mic</span><span class="spec-val">±0.001mm — highest precision</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Bore Gauge = detects Ovality! Measure in 2 perpendicular directions<br>
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.bowers-group.com" target="_blank" style="color:var(--blue)">Bowers</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Dial Indicator / DTI</div>
+<div><span class="mc-badge b-blue">0.001-0.01mm</span><span class="mc-badge b-green">Runout · Flatness</span></div>
+<div class="spec-row"><span class="spec-key">Dial Indicator</span><span class="spec-val">range 0-10mm · resolution 0.01mm</span></div>
+<div class="spec-row"><span class="spec-key">DTI (Test Indicator)</span><span class="spec-val">range ±0.8mm · resolution 0.001mm</span></div>
+<div class="spec-row"><span class="spec-key">Digital Indicator</span><span class="spec-val">resolution 0.001/0.0005mm</span></div>
+<div class="spec-row"><span class="spec-key">Applications</span><span class="spec-val">Runout · Flatness · Parallelism · Setup</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">DTI = Lever Arm → sensitive to measurement direction!<br>
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.tesa.ch" target="_blank" style="color:var(--blue)">TESA</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Height Gauge</div>
+<div><span class="mc-badge b-blue">±0.02mm</span><span class="mc-badge b-orange">Granite Table</span></div>
+<div class="spec-row"><span class="spec-key">Range</span><span class="spec-val">0-300 / 600 / 1000mm</span></div>
+<div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">0.001mm (digital)</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±0.02-0.04mm</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">marking · height measurement · Datum plane</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Requires Granite Surface Plate Grade A/B!<br>
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.tesa.ch" target="_blank" style="color:var(--blue)">TESA</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Gauge Blocks / Slip Gauges</div>
+<div><span class="mc-badge b-red">Grade K/0/1/2</span><span class="mc-badge b-green">Reference Standard</span></div>
+<div class="spec-row"><span class="spec-key">Grade K</span><span class="spec-val">±0.05μm — primary master</span></div>
+<div class="spec-row"><span class="spec-key">Grade 0</span><span class="spec-val">±0.1μm — instrument calibration</span></div>
+<div class="spec-row"><span class="spec-key">Grade 1</span><span class="spec-val">±0.2μm — tool reference</span></div>
+<div class="spec-row"><span class="spec-key">Grade 2</span><span class="spec-val">±0.5μm — shop floor</span></div>
+<div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">Steel / Carbide / Ceramic</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Wringing = bonding via van der Waals forces — no adhesive!<br>
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.cartertools.com" target="_blank" style="color:var(--blue)">Starrett</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Go/NoGo Gauges — Limit Gauges</div>
+<div><span class="mc-badge b-green">Go ✓</span><span class="mc-badge b-red">NoGo ✗</span><span class="mc-badge b-blue">IT6-IT9</span></div>
+<div class="spec-row"><span class="spec-key">Plug Gauge</span><span class="spec-val">hole measurement — Go must enter</span></div>
+<div class="spec-row"><span class="spec-key">Ring Gauge</span><span class="spec-val">shaft measurement — Go must pass over</span></div>
+<div class="spec-row"><span class="spec-key">Thread Plug</span><span class="spec-val">internal thread — 6H common</span></div>
+<div class="spec-row"><span class="spec-key">Thread Ring</span><span class="spec-val">external thread — 6g common</span></div>
+<div class="spec-row"><span class="spec-key">Gauge Precision</span><span class="spec-val">IT4-IT5 (≈10% of part tolerance)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Taylor Principle: Go checks all dimensions together!<br>
+<b>Manufacturers:</b> <a href="https://www.dorsey.com" target="_blank" style="color:var(--blue)">Dorsey Metrology</a> · <a href="https://www.marposs.com" target="_blank" style="color:var(--blue)">Marposs</a> · <a href="https://www.telegage.com" target="_blank" style="color:var(--blue)">Telegage</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Specialty Gauges</div>
+<div><span class="mc-badge b-orange">Thread · Radius · Feeler</span></div>
+<div class="spec-row"><span class="spec-key">Feeler Gauge</span><span class="spec-val">0.05-1.0mm · engine/valve gaps</span></div>
+<div class="spec-row"><span class="spec-key">Radius Gauge</span><span class="spec-val">R1-R25mm · checking corners/fillets</span></div>
+<div class="spec-row"><span class="spec-key">Thread Pitch Gauge</span><span class="spec-val">identifying ISO/UNC/UNF thread pitch</span></div>
+<div class="spec-row"><span class="spec-key">Pin Gauge</span><span class="spec-val">ø0.1-13mm · checking holes/gaps</span></div>
+<div class="spec-row"><span class="spec-key">Angle Gauge</span><span class="spec-val">±1' accuracy · cutting angles</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a> · <a href="https://www.insize.com" target="_blank" style="color:var(--blue)">Insize</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Depth Micrometer / Gauge</div>
+<div><span class="mc-badge b-blue">±0.005mm</span><span class="mc-badge b-orange">Slots · Pockets</span></div>
+<div class="spec-row"><span class="spec-key">Depth Mic</span><span class="spec-val">0-25mm per turn · ±0.004mm</span></div>
+<div class="spec-row"><span class="spec-key">Depth Vernier</span><span class="spec-val">0-200mm · ±0.02mm · fast</span></div>
+<div class="spec-row"><span class="spec-key">Step Gauge</span><span class="spec-val">steps at 0.001mm</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a></div>
+</div>
+
+</div>
+
+<div style="margin-top:14px">
+<table><tr><th>Measuring Tool</th><th>Range</th><th>Resolution</th><th>Typical Accuracy</th><th>IT Grade</th><th>Suited For</th></tr>
+<tr><td>Vernier — Caliper</td><td>0-300mm</td><td>0.01mm</td><td>±0.03mm</td><td>IT10-IT12</td><td>quick general measurement</td></tr>
+<tr><td>Micrometer</td><td>0-25mm+</td><td>0.001mm</td><td>±0.004mm</td><td>IT6-IT8</td><td>critical diameter/thickness</td></tr>
+<tr><td>Dial Indicator</td><td>0-10mm</td><td>0.01mm</td><td>±0.01mm</td><td>—</td><td>Runout, Flatness</td></tr>
+<tr><td>DTI (Test Indicator)</td><td>±0.8mm</td><td>0.001mm</td><td>±0.003mm</td><td>—</td><td>precise Setup, CMM</td></tr>
+<tr><td>Bore Gauge</td><td>6-450mm</td><td>0.001mm</td><td>±0.003mm</td><td>IT7-IT8</td><td>precision holes</td></tr>
+<tr><td>Height Gauge</td><td>0-1000mm</td><td>0.001mm</td><td>±0.02mm</td><td>IT9-IT10</td><td>height, Datum</td></tr>
+<tr><td>Gauge Block</td><td>0.5-100mm</td><td>0.0001mm</td><td>±0.0001mm</td><td>Grade K-2</td><td>reference, tool calibration</td></tr>
+<tr><td>Go/NoGo Gauge</td><td>fixed</td><td>—</td><td>IT4-IT5</td><td>IT6-IT9</td><td>volume production</td></tr>
+</table></div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">📏 Advanced Measurement Tools</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Sine Bar / Sine Plate</div>
+<div><span class="mc-badge b-blue">±5" angle accuracy</span><span class="mc-badge b-orange">with Gauge Blocks</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">sin(θ) = H / L (L=100 or 200mm)</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±5 arc-seconds (~0.0014°)</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">setting precise angles for grinding/inspection</span></div>
+<div class="spec-row"><span class="spec-key">H = L × sin(θ)</span><span class="spec-val">build height H with Gauge Blocks</span></div>
+<div class="spec-row"><span class="spec-key">Compound Sine</span><span class="spec-val">two axes — compound angles</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Example: θ=15° · L=200mm → H=200×sin(15°)=51.76mm<br>
+<b>Manufacturers:</b> <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a> · <a href="https://www.bowers-group.com" target="_blank" style="color:var(--blue)">Moore &amp; Wright</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Air Gauge — Pneumatic</div>
+<div><span class="mc-badge b-green">±0.0002mm</span><span class="mc-badge b-blue">Wall Averaging</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">air pressure ↔ gap → measurement</span></div>
+<div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">0.0001-0.001mm</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">instant! automatic circumferential average</span></div>
+<div class="spec-row"><span class="spec-key">Back Pressure</span><span class="spec-val">pressure version — for deep holes</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">engine bores, precision drilling, mass production</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">No part contact → ↓wear → ↑tool life<br>
+<b>Manufacturers:</b> <a href="https://www.marposs.com" target="_blank" style="color:var(--blue)">Marposs</a> · <a href="https://www.stotz-gmbh.de" target="_blank" style="color:var(--blue)">Stotz</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Optical Flat</div>
+<div><span class="mc-badge b-purple">λ/20 = 0.03μm</span><span class="mc-badge b-blue">Interference Fringes</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">Newton's rings — each fringe = λ/2 ≈ 0.3μm</span></div>
+<div class="spec-row"><span class="spec-key">Light Source</span><span class="spec-val">Sodium D (589nm) — monochromatic</span></div>
+<div class="spec-row"><span class="spec-key">Tool Flatness</span><span class="spec-val">Gauge Block / lapped surface</span></div>
+<div class="spec-row"><span class="spec-key">Interpretation</span><span class="spec-val">straight fringes=flat · curved=convex/concave</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Method: Wring the Flat onto the part + Sodium light<br>
+<b>Manufacturers:</b> <a href="https://www.zygo.com" target="_blank" style="color:var(--blue)">Zygo</a> · <a href="https://www.npl.co.uk" target="_blank" style="color:var(--blue)">Mahr Optical Flats</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Precision Level</div>
+<div><span class="mc-badge b-orange">0.02mm/m</span><span class="mc-badge b-blue">Machine Alignment</span></div>
+<div class="spec-row"><span class="spec-key">Spirit Level</span><span class="spec-val">0.02-0.1mm/m · bubble</span></div>
+<div class="spec-row"><span class="spec-key">Electronic Level</span><span class="spec-val">0.001mm/m · digital resolution</span></div>
+<div class="spec-row"><span class="spec-key">Autocollimator</span><span class="spec-val">0.1" arc · angular change over range</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">lathe alignment · CMM · press · rails</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.wyler.ch" target="_blank" style="color:var(--blue)">Wyler (INCLISOFT)</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a> · <a href="https://www.taylor-hobson.com" target="_blank" style="color:var(--blue)">Taylor Hobson</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Roundness Tester</div>
+<div><span class="mc-badge b-blue">Roundness · Cylindricity</span><span class="mc-badge b-green">0.01μm</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">rotating part + fixed Stylus</span></div>
+<div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">0.01μm (10 nm)</span></div>
+<div class="spec-row"><span class="spec-key">Roundness</span><span class="spec-val">RONt = maximum peak-to-valley</span></div>
+<div class="spec-row"><span class="spec-key">Filters</span><span class="spec-val">UPR (Undulations Per Revolution) 1-500</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ISO 12181</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Talyrond = the standard for aerospace and bearings<br>
+<b>Manufacturers:</b> <a href="https://www.taylor-hobson.com" target="_blank" style="color:var(--blue)">Taylor Hobson Talyrond</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr MFU</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Coordinate Rule + Setup Measurement</div>
+<div><span class="mc-badge b-orange">V-Block · Magnetic Base</span></div>
+<div class="spec-row"><span class="spec-key">V-Block</span><span class="spec-val">shaft stabilization for rotation/measurement</span></div>
+<div class="spec-row"><span class="spec-key">Magnetic Base</span><span class="spec-val">attaches to steel · flexible arm</span></div>
+<div class="spec-row"><span class="spec-key">Parallel Bars</span><span class="spec-val">precise elevation in pairs · Grade B</span></div>
+<div class="spec-row"><span class="spec-key">1-2-3 Block</span><span class="spec-val">1"×2"×3" · quick Datum setup</span></div>
+<div class="spec-row"><span class="spec-key">Angle Plate</span><span class="spec-val">precise 90° to Surface Plate</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a> · <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a></div>
+</div>
+</div>
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Thread Measurement by Three-Wire Method</div>
+<div><span class="mc-badge b-blue">±0.001mm</span><span class="mc-badge b-green">Verification — ISO 3'</span><span class="mc-badge b-orange">Inspection, not production</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">3 precise (identical) wires placed in the thread grooves — the outer distance over the 2 side wires is measured with a micrometer</span></div>
+<div class="spec-row"><span class="spec-key">Purpose</span><span class="spec-val">measuring Pitch Diameter (d2) — the most critical thread parameter</span></div>
+<div class="spec-row"><span class="spec-key">Formula (optimal wire)</span><span class="spec-val">GW = 0.5774 × P &nbsp;(for 60° metric/UN threads)</span></div>
+<div class="spec-row"><span class="spec-key">Calculating d2</span><span class="spec-val">M = measurement over wires · d2 = M − 3×GW + 0.866×P</span></div>
+<div class="spec-row"><span class="spec-key">Equipment</span><span class="spec-val">calibrated outside micrometer + set of Thread Wires sized to the pitch</span></div>
+<div class="spec-row"><span class="spec-key">Wire Selection Rule</span><span class="spec-val">the wire must contact the Pitch Line — wrong diameter = systematic measurement error!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>When to use:</b> verification/calibration of precision threads (Class 3A/3B, aerospace), checking taps and certified master threads, when no Go/NoGo Thread Gauge is available or an exact numerical value is required (not just Pass/Fail).<br>
+<b>Advantage over Go/NoGo:</b> gives an actual d2 value (for SPC trends, FAI documentation) — not just pass/fail.<br>
+<b>Precision:</b> the most accurate manual method for measuring pitch diameter — also used to calibrate Thread Gauges themselves in metrology labs.<br>
+<b>Standards:</b> ISO 3161 / ASME B1.16M / ASME B1.2 (Three-Wire Method) · standard GW tables exist for every pitch.
+</div>
+<a class="yt-btn" href="https://www.youtube.com/results?search_query=three+wire+method+thread+measurement+pitch+diameter" target="_blank">▶ YouTube</a>
+</div>
+<div style="margin-top:12px;background:var(--surface);border-radius:8px;padding:12px;font-size:12px">
+<b style="color:var(--text)">📌 Golden Rule for Measuring Tool Selection:</b><br>
+Tool accuracy ≤ <b>10%</b> of the measured tolerance (Golden Rule of Metrology)<br>
+Example: tolerance ±0.05mm → tool accuracy ≤ ±0.005mm → micrometer (±0.004mm) ✅<br>
+Vernier (±0.03mm) = 60% of tolerance → ❌ not sufficient!
+</div>
+</div></div></div>
+
+<div id="insp-cmm" class="insp-sec">
+<div class="card"><div class="ctitle">🤖 CMM — Coordinate Measuring Machine</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Bridge CMM (Fixed)</div>
+<div><span class="mc-badge b-blue">±0.002-0.005mm</span><span class="mc-badge b-green">IT4-IT6</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">MPEE = 1.5+L/333 μm (typical)</span></div>
+<div class="spec-row"><span class="spec-key">Touch Probe</span><span class="spec-val">Renishaw TP20/TP200 · ball 1-6mm</span></div>
+<div class="spec-row"><span class="spec-key">Scanning Probe</span><span class="spec-val">SP25/LSP-X5 · continuous scanning</span></div>
+<div class="spec-row"><span class="spec-key">Operating Temp.</span><span class="spec-val">20°C ±1°C! (extended with correction)</span></div>
+<div class="spec-row"><span class="spec-key">Software</span><span class="spec-val">PC-DMIS · Calypso · Quindos · Aberlink</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 10360-2: MPEE and MPEP test<br>Let the part soak 4h before measuring, ±2°C/h change max!<br>
+<b>Manufacturers:</b> <a href="https://www.zeiss.com/metrology" target="_blank" style="color:var(--blue)">Zeiss</a> · <a href="https://www.hexagonmi.com" target="_blank" style="color:var(--blue)">Hexagon</a> · <a href="https://www.cmmxyz.com" target="_blank" style="color:var(--blue)">Mitutoyo CMM</a></div>
+<a href="https://www.youtube.com/results?search_query=bridge%20CMM%20coordinate%20measuring%20machine%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Portable CMM — Measuring Arm</div>
+<div><span class="mc-badge b-orange">±0.02-0.05mm</span><span class="mc-badge b-blue">Flexible</span></div>
+<div class="spec-row"><span class="spec-key">FARO Arm</span><span class="spec-val">range 1.2-3.7m · ±0.024-0.064mm</span></div>
+<div class="spec-row"><span class="spec-key">ROMER Arm</span><span class="spec-val">±0.028-0.054mm · 6/7 DOF</span></div>
+<div class="spec-row"><span class="spec-key">Cimcore</span><span class="spec-val">±0.018mm (comparable)</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">measure on the floor/machine · portable</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 10360-12: Portable CMM testing<br>
+<b>Manufacturers:</b> <a href="https://www.faro.com" target="_blank" style="color:var(--blue)">FARO Technologies</a> · <a href="https://www.hexagonmi.com" target="_blank" style="color:var(--blue)">Hexagon / ROMER</a></div>
+<a href="https://www.youtube.com/results?search_query=portable%20CMM%20arm%20measurement%20demonstration" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">3D Scanner</div>
+<div><span class="mc-badge b-purple">±0.03-0.1mm</span><span class="mc-badge b-blue">Reverse Engineering</span></div>
+<div class="spec-row"><span class="spec-key">Structured Light</span><span class="spec-val">±0.03mm · fast · GOM ATOS</span></div>
+<div class="spec-row"><span class="spec-key">Laser Triangulation</span><span class="spec-val">±0.05mm · flexible · Creaform</span></div>
+<div class="spec-row"><span class="spec-key">HandySCAN</span><span class="spec-val">±0.025mm · handheld and portable</span></div>
+<div class="spec-row"><span class="spec-key">CT Scanning</span><span class="spec-val">±0.005mm · sees inside the part! · Zeiss VoluMax</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">GOM Inspect / Polyworks = analysis software<br>
+<b>Manufacturers:</b> <a href="https://www.zeiss.com/metrology" target="_blank" style="color:var(--blue)">Zeiss GOM</a> · <a href="https://www.creaform3d.com" target="_blank" style="color:var(--blue)">Creaform</a> · <a href="https://www.faro.com" target="_blank" style="color:var(--blue)">FARO</a></div>
+<a href="https://www.youtube.com/results?search_query=3D%20scanner%20metrology%20reverse%20engineering%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">FAI — First Article Inspection</div>
+<div><span class="mc-badge b-red">AS9102</span><span class="mc-badge b-orange">Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">AS9102 Rev B (aerospace) / PPAP (automotive)</span></div>
+<div class="spec-row"><span class="spec-key">Full FAI</span><span class="spec-val">every dimension on the drawing (100%)</span></div>
+<div class="spec-row"><span class="spec-key">Partial FAI</span><span class="spec-val">critical dimensions only</span></div>
+<div class="spec-row"><span class="spec-key">Documentation</span><span class="spec-val">FAIR Form 1/2/3 · Ballooned Drawing</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Balloon Drawing = numbering every dimension on the drawing<br>Any process change → new FAI mandatory!<br>
+<b>Software:</b> <a href="https://www.discoverquality.com" target="_blank" style="color:var(--blue)">DISCUS</a> · <a href="https://www.elfasoftware.com" target="_blank" style="color:var(--blue)">Elfa</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">GD&amp;T Measurement — Geometric Tolerances</div>
+<div><span class="mc-badge b-blue">ISO 1101</span><span class="mc-badge b-orange">ASME Y14.5</span></div>
+<div class="spec-row"><span class="spec-key">Flatness</span><span class="spec-val">surface scan → Least Squares Plane</span></div>
+<div class="spec-row"><span class="spec-key">Cylindricity</span><span class="spec-val">cylinder scan → three deviations</span></div>
+<div class="spec-row"><span class="spec-key">Position</span><span class="spec-val">TP = 2√(Δx²+Δy²) from the Datum</span></div>
+<div class="spec-row"><span class="spec-key">True Position</span><span class="spec-val">MMC Bonus Tolerance calculated by CMM</span></div>
+<div class="spec-row"><span class="spec-key">Runout</span><span class="spec-val">Total vs Circular Runout</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">CMM → PC-DMIS → automatic GD&amp;T Report<br>
+<b>Software:</b> <a href="https://www.pcdmis.com" target="_blank" style="color:var(--blue)">PC-DMIS</a> · <a href="https://www.hexagonmi.com/calypso" target="_blank" style="color:var(--blue)">Calypso</a></div>
+<a href="https://www.youtube.com/results?search_query=CMM%20GD&T%20measurement%20position%20tolerance%20demonstration" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Surface Plate — Granite Table</div>
+<div><span class="mc-badge b-blue">Grade A/B/C</span><span class="mc-badge b-green">Surface Reference</span></div>
+<div class="spec-row"><span class="spec-key">Grade A (Lab)</span><span class="spec-val">flatness ±0.001mm/300mm</span></div>
+<div class="spec-row"><span class="spec-key">Grade B (Tool Room)</span><span class="spec-val">±0.002mm/300mm</span></div>
+<div class="spec-row"><span class="spec-key">Grade C (Shop)</span><span class="spec-val">±0.004mm/300mm</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Black Granite (Diabase) — 0 Thermal</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Calibration: BS 817 / ISO 8512<br>
+<b>Manufacturers:</b> <a href="https://www.granitedevices.com" target="_blank" style="color:var(--blue)">Standridge</a> · <a href="https://www.ultra-flat.com" target="_blank" style="color:var(--blue)">Taft-Peirce</a></div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🤖 CMM — Advanced Topics</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Probe Qualification</div>
+<div><span class="mc-badge b-orange">Before every measurement</span><span class="mc-badge b-blue">Datum Sphere</span></div>
+<div class="spec-row"><span class="spec-key">Reference Sphere</span><span class="spec-val">Ruby Sphere ø10-25mm, Grade 5</span></div>
+<div class="spec-row"><span class="spec-key">Number of Points</span><span class="spec-val">minimum 25 points for calibration</span></div>
+<div class="spec-row"><span class="spec-key">PD (Probe Diameter)</span><span class="spec-val">calculated effective diameter · not actual diameter!</span></div>
+<div class="spec-row"><span class="spec-key">Form Error</span><span class="spec-val">≤ 0.001mm → valid calibration</span></div>
+<div class="spec-row"><span class="spec-key">Calibration Frequency</span><span class="spec-val">every startup · after collision · after warm-up</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Changing Stylus → calibration mandatory!<br>Styli: Ruby (general) / Silicon Nitride (fast) / Zirconia (Al)</div>
+<a href="https://www.youtube.com/results?search_query=CMM%20probe%20qualification%20calibration%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Datum Reference Frame — DRF</div>
+<div><span class="mc-badge b-blue">3-2-1 Setup</span><span class="mc-badge b-orange">Primary/Secondary/Tertiary</span></div>
+<div class="spec-row"><span class="spec-key">Primary Datum</span><span class="spec-val">plane (3 points) → constrains Z/Rx/Ry</span></div>
+<div class="spec-row"><span class="spec-key">Secondary Datum</span><span class="spec-val">axis/edge (2 points) → X/Rz</span></div>
+<div class="spec-row"><span class="spec-key">Tertiary Datum</span><span class="spec-val">point (1) → Y</span></div>
+<div class="spec-row"><span class="spec-key">BF vs. Constrained</span><span class="spec-val">Best Fit vs. Datum Locked</span></div>
+<div class="spec-row"><span class="spec-key">Fixture</span><span class="spec-val">mechanical stabilization = accuracy + repeatability</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">DRF = GD&amp;T drawing → must represent the drawing's Datum!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Temperature Compensation</div>
+<div><span class="mc-badge b-red">20°C ±1°C</span><span class="mc-badge b-blue">CTE Correction</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ISO 1 = 20°C reference</span></div>
+<div class="spec-row"><span class="spec-key">Error per 1°C</span><span class="spec-val">Steel: 12μm/m · Al: 23μm/m</span></div>
+<div class="spec-row"><span class="spec-key">Temp. Sensors</span><span class="spec-val">CMM + part + gap</span></div>
+<div class="spec-row"><span class="spec-key">Software Correction</span><span class="spec-val">αΔT×L → automatic correction</span></div>
+<div class="spec-row"><span class="spec-key">Soak Time</span><span class="spec-val">4h minimum for large steel parts</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Al part at 25°C → error 75μm/m — critical!<br>CTE steel: 11.5μm/m·°C | Al: 23μm/m·°C | Invar: 1.5μm/m·°C</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">PC-DMIS / Calypso — CMM Programming</div>
+<div><span class="mc-badge b-purple">Offline Programming</span><span class="mc-badge b-blue">CAD Import</span></div>
+<div class="spec-row"><span class="spec-key">CAD Import</span><span class="spec-val">STEP/IGES → exported from CAD software</span></div>
+<div class="spec-row"><span class="spec-key">Auto Path</span><span class="spec-val">automatic probe path from CAD</span></div>
+<div class="spec-row"><span class="spec-key">GD&amp;T Auto Eval</span><span class="spec-val">automatic Position/Flatness calculation</span></div>
+<div class="spec-row"><span class="spec-key">SPC Integration</span><span class="spec-val">export to Q-DAS / Minitab</span></div>
+<div class="spec-row"><span class="spec-key">CMM Report</span><span class="spec-val">PDF/Excel with Balloon Numbers</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Software:</b> <a href="https://www.pcdmis.com" target="_blank" style="color:var(--blue)">PC-DMIS (Hexagon)</a> · <a href="https://www.zeiss.com/calypso" target="_blank" style="color:var(--blue)">Calypso (Zeiss)</a> · <a href="https://www.polyworks.com" target="_blank" style="color:var(--blue)">Polyworks</a></div>
+<a href="https://www.youtube.com/results?search_query=CMM%20programming%20PC-DMIS%20tutorial" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Scanning Probe</div>
+<div><span class="mc-badge b-green">↑↑speed</span><span class="mc-badge b-blue">Continuous vs. Point</span></div>
+<div class="spec-row"><span class="spec-key">Touch Trigger</span><span class="spec-val">point → point · fast for discrete points</span></div>
+<div class="spec-row"><span class="spec-key">Analog Scanning</span><span class="spec-val">1000+ points/second · Surface Form</span></div>
+<div class="spec-row"><span class="spec-key">Renishaw REVO</span><span class="spec-val">5-Axis · scans in any direction · ↑↑speed</span></div>
+<div class="spec-row"><span class="spec-key">Scanning Advantage</span><span class="spec-val">Form Error · Waviness · free-form curves</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">REVO = 5-axis rotating head → ↓measurement time 85%<br>
+<b>Manufacturer:</b> <a href="https://www.renishaw.com" target="_blank" style="color:var(--blue)">Renishaw</a></div>
+<a href="https://www.youtube.com/results?search_query=CMM%20scanning%20probe%20continuous%20measurement" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">CT Scanning — Industrial Tomography</div>
+<div><span class="mc-badge b-red">X-Ray 3D</span><span class="mc-badge b-orange">Sees Inside!</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±0.005-0.02mm (depends on VOX size)</span></div>
+<div class="spec-row"><span class="spec-key">Porosity Detection</span><span class="spec-val">voids from 0.1mm · AM castings</span></div>
+<div class="spec-row"><span class="spec-key">Wall Thickness</span><span class="spec-val">full wall thickness map</span></div>
+<div class="spec-row"><span class="spec-key">Assembly CT</span><span class="spec-val">inspecting closed complex assemblies</span></div>
+<div class="spec-row"><span class="spec-key">Limitation</span><span class="spec-val">dense/large parts — ↓penetration</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.zeiss.com/metrology" target="_blank" style="color:var(--blue)">Zeiss VoluMax</a> · <a href="https://www.yxlon.com" target="_blank" style="color:var(--blue)">YXLON</a> · <a href="https://www.nikon.com/metrology" target="_blank" style="color:var(--blue)">Nikon XT</a></div>
+<a href="https://www.youtube.com/results?search_query=industrial%20CT%20scanning%20metrology%20inspection" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div></div></div></div>
+
+<div id="insp-surface_meas" class="insp-sec">
+<div class="card"><div class="ctitle">✦ Surface Texture Measurement</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Profilometer — Surface Roughness Tester</div>
+<div><span class="mc-badge b-green">Ra · Rz · Rt</span><span class="mc-badge b-blue">Contact/Non-Contact</span></div>
+<div class="spec-row"><span class="spec-key">Ra</span><span class="spec-val">arithmetic mean — most common</span></div>
+<div class="spec-row"><span class="spec-key">Rz</span><span class="spec-val">5-peak average — ISO 4287</span></div>
+<div class="spec-row"><span class="spec-key">Rt</span><span class="spec-val">maximum peak to valley</span></div>
+<div class="spec-row"><span class="spec-key">Rq (RMS)</span><span class="spec-val">root mean square</span></div>
+<div class="spec-row"><span class="spec-key">Stylus radius</span><span class="spec-val">2μm (conventional) / 0.5μm (micro)</span></div>
+<div class="spec-row"><span class="spec-key">Cutoff λc</span><span class="spec-val">0.08/0.25/0.8/2.5/8mm (ISO 4288)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Cutoff by Ra: Ra>2μm → λc=0.8mm<br>
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo SJ</a> · <a href="https://www.taylor-hobson.com" target="_blank" style="color:var(--blue)">Taylor Hobson</a> · <a href="https://www.mahr.com" target="_blank" style="color:var(--blue)">Mahr</a></div>
+<a href="https://www.youtube.com/results?search_query=surface%20roughness%20tester%20profilometer%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Typical Ra by Process</div>
+<div><span class="mc-badge b-orange">Reference Values</span></div>
+<div class="spec-row"><span class="spec-key">Rough Turning</span><span class="spec-val">Ra 12.5-50 μm</span></div>
+<div class="spec-row"><span class="spec-key">Rough Milling</span><span class="spec-val">Ra 3.2-12.5 μm</span></div>
+<div class="spec-row"><span class="spec-key">Finish Milling</span><span class="spec-val">Ra 0.8-3.2 μm</span></div>
+<div class="spec-row"><span class="spec-key">Surface Grinding</span><span class="spec-val">Ra 0.2-0.8 μm</span></div>
+<div class="spec-row"><span class="spec-key">Honing</span><span class="spec-val">Ra 0.1-0.4 μm (Cross-hatch)</span></div>
+<div class="spec-row"><span class="spec-key">Lapping</span><span class="spec-val">Ra 0.01-0.1 μm</span></div>
+<div class="spec-row"><span class="spec-key">Superfinishing</span><span class="spec-val">Ra &lt;0.05 μm</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Non-Contact Surface</div>
+<div><span class="mc-badge b-purple">Optical</span><span class="mc-badge b-green">↑Fast</span></div>
+<div class="spec-row"><span class="spec-key">White Light Interferometry</span><span class="spec-val">resolution 0.1nm! · Zygo · Bruker</span></div>
+<div class="spec-row"><span class="spec-key">Focus Variation</span><span class="spec-val">±0.1μm · Alicona InfiniteFocus</span></div>
+<div class="spec-row"><span class="spec-key">Confocal</span><span class="spec-val">±0.5μm · Olympus LEXT</span></div>
+<div class="spec-row"><span class="spec-key">Fringe Projection</span><span class="spec-val">GOM ATOS · large field</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.zygo.com" target="_blank" style="color:var(--blue)">Zygo (Ametek)</a> · <a href="https://www.alicona.com" target="_blank" style="color:var(--blue)">Alicona</a> · <a href="https://www.bruker.com" target="_blank" style="color:var(--blue)">Bruker</a></div>
+<a href="https://www.youtube.com/results?search_query=non%20contact%20surface%20measurement%20optical%20profilometer" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">N-Grade — Finish Rating</div>
+<div><span class="mc-badge b-orange">N1-N12</span></div>
+<div class="spec-row"><span class="spec-key">N1</span><span class="spec-val">Ra 0.025 μm — ↑↑ expensive</span></div>
+<div class="spec-row"><span class="spec-key">N4</span><span class="spec-val">Ra 0.2 μm — finish grinding</span></div>
+<div class="spec-row"><span class="spec-key">N6</span><span class="spec-val">Ra 0.8 μm — finish milling</span></div>
+<div class="spec-row"><span class="spec-key">N8</span><span class="spec-val">Ra 3.2 μm — standard milling</span></div>
+<div class="spec-row"><span class="spec-key">N10</span><span class="spec-val">Ra 12.5 μm — rough</span></div>
+<div class="spec-row"><span class="spec-key">N12</span><span class="spec-val">Ra 50 μm — scraping</span></div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">✦ Advanced Surface Parameters</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Waviness vs. Roughness vs. Form</div>
+<div><span class="mc-badge b-blue">ISO 4287 / ISO 12780</span></div>
+<div class="spec-row"><span class="spec-key">Form</span><span class="spec-val">long-wavelength errors — Flatness, Straightness</span></div>
+<div class="spec-row"><span class="spec-key">Waviness W</span><span class="spec-val">medium — Wt, Wa, Wz (λf - λc)</span></div>
+<div class="spec-row"><span class="spec-key">Roughness R</span><span class="spec-val">short — Ra, Rz, Rt (λs - λc)</span></div>
+<div class="spec-row"><span class="spec-key">Cutoff λc</span><span class="spec-val">separates Roughness/Waviness</span></div>
+<div class="spec-row"><span class="spec-key">λs</span><span class="spec-val">0.0025mm — fine roughness filter</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Form → Waviness → Roughness: three independent measurement layers!</div>
+<a href="https://www.youtube.com/results?search_query=surface%20waviness%20roughness%20form%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Abbott-Firestone — Bearing Ratio Curve</div>
+<div><span class="mc-badge b-orange">Bearing Ratio</span><span class="mc-badge b-blue">Rpk / Rk / Rvk</span></div>
+<div class="spec-row"><span class="spec-key">Rk (Core)</span><span class="spec-val">core profile height — main bearing region</span></div>
+<div class="spec-row"><span class="spec-key">Rpk</span><span class="spec-val">protruding peaks — worn away first</span></div>
+<div class="spec-row"><span class="spec-key">Rvk</span><span class="spec-val">oil valleys — retains lubrication</span></div>
+<div class="spec-row"><span class="spec-key">Rmr (Tp)</span><span class="spec-val">bearing percentage at a given height</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+Engine cylinders: low Rpk + high Rvk = ↑life + ↓wear<br>Standard: ISO 13565-2</div>
+<a href="https://www.youtube.com/results?search_query=Abbott%20Firestone%20curve%20bearing%20ratio%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Rsk · Rku — Profile Shape</div>
+<div><span class="mc-badge b-purple">Skewness · Kurtosis</span></div>
+<div class="spec-row"><span class="spec-key">Rsk (Skewness)</span><span class="spec-val">0=symmetric · + = peaks · - = valleys</span></div>
+<div class="spec-row"><span class="spec-key">Negative Rsk</span><span class="spec-val">↑bearing area · ↑engine cylinder life</span></div>
+<div class="spec-row"><span class="spec-key">Rku (Kurtosis)</span><span class="spec-val">3=normal · >3 = sharp peaks</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Honed cylinder: Rsk = -1.5 to -0.5 (ideal)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Areal 3D — Three-Dimensional Parameters</div>
+<div><span class="mc-badge b-blue">ISO 25178</span><span class="mc-badge b-green">Sa · Sz · Sp</span></div>
+<div class="spec-row"><span class="spec-key">Sa</span><span class="spec-val">areal arithmetic mean (like Ra in 3D)</span></div>
+<div class="spec-row"><span class="spec-key">Sq</span><span class="spec-val">areal root mean square (RMS)</span></div>
+<div class="spec-row"><span class="spec-key">Sz</span><span class="spec-val">maximum surface height</span></div>
+<div class="spec-row"><span class="spec-key">Sdr</span><span class="spec-val">Developed Surface Ratio — bonding</span></div>
+<div class="spec-row"><span class="spec-key">Sdq</span><span class="spec-val">RMS slope — predicts friction</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 25178 = the future of measurement! Gradually replacing Ra/Rz<br>
+<b>Manufacturers:</b> <a href="https://www.alicona.com" target="_blank" style="color:var(--blue)">Alicona</a> · <a href="https://www.zygo.com" target="_blank" style="color:var(--blue)">Zygo</a> · <a href="https://www.keyence.com" target="_blank" style="color:var(--blue)">Keyence VK</a></div>
+<a href="https://www.youtube.com/results?search_query=3D%20areal%20surface%20measurement%20parameters" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Comparison Specimens</div>
+<div><span class="mc-badge b-orange">Tactile Reference</span><span class="mc-badge b-blue">Contact</span></div>
+<div class="spec-row"><span class="spec-key">VDI 3400</span><span class="spec-val">EDM standard — 45 grades (VDI 12-45)</span></div>
+<div class="spec-row"><span class="spec-key">ISO 2632</span><span class="spec-val">comparison by process (turning/milling/grinding)</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">quick field/shop check without an instrument</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Not a substitute for a profilometer — visual estimate only!<br>
+<b>Manufacturer:</b> <a href="https://www.rubert.co.uk" target="_blank" style="color:var(--blue)">Rubert &amp; Co</a> · <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a></div>
+<a href="https://www.youtube.com/results?search_query=surface%20roughness%20comparison%20specimens%20standard" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Surface Finish by Application</div>
+<div><span class="mc-badge b-green">Design Guidelines</span></div>
+<div class="spec-row"><span class="spec-key">Rolling Bearings</span><span class="spec-val">Ra 0.1-0.4 μm · Roundness &lt;1μm</span></div>
+<div class="spec-row"><span class="spec-key">O-ring Seals</span><span class="spec-val">Ra 0.4-0.8 μm · no machining marks!</span></div>
+<div class="spec-row"><span class="spec-key">Hard Coating</span><span class="spec-val">Ra ≤ 0.8 before coating (EN/Chrome)</span></div>
+<div class="spec-row"><span class="spec-key">Fatigue Strength</span><span class="spec-val">Ra ≤ 0.4 → ↑30% fatigue strength!</span></div>
+<div class="spec-row"><span class="spec-key">Bonding/Coating</span><span class="spec-val">Ra 1.6-3.2 → aims for high Sdr</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Mark direction ⊥ to load = ↑fatigue strength (Lay Symbol)</div>
+</div>
+</div></div></div></div>
+
+<div id="insp-optical" class="insp-sec">
+<div class="card"><div class="ctitle">🔭 Optical &amp; Laser Measurement</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Profile Projector / Optical Comparator</div>
+<div><span class="mc-badge b-blue">×10 ×20 ×50</span><span class="mc-badge b-green">±0.005mm</span></div>
+<div class="spec-row"><span class="spec-key">Magnification</span><span class="spec-val">×10, ×20, ×50, ×100</span></div>
+<div class="spec-row"><span class="spec-key">Measurement Accuracy</span><span class="spec-val">±0.003-0.005mm</span></div>
+<div class="spec-row"><span class="spec-key">Screen</span><span class="spec-val">ø250/500mm · template comparison</span></div>
+<div class="spec-row"><span class="spec-key">DRO</span><span class="spec-val">digital X/Y/Z · angles</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.starrett.com" target="_blank" style="color:var(--blue)">Starrett</a> · <a href="https://www.nikon.com/metrology" target="_blank" style="color:var(--blue)">Nikon</a></div>
+<a href="https://www.youtube.com/results?search_query=optical%20comparator%20profile%20projector%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">VMM — Video Measuring Machine</div>
+<div><span class="mc-badge b-blue">±0.002mm</span><span class="mc-badge b-green">Non-Contact</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±0.002-0.005mm</span></div>
+<div class="spec-row"><span class="spec-key">Z-Axis Range</span><span class="spec-val">150-300mm</span></div>
+<div class="spec-row"><span class="spec-key">Telecentric Lens</span><span class="spec-val">no Parallax Error</span></div>
+<div class="spec-row"><span class="spec-key">Auto Edge Detection</span><span class="spec-val">↑speed · ↓operator error</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo Quick Vision</a> · <a href="https://www.hexagonmi.com" target="_blank" style="color:var(--blue)">Hexagon Optiv</a> · <a href="https://www.smartscope.com" target="_blank" style="color:var(--blue)">OGP SmartScope</a></div>
+<a href="https://www.youtube.com/results?search_query=video%20measuring%20machine%20VMM%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Laser Micrometer</div>
+<div><span class="mc-badge b-blue">±0.001mm</span><span class="mc-badge b-green">Non-Contact · Fast</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">laser beam shadowing — Shadow Method</span></div>
+<div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">0.0001-0.001mm</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">up to 1200 measurements/second!</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">production lines, wire, extruded plastic</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.keyence.com" target="_blank" style="color:var(--blue)">Keyence</a> · <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.micro-epsilon.com" target="_blank" style="color:var(--blue)">Micro-Epsilon</a></div>
+<a href="https://www.youtube.com/results?search_query=laser%20micrometer%20non%20contact%20measurement" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Laser Tracker</div>
+<div><span class="mc-badge b-orange">±0.025mm</span><span class="mc-badge b-blue">Large Parts</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±0.016-0.025mm over meters!</span></div>
+<div class="spec-row"><span class="spec-key">Range</span><span class="spec-val">up to 80 meters</span></div>
+<div class="spec-row"><span class="spec-key">SMR</span><span class="spec-val">Spherically Mounted Retroreflector</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">aircraft · structures · machine alignment</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.faro.com" target="_blank" style="color:var(--blue)">FARO Laser Tracker</a> · <a href="https://www.hexagonmi.com" target="_blank" style="color:var(--blue)">Leica AT960</a></div>
+<a href="https://www.youtube.com/results?search_query=laser%20tracker%20metrology%20large%20scale%20measurement" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🔭 Advanced Optical Measurement</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Machine Vision / AOI</div>
+<div><span class="mc-badge b-blue">Inline</span><span class="mc-badge b-green">100% Inspection</span></div>
+<div class="spec-row"><span class="spec-key">AOI</span><span class="spec-val">Automated Optical Inspection — PCB/SMD</span></div>
+<div class="spec-row"><span class="spec-key">Camera Resolution</span><span class="spec-val">5-50 MPx · Telecentric Lens</span></div>
+<div class="spec-row"><span class="spec-key">Lighting</span><span class="spec-val">Coaxial / Ring / Dark Field / Structured</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">up to 10,000 parts/hour</span></div>
+<div class="spec-row"><span class="spec-key">AI / Deep Learning</span><span class="spec-val">defect detection ↑ ↓False Reject</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.keyence.com" target="_blank" style="color:var(--blue)">Keyence IV3</a> · <a href="https://www.cognex.com" target="_blank" style="color:var(--blue)">Cognex</a> · <a href="https://www.mvtec.com" target="_blank" style="color:var(--blue)">MVTec HALCON</a></div>
+<a href="https://www.youtube.com/results?search_query=machine%20vision%20AOI%20automated%20inspection" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Photogrammetry</div>
+<div><span class="mc-badge b-orange">±0.05mm</span><span class="mc-badge b-blue">Very Large Parts</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">multiple photos → 3D points</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">1:100,000 of range</span></div>
+<div class="spec-row"><span class="spec-key">Range</span><span class="spec-val">1m up to a full aircraft/ship!</span></div>
+<div class="spec-row"><span class="spec-key">Coded Targets</span><span class="spec-val">reference markers printed on the part</span></div>
+<div class="spec-row"><span class="spec-key">Scale Bar</span><span class="spec-val">reference bar for scale</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.aicon3d.com" target="_blank" style="color:var(--blue)">Aicon (Hexagon)</a> · <a href="https://www.geodetic.com" target="_blank" style="color:var(--blue)">V-STARS (Geodetic)</a></div>
+<a href="https://www.youtube.com/results?search_query=photogrammetry%203D%20measurement%20metrology" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Laser Interferometer</div>
+<div><span class="mc-badge b-purple">λ/2 = 316nm</span><span class="mc-badge b-blue">Machine Calibration</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">0.001μm (1nm) — highest accuracy!</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">CNC/CMM calibration · full axis travel</span></div>
+<div class="spec-row"><span class="spec-key">Linear/Angular</span><span class="spec-val">measuring straightness · angles · squareness</span></div>
+<div class="spec-row"><span class="spec-key">XL-80 / XM-60</span><span class="spec-val">Renishaw — Ballbar + Interferometer</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.renishaw.com" target="_blank" style="color:var(--blue)">Renishaw XL-80</a> · <a href="https://www.agilent.com" target="_blank" style="color:var(--blue)">Keysight 5530</a></div>
+<a href="https://www.youtube.com/results?search_query=laser%20interferometer%20calibration%20machine%20tool" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Autocollimator</div>
+<div><span class="mc-badge b-blue">0.1 arc-second</span><span class="mc-badge b-orange">Remote Angles</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">parallel beam → Mirror → reflected angle</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±0.1" arc = ±0.5μrad</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">rail straightness · CMM verification · optics</span></div>
+<div class="spec-row"><span class="spec-key">Digital</span><span class="spec-val">CCD + LCD — automatic readout</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.taylor-hobson.com" target="_blank" style="color:var(--blue)">Taylor Hobson</a> · <a href="https://www.brunson.us" target="_blank" style="color:var(--blue)">Brunson</a></div>
+<a href="https://www.youtube.com/results?search_query=autocollimator%20angle%20measurement%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div></div></div></div>
+
+<div id="insp-hardness" class="insp-sec">
+<div class="card"><div class="ctitle">💎 Hardness Testing</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Rockwell Hardness (HRC/HRB/HRA)</div>
+<div><span class="mc-badge b-blue">ISO 6508</span><span class="mc-badge b-green">Fast · Common</span></div>
+<div class="spec-row"><span class="spec-key">HRC (C scale)</span><span class="spec-val">Diamond Brale · 150kg · HRC 20-70</span></div>
+<div class="spec-row"><span class="spec-key">HRB (B scale)</span><span class="spec-val">1/16" ball · 100kg · soft materials</span></div>
+<div class="spec-row"><span class="spec-key">HRA</span><span class="spec-val">Diamond · 60kg · carbide, coatings</span></div>
+<div class="spec-row"><span class="spec-key">HRN15/30/45</span><span class="spec-val">Superficial — thin material, coatings</span></div>
+<div class="spec-row"><span class="spec-key">Minimum Thickness</span><span class="spec-val">HRC: 1.5mm · HRN15: 0.2mm</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Fast and automated — the most common in industry!<br>
+<b>Manufacturers:</b> <a href="https://www.wilsonhardness.com" target="_blank" style="color:var(--blue)">Wilson (Buehler)</a> · <a href="https://www.mitutoyo.com" target="_blank" style="color:var(--blue)">Mitutoyo</a> · <a href="https://www.zwickroell.com" target="_blank" style="color:var(--blue)">ZwickRoell</a></div>
+<a href="https://www.youtube.com/results?search_query=rockwell%20hardness%20test%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Vickers Hardness (HV)</div>
+<div><span class="mc-badge b-blue">ISO 6507</span><span class="mc-badge b-green">High Precision</span></div>
+<div class="spec-row"><span class="spec-key">Indenter</span><span class="spec-val">Diamond Pyramid 136°</span></div>
+<div class="spec-row"><span class="spec-key">Loads</span><span class="spec-val">HV0.001-HV100 (1g to 100kg)</span></div>
+<div class="spec-row"><span class="spec-key">Micro Vickers</span><span class="spec-val">HV0.01-HV1 → coatings, Case layer</span></div>
+<div class="spec-row"><span class="spec-key">Diagonal Measurement</span><span class="spec-val">HV = 1.854 × F/d² (d=average of diagonals)</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">any hardness, any thickness, precise</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Aerospace standard: micro HV for Case Depth testing!<br>
+<b>Manufacturers:</b> <a href="https://www.struers.com" target="_blank" style="color:var(--blue)">Struers</a> · <a href="https://www.wilsonhardness.com" target="_blank" style="color:var(--blue)">Wilson</a> · <a href="https://www.zwickroell.com" target="_blank" style="color:var(--blue)">ZwickRoell</a></div>
+<a href="https://www.youtube.com/results?search_query=vickers%20hardness%20test%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Brinell Hardness (HBW)</div>
+<div><span class="mc-badge b-orange">ISO 6506</span><span class="mc-badge b-blue">Castings · Steel</span></div>
+<div class="spec-row"><span class="spec-key">Indenter</span><span class="spec-val">Carbide ball 2.5/5/10mm</span></div>
+<div class="spec-row"><span class="spec-key">Loads</span><span class="spec-val">187.5-3000 kg · HB 20-650</span></div>
+<div class="spec-row"><span class="spec-key">Formula</span><span class="spec-val">HBW = 2F / (πD(D-√(D²-d²)))</span></div>
+<div class="spec-row"><span class="spec-key">Measurement</span><span class="spec-val">microscope indent diameter measurement</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Ideal for: castings, coarse steel, non-uniform materials<br>
+<b>Manufacturers:</b> <a href="https://www.wilsonhardness.com" target="_blank" style="color:var(--blue)">Wilson</a> · <a href="https://www.ernst-equipment.com" target="_blank" style="color:var(--blue)">Ernst</a> · <a href="https://www.zwickroell.com" target="_blank" style="color:var(--blue)">ZwickRoell</a></div>
+<a href="https://www.youtube.com/results?search_query=brinell%20hardness%20test%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Leeb / UCI — Portable Hardness</div>
+<div><span class="mc-badge b-green">Portable</span><span class="mc-badge b-orange">HL → HRC/HB/HV</span></div>
+<div class="spec-row"><span class="spec-key">Leeb Rebound</span><span class="spec-val">HL = 1000 × v_return/v_impact</span></div>
+<div class="spec-row"><span class="spec-key">UCI (Ultrasonic)</span><span class="spec-val">frequency shift, Vickers indenter</span></div>
+<div class="spec-row"><span class="spec-key">Accuracy</span><span class="spec-val">±3-5% vs bench tester</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">large parts · in-field · welds</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 16859 (Leeb) / ASTM A956<br>
+<b>Manufacturers:</b> <a href="https://www.proceq.com" target="_blank" style="color:var(--blue)">Proceq (Screening Eagle)</a> · <a href="https://www.equotip.com" target="_blank" style="color:var(--blue)">Equotip</a></div>
+<a href="https://www.youtube.com/results?search_query=leeb%20hardness%20tester%20portable%20how%20it%20works" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Shore A/D — Rubber/Plastic Hardness</div>
+<div><span class="mc-badge b-blue">ISO 868</span><span class="mc-badge b-green">Polymers</span></div>
+<div class="spec-row"><span class="spec-key">Shore A</span><span class="spec-val">soft rubber · silicone · 0-100 HA</span></div>
+<div class="spec-row"><span class="spec-key">Shore D</span><span class="spec-val">hard plastic · 0-100 HD</span></div>
+<div class="spec-row"><span class="spec-key">IRHD</span><span class="spec-val">International Rubber Hardness Degrees</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Read after 3 seconds! Creep affects the reading<br>
+<b>Manufacturers:</b> <a href="https://www.zwickroell.com" target="_blank" style="color:var(--blue)">ZwickRoell</a> · <a href="https://www.bareiss.de" target="_blank" style="color:var(--blue)">Bareiss</a></div>
+<a href="https://www.youtube.com/results?search_query=shore%20hardness%20test%20rubber%20plastic%20durometer" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+</div>
+
+<div style="margin-top:14px">
+<div class="ctitle" style="font-size:14px">🔄 Hardness Conversion Table (ISO 18265 / ASTM E140)</div>
+<table class="conv-table">
+<tr><th>HRC</th><th>HB (3000kg)</th><th>HV (10kg)</th><th>Steel UTS MPa</th><th>Use</th></tr>
+<tr><td>20</td><td>226</td><td>238</td><td>~780</td><td>lightly hardened steel</td></tr>
+<tr><td>30</td><td>286</td><td>302</td><td>~1010</td><td>moderately hardened</td></tr>
+<tr><td>40</td><td>371</td><td>392</td><td>~1280</td><td>well hardened</td></tr>
+<tr><td>50</td><td>481</td><td>513</td><td>~1640</td><td>highly hardened</td></tr>
+<tr><td>55</td><td>551</td><td>596</td><td>~1870</td><td>cutting tools, D2, M2</td></tr>
+<tr><td>60</td><td>654</td><td>746</td><td>~2100</td><td>tools, bearings</td></tr>
+<tr><td>65</td><td>—</td><td>900</td><td>—</td><td>HSS, carbide (limited)</td></tr>
+<tr><td style="color:var(--muted)">HB 120</td><td>HB 120</td><td>HV 126</td><td>~420</td><td>aluminum, annealed steel</td></tr>
+<tr><td style="color:var(--muted)">HB 200</td><td>HB 200</td><td>HV 210</td><td>~680</td><td>structural steel, SS</td></tr>
+</table>
+<div style="font-size:11px;color:var(--red);margin-top:6px">⚠️ Conversions are not exact — ±5-10% · always use ASTM E140 tables for the specific material!</div>
+</div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">💎 Advanced Topics — Sample Prep and Case Depth</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Knoop Hardness</div>
+<div><span class="mc-badge b-purple">HK</span><span class="mc-badge b-blue">Elongated Indenter</span></div>
+<div class="spec-row"><span class="spec-key">Indenter</span><span class="spec-val">Rhombic pyramid · 7.11:1 diagonal ratio</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">↓depth → ↑micro-regions · ceramics</span></div>
+<div class="spec-row"><span class="spec-key">Loads</span><span class="spec-val">HK0.01 to HK1</span></div>
+<div class="spec-row"><span class="spec-key">Formula</span><span class="spec-val">HK = 14.229 × F / d²</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">ceramics · coatings · dental · thin layers</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ASTM E384 · measures only the long diagonal (easier)</div>
+<a href="https://www.youtube.com/results?search_query=knoop%20hardness%20test%20microhardness%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Case Depth — Hardened Layer Depth</div>
+<div><span class="mc-badge b-red">ECD / TCD</span><span class="mc-badge b-orange">Metallographic Section</span></div>
+<div class="spec-row"><span class="spec-key">ECD (Effective)</span><span class="spec-val">down to HV 550 (HRC 52) — Case/Core boundary</span></div>
+<div class="spec-row"><span class="spec-key">TCD (Total)</span><span class="spec-val">full layer depth down to Core</span></div>
+<div class="spec-row"><span class="spec-key">Method</span><span class="spec-val">section → Mounting → Polishing → HV Profile</span></div>
+<div class="spec-row"><span class="spec-key">Traverse</span><span class="spec-val">HV readings every 0.1-0.5mm</span></div>
+<div class="spec-row"><span class="spec-key">Case Carburizing</span><span class="spec-val">typical ECD: 0.5-1.5mm</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Standard: ISO 2639 (Case Hardening) / AMS 2759</div>
+<a href="https://www.youtube.com/results?search_query=case%20hardening%20depth%20measurement%20microhardness" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Metallographic Sample Prep</div>
+<div><span class="mc-badge b-orange">Cutting → Mounting → Polish</span></div>
+<div class="spec-row"><span class="spec-key">Cutting</span><span class="spec-val">Abrasive Saw / Wire EDM — no burning!</span></div>
+<div class="spec-row"><span class="spec-key">Mounting</span><span class="spec-val">hot Bakelite / cold Epoxy</span></div>
+<div class="spec-row"><span class="spec-key">Grinding</span><span class="spec-val">SiC Paper: P120→P240→P320→P600→P1200</span></div>
+<div class="spec-row"><span class="spec-key">Polishing</span><span class="spec-val">3μm Diamond → 1μm → OPS 0.04μm</span></div>
+<div class="spec-row"><span class="spec-key">Etching</span><span class="spec-val">Nital (steel) / Keller (Al) / Marble (SS)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.struers.com" target="_blank" style="color:var(--blue)">Struers</a> · <a href="https://www.buehler.com" target="_blank" style="color:var(--blue)">Buehler</a> · <a href="https://www.leco.com" target="_blank" style="color:var(--blue)">LECO</a></div>
+<a href="https://www.youtube.com/results?search_query=metallographic%20sample%20preparation%20polishing%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Nanoindentation</div>
+<div><span class="mc-badge b-purple">mN · nm</span><span class="mc-badge b-blue">Thin Coatings</span></div>
+<div class="spec-row"><span class="spec-key">Force</span><span class="spec-val">0.1-500 mN</span></div>
+<div class="spec-row"><span class="spec-key">Depth</span><span class="spec-val">10-10,000 nm</span></div>
+<div class="spec-row"><span class="spec-key">Oliver-Pharr</span><span class="spec-val">H and E from the load-displacement curve</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">DLC, PVD/CVD coatings, MEMS</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.bruker.com" target="_blank" style="color:var(--blue)">Bruker Hysitron</a> · <a href="https://www.kett.com" target="_blank" style="color:var(--blue)">Fischer Picodentor</a></div>
+<a href="https://www.youtube.com/results?search_query=nanoindentation%20hardness%20test%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div></div></div></div>
+
+<div id="insp-ndt_methods" class="insp-sec">
+<div class="card"><div class="ctitle">⚡ NDT — Non-Destructive Testing</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">VT — Visual Testing</div>
+<div><span class="mc-badge b-green">Level I-III</span><span class="mc-badge b-blue">ASNT / EN 473</span></div>
+<div class="spec-row"><span class="spec-key">Direct VT</span><span class="spec-val">eyes · distance &lt;600mm · &gt;500 lux</span></div>
+<div class="spec-row"><span class="spec-key">Remote VT (RVI)</span><span class="spec-val">Borescope · Camera · Drone</span></div>
+<div class="spec-row"><span class="spec-key">Aids</span><span class="spec-val">Weld Gauge · Fillet Gauge · Magnifier</span></div>
+<div class="spec-row"><span class="spec-key">Standards</span><span class="spec-val">ISO 17637 (welding) · ASTM E1316</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.olympus-ims.com" target="_blank" style="color:var(--blue)">Olympus</a> · <a href="https://www.ge.com/inspection" target="_blank" style="color:var(--blue)">GE Inspection</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">UT — Ultrasonic Testing</div>
+<div><span class="mc-badge b-blue">Pulse-Echo</span><span class="mc-badge b-orange">TOFD · Phased Array</span></div>
+<div class="spec-row"><span class="spec-key">Pulse-Echo</span><span class="spec-val">echo return from a defect · 1-20 MHz</span></div>
+<div class="spec-row"><span class="spec-key">TOFD</span><span class="spec-val">Time of Flight Diffraction · ↑accuracy</span></div>
+<div class="spec-row"><span class="spec-key">PAUT</span><span class="spec-val">Phased Array · sectorial image</span></div>
+<div class="spec-row"><span class="spec-key">EMAT</span><span class="spec-val">no Couplant needed! gas, high temp.</span></div>
+<div class="spec-row"><span class="spec-key">Minimum Thickness</span><span class="spec-val">0.1mm (UT thickness) · 1mm (defects)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 17640 · EN 583<br>
+<b>Manufacturers:</b> <a href="https://www.olympus-ims.com" target="_blank" style="color:var(--blue)">Olympus</a> · <a href="https://www.ge.com/inspection" target="_blank" style="color:var(--blue)">GE Inspection</a> · <a href="https://www.sonatest.com" target="_blank" style="color:var(--blue)">Sonatest</a></div>
+<a href="https://www.youtube.com/results?search_query=ultrasonic%20testing%20UT%20process%20explained%20NDT" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">RT — Radiographic Testing</div>
+<div><span class="mc-badge b-red">Radiation!</span><span class="mc-badge b-blue">X-Ray · γ-Ray</span></div>
+<div class="spec-row"><span class="spec-key">X-Ray</span><span class="spec-val">150-450 kV · steel up to 100mm</span></div>
+<div class="spec-row"><span class="spec-key">γ-Ray Ir-192</span><span class="spec-val">20-100mm steel · portable</span></div>
+<div class="spec-row"><span class="spec-key">γ-Ray Co-60</span><span class="spec-val">60-200mm steel · higher energy</span></div>
+<div class="spec-row"><span class="spec-key">Digital DR/CR</span><span class="spec-val">↑speed · ↓waste · DICONDE</span></div>
+<div class="spec-row"><span class="spec-key">CT Industrial</span><span class="spec-val">3D image inside the part · Zeiss VoluMax</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 17636 · ASME Section V · radiation license required!<br>
+<b>Manufacturers:</b> <a href="https://www.yxlon.com" target="_blank" style="color:var(--blue)">YXLON</a> · <a href="https://www.carestream.com" target="_blank" style="color:var(--blue)">Carestream NDT</a></div>
+<a href="https://www.youtube.com/results?search_query=radiographic%20testing%20RT%20x-ray%20NDT%20process" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ET — Eddy Current Testing</div>
+<div><span class="mc-badge b-blue">Conductors</span><span class="mc-badge b-green">Coatings · Cracks</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">induced current → impedance change</span></div>
+<div class="spec-row"><span class="spec-key">Frequency</span><span class="spec-val">100Hz-10MHz · ↑freq=↓penetration</span></div>
+<div class="spec-row"><span class="spec-key">Skin Depth δ</span><span class="spec-val">δ = 503√(ρ/μf) mm</span></div>
+<div class="spec-row"><span class="spec-key">Uses</span><span class="spec-val">coating thickness · fatigue cracks · sorting</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">non-contact · fast · automation</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 15549 · ASTM E376 (thickness)<br>
+<b>Manufacturers:</b> <a href="https://www.olympus-ims.com" target="_blank" style="color:var(--blue)">Olympus</a> · <a href="https://www.zetec.com" target="_blank" style="color:var(--blue)">Zetec</a> · <a href="https://www.nortec-ndt.com" target="_blank" style="color:var(--blue)">Nortec</a></div>
+<a href="https://www.youtube.com/results?search_query=eddy%20current%20testing%20ET%20NDT%20process%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">LT — Leak Testing</div>
+<div><span class="mc-badge b-green">He · Pressure · Vacuum</span></div>
+<div class="spec-row"><span class="spec-key">Helium Leak</span><span class="spec-val">10⁻¹⁰ mbar·L/s — the most sensitive!</span></div>
+<div class="spec-row"><span class="spec-key">Pressure Decay</span><span class="spec-val">↑pressure → measure the drop · cheap</span></div>
+<div class="spec-row"><span class="spec-key">Bubble Test</span><span class="spec-val">MIL-STD-202 Method 112</span></div>
+<div class="spec-row"><span class="spec-key">Vacuum Box</span><span class="spec-val">checking welds with soap solution</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 20485 · ASTM E493<br>
+<b>Manufacturers:</b> <a href="https://www.inficon.com" target="_blank" style="color:var(--blue)">Inficon</a> · <a href="https://www.pfeiffer-vacuum.com" target="_blank" style="color:var(--blue)">Pfeiffer</a></div>
+<a href="https://www.youtube.com/results?search_query=leak%20testing%20helium%20NDT%20process%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Thermography</div>
+<div><span class="mc-badge b-orange">IR Camera</span><span class="mc-badge b-blue">Non-Contact</span></div>
+<div class="spec-row"><span class="spec-key">Passive IRT</span><span class="spec-val">natural heat → finding defects/leaks</span></div>
+<div class="spec-row"><span class="spec-key">Active IRT</span><span class="spec-val">external heat source → Lock-in/Flash</span></div>
+<div class="spec-row"><span class="spec-key">Thermal Resolution</span><span class="spec-val">&lt;0.02°C (NETD)</span></div>
+<div class="spec-row"><span class="spec-key">Applications</span><span class="spec-val">CFRP delamination · electronics · construction</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 10878 · ASTM E1211<br>
+<b>Manufacturers:</b> <a href="https://www.flir.com" target="_blank" style="color:var(--blue)">FLIR (Teledyne)</a> · <a href="https://www.hamamatsu.com" target="_blank" style="color:var(--blue)">Fluke Thermal</a></div>
+<a href="https://www.youtube.com/results?search_query=thermography%20infrared%20NDT%20inspection" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div>
+
+<div style="margin-top:14px"><table>
+<tr><th>Method</th><th>Abbrev.</th><th>Detects</th><th>Materials</th><th>Minimum Defect</th><th>Standard</th></tr>
+<tr><td>Visual Testing</td><td>VT</td><td>surface defects</td><td>any</td><td>0.5mm</td><td>ISO 17637</td></tr>
+<tr><td>Liquid Penetrant</td><td>PT</td><td>surface cracks</td><td>non-porous</td><td>0.1mm</td><td>ASTM E165</td></tr>
+<tr><td>Magnetic Particle</td><td>MT</td><td>surface + near-surface</td><td>ferromagnetic only</td><td>0.1mm</td><td>ASTM E709</td></tr>
+<tr><td>Ultrasonic</td><td>UT</td><td>inside the part</td><td>solids</td><td>0.5mm (PAUT: 0.2mm)</td><td>ISO 17640</td></tr>
+<tr><td>Radiography</td><td>RT</td><td>internal + volumetric</td><td>any</td><td>2% thickness</td><td>ISO 17636</td></tr>
+<tr><td>Eddy Current</td><td>ET</td><td>surface · coating</td><td>conductors</td><td>0.2mm</td><td>ISO 15549</td></tr>
+<tr><td>Helium Leak</td><td>LT</td><td>micro-leaks</td><td>sealed assemblies</td><td>10⁻¹⁰ mbar·L/s</td><td>ISO 20485</td></tr>
+</table></div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">⚡ NDT — Certification and Advanced Methods</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ASNT / EN ISO 9712 — Certification Levels</div>
+<div><span class="mc-badge b-red">Level I · II · III</span><span class="mc-badge b-blue">SNT-TC-1A</span></div>
+<div class="spec-row"><span class="spec-key">Level I</span><span class="spec-val">testing under supervision · execution only</span></div>
+<div class="spec-row"><span class="spec-key">Level II</span><span class="spec-val">independent · interpretation · reports · certifying others</span></div>
+<div class="spec-row"><span class="spec-key">Level III</span><span class="spec-val">methods · training · specifications · discipline owner</span></div>
+<div class="spec-row"><span class="spec-key">ASNT SNT-TC-1A</span><span class="spec-val">US — company-based (Internal Certification)</span></div>
+<div class="spec-row"><span class="spec-key">EN ISO 9712</span><span class="spec-val">Europe/Israel — external certification!</span></div>
+<div class="spec-row"><span class="spec-key">NAS 410</span><span class="spec-val">aerospace — stricter than SNT</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Israeli defense industry: EN ISO 9712 preferred</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">PAUT — Phased Array UT</div>
+<div><span class="mc-badge b-blue">Sectorial Scan</span><span class="mc-badge b-orange">S-Scan / E-Scan</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">16-128 elements → beam steering</span></div>
+<div class="spec-row"><span class="spec-key">S-Scan (Sectorial)</span><span class="spec-val">angle sweep 40-70° → fan-shaped image</span></div>
+<div class="spec-row"><span class="spec-key">E-Scan (Linear)</span><span class="spec-val">electronic linear scan</span></div>
+<div class="spec-row"><span class="spec-key">TOFD</span><span class="spec-val">Time of Flight Diffraction + PAUT = best combination</span></div>
+<div class="spec-row"><span class="spec-key">Reference Block</span><span class="spec-val">SDH / FBH / Notch — sensitivity calibration</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Certified substitute for RT on welds! · ASME VIII Div.1<br>
+<b>Manufacturers:</b> <a href="https://www.olympus-ims.com" target="_blank" style="color:var(--blue)">Olympus OmniScan</a> · <a href="https://www.eddyfi.com" target="_blank" style="color:var(--blue)">Eddyfi M2M</a></div>
+<a href="https://www.youtube.com/results?search_query=phased%20array%20ultrasonic%20testing%20PAUT%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AUT — Automated Ultrasonic</div>
+<div><span class="mc-badge b-green">↑Consistency</span><span class="mc-badge b-blue">ZONE Discrimination</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">oil/gas piping · ship welding · spokes</span></div>
+<div class="spec-row"><span class="spec-key">Zone Method</span><span class="spec-val">dividing thickness into zones · focus per zone</span></div>
+<div class="spec-row"><span class="spec-key">Speed</span><span class="spec-val">200-600mm/sec · vs. Manual 50mm</span></div>
+<div class="spec-row"><span class="spec-key">TOFD+PAUT</span><span class="spec-val">two techniques combined = full coverage</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.zetec.com" target="_blank" style="color:var(--blue)">Zetec</a> · <a href="https://www.applus.com" target="_blank" style="color:var(--blue)">Applus RTD</a></div>
+<a href="https://www.youtube.com/results?search_query=automated%20ultrasonic%20testing%20pipeline%20inspection" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">POD — Probability of Detection</div>
+<div><span class="mc-badge b-red">a90/95</span><span class="mc-badge b-orange">Aerospace Requirement</span></div>
+<div class="spec-row"><span class="spec-key">POD</span><span class="spec-val">probability of detecting a defect of a given size</span></div>
+<div class="spec-row"><span class="spec-key">a90/95</span><span class="spec-val">defect size → POD 90% at 95% confidence</span></div>
+<div class="spec-row"><span class="spec-key">Hit/Miss</span><span class="spec-val">60-90 defects for statistical analysis</span></div>
+<div class="spec-row"><span class="spec-key">MIL-HDBK-1823A</span><span class="spec-val">USAF guide for POD</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Retire Limit = a90/95 divided by Safety Factor<br>Required before deploying a new NDT method in aerospace!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">MFL — Magnetic Flux Leakage</div>
+<div><span class="mc-badge b-blue">Piping · Tanks</span><span class="mc-badge b-orange">Online</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">strong magnetic field → flux leaks at a defect</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">underground oil/gas piping · storage tanks</span></div>
+<div class="spec-row"><span class="spec-key">ILI Pig</span><span class="spec-val">In-Line Inspection — while flowing!</span></div>
+<div class="spec-row"><span class="spec-key">Minimum Corrosion</span><span class="spec-val">5-10% wall thickness</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Manufacturers:</b> <a href="https://www.tdwilliamson.com" target="_blank" style="color:var(--blue)">T.D. Williamson</a> · <a href="https://www.rosen-group.com" target="_blank" style="color:var(--blue)">ROSEN</a></div>
+<a href="https://www.youtube.com/results?search_query=magnetic%20flux%20leakage%20MFL%20pipeline%20inspection" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AE — Acoustic Emission</div>
+<div><span class="mc-badge b-purple">Passive</span><span class="mc-badge b-blue">↑Real-Time Active</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">crack growth → acoustic wave → sensor</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">continuous monitoring under load!</span></div>
+<div class="spec-row"><span class="spec-key">Source Location</span><span class="spec-val">Triangulation from 4+ sensors</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">pressure testing · CFRP tanks · bearings</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ASTM E1316 / EN 13554<br>
+<b>Manufacturers:</b> <a href="https://www.mistrasgroup.com" target="_blank" style="color:var(--blue)">MISTRAS</a> · <a href="https://www.physicalacoustics.com" target="_blank" style="color:var(--blue)">PAC (Physical Acoustics)</a></div>
+<a href="https://www.youtube.com/results?search_query=acoustic%20emission%20testing%20AE%20NDT%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div></div></div></div>
+
+<div id="insp-spc" class="insp-sec">
+<div class="card"><div class="ctitle">📊 SPC — Statistical Process Control</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Cp / Cpk — Process Capability</div>
+<div><span class="mc-badge b-green">Cpk≥1.33</span><span class="mc-badge b-red">Cpk&lt;1.0 problem</span></div>
+<div class="spec-row"><span class="spec-key">Cp</span><span class="spec-val">Cp = (USL-LSL) / 6σ</span></div>
+<div class="spec-row"><span class="spec-key">Cpk</span><span class="spec-val">Cpk = min[(USL-μ)/3σ, (μ-LSL)/3σ]</span></div>
+<div class="spec-row"><span class="spec-key">Cpk ≥ 1.67</span><span class="spec-val">aerospace/medical — 5 sigma</span></div>
+<div class="spec-row"><span class="spec-key">Cpk ≥ 1.33</span><span class="spec-val">general industry — 4 sigma</span></div>
+<div class="spec-row"><span class="spec-key">Cpk ≥ 1.00</span><span class="spec-val">minimum acceptable (limited)</span></div>
+<div class="spec-row"><span class="spec-key">Pp / Ppk</span><span class="spec-val">like Cp/Cpk but σ=all data</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Cp = potential · Cpk = actual performance (includes shift)</div>
+<a href="https://www.youtube.com/results?search_query=process%20capability%20Cp%20Cpk%20explained%20SPC" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Control Charts</div>
+<div><span class="mc-badge b-blue">X̄-R · X̄-S · p · c · u</span></div>
+<div class="spec-row"><span class="spec-key">X̄-R Chart</span><span class="spec-val">mean+range · n=2-10</span></div>
+<div class="spec-row"><span class="spec-key">X̄-S Chart</span><span class="spec-val">mean+standard deviation · n>10</span></div>
+<div class="spec-row"><span class="spec-key">X-MR (ImR)</span><span class="spec-val">individual value+moving range · n=1</span></div>
+<div class="spec-row"><span class="spec-key">p Chart</span><span class="spec-val">defect rate (Attribute)</span></div>
+<div class="spec-row"><span class="spec-key">c / u Chart</span><span class="spec-val">number of defects / defects per unit</span></div>
+<div class="spec-row"><span class="spec-key">UCL/LCL</span><span class="spec-val">X̄ ± 3σ (99.73% in control)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Western Electric Rules: 8 rules for detecting anomalies</div>
+<a href="https://www.youtube.com/results?search_query=control%20chart%20SPC%20X-bar%20R%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Western Electric Rules — 8 Rules</div>
+<div><span class="mc-badge b-red">Special Cause</span></div>
+<div class="spec-row"><span class="spec-key">Rule 1</span><span class="spec-val">a point outside 3σ (UCL/LCL)</span></div>
+<div class="spec-row"><span class="spec-key">Rule 2</span><span class="spec-val">9 consecutive points on the same side of CL</span></div>
+<div class="spec-row"><span class="spec-key">Rule 3</span><span class="spec-val">6 consecutive points trending up/down</span></div>
+<div class="spec-row"><span class="spec-key">Rule 4</span><span class="spec-val">14 points alternating up/down</span></div>
+<div class="spec-row"><span class="spec-key">Rule 5</span><span class="spec-val">2 of 3 outside 2σ (same side)</span></div>
+<div class="spec-row"><span class="spec-key">Rule 6</span><span class="spec-val">4 of 5 outside 1σ (same side)</span></div>
+<div class="spec-row"><span class="spec-key">Rule 7</span><span class="spec-val">15 consecutive points within ±1σ (both sides)</span></div>
+<div class="spec-row"><span class="spec-key">Rule 8</span><span class="spec-val">8 consecutive points outside ±1σ (both sides)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Any rule triggered = suspected special cause → investigate immediately!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Six Sigma</div>
+<div><span class="mc-badge b-green">DMAIC</span><span class="mc-badge b-blue">3.4 PPM</span></div>
+<div class="spec-row"><span class="spec-key">Define</span><span class="spec-val">problem definition · CTQ · Project Charter</span></div>
+<div class="spec-row"><span class="spec-key">Measure</span><span class="spec-val">measurement · Baseline · MSA · Gage R&amp;R</span></div>
+<div class="spec-row"><span class="spec-key">Analyze</span><span class="spec-val">Root Cause · Fishbone · Pareto · DOE</span></div>
+<div class="spec-row"><span class="spec-key">Improve</span><span class="spec-val">solution · Pilot · Validation</span></div>
+<div class="spec-row"><span class="spec-key">Control</span><span class="spec-val">Control Plan · SPC · sustaining improvement</span></div>
+<div class="spec-row"><span class="spec-key">6σ Performance</span><span class="spec-val">3.4 PPM · Cpk = 2.0</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">DPMO = Defects Per Million Opportunities</div>
+<a href="https://www.youtube.com/results?search_query=six%20sigma%20explained%20DMAIC" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div>
+
+<div style="margin-top:14px">
+<table><tr><th>Sigma Level</th><th>Cpk</th><th>DPMO</th><th>% Good</th><th>Interpretation</th></tr>
+<tr><td>1σ</td><td>0.33</td><td>691,462</td><td>30.9%</td><td>chaos</td></tr>
+<tr><td>2σ</td><td>0.67</td><td>308,538</td><td>69.1%</td><td>poor</td></tr>
+<tr><td>3σ</td><td>1.00</td><td>66,807</td><td>93.3%</td><td>minimum</td></tr>
+<tr><td style="color:var(--green)">4σ</td><td style="color:var(--green)">1.33</td><td style="color:var(--green)">6,210</td><td style="color:var(--green)">99.38%</td><td style="color:var(--green)">good industrial</td></tr>
+<tr><td style="color:var(--blue)">5σ</td><td style="color:var(--blue)">1.67</td><td style="color:var(--blue)">233</td><td style="color:var(--blue)">99.977%</td><td style="color:var(--blue)">aerospace/medical</td></tr>
+<tr><td style="color:var(--orange)">6σ</td><td style="color:var(--orange)">2.00</td><td style="color:var(--orange)">3.4</td><td style="color:var(--orange)">99.9997%</td><td style="color:var(--orange)">Six Sigma Goal</td></tr>
+</table></div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">📊 Additional Statistical Tools</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Normality Test</div>
+<div><span class="mc-badge b-blue">Anderson-Darling</span><span class="mc-badge b-orange">Shapiro-Wilk</span></div>
+<div class="spec-row"><span class="spec-key">Anderson-Darling</span><span class="spec-val">p&gt;0.05 → normal (fail to reject H0)</span></div>
+<div class="spec-row"><span class="spec-key">Shapiro-Wilk</span><span class="spec-val">n&lt;50 — preferred for small samples</span></div>
+<div class="spec-row"><span class="spec-key">Histogram</span><span class="spec-val">visual check — bell shape</span></div>
+<div class="spec-row"><span class="spec-key">Normal Probability Plot</span><span class="spec-val">points on a straight line → normal</span></div>
+<div class="spec-row"><span class="spec-key">If not normal</span><span class="spec-val">Box-Cox Transform · Weibull · Non-param</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Cp/Cpk assume normality! Always check first!<br>
+<b>Software:</b> <a href="https://www.minitab.com" target="_blank" style="color:var(--blue)">Minitab</a> · <a href="https://www.jmp.com" target="_blank" style="color:var(--blue)">JMP (SAS)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Fishbone / Ishikawa Diagram</div>
+<div><span class="mc-badge b-orange">Root Cause</span><span class="mc-badge b-blue">6M</span></div>
+<div class="spec-row"><span class="spec-key">Machine</span><span class="spec-val">equipment · maintenance · calibration</span></div>
+<div class="spec-row"><span class="spec-key">Method</span><span class="spec-val">method · process · work instructions</span></div>
+<div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">material · supplier · lot</span></div>
+<div class="spec-row"><span class="spec-key">Man</span><span class="spec-val">people · training · errors</span></div>
+<div class="spec-row"><span class="spec-key">Measurement</span><span class="spec-val">measurement · Gage R&amp;R</span></div>
+<div class="spec-row"><span class="spec-key">Mother Nature</span><span class="spec-val">environment · temp. · humidity</span></div>
+<a href="https://www.youtube.com/results?search_query=fishbone%20diagram%20ishikawa%20root%20cause%20analysis" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Pareto Analysis — 80/20</div>
+<div><span class="mc-badge b-green">80% Problems = 20% Causes</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">sort by frequency/cost/severity</span></div>
+<div class="spec-row"><span class="spec-key">Chart</span><span class="spec-val">bars + 80% cumulative line</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">prioritizing corrective actions · ↓maximum damage</span></div>
+<div class="spec-row"><span class="spec-key">Pareto of Pareto</span><span class="spec-val">2 levels — primary + secondary cause</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Always ask: "which 20% of causes drive 80% of the defects?"</div>
+<a href="https://www.youtube.com/results?search_query=pareto%20analysis%2080%2020%20rule%20quality" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DOE — Design of Experiments</div>
+<div><span class="mc-badge b-purple">Full/Fractional Factorial</span></div>
+<div class="spec-row"><span class="spec-key">Full Factorial</span><span class="spec-val">2ᵏ — all factor combinations</span></div>
+<div class="spec-row"><span class="spec-key">Fractional</span><span class="spec-val">2ᵏ⁻ᵖ — fewer runs</span></div>
+<div class="spec-row"><span class="spec-key">Taguchi</span><span class="spec-val">L9/L18 — Robust Design</span></div>
+<div class="spec-row"><span class="spec-key">Response Surface</span><span class="spec-val">optimization — Central Composite</span></div>
+<div class="spec-row"><span class="spec-key">Main Effects</span><span class="spec-val">Interaction Plots + ANOVA</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">DOE = finds critical factors ↑↑more efficient than One-at-a-time<br>
+<b>Software:</b> <a href="https://www.minitab.com" target="_blank" style="color:var(--blue)">Minitab</a> · <a href="https://www.statease.com" target="_blank" style="color:var(--blue)">Design-Expert</a></div>
+<a href="https://www.youtube.com/results?search_query=design%20of%20experiments%20DOE%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Hypothesis Testing</div>
+<div><span class="mc-badge b-blue">p-value</span><span class="mc-badge b-orange">H0 / H1</span></div>
+<div class="spec-row"><span class="spec-key">t-Test (means)</span><span class="spec-val">before/after improvement · 2 groups</span></div>
+<div class="spec-row"><span class="spec-key">F-Test / ANOVA</span><span class="spec-val">3+ means · multiple factors</span></div>
+<div class="spec-row"><span class="spec-key">Chi-Square</span><span class="spec-val">Attribute data · Contingency Table</span></div>
+<div class="spec-row"><span class="spec-key">α = 0.05</span><span class="spec-val">5% significance level — common</span></div>
+<div class="spec-row"><span class="spec-key">p &lt; α</span><span class="spec-val">reject H0 — ↑significant difference!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">"p&lt;0.05 → significant" = the difference is not due to chance</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">DPMO · Yield · RTY</div>
+<div><span class="mc-badge b-green">First Pass Yield</span><span class="mc-badge b-orange">Rolled Throughput</span></div>
+<div class="spec-row"><span class="spec-key">DPMO</span><span class="spec-val">Defects Per Million Opportunities</span></div>
+<div class="spec-row"><span class="spec-key">FPY</span><span class="spec-val">First Pass Yield = good first time/total</span></div>
+<div class="spec-row"><span class="spec-key">RTY</span><span class="spec-val">RTY = FPY₁ × FPY₂ × ... × FPYₙ</span></div>
+<div class="spec-row"><span class="spec-key">RTY Example</span><span class="spec-val">0.95×0.97×0.98 = 90.3% — surprising!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">RTY reveals hidden problems that FPY masks via Rework</div>
+</div>
+</div></div></div></div>
+
+<div id="insp-gagerr" class="insp-sec">
+<div class="card"><div class="ctitle">📐 Gage R&amp;R — MSA / Measurement System Analysis</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Gage R&amp;R — What Is It?</div>
+<div><span class="mc-badge b-blue">AIAG MSA 4th</span><span class="mc-badge b-green">%GR&amp;R &lt;10%</span></div>
+<div class="spec-row"><span class="spec-key">Repeatability</span><span class="spec-val">same measurement × same instrument × same operator</span></div>
+<div class="spec-row"><span class="spec-key">Reproducibility</span><span class="spec-val">same part × same instrument × different operators</span></div>
+<div class="spec-row"><span class="spec-key">GR&amp;R</span><span class="spec-val">√(EV² + AV²)</span></div>
+<div class="spec-row"><span class="spec-key">%GR&amp;R &lt;10%</span><span class="spec-val">✅ acceptable</span></div>
+<div class="spec-row"><span class="spec-key">%GR&amp;R 10-30%</span><span class="spec-val">⚠️ improvement recommended</span></div>
+<div class="spec-row"><span class="spec-key">%GR&amp;R &gt;30%</span><span class="spec-val">❌ not acceptable!</span></div>
+<a href="https://www.youtube.com/results?search_query=gage%20R&R%20study%20explained%20measurement%20system%20analysis" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">R&amp;R Study Design</div>
+<div><span class="mc-badge b-orange">10 Parts × 3 Operators × 2 Trials</span></div>
+<div class="spec-row"><span class="spec-key">Minimum Parts</span><span class="spec-val">10 (representative of the process)</span></div>
+<div class="spec-row"><span class="spec-key">Operators</span><span class="spec-val">2-3 (everyone who actually measures)</span></div>
+<div class="spec-row"><span class="spec-key">Trials</span><span class="spec-val">2-3 (random, blind)</span></div>
+<div class="spec-row"><span class="spec-key">NDC</span><span class="spec-val">Number of Distinct Categories ≥5</span></div>
+<div class="spec-row"><span class="spec-key">Methods</span><span class="spec-val">ANOVA / Average &amp; Range Method</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ANOVA = more precise · recommended by AIAG MSA 4th<br>
+<b>Software:</b> <a href="https://www.minitab.com" target="_blank" style="color:var(--blue)">Minitab</a> · <a href="https://www.qs-stat.com" target="_blank" style="color:var(--blue)">Q-DAS</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Bias · Linearity · Stability</div>
+<div><span class="mc-badge b-blue">Full MSA</span></div>
+<div class="spec-row"><span class="spec-key">Bias</span><span class="spec-val">difference between measured and true value</span></div>
+<div class="spec-row"><span class="spec-key">Linearity</span><span class="spec-val">Bias change across the measurement range</span></div>
+<div class="spec-row"><span class="spec-key">Stability</span><span class="spec-val">Bias change over time (drift)</span></div>
+<div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">≤ 10% of tolerance — mandatory!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Rule: Resolution ≤ 1/10 × Tolerance<br>Example: Tol=0.1mm → resolution ≤0.01mm</div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">📐 Extended MSA — Type 1 Study and Attribute Agreement</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Type 1 Study — Initial Tool Capability</div>
+<div><span class="mc-badge b-blue">Cg / Cgk</span><span class="mc-badge b-green">Before R&amp;R</span></div>
+<div class="spec-row"><span class="spec-key">What it is</span><span class="spec-val">50 repeated measurements × 1 operator × 1 part</span></div>
+<div class="spec-row"><span class="spec-key">Cg</span><span class="spec-val">Cg = 0.2 × T / (6 × σ_g)</span></div>
+<div class="spec-row"><span class="spec-key">Cgk</span><span class="spec-val">like Cg but includes bias from true value</span></div>
+<div class="spec-row"><span class="spec-key">Criterion</span><span class="spec-val">Cg ≥ 1.33 AND Cgk ≥ 1.33</span></div>
+<div class="spec-row"><span class="spec-key">When</span><span class="spec-val">before Gage R&amp;R · new tool · repair</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Type 1 = testing the tool itself! R&amp;R = tool + operator</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Attribute Agreement Analysis — AAA</div>
+<div><span class="mc-badge b-orange">Pass / Fail</span><span class="mc-badge b-blue">Visual Inspection</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">visual inspections · Go/NoGo · Welding VT</span></div>
+<div class="spec-row"><span class="spec-key">Structure</span><span class="spec-val">20-30 parts × 3 operators × 2 trials</span></div>
+<div class="spec-row"><span class="spec-key">Kappa</span><span class="spec-val">κ ≥ 0.75 = acceptable</span></div>
+<div class="spec-row"><span class="spec-key">Effectiveness</span><span class="spec-val">% agreement with Reference Standard</span></div>
+<div class="spec-row"><span class="spec-key">False Accept</span><span class="spec-val">worse than False Reject!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">AIAG MSA 4th ed. · cost of False Accept &gt;&gt; False Reject</div>
+<a href="https://www.youtube.com/results?search_query=attribute%20agreement%20analysis%20explained%20quality" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">R&amp;R Calculator — ANOVA Analysis</div>
+<div><span class="mc-badge b-purple">Variance Components</span></div>
+<div class="spec-row"><span class="spec-key">σ²_total</span><span class="spec-val">σ²_parts + σ²_repeatability + σ²_reproducibility</span></div>
+<div class="spec-row"><span class="spec-key">%EV</span><span class="spec-val">%EV = 100 × σ_repeatability / σ_total</span></div>
+<div class="spec-row"><span class="spec-key">%AV</span><span class="spec-val">%AV = 100 × σ_reproducibility / σ_total</span></div>
+<div class="spec-row"><span class="spec-key">%GR&amp;R</span><span class="spec-val">√(EV² + AV²) / (k × σ_total)</span></div>
+<div class="spec-row"><span class="spec-key">k</span><span class="spec-val">k=5.15 (99% conf) · k=6 (±3σ)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ANOVA = more accurate than Average&amp;Range Method<br>Detects Interaction between operator and part!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Resolution &amp; Discrimination</div>
+<div><span class="mc-badge b-green">Rule of 1:10</span><span class="mc-badge b-blue">NDC ≥ 5</span></div>
+<div class="spec-row"><span class="spec-key">Golden Rule</span><span class="spec-val">Resolution ≤ Tolerance / 10</span></div>
+<div class="spec-row"><span class="spec-key">NDC</span><span class="spec-val">ndc = 1.41 × (σ_parts / σ_grr)</span></div>
+<div class="spec-row"><span class="spec-key">NDC ≥ 5</span><span class="spec-val">tool can distinguish ≥5 categories</span></div>
+<div class="spec-row"><span class="spec-key">NDC = 1</span><span class="spec-val">the tool "can't see" variation between parts!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Example: Tol=0.1mm · tool Resolution=0.001mm ✅<br>tool Resolution=0.02mm → only 5 categories ⚠️</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Bias Study — Systematic Bias</div>
+<div><span class="mc-badge b-orange">Reference Part</span><span class="mc-badge b-blue">Traceable</span></div>
+<div class="spec-row"><span class="spec-key">Bias</span><span class="spec-val">X̄_measured - Reference_Value</span></div>
+<div class="spec-row"><span class="spec-key">Criterion</span><span class="spec-val">Bias % = |Bias| / T × 100 ≤ 5%</span></div>
+<div class="spec-row"><span class="spec-key">t-Test</span><span class="spec-val">is the Bias significant? (p&lt;0.05)</span></div>
+<div class="spec-row"><span class="spec-key">Bias Causes</span><span class="spec-val">wrong calibration · wrong Datum · temp.</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">The Reference part must be calibrated! ISO 17025 Traceability</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Linearity Study</div>
+<div><span class="mc-badge b-blue">Full Range</span><span class="mc-badge b-orange">Bias vs. Size</span></div>
+<div class="spec-row"><span class="spec-key">What it is</span><span class="spec-val">Bias change across the measurement range</span></div>
+<div class="spec-row"><span class="spec-key">Structure</span><span class="spec-val">5 reference parts × 12 measurements each</span></div>
+<div class="spec-row"><span class="spec-key">Linearity %</span><span class="spec-val">Slope × Process Variation / T × 100</span></div>
+<div class="spec-row"><span class="spec-key">Criterion</span><span class="spec-val">Linearity % ≤ 5%</span></div>
+<div class="spec-row"><span class="spec-key">Causes</span><span class="spec-val">worn Anvil · worn spring · electronics</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Old micrometer: ↑large linearity = insufficient calibration!</div>
+</div>
+</div></div></div></div>
+
+<div id="insp-sampling" class="insp-sec">
+<div class="card"><div class="ctitle">🎯 AQL &amp; Acceptance Sampling Plans</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AQL — Acceptable Quality Level</div>
+<div><span class="mc-badge b-blue">ISO 2859-1</span><span class="mc-badge b-orange">MIL-STD-1916</span></div>
+<div class="spec-row"><span class="spec-key">AQL 0.065</span><span class="spec-val">defense/aerospace — critical</span></div>
+<div class="spec-row"><span class="spec-key">AQL 0.25</span><span class="spec-val">medical/critical — minimum</span></div>
+<div class="spec-row"><span class="spec-key">AQL 1.0</span><span class="spec-val">most common — general industry</span></div>
+<div class="spec-row"><span class="spec-key">AQL 4.0</span><span class="spec-val">mass production — lower quality</span></div>
+<div class="spec-row"><span class="spec-key">Inspection Levels</span><span class="spec-val">I=reduced · II=normal · III=tightened</span></div>
+<a href="https://www.youtube.com/results?search_query=AQL%20acceptable%20quality%20level%20sampling%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Letter Code + Sample Size</div>
+<div><span class="mc-badge b-blue">ISO 2859-1 Table</span></div>
+<div class="spec-row"><span class="spec-key">N 2-8 → Code A</span><span class="spec-val">n=2</span></div>
+<div class="spec-row"><span class="spec-key">N 9-15 → Code B</span><span class="spec-val">n=3</span></div>
+<div class="spec-row"><span class="spec-key">N 51-90 → Code E</span><span class="spec-val">n=13</span></div>
+<div class="spec-row"><span class="spec-key">N 281-500 → Code H</span><span class="spec-val">n=50</span></div>
+<div class="spec-row"><span class="spec-key">N 1201-3200 → Code K</span><span class="spec-val">n=125</span></div>
+<div class="spec-row"><span class="spec-key">N &gt;500,000 → Code R</span><span class="spec-val">n=2000</span></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Switching Rules</div>
+<div><span class="mc-badge b-green">Normal → Tightened → Reduced</span></div>
+<div class="spec-row"><span class="spec-key">Normal → Tightened</span><span class="spec-val">2 of 5 lots rejected</span></div>
+<div class="spec-row"><span class="spec-key">Tightened → Normal</span><span class="spec-val">5 consecutive lots passed</span></div>
+<div class="spec-row"><span class="spec-key">Normal → Reduced</span><span class="spec-val">10 consecutive lots passed</span></div>
+<div class="spec-row"><span class="spec-key">Reduced → Normal</span><span class="spec-val">rejection / out-of-bounds score</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Tightened = larger n ← ↑inspection cost!</div>
+</div>
+</div>
+
+<div style="margin-top:14px">
+<div class="ctitle" style="font-size:14px">🧮 Quick AQL Calculator</div>
+<div class="cg">
+<div><label>Lot Size N</label><input type="number" id="aql-n" value="500" oninput="calcAQL()"></div>
+<div><label>AQL</label>
+<select id="aql-val" onchange="calcAQL()">
+<option value="0.065">0.065 — defense/aerospace</option>
+<option value="0.25">0.25 — critical</option>
+<option value="1.0" selected>1.0 — general</option>
+<option value="2.5">2.5 — standard</option>
+<option value="4.0">4.0 — mass production</option>
+</select></div>
+<div><label>Inspection Level</label>
+<select id="aql-level" onchange="calcAQL()">
+<option value="I">Level I — reduced</option>
+<option value="II" selected>Level II — normal</option>
+<option value="III">Level III — tightened</option>
+</select></div>
+</div>
+<div id="aql-result" class="res">—</div>
+</div>
+
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🎯 Advanced Sampling Methods</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Variables Sampling — ISO 3951</div>
+<div><span class="mc-badge b-blue">Quantitative vs. Attribute</span><span class="mc-badge b-green">Smaller n!</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">quantitative measurement → smaller n than Attribute</span></div>
+<div class="spec-row"><span class="spec-key">Example</span><span class="spec-val">AQL 1.0 N=500: Attribute n=50 · Variables n=18!</span></div>
+<div class="spec-row"><span class="spec-key">Standard</span><span class="spec-val">ISO 3951-1/2/3 / MIL-STD-414</span></div>
+<div class="spec-row"><span class="spec-key">Condition</span><span class="spec-val">σ known (Z formula) or unknown (S formula)</span></div>
+<div class="spec-row"><span class="spec-key">Limitation</span><span class="spec-val">normality is mandatory!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">↓significant inspection cost for measurable parameters</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Zero Acceptance (c=0) — ANSI/ASQ Z1.4</div>
+<div><span class="mc-badge b-red">c=0</span><span class="mc-badge b-orange">↑↑Consumer Protection</span></div>
+<div class="spec-row"><span class="spec-key">Principle</span><span class="spec-val">0 defects acceptable — reject on the first one!</span></div>
+<div class="spec-row"><span class="spec-key">n for c=0</span><span class="spec-val">larger than standard AQL</span></div>
+<div class="spec-row"><span class="spec-key">Advantage</span><span class="spec-val">↑protection · simple · no Tightened switching</span></div>
+<div class="spec-row"><span class="spec-key">Use</span><span class="spec-val">medical · defense · life-safety risk</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Standard ISO 2859-1: c=1 · Zero Acceptance: c=0 (stricter)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Skip-Lot Sampling</div>
+<div><span class="mc-badge b-green">↓Inspection Cost</span><span class="mc-badge b-blue">Approved Supplier</span></div>
+<div class="spec-row"><span class="spec-key">ANSI/ASQ S1</span><span class="spec-val">inspect 1 of k lots</span></div>
+<div class="spec-row"><span class="spec-key">Entry</span><span class="spec-val">4 consecutive defect-free lots</span></div>
+<div class="spec-row"><span class="spec-key">k=2</span><span class="spec-val">inspect 50% of lots</span></div>
+<div class="spec-row"><span class="spec-key">Cancellation</span><span class="spec-val">1 defect → return to standard inspection</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Requires: approved AVL + clean history + ISO 9001</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">OC Curve — Plan Performance Curve</div>
+<div><span class="mc-badge b-purple">Producer/Consumer Risk</span></div>
+<div class="spec-row"><span class="spec-key">OC Curve</span><span class="spec-val">P(accept) vs. lot defect rate</span></div>
+<div class="spec-row"><span class="spec-key">α (Producer's Risk)</span><span class="spec-val">P(reject AQL lot) = 0.05 (5%)</span></div>
+<div class="spec-row"><span class="spec-key">β (Consumer's Risk)</span><span class="spec-val">P(accept LTPD lot) = 0.10 (10%)</span></div>
+<div class="spec-row"><span class="spec-key">LTPD</span><span class="spec-val">Lot Tolerance Percent Defective</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">↑n → sharper OC Curve → ↑protection · ↑cost<br>Always: ↑n = ↓β (consumer's risk)</div>
+</div>
+</div></div></div></div>
+
+<div id="insp-calibration" class="insp-sec">
+<div class="card"><div class="ctitle">⚖️ Calibration &amp; Traceability</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ISO/IEC 17025 — Laboratory Calibration</div>
+<div><span class="mc-badge b-red">Accreditation</span><span class="mc-badge b-blue">ILAC</span></div>
+<div class="spec-row"><span class="spec-key">Purpose</span><span class="spec-val">competence of calibration/testing labs</span></div>
+<div class="spec-row"><span class="spec-key">Traceability</span><span class="spec-val">chain to SI (BIPM/NIST/NMI)</span></div>
+<div class="spec-row"><span class="spec-key">Israel</span><span class="spec-val">ISRAC — the accreditation authority</span></div>
+<div class="spec-row"><span class="spec-key">Calibration Certificate</span><span class="spec-val">must include: U, k, conditions, date</span></div>
+<div class="spec-row"><span class="spec-key">Uncertainty U</span><span class="spec-val">U = k × uc (k=2 = 95% confidence)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Labs:</b> <a href="https://www.iai.co.il/nmli" target="_blank" style="color:var(--blue)">Israel Standards Institute NMLI</a> · <a href="https://www.nist.gov" target="_blank" style="color:var(--blue)">NIST</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Calibration Intervals</div>
+<div><span class="mc-badge b-orange">3-12 Months</span></div>
+<div class="spec-row"><span class="spec-key">Micrometer</span><span class="spec-val">12 months (moderate use)</span></div>
+<div class="spec-row"><span class="spec-key">Vernier</span><span class="spec-val">6-12 months</span></div>
+<div class="spec-row"><span class="spec-key">Dial Indicator</span><span class="spec-val">6 months</span></div>
+<div class="spec-row"><span class="spec-key">CMM</span><span class="spec-val">6-12 months + full ISO 10360</span></div>
+<div class="spec-row"><span class="spec-key">Gauge Blocks</span><span class="spec-val">12-24 months</span></div>
+<div class="spec-row"><span class="spec-key">Torque Wrench</span><span class="spec-val">12 months / 5000 uses</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 9001: interval based on history and usage load!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Calibration Management</div>
+<div><span class="mc-badge b-blue">Tags · System</span></div>
+<div class="spec-row"><span class="spec-key">Calibration Tag</span><span class="spec-val">tool number · date · next due date</span></div>
+<div class="spec-row"><span class="spec-key">Not Fit For Use</span><span class="spec-val">Out of Cal → ↑immediate isolation!</span></div>
+<div class="spec-row"><span class="spec-key">Software Management</span><span class="spec-val">Asset management · Reminder · History</span></div>
+<div class="spec-row"><span class="spec-key">Storage Conditions</span><span class="spec-val">20°C ±2°C · 40-60% RH · no vibration</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Software:</b> <a href="https://www.qsosoft.com" target="_blank" style="color:var(--blue)">QSO Calibration</a> · <a href="https://www.fluke.com/metcal" target="_blank" style="color:var(--blue)">Fluke MET/CAL</a></div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">⚖️ Measurement Uncertainty</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">GUM — Guide to Uncertainty</div>
+<div><span class="mc-badge b-blue">ISO/IEC Guide 98-3</span><span class="mc-badge b-orange">BIPM</span></div>
+<div class="spec-row"><span class="spec-key">GUM</span><span class="spec-val">Guide to Uncertainty in Measurement</span></div>
+<div class="spec-row"><span class="spec-key">Type A</span><span class="spec-val">statistical — repeated measurements (σ/√n)</span></div>
+<div class="spec-row"><span class="spec-key">Type B</span><span class="spec-val">other information — certificate · spec · literature</span></div>
+<div class="spec-row"><span class="spec-key">uc (Combined)</span><span class="spec-val">uc = √(uA² + uB1² + uB2² + ...)</span></div>
+<div class="spec-row"><span class="spec-key">U (Expanded)</span><span class="spec-val">U = k × uc · k=2 → 95% coverage</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Result: x = X ± U [units], k=2, 95%<br>Example: 25.003 ± 0.004 mm, k=2</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Uncertainty Budget</div>
+<div><span class="mc-badge b-orange">Contributions</span></div>
+<div class="spec-row"><span class="spec-key">u_calibration</span><span class="spec-val">from the calibration certificate (Type B)</span></div>
+<div class="spec-row"><span class="spec-key">u_repeatability</span><span class="spec-val">Type A — √(σ²/n)</span></div>
+<div class="spec-row"><span class="spec-key">u_resolution</span><span class="spec-val">±0.5 × resolution / √3</span></div>
+<div class="spec-row"><span class="spec-key">u_temperature</span><span class="spec-val">CTE × ΔT × L / √3</span></div>
+<div class="spec-row"><span class="spec-key">u_cosine</span><span class="spec-val">Cosine Error = L(1-cosθ)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Excel budget sheet: each contribution → uc → U<br>Requirement: U ≤ T/4 (Quarter Rule)</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Calibration Hierarchy</div>
+<div><span class="mc-badge b-blue">SI → NMI → Reference → Working</span></div>
+<div class="spec-row"><span class="spec-key">SI (International)</span><span class="spec-val">BIPM Paris — world reference</span></div>
+<div class="spec-row"><span class="spec-key">NMI (National)</span><span class="spec-val">NIST/NPL/PTB/NMLI Israel</span></div>
+<div class="spec-row"><span class="spec-key">Accredited Lab</span><span class="spec-val">ISO 17025 · ILAC mutual recognition</span></div>
+<div class="spec-row"><span class="spec-key">Reference Std</span><span class="spec-val">internal lab — Gauge Blocks Grade 0</span></div>
+<div class="spec-row"><span class="spec-key">Working Std</span><span class="spec-val">shop-floor tools — Grade 1/2</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Every level adds uncertainty — the Traceability chain!</div>
+<a href="https://www.youtube.com/results?search_query=calibration%20hierarchy%20traceability%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">TUR — Test Uncertainty Ratio</div>
+<div><span class="mc-badge b-green">TUR ≥ 4:1</span><span class="mc-badge b-blue">Quarter Rule</span></div>
+<div class="spec-row"><span class="spec-key">TUR</span><span class="spec-val">TUR = Tolerance / (2 × U_calibration)</span></div>
+<div class="spec-row"><span class="spec-key">TUR ≥ 4:1</span><span class="spec-val">✅ acceptable for most industries</span></div>
+<div class="spec-row"><span class="spec-key">TUR ≥ 10:1</span><span class="spec-val">defense/aerospace</span></div>
+<div class="spec-row"><span class="spec-key">TUR &lt; 4:1</span><span class="spec-val">⚠️ consider Guard Banding</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Guard Banding = narrowing the test tolerance by U<br>ANSI/NCSL Z540.3: minimum TUR 4:1</div>
+</div>
+</div></div></div></div>
+
+<div id="insp-incoming" class="insp-sec">
+<div class="card"><div class="ctitle">📦 Incoming Quality Control</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">IQC — Incoming Quality Control</div>
+<div><span class="mc-badge b-blue">Inspection Plan</span><span class="mc-badge b-orange">COC · Report</span></div>
+<div class="spec-row"><span class="spec-key">Step 1: Documentation</span><span class="spec-val">COC · Mill Cert · PO · Spec</span></div>
+<div class="spec-row"><span class="spec-key">Step 2: Identification</span><span class="spec-val">material · grade · Heat Number</span></div>
+<div class="spec-row"><span class="spec-key">Step 3: Measurement</span><span class="spec-val">critical dimensions · AQL sampling</span></div>
+<div class="spec-row"><span class="spec-key">Step 4: Properties</span><span class="spec-val">hardness · RM/Rp0 (if required)</span></div>
+<div class="spec-row"><span class="spec-key">Step 5: Decision</span><span class="spec-val">Accept / Reject / MRB</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">MRB = Material Review Board — non-conforming</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">PPAP — Automotive Industry</div>
+<div><span class="mc-badge b-blue">AIAG 4th Edition</span><span class="mc-badge b-red">Level 1-5</span></div>
+<div class="spec-row"><span class="spec-key">Level 1</span><span class="spec-val">Part Submission Warrant only</span></div>
+<div class="spec-row"><span class="spec-key">Level 2</span><span class="spec-val">PSW + samples + limited documentation</span></div>
+<div class="spec-row"><span class="spec-key">Level 3</span><span class="spec-val">PSW + samples + full documentation (most common)</span></div>
+<div class="spec-row"><span class="spec-key">Level 4</span><span class="spec-val">as defined by the customer</span></div>
+<div class="spec-row"><span class="spec-key">Level 5</span><span class="spec-val">everything + supplier site visit</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">18 elements including: DFMEA, Control Plan, MSA, Cpk</div>
+<a href="https://www.youtube.com/results?search_query=PPAP%20production%20part%20approval%20process%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Mill Certificate</div>
+<div><span class="mc-badge b-green">EN 10204</span><span class="mc-badge b-blue">Type 2.1-3.2</span></div>
+<div class="spec-row"><span class="spec-key">Type 2.1</span><span class="spec-val">declaration of conformity — not specific</span></div>
+<div class="spec-row"><span class="spec-key">Type 2.2</span><span class="spec-val">non-specific tests per procedure</span></div>
+<div class="spec-row"><span class="spec-key">Type 3.1</span><span class="spec-val">specific tests + manufacturer's own approval</span></div>
+<div class="spec-row"><span class="spec-key">Type 3.2</span><span class="spec-val">3.1 + independent customer approval</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Aerospace/medical = 3.1 minimum! · NADCAP = 3.2<br>Check: Heat No. · Chemical · Mechanical · UTS/Rp0</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Non-Conformance</div>
+<div><span class="mc-badge b-red">NCR</span><span class="mc-badge b-orange">MRB · CAR</span></div>
+<div class="spec-row"><span class="spec-key">NCR</span><span class="spec-val">Non-Conformance Report — documentation</span></div>
+<div class="spec-row"><span class="spec-key">Disposition</span><span class="spec-val">Use-As-Is / Rework / Scrap / Return</span></div>
+<div class="spec-row"><span class="spec-key">CAR</span><span class="spec-val">Corrective Action Request — to the supplier</span></div>
+<div class="spec-row"><span class="spec-key">8D</span><span class="spec-val">8 Disciplines → Root Cause + Fix</span></div>
+<div class="spec-row"><span class="spec-key">SCAR</span><span class="spec-val">Supplier CAR — 30 days to respond</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Use-As-Is → requires engineering + customer approval!</div>
+</div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">📦 Supplier Management and Non-Conformances</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ASL / AVL — Approved Supplier List</div>
+<div><span class="mc-badge b-green">Approved Supplier List</span></div>
+<div class="spec-row"><span class="spec-key">ASL</span><span class="spec-val">Approved Supplier List — approved suppliers</span></div>
+<div class="spec-row"><span class="spec-key">AVL</span><span class="spec-val">Approved Vendor List — material suppliers</span></div>
+<div class="spec-row"><span class="spec-key">Entry to ASL</span><span class="spec-val">audit · first-article sampling · FAI</span></div>
+<div class="spec-row"><span class="spec-key">Supplier Scoring</span><span class="spec-val">OTD% · PPM · SCAR Rate · Audit</span></div>
+<div class="spec-row"><span class="spec-key">Removal</span><span class="spec-val">3 SCAR ← Hold → removal from AVL</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">AS9100/IATF: AVL documentation + annual update mandatory</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Dock-to-Stock — DTS</div>
+<div><span class="mc-badge b-green">No IQC Inspection</span><span class="mc-badge b-blue">Top Suppliers</span></div>
+<div class="spec-row"><span class="spec-key">Entry to DTS</span><span class="spec-val">12+ clean lots · Cpk≥1.67 · ISO 17025</span></div>
+<div class="spec-row"><span class="spec-key">Method</span><span class="spec-val">label scan · COC ← straight to warehouse</span></div>
+<div class="spec-row"><span class="spec-key">Periodic Check</span><span class="spec-val">1/20 lots — Random Audit</span></div>
+<div class="spec-row"><span class="spec-key">DTS Revocation</span><span class="spec-val">any finding → immediate return to IQC</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">↓IQC cost 70-80% · ↓Lead Time · ↑supplier trust</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">COC — Certificate of Conformance</div>
+<div><span class="mc-badge b-blue">Conformity Check</span><span class="mc-badge b-orange">Aerospace Mandatory</span></div>
+<div class="spec-row"><span class="spec-key">What to Check</span><span class="spec-val">P/N · Revision · Quantity · Heat/Lot No.</span></div>
+<div class="spec-row"><span class="spec-key">Spec</span><span class="spec-val">citation of specific standards (AMS/MIL/EN)</span></div>
+<div class="spec-row"><span class="spec-key">Signature</span><span class="spec-val">Quality Manager · date · stamp</span></div>
+<div class="spec-row"><span class="spec-key">Counterfeit</span><span class="spec-val">SAE AS5553 — counterfeit parts</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">⚠️ A falsified COC is a criminal offense in aerospace!<br>Check: CAGE Code · DUNS · AS9120 accreditation</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">SCAR — Supplier Corrective Action</div>
+<div><span class="mc-badge b-red">8D Response</span><span class="mc-badge b-orange">30 Days</span></div>
+<div class="spec-row"><span class="spec-key">D1-D3</span><span class="spec-val">team + problem + Containment → 24h</span></div>
+<div class="spec-row"><span class="spec-key">D4-D5</span><span class="spec-val">Root Cause + permanent fix → 14 days</span></div>
+<div class="spec-row"><span class="spec-key">D6-D7</span><span class="spec-val">effectiveness verification + recurrence prevention → 30 days</span></div>
+<div class="spec-row"><span class="spec-key">D8</span><span class="spec-val">team recognition + closure</span></div>
+<div class="spec-row"><span class="spec-key">Effectiveness</span><span class="spec-val">measured: 0 recurrence in 90 days</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Document evidence for every D! AS9100 requires evidence</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Supplier Rating</div>
+<div><span class="mc-badge b-green">A/B/C/D</span><span class="mc-badge b-blue">Supplier KPI</span></div>
+<div class="spec-row"><span class="spec-key">OTD</span><span class="spec-val">On-Time Delivery % · weight 30%</span></div>
+<div class="spec-row"><span class="spec-key">Quality PPM</span><span class="spec-val">Parts Per Million defective · weight 40%</span></div>
+<div class="spec-row"><span class="spec-key">SCAR Response</span><span class="spec-val">speed + quality of response · weight 20%</span></div>
+<div class="spec-row"><span class="spec-key">Audit Score</span><span class="spec-val">audit findings · weight 10%</span></div>
+<div class="spec-row"><span class="spec-key">A ≥ 90</span><span class="spec-val">Preferred · B=80-90 · C=70-80 · D&lt;70</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">D = Development Program → 90 days to improve or be replaced</div>
+</div>
+</div></div></div></div>
+
+<div id="insp-qstandards" class="insp-sec">
+<div class="card"><div class="ctitle">🏆 Quality Management Standards</div>
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ISO 9001:2015 — The Foundation</div>
+<div><span class="mc-badge b-blue">7 Principles</span><span class="mc-badge b-green">Cross-Industry</span></div>
+<div class="spec-row"><span class="spec-key">Context</span><span class="spec-val">4: organizational context · risk management</span></div>
+<div class="spec-row"><span class="spec-key">Leadership</span><span class="spec-val">5: policy · management responsibility</span></div>
+<div class="spec-row"><span class="spec-key">Planning</span><span class="spec-val">6: risks · quality objectives</span></div>
+<div class="spec-row"><span class="spec-key">Operation</span><span class="spec-val">8: production · process control</span></div>
+<div class="spec-row"><span class="spec-key">Evaluation</span><span class="spec-val">9: measurement · internal audit</span></div>
+<div class="spec-row"><span class="spec-key">Improvement</span><span class="spec-val">10: non-conformities · Corrective Action</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">PDCA: Plan → Do → Check → Act<br>
+<b>Certification Bodies:</b> <a href="https://www.sii.org.il" target="_blank" style="color:var(--blue)">Israel Standards Institute</a> · <a href="https://www.bsigroup.com" target="_blank" style="color:var(--blue)">BSI</a> · <a href="https://www.tuv.com" target="_blank" style="color:var(--blue)">TÜV</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">AS9100 Rev D — Aerospace</div>
+<div><span class="mc-badge b-red">IAQG</span><span class="mc-badge b-blue">9001 + Additions</span></div>
+<div class="spec-row"><span class="spec-key">Basis</span><span class="spec-val">ISO 9001 + aerospace requirements</span></div>
+<div class="spec-row"><span class="spec-key">Key Add-ons</span><span class="spec-val">Configuration Management, FAI, AS9102</span></div>
+<div class="spec-row"><span class="spec-key">Risk</span><span class="spec-val">Product &amp; Process Risk Management</span></div>
+<div class="spec-row"><span class="spec-key">First Article</span><span class="spec-val">FAI mandatory for every change!</span></div>
+<div class="spec-row"><span class="spec-key">OASIS DB</span><span class="spec-val">database of supplier certifications</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Certification Bodies:</b> <a href="https://www.dnv.com" target="_blank" style="color:var(--blue)">DNV</a> · <a href="https://www.bsigroup.com" target="_blank" style="color:var(--blue)">BSI</a> · <a href="https://www.tuv.com" target="_blank" style="color:var(--blue)">TÜV SÜD</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">IATF 16949 — Automotive Industry</div>
+<div><span class="mc-badge b-blue">IATF</span><span class="mc-badge b-orange">9001 + Core Tools</span></div>
+<div class="spec-row"><span class="spec-key">Core Tools</span><span class="spec-val">APQP · PPAP · FMEA · MSA · SPC</span></div>
+<div class="spec-row"><span class="spec-key">APQP</span><span class="spec-val">Advanced Product Quality Planning</span></div>
+<div class="spec-row"><span class="spec-key">Control Plan</span><span class="spec-val">full production control plan</span></div>
+<div class="spec-row"><span class="spec-key">Customer Specific</span><span class="spec-val">additional VW / Ford / GM / Toyota requirements</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Certification Bodies:</b> <a href="https://www.tuv.com" target="_blank" style="color:var(--blue)">TÜV</a> · <a href="https://www.bvqi.com" target="_blank" style="color:var(--blue)">Bureau Veritas</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">NADCAP — Special Processes</div>
+<div><span class="mc-badge b-red">PRI</span><span class="mc-badge b-orange">Aerospace</span></div>
+<div class="spec-row"><span class="spec-key">Special Processes</span><span class="spec-val">welding · NDT · coatings · heat treatment</span></div>
+<div class="spec-row"><span class="spec-key">AC7004</span><span class="spec-val">Welding Audit Checklist</span></div>
+<div class="spec-row"><span class="spec-key">AC7114</span><span class="spec-val">NDT Audit Checklist</span></div>
+<div class="spec-row"><span class="spec-key">AC7108</span><span class="spec-val">Heat Treatment</span></div>
+<div class="spec-row"><span class="spec-key">Merit Status</span><span class="spec-val">12/18 months for top-performing companies</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Required for Boeing/Airbus/Lockheed/Rafael!<br>
+<b>Management:</b> <a href="https://www.pri-network.org" target="_blank" style="color:var(--blue)">PRI (Performance Review Institute)</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">ISO 13485 — Medical Devices</div>
+<div><span class="mc-badge b-blue">MDR 2017/745</span><span class="mc-badge b-red">FDA 21 CFR 820</span></div>
+<div class="spec-row"><span class="spec-key">Design Control</span><span class="spec-val">DHF, DMR, DHR — full documentation</span></div>
+<div class="spec-row"><span class="spec-key">Risk Management</span><span class="spec-val">ISO 14971 — medical devices</span></div>
+<div class="spec-row"><span class="spec-key">Sterility</span><span class="spec-val">ISO 11135 / 11137 (sterilization)</span></div>
+<div class="spec-row"><span class="spec-key">Traceability</span><span class="spec-val">UDI — unique device identifier</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">
+<b>Certification Bodies:</b> <a href="https://www.tuv.com" target="_blank" style="color:var(--blue)">TÜV Rheinland</a> · <a href="https://www.bsigroup.com" target="_blank" style="color:var(--blue)">BSI</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">8D — Problem Solving</div>
+<div><span class="mc-badge b-orange">8 Steps</span><span class="mc-badge b-blue">Root Cause</span></div>
+<div class="spec-row"><span class="spec-key">D1</span><span class="spec-val">form the team</span></div>
+<div class="spec-row"><span class="spec-key">D2</span><span class="spec-val">define the problem (Is / Is Not)</span></div>
+<div class="spec-row"><span class="spec-key">D3</span><span class="spec-val">immediate Containment Action</span></div>
+<div class="spec-row"><span class="spec-key">D4</span><span class="spec-val">Root Cause Analysis (5 Why, Ishikawa)</span></div>
+<div class="spec-row"><span class="spec-key">D5-D6</span><span class="spec-val">permanent solution + verification</span></div>
+<div class="spec-row"><span class="spec-key">D7-D8</span><span class="spec-val">recurrence prevention + team recognition</span></div>
+<a href="https://www.youtube.com/results?search_query=8D%20problem%20solving%20process%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🏆 Core Quality Tools — APQP · FMEA · Control Plan</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">APQP — Advanced Product Quality Planning</div>
+<div><span class="mc-badge b-blue">5 Phases</span><span class="mc-badge b-orange">Automotive</span></div>
+<div class="spec-row"><span class="spec-key">Phase 1</span><span class="spec-val">Plan &amp; Define — VOC · CTQ · Targets</span></div>
+<div class="spec-row"><span class="spec-key">Phase 2</span><span class="spec-val">Product Design — DFMEA · DVP&amp;R</span></div>
+<div class="spec-row"><span class="spec-key">Phase 3</span><span class="spec-val">Process Design — PFMEA · Control Plan</span></div>
+<div class="spec-row"><span class="spec-key">Phase 4</span><span class="spec-val">Product Validation — PPAP · Cpk</span></div>
+<div class="spec-row"><span class="spec-key">Phase 5</span><span class="spec-val">Feedback · Corrective Action · Launch</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">AIAG APQP Manual 2nd Edition</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">FMEA — Failure Mode &amp; Effects Analysis</div>
+<div><span class="mc-badge b-red">DFMEA · PFMEA</span><span class="mc-badge b-orange">RPN · AP</span></div>
+<div class="spec-row"><span class="spec-key">DFMEA</span><span class="spec-val">Design FMEA — design flaws</span></div>
+<div class="spec-row"><span class="spec-key">PFMEA</span><span class="spec-val">Process FMEA — manufacturing flaws</span></div>
+<div class="spec-row"><span class="spec-key">RPN (Old)</span><span class="spec-val">Severity × Occurrence × Detection</span></div>
+<div class="spec-row"><span class="spec-key">AP (AIAG 2019)</span><span class="spec-val">Action Priority H/M/L — replaces RPN</span></div>
+<div class="spec-row"><span class="spec-key">Severity 9-10</span><span class="spec-val">action required even at low probability!</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">AIAG-VDA FMEA 1st Ed. (2019): AP replaces RPN<br>
+<b>Software:</b> <a href="https://www.isograph.com" target="_blank" style="color:var(--blue)">Isograph</a> · <a href="https://www.plato.de" target="_blank" style="color:var(--blue)">PLATO e1ns</a></div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Control Plan</div>
+<div><span class="mc-badge b-blue">3 Versions</span><span class="mc-badge b-green">Prototype/Pre/Production</span></div>
+<div class="spec-row"><span class="spec-key">Header</span><span class="spec-val">P/N · Rev · Customer · PFMEA Link</span></div>
+<div class="spec-row"><span class="spec-key">Main Columns</span><span class="spec-val">Characteristic · Spec · Method · Size · Freq</span></div>
+<div class="spec-row"><span class="spec-key">Control Method</span><span class="spec-val">SPC · Attribute Check · Go/NoGo · Visual</span></div>
+<div class="spec-row"><span class="spec-key">Reaction Plan</span><span class="spec-val">what to do on deviation · Containment</span></div>
+<div class="spec-row"><span class="spec-key">Special Char.</span><span class="spec-val">◆ KPC (Key Product) · ★ KCC (Key Control)</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">Control Plan = "production constitution" — mandatory update for any change</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">5 Why</div>
+<div><span class="mc-badge b-orange">Toyota Method</span><span class="mc-badge b-blue">Root Cause</span></div>
+<div class="spec-row"><span class="spec-key">Why 1</span><span class="spec-val">why did the problem occur?</span></div>
+<div class="spec-row"><span class="spec-key">Why 2</span><span class="spec-val">why did Why 1 happen?</span></div>
+<div class="spec-row"><span class="spec-key">Why 3-5</span><span class="spec-val">continue until the real root cause</span></div>
+<div class="spec-row"><span class="spec-key">Root Cause</span><span class="spec-val">the Why you can't continue past = Root Cause</span></div>
+<div class="spec-row"><span class="spec-key">Rule</span><span class="spec-val">ask "why" not "who" — ↓blame</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">5 Why + Fishbone = the strongest combination for Root Cause!</div>
+<a href="https://www.youtube.com/results?search_query=5%20why%20root%20cause%20analysis%20explained" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Risk Management</div>
+<div><span class="mc-badge b-red">ISO 31000</span><span class="mc-badge b-blue">ISO 14971 (Medical)</span></div>
+<div class="spec-row"><span class="spec-key">Risk = S × P</span><span class="spec-val">Severity × Probability</span></div>
+<div class="spec-row"><span class="spec-key">Risk Matrix</span><span class="spec-val">3×3 or 5×5 · High/Med/Low</span></div>
+<div class="spec-row"><span class="spec-key">ALARP</span><span class="spec-val">As Low As Reasonably Practicable</span></div>
+<div class="spec-row"><span class="spec-key">Residual Risk</span><span class="spec-val">after mitigation — must be documented</span></div>
+<div class="spec-row"><span class="spec-key">Risk Register</span><span class="spec-val">live updates + Owner + Due Date</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 9001:2015 = Risk-Based Thinking is mandatory!</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Audit — Quality Audit</div>
+<div><span class="mc-badge b-blue">1st/2nd/3rd Party</span><span class="mc-badge b-orange">ISO 19011</span></div>
+<div class="spec-row"><span class="spec-key">1st Party</span><span class="spec-val">internal audit — Internal Audit</span></div>
+<div class="spec-row"><span class="spec-key">2nd Party</span><span class="spec-val">customer audits supplier — Supplier Audit</span></div>
+<div class="spec-row"><span class="spec-key">3rd Party</span><span class="spec-val">external body — ISO/AS9100 certification</span></div>
+<div class="spec-row"><span class="spec-key">Finding Types</span><span class="spec-val">Major / Minor / Observation / OFI</span></div>
+<div class="spec-row"><span class="spec-key">Major</span><span class="spec-val">→ 30-day CAR · ↓certification risk</span></div>
+<div style="font-size:11px;margin-top:6px;color:var(--muted)">ISO 19011 = guide for management system audits</div>
+<a href="https://www.youtube.com/results?search_query=quality%20audit%20process%20explained%20ISO" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">&#9654; YouTube</a></div>
+</div></div></div></div>
+
+<div id="insp-calc_qc" class="insp-sec">
+<div class="card"><div class="ctitle">🧮 Quality Calculators</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Cpk Calculator — Process Capability</div>
+<div class="cg">
+<div><label>USL (upper limit)</label><input type="number" id="cpk-usl" value="10.05" step="0.001" oninput="calcCpk()"></div>
+<div><label>LSL (lower limit)</label><input type="number" id="cpk-lsl" value="9.95" step="0.001" oninput="calcCpk()"></div>
+<div><label>Process Mean μ</label><input type="number" id="cpk-mean" value="10.01" step="0.001" oninput="calcCpk()"></div>
+<div><label>Standard Deviation σ</label><input type="number" id="cpk-sigma" value="0.008" step="0.001" oninput="calcCpk()"></div>
+</div>
+<div id="cpk-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Quick Gage R&amp;R Calculator</div>
+<div class="cg">
+<div><label>Part Tolerance (Tol)</label><input type="number" id="grr-tol" value="0.1" step="0.01" oninput="calcGRR()"></div>
+<div><label>R&amp;R Std. Dev. (σ_rr)</label><input type="number" id="grr-sigma" value="0.006" step="0.001" oninput="calcGRR()"></div>
+</div>
+<div id="grr-result" class="res">—</div>
+</div>
+
+</div>
+<div style="margin-top:16px"><div class="ctitle" style="font-size:14px">🧮 Additional Calculators</div>
+<div class="machine-grid">
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">TUR Calculator — Test Uncertainty Ratio</div>
+<div class="cg">
+<div><label>Part Tolerance T (mm)</label><input type="number" id="tur-tol" value="0.1" step="0.001" oninput="calcTUR()"></div>
+<div><label>Calibration Uncertainty U (mm)</label><input type="number" id="tur-u" value="0.008" step="0.001" oninput="calcTUR()"></div>
+</div>
+<div id="tur-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">DPMO &amp; Sigma Level Calculator</div>
+<div class="cg">
+<div><label>Total Units Inspected</label><input type="number" id="dpm-total" value="1000" oninput="calcDPMO()"></div>
+<div><label>Defects Found</label><input type="number" id="dpm-def" value="5" oninput="calcDPMO()"></div>
+<div><label>Opportunities per Unit</label><input type="number" id="dpm-opp" value="1" oninput="calcDPMO()"></div>
+</div>
+<div id="dpm-result" class="res">—</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--blue)">Sine Bar Calculator — Precise Angle</div>
+<div class="cg">
+<div><label>Sine Bar Length L (mm)</label>
+<select id="sb-l" onchange="calcSineBar()">
+<option value="100">100mm</option>
+<option value="200" selected>200mm</option>
+<option value="300">300mm</option>
+</select></div>
+<div><label>Desired Angle θ (°)</label><input type="number" id="sb-angle" value="15" step="0.5" oninput="calcSineBar()"></div>
+</div>
+<div id="sb-result" class="res">—</div>
+</div>
+
+</div></div></div></div>
+
+</div>
+
+
+
+
+</div>
+
+<footer>METAL HUB · Mechanical Engineering Knowledge Portal · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">Back to main site</a></footer>
+
+<script>
+
+function showInsp(id,btn){
+  document.querySelectorAll('.insp-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.insp-tab').forEach(t=>t.classList.remove('active'));
+  var el=document.getElementById('insp-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function showInsp(id,btn){
+  document.querySelectorAll('.insp-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.insp-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('insp-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function calcAQL(){
+  var n=parseInt(document.getElementById('aql-n').value)||100;
+  var aql=parseFloat(document.getElementById('aql-val').value);
+  var level=document.getElementById('aql-level').value;
+  var letterII=[[2,8,'A'],[9,15,'B'],[16,25,'C'],[26,50,'D'],[51,90,'E'],[91,150,'F'],
+    [151,280,'G'],[281,500,'H'],[501,1200,'J'],[1201,3200,'K'],[3201,10000,'L'],[10001,35000,'M'],[35001,150000,'N'],[150001,500000,'P'],[500001,999999999,'Q']];
+  var letterI=[[2,8,'A'],[9,15,'A'],[16,25,'B'],[26,50,'C'],[51,90,'C'],[91,150,'D'],[151,280,'E'],[281,500,'F'],[501,1200,'G'],[1201,3200,'H'],[3201,10000,'J']];
+  var letterIII=[[2,8,'B'],[9,15,'C'],[16,25,'D'],[26,50,'E'],[51,90,'F'],[91,150,'G'],[151,280,'H'],[281,500,'J'],[501,1200,'K'],[1201,3200,'L'],[3201,10000,'M']];
+  var tbl=level==='I'?letterI:level==='III'?letterIII:letterII;
+  var code='Q';
+  for(var row of tbl){if(n>=row[0]&&n<=row[1]){code=row[2];break;}}
+  var sizes={A:2,B:3,C:5,D:8,E:13,F:20,G:32,H:50,J:80,K:125,L:200,M:315,N:500,P:800,Q:1250,R:2000};
+  var sn=sizes[code]||50;
+  var acRej={0.065:{A:[0,1],B:[0,1],C:[0,1],D:[0,1],E:[0,1],F:[0,1],G:[1,2],H:[1,2],J:[1,2],K:[2,3],L:[3,4],M:[5,6]},
+    0.25:{A:[0,1],B:[0,1],C:[0,1],D:[0,1],E:[0,1],F:[1,2],G:[1,2],H:[2,3],J:[3,4],K:[5,6],L:[7,8],M:[10,11]},
+    1.0:{A:[0,1],B:[0,1],C:[0,1],D:[1,2],E:[1,2],F:[2,3],G:[3,4],H:[5,6],J:[7,8],K:[10,11],L:[14,15],M:[21,22]},
+    2.5:{A:[0,1],B:[0,1],C:[1,2],D:[1,2],E:[2,3],F:[3,4],G:[5,6],H:[7,8],J:[10,11],K:[14,15],L:[21,22],M:[21,22]},
+    4.0:{A:[0,1],B:[1,2],C:[1,2],D:[2,3],E:[3,4],F:[5,6],G:[7,8],H:[10,11],J:[14,15],K:[21,22],L:[21,22],M:[21,22]}};
+  var ar=(acRej[aql]&&acRej[aql][code])?acRej[aql][code]:[1,2];
+  document.getElementById('aql-result').innerHTML=
+    '<b>Letter Code:</b> '+code+' &nbsp;|&nbsp; <b>Sample Size:</b> <span style="color:var(--green);font-size:16px;font-weight:800">n='+sn+'</span><br>'+
+    '<b>Accept (Ac):</b> ≤'+ar[0]+' defects &nbsp;|&nbsp; <b>Reject (Re):</b> ≥'+ar[1]+' defects<br>'+
+    '<small style="color:var(--muted)">AQL='+aql+'% | Level '+level+' | N='+n+' units | ISO 2859-1</small>';
+}
+
+function calcSineBar(){
+  var L=parseFloat(document.getElementById('sb-l').value)||200;
+  var theta=parseFloat(document.getElementById('sb-angle').value)||15;
+  var H=L*Math.sin(theta*Math.PI/180);
+  var H_floor=Math.floor(H*1000)/1000;
+  document.getElementById('sb-result').innerHTML=
+    '<b>H = L × sin(θ) =</b> '+L+' × sin('+theta+'°) = <span style="color:var(--green);font-size:16px;font-weight:800">'+H.toFixed(3)+'mm</span><br>'+
+    '<small style="color:var(--muted)">Build a Gauge Block Stack of '+H.toFixed(3)+'mm · Nominal: '+H_floor+'mm + '+(H-H_floor).toFixed(3)+'mm</small>';
+}
+
+function calcCpk(){
+  var usl=parseFloat(document.getElementById('cpk-usl').value);
+  var lsl=parseFloat(document.getElementById('cpk-lsl').value);
+  var mu=parseFloat(document.getElementById('cpk-mean').value);
+  var sigma=parseFloat(document.getElementById('cpk-sigma').value);
+  if(!sigma||sigma<=0){document.getElementById('cpk-result').innerHTML='❌ σ must be positive';return;}
+  var cp=(usl-lsl)/(6*sigma);
+  var cpu=(usl-mu)/(3*sigma);
+  var cpl=(mu-lsl)/(3*sigma);
+  var cpk=Math.min(cpu,cpl);
+  var status=cpk>=1.67?'✅ Excellent (aerospace/medical)':cpk>=1.33?'✅ Good (industrial)':cpk>=1.0?'⚠️ Minimum':' ❌ Not capable!';
+  var col=cpk>=1.33?'var(--green)':cpk>=1.0?'var(--orange)':'var(--red)';
+  document.getElementById('cpk-result').innerHTML=
+    '<b>Cp =</b> '+cp.toFixed(3)+' &nbsp;|&nbsp; <b>Cpk =</b> <span style="color:'+col+';font-size:16px;font-weight:800">'+cpk.toFixed(3)+'</span> — '+status+'<br>'+
+    '<small style="color:var(--muted)">CPU='+cpu.toFixed(3)+' | CPL='+cpl.toFixed(3)+' | σ='+sigma+'</small>';
+}
+
+function calcGRR(){
+  var tol=parseFloat(document.getElementById('grr-tol').value);
+  var sig=parseFloat(document.getElementById('grr-sigma').value);
+  if(!tol||tol<=0) return;
+  var grr_pct=(5.15*sig/tol)*100;
+  var status=grr_pct<10?'✅ Acceptable':grr_pct<30?'⚠️ Improvement recommended':'❌ Not acceptable!';
+  var col=grr_pct<10?'var(--green)':grr_pct<30?'var(--orange)':'var(--red)';
+  document.getElementById('grr-result').innerHTML=
+    '<b>%GR&R =</b> <span style="color:'+col+';font-size:16px;font-weight:800">'+grr_pct.toFixed(1)+'%</span> — '+status+'<br>'+
+    '<small style="color:var(--muted)">GR&R range='+( 5.15*sig).toFixed(4)+'mm | Tol='+tol+'mm | 5.15σ method</small>';
+}
+
+function calcTUR(){
+  var tol=parseFloat(document.getElementById('tur-tol').value)||0.1;
+  var u=parseFloat(document.getElementById('tur-u').value)||0.008;
+  var tur=tol/(2*u);
+  var status=tur>=10?'✅ Excellent (defense/aerospace)':tur>=4?'✅ Acceptable (ANSI Z540.3)':tur>=2?'⚠️ Consider Guard Banding':'❌ Not acceptable!';
+  var col=tur>=4?'var(--green)':tur>=2?'var(--orange)':'var(--red)';
+  document.getElementById('tur-result').innerHTML=
+    '<b>TUR =</b> <span style="color:'+col+';font-size:16px;font-weight:800">'+tur.toFixed(1)+':1</span> — '+status+'<br>'+
+    '<small style="color:var(--muted)">Tolerance='+tol+'mm | U='+u+'mm | TUR=T/(2U)</small>';
+}
+
+function calcDPMO(){
+  var total=parseInt(document.getElementById('dpm-total').value)||1000;
+  var def=parseInt(document.getElementById('dpm-def').value)||5;
+  var opp=parseInt(document.getElementById('dpm-opp').value)||1;
+  var dpmo=(def/(total*opp))*1000000;
+  var fpy=((total-def)/total*100);
+  var sigma_levels=[[3.4,6.0],[233,5.0],[6210,4.0],[66807,3.0],[308538,2.0],[691462,1.0]];
+  var sigma=0;
+  for(var s of sigma_levels){if(dpmo>=s[0]){sigma=s[1];break;}}
+  document.getElementById('dpm-result').innerHTML=
+    '<b>DPMO =</b> '+Math.round(dpmo).toLocaleString()+' &nbsp;|&nbsp; <b>FPY =</b> '+fpy.toFixed(2)+'%<br>'+
+    '<b>Sigma Level ≈</b> <span style="color:var(--green);font-size:16px;font-weight:800">'+sigma+'σ</span><br>'+
+    '<small style="color:var(--muted)">'+def+' defects / '+total+' units / '+opp+' opportunities</small>';
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('mh-theme')==='light'){
+    document.body.classList.add('light-mode');
+    var btn = document.getElementById('theme-btn');
+    if(btn) btn.textContent = '🌙';
+  }
+})();
+
+</script>
+</body>
+</html>
