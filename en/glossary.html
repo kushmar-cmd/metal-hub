@@ -202,7 +202,7 @@ function filterG(){
   }
   var items=GLOSSARY;
   if(gActiveCat!=='All')items=items.filter(function(t){return t.cat===gActiveCat});
-  if(q)items=items.filter(function(t){return t.he.toLowerCase().indexOf(q)>=0||t.en.toLowerCase().indexOf(q)>=0||(t.abbr&&t.abbr.toLowerCase().indexOf(q)>=0)||t.def.toLowerCase().indexOf(q)>=0});
+  if(q)items=items.filter(function(t){return t.en.toLowerCase().indexOf(q)>=0||(t.abbr&&t.abbr.toLowerCase().indexOf(q)>=0)||t.def.toLowerCase().indexOf(q)>=0});
   var gc=document.getElementById('gcount');
   if(gc)gc.textContent=items.length+' of '+GLOSSARY.length+' terms';
   if(!items.length){gl.innerHTML='<div style="color:var(--muted);padding:16px">No terms found</div>';return;}
@@ -214,7 +214,7 @@ function filterG(){
     html+='<div class="gi"'+(t.expand?' onclick="toggleGlossExpand('+i+',this)" style="cursor:pointer"':'')+'>'+
       '<div style="display:flex;justify-content:space-between;align-items:flex-start">'+
       '<div><div class="gi-he">'+escH(t.en)+'</div>'+
-      '<div class="gi-en">'+escH(t.he)+(t.abbr?' · <span class="gi-abbr">'+t.abbr+'</span>':'')+'</div></div>'+
+      (t.abbr?'<div class="gi-en"><span class="gi-abbr">'+escH(t.abbr)+'</span></div>':'')+'</div>'+
       arrow+'</div>'+
       '<div class="gi-def">'+escH(t.def)+'</div>'+
       expDiv+'</div>';
