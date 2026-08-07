@@ -112,6 +112,13 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 .coat-sec.active{display:block}
 .pro{color:var(--green)}
 .con{color:var(--red)}
+
+#topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;gap:12px;height:52px;position:fixed;top:0;left:0;right:0;z-index:100;direction:rtl}
+#gsearch{flex:1;max-width:340px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text);font-size:13px}
+#gsearch:focus{outline:none;border-color:var(--blue)}
+#nav{background:var(--surface);border-bottom:2px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px;position:sticky;top:52px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4);margin-top:52px}
+.tab{padding:8px 13px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
+.tab:hover{color:var(--text);background:var(--border)}.tab.active{color:#fff;background:var(--blue)}
 </style>
 </head>
 <body>
@@ -147,14 +154,46 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <div class="engSpark s5"></div>
 </div>
 
-<header>
-  <a class="logo" href="https://metal.kushmar.com/" style="text-decoration:none">METAL <span>HUB</span></a>
-  <div style="display:flex;align-items:center;gap:10px">
-    <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
-    <a href="https://metal.kushmar.com/coatings.html" title="Hebrew" style="text-decoration:none;font-size:20px;line-height:1;display:flex;align-items:center;padding:0 4px" aria-label="Switch to Hebrew">🇮🇱</a>
-    <a class="home-link" href="https://metal.kushmar.com/">&#8592; Back to main site</a>
+<div id="topbar">
+  <a class="logo" href="https://metal.kushmar.com/en/" title="Back to home">METAL <span>HUB</span></a>
+  <input id="gsearch" type="search" placeholder="🔍 Search — materials, GD&T, threads, welding..." autocomplete="off">
+  <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
+  <a href="https://metal.kushmar.com/coatings.html" title="Hebrew" style="text-decoration:none;font-size:20px;line-height:1;display:flex;align-items:center;padding:0 4px" aria-label="Switch to Hebrew">🇮🇱</a>
   </div>
-</header>
+<div id="soverlay"></div>
+<div id="nav">
+  <a class="tab" href="https://metal.kushmar.com/en/">🏠 Home</a>
+  <a class="tab" href="mfgtech.html">🏭 Technologies</a>
+  <a class="tab" href="materials.html">🧱 Materials</a>
+  <a class="tab active" href="coatings.html">🎨 Coatings</a>
+  <a class="tab" href="heat.html">🔥 Heat Treatment</a>
+  <a class="tab" href="gdt.html">⊕ GD&T</a>
+  <a class="tab" href="inspection.html">🔍 Inspection & Quality</a>
+  <a class="tab" href="pricing.html">💰 Pricing</a>
+  <a class="tab" href="tol.html">📏 Tolerances</a>
+  <a class="tab" href="surface.html">✦ Surface Finish</a>
+  <a class="tab" href="threads.html">🔩 Threads</a>
+  <a class="tab" href="welding.html">⚡ Welding</a>
+  <a class="tab" href="machining.html">🔧 Machining</a>
+  <a class="tab" href="fasteners.html">🔗 Fasteners</a>
+  <a class="tab" href="inserts.html">🔩 Inserts</a>
+  <a class="tab" href="standards.html">📋 Standards</a>
+  <a class="tab" href="bearings.html">⚙️ Bearings</a>
+  <a class="tab" href="gears.html">⚙️ Gears</a>
+  <a class="tab" href="seals.html">🔵 Seals</a>
+  <a class="tab" href="springs.html">🌀 Springs</a>
+  <a class="tab" href="corrosion.html">⚡ Corrosion</a>
+  <a class="tab" href="hydraulics.html">💧 Hydraulics</a>
+  <a class="tab" href="stress.html">📊 Stress</a>
+  <a class="tab" href="fmea.html">⚠️ FMEA</a>
+  <a class="tab" href="changes.html">📄 Changes</a>
+  <a class="tab" href="dfm.html">🏗️ DFM</a>
+  <a class="tab" href="pressure.html">🔬 Pressure Testing</a>
+  <a class="tab" href="chem.html">🧪 Chemistry</a>
+  <a class="tab" href="calc.html">🧮 Calculators</a>
+  <a class="tab" href="glossary.html">📖 Glossary</a>
+  <a class="tab" href="https://metal.kushmar.com/en/">🔐 Ask AI</a>
+</div>
 
 <div id="main">
 
