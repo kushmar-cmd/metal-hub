@@ -180,16 +180,14 @@ tr:hover td{background:var(--surface)}
 .chat-ir{display:flex;gap:8px;padding:10px;border-top:1px solid var(--border)}
 #ai-inp{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;color:var(--text);font-size:13px;resize:none;height:40px}
 #sec-ai,#sec-ai *{direction:ltr!important}
-#sec-ai{text-align:right}
-#sec-ai .ctitle{text-align:right}
-#sec-ai .info{text-align:right}
-#sec-ai .chat-msgs{align-items:flex-end}
-#sec-ai .msg{text-align:right;margin-left:auto;margin-right:0}
-#sec-ai .msg.user{margin-left:auto;margin-right:0}
-#sec-ai .msg.bot{margin-left:auto;margin-right:0}
-#sec-ai #ai-inp{text-align:right}
-#sec-ai .chat-ir{flex-direction:row-reverse}
-#sec-ai .ctitle[style*="space-between"]{flex-direction:row-reverse}
+#sec-ai{text-align:left}
+#sec-ai .ctitle{text-align:left}
+#sec-ai .info{text-align:left}
+#sec-ai .chat-msgs{align-items:flex-start}
+#sec-ai .msg{text-align:left;margin-right:auto;margin-left:0}
+#sec-ai .msg.user{margin-right:auto;margin-left:0}
+#sec-ai .msg.bot{margin-right:auto;margin-left:0}
+#sec-ai #ai-inp{text-align:left}
 #ai-inp:focus{outline:none;border-color:var(--blue)}
 .btn{background:var(--blue);color:#0d1117;border:none;border-radius:6px;padding:7px 16px;font-size:13px;font-weight:700;cursor:pointer}
 .btn:hover{opacity:.85}
