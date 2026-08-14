@@ -1,0 +1,21 @@
+<div id="sec-materials">
+<div class="card"><div class="ctitle">🧱 286 Materials — Select for Full Profile</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:11px;line-height:2.2;color:var(--muted)"><b style="color:var(--text)">📖 Legend: </b><b style="color:var(--blue)">RM</b>=Ultimate Tensile Strength (MPa) &nbsp;·&nbsp;<b style="color:var(--blue)">Rp0</b>=0.2% Yield Strength (MPa) &nbsp;·&nbsp;<b style="color:var(--blue)">HB</b>=Brinell Hardness &nbsp;·&nbsp;<b style="color:var(--blue)">HRC</b>=Rockwell C Hardness &nbsp;·&nbsp;<b style="color:var(--blue)">E</b>=Elastic Modulus (GPa) &nbsp;·&nbsp;<b style="color:var(--blue)">A%</b>=Elongation at Break &nbsp;·&nbsp;<b style="color:var(--blue)">ρ</b>=Density (g/cm³)</div>
+<div class="cat-bar" id="mat-cats"></div>
+<div id="al-fam-bar" style="display:none;flex-wrap:wrap;gap:6px;margin:8px 0 10px;padding:8px;background:var(--surface);border-radius:8px;border:1px solid var(--border)">
+  <span style="font-size:11px;color:var(--muted);align-self:center;padding-left:4px">🇺🇸 Family:</span>
+  <button class="al-fam-btn active" onclick="filterAlFam('all',this)">All</button>
+  <button class="al-fam-btn" onclick="filterAlFam('1xxx',this)">1xxx — Pure</button>
+  <button class="al-fam-btn" onclick="filterAlFam('2xxx',this)">2xxx — Cu</button>
+  <button class="al-fam-btn" onclick="filterAlFam('3xxx',this)">3xxx — Mn</button>
+  <button class="al-fam-btn" onclick="filterAlFam('4xxx',this)">4xxx — Si</button>
+  <button class="al-fam-btn" onclick="filterAlFam('5xxx',this)">5xxx — Mg</button>
+  <button class="al-fam-btn" onclick="filterAlFam('6xxx',this)">6xxx — Mg-Si</button>
+  <button class="al-fam-btn" onclick="filterAlFam('7xxx',this)">7xxx — Zn</button>
+  <button class="al-fam-btn" onclick="filterAlFam('8xxx',this)">8xxx — Li</button>
+  <button class="al-fam-btn" onclick="filterAlFam('special',this)">Special</button>
+</div>
+<div class="mat-grid" id="mat-grid"></div>
+<div class="mat-det" id="mat-det"></div>
+</div>
+</div>

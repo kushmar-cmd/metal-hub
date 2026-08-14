@@ -1,0 +1,333 @@
+<div id="sec-machining" class="section">
+
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="mch-tab active" onclick="showMch('vc',this)">🔧 Cutting Speeds</button>
+  <button class="mch-tab" onclick="showMch('feed',this)">➡️ Feeds</button>
+  <button class="mch-tab" onclick="showMch('formulas',this)">🧮 Formulas &amp; Calculators</button>
+  <button class="mch-tab" onclick="showMch('tools',this)">🔩 Tools &amp; Coatings</button>
+  <button class="mch-tab" onclick="showMch('coolant',this)">💧 Coolant &amp; Lubrication</button>
+  <button class="mch-tab" onclick="showMch('bymat',this)">📋 By Material</button>
+  <button class="mch-tab" onclick="showMch('byproc',this)">⚙️ By Process</button>
+  <button class="mch-tab" onclick="showMch('trouble',this)">🔍 Troubleshooting</button>
+</div>
+</div>
+
+<!-- ============ VC ============ -->
+<div id="mch-vc" class="mch-sec active">
+<div class="card"><div class="ctitle">🔧 Cutting Speeds — Vc (m/min) — Starting Point</div>
+<table><tr><th>Material</th><th>Turning HSS</th><th>Turning Carbide</th><th>Milling HSS</th><th>Milling Carbide</th><th>Drilling HSS</th><th>Notes</th></tr>
+<tr><td>Mild Steel (S235)</td><td>25-35</td><td>80-120</td><td>20-30</td><td>60-100</td><td>25-35</td><td>Coolant recommended</td></tr>
+<tr><td>Medium Steel (4140 Q&amp;T)</td><td>15-25</td><td>60-100</td><td>15-20</td><td>50-80</td><td>15-25</td><td>Coolant mandatory</td></tr>
+<tr><td>Stainless 304/316</td><td>8-12</td><td>40-70</td><td>5-10</td><td>30-50</td><td>8-12</td><td>High pressure, flood coolant</td></tr>
+<tr><td>Aluminum 6061</td><td>80-150</td><td>200-500</td><td>60-100</td><td>150-400</td><td>60-100</td><td>Can run dry, very high Vc</td></tr>
+<tr><td>Aluminum 7075</td><td>80-140</td><td>200-450</td><td>50-90</td><td>150-350</td><td>60-90</td><td>—</td></tr>
+<tr><td>Titanium Ti-6Al-4V</td><td>4-8</td><td>30-60</td><td>3-6</td><td>20-40</td><td>5-10</td><td>Flood coolant mandatory, low Vc!</td></tr>
+<tr><td>Gray Cast Iron</td><td>20-30</td><td>80-150</td><td>15-25</td><td>60-120</td><td>25-35</td><td>Can run dry</td></tr>
+<tr><td>Tool Steel D2</td><td>8-12</td><td>40-70</td><td>5-8</td><td>30-50</td><td>8-12</td><td>Machine before hardening</td></tr>
+<tr><td>Inconel 718</td><td>2-4</td><td>15-30</td><td>1-3</td><td>10-20</td><td>3-5</td><td>Carbide+TiAlN mandatory, flood coolant</td></tr>
+<tr><td>Copper/Bronze</td><td>50-80</td><td>150-300</td><td>40-60</td><td>120-250</td><td>50-80</td><td>No coolant needed</td></tr></table>
+<div class="note">⚠️ These values are a starting point only! They depend on tool diameter, depth of cut, machine condition, and tool coating. Always verify in practice and refine based on chip performance.</div></div>
+
+<div class="card"><div class="ctitle">📉 Taylor's Tool Life Equation — Tool Life vs. Speed</div>
+<div style="font-size:13px;line-height:1.9">
+<b>Vc × Tⁿ = C</b> — n depends on the tool/material pair (HSS≈0.1-0.15, Carbide≈0.2-0.4, Ceramic≈0.5-0.7). The larger n is, the more the tool "forgives" a speed increase.
+</div>
+<div class="note">Rule of thumb: raising Vc by 20% shortens tool life by about 50% (for n≈0.25, typical for carbide). Before speeding up production — check the real cost in tool wear!</div>
+</div>
+</div>
+
+<!-- ============ FEEDS ============ -->
+<div id="mch-feed" class="mch-sec">
+<div class="card"><div class="ctitle">➡️ Feed per Tooth (fz) by Material and Tool Diameter — Milling [mm/tooth]</div>
+<table><tr><th>Material</th><th>⌀6-10mm</th><th>⌀12-20mm</th><th>⌀25mm+</th><th>Notes</th></tr>
+<tr><td>Aluminum</td><td>0.05-0.10</td><td>0.10-0.18</td><td>0.15-0.25</td><td>Can be increased with Chip Thinning</td></tr>
+<tr><td>Mild Steel</td><td>0.04-0.08</td><td>0.08-0.15</td><td>0.12-0.20</td><td>Coarser = more productive</td></tr>
+<tr><td>Medium/Hardened Steel</td><td>0.03-0.06</td><td>0.06-0.10</td><td>0.08-0.15</td><td>Reduce for chatter</td></tr>
+<tr><td>Stainless</td><td>0.03-0.05</td><td>0.05-0.08</td><td>0.08-0.12</td><td>Too fine = work hardening!</td></tr>
+<tr><td>Titanium</td><td>0.02-0.04</td><td>0.04-0.07</td><td>0.06-0.10</td><td>Keep constant, don't reduce too much (heat)</td></tr>
+<tr><td>Inconel/Superalloy</td><td>0.02-0.03</td><td>0.03-0.05</td><td>0.05-0.08</td><td>Hard on the tool — Trochoidal preferred</td></tr>
+</table>
+<div class="note">⚠️ Minimum fz is critical! Below the minimum = rubbing (instead of cutting) → heat → work hardening → premature tool failure.</div></div>
+
+<div class="card"><div class="ctitle">➡️ Feed per Revolution (fn) — Turning [mm/rev]</div>
+<table><tr><th>Operation Type</th><th>Typical fn</th><th>Expected Ra</th></tr>
+<tr><td>Roughing</td><td>0.2-0.5</td><td>3.2-6.3μm</td></tr>
+<tr><td>General</td><td>0.1-0.3</td><td>1.6-3.2μm</td></tr>
+<tr><td>Finishing</td><td>0.05-0.15</td><td>0.8-1.6μm</td></tr>
+<tr><td>Fine Finish + Wiper</td><td>0.15-0.3</td><td>0.4-0.8μm</td></tr>
+</table>
+<div class="note">Formula: Ra ≈ fn²/(8×Rε)×1000 [μm], where Rε = tool nose radius (mm). A Wiper Insert allows double the fn at the same Ra!</div></div>
+
+<div class="card"><div class="ctitle">🌀 Chip Thinning — Feed Compensation in Partial Side Milling</div>
+<div style="font-size:13px;line-height:1.9">
+When ae (radial depth) is less than 50% of the tool diameter, the actual chip thickness is <b>smaller</b> than the nominal fz — you can (and should!) increase fz to maintain proper tooth loading and prevent rubbing.
+</div>
+<div class="note">Approximate formula: fz_corrected = fz × D/√(D×ae−ae²). At ae=10%D, you can usually multiply fz by 1.5-2×!</div>
+</div>
+</div>
+
+<!-- ============ FORMULAS ============ -->
+<div id="mch-formulas" class="mch-sec">
+<div class="grid2">
+<div class="card"><div class="ctitle">📐 Machining Formulas</div>
+<table><tr><th>Parameter</th><th>Formula</th><th>Units</th></tr>
+<tr><td>RPM</td><td>n = (Vc × 1000) / (π × D)</td><td>rev/min</td></tr>
+<tr><td>Table Feed Vf</td><td>Vf = fz × z × n</td><td>mm/min</td></tr>
+<tr><td>MRR (Material Removal Rate)</td><td>MRR = ae × ap × Vf</td><td>mm³/min</td></tr>
+<tr><td>Cutting Force Fc</td><td>Fc = kc × ap × fz × z</td><td>N</td></tr>
+<tr><td>Power P</td><td>P = Fc × Vc / 60000</td><td>kW</td></tr>
+<tr><td>Turning Time Tm</td><td>Tm = L / (f × n)</td><td>minutes</td></tr></table>
+<div style="font-size:11px;color:var(--muted);margin-top:8px">fz=feed per tooth(mm) · z=number of teeth · ae=radial depth · ap=axial depth · kc=specific cutting force</div></div>
+
+<div class="card"><div class="ctitle">🧭 kc — Specific Cutting Force by Material [N/mm²]</div>
+<table><tr><th>Material</th><th>kc</th></tr>
+<tr><td>Aluminum</td><td>500-900</td></tr>
+<tr><td>Mild Steel</td><td>1800-2200</td></tr>
+<tr><td>Hardened Steel</td><td>2500-3200</td></tr>
+<tr><td>Stainless</td><td>2200-2800</td></tr>
+<tr><td>Titanium</td><td>1800-2400</td></tr>
+<tr><td>Inconel</td><td>2800-3500</td></tr>
+</table>
+<div class="note">kc directly determines the required force and power — important to check against spindle power for roughing operations!</div></div>
+</div>
+
+<div class="card">
+<div class="ctitle">🧮 RPM / Feed / MRR Calculator</div>
+<div class="machine-grid">
+<div class="machine-card">
+<div class="mc-title" style="color:var(--blue)">Live Calculation</div>
+<div class="cg">
+  <div><label>Cutting Speed Vc (m/min)</label><input id="mc-vc" type="number" value="150" step="1" oninput="calcMchSpeedFeed()"></div>
+  <div><label>Tool Diameter D (mm)</label><input id="mc-d" type="number" value="10" step="0.5" oninput="calcMchSpeedFeed()"></div>
+  <div><label>Feed per Tooth fz (mm)</label><input id="mc-fz" type="number" value="0.08" step="0.01" oninput="calcMchSpeedFeed()"></div>
+  <div><label>Number of Teeth z</label><input id="mc-z" type="number" value="4" step="1" oninput="calcMchSpeedFeed()"></div>
+  <div><label>Axial Depth ap (mm)</label><input id="mc-ap" type="number" value="3" step="0.5" oninput="calcMchSpeedFeed()"></div>
+  <div><label>Radial Depth ae (mm)</label><input id="mc-ae" type="number" value="5" step="0.5" oninput="calcMchSpeedFeed()"></div>
+</div>
+<div id="mc-result" class="res" style="margin-top:10px">—</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ TOOLS ============ -->
+<div id="mch-tools" class="mch-sec">
+<div class="card"><div class="ctitle">🔩 Tool Coatings and Their Applications</div>
+<table><tr><th>Coating</th><th>Hardness HV</th><th>Tmax °C</th><th>Best Application</th></tr>
+<tr><td>TiN (Titanium Nitride)</td><td>2300</td><td>500</td><td>Steel turning, default choice</td></tr>
+<tr><td>TiCN</td><td>3000</td><td>400</td><td>Hard steel, coolant</td></tr>
+<tr><td>TiAlN</td><td>3300</td><td>800</td><td>High-speed milling, dry, SS</td></tr>
+<tr><td>AlCrN</td><td>3200</td><td>1100</td><td>Hard alloys, Inconel</td></tr>
+<tr><td>DLC</td><td>3000-5000</td><td>300</td><td>Al, Cu — anti-adhesion</td></tr>
+<tr><td>CVD Al₂O₃</td><td>2400</td><td>1200</td><td>High-speed turning</td></tr></table>
+</div>
+
+<div class="card"><div class="ctitle">💎 Insert Geometry — Quick Selection</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Point Angle</div>
+<div style="font-size:12px;line-height:1.8">80° (Diamond C) — strong, universal<br>55°/35° (V) — sharp, for profiles/corners<br>90° (S Square) — perpendicular walls</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Chip Breaker</div>
+<div style="font-size:12px;line-height:1.8">Roughing — a deep channel, breaks thick chips<br>Finishing — a shallow channel, low Ra<br>General — a compromise in between</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Nose Radius (Rε)</div>
+<div style="font-size:12px;line-height:1.8">Small (0.2-0.4mm) — small holes, low vibration<br>Large (0.8-1.6mm) — good Ra, stability, but higher Fc</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">🎯 Insert ISO Coding — Quick Decoding</div>
+<div style="font-size:13px;line-height:1.9">
+Example: <b>CNMG 120408</b> → C(shape: 80° diamond) N(clearance: 0°) M(tolerance: ±0.13) G(hole+chip breaker) 12(edge 12mm) 04(thickness 4.76mm) 08(radius 0.8mm)
+</div>
+<div class="note">Grade is selected separately: P (steel), M (stainless), K (cast iron), N (non-ferrous/Al), S (superalloy), H (hardened).</div>
+</div>
+</div>
+
+<!-- ============ COOLANT ============ -->
+<div id="mch-coolant" class="mch-sec">
+<div class="card"><div class="ctitle">💧 Coolant Selection by Process and Material</div>
+<table><tr><th>Condition</th><th>Material</th><th>Recommendation</th></tr>
+<tr><td>Aluminum Milling</td><td>Al</td><td>Emulsion 5-8% / dry</td></tr>
+<tr><td>Stainless Turning</td><td>SS</td><td>High-concentration oil 10-15%</td></tr>
+<tr><td>Deep Drilling</td><td>Any material</td><td>High-pressure cutting, oil</td></tr>
+<tr><td>Titanium Milling</td><td>Ti</td><td>Flood emulsion 8-10%</td></tr>
+<tr><td>Coated Carbide</td><td>—</td><td>Dry is usually preferable</td></tr>
+<tr><td>HSS Turning</td><td>—</td><td>Emulsion always</td></tr>
+<tr><td>Cast Iron</td><td>Cast</td><td>Dry preferred</td></tr></table>
+</div>
+
+<div class="card"><div class="ctitle">🚿 Coolant Delivery Methods</div>
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Flood</div>
+<div style="font-size:12px;line-height:1.8">The most common. Cheap, reliable. Doesn't always reach the cutting zone in depth.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Through-Tool</div>
+<div style="font-size:12px;line-height:1.8">20-70bar through holes in the tool. Mandatory for deep drilling (L/D&gt;5). Extends tool life significantly.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">MQL (Minimum Quantity Lubrication)</div>
+<div style="font-size:12px;line-height:1.8">Oil mist 5-50ml/h. Green and economical. Excellent for aluminum, less so for deep drilling.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Dry Cutting</div>
+<div style="font-size:12px;line-height:1.8">Requires TiAlN/AlCrN coating. Cast iron, high-speed steel milling. Saves 15% in operating costs.</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">🧪 Coolant Concentration — Testing and Maintenance</div>
+<div style="font-size:13px;line-height:1.9">
+Emulsion concentration: 5-10% measured with a refractometer. Desired pH: 8.5-9.5. Bacteria = bad odor + skin conditions — weekly testing!
+</div>
+</div>
+</div>
+
+<!-- ============ BY MATERIAL ============ -->
+<div id="mch-bymat" class="mch-sec">
+<div class="machine-grid">
+
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Aluminum (6061/7075)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 200-500 (carbide)<br>fz: 0.10-0.25mm<br>Coolant: dry/light emulsion<br>
+<b>Tip:</b> BUE is the main issue at low Vc — raise speed, sharp tool, DLC coating. Wide chip-clearance flutes.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Mild/Medium Steel</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 60-120 (carbide)<br>fz: 0.08-0.20mm<br>Coolant: emulsion 8-10%<br>
+<b>Tip:</b> The default starting point. P-Grade insert, TiAlN. Moving to 4140 Q&amp;T — reduce Vc by 30-40%.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--purple)">Stainless (304/316)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 40-70 (carbide)<br>fz: 0.05-0.10mm<br>Coolant: flood, high concentration<br>
+<b>Tip:</b> Work hardening is enemy #1! Never rub (minimum fz!). M-Grade insert, always a sharp tool.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">Titanium (Ti-6Al-4V)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 30-60 (carbide)<br>fz: 0.04-0.08mm<br>Coolant: flood mandatory!<br>
+<b>Tip:</b> Low thermal conductivity = heat stays in the tool. Low Vc, deep ap (not shallow!), Trochoidal recommended.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Inconel/Superalloy</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 15-30 (carbide)<br>fz: 0.03-0.06mm<br>Coolant: high-pressure flood<br>
+<b>Tip:</b> Work hardening is worse than SS! Trochoidal is almost mandatory. AlCrN/ceramic. Steady load — avoid rubbing.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--muted)">Gray Cast Iron</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 80-150 (carbide)<br>fz: 0.10-0.20mm<br>Coolant: dry preferred!<br>
+<b>Tip:</b> Graphite self-lubricates — coolant can cause thermal shock and cracking. Dust — good extraction needed.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--yellow)">Copper/Bronze/Brass</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 150-300 (carbide)<br>fz: 0.10-0.20mm<br>Coolant: usually not needed<br>
+<b>Tip:</b> Pure copper is gummy — sharp tool + high Vc. Free-machining brass (leaded) — excellent machinability.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">Hardened Tool Steel (D2/H13)</div>
+<div style="font-size:12px;line-height:1.9">
+Vc: 40-80 (carbide)/80-200 (CBN)<br>fz: 0.05-0.15mm<br>Coolant: process-dependent<br>
+<b>Tip:</b> Above HRC45 — switch to Hard Turning with CBN instead of grinding. Small ap, machine rigidity is critical.
+</div></div>
+
+</div>
+</div>
+
+<!-- ============ BY PROCESS ============ -->
+<div id="mch-byproc" class="mch-sec">
+<div class="card"><div class="ctitle">⚙️ Parameter Selection by Process</div>
+<div style="font-size:13px;color:var(--muted);margin-bottom:10px">For a full explanation of how each process works (turning/milling/drilling/grinding) — see the "Manufacturing Technologies" tab. Here: parameter selection only.</div>
+</div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Turning</div>
+<div style="font-size:12px;line-height:1.9">
+Roughing: ap=2-5mm, fn=0.2-0.4<br>Finishing: ap=0.2-0.5mm, fn=0.05-0.15<br>
+<b>Tip:</b> A Wiper Insert for finishing = double the feed at the same Ra. Minimum finish depth: above 0.1mm (below = rubbing).
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Milling</div>
+<div style="font-size:12px;line-height:1.9">
+Slotting: ae=100%D<br>Shoulder: ae=30-50%D<br>Trochoidal: ae=5-15%D, ap=1-3×D<br>
+<b>Tip:</b> Climb milling always on CNC. Trochoidal for SS/Ti/Inconel = 30-300% higher MRR.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Drilling</div>
+<div style="font-size:12px;line-height:1.9">
+L/D≤4: normal drilling<br>L/D 4-10: Peck Drilling (G83)<br>L/D&gt;10: Gun Drill + internal coolant<br>
+<b>Tip:</b> A spot drill for accurate positioning before a long drill. Carbide+TSC drill = 3-5× the speed of HSS.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Grinding</div>
+<div style="font-size:12px;line-height:1.9">
+Surface: 0.005-0.02mm/pass<br>Cylindrical: wheel Vc 25-35 m/s<br>
+<b>Tip:</b> Grinding burn = hidden damage! Frequent dressing, adequate coolant, not too aggressive an infeed.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Tapping</div>
+<div style="font-size:12px;line-height:1.9">
+Rigid Tapping: n=const, F=P×n<br>Form Tap: a larger drill (separate table)<br>
+<b>Tip:</b> 75% thread depth is almost always enough. Spiral Point for through holes, Spiral Flute for blind holes.
+</div></div>
+
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Thread Milling</div>
+<div style="font-size:12px;line-height:1.9">
+Vc like regular milling, one tool for every diameter<br>
+<b>Tip:</b> Mandatory for hard materials and large holes. Diameter control via Offset — corrects wear!
+</div></div>
+</div>
+</div>
+
+<!-- ============ TROUBLESHOOTING ============ -->
+<div id="mch-trouble" class="mch-sec">
+<div class="card"><div class="ctitle">🔍 Machining Troubleshooting — by Symptom</div>
+<div style="font-size:13px;color:var(--muted)">Visual identification of the problem is the core skill in machining diagnostics — that's why visual reference links are included here.</div>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Chip Not Breaking / Stringing</div>
+<div style="font-size:12px;line-height:1.8">Cause: unsuitable chip breaker, fz too low, Vc not matched to material.<br>Solution: increase fz, check insert geometry, smaller Rε.</div>
+<a href="https://www.youtube.com/results?search_query=machining%20chip%20control%20problems%20diagnosis" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">BUE — Built-Up Edge</div>
+<div style="font-size:12px;line-height:1.8">Cause: Vc too low, gummy material (Al/soft SS), insufficient coolant.<br>Solution: increase Vc, DLC/TiAlN coating, adequate coolant, a sharper tool.</div>
+<a href="https://www.youtube.com/results?search_query=built%20up%20edge%20BUE%20machining%20identification%20fix" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Chatter — Vibration and Wavy Finish</div>
+<div style="font-size:12px;line-height:1.8">Cause: natural frequency, large overhang, low holding rigidity.<br>Solution: change RPM (Stability Lobes!), reduce ap, a shorter tool, good clamping.</div>
+<a href="https://www.youtube.com/results?search_query=machining%20chatter%20diagnosis%20stability%20lobes%20fix" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Fast Tool Wear (large VB)</div>
+<div style="font-size:12px;line-height:1.8">Cause: Vc too high, unsuitable coating, insufficient coolant.<br>Solution: reduce Vc per Taylor, upgrade coating, check coolant flow to the cutting zone.</div>
+<a href="https://www.youtube.com/results?search_query=tool%20wear%20flank%20wear%20VB%20identification%20causes" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700">▶ YouTube</a>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Poor Surface Finish (high Ra)</div>
+<div style="font-size:12px;line-height:1.8">Cause: fn/fz too high, small Rε, a worn tool, chatter.<br>Solution: reduce feed, a Wiper Insert, check tool wear, ensure holding rigidity.</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Sudden Tool Breakage</div>
+<div style="font-size:12px;line-height:1.8">Cause: overload, sudden entry (no ramping), inconsistent material/inclusions.<br>Solution: ramping/helical entry, check raw material, reduce ap/fz on first entry.</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Overheating / Discoloration on the Part</div>
+<div style="font-size:12px;line-height:1.8">Cause: coolant not reaching the zone, high Vc, low fz (rubbing).<br>Solution: through-tool coolant, check nozzle direction, increase fz to prevent rubbing.</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--red)">Dimensional Drift</div>
+<div style="font-size:12px;line-height:1.8">Cause: accumulated tool wear, machine/spindle heating, outdated tool offset.<br>Solution: frequent probing, wear compensation via offset, machine warm-up before precise work.</div>
+</div>
+
+</div>
+</div>
+
+</div>

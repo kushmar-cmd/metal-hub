@@ -1,0 +1,969 @@
+<div id="sec-calc" class="section">
+<style>
+.calc-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.calc-tab:hover,.calc-tab.active{background:var(--yellow,#fde047);color:#000;border-color:var(--yellow,#fde047);font-weight:700}
+.calc-sec{display:none}.calc-sec.active{display:block}
+.flow-arrow{color:var(--yellow,#fde047);font-weight:700;font-size:16px;margin:0 4px}
+.flow-bar{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;font-size:12px;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.flow-step{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;color:var(--text);cursor:pointer;font-size:11px}
+.flow-step:hover{border-color:var(--yellow,#fde047);color:var(--yellow,#fde047)}
+.copy-btn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-size:10px;cursor:pointer;color:var(--muted);margin-right:6px}
+.copy-btn:hover{color:var(--yellow,#fde047);border-color:var(--yellow,#fde047)}
+</style>
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a1a0d);border-color:var(--yellow,#fde047)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🧮</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--yellow,#fde047)">Engineering Calculators</div>
+    <div style="font-size:12px;color:var(--muted)">Machining · Mechanics · Gears · Bearings · Springs · SPC Quality · Pricing · Fluids · Bonding · Inserts</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="calc-tab active" onclick="showCalc('machining',this)">⚙️ Machining</button>
+  <button class="calc-tab" onclick="showCalc('mechanics',this)">🔩 Mechanics &amp; Structures</button>
+  <button class="calc-tab" onclick="showCalc('gears',this)">⚙️ Gears</button>
+  <button class="calc-tab" onclick="showCalc('bearings',this)">🔵 Bearings</button>
+  <button class="calc-tab" onclick="showCalc('springs',this)">🌀 Springs</button>
+  <button class="calc-tab" onclick="showCalc('quality',this)">📊 SPC Quality</button>
+  <button class="calc-tab" onclick="showCalc('costs',this)">💰 Pricing &amp; Costs</button>
+  <button class="calc-tab" onclick="showCalc('fluids',this)">💧 Fluids</button>
+  <button class="calc-tab" onclick="showCalc('adhesives',this)">🔗 Bonding</button>
+  <button class="calc-tab" onclick="showCalc('inserts',this)">🔩 Inserts</button>
+  <button class="calc-tab" onclick="showCalc('tolgdt',this)">📐 Tolerances &amp; GD&amp;T</button>
+</div>
+
+<!-- ====================== MACHINING ====================== -->
+<div id="calc-machining" class="calc-sec active">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Calculation flow: </span>
+  <span class="flow-step" onclick="document.getElementById('m-vc').focus()">1 Vc Cutting Speed</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('rpm-feed').focus()">2 RPM + Feed</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('tc-len').focus()">3 Machining Time</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('fc-ft').focus()">4 Cutting Force</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step" onclick="document.getElementById('dr-d').focus()">5 Drilling &amp; Tapping</span>
+</div>
+
+<div class="machine-grid">
+
+<!-- 1: Vc → RPM + MRR -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Cutting Speed → RPM</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Enter Vc ← get RPM + Vf + MRR</div>
+<div class="cg">
+  <div><label>Vc — Cutting Speed (m/min)</label>
+  <select id="m-vc-mat" onchange="calcMachining()">
+    <option value="80">Steel C45 — 80</option><option value="120">Steel 4140 Q&amp;T — 120</option>
+    <option value="200">SS 304 — 200</option><option value="400">Al 6061 — 400</option>
+    <option value="60">Ti-6Al-4V — 60</option><option value="150">Cast Iron GCI — 150</option>
+    <option value="custom">Custom →</option>
+  </select></div>
+  <div><label>Custom Vc (m/min)</label><input id="m-vc" type="number" value="120" oninput="calcMachining()"></div>
+  <div><label>D — Tool/Material Diameter (mm)</label><input id="m-d" type="number" value="50" oninput="calcMachining()"></div>
+  <div><label>fn — Feed per Rev (mm/rev)</label><input id="m-fn" type="number" value="0.2" step="0.05" oninput="calcMachining()"></div>
+  <div><label>ap — Depth of Cut (mm)</label><input id="m-ap" type="number" value="2" step="0.5" oninput="calcMachining()"></div>
+</div>
+<div class="res" id="m-res1">—</div>
+</div>
+
+<!-- 2: זמן עיבוד -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Machining Time ← from RPM</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">RPM + feed from calculator 1 → time tc</div>
+<div class="cg">
+  <div><label>L — Machining Length (mm)</label><input id="tc-len" type="number" value="200" oninput="calcMachiningTime()"></div>
+  <div><label>RPM (calculator 1 ↑)</label><input id="tc-rpm" type="number" value="764" oninput="calcMachiningTime()"></div>
+  <div><label>fn — Feed (mm/rev)</label><input id="tc-fn" type="number" value="0.2" step="0.05" oninput="calcMachiningTime()"></div>
+  <div><label>Number of Passes</label><input id="tc-pass" type="number" value="1" min="1" oninput="calcMachiningTime()"></div>
+</div>
+<div class="res" id="m-res2">—</div>
+<button class="copy-btn" onclick="copyRpmToTime()">⬆ Get RPM from calculator 1</button>
+</div>
+
+<!-- 3: כוח חיתוך -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Cutting Force &amp; Power Consumption</div>
+<div class="cg">
+  <div><label>kc — Specific Force (N/mm²)</label>
+  <select id="fc-kc" onchange="calcCuttingForce()">
+    <option value="1500">Steel C45 — 1500</option><option value="2200">Steel 4140 — 2200</option>
+    <option value="2000">SS 304 — 2000</option><option value="700">Al 6061 — 700</option>
+    <option value="1100">Ti-6Al-4V — 1100</option><option value="900">Cast Iron — 900</option>
+  </select></div>
+  <div><label>Ft — Chip Cross-Section (mm²) = ap × fn</label><input id="fc-ft" type="number" value="0.4" step="0.05" oninput="calcCuttingForce()"></div>
+  <div><label>Vc (m/min) ← from calculator 1</label><input id="fc-vc" type="number" value="120" oninput="calcCuttingForce()"></div>
+  <div><label>η — Spindle Efficiency (%)</label><input id="fc-eta" type="number" value="80" oninput="calcCuttingForce()"></div>
+</div>
+<div class="res" id="m-res3">—</div>
+<button class="copy-btn" onclick="copyVcToForce()">⬆ Get Vc from calculator 1</button>
+</div>
+
+<!-- 4: Sin Bar -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Sine Bar — Surface Angle</div>
+<div class="cg">
+  <div><label>L — Sine Bar Length (mm)</label>
+  <select id="sb-l" onchange="calcSineBarNew()">
+    <option value="100">100mm</option><option value="125">125mm</option>
+    <option value="150">150mm (common)</option><option value="200">200mm</option><option value="250">250mm</option>
+  </select></div>
+  <div><label>α — Required Angle (°)</label><input id="sb-a" type="number" value="30" step="0.01" oninput="calcSineBarNew()"></div>
+</div>
+<div class="res" id="m-res4">—</div>
+</div>
+
+<!-- 5: קידוח וארבל -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · Drill &amp; Tap</div>
+<div class="cg">
+  <div><label>Metric Size</label>
+  <select id="dr-size" onchange="calcDrillTap()">
+    <option value="3,0.5">M3 × 0.5</option><option value="4,0.7">M4 × 0.7</option>
+    <option value="5,0.8">M5 × 0.8</option><option value="6,1.0" selected>M6 × 1.0</option>
+    <option value="8,1.25">M8 × 1.25</option><option value="10,1.5">M10 × 1.5</option>
+    <option value="12,1.75">M12 × 1.75</option><option value="14,2.0">M14 × 2.0</option>
+    <option value="16,2.0">M16 × 2.0</option><option value="20,2.5">M20 × 2.5</option>
+    <option value="24,3.0">M24 × 3.0</option><option value="30,3.5">M30 × 3.5</option>
+  </select></div>
+  <div><label>Thread Depth (× D)</label>
+  <select id="dr-depth" onchange="calcDrillTap()">
+    <option value="1">1D</option><option value="1.5" selected>1.5D</option>
+    <option value="2">2D</option><option value="2.5">2.5D</option>
+  </select></div>
+  <div><label>Material</label>
+  <select id="dr-mat" onchange="calcDrillTap()">
+    <option value="al">Aluminum</option><option value="steel" selected>Steel</option>
+    <option value="ss">Stainless</option><option value="ci">Cast Iron</option>
+  </select></div>
+</div>
+<div class="res" id="m-res5">—</div>
+</div>
+
+<!-- 6: RPM → Vc (הפוך) -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · RPM → Vc (Reverse)</div>
+<div class="cg">
+  <div><label>RPM (revolutions per minute)</label><input id="rv-rpm" type="number" value="1000" oninput="calcRpmToVc()"></div>
+  <div><label>D — Diameter (mm)</label><input id="rv-d" type="number" value="50" oninput="calcRpmToVc()"></div>
+</div>
+<div class="res" id="m-res6">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">7 · Tap Drill Size</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Metric thread → drill diameter by thread engagement percentage</div>
+<div class="cg">
+  <div><label>D — Nominal Diameter (mm)</label><input id="tap-d" type="number" value="10" step="0.5" oninput="calcTapDrill()"></div>
+  <div><label>P — Thread Pitch (mm)</label><input id="tap-p" type="number" value="1.5" step="0.05" oninput="calcTapDrill()"></div>
+  <div><label>% Thread Engagement</label><select id="tap-eng" onchange="calcTapDrill()">
+    <option value="100">100% (soft materials only)</option>
+    <option value="75" selected>75% (standard — almost always sufficient)</option>
+    <option value="65">65% (hard materials — Ti/Inconel/SS)</option>
+  </select></div>
+</div>
+<div class="res" id="tap-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">8 · Turning Surface Finish (Ra)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Expected Ra from feed and tool nose radius</div>
+<div class="cg">
+  <div><label>fn — Feed per Rev (mm/rev)</label><input id="raf-fn" type="number" value="0.15" step="0.01" oninput="calcRaFinish()"></div>
+  <div><label>Rε — Tool Nose Radius (mm)</label><input id="raf-r" type="number" value="0.8" step="0.1" oninput="calcRaFinish()"></div>
+</div>
+<div class="res" id="raf-result">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== MECHANICS ====================== -->
+<div id="calc-mechanics" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Force/Torque</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Shaft/Beam Stress</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Size Selection</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 Weight</span>
+</div>
+
+<div class="machine-grid">
+
+<!-- ציר מומנט פיתול -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Shaft — Torque and Power</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">P → T → τ → minimum diameter</div>
+<div class="cg">
+  <div><label>P — Power (kW)</label><input id="sh-p" type="number" value="7.5" step="0.5" oninput="calcShaftFull()"></div>
+  <div><label>n — Speed (RPM)</label><input id="sh-n" type="number" value="1450" oninput="calcShaftFull()"></div>
+  <div><label>τ_allow — Allowable Shear Stress (MPa)</label>
+  <select id="sh-tau" onchange="calcShaftFull()">
+    <option value="40">Steel 1045 N — 40</option><option value="60">Steel 4140 Q&amp;T — 60</option>
+    <option value="80">Steel 4340 — 80</option><option value="30">SS 304 — 30</option>
+    <option value="25">Al 6061-T6 — 25</option><option value="custom">Custom ↓</option>
+  </select></div>
+  <div><label>Custom τ_allow (MPa)</label><input id="sh-tau-c" type="number" value="60" oninput="calcShaftFull()"></div>
+  <div><label>SF — Safety Factor</label><input id="sh-sf" type="number" value="2" step="0.5" oninput="calcShaftFull()"></div>
+</div>
+<div class="res" id="mec-res1">—</div>
+</div>
+
+<!-- קורה -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Beam — Bending and Deflection</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Simply Supported · Cantilever</div>
+<div class="cg">
+  <div><label>Beam Type</label>
+  <select id="bm-type" onchange="calcBeamFull()">
+    <option value="ss_center">Simply Supported — Center Load</option>
+    <option value="ss_udl">Simply Supported — UDL</option>
+    <option value="cant_end">Cantilever — End Load</option>
+    <option value="cant_udl">Cantilever — UDL</option>
+  </select></div>
+  <div><label>L — Length (mm)</label><input id="bm-l" type="number" value="500" oninput="calcBeamFull()"></div>
+  <div><label>F — Load (N)</label><input id="bm-f" type="number" value="1000" oninput="calcBeamFull()"></div>
+  <div><label>E — Young's Modulus (GPa)</label>
+  <select id="bm-e" onchange="calcBeamFull()">
+    <option value="210">Steel — 210</option><option value="193">SS 304 — 193</option>
+    <option value="69">Al 6061 — 69</option><option value="114">Ti-6Al-4V — 114</option>
+  </select></div>
+  <div><label>I — Moment of Inertia (mm⁴)</label><input id="bm-i" type="number" value="100000" oninput="calcBeamFull()"></div>
+  <div><label>c — Distance from Center (mm) for σ</label><input id="bm-c" type="number" value="25" oninput="calcBeamFull()"></div>
+</div>
+<div class="res" id="mec-res2">—</div>
+</div>
+
+<!-- לחץ Hertz -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Hertz Contact Stress</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Ball/roller on a surface/shaft</div>
+<div class="cg">
+  <div><label>Contact Type</label>
+  <select id="hz-type" onchange="calcHertz()">
+    <option value="sphere_flat">Sphere on flat surface</option>
+    <option value="sphere_sphere">Sphere on sphere</option>
+    <option value="cyl_flat">Cylinder on flat surface</option>
+    <option value="cyl_cyl">Cylinder on cylinder</option>
+  </select></div>
+  <div><label>F — Load (N)</label><input id="hz-f" type="number" value="1000" oninput="calcHertz()"></div>
+  <div><label>R₁ — Radius 1 (mm)</label><input id="hz-r1" type="number" value="10" oninput="calcHertz()"></div>
+  <div><label>R₂ — Radius 2 (mm, ∞=flat)</label><input id="hz-r2" type="number" value="99999" oninput="calcHertz()"></div>
+  <div><label>E — Material (GPa)</label>
+  <select id="hz-e" onchange="calcHertz()">
+    <option value="210">Steel — 210</option><option value="193">SS — 193</option>
+    <option value="69">Al — 69</option>
+  </select></div>
+  <div><label>ν — Poisson's Ratio</label><input id="hz-nu" type="number" value="0.3" step="0.01" oninput="calcHertz()"></div>
+</div>
+<div class="res" id="mec-res3">—</div>
+</div>
+
+<!-- משקל -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Material Weight</div>
+<div class="cg">
+  <div><label>Shape</label>
+  <select id="wt-sh" onchange="shapeChangeCalc()">
+    <option value="bar">Round Bar</option><option value="rect">Rectangular Profile</option>
+    <option value="tube">Tube</option><option value="plate">Plate</option>
+    <option value="hex">Hexagon</option><option value="ring">Ring</option>
+  </select></div>
+  <div><label>Units</label>
+  <select id="wt-unit" onchange="shapeChangeCalc()">
+    <option value="mm">Millimeter (mm)</option>
+    <option value="in">Inch</option>
+  </select></div>
+  <div><label id="wt-l1">Diameter (mm)</label><input id="wt-d1" type="number" value="50" oninput="calcWtNew()"></div>
+  <div><label id="wt-l2">Length/Height (mm)</label><input id="wt-d2" type="number" value="100" oninput="calcWtNew()"></div>
+  <div id="wt-g3"><label id="wt-l3">Wall Thickness / Width (mm)</label><input id="wt-d3" type="number" value="5" oninput="calcWtNew()"></div>
+  <div id="wt-g4" style="display:none"><label id="wt-l4">Depth (mm)</label><input id="wt-d4" type="number" value="30" oninput="calcWtNew()"></div>
+  <div><label>Quantity (units)</label><input id="wt-qty" type="number" value="1" min="1" step="1" oninput="calcWtNew()"></div>
+  <div><label>Material (g/cm³)</label>
+  <select id="wt-mt" onchange="calcWtNew()">
+    <optgroup label="Steels"><option value="7.85" selected>Steel 1018-4340 (7.85)</option><option value="7.76">H13 Tool Steel (7.76)</option><option value="8.16">M2 HSS (8.16)</option></optgroup>
+    <optgroup label="Stainless"><option value="7.93">SS 304/304L (7.93)</option><option value="7.99">SS 316/316L (7.99)</option><option value="7.78">SS 17-4PH (7.78)</option><option value="7.78">SS 15-5PH (7.78)</option><option value="7.82">SS 2205 Duplex (7.82)</option><option value="7.81">SS 2507 Super Duplex (7.81)</option></optgroup>
+    <optgroup label="Aluminum"><option value="2.71">Al 6061-T6 (2.71)</option><option value="2.81">Al 7075-T6 (2.81)</option><option value="2.78">Al 2024-T4 (2.78)</option><option value="2.68">Al 5052 (2.68)</option><option value="2.83">Al 7050 (2.83)</option></optgroup>
+    <optgroup label="Titanium"><option value="4.43">Ti-6Al-4V (4.43)</option><option value="4.51">Ti Grade 2 (4.51)</option></optgroup>
+    <optgroup label="Copper &amp; Brass"><option value="8.96">Copper C110 (8.96)</option><option value="8.50">Brass C260 (8.50)</option><option value="8.83">Bronze C932 (8.83)</option></optgroup>
+    <optgroup label="Nickel &amp; Superalloys"><option value="8.19">Inconel 718 (8.19)</option><option value="8.44">Inconel 625 (8.44)</option><option value="8.47">Inconel 600 (8.47)</option><option value="8.89">Hastelloy C276 (8.89)</option></optgroup>
+    <optgroup label="Magnesium &amp; Zinc"><option value="1.77">Mg AZ31B (1.77)</option><option value="6.60">Zamak 3 Die Cast (6.60)</option></optgroup>
+    <optgroup label="Plastic"><option value="1.14">Nylon PA66 (1.14)</option><option value="1.41">POM Acetal (1.41)</option><option value="1.20">PC Polycarbonate (1.20)</option><option value="0.91">PP (0.91)</option><option value="1.31">PEEK (1.31)</option></optgroup>
+  </select></div>
+</div>
+<div class="res" id="mec-res4">—</div>
+</div>
+
+<!-- מומנט הידוק בורג -->
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · Bolt Tightening Torque</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">ISO 898-1 · K·F·d</div>
+<div class="cg">
+  <div><label>Size</label>
+  <select id="tq-size" onchange="calcTorque()">
+    <option value="3,0.5">M3</option><option value="4,0.7">M4</option><option value="5,0.8">M5</option>
+    <option value="6,1.0" selected>M6</option><option value="8,1.25">M8</option><option value="10,1.5">M10</option>
+    <option value="12,1.75">M12</option><option value="16,2.0">M16</option><option value="20,2.5">M20</option>
+    <option value="24,3.0">M24</option><option value="30,3.5">M30</option>
+  </select></div>
+  <div><label>Strength Grade</label>
+  <select id="tq-grade" onchange="calcTorque()">
+    <option value="400,0.9">4.6 — Fy=240MPa</option><option value="400,0.9">4.8</option>
+    <option value="640,0.9">8.8 — Fy=640MPa ★</option><option value="940,0.9">10.9 — Fy=940MPa</option>
+    <option value="1100,0.9">12.9 — Fy=1100MPa</option><option value="450,0.9">A2-70 SS</option>
+    <option value="600,0.9">A4-80 SS</option>
+  </select></div>
+  <div><label>K — Nut Factor (0.15-0.20)</label>
+  <select id="tq-k" onchange="calcTorque()">
+    <option value="0.12">0.12 — MoS₂/PTFE</option><option value="0.15">0.15 — light oil</option>
+    <option value="0.17" selected>0.17 — dry treated</option><option value="0.20">0.20 — dry</option>
+    <option value="0.22">0.22 — rusty/coarse</option>
+  </select></div>
+  <div><label>% of Proof Load</label><input id="tq-pct" type="number" value="70" min="50" max="90" oninput="calcTorque()"></div>
+</div>
+<div class="res" id="mec-res5">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · Von Mises — Equivalent Stress</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Combined bending+torsion/shear to a safety factor</div>
+<div class="cg">
+  <div><label>σ — Normal Stress (MPa)</label><input id="vm2-s" type="number" value="150" step="5" oninput="calcVonMisesCentral()"></div>
+  <div><label>τ — Shear Stress (MPa)</label><input id="vm2-t" type="number" value="60" step="5" oninput="calcVonMisesCentral()"></div>
+  <div><label>Sy — Yield Strength (MPa)</label><input id="vm2-sy" type="number" value="350" step="10" oninput="calcVonMisesCentral()"></div>
+</div>
+<div class="res" id="vm2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">7 · Fatigue — Goodman Diagram</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Safety factor for combined fatigue load (mean+alternating)</div>
+<div class="cg">
+  <div><label>σa — Alternating Stress (MPa)</label><input id="fat-sa" type="number" value="80" step="5" oninput="calcFatigueGoodman()"></div>
+  <div><label>σm — Mean Stress (MPa)</label><input id="fat-sm" type="number" value="50" step="5" oninput="calcFatigueGoodman()"></div>
+  <div><label>Se — Endurance Limit (MPa)</label><input id="fat-se" type="number" value="300" step="10" oninput="calcFatigueGoodman()"></div>
+  <div><label>Sut — Ultimate Strength (MPa)</label><input id="fat-sut" type="number" value="600" step="10" oninput="calcFatigueGoodman()"></div>
+</div>
+<div class="res" id="fat-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">8 · Press-Fit / Shrink-Fit — Mounting Heat</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">ΔT required to heat the housing before press-fit assembly</div>
+<div class="cg">
+  <div><label>Interference δ (mm, total diametral)</label><input id="pf-delta" type="number" value="0.04" step="0.005" oninput="calcPressFit()"></div>
+  <div><label>⌀ Nominal D (mm)</label><input id="pf-d" type="number" value="50" step="1" oninput="calcPressFit()"></div>
+  <div><label>Housing Material (expansion coefficient α)</label><select id="pf-alpha" onchange="calcPressFit()">
+    <option value="0.0000115">Steel (α=11.5×10⁻⁶)</option>
+    <option value="0.0000165">Stainless (α=16.5×10⁻⁶)</option>
+    <option value="0.0000230">Aluminum (α=23×10⁻⁶)</option>
+    <option value="0.0000090">Titanium (α=9×10⁻⁶)</option>
+  </select></div>
+  <div><label>Additional Safety Margin (°C)</label><input id="pf-margin" type="number" value="30" step="5" oninput="calcPressFit()"></div>
+</div>
+<div class="res" id="pf-result">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== GEARS ====================== -->
+<div id="calc-gears" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Module + Teeth</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Gear Pair + Ratio</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Ft from pair 2 ↓</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 Lewis Strength</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">5 Planetary / Rack</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Gear Geometry</div>
+<div class="cg">
+  <div><label>Module m</label>
+  <select id="gr-m" onchange="calcGearNew()">
+    <option value="0.5">0.5</option><option value="0.8">0.8</option><option value="1">1</option>
+    <option value="1.25">1.25</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+    <option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option>
+    <option value="5">5</option><option value="6">6</option><option value="8">8</option><option value="10">10</option>
+  </select></div>
+  <div><label>z — Number of Teeth</label><input id="gr-z" type="number" value="20" min="6" oninput="calcGearNew()"></div>
+  <div><label>Pressure Angle α</label>
+  <select id="gr-a" onchange="calcGearNew()">
+    <option value="20" selected>20°</option><option value="14.5">14.5°</option><option value="25">25°</option>
+  </select></div>
+  <div><label>Tooth Width b (mm)</label><input id="gr-b" type="number" value="30" oninput="calcGearNew()"></div>
+</div>
+<div class="res" id="gr-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Gear Pair ← from 1</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Calculates Ft ← ← calculator 3 will use it</div>
+<div class="cg">
+  <div><label>m (from calculator 1)</label>
+  <select id="gp-m" onchange="calcGearPairNew()">
+    <option value="1">1</option><option value="1.5">1.5</option><option value="2" selected>2</option>
+    <option value="2.5">2.5</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+  </select></div>
+  <div><label>z₁ — Pinion</label><input id="gp-z1" type="number" value="18" min="6" oninput="calcGearPairNew()"></div>
+  <div><label>z₂ — Gear</label><input id="gp-z2" type="number" value="54" min="6" oninput="calcGearPairNew()"></div>
+  <div><label>P — Power (kW)</label><input id="gp-p" type="number" value="5" step="0.5" oninput="calcGearPairNew()"></div>
+  <div><label>n₁ — Input RPM</label><input id="gp-n1" type="number" value="1450" oninput="calcGearPairNew()"></div>
+</div>
+<div class="res" id="gr-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Lewis Strength ← Ft from 2</div>
+<div class="cg">
+  <div><label>m</label><input id="gl-m" type="number" value="2" step="0.5" oninput="calcGearLewisNew()"></div>
+  <div><label>b (mm)</label><input id="gl-b" type="number" value="30" oninput="calcGearLewisNew()"></div>
+  <div><label>Ft (N) ← from calculator 2</label><input id="gl-ft" type="number" value="2000" oninput="calcGearLewisNew()"></div>
+  <div><label>Y Factor (Lewis)</label>
+  <select id="gl-y" onchange="calcGearLewisNew()">
+    <option value="0.245">z=12</option><option value="0.261">z=14</option><option value="0.277">z=16</option>
+    <option value="0.290">z=18</option><option value="0.308" selected>z=20</option><option value="0.322">z=25</option>
+    <option value="0.340">z=30</option><option value="0.369">z=40</option><option value="0.408">z=75</option>
+    <option value="0.422">z=∞ (rack)</option>
+  </select></div>
+  <div><label>Kv — Load Factor</label>
+  <select id="gl-kv" onchange="calcGearLewisNew()">
+    <option value="1.1">1.1 — fast/↑precision</option><option value="1.3" selected>1.3 — regular</option>
+    <option value="1.5">1.5 — slow/coarse</option>
+  </select></div>
+</div>
+<div class="res" id="gr-res3">—</div>
+<button class="copy-btn" onclick="copyFtToLewis()">⬆ Get Ft from calculator 2</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Rack &amp; Pinion</div>
+<div class="cg">
+  <div><label>m</label>
+  <select id="rp-m" onchange="calcRackNew()">
+    <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option>
+    <option value="4">4</option><option value="5">5</option>
+  </select></div>
+  <div><label>z — Pinion Teeth</label><input id="rp-z" type="number" value="20" oninput="calcRackNew()"></div>
+  <div><label>n — RPM</label><input id="rp-n" type="number" value="100" oninput="calcRackNew()"></div>
+</div>
+<div class="res" id="gr-res4">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · Planetary Gearbox</div>
+<div class="cg">
+  <div><label>zS — Sun</label><input id="pl-zs" type="number" value="20" oninput="calcPlanetaryNew()"></div>
+  <div><label>zP — Planet</label><input id="pl-zp" type="number" value="20" oninput="calcPlanetaryNew()"></div>
+  <div><label>n₁ — Input RPM</label><input id="pl-n" type="number" value="1450" oninput="calcPlanetaryNew()"></div>
+  <div><label>P — Power (kW)</label><input id="pl-p" type="number" value="5" oninput="calcPlanetaryNew()"></div>
+</div>
+<div class="res" id="gr-res5">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== BEARINGS ====================== -->
+<div id="calc-bearings" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Loads Fr + Fa</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Equivalent P → L10h</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 ndm Speed Check</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 Designation Decoder</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1+2 · L10h — Full Bearing Life</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Calculates P from loads → L10h</div>
+<div class="cg">
+  <div><label>C — Dynamic Load (kN)</label><input id="bc-c" type="number" value="25.5" step="0.1" oninput="calcBearFull2()"></div>
+  <div><label>Fr — Radial Load (N)</label><input id="bc-fr" type="number" value="5000" oninput="calcBearFull2()"></div>
+  <div><label>Fa — Axial Load (N)</label><input id="bc-fa" type="number" value="1000" oninput="calcBearFull2()"></div>
+  <div><label>e (from catalog)</label><input id="bc-e" type="number" value="0.30" step="0.01" oninput="calcBearFull2()"></div>
+  <div><label>Y (from catalog)</label><input id="bc-y" type="number" value="1.8" step="0.1" oninput="calcBearFull2()"></div>
+  <div><label>n — Speed (RPM)</label><input id="bc-n" type="number" value="1450" oninput="calcBearFull2()"></div>
+  <div><label>Bearing Type</label>
+  <select id="bc-type" onchange="calcBearFull2()">
+    <option value="3">Ball (p=3)</option><option value="3.333">Roller (p=10/3)</option>
+  </select></div>
+</div>
+<div class="res" id="br-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · ndm — Speed Check</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Determine whether grease suffices</div>
+<div class="cg">
+  <div><label>d — bore (mm)</label><input id="ndm-d" type="number" value="25" oninput="calcNdm2()"></div>
+  <div><label>D — OD (mm)</label><input id="ndm-D" type="number" value="52" oninput="calcNdm2()"></div>
+  <div><label>n — RPM</label><input id="ndm-n" type="number" value="12000" oninput="calcNdm2()"></div>
+</div>
+<div class="res" id="br-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Bearing Decoder</div>
+<div class="cg">
+  <div><label>Bearing Number</label><input type="text" id="bc-num2" value="6205-2RS-C3" placeholder="6205 / NU208 / 7310B" oninput="decodeBear2()"></div>
+</div>
+<div id="br-res3" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:2;color:var(--muted)">Enter a bearing number</div>
+</div>
+
+</div></div>
+
+<!-- ====================== SPRINGS ====================== -->
+<div id="calc-springs" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Choose Material → G/E</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Dimensions → k + δ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Stress τ/σ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 Wahl Check</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1+2+3 · Compression/Extension Spring</div>
+<div class="cg">
+  <div><label>d — Wire Diameter (mm)</label><input id="sp2-d" type="number" value="3" step="0.1" oninput="calcSpringComp()"></div>
+  <div><label>D — Mean Diameter (mm)</label><input id="sp2-D" type="number" value="25" oninput="calcSpringComp()"></div>
+  <div><label>n — Active Coils</label><input id="sp2-n" type="number" value="8" min="2" oninput="calcSpringComp()"></div>
+  <div><label>G (GPa)</label>
+  <select id="sp2-G" onchange="calcSpringComp()">
+    <option value="80">C Steel / Cr-V / Cr-Si (80)</option><option value="69">SS 302/304 (69)</option>
+    <option value="72">SS 17-7PH (72)</option><option value="77">Inconel 718 (77)</option>
+    <option value="44">Phosphor Bronze (44)</option><option value="48">Beryllium Cu (48)</option>
+  </select></div>
+  <div><label>F — Load (N)</label><input id="sp2-f" type="number" value="100" oninput="calcSpringComp()"></div>
+  <div><label>Lf — Free Length (mm)</label><input id="sp2-lf" type="number" value="80" oninput="calcSpringComp()"></div>
+</div>
+<div class="res" id="sp-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Torsion Spring</div>
+<div class="cg">
+  <div><label>d (mm)</label><input id="st2-d" type="number" value="3" step="0.1" oninput="calcTorsionSprNew()"></div>
+  <div><label>D (mm)</label><input id="st2-D" type="number" value="25" oninput="calcTorsionSprNew()"></div>
+  <div><label>n — Coils</label><input id="st2-n" type="number" value="8" oninput="calcTorsionSprNew()"></div>
+  <div><label>E (GPa)</label>
+  <select id="st2-E" onchange="calcTorsionSprNew()">
+    <option value="207">Steel (207)</option><option value="193">SS (193)</option><option value="200">Inconel (200)</option>
+  </select></div>
+  <div><label>T — Torque (N·mm)</label><input id="st2-T" type="number" value="500" oninput="calcTorsionSprNew()"></div>
+</div>
+<div class="res" id="sp-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Belleville Washer</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">DIN 2093 — disc spring</div>
+<div class="cg">
+  <div><label>OD — Outer Diameter (mm)</label><input id="bv-od" type="number" value="50" oninput="calcBelleville()"></div>
+  <div><label>ID — Inner Diameter (mm)</label><input id="bv-id" type="number" value="25.4" oninput="calcBelleville()"></div>
+  <div><label>t — Thickness (mm)</label><input id="bv-t" type="number" value="2" step="0.1" oninput="calcBelleville()"></div>
+  <div><label>h₀ — Cone Height (mm)</label><input id="bv-h" type="number" value="1.8" step="0.1" oninput="calcBelleville()"></div>
+  <div><label>E (GPa)</label><input id="bv-e" type="number" value="210" oninput="calcBelleville()"></div>
+  <div><label>Arrangement</label>
+  <select id="bv-arr" onchange="calcBelleville()">
+    <option value="1">Single × 1</option><option value="2p">Parallel × 2</option>
+    <option value="2s">Series × 2</option><option value="4p">Parallel × 4</option>
+  </select></div>
+</div>
+<div class="res" id="sp-res3">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== QUALITY ====================== -->
+<div id="calc-quality" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Measurements → Cpk</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 Cpk → DPMO/σ</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 MSA/GRR</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">4 TUR/AQL</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">5 FMEA RPN</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Cp / Cpk — Process Capability</div>
+<div class="cg">
+  <div><label>USL — Upper Limit (mm)</label><input id="cpk-usl" type="number" value="10.1" step="0.01" oninput="calcCpkFull()"></div>
+  <div><label>LSL — Lower Limit (mm)</label><input id="cpk-lsl" type="number" value="9.9" step="0.01" oninput="calcCpkFull()"></div>
+  <div><label>x̄ — Measurement Mean</label><input id="cpk-mean" type="number" value="10.02" step="0.001" oninput="calcCpkFull()"></div>
+  <div><label>σ — Standard Deviation</label><input id="cpk-std" type="number" value="0.015" step="0.001" oninput="calcCpkFull()"></div>
+</div>
+<div class="res" id="qc-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · DPMO ← from Cpk</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Cpk ← ← ← ↑ ← copy from 1</div>
+<div class="cg">
+  <div><label>Cpk (from calculator 1)</label><input id="dpmo-cpk" type="number" value="1.33" step="0.01" oninput="calcDPMOFull()"></div>
+  <div><label>Number of Opportunities (DPO)</label><input id="dpmo-opp" type="number" value="1" min="1" oninput="calcDPMOFull()"></div>
+</div>
+<div class="res" id="qc-res2">—</div>
+<button class="copy-btn" onclick="copyCpkToDpmo()">⬆ Get Cpk from calculator 1</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · GRR — Measurement System Analysis</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">MSA Gauge R&amp;R</div>
+<div class="cg">
+  <div><label>EV — Equipment Variation</label><input id="grr-ev" type="number" value="0.03" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>AV — Appraiser Variation</label><input id="grr-av" type="number" value="0.02" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>TV — Total Variation</label><input id="grr-tv" type="number" value="0.12" step="0.001" oninput="calcGRRFull()"></div>
+  <div><label>Tolerance — Tolerance Band</label><input id="grr-tol" type="number" value="0.2" step="0.01" oninput="calcGRRFull()"></div>
+</div>
+<div class="res" id="qc-res3">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · TUR — Measurement Ratio</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Test Uncertainty Ratio</div>
+<div class="cg">
+  <div><label>Tolerance — Band (mm)</label><input id="tur-tol" type="number" value="0.1" step="0.01" oninput="calcTURFull()"></div>
+  <div><label>U — Measurement Uncertainty (mm)</label><input id="tur-u" type="number" value="0.005" step="0.001" oninput="calcTURFull()"></div>
+</div>
+<div class="res" id="qc-res4">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">5 · AQL — Sampling</div>
+<div class="cg">
+  <div><label>Lot Size N</label><input id="aql-n" type="number" value="500" oninput="calcAQLFull()"></div>
+  <div><label>AQL (%)</label>
+  <select id="aql-q" onchange="calcAQLFull()">
+    <option value="0.065">0.065%</option><option value="0.1">0.1%</option><option value="0.15">0.15%</option>
+    <option value="0.25">0.25%</option><option value="0.4">0.4%</option><option value="0.65">0.65%</option>
+    <option value="1.0" selected>1.0%</option><option value="1.5">1.5%</option><option value="2.5">2.5%</option>
+    <option value="4.0">4.0%</option><option value="6.5">6.5%</option>
+  </select></div>
+  <div><label>Inspection Level</label>
+  <select id="aql-lvl" onchange="calcAQLFull()">
+    <option value="I">I — Reduced</option><option value="II" selected>II — Normal</option>
+    <option value="III">III — Tightened</option>
+  </select></div>
+</div>
+<div class="res" id="qc-res5">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">6 · FMEA — RPN</div>
+<div class="cg">
+  <div><label>S — Severity (1-10)</label><input id="fm-s" type="number" value="7" min="1" max="10" oninput="calcFMEAFull()"></div>
+  <div><label>O — Occurrence (1-10)</label><input id="fm-o" type="number" value="5" min="1" max="10" oninput="calcFMEAFull()"></div>
+  <div><label>D — Detection (1-10)</label><input id="fm-d" type="number" value="6" min="1" max="10" oninput="calcFMEAFull()"></div>
+</div>
+<div class="res" id="qc-res6">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== COSTS ====================== -->
+<div id="calc-costs" class="calc-sec">
+
+<div class="flow-bar">
+  <span style="color:var(--muted);font-size:11px">Flow: </span>
+  <span class="flow-step">1 Material + Time → Cost</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">2 BOM → Total Cost</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">3 Unit Cost + Margin</span>
+</div>
+
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Part Cost — Pricing</div>
+<div class="cg">
+  <div><label>Material Cost (₪/kg)</label><input id="pr-mat" type="number" value="25" oninput="calcPricingFull()"></div>
+  <div><label>Part Weight (kg)</label><input id="pr-wt" type="number" value="0.5" step="0.1" oninput="calcPricingFull()"></div>
+  <div><label>Machine Time (minutes)</label><input id="pr-tm" type="number" value="30" oninput="calcPricingFull()"></div>
+  <div><label>Machine Cost (₪/hour)</label><input id="pr-mh" type="number" value="120" oninput="calcPricingFull()"></div>
+  <div><label>Setup Time (minutes)</label><input id="pr-setup" type="number" value="20" oninput="calcPricingFull()"></div>
+  <div><label>Production Quantity</label><input id="pr-qty" type="number" value="50" oninput="calcPricingFull()"></div>
+  <div><label>Overhead (%)</label><input id="pr-oh" type="number" value="30" oninput="calcPricingFull()"></div>
+  <div><label>Margin (%)</label><input id="pr-mg" type="number" value="20" oninput="calcPricingFull()"></div>
+</div>
+<div class="res" id="pr-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · BOM — Materials + Labor</div>
+<div class="cg">
+  <div><label>Material Cost (₪)</label><input id="bm2-mat" type="number" value="200" oninput="calcBOMFull()"></div>
+  <div><label>Direct Labor Cost (₪)</label><input id="bm2-lab" type="number" value="150" oninput="calcBOMFull()"></div>
+  <div><label>Purchased Parts (₪)</label><input id="bm2-buy" type="number" value="80" oninput="calcBOMFull()"></div>
+  <div><label>Overhead (%)</label><input id="bm2-oh" type="number" value="35" oninput="calcBOMFull()"></div>
+  <div><label>Scrap %</label><input id="bm2-scr" type="number" value="3" oninput="calcBOMFull()"></div>
+</div>
+<div class="res" id="pr-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · Unit Cost ← from 1+2</div>
+<div class="cg">
+  <div><label>Production Cost (₪) ← from 1</label><input id="uc2-prod" type="number" value="50" oninput="calcUCFull()"></div>
+  <div><label>Target Price (₪)</label><input id="uc2-tgt" type="number" value="80" oninput="calcUCFull()"></div>
+  <div><label>Unit Quantity</label><input id="uc2-qty" type="number" value="100" oninput="calcUCFull()"></div>
+  <div><label>Shipping Cost per Unit (₪)</label><input id="uc2-ship" type="number" value="2" oninput="calcUCFull()"></div>
+</div>
+<div class="res" id="pr-res3">—</div>
+<button class="copy-btn" onclick="copyProdToCost()">⬆ Get cost from calculator 1</button>
+</div>
+
+</div></div>
+
+<!-- ====================== FLUIDS ====================== -->
+<div id="calc-fluids" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Hydraulics — Pressure/Flow</div>
+<div class="cg">
+  <div><label>Calculation Type</label>
+  <select id="hy-type" onchange="calcHydroFull()">
+    <option value="pressure">Pressure → Force</option><option value="flow">Flow → Velocity</option>
+    <option value="pump">Pump → Power</option>
+  </select></div>
+  <div><label>Pressure P (bar)</label><input id="hy-p" type="number" value="100" oninput="calcHydroFull()"></div>
+  <div><label>Piston Diameter (mm)</label><input id="hy-d" type="number" value="50" oninput="calcHydroFull()"></div>
+  <div><label>Flow Q (L/min)</label><input id="hy-q" type="number" value="20" oninput="calcHydroFull()"></div>
+  <div><label>η — Efficiency (%)</label><input id="hy-eta" type="number" value="85" oninput="calcHydroFull()"></div>
+</div>
+<div class="res" id="fl-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">O-Ring — Squeeze and Groove</div>
+<div class="cg">
+  <div><label>d — Cross-Section Diameter (mm)</label><input id="or-d" type="number" value="3.5" step="0.1" oninput="calcORingFull()"></div>
+  <div><label>ID — O-Ring Inner Diameter (mm)</label><input id="or-id" type="number" value="50" oninput="calcORingFull()"></div>
+  <div><label>Application</label>
+  <select id="or-app" onchange="calcORingFull()">
+    <option value="static_face">Static Face Seal</option><option value="static_radial">Static Radial Seal</option>
+    <option value="dynamic">Dynamic Seal</option>
+  </select></div>
+  <div><label>O-Ring Material</label>
+  <select id="or-mat" onchange="calcORingFull()">
+    <option value="NBR">NBR (Nitrile) — standard</option><option value="EPDM">EPDM — water/air</option>
+    <option value="FKM">FKM (Viton) — chemicals</option><option value="Silicone">Silicone — high T</option>
+  </select></div>
+</div>
+<div class="res" id="fl-res2">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Faraday — Electrochemical Coating</div>
+<div class="cg">
+  <div><label>I — Current (A)</label><input id="far-i" type="number" value="10" oninput="calcFaradayFull()"></div>
+  <div><label>t — Time (minutes)</label><input id="far-t" type="number" value="60" oninput="calcFaradayFull()"></div>
+  <div><label>Coating Process</label>
+  <select id="far-proc" onchange="calcFaradayFull()">
+    <option value="cr,52,6,6.9">Hard Chrome (Cr)</option><option value="ni,58.7,2,8.9">Nickel (Ni)</option>
+    <option value="zn,65.4,2,7.1">Zinc (Zn)</option><option value="cu,63.5,2,8.9">Copper (Cu)</option>
+    <option value="au,197,1,19.3">Gold (Au)</option><option value="ag,107.9,1,10.5">Silver (Ag)</option>
+  </select></div>
+  <div><label>Coating Area (cm²)</label><input id="far-a" type="number" value="100" oninput="calcFaradayFull()"></div>
+</div>
+<div class="res" id="fl-res3">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== ADHESIVES ====================== -->
+<div id="calc-adhesives" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Loctite — Break-Loose Torque</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Threadlocker Break-Loose Torque</div>
+<div class="cg">
+  <div><label>Loctite Product</label>
+  <select id="lt-prod" onchange="calcLoctiteFull()">
+    <option value="222,1.5">222 — Blue Low Strength</option>
+    <option value="243,2.5" selected>243 — Blue Medium Strength</option>
+    <option value="263,4.0">263 — Red High Strength</option>
+    <option value="270,5.0">270 — Red Max Strength</option>
+    <option value="290,2.0">290 — Green Wicking</option>
+  </select></div>
+  <div><label>Bolt Size</label>
+  <select id="lt-size" onchange="calcLoctiteFull()">
+    <option value="3">M3</option><option value="4">M4</option><option value="5">M5</option>
+    <option value="6" selected>M6</option><option value="8">M8</option><option value="10">M10</option>
+    <option value="12">M12</option>
+  </select></div>
+</div>
+<div class="res" id="ad-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Bonding — Force and Area</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Lap Joint Shear Strength</div>
+<div class="cg">
+  <div><label>Adhesive Type</label>
+  <select id="ad-type" onchange="calcAdhesiveFull()">
+    <option value="12">Epoxy 2-Part — 12 MPa</option>
+    <option value="25">Structural Epoxy — 25 MPa</option>
+    <option value="8">Acrylic MMA — 8 MPa</option>
+    <option value="6">Polyurethane — 6 MPa</option>
+    <option value="4">Silicone RTV — 4 MPa</option>
+    <option value="15">Loctite EA 9466 — 15 MPa</option>
+    <option value="30">Henkel Hysol EA 9394 — 30 MPa</option>
+  </select></div>
+  <div><label>Bond Area (mm²)</label><input id="ad-area" type="number" value="500" oninput="calcAdhesiveFull()"></div>
+  <div><label>SF — Safety Factor</label><input id="ad-sf" type="number" value="3" step="0.5" oninput="calcAdhesiveFull()"></div>
+  <div><label>Required Load (N)</label><input id="ad-load" type="number" value="3000" oninput="calcAdhesiveFull()"></div>
+</div>
+<div class="res" id="ad-res2">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== INSERTS ====================== -->
+<div id="calc-inserts" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">STI Drill — Helicoil</div>
+<div class="cg">
+  <div><label>Size</label>
+  <select id="ins2-size" onchange="calcInsDrillFull()">
+    <option value="3,0.5,3.6">M3 × 0.5</option><option value="4,0.7,4.7">M4 × 0.7</option>
+    <option value="5,0.8,5.9">M5 × 0.8</option><option value="6,1.0,7.0" selected>M6 × 1.0</option>
+    <option value="8,1.25,9.2">M8 × 1.25</option><option value="10,1.5,11.3">M10 × 1.5</option>
+    <option value="12,1.75,13.5">M12 × 1.75</option><option value="16,2.0,17.7">M16 × 2.0</option>
+    <option value="20,2.5,22.0">M20 × 2.5</option>
+  </select></div>
+  <div><label>Depth</label>
+  <select id="ins2-depth" onchange="calcInsDrillFull()">
+    <option value="1">1D</option><option value="1.5" selected>1.5D</option>
+    <option value="2">2D</option><option value="2.5">2.5D</option>
+  </select></div>
+</div>
+<div class="res" id="ins-res1">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Rivet Nut — Hole Size</div>
+<div class="cg">
+  <div><label>Size</label>
+  <select id="rn2-size" onchange="calcRivetNutFull()">
+    <option value="3,5.4">M3</option><option value="4,6.4">M4</option><option value="5,7.7" selected>M5</option>
+    <option value="6,9.0">M6</option><option value="8,11.5">M8</option><option value="10,14.0">M10</option>
+    <option value="12,16.5">M12</option>
+  </select></div>
+  <div><label>Type</label>
+  <select id="rn2-type" onchange="calcRivetNutFull()">
+    <option value="round">Round Body</option><option value="hex">Hex Body</option>
+  </select></div>
+  <div><label>Material Thickness (mm)</label><input id="rn2-thick" type="number" value="2.0" step="0.5" oninput="calcRivetNutFull()"></div>
+</div>
+<div class="res" id="ins-res2">—</div>
+</div>
+
+</div></div>
+
+<!-- ====================== TOLERANCES & GD&T ====================== -->
+<div id="calc-tolgdt" class="calc-sec">
+<div class="machine-grid">
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">1 · Fit Limits</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Calculate hole/shaft limits and fit type from ES/EI/es/ei</div>
+<div class="cg">
+  <div><label>Nominal Size (mm)</label><input id="ft2-nom" type="number" value="50" step="0.1" oninput="calcFitCentral()"></div>
+  <div><label>Hole Upper Deviation ES (μm)</label><input id="ft2-es" type="number" value="25" step="1" oninput="calcFitCentral()"></div>
+  <div><label>Hole Lower Deviation EI (μm)</label><input id="ft2-ei" type="number" value="0" step="1" oninput="calcFitCentral()"></div>
+  <div><label>Shaft Upper Deviation es (μm)</label><input id="ft2-esh" type="number" value="-25" step="1" oninput="calcFitCentral()"></div>
+  <div><label>Shaft Lower Deviation ei (μm)</label><input id="ft2-eih" type="number" value="-50" step="1" oninput="calcFitCentral()"></div>
+</div>
+<div class="res" id="ft2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">2 · Tolerance Stack-up</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Worst Case vs. RSS — up to 5 links (0=unused)</div>
+<div class="cg">
+  <div><label>Link 1 (mm)</label><input id="su2-1" type="number" value="0.10" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>Link 2 (mm)</label><input id="su2-2" type="number" value="0.05" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>Link 3 (mm)</label><input id="su2-3" type="number" value="0.08" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>Link 4 (mm)</label><input id="su2-4" type="number" value="0" step="0.01" oninput="calcStackupCentral()"></div>
+  <div><label>Link 5 (mm)</label><input id="su2-5" type="number" value="0" step="0.01" oninput="calcStackupCentral()"></div>
+</div>
+<div class="res" id="su2-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">3 · GD&amp;T Position — MMC Bonus</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Calculating tolerance bonus and total tolerance zone</div>
+<div class="cg">
+  <div><label>⌀ Basic Tolerance (mm) — ⊕⌀Ø A|B|C</label><input id="gdz-base" type="number" value="0.20" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>MMC — Maximum Material Condition Size (mm)</label><input id="gdz-mmc" type="number" value="10.00" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>Actual Measured Size (mm)</label><input id="gdz-actual" type="number" value="10.15" step="0.01" oninput="calcGdtPosZone()"></div>
+  <div><label>Feature Type</label><select id="gdz-type" onchange="calcGdtPosZone()">
+    <option value="hole">Hole (MMC=smallest)</option>
+    <option value="pin">Shaft/Pin (MMC=largest)</option>
+  </select></div>
+</div>
+<div class="res" id="gdz-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Engineering Unit Converter</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Length · Pressure/Stress · Torque · Temperature</div>
+<div class="cg">
+  <div><label>Length: mm ↔ inch</label><input id="uc2-mm" type="number" value="25.4" step="0.1" oninput="calcUnitConv('len','mm')"></div>
+  <div><label>&nbsp;</label><input id="uc2-in" type="number" value="1" step="0.01" oninput="calcUnitConv('len','in')"></div>
+  <div><label>Stress: MPa ↔ psi</label><input id="uc2-mpa" type="number" value="100" step="1" oninput="calcUnitConv('stress','mpa')"></div>
+  <div><label>&nbsp;</label><input id="uc2-psi" type="number" value="14504" step="1" oninput="calcUnitConv('stress','psi')"></div>
+  <div><label>Torque: N·m ↔ lbf·ft</label><input id="uc2-nm" type="number" value="10" step="0.1" oninput="calcUnitConv('torque','nm')"></div>
+  <div><label>&nbsp;</label><input id="uc2-lbft" type="number" value="7.376" step="0.01" oninput="calcUnitConv('torque','lbft')"></div>
+  <div><label>Temp: °C ↔ °F</label><input id="uc2-c" type="number" value="20" step="1" oninput="calcUnitConv('temp','c')"></div>
+  <div><label>&nbsp;</label><input id="uc2-f" type="number" value="68" step="1" oninput="calcUnitConv('temp','f')"></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>

@@ -1,0 +1,200 @@
+<div id="sec-changes" class="section">
+
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+  <button class="chg-tab active" onclick="showChg('eco',this)">📋 ECO/ECN Process</button>
+  <button class="chg-tab" onclick="showChg('rev',this)">🔤 REV System</button>
+  <button class="chg-tab" onclick="showChg('title',this)">📐 Title Block</button>
+  <button class="chg-tab" onclick="showChg('plm',this)">💾 PLM &amp; Config Management</button>
+  <button class="chg-tab" onclick="showChg('deviation',this)">📝 Deviation / Waiver</button>
+  <button class="chg-tab" onclick="showChg('mrb',this)">🔍 MRB</button>
+  <button class="chg-tab" onclick="showChg('itar',this)">🔒 ITAR / EAR</button>
+</div>
+</div>
+
+<!-- ============ ECO/ECN PROCESS ============ -->
+<div id="chg-eco" class="chg-sec active">
+<div class="card"><div class="ctitle">📋 Engineering Change Process — ECO/ECN</div>
+<div style="font-size:12px;color:var(--muted);line-height:2.3">
+<b style="color:var(--blue)">1. Change Request (ECR)</b><br>
+&nbsp;&nbsp;· Submitter: engineering / manufacturing / customer<br>
+&nbsp;&nbsp;· Change description + rationale + impacts<br>
+&nbsp;&nbsp;· Part number + current Rev<br>
+<b style="color:var(--orange)">2. Impact Analysis</b><br>
+&nbsp;&nbsp;· Affected parts (Where-Used)<br>
+&nbsp;&nbsp;· Existing inventory — what to do with it?<br>
+&nbsp;&nbsp;· Cost + timeline<br>
+<b style="color:var(--green)">3. Approval (ECO Board / CCB)</b><br>
+&nbsp;&nbsp;· Engineering + manufacturing + purchasing + stores<br>
+&nbsp;&nbsp;· Effectivity date<br>
+<b style="color:var(--purple)">4. Implementation</b><br>
+&nbsp;&nbsp;· Drawing + Rev update<br>
+&nbsp;&nbsp;· BOM / requirements update<br>
+&nbsp;&nbsp;· Notification to all departments (ECN)<br>
+<b style="color:var(--muted)">5. Closure and Filing</b><br>
+&nbsp;&nbsp;· Record in PLM/ERP<br>
+&nbsp;&nbsp;· Baseline preserved
+</div></div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">ECR — Engineering Change Request</div>
+<div style="font-size:12px;line-height:1.8">The entry point to the process: who is requesting, what's the problem (field failure? cost reduction? supplier issue?), proposed solution, impact estimate. The CCB approves/rejects.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">ECO — Engineering Change Order</div>
+<div style="font-size:12px;line-height:1.8">The binding instruction: what changes + new Rev, Effectivity (S/N/date), disposition of existing inventory (Use-As-Is/Rework/Scrap).</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">ECN — Engineering Change Notice</div>
+<div style="font-size:12px;line-height:1.8">The official distribution to everyone affected — manufacturing, purchasing, quality, suppliers. Ensures everyone is working from the same version.</div></div>
+</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle">🔎 Where-Used — Change Impact Analysis</div>
+<div style="font-size:13px;line-height:1.9">
+Before any ECO — the first question: <b>where else does this part live?</b> A change to a "simple" bolt used in 40 assemblies = 40 required impact checks. A PLM answers this with one click; manual file-based tracking is a recipe for trouble.
+</div>
+</div>
+</div>
+
+<!-- ============ REV SYSTEM ============ -->
+<div id="chg-rev" class="chg-sec">
+<div class="card"><div class="ctitle">🔤 REV System — Revision Management</div>
+<table><tr><th>Version</th><th>Method</th><th>Usage</th></tr>
+<tr><td>A, B, C...</td><td>Letters A-Z</td><td>ISO/ASME — very common</td></tr>
+<tr><td>0, 1, 2...</td><td>Numbers</td><td>Some manufacturers</td></tr>
+<tr><td>P1, P2...</td><td>P=Preliminary</td><td>Development stage, before approval</td></tr>
+<tr><td>Rev -</td><td>Dash</td><td>Initial drawing, pre-REV</td></tr>
+<tr><td>Rev A</td><td>First change</td><td>After initial Release</td></tr></table>
+<div class="note">Don't skip letters! I, O, Q, S, X, Z are avoided (confusion with 1, 0, 0, 5, ×, 2). MIL-STD-100 explicitly prohibits them.</div>
+</div>
+
+<div class="card"><div class="ctitle">📋 REV Block on a Drawing — Example</div>
+<table><tr><th>REV</th><th>Description</th><th>Date</th><th>Approved</th></tr>
+<tr><td>A</td><td>Changed GD&amp;T on ⌀12 hole</td><td>01.01.24</td><td>A.L.</td></tr>
+<tr><td>B</td><td>Material change from 6061 to 7075</td><td>15.03.24</td><td>J.B.</td></tr>
+<tr><td>C</td><td>Added 3×10mm slot</td><td>01.06.24</td><td>A.L.</td></tr></table>
+</div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Redline — Red-Pen Correction</div>
+<div style="font-size:12px;line-height:1.8">A temporary handwritten mark on a field drawing copy — until an official update. Only legal with an authorized signature + date + a follow-up ECO opened!</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">As-Built</div>
+<div style="font-size:12px;line-height:1.8">The actual final condition — including approved deviations, material substitutions, and field repairs. Critical for project handover and failure investigations.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--green)">Interchangeability — FFF</div>
+<div style="font-size:12px;line-height:1.8">Form-Fit-Function: a change that preserves FFF = same part number + new Rev. Breaking FFF = a new part number is mandatory!</div></div>
+</div>
+</div>
+
+<!-- ============ TITLE BLOCK ============ -->
+<div id="chg-title" class="chg-sec">
+<div class="card"><div class="ctitle">📐 Drawing Title Block</div>
+<table><tr><th>Field</th><th>Content</th><th>Importance</th></tr>
+<tr><td>Part Number</td><td>Unique part number</td><td>Critical</td></tr>
+<tr><td>Part Name</td><td>Part name</td><td>High</td></tr>
+<tr><td>Revision</td><td>Rev A / B / C</td><td>Critical</td></tr>
+<tr><td>Material</td><td>Material + standard</td><td>Critical</td></tr>
+<tr><td>Scale</td><td>1:2 / 1:1 / 2:1</td><td>High</td></tr>
+<tr><td>Projection</td><td>⊕ First / ⊗ Third</td><td>Important</td></tr>
+<tr><td>General Tolerance</td><td>ISO 2768-mK</td><td>Important</td></tr>
+<tr><td>Surface Finish</td><td>✓N7 (default)</td><td>Important</td></tr>
+<tr><td>Drawn By</td><td>Name + date</td><td>Medium</td></tr>
+<tr><td>Approved By</td><td>Name + date</td><td>Critical</td></tr>
+<tr><td>Drawing Number</td><td>Drawing number</td><td>Critical</td></tr></table>
+<div class="note">The first field checked upon receiving a part: does the drawing Rev match the Rev on the purchase order! A part made perfectly to the wrong Rev = a rejected part.</div>
+</div>
+
+<div class="card"><div class="ctitle">📄 Drawing Types</div>
+<table><tr><th>Type</th><th>Description</th></tr>
+<tr><td>Detail Drawing</td><td>A single part — all dimensions and requirements</td></tr>
+<tr><td>Assembly Drawing</td><td>An assembly — BOM, balloons, assembly relationships</td></tr>
+<tr><td>Installation Drawing</td><td>How the assembly installs into the larger system</td></tr>
+<tr><td>Tabulated Drawing</td><td>A family of similar parts in one table (Dash Numbers)</td></tr></table>
+</div>
+</div>
+
+<!-- ============ PLM / CONFIG MGMT ============ -->
+<div id="chg-plm" class="chg-sec">
+<div class="card"><div class="ctitle">💾 PLM — Product Lifecycle Management</div>
+<div style="font-size:13px;line-height:1.9">
+The system that holds everything in one place: versioned CAD files, BOM, electronic ECO processes, digital signatures. The main benefit: <b>a single source of truth</b> — no "version sitting on someone's desk".
+</div></div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">PDM — Product Data Management</div>
+<div style="font-size:12px;line-height:1.8">The vault for CAD files: check-in/out (no overwrites!), automatic versioning, assembly-part relationships. SolidWorks PDM is common.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Full PLM</div>
+<div style="font-size:12px;line-height:1.8">From idea to end-of-service: requirements, CAD, BOM, ECO, manufacturing, service. Windchill, Teamcenter, 3DEXPERIENCE.</div></div>
+</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle">📐 Configuration Management</div>
+<div style="font-size:13px;line-height:1.9">
+<b style="color:var(--blue)">Baseline</b> — an approved configuration anchor point. Types: FBL (Functional — requirements), ABL (Allocated), PBL (Product — the full manufacturing documentation). Once fixed — every change goes only through an ECO.<br><br>
+<b style="color:var(--orange)">Configuration Audit</b> — compares: what's documented (Baseline) against what was actually built (As-Built). Mandatory before handing over a critical project.
+</div></div>
+</div>
+
+<!-- ============ DEVIATION/WAIVER ============ -->
+<div id="chg-deviation" class="chg-sec">
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--blue)">Deviation — pre-approved deviation</div>
+<div style="font-size:12px;line-height:1.9">
+"We know we won't meet requirement X — is that OK?" → engineering analysis → approval <b>before</b> production, for a defined batch/quantity.<br><br>
+Example: a hole diameter in raw stock deviates by 0.05mm — pre-approved because it doesn't affect assembly.
+</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Waiver — after-the-fact approval</div>
+<div style="font-size:12px;line-height:1.9">
+"An anomaly came out — what do we do?" → MRB reviews → approval <b>after</b> the part has already been produced non-conforming.<br><br>
+Example: a part already manufactured with a slightly rougher surface finish than required — MRB checks if it's still functionally acceptable.
+</div></div>
+</div>
+
+<div class="card" style="margin-top:12px"><div class="ctitle">⚠️ Golden Rules</div>
+<div style="font-size:13px;line-height:1.9">
+• Both documents are <b>limited</b> in quantity/time — they do not change the official drawing!<br>
+• Full documentation is mandatory — not a "verbal decision"<br>
+• Repeated/permanent use of the same exception = a red flag — <b>time to issue a real ECO</b> and update the drawing<br>
+• A Deviation/Waiver living for months without a follow-up ECO = a ticking time bomb of conflicting versions
+</div></div>
+</div>
+
+<!-- ============ MRB ============ -->
+<div id="chg-mrb" class="chg-sec">
+<div class="card"><div class="ctitle">🔍 MRB — Material Review Board</div>
+<div style="font-size:13px;line-height:1.9">
+The forum that decides the fate of <b>nonconforming parts</b> — those not meeting drawing requirements. Composition: engineering + quality (+ customer, on defense/critical programs).
+</div></div>
+
+<table><tr><th>Decision</th><th>Meaning</th><th>Requires</th></tr>
+<tr><td><b style="color:var(--green)">Use-As-Is (UAI)</b></td><td>Good as it is — despite the nonconformance</td><td>Documented engineering justification!</td></tr>
+<tr><td><b style="color:var(--yellow)">Rework</b></td><td>Additional processing to bring it within requirements</td><td>Approved process, re-inspection</td></tr>
+<tr><td><b style="color:var(--orange)">Repair</b></td><td>Fix (not identical to original, but acceptable)</td><td>A specially-approved repair process</td></tr>
+<tr><td><b style="color:var(--red)">Scrap</b></td><td>Complete rejection</td><td>Documentation + destruction/marking</td></tr>
+</table>
+<div class="note">⚠️ UAI (Use-As-Is) authority — for authorized personnel only! MRB Crib = a physical holding area for nonconforming parts awaiting a decision, preventing them from accidentally "rolling" into the production line.</div>
+</div>
+
+<!-- ============ ITAR/EAR ============ -->
+<div id="chg-itar" class="chg-sec">
+<div class="card"><div class="ctitle">🔒 ITAR / Export Control Requirements</div>
+<div style="font-size:12px;color:var(--muted);line-height:2.3">
+<b style="color:var(--red)">▸ ITAR:</b> International Traffic in Arms Regulations (USA)<br>
+<b style="color:var(--red)">▸ USML:</b> US Munitions List — controlled items<br>
+<b style="color:var(--orange)">▸ EAR:</b> Export Administration Regulations (civilian + dual-use)<br>
+<b style="color:var(--orange)">▸ ECCN:</b> Export Control Classification Number<br>
+<br>
+<b style="color:var(--text)">Drawing marking:</b><br>
+<div style="background:rgba(239,68,68,0.08);border:1px solid var(--red);border-radius:6px;padding:8px;font-family:monospace;font-size:11px;color:var(--red)">
+WARNING: This document contains technical data<br>
+subject to the Export Administration Regulations<br>
+(EAR). Export/transfer in violation of EAR<br>
+is prohibited. ECCN: 1C002
+</div>
+<br>
+<b style="color:var(--orange)">▸ Israel:</b> defense export control — DECA (SIBAT)<br>
+<b style="color:var(--orange)">▸ TP-10:</b> export license request forms
+</div></div>
+
+<div class="machine-grid">
+<div class="machine-card"><div class="mc-title" style="color:var(--red)">CAGE Code</div>
+<div style="font-size:12px;line-height:1.8">A 5-character code identifying a defense supplier worldwide. Appears on drawing title blocks, CoCs, purchase orders. Israel: DSPO. USA: DLIS.</div></div>
+<div class="machine-card"><div class="mc-title" style="color:var(--orange)">Effectivity + ITAR</div>
+<div style="font-size:12px;line-height:1.8">An ITAR drawing is an "export" even via email to a foreign national! Access is restricted to US Persons or requires a license. Violation = fines and imprisonment.</div></div>
+</div>
+</div>
+</div>
