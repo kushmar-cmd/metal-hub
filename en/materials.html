@@ -1689,79 +1689,6 @@ const MAKERS_URL={
   'Kaiser Aluminum':'https://www.kaiseraluminum.com'
 };
 
-let compareList=[];
-function toggleCompare(id,ev){
-  if(ev)ev.stopPropagation();
-  const idx=compareList.indexOf(id);
-  if(idx>-1){
-    compareList.splice(idx,1);
-  }else{
-    if(compareList.length>=4){alert('You can compare up to 4 materials at a time. Remove one first.');return;}
-    compareList.push(id);
-  }
-  syncCompareUI();
-}
-function removeCompare(id){
-  compareList=compareList.filter(x=>x!==id);
-  syncCompareUI();
-}
-function clearCompare(){
-  compareList=[];
-  syncCompareUI();
-}
-function syncCompareUI(){
-  document.querySelectorAll('.mat-compare-btn').forEach(b=>{
-    const bid=b.getAttribute('data-cid');
-    const added=compareList.includes(bid);
-    b.classList.toggle('added',added);
-    b.textContent=added?'✓ Added':'+ Compare';
-  });
-  const bar=document.getElementById('compareBar');
-  if(!bar)return;
-  if(compareList.length===0){bar.classList.remove('show');bar.innerHTML='';return;}
-  bar.classList.add('show');
-  const chips=compareList.map(id=>{
-    const m=MATS.find(x=>x.id===id);
-    if(!m)return'';
-    return `<div class="compare-chip"><span style="color:${m.color}">${m.name}</span><button onclick="removeCompare('${id}')" title="Remove">×</button></div>`;
-  }).join('');
-  bar.innerHTML=chips+
-    `<button id="compareClearBtn" onclick="clearCompare()">Clear All</button>`+
-    `<button id="compareBtn" onclick="openCompareModal()" ${compareList.length<2?'disabled':''}>Compare (${compareList.length})</button>`;
-  if(compareList.length>=2 && document.getElementById('compareModal').classList.contains('show')){
-    openCompareModal();
-  }
-}
-function openCompareModal(){
-  const mats=compareList.map(id=>MATS.find(x=>x.id===id)).filter(Boolean);
-  if(mats.length<2)return;
-  const rows=[
-    ['Group',m=>m.group||'—'],
-    ['Tensile Strength (Rm)',m=>(m.props&&m.props.RM)||'—'],
-    ['Yield Strength (Rp0.2)',m=>(m.props&&m.props.Rp0)||'—'],
-    ['Hardness (HB)',m=>(m.props&&m.props.HB)||'—'],
-    ['Elastic Modulus (E)',m=>(m.props&&m.props.E)||'—'],
-    ['Elongation (A)',m=>(m.props&&m.props.A)||'—'],
-    ['Density (ρ, g/cm³)',m=>(m.props&&m.props['ρ'])||'—'],
-    ['Machinability',m=>m.mach||'—'],
-    ['Weldability',m=>m.weld||'—'],
-    ['Standards',m=>m.stds||'—'],
-    ['Available Forms',m=>m.forms||'—'],
-  ];
-  let html='<table class="compare-table"><thead><tr><th>Property</th>'+
-    mats.map(m=>`<th style="color:${m.color}">${m.name}</th>`).join('')+
-    '</tr></thead><tbody>';
-  rows.forEach(([label,fn])=>{
-    html+=`<tr><td>${label}</td>${mats.map(m=>`<td>${fn(m)}</td>`).join('')}</tr>`;
-  });
-  html+='</tbody></table>';
-  document.getElementById('compareContent').innerHTML=html;
-  document.getElementById('compareModal').classList.add('show');
-}
-function closeCompareModal(){
-  document.getElementById('compareModal').classList.remove('show');
-}
-
 function makerLink(name){
   const n=name.trim();
   const url=MAKERS_URL[n];
@@ -1836,6 +1763,80 @@ function buildMats(){
   }
   buildMats();
 }
+
+let compareList=[];
+function toggleCompare(id,ev){
+  if(ev)ev.stopPropagation();
+  const idx=compareList.indexOf(id);
+  if(idx>-1){
+    compareList.splice(idx,1);
+  }else{
+    if(compareList.length>=4){alert('You can compare up to 4 materials at a time. Remove one first.');return;}
+    compareList.push(id);
+  }
+  syncCompareUI();
+}
+function removeCompare(id){
+  compareList=compareList.filter(x=>x!==id);
+  syncCompareUI();
+}
+function clearCompare(){
+  compareList=[];
+  syncCompareUI();
+}
+function syncCompareUI(){
+  document.querySelectorAll('.mat-compare-btn').forEach(b=>{
+    const bid=b.getAttribute('data-cid');
+    const added=compareList.includes(bid);
+    b.classList.toggle('added',added);
+    b.textContent=added?'✓ Added':'+ Compare';
+  });
+  const bar=document.getElementById('compareBar');
+  if(!bar)return;
+  if(compareList.length===0){bar.classList.remove('show');bar.innerHTML='';return;}
+  bar.classList.add('show');
+  const chips=compareList.map(id=>{
+    const m=MATS.find(x=>x.id===id);
+    if(!m)return'';
+    return `<div class="compare-chip"><span style="color:${m.color}">${m.name}</span><button onclick="removeCompare('${id}')" title="Remove">×</button></div>`;
+  }).join('');
+  bar.innerHTML=chips+
+    `<button id="compareClearBtn" onclick="clearCompare()">Clear All</button>`+
+    `<button id="compareBtn" onclick="openCompareModal()" ${compareList.length<2?'disabled':''}>Compare (${compareList.length})</button>`;
+  if(compareList.length>=2 && document.getElementById('compareModal').classList.contains('show')){
+    openCompareModal();
+  }
+}
+function openCompareModal(){
+  const mats=compareList.map(id=>MATS.find(x=>x.id===id)).filter(Boolean);
+  if(mats.length<2)return;
+  const rows=[
+    ['Group',m=>m.group||'—'],
+    ['Tensile Strength (Rm)',m=>(m.props&&m.props.RM)||'—'],
+    ['Yield Strength (Rp0.2)',m=>(m.props&&m.props.Rp0)||'—'],
+    ['Hardness (HB)',m=>(m.props&&m.props.HB)||'—'],
+    ['Elastic Modulus (E)',m=>(m.props&&m.props.E)||'—'],
+    ['Elongation (A)',m=>(m.props&&m.props.A)||'—'],
+    ['Density (ρ, g/cm³)',m=>(m.props&&m.props['ρ'])||'—'],
+    ['Machinability',m=>m.mach||'—'],
+    ['Weldability',m=>m.weld||'—'],
+    ['Standards',m=>m.stds||'—'],
+    ['Available Forms',m=>m.forms||'—'],
+  ];
+  let html='<table class="compare-table"><thead><tr><th>Property</th>'+
+    mats.map(m=>`<th style="color:${m.color}">${m.name}</th>`).join('')+
+    '</tr></thead><tbody>';
+  rows.forEach(([label,fn])=>{
+    html+=`<tr><td>${label}</td>${mats.map(m=>`<td>${fn(m)}</td>`).join('')}</tr>`;
+  });
+  html+='</tbody></table>';
+  document.getElementById('compareContent').innerHTML=html;
+  document.getElementById('compareModal').classList.add('show');
+}
+function closeCompareModal(){
+  document.getElementById('compareModal').classList.remove('show');
+}
+
 
 
 initMaterials();
