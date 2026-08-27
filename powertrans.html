@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://metal.kushmar.com/powertrans.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/powertrans.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/powertrans.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/powertrans.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>מדריך העברת כוח — חגורות, שרשראות, צירופים, ספליינים | METAL HUB</title>
+<meta name="description" content="מדריך הנדסי להעברת כוח: בחירת חגורות V-Belt וטיימינג, תכן שרשראות (ANSI/ISO), צירופי ציר (קשיח/גמיש), חריצי מפתח וספליינים, מצמדים ובלמים — עם מחשבונים אינטראקטיביים.">
+<meta name="keywords" content="העברת כוח, חגורת V, חגורת טיימינג, שרשרת גלגלת, גלגל שיניים, צירוף ציר, צירוף גמיש, חריץ מפתח, ספליין, DIN 5480, מצמד, בלם, מחשבון חגורה">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:rtl;text-align:right}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-red{background:#cf222e;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.gear-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.gear-tab:hover,.gear-tab.active{background:var(--green);color:#000;border-color:var(--green);font-weight:700}
+.gear-sec{display:none}.gear-sec.active{display:block}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+#topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;gap:12px;height:52px;position:fixed;top:0;left:0;right:0;z-index:100}
+#gsearch{flex:1;max-width:340px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text);font-size:13px}
+#gsearch:focus{outline:none;border-color:var(--blue)}
+.nav-arrow{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 13px;color:var(--text);cursor:pointer;font-size:18px;font-weight:700;line-height:1;flex-shrink:0;transition:all .15s}
+.nav-arrow:hover{background:var(--blue);color:#000;border-color:var(--blue)}
+.nav-arrow:active{transform:scale(.92)}
+#soverlay{display:none;position:fixed;top:96px;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:90;padding:20px;overflow-y:auto}
+#soverlay.active{display:block}
+.sri{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:8px}
+.sri:hover{border-color:var(--blue)}
+#nav{background:var(--surface);border-bottom:2px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px;position:sticky;top:52px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4);margin-top:52px}
+.tab{padding:8px 13px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
+.tab:hover{color:var(--text);background:var(--border)}.tab.active{color:#fff;background:var(--blue)}
+</style>
+
+.pt-tab{padding:9px 14px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s}
+.pt-tab:hover{color:var(--text);background:var(--border)}.pt-tab.active{color:#fff;background:var(--blue)}
+.pt-sec{display:none}.pt-sec.active{display:block}
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:12px}
+.mc-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px}
+.mc-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:6px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:2px}
+.b-green{background:#1a3a1a;color:var(--green)}.b-orange{background:#3a2a0a;color:var(--orange)}.b-red{background:#3a1a1a;color:var(--red)}.b-blue{background:#1a1a3a;color:var(--blue)}.b-purple{background:#2a1a3a;color:var(--purple)}
+.info-box{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.pt-res{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:10px;font-size:13px}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:10px 0}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{width:100%;padding:6px 8px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;box-sizing:border-box}
+
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true"><div id="engBgGrad"></div>
+  <div class="engGear g1"></div><div class="engGear g2"></div><div class="engGear g3"></div>
+  <div class="engSpark s1"></div><div class="engSpark s2"></div>
+  <div class="engSpark s3"></div><div class="engSpark s4"></div><div class="engSpark s5"></div>
+</div>
+
+<div id="topbar">
+  <a class="logo" href="https://metal.kushmar.com/" title="חזרה לדף הבית">METAL <span>HUB</span></a>
+  <input id="gsearch" type="search" placeholder="🔍 חיפוש — חומרים, GD&T, הברגות, ריתוך..." autocomplete="off">
+  <button class="night-toggle" onclick="toggleTheme()" title="מצב יום/לילה" id="theme-btn">☀️</button>
+  
+  <a href="https://metal.kushmar.com/en/powertrans.html" title="English" style="text-decoration:none;font-size:20px;line-height:1;display:flex;align-items:center;padding:0 4px" aria-label="Switch to English">🇬🇧</a>
+  </div>
+<div id="soverlay"></div>
+<div id="nav">
+  <a class="tab" href="https://metal.kushmar.com/">🏠 בית</a>
+  <a class="tab" href="mfgtech.html">🏭 טכנולוגיות</a>
+  <a class="tab" href="materials.html">🧱 חומרים</a>
+  <a class="tab" href="metallurgy.html">🔬 מטלורגיה</a>
+  <a class="tab" href="coatings.html">🎨 ציפויים</a>
+  <a class="tab" href="heat.html">🔥 טיפולי חום</a>
+  <a class="tab" href="gdt.html">⊕ GD&T</a>
+  <a class="tab" href="inspection.html">🔍 בדיקה ואיכות</a>
+  <a class="tab" href="pricing.html">💰 תמחיר</a>
+  <a class="tab" href="tol.html">📏 סובלנויות</a>
+  <a class="tab" href="surface.html">✦ טיב שטח</a>
+  <a class="tab" href="threads.html">🔩 הברגות</a>
+  <a class="tab" href="welding.html">⚡ ריתוך</a>
+  <a class="tab" href="machining.html">🔧 עיבוד מכני</a>
+  <a class="tab" href="fasteners.html">🔗 חיבורים</a>
+  <a class="tab" href="inserts.html">🔩 קשיחים</a>
+  <a class="tab" href="standards.html">📋 תקנים</a>
+  <a class="tab" href="bearings.html">⚙️ מסבים</a>
+  <a class="tab" href="gears.html">⚙️ גירים</a>
+  <a class="tab active" href="powertrans.html">⛓️ העברת כוח</a>
+  <a class="tab" href="seals.html">🔵 אטמים</a>
+  <a class="tab" href="springs.html">🌀 קפיצים</a>
+  <a class="tab" href="corrosion.html">⚡ קורוזיה</a>
+  <a class="tab" href="hydraulics.html">💧 הידראוליקה</a>
+  <a class="tab" href="stress.html">📊 עומסים</a>
+  <a class="tab" href="fmea.html">⚠️ FMEA</a>
+  <a class="tab" href="changes.html">📄 שינויים</a>
+  <a class="tab" href="dfm.html">🏗️ תכן לייצור</a>
+  <a class="tab" href="pressure.html">🔬 בדיקות לחץ</a>
+  <a class="tab" href="chem.html">🧪 כימיה</a>
+  <a class="tab" href="calc.html">🧮 מחשבונים</a>
+  <a class="tab" href="glossary.html">📖 מילון</a>
+  <a class="tab" href="https://metal.kushmar.com/">🔐 שאל AI</a>
+</div>
+
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">מדריך העברת כוח</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+מדריך מלא להעברת כוח בין צירים: <b>חגורות V-Belt וטיימינג</b>, <b>שרשראות גלגלת</b> (ANSI/ISO), <b>צירופי ציר</b> (קשיח וגמיש), <b>חריצי מפתח וספליינים</b>, ומצמדים/בלמים — עם מחשבונים אינטראקטיביים חיים.
+</p>
+</div>
+
+<div id="sec-powertrans" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#0d1a2e);border-color:var(--blue)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">⛓️</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--blue)">העברת כוח</div>
+    <div style="font-size:12px;color:var(--muted)">חגורות · שרשראות · צירופים · חריצי מפתח · ספליינים · מצמדים · מחשבונים</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="pt-tab active" onclick="showPT('belts',this)">🔗 חגורות</button>
+  <button class="pt-tab" onclick="showPT('chains',this)">⛓️ שרשראות</button>
+  <button class="pt-tab" onclick="showPT('couplings',this)">🔧 צירופים</button>
+  <button class="pt-tab" onclick="showPT('keyways',this)">🔑 חריצי מפתח וספליינים</button>
+  <button class="pt-tab" onclick="showPT('clutches',this)">🛑 מצמדים ובלמים</button>
+  <button class="pt-tab" onclick="showPT('calc',this)">🧮 מחשבונים</button>
+</div>
+
+<!-- ═══ BELTS ═══ -->
+<div class="pt-sec active" id="pt-belts">
+<div class="card"><div class="ctitle">🔗 הינעי חגורה</div>
+<div class="mc-grid">
+
+<div class="mc-item">
+<div class="mc-title">חגורות V-Belt</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>חתכים תקניים (צר, לפי RMA/MPTA):</b><br>
+<span class="mc-badge b-blue">3V</span> <span class="mc-badge b-blue">5V</span> <span class="mc-badge b-blue">8V</span> (צר, קיבולת גבוהה)<br>
+<span class="mc-badge b-green">A</span> <span class="mc-badge b-green">B</span> <span class="mc-badge b-green">C</span> <span class="mc-badge b-green">D</span> (קלאסי, רחב)<br><br>
+<b>כלל אצבע לבחירת גודל:</b> קוטר הפיץ' של הגלגלת הקטנה ביותר צריך להיות ≥ המינימום המומלץ (למניעת מאמץ כיפוף מוגזם בחגורה).<br><br>
+<b>מקדם עומס שירות:</b><br>
+• עומס קל, חלק: 1.0-1.2<br>
+• עומס רגיל (רוב המכונות): 1.2-1.5<br>
+• עומסי זעזוע כבדים (מדחסים, מגרסות): 1.5-2.0<br><br>
+<b>החלקה:</b> טיפוסית 1-2% לחגורות V — לא מתאים לסנכרון מדויק.
+</div>
+<a href="https://www.youtube.com/results?search_query=V+belt+drive+selection+design+calculation" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">חגורות טיימינג (סינכרוניות)</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>פיצ'ים תקניים:</b><br>
+<span class="mc-badge b-purple">MXL</span> <span class="mc-badge b-purple">XL</span> <span class="mc-badge b-purple">L</span> <span class="mc-badge b-purple">H</span> (טרפזי, ישן)<br>
+<span class="mc-badge b-purple">GT2 3mm/5mm/8mm</span> <span class="mc-badge b-purple">HTD 5mm/8mm/14mm</span> (עקומתי, מודרני)<br><br>
+<b>יתרון מרכזי:</b> <b>אפס החלקה</b> — סנכרון מדויק בין הגלגלות. חיוני לצירי CNC, מדפסות 3D, אינדוקס.<br><br>
+<b>GT2 מול HTD:</b> ל-GT2 יש חפיפת שן עמוקה יותר — טוב יותר לדיוק גבוה, יישומי backlash נמוך (מדפסות 3D, רובוטיקה). HTD טוב יותר למומנט גבוה מאוד.<br><br>
+<b>מתיחה:</b> קריטית — יותר מדי רופף גורם לדילוג שיניים, יותר מדי מתוח מגדיל עומס מסב ובלאי חגורה.
+</div>
+<a href="https://www.youtube.com/results?search_query=timing+belt+drive+synchronous+belt+how+it+works" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">חגורה מול שרשרת מול גלגל שיניים — טבלת החלטה</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<table style="width:100%;font-size:11px;border-collapse:collapse">
+<tr style="background:var(--card)"><th style="padding:4px 6px;text-align:right">קריטריון</th><th>חגורה</th><th>שרשרת</th><th>גלגל שיניים</th></tr>
+<tr><td style="padding:4px 6px">מהירות מקסימלית</td><td>גבוהה</td><td>בינונית</td><td>גבוהה</td></tr>
+<tr><td style="padding:4px 6px">הספק מקסימלי</td><td>בינוני</td><td>גבוה</td><td>גבוה מאוד</td></tr>
+<tr><td style="padding:4px 6px">רעש</td><td>נמוך</td><td>בינוני</td><td>בינוני-גבוה</td></tr>
+<tr><td style="padding:4px 6px">סיכה</td><td>ללא</td><td>נדרשת</td><td>נדרשת</td></tr>
+<tr><td style="padding:4px 6px">ספיגת זעזוע</td><td>טובה</td><td>סבירה</td><td>גרועה</td></tr>
+<tr><td style="padding:4px 6px">דיוק</td><td>טיימינג בלבד</td><td>טוב</td><td>מצוין</td></tr>
+<tr><td style="padding:4px 6px">עלות</td><td>נמוכה</td><td>בינונית</td><td>גבוהה</td></tr>
+</table>
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">אופני כשל נפוצים בחגורה</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>הזגגה/התקשות:</b> החלקה מוגזמת מייצרת חום → הגומי מתקשה → יותר החלקה (מעגל קסמים).<br><br>
+<b>סדיקה:</b> בדרך כלל מגיל, חשיפה לחום, או קוטר גלגלת קטן מדי (כיפוף מוגזם).<br><br>
+<b>גזירת שן (חגורות טיימינג):</b> עומס יתר או זעזוע — בדוק את מפרט המומנט מול דירוג החגורה.<br><br>
+<b>יציאה מהגלגלת:</b> חוסר יישור בין הגלגלות — בדוק מקבילות ויישור צירים קודם.<br><br>
+<b>בלאי מוקדם:</b> כמעט תמיד מתיחה שגויה — בדוק עם מד מתיחה, לא לפי תחושה.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ CHAINS ═══ -->
+<div class="pt-sec" id="pt-chains">
+<div class="card"><div class="ctitle">⛓️ הינעי שרשרת גלגלת</div>
+<div class="mc-grid">
+
+<div class="mc-item">
+<div class="mc-title">גדלי שרשרת גלגלת ANSI</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<table style="width:100%;font-size:11px;border-collapse:collapse">
+<tr style="background:var(--card)"><th style="padding:4px 6px;text-align:right">ANSI No.</th><th>פיץ' (אינץ')</th><th>הספק מקס' @100 RPM (הערכה)</th></tr>
+<tr><td style="padding:4px 6px">40</td><td>0.500</td><td>~2 קילוואט</td></tr>
+<tr><td style="padding:4px 6px">50</td><td>0.625</td><td>~4 קילוואט</td></tr>
+<tr><td style="padding:4px 6px">60</td><td>0.750</td><td>~6 קילוואט</td></tr>
+<tr><td style="padding:4px 6px">80</td><td>1.000</td><td>~11 קילוואט</td></tr>
+<tr><td style="padding:4px 6px">100</td><td>1.250</td><td>~18 קילוואט</td></tr>
+<tr><td style="padding:4px 6px">120</td><td>1.500</td><td>~27 קילוואט</td></tr>
+</table>
+<b>מקבילה ISO:</b> ISO 08B ≈ ANSI 40, ISO 10B ≈ ANSI 50 וכו' (פיץ' מטרי, מידות שונות מעט).
+</div>
+<a href="https://www.youtube.com/results?search_query=roller+chain+drive+ANSI+sprocket+selection" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">כללי מספר שיניים לגלגלת שרשרת</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>מינימום שיניים (גלגלת קטנה):</b> 17-19 שיניים לריצה חלקה. מתחת ל-17 → פעולת מיתר מוגברת (שונות מהירות), רעש, ובלאי מואץ.<br><br>
+<b>יחס מקסימלי (שלב בודד):</b> טיפוסי 7:1, עד 10:1 אפשרי בזהירות.<br><br>
+<b>אורך שרשרת:</b> צריך להיות <b>מספר זוגי של פיצ'ים</b> כדי להימנע משימוש בחוליית offset (חלשה יותר מחוליה רגילה).<br><br>
+<b>מרחק מרכזים:</b> אידיאלי הוא 30-50 פיצ'ים. קצר מדי → בלאי מהיר וריצה גסה. ארוך מדי → הצלפת/רעידת שרשרת.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">בלאי והתארכות שרשרת</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>מנגנון בלאי:</b> בלאי פין-תותב מגדיל את אורך הפיץ' האפקטיבי → השרשרת "גדלה."<br><br>
+<b>החלף כאשר:</b> השרשרת התארכה 1.5% (עומס קל) עד 3% (לפני שהיא מתחילה "לרכוב" על שיני הגלגלת — כשל "טיפ על השן").<br><br>
+<b>מדידת התארכות:</b> מדוד אורך שרשרת (למשל 12 פיצ'ים) תחת עומס והשווה לנומינלי.<br><br>
+<b>סיכה קריטית:</b> שמן מתאים (לא גריז, שלא חודר לממשק פין-תותב) יכול להאריך את חיי השרשרת פי 5-10.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">שרשרת מול חגורה — מתי לבחור שרשרת</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+✅ מומנט גבוה במהירות נמוכה (מסועים, ציוד חקלאי)<br>
+✅ סביבה מזוהמת/שמנונית (חגורה הייתה מחליקה)<br>
+✅ נדרש יחס מהירות מדויק ללא החלקה<br>
+✅ צפוי אורך חיים ארוך עם תחזוקה<br><br>
+❌ יישומי מהירות גבוהה (הצלפת ורעש שרשרת גדלים)<br>
+❌ היכן שסיכה בלתי אפשרית (סביבות מזון/נקיות — השתמש בחגורה במקום)<br>
+❌ שרשרת הנעה רגישה לזעזוע (חגורה סופגת זעזוע טוב יותר)
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ COUPLINGS ═══ -->
+<div class="pt-sec" id="pt-couplings">
+<div class="card"><div class="ctitle">🔧 צירופי ציר</div>
+<div class="mc-grid">
+
+<div class="mc-item">
+<div class="mc-title">צירופים קשיחים</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-red">סבילות אפס לחוסר-יישור!</span><br><br>
+<b>סוגים:</b> שרוול, הידוק (מפוצל), אוגן.<br><br>
+<b>מתי להשתמש:</b> כאשר הצירים מיושרים בצורה מושלמת ויישארו כך (מכונות מסגרת קשיחה קצרה).<br><br>
+<b>סכנה:</b> כל חוסר-יישור (זוויתי, מקבילי, או צירי) מועבר ישירות למסבים → כשל מסב מוקדם, רעידות, אפשרות לשבר ציר.<br><br>
+<b>סבילות יישור:</b> בעצם אפס — השתמש בשעוני מדידה או כלי יישור לייזר לפני הידוק סופי.
+</div>
+<a href="https://www.youtube.com/results?search_query=shaft+coupling+types+rigid+flexible+explained" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">צירופים גמישים</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>צירוף לסת (עכביש):</b> אלסטומר "עכביש" בין שני רכזות. סופג ~0.5° חוסר-יישור זוויתי, חוסר-יישור מקבילי קטן. סופג זעזוע ורעידות. האלמנט נשחק עם הזמן (ניתן להחלפה).<br><br>
+<b>צירוף Oldham:</b> שתי רכזות + דיסק מרכזי צף. מטפל היטב בחוסר-יישור מקבילי, אפס backlash — טוב לתנועת סרוו/דיוק.<br><br>
+<b>צירוף דיסק:</b> דיסקי מתכת דקים מתכופפים כדי להתאים לחוסר-יישור. קשיחות פיתולית גבוהה (טוב לסרוו), מטפל בכל 3 סוגי חוסר-יישור.<br><br>
+<b>צירוף גלגל שיניים:</b> שיני גלגל פנימיות/חיצוניות מאפשרות החלקה. קיבולת מומנט גבוהה, דורש סיכה.<br><br>
+<b>צירוף בלוני:</b> בלון מתכת, אפס backlash, אינרציה נמוכה — בקרת תנועה מדויקת.
+</div>
+<a href="https://www.youtube.com/results?search_query=flexible+coupling+jaw+oldham+disc+animation" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">סוגי חוסר-יישור וסבילויות</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>מקבילי (offset):</b> הצירים מקבילים אך לא קונצנטריים. סבילות טיפוסית: 0.05-0.5mm תלוי בסוג הצירוף.<br><br>
+<b>זוויתי:</b> קווי מרכז הציר נחתכים בזווית. סבילות טיפוסית: 0.5-3° תלוי בסוג.<br><br>
+<b>צירי (end float):</b> הצירים נעים לכיוון/מרחוק זה מזה (התפשטות תרמית!). רוב הצירופים מטפלים בכמה מ"מ.<br><br>
+<div class="info-box">💡 גם עם צירוף "גמיש", מזעור חוסר-יישור תמיד מאריך את חיי המסב והצירוף. צירופים גמישים מפצים על חוסר-יישור בלתי-נמנע — הם אינם תחליף ליישור נכון.</div>
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">רשימת בדיקה לבחירה</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+1. <b>מומנט</b> — עם מקדם שירות (1.5-2× לעומסי זעזוע)<br>
+2. <b>מהירות (RPM)</b> — בדוק דירוג מהירות מקסימלית<br>
+3. <b>חוסר-יישור</b> — ערכי מקבילי/זוויתי/צירי צפויים<br>
+4. <b>גדלי חור</b> — שני קטרי הציר<br>
+5. <b>דרישת Backlash</b> — אפס לסרוו/דיוק, סבילות לתמסורת כוח כללית<br>
+6. <b>סביבה</b> — טמפרטורה, כימיקלים (תאימות אלסטומר)<br>
+7. <b>זעזוע/רעידה</b> — העדף סוגים אלסטומריים לריכוך
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ KEYWAYS & SPLINES ═══ -->
+<div class="pt-sec" id="pt-keyways">
+<div class="card"><div class="ctitle">🔑 חריצי מפתח וספליינים</div>
+<div class="mc-grid">
+
+<div class="mc-item">
+<div class="mc-title">מפתחות מקבילים (DIN 6885 / ANSI B17.1)</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>כלל אצבע לגודל (מטרי, DIN 6885):</b><br>
+<table style="width:100%;font-size:11px;border-collapse:collapse">
+<tr style="background:var(--card)"><th style="padding:4px 6px;text-align:right">קוטר ציר (mm)</th><th>מפתח W×H (mm)</th></tr>
+<tr><td style="padding:4px 6px">10-12</td><td>4×4</td></tr>
+<tr><td style="padding:4px 6px">17-22</td><td>6×6</td></tr>
+<tr><td style="padding:4px 6px">30-38</td><td>10×8</td></tr>
+<tr><td style="padding:4px 6px">44-50</td><td>14×9</td></tr>
+<tr><td style="padding:4px 6px">58-65</td><td>18×11</td></tr>
+</table>
+<b>אורך מפתח:</b> טיפוסית 1.0-1.5× קוטר הציר, אבל בדוק מאמצי גזירה/מגע לעומסים בפועל.
+</div>
+<a href="https://www.youtube.com/results?search_query=keyway+key+shaft+design+calculation+DIN+6885" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">אופני כשל מפתח</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>כשל גזירה:</b> המפתח נגזר לרוחב חתכו — בדוק τ = F/(L×W) מול מאמץ הגזירה המותר.<br><br>
+<b>כשל מגע/מעיכה:</b> דופן המפתח או החריץ מתעוותת — בדוק σ = F/(L×H/2) מול מאמץ המגע המותר.<br><br>
+<b>בכוונה תכנונית:</b> מפתחות לרוב מתוכננים בכוונה להיות "הקישור החלש" — בגודל שיגזור לפני שרכיבים יקרים יותר (תיבת הילוכים, ציר מנוע) ניזוקים באירוע עומס-יתר. זו החלטת תכן בטיחות מכוונת ביישומים מסוימים.<br><br>
+<b>Fretting בחריץ המפתח:</b> אתר יזום עייפות נפוץ — פינות חדות בחריץ הן מרימי מאמצים (Kt עד 2-3).
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">ספליינים (DIN 5480 / ANSI B92.1)</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>ספליינים אבולוטיים:</b> כמו שיני גלגל פנימיות/חיצוניות קטנות. מפזרים עומס על שיניים רבות (לעומת מפתח בודד) → קיבולת מומנט גבוהה בהרבה באותו קוטר.<br><br>
+<b>יתרונות מול מפתחות:</b><br>
+• מרכוז עצמי (אין אקסצנטריות)<br>
+• צפיפות מומנט גבוהה יותר<br>
+• עמידות עייפות טובה יותר (אין מרים אחד של מאמץ)<br>
+• יכולים לאפשר החלקה צירית תחת עומס (צירים מפוספסים)<br><br>
+<b>יישומים נפוצים:</b> תמסורות רכב, צירי PTO, צירי פלט תיבת הילוכים, מפעילים תעופתיים.<br><br>
+<b>דוגמת סימון DIN 5480:</b> W 25×1.25×18 — קוטר ייחוס 25mm, מודול 1.25, 18 שיניים.
+</div>
+<a href="https://www.youtube.com/results?search_query=involute+spline+shaft+connection+DIN+5480" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">כוננות לחץ/הידוק כאלטרנטיבה</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+לחיבורים קבועים או חצי-קבועים ללא מפתח כלל:<br><br>
+<b>הידוק לחץ:</b> כוח מכני להרכבה — ראה עמוד הסובלנויות לחישובי כוננת (H7/p6, H7/s6 וכו').<br><br>
+<b>הידוק תרמי (Shrink Fit):</b> חימום הרכזת (או קירור הציר) לרווח התפשטות תרמית בהרכבה, ואז זה ננעל בהידוק בטמפ' חדר — ראה עמוד העומסים למחשבון ΔT.<br><br>
+<b>יתרון:</b> אפס backlash, אין ריכוז מאמצים מחריץ מפתח.<br>
+<b>חיסרון:</b> לא ניתן לפירוק בקלות; דורש בקרת סבילות הדוקה.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ CLUTCHES & BRAKES ═══ -->
+<div class="pt-sec" id="pt-clutches">
+<div class="card"><div class="ctitle">🛑 מצמדים ובלמים</div>
+<div class="mc-grid">
+
+<div class="mc-item">
+<div class="mc-title">סוגי מצמד חיכוך</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>צלחת בודדת (סגנון רכב):</b> פשוט, קומפקטי, מומנט בינוני.<br><br>
+<b>רב-צלחת (רטוב או יבש):</b> מספר משטחי חיכוך באותו מעטפת → קיבולת מומנט גבוהה בהרבה לאותו קוטר. רטוב (טבול בשמן) רץ קריר יותר, חיים ארוכים יותר; יבש פשוט יותר אך מייצר יותר חום.<br><br>
+<b>מצמד קונוס:</b> פעולת טריז עצמי-אנרגטית — צריך פחות כוח צירי ממשטח שטוח לאותו מומנט, אך קשה יותר לנתק בצורה נקייה.<br><br>
+<b>מצמד צנטריפוגלי:</b> מתחבר אוטומטית מעל סף RPM (מסורי שרשרת, קארטים) — לא נדרש הפעלה חיצונית.
+</div>
+<a href="https://www.youtube.com/results?search_query=clutch+types+mechanical+friction+disc+explained" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">התקני הגנה בפני עומס-יתר</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>צירוף פין גזירה:</b> פין קרבני נגזר במומנט קבוע — פשוט, זול, אך חייב להיות מוחלף אחרי כל אירוע (והמכונה עוצרת לגמרי).<br><br>
+<b>מצמד החלקה (חיכוך):</b> מחליק ברציפות מעל מומנט קבוע, מתאפס אוטומטית ברגע שעומס-היתר נעלם — אין זמן השבתה להחלפה, מפרט מומנט מתכוונן.<br><br>
+<b>מגביל מומנט כדורי:</b> כדורים קופצים מגומחות מעל מומנט קבוע, ניתן לאיפוס בהיפוך קצר — פשרה טובה בין פין גזירה למצמד החלקה.<br><br>
+<b>היכן משתמשים:</b> הינעי מסועים, PTO חקלאי, רובוטיקה (הגנה מפני התנגשות), כל תמסורת שבה תקיעה לא צריכה להרוס את המנוע/תיבת ההילוכים.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">סוגי בלם — התייחסות מהירה</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>בלם דיסק:</b> פיזור חום גבוה, חיכוך עקבי, בדיקה קלה — סטנדרטי לבלימה דינמית (בתנועה).<br><br>
+<b>בלם תוף:</b> עצמי-אנרגטי (בחלק מהתכנונים), יותר מומנט ליחידת כוח הפעלה, אך הצטברות חום מגבילה את מחזור העבודה.<br><br>
+<b>בלם אלקטרומגנטי:</b> מתחבר/משתחרר דרך זרם סליל — גרסאות "מחוברות בהיעדר חשמל" (fail-safe) נפוצות למעליות, מנופים, בלמי החזקה קריטיים לבטיחות.<br><br>
+<b>בלימה רגנרטיבית:</b> המנוע פועל כגנרטור, ממיר אנרגיה קינטית לחשמלית — משמש עם VFD/כונני סרוו, מפחית בלאי בלם מכני.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">שיקול תכן — פיזור חום</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+טעות הבחירה הנפוצה ביותר במצמד/בלם: תכנון רק לפי מומנט תוך התעלמות מ<b>קיבולת תרמית</b>.<br><br>
+<b>אנרגיה לחיבור:</b> E = ½×I×ω² (אנרגיה קינטית סיבובית שיש לספוג), כאשר I = מומנט אינרציה, ω = מהירות זוויתית.<br><br>
+<b>מחזור עבודה חשוב:</b> מצמד המדורג לחיבור מזדמן יתחמם יתר על המידה ויתקלף/ייכשל אם יופעל ברציפות בתדירות גבוהה — תמיד בדוק את דירוג מחזור העבודה התרמי של היצרן, לא רק דירוג המומנט הסטטי.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ CALCULATORS ═══ -->
+<div class="pt-sec" id="pt-calc">
+<div class="card"><div class="ctitle">🧮 מחשבוני העברת כוח</div>
+
+<div class="mc-grid">
+<div class="mc-item">
+<div class="mc-title">יחס מהירות חגורה/שרשרת</div>
+<div class="cg">
+<div><label>קוטר/שיניים מניע (D1)</label><input id="pt-d1" type="number" value="100" oninput="calcPTRatio()"></div>
+<div><label>קוטר/שיניים מונע (D2)</label><input id="pt-d2" type="number" value="250" oninput="calcPTRatio()"></div>
+<div><label>סל"ד מניע (N1)</label><input id="pt-n1" type="number" value="1450" oninput="calcPTRatio()"></div>
+</div>
+<div class="pt-res" id="pt-ratio-r">—</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">הספק / מומנט / סל"ד</div>
+<div class="cg">
+<div><label>הספק (kW)</label><input id="pt-p" type="number" value="5.5" oninput="calcPTPower()"></div>
+<div><label>סל"ד</label><input id="pt-rpm" type="number" value="1450" oninput="calcPTPower()"></div>
+</div>
+<div class="pt-res" id="pt-power-r">—</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">מאמץ גזירה ומגע במפתח</div>
+<div class="cg">
+<div><label>מומנט (N·m)</label><input id="pt-t" type="number" value="50" oninput="calcPTKey()"></div>
+<div><label>קוטר ציר (mm)</label><input id="pt-sd" type="number" value="25" oninput="calcPTKey()"></div>
+<div><label>רוחב מפתח (mm)</label><input id="pt-kw" type="number" value="8" oninput="calcPTKey()"></div>
+<div><label>גובה מפתח (mm)</label><input id="pt-kh" type="number" value="7" oninput="calcPTKey()"></div>
+<div><label>אורך מפתח (mm)</label><input id="pt-kl" type="number" value="30" oninput="calcPTKey()"></div>
+</div>
+<div class="pt-res" id="pt-key-r">—</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">אנרגיה קינטית מצמד/בלם</div>
+<div class="cg">
+<div><label>מומנט אינרציה (kg·m²)</label><input id="pt-i" type="number" value="0.05" step="0.001" oninput="calcPTEnergy()"></div>
+<div><label>סל"ד</label><input id="pt-erpm" type="number" value="1450" oninput="calcPTEnergy()"></div>
+</div>
+<div class="pt-res" id="pt-energy-r">—</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- /sec-powertrans -->
+</div><!-- /main -->
+
+<footer>METAL HUB · פורטל ידע הנדסי מכני · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">חזרה לעמוד הראשי</a></footer>
+
+<script>
+function showPT(id,btn){
+  document.querySelectorAll('.pt-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.pt-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('pt-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function calcPTRatio(){
+  const d1=parseFloat(document.getElementById('pt-d1').value)||100;
+  const d2=parseFloat(document.getElementById('pt-d2').value)||250;
+  const n1=parseFloat(document.getElementById('pt-n1').value)||1450;
+  const ratio=d2/d1;
+  const n2=n1/ratio;
+  document.getElementById('pt-ratio-r').innerHTML=`<b>יחס:</b> ${ratio.toFixed(3)}:1<br><b>סל"ד מונע (N2):</b> ${n2.toFixed(1)} סל"ד`;
+}
+
+function calcPTPower(){
+  const p=parseFloat(document.getElementById('pt-p').value)||5.5;
+  const rpm=parseFloat(document.getElementById('pt-rpm').value)||1450;
+  const torque=(p*9550)/rpm;
+  document.getElementById('pt-power-r').innerHTML=`<b>מומנט:</b> ${torque.toFixed(2)} N·m<br><span style="color:var(--muted);font-size:11px">T[N·m] = P[kW]×9550/RPM</span>`;
+}
+
+function calcPTKey(){
+  const t=parseFloat(document.getElementById('pt-t').value)||50;
+  const d=parseFloat(document.getElementById('pt-sd').value)||25;
+  const w=parseFloat(document.getElementById('pt-kw').value)||8;
+  const h=parseFloat(document.getElementById('pt-kh').value)||7;
+  const l=parseFloat(document.getElementById('pt-kl').value)||30;
+  const F=(t*1000)/(d/2);
+  const tauShear=F/(l*w);
+  const sigBearing=F/(l*(h/2));
+  document.getElementById('pt-key-r').innerHTML=`<b>כוח מועבר:</b> ${F.toFixed(0)} N<br><b>מאמץ גזירה:</b> ${tauShear.toFixed(1)} MPa<br><b>מאמץ מגע:</b> ${sigBearing.toFixed(1)} MPa<br><span style="color:var(--muted);font-size:11px">השווה למאמץ גזירה מותר (~0.4×Sy) ומגע (~0.9×Sy) של חומר המפתח.</span>`;
+}
+
+function calcPTEnergy(){
+  const I=parseFloat(document.getElementById('pt-i').value)||0.05;
+  const rpm=parseFloat(document.getElementById('pt-erpm').value)||1450;
+  const omega=rpm*2*Math.PI/60;
+  const E=0.5*I*omega*omega;
+  document.getElementById('pt-energy-r').innerHTML=`<b>אנרגיה קינטית לחיבור:</b> ${E.toFixed(1)} J<br><span style="color:var(--muted);font-size:11px">E = ½×I×ω² — בדוק מול דירוג מחזור העבודה התרמי של היצרן, לא רק דירוג המומנט.</span>`;
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+</script>
+</body>
+</html>

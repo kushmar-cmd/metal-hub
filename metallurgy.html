@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://metal.kushmar.com/metallurgy.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/metallurgy.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/metallurgy.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/metallurgy.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>יסודות מטלורגיה — דיאגרמות פאזות, מבנה גבישי, פרקטוגרפיה | METAL HUB</title>
+<meta name="description" content="מדריך מטלורגיה הנדסי: דיאגרמת פאזות Fe-C, מבנים גבישיים (BCC/FCC/HCP), גודל גרגיר (ASTM E112), דיאגרמות TTT/CCT, התקשות, ופרקטוגרפיה — עם דיאגרמות אינטראקטיביות.">
+<meta name="keywords" content="מטלורגיה, דיאגרמת פאזות, ברזל פחמן, מבנה גבישי, BCC FCC HCP, גודל גרגיר, ASTM E112, דיאגרמת TTT, CCT, פרקטוגרפיה, ניתוח כשל, מארטנזיט, אוסטניט, פרליט">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:rtl;text-align:right}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-red{background:#cf222e;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.gear-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.gear-tab:hover,.gear-tab.active{background:var(--green);color:#000;border-color:var(--green);font-weight:700}
+.gear-sec{display:none}.gear-sec.active{display:block}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+#topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;gap:12px;height:52px;position:fixed;top:0;left:0;right:0;z-index:100}
+#gsearch{flex:1;max-width:340px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text);font-size:13px}
+#gsearch:focus{outline:none;border-color:var(--blue)}
+.nav-arrow{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 13px;color:var(--text);cursor:pointer;font-size:18px;font-weight:700;line-height:1;flex-shrink:0;transition:all .15s}
+.nav-arrow:hover{background:var(--blue);color:#000;border-color:var(--blue)}
+.nav-arrow:active{transform:scale(.92)}
+#soverlay{display:none;position:fixed;top:96px;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:90;padding:20px;overflow-y:auto}
+#soverlay.active{display:block}
+.sri{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:8px}
+.sri:hover{border-color:var(--blue)}
+#nav{background:var(--surface);border-bottom:2px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px;position:sticky;top:52px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4);margin-top:52px}
+.tab{padding:8px 13px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
+.tab:hover{color:var(--text);background:var(--border)}.tab.active{color:#fff;background:var(--blue)}
+</style>
+
+.met-tab{padding:9px 14px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s}
+.met-tab:hover{color:var(--text);background:var(--border)}.met-tab.active{color:#fff;background:var(--blue)}
+.met-sec{display:none}.met-sec.active{display:block}
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:12px}
+.mc-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px}
+.mc-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:6px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:2px}
+.b-green{background:#1a3a1a;color:var(--green)}.b-orange{background:#3a2a0a;color:var(--orange)}.b-red{background:#3a1a1a;color:var(--red)}.b-blue{background:#1a1a3a;color:var(--blue)}.b-purple{background:#2a1a3a;color:var(--purple)}
+.info-box{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+
+</style>
+
+</head>
+<body>
+
+<div id="engBg" aria-hidden="true"><div id="engBgGrad"></div>
+  <div class="engGear g1"></div><div class="engGear g2"></div><div class="engGear g3"></div>
+  <div class="engSpark s1"></div><div class="engSpark s2"></div>
+  <div class="engSpark s3"></div><div class="engSpark s4"></div><div class="engSpark s5"></div>
+</div>
+
+<div id="topbar">
+  <a class="logo" href="https://metal.kushmar.com/" title="חזרה לדף הבית">METAL <span>HUB</span></a>
+  <input id="gsearch" type="search" placeholder="🔍 חיפוש — חומרים, GD&T, הברגות, ריתוך..." autocomplete="off">
+  <button class="night-toggle" onclick="toggleTheme()" title="מצב יום/לילה" id="theme-btn">☀️</button>
+  
+  <a href="https://metal.kushmar.com/en/metallurgy.html" title="English" style="text-decoration:none;font-size:20px;line-height:1;display:flex;align-items:center;padding:0 4px" aria-label="Switch to English">🇬🇧</a>
+  </div>
+<div id="soverlay"></div>
+<div id="nav">
+  <a class="tab" href="https://metal.kushmar.com/">🏠 בית</a>
+  <a class="tab" href="mfgtech.html">🏭 טכנולוגיות</a>
+  <a class="tab" href="materials.html">🧱 חומרים</a>
+  <a class="tab active" href="metallurgy.html">🔬 מטלורגיה</a>
+  <a class="tab" href="coatings.html">🎨 ציפויים</a>
+  <a class="tab" href="heat.html">🔥 טיפולי חום</a>
+  <a class="tab" href="gdt.html">⊕ GD&T</a>
+  <a class="tab" href="inspection.html">🔍 בדיקה ואיכות</a>
+  <a class="tab" href="pricing.html">💰 תמחיר</a>
+  <a class="tab" href="tol.html">📏 סובלנויות</a>
+  <a class="tab" href="surface.html">✦ טיב שטח</a>
+  <a class="tab" href="threads.html">🔩 הברגות</a>
+  <a class="tab" href="welding.html">⚡ ריתוך</a>
+  <a class="tab" href="machining.html">🔧 עיבוד מכני</a>
+  <a class="tab" href="fasteners.html">🔗 חיבורים</a>
+  <a class="tab" href="inserts.html">🔩 קשיחים</a>
+  <a class="tab" href="standards.html">📋 תקנים</a>
+  <a class="tab" href="bearings.html">⚙️ מסבים</a>
+  <a class="tab" href="gears.html">⚙️ גירים</a>
+  <a class="tab" href="powertrans.html">⛓️ העברת כוח</a>
+  <a class="tab" href="seals.html">🔵 אטמים</a>
+  <a class="tab" href="springs.html">🌀 קפיצים</a>
+  <a class="tab" href="corrosion.html">⚡ קורוזיה</a>
+  <a class="tab" href="hydraulics.html">💧 הידראוליקה</a>
+  <a class="tab" href="stress.html">📊 עומסים</a>
+  <a class="tab" href="fmea.html">⚠️ FMEA</a>
+  <a class="tab" href="changes.html">📄 שינויים</a>
+  <a class="tab" href="dfm.html">🏗️ תכן לייצור</a>
+  <a class="tab" href="pressure.html">🔬 בדיקות לחץ</a>
+  <a class="tab" href="chem.html">🧪 כימיה</a>
+  <a class="tab" href="calc.html">🧮 מחשבונים</a>
+  <a class="tab" href="glossary.html">📖 מילון</a>
+  <a class="tab" href="https://metal.kushmar.com/">🔐 שאל AI</a>
+</div>
+
+
+<div id="main">
+
+<div class="card">
+<h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">יסודות מטלורגיה</h1>
+<p style="font-size:13px;line-height:1.9;color:var(--muted)">
+המדע שמאחורי ההנדסה: <b>דיאגרמות פאזות</b> (Fe-C, Al-Cu), <b>מבנים גבישיים</b> (BCC/FCC/HCP), גודל גרגיר וקשר Hall-Petch, <b>דיאגרמות TTT/CCT</b>, התקשות ומטלורגיית יציקה, ו<b>פרקטוגרפיה</b> — הבנת <i>למה</i> חומרים מתנהגים כמו שהם מתנהגים.
+</p>
+</div>
+
+<div id="sec-metallurgy" class="section">
+
+<div class="card" style="background:linear-gradient(135deg,var(--card),#1a0d2e);border-color:var(--purple)">
+<div style="display:flex;align-items:center;gap:14px">
+  <span style="font-size:36px">🔬</span>
+  <div>
+    <div style="font-size:20px;font-weight:800;color:var(--purple)">יסודות מטלורגיה</div>
+    <div style="font-size:12px;color:var(--muted)">דיאגרמות פאזות · מבנה גבישי · גודל גרגיר · TTT/CCT · התקשות · פרקטוגרפיה · ניתוח כשל</div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="met-tab active" onclick="showMet('phase',this)">📊 דיאגרמות פאזות</button>
+  <button class="met-tab" onclick="showMet('crystal',this)">💎 מבנה גבישי</button>
+  <button class="met-tab" onclick="showMet('grain',this)">🔍 גודל גרגיר</button>
+  <button class="met-tab" onclick="showMet('ttt',this)">📈 TTT / CCT</button>
+  <button class="met-tab" onclick="showMet('solidification',this)">🌡️ התקשות</button>
+  <button class="met-tab" onclick="showMet('fractography',this)">🔎 פרקטוגרפיה</button>
+  <button class="met-tab" onclick="showMet('failure',this)">⚠️ ניתוח כשל</button>
+</div>
+
+<!-- ═══ PHASE DIAGRAMS ═══ -->
+<div class="met-sec active" id="met-phase">
+<div class="card"><div class="ctitle">📊 דיאגרמות פאזות — הבסיס של המטלורגיה</div>
+<p style="font-size:13px;line-height:1.8;color:var(--muted)">דיאגרמת פאזות ממפה את הפאזות היציבות של חומר בכל טמפרטורה והרכב. כל החלטת טיפול חום מתחילה כאן.</p>
+
+<div class="mc-grid">
+<div class="mc-item">
+<div class="mc-title">דיאגרמת Fe-C (ברזל-פחמן)</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+הדיאגרמה החשובה ביותר במטלורגיה. ממפה את הקשר בין טמפרטורה (עד כ-1600°C) לתכולת פחמן (0-6.67%) עבור פלדה וברזל יצוק.<br><br>
+<b>פאזות מרכזיות:</b><br>
+• <b>פריט (α)</b> — BCC, רך, מגנטי, מקסימום 0.022%C ב-727°C<br>
+• <b>אוסטניט (γ)</b> — FCC, לא מגנטי, מקסימום 2.14%C ב-1147°C<br>
+• <b>צמנטיט (Fe₃C)</b> — 6.67%C, קשה ושביר<br>
+• <b>פרליט</b> — תערובת למלרית של פריט + צמנטיט (0.76%C)<br><br>
+<b>טמפרטורות קריטיות:</b><br>
+• A1 = 727°C — אאוטקטואיד (פרליט ↔ אוסטניט)<br>
+• A3 = 727-912°C — פריט נעלם (תלוי ב-%C)<br>
+• Acm = גבול אוסטניט + צמנטיט<br>
+• 1147°C — אאוטקטי (נוזל → אוסטניט + צמנטיט)
+</div>
+<a href="https://www.youtube.com/results?search_query=iron+carbon+phase+diagram+explained+metallurgy" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">פלדה מול ברזל יצוק — קו ה-2.14%</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>&lt;2.14%C = פלדה</b> — ניתנת לחישול, ריתוך וטיפול חום<br>
+<b>&gt;2.14%C = ברזל יצוק</b> — ניתן ליציקה, שביר (אפור) או גמיש (SG)<br><br>
+<b>תת-אאוטקטואיד (&lt;0.76%C):</b> פריט + פרליט. רך יותר, גמיש יותר. רוב פלדות המבנה (1018, 4130).<br>
+<b>אאוטקטואיד (0.76%C):</b> 100% פרליט. איזון חוזק/קשיות.<br>
+<b>על-אאוטקטואיד (&gt;0.76%C):</b> פרליט + רשת צמנטיט. קשה יותר אך שביר. פלדות כלים, מסבים (52100).<br><br>
+<b>כלל אצבע:</b> יותר פחמן → קשה יותר אך פחות גמיש וקשה יותר לריתוך.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">דיאגרמת Al-Cu (סגסוגות אלומיניום)</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+מסבירה <b>התקשות משקעית</b> (הזדקנות) בסגסוגות אלומיניום מסדרות 2xxx ו-7xxx.<br><br>
+<b>קו Solvus:</b> גבול המסיסות של Cu באלומיניום יורד בחדות עם הטמפרטורה — זה המפתח להתקשות בהזדקנות:<br>
+1. <b>טיפול תמיסה</b> (~500°C) — המסת כל ה-Cu לתמיסה מוצקה<br>
+2. <b>הקפאה</b> — לכידת אטומי Cu בתמיסה על-רוויה<br>
+3. <b>הזדקנות</b> (טבעית או מלאכותית ב-120-190°C) — נוצרים משקעי Cu, חוסמים דיסלוקציות → החוזק עולה<br><br>
+<b>מצב T6:</b> טיפול תמיסה + הזדקנות מלאכותית = חוזק שיא<br>
+<b>הזדקנות-יתר:</b> המשקעים מתעבים → החוזק יורד
+</div>
+<a href="https://www.youtube.com/results?search_query=aluminum+precipitation+hardening+age+hardening+explained" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">יחסי פאזות באל-חלד</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>דיאגרמת Schaeffler/DeLong:</b> מנבאת את המבנה המיקרוסקופי משוויי Cr/Ni.<br><br>
+• <b>אוסטניטי (304, 316):</b> FCC, לא מגנטי, לא ניתן להקשיה בטיפול חום<br>
+• <b>פריטי (430):</b> BCC, מגנטי, ללא שינוי פאזה<br>
+• <b>מארטנזיטי (410, 440C):</b> ניתן להקשיה, מגנטי<br>
+• <b>דופלקס (2205):</b> 50/50 אוסטניט + פריט — הטוב משני העולמות<br>
+• <b>PH (17-4PH):</b> מארטנזיטי + התקשות משקעית<br><br>
+<b>רגישות (סכנה!):</b> 450-850°C → קרביד Cr נוצר בגבולות גרגיר → אזור מדולדל ב-Cr → קורוזיה בין-גרגירית. אנילינג תמיסה ב-1050°C+ מתקן זאת.
+</div>
+<a href="https://www.youtube.com/results?search_query=stainless+steel+microstructure+austenitic+ferritic+martensitic+duplex" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ CRYSTAL STRUCTURE ═══ -->
+<div class="met-sec" id="met-crystal">
+<div class="card"><div class="ctitle">💎 מבנה גבישי — למה מתכות מתנהגות אחרת</div>
+<p style="font-size:13px;line-height:1.8;color:var(--muted)">הסידור האטומי קובע הכל: גמישות, חוזק, מערכות החלקה, ולמה חלק מהמתכות קלות לעיצוב בעוד אחרות נסדקות.</p>
+
+<div class="mc-grid">
+<div class="mc-item">
+<div class="mc-title">BCC — קובייתי ממורכז גוף</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-blue">פריט (α-Fe)</span> <span class="mc-badge b-blue">Cr</span> <span class="mc-badge b-blue">Mo</span> <span class="mc-badge b-blue">W</span> <span class="mc-badge b-blue">V</span><br><br>
+<b>אטומים ליחידת תא:</b> 2<br>
+<b>מקדם צפיפות:</b> 68%<br>
+<b>מערכות החלקה:</b> 48 (אך רק 12 פעילות בטמפ' חדר)<br><br>
+<b>התנהגות:</b> חזק, פחות גמיש מ-FCC. יש לו <b>טמפרטורת מעבר שביר-גמיש (DBTT)</b> — דאגה קריטית למבנים בקור (ספינות, גשרים, צנרת).<br><br>
+<b>עובדה מרכזית:</b> פלדות פריטיות נעשות שבירות מתחת ל-DBTT. זה גרם לסדקים באוניות "Liberty" במלחה"ע ה-2.
+</div>
+<a href="https://www.youtube.com/results?search_query=BCC+FCC+HCP+crystal+structure+metals+explained" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">FCC — קובייתי ממורכז פנים</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-green">אוסטניט (γ-Fe)</span> <span class="mc-badge b-green">Al</span> <span class="mc-badge b-green">Cu</span> <span class="mc-badge b-green">Ni</span> <span class="mc-badge b-green">Au</span> <span class="mc-badge b-green">304 SS</span><br><br>
+<b>אטומים ליחידת תא:</b> 4<br>
+<b>מקדם צפיפות:</b> 74%<br>
+<b>מערכות החלקה:</b> 12 (כולן פעילות בטמפ' חדר)<br><br>
+<b>התנהגות:</b> גמישות ויכולת עיצוב מצוינות. <b>ללא DBTT</b> — נשאר גמיש גם בטמפרטורות קריוגניות.<br><br>
+<b>למה אל-חלד אוסטניטי משמש לקריוגניקה:</b> מבנה FCC לא נעשה שביר ב--196°C (חנקן נוזלי). פלדות פריטיות/מארטנזיטיות היו מתנפצות.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">HCP — משושה צפוף</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-purple">Ti (α)</span> <span class="mc-badge b-purple">Mg</span> <span class="mc-badge b-purple">Zn</span> <span class="mc-badge b-purple">Zr</span> <span class="mc-badge b-purple">Co</span><br><br>
+<b>אטומים ליחידת תא:</b> 6<br>
+<b>מקדם צפיפות:</b> 74% (זהה ל-FCC)<br>
+<b>מערכות החלקה:</b> 3 בסיסיות (מעטות מאוד!)<br><br>
+<b>התנהגות:</b> גמישות מוגבלת, <b>תלות טקסטורה חזקה</b> (אניזוטרופי). קשה יותר לעצב מ-FCC או BCC.<br><br>
+<b>למה קשה לעצב מגנזיום בטמפ' חדר:</b> רק 3 מערכות החלקה. דורש 200-300°C להפעלת החלקה פירמידלית → נדרש עיצוב חם. אותה בעיה (פחות חמורה) עבור טיטניום.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">שינויי אלוטרופיה</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+חלק מהמתכות משנות מבנה גבישי עם הטמפרטורה. זה <b>הבסיס המלא</b> של טיפול חום בפלדה:<br><br>
+<b>ברזל:</b><br>
+• טמפ' חדר → 912°C: BCC (פריט)<br>
+• 912°C → 1394°C: FCC (אוסטניט)<br>
+• 1394°C → 1538°C: BCC (פריט דלתא)<br><br>
+<b>טיטניום:</b><br>
+• &lt;882°C: HCP (אלפא)<br>
+• &gt;882°C: BCC (בטא)<br><br>
+<b>למה זה חשוב:</b> כשאוסטניט (FCC) מוקפא מהר מספיק, הוא לא יכול לחזור לפריט — במקום זאת הוא יוצר <b>מארטנזיט</b> (BCT), הפאזה הקשה ביותר בפלדה.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ GRAIN SIZE ═══ -->
+<div class="met-sec" id="met-grain">
+<div class="card"><div class="ctitle">🔍 גודל גרגיר — קשר Hall-Petch</div>
+<p style="font-size:13px;line-height:1.8;color:var(--muted)">גרגירים קטנים יותר = חוזק גבוה יותר וגם קשיחות גבוהה יותר. אחד ממנגנוני החיזוק הבודדים שמשפרים את שניהם בו-זמנית.</p>
+
+<div class="mc-grid">
+<div class="mc-item">
+<div class="mc-title">ASTM E112 — מספר גודל גרגיר</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>נוסחה:</b> N = 2<sup>(G-1)</sup> גרגירים לאינץ' רבוע ב-×100<br><br>
+<table style="width:100%;font-size:11px;border-collapse:collapse;margin:8px 0">
+<tr style="background:var(--card)"><th style="padding:4px 6px;text-align:right">ASTM G</th><th>קוטר ממוצע (μm)</th><th>שימוש טיפוסי</th></tr>
+<tr><td style="padding:4px 6px">1-3</td><td>200-100</td><td>כפי-שיצוק, אנילינג איטי</td></tr>
+<tr><td style="padding:4px 6px">4-6</td><td>90-45</td><td>פלדה מנורמלת, כללי</td></tr>
+<tr><td style="padding:4px 6px">7-9</td><td>32-16</td><td>פלדת Q&T, גרגיר דק</td></tr>
+<tr><td style="padding:4px 6px">10-12</td><td>11-6</td><td>מיקרו-סגסוגת, HSLA</td></tr>
+<tr><td style="padding:4px 6px">13-14</td><td>4-3</td><td>SPD, ננו-גבישי</td></tr>
+</table>
+<b>G גבוה יותר = גרגיר עדין יותר = חזק יותר.</b> מפרטים ביטחוניים/תעופה דורשים לרוב G ≥ 5.
+</div>
+<a href="https://www.youtube.com/results?search_query=grain+size+ASTM+E112+metallurgy+hall+petch" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">משוואת Hall-Petch</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<div style="background:var(--card);border-radius:6px;padding:8px 12px;font-family:monospace;margin:6px 0">
+σ_y = σ₀ + k / √d
+</div>
+כאשר:<br>
+• σ_y = גבול כניעה<br>
+• σ₀ = מאמץ חיכוך (התנגדות סריג)<br>
+• k = שיפוע Hall-Petch (קבוע חומר)<br>
+• d = קוטר גרגיר ממוצע<br><br>
+<b>משמעות:</b> הקטנת קוטר הגרגיר בחצי מעלה את גבול הכניעה בכ-41% (מקדם √2). לכן <b>נירמול</b> (קירור אוויר מאוסטניט) מייצר גרגיר עדין יותר וחוזק גבוה יותר מקירור איטי בכבשן (אנילינג).
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">שיטות עידון גרגיר</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>1. מיקרו-סגסוג:</b> תוספות קטנות של Nb, V, Ti מצמידות גבולות גרגיר → מונעות גדילת גרגיר בגלגול חם. כך פלדות HSLA משיגות חוזק גבוה בלי פחמן גבוה.<br><br>
+<b>2. גלגול מבוקר:</b> סיום הגלגול מתחת לטמפרטורת גיבוש מחדש → אוסטניט "שטוח" → יותר אתרי נוקלאציה → גרגיר פריט עדין יותר.<br><br>
+<b>3. נירמול:</b> חימום ל-30-50°C מעל A3, קירור אוויר → גרגיר עדין ואחיד יותר מכפי-שגולגל.<br><br>
+<b>4. עיוות פלסטי חמור (SPD):</b> ECAP, HPT → גרגיר ננו-גבישי (G &gt; 14). מחקר/מיוחד.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">גדילת גרגיר — האויב</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>הבעיה:</b> החזקה ארוכה מדי בטמפרטורה גבוהה → הגרגירים גדלים → החוזק יורד.<br><br>
+<b>מתי זה קורה:</b><br>
+• HAZ (אזור מושפע חום) בריתוך — הדאגה מספר 1<br>
+• השריה יתרה בטיפול חום<br>
+• חישול חם בטמפרטורה מוגזמת<br><br>
+<b>מניעה:</b> מיקרו-סגסוג (Nb, V, Ti), זמן השריה מבוקר, טמפרטורת אוסטניטיזציה נכונה (לא גבוהה מהנדרש).<br><br>
+<div class="info-box">⚠️ לכן ריתוך חתכים עבים של פלדה עדינת-גרגיר (כמו HSLA) דורש שליטה קפדנית בקלט חום — אפשר לבטל את עידון הגרגיר ב-HAZ.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ TTT/CCT ═══ -->
+<div class="met-sec" id="met-ttt">
+<div class="card"><div class="ctitle">📈 דיאגרמות TTT / CCT — קינטיקת שינוי פאזה</div>
+<p style="font-size:13px;line-height:1.8;color:var(--muted)">דיאגרמות פאזות אומרות לך אילו פאזות יציבות. דיאגרמות TTT/CCT אומרות לך אילו פאזות באמת תקבל בקצב קירור נתון.</p>
+
+<div class="mc-grid">
+<div class="mc-item">
+<div class="mc-title">TTT — זמן-טמפרטורה-שינוי פאזה</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+נקראת גם "דיאגרמת שינוי איזותרמי" או "עקומת C" (בגלל צורתה).<br><br>
+<b>איך קוראים אותה:</b> מתחילים מטמפרטורת אוסטניט, יורדים אנכית לטמפרטורת החזקה, קוראים את הזמן להתחלה/סיום שינוי הפאזה.<br><br>
+<b>אזורים (מלמעלה למטה):</b><br>
+• <b>אף הפרליט:</b> ~540°C — שינוי הדיפוזיה המהיר ביותר<br>
+• <b>מפרץ הביינייט:</b> 250-540°C — דמוי מחט, חזק<br>
+• <b>קו Ms:</b> ~300°C (עבור 0.4%C) — התחלת מארטנזיט<br>
+• <b>קו Mf:</b> ~200°C — סיום מארטנזיט<br><br>
+<b>כדי לקבל מארטנזיט:</b> חייבים לקרר מהר מספיק כדי לפספס לגמרי את אף הפרליט.
+</div>
+<a href="https://www.youtube.com/results?search_query=TTT+CCT+diagram+steel+heat+treatment+explained" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">CCT — שינוי בקירור רציף</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+מעשי יותר מ-TTT כי קירור אמיתי הוא רציף, לא איזותרמי.<br><br>
+<b>קריאת CCT:</b> חופפים עקומת קירור על הדיאגרמה. איפה שהיא חוצה את גבולות השינוי → זה המבנה המיקרוסקופי שתקבל.<br><br>
+<b>קירור איטי (כבשן):</b> חוצה אזור פרליט → רך, מאונל<br>
+<b>קירור בינוני (אוויר/שמן):</b> עשוי לייצר תערובת פרליט + ביינייט<br>
+<b>קירור מהיר (מים):</b> מפספס את האף → מארטנזיט<br><br>
+<b>קצב קירור קריטי:</b> קצב הקירור המינימלי לקבלת 100% מארטנזיט — תלוי מאוד בתכולת הסגסוגת. פלדת פחמן פשוטה דורשת הקפאת מים מהירה מאוד; 4340 ניתן להקפיא בשמן (הסגסוגות מזיזות את האף ימינה).
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">מארטנזיט — הפאזה הקשה ביותר</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>מה זה:</b> תמיסה מוצקה על-רוויה של פחמן בברזל BCT (טטרהדרלי ממורכז גוף). נוצרת ע"י שינוי חסר-דיפוזיה (גזירה) מאוסטניט.<br><br>
+<b>תכונות:</b><br>
+• קשה ביותר (עד 65+ HRC לפלדה עתירת פחמן)<br>
+• שביר מאוד במצב כפי-שהוקפא<br>
+• חייב <b>הרפיה</b> כדי לקבל קשיחות שימושית<br><br>
+<b>טמפרטורת Ms תלויה ב:</b> תכולת פחמן וסגסוג. יותר C/סגסוג → Ms נמוך יותר → סיכון ל<b>אוסטניט שיורי</b> (אוסטניט לא-משתנה שנלכד בטמפ' חדר).<br><br>
+<div class="info-box">💡 בדיוק בגלל זה פלדות כלים עתירות פחמן (D2, M2) צריכות טיפול תת-אפס (-80°C) — ה-Mf שלהן נמוך מטמפ' חדר, כך שנשאר אוסטניט שיורי אחרי הקפאה רגילה.</div>
+</div>
+<a href="https://www.youtube.com/results?search_query=austenite+martensite+pearlite+microstructure+explained" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">ביינייט — הפאזה המוערכת פחות</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+נוצרת בין טווחי הטמפרטורה של פרליט למארטנזיט.<br><br>
+<b>ביינייט עליון (350-540°C):</b> נוצתי, חוזק בינוני, קשיחות מוגבלת<br>
+<b>ביינייט תחתון (250-350°C):</b> מחטי, חוזק גבוה + קשיחות טובה — לעיתים <i>טוב יותר</i> ממארטנזיט מורפה!<br><br>
+<b>אוסטמפרינג:</b> הקפאה לטווח הביינייט והחזקה → כל האוסטניט הופך לביינייט. יתרונות: אין סדקי הקפאה, פחות עיוות, חוזק+קשיחות טובים בלי הרפיה.<br><br>
+<b>ADI (ברזל כדורי אוסטמפר):</b> אותו עיקרון על ברזל כדורי → הופך ל"אוספרייט" → תכונות יוצאות דופן ליציקות.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ SOLIDIFICATION ═══ -->
+<div class="met-sec" id="met-solidification">
+<div class="card"><div class="ctitle">🌡️ התקשות — מנוזל למוצק</div>
+<p style="font-size:13px;line-height:1.8;color:var(--muted)">איך המתכת קופאת קובע את איכות היציקה: נקבוביות, סגרגציה, מרווח זרועות דנדריט, ומבנה גרגיר.</p>
+
+<div class="mc-grid">
+<div class="mc-item">
+<div class="mc-title">התקשות דנדריטית</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+רוב המתכות מתקשות כדנדריטים (גבישים דמויי-עץ) שגדלים לתוך הנוזל.<br><br>
+<b>SDAS (מרווח זרועות דנדריט משני):</b> מדד האיכות המרכזי.<br>
+• SDAS קטן יותר → קירור מהיר יותר → תכונות מכניות טובות יותר<br>
+• טיפוסי: יציקת חול 50-200μm, תבנית קבועה 20-50μm, יציקת לחץ 5-15μm<br><br>
+<b>בין זרועות הדנדריט:</b> הנוזל האחרון שמתקשה → מועשר בממס → מיקרו-סגרגציה → פוטנציאל לנקבוביות, קרע חם, ושונות תכונות.
+</div>
+<a href="https://www.youtube.com/results?search_query=metal+solidification+dendritic+growth+casting" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">פגמי יציקה — סיבות מטלורגיות</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>נקבוביות התכווצות:</b> מתכת נוזלית מתכווצת ~3-6% בהתקשות. אם מתכת הזנה לא יכולה להגיע לאזור האחרון-להתקשות → חלל. פתרון: עולים (risers), התקשות מכוונת.<br><br>
+<b>נקבוביות גז:</b> גז מומס (H₂ באלומיניום, N₂ בפלדה) יוצא מהתמיסה בהתקשות → נקבים עגולים. פתרון: הפגזה, יציקה בואקום.<br><br>
+<b>קרע חם:</b> מתכת חצי-מוצקה נמתחת ע"י התכווצות תרמית לפני התקשות מלאה. פתרון: הימנעות מפינות חדות, הוספת פילטים, התאמת הרכב סגסוגת.<br><br>
+<b>סגרגציה:</b> מקרו (מרכז המטיל מועשר) ומיקרו (בין דנדריטים). אנילינג הומוגניזציה יכול לתקן מיקרו, לא מקרו.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ FRACTOGRAPHY ═══ -->
+<div class="met-sec" id="met-fractography">
+<div class="card"><div class="ctitle">🔎 פרקטוגרפיה — קריאת משטח השבר</div>
+<p style="font-size:13px;line-height:1.8;color:var(--muted)">משטח שבר מספר את סיפור אופן הכשל — סוג העומס, מצב החומר, והיכן התחיל הסדק. זו עבודת הבלש של המטלורגיה.</p>
+
+<div class="mc-grid">
+<div class="mc-item">
+<div class="mc-title">שבר גמיש (Ductile)</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-green">רצוי ברוב המקרים</span><br><br>
+<b>סימנים ויזואליים:</b><br>
+• מראה אפור, סיבי, "קרוע"<br>
+• עיוות פלסטי משמעותי (צוואר) לפני השבר<br>
+• שבר "כוס וחרוט" בדגימות מתיחה<br>
+• שפתי גזירה ב-45° בקצוות<br><br>
+<b>תחת SEM:</b> גומחות (התאחדות מיקרו-חללים) — הסימן הקלאסי. צורת הגומחה מצביעה על העומס: שווה-צירי = מתיחה, מוארך = גזירה.<br><br>
+<b>משמעות:</b> החומר ספג אנרגיה לפני הכשל. החלק לא פעל הרבה מעבר ליכולת התכן שלו — הוא נתן אזהרה לפני שנשבר.
+</div>
+<a href="https://www.youtube.com/results?search_query=fractography+ductile+vs+brittle+fracture+SEM" target="_blank" class="yt-btn">▶ יוטיוב</a>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">שבר שביר (Brittle)</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-red">מסוכן — ללא אזהרה!</span><br><br>
+<b>סימנים ויזואליים:</b><br>
+• משטח בהיר, מבריק, גבישי, שטוח<br>
+• סימני שברון (תבניות V) המצביעות אחורה למקור<br>
+• מעט או ללא עיוות פלסטי<br>
+• ללא צוואר, ללא שפתי גזירה<br><br>
+<b>תחת SEM:</b> משטחי בקיעה (שטוחים, חלקים, עם סימני נהר) — שבר שביר טרנס-גרגירי. או משטחי גבול-גרגיר חלקים — שבר שביר בין-גרגירי (קורוזיה, פריכות הרפיה, מימן).<br><br>
+<b>משמעות:</b> קטסטרופלי. לחומר לא הייתה יכולת לספוג אנרגיה. גורמים: חומר שגוי, פעולה מתחת ל-DBTT, פריכות מימן, פריכות הרפיה.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">שבר עייפות</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-orange">הגורם מספר 1 לכשל בשירות</span><br><br>
+<b>סימנים ויזואליים:</b><br>
+• <b>סימני חוף</b> (סימני קונכייה) — קשתות קונצנטריות שמקרינות מהמקור. כל סימן מייצג תקופת גדילת סדק.<br>
+• אזור התחלה חלק + אזור שבר סופי מחוספס<br>
+• המקור כמעט תמיד באתר ריכוז מאמצים: פילט, חריץ מפתח, גומת קורוזיה, סימן עיבוד<br><br>
+<b>תחת SEM:</b> סטריאציות — קווים מיקרוסקופיים, כל אחד = מחזור עומס אחד.<br><br>
+<b>תובנה מרכזית:</b> סימני חוף אומרים שהסדק גדל זמן רב לפני הכשל הסופי. בדיקת NDT במרווח הנכון הייתה יכולה לתפוס אותו.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">זחילה ושבר-קרע</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-orange">שירות בטמפרטורה גבוהה</span><br><br>
+<b>סימנים ויזואליים:</b><br>
+• סדקים וחללים בין-גרגיריים (לאורך גבולות גרגיר)<br>
+• החלקת גבול גרגיר נראית תחת מיקרוסקופ<br>
+• מראה מוארך, מצווארר בשבר-קרע<br>
+• קשקשת חמצון על משטח השבר (חשוף בטמפ' גבוהה לזמן ארוך)<br><br>
+<b>משמעות:</b> החלק פעל מעל ~0.4×Tm (נקודת התכה מוחלטת) תחת עומס מתמשך. להבי טורבינה, צינורות דוד, רכיבי כבשן.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ FAILURE ANALYSIS ═══ -->
+<div class="met-sec" id="met-failure">
+<div class="card"><div class="ctitle">⚠️ ניתוח כשל — חקירה שיטתית</div>
+<p style="font-size:13px;line-height:1.8;color:var(--muted)">כאשר חלק נכשל בשירות, החקירה המטלורגית עוקבת אחר תהליך מובנה למציאת הגורם השורשי ומניעת הישנות.</p>
+
+<div class="mc-grid">
+<div class="mc-item">
+<div class="mc-title">תהליך ניתוח הכשל ב-8 שלבים</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>1. שימור ראיות</b> — אל תנקה או תיגע במשטח השבר! התאמת חצאי השבר, צילום הכל באתר.<br>
+<b>2. איסוף היסטוריה</b> — תנאי שירות, עומסים, זמן בשירות, רשומות תחזוקה, כשלים דומים.<br>
+<b>3. בדיקה ויזואלית/מקרו</b> — מקור השבר, נתיב הסדק, עיוות, תוצרי קורוזיה.<br>
+<b>4. בדיקה לא הורסת</b> — MPI/PT לסדקים נוספים, UT לפגמים פנימיים.<br>
+<b>5. פרקטוגרפיה (SEM)</b> — גמיש מול שביר, סטריאציות עייפות, בין-גרגירי/טרנס-גרגירי.<br>
+<b>6. מטלוגרפיה</b> — חתך, מבנה מיקרוסקופי, גודל גרגיר, הכללות, דה-קרבוניזציה.<br>
+<b>7. ניתוח כימי</b> — OES/XRF לאימות הסגסוגת הנכונה. EDS על משטח השבר לזיהוי מזהמים (Cl, S, P).<br>
+<b>8. בדיקה מכנית</b> — פרופיל קשיות, מבחן מתיחה מחומר סמוך אם זמין.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">גורמים שורשיים נפוצים — התייחסות מהירה</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<table style="width:100%;font-size:11px;border-collapse:collapse;margin:6px 0">
+<tr style="background:var(--card)"><th style="padding:4px 6px;text-align:right">תסמין</th><th>גורם סביר</th></tr>
+<tr><td style="padding:4px 6px">בין-גרגירי + Cl על המשטח</td><td>SCC (סדיקה מקורוזיה תחת מאמץ)</td></tr>
+<tr><td style="padding:4px 6px">בין-גרגירי + ציפוי אחרון</td><td>פריכות מימן</td></tr>
+<tr><td style="padding:4px 6px">סימני חוף מחריץ מפתח</td><td>עייפות — ריכוז מאמצים</td></tr>
+<tr><td style="padding:4px 6px">בקיעה בטמפ' נמוכה</td><td>DBTT — בחירת חומר שגויה</td></tr>
+<tr><td style="padding:4px 6px">ליבה רכה, שכבה קשה, סדק בממשק</td><td>הקשיית שכבה עמוקה מדי</td></tr>
+<tr><td style="padding:4px 6px">משטח מדל-קרבן + עייפות</td><td>אווירת טיפול חום</td></tr>
+<tr><td style="padding:4px 6px">גרגיר גדול + קשיות נמוכה</td><td>השריית-יתר / טמפרטורה שגויה</td></tr>
+</table>
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">פריכות מימן — סכנה מיוחדת</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<span class="mc-badge b-red">שבר מושהה — יכול לקרות שעות/ימים אחרי העומס!</span><br><br>
+<b>חומרים רגישים:</b> פלדה בחוזק גבוה (&gt;1000 MPa / &gt;32 HRC), במיוחד מארטנזיטית.<br><br>
+<b>מקורות מימן:</b><br>
+• ציפוי חשמלי (במיוחד Cd, Zn, כרום קשה) — הכי נפוץ<br>
+• ריתוך (לחות בציפוי האלקטרודה)<br>
+• פיקלינג / ניקוי חומצי<br>
+• סביבת שירות (גז חמוץ / H₂S)<br><br>
+<b>מניעה:</b> אפייה תוך 4 שעות אחרי ציפוי (190°C, 8-24 שעות לפי ASTM B849). הרפיית מאמצים לפני ציפוי. החלפת חומר מתחת ל-32 HRC לחלקים קריטיים.
+</div>
+</div>
+
+<div class="mc-item">
+<div class="mc-title">בדיקה מטלוגרפית — למה לשים לב</div>
+<div style="font-size:12px;line-height:1.8;color:var(--text)">
+<b>מגלה (Etchant):</b> Nital 2-5% (לפלדת פחמן/סגסוגת), Kalling's (לאל-חלד), Keller's (לאלומיניום).<br><br>
+<b>מה המבנה המיקרוסקופי מגלה:</b><br>
+• <b>מרווח פרליט:</b> דק = קירור מהיר יותר (מנורמל), גס = איטי (אנילינג)<br>
+• <b>גודל גרגיר אוסטניט קודם:</b> חושף את טמפרטורת טיפול החום<br>
+• <b>דה-קרבוניזציה:</b> שכבת פריט על המשטח = בעיית אווירת כבשן<br>
+• <b>פסים:</b> שכבות מתחלפות של פריט/פרליט = סגרגציה מיציקה<br>
+• <b>הכללות:</b> MnS (מוארך, אפור), Al₂O₃ (זוויתי, כהה) — מרימי מאמצים לעייפות<br><br>
+<b>תקן:</b> ASTM E3 (הכנה), ASTM E407 (מגלה), ASTM E112 (גודל גרגיר).
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- /sec-metallurgy -->
+</div><!-- /main -->
+
+<footer>METAL HUB · פורטל ידע הנדסי מכני · <a class="home-link" href="https://metal.kushmar.com/" style="display:inline">חזרה לעמוד הראשי</a></footer>
+
+<script>
+function showMet(id,btn){
+  document.querySelectorAll('.met-sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.met-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById('met-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
+  var isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
+}
+</script>
+</body>
+</html>
