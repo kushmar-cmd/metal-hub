@@ -154,6 +154,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <a class="tab" href="https://metal.kushmar.com/en/">🏠 Home</a>
   <a class="tab" href="mfgtech.html">🏭 Technologies</a>
   <a class="tab" href="materials.html">🧱 Materials</a>
+  <a class="tab" href="metallurgy.html">🔬 Metallurgy</a>
   <a class="tab" href="coatings.html">🎨 Coatings</a>
   <a class="tab" href="heat.html">🔥 Heat Treatment</a>
   <a class="tab" href="gdt.html">⊕ GD&T</a>
@@ -169,6 +170,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <a class="tab" href="standards.html">📋 Standards</a>
   <a class="tab" href="bearings.html">⚙️ Bearings</a>
   <a class="tab" href="gears.html">⚙️ Gears</a>
+  <a class="tab" href="powertrans.html">⛓️ Power Transmission</a>
   <a class="tab" href="seals.html">🔵 Seals</a>
   <a class="tab" href="springs.html">🌀 Springs</a>
   <a class="tab" href="corrosion.html">⚡ Corrosion</a>
@@ -378,6 +380,21 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <div class="res" id="raf-result">—</div>
 </div>
 
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">9 · Tool Life (Taylor Equation)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">V×T^n = C — expected tool life from cutting speed</div>
+<div class="cg">
+  <div><label>V — Selected Cutting Speed (m/min)</label><input id="tl-v" type="number" value="120" step="5" oninput="calcToolLife()"></div>
+  <div><label>C — Taylor Constant (m/min)</label><input id="tl-c" type="number" value="350" step="10" oninput="calcToolLife()"></div>
+  <div><label>n — Taylor Exponent</label><select id="tl-n" onchange="calcToolLife()">
+    <option value="0.125">HSS (n≈0.125)</option>
+    <option value="0.25" selected>Carbide (n≈0.25)</option>
+    <option value="0.4">Ceramic (n≈0.4)</option>
+  </select></div>
+</div>
+<div class="res" id="tl-result">—</div>
+</div>
+
 </div></div>
 
 <!-- ====================== MECHANICS ====================== -->
@@ -568,6 +585,64 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <div><label>Additional Safety Margin (°C)</label><input id="pf-margin" type="number" value="30" step="5" oninput="calcPressFit()"></div>
 </div>
 <div class="res" id="pf-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">9 · Bolt Circle (PCD)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Exact hole coordinates for CNC programming</div>
+<div class="cg">
+  <div><label>PCD Diameter (mm)</label><input id="bc-d" type="number" value="100" step="1" oninput="calcBoltCircle()"></div>
+  <div><label>Number of Holes</label><input id="bc-n" type="number" value="6" step="1" min="2" oninput="calcBoltCircle()"></div>
+  <div><label>Start Angle (°, 0=right)</label><input id="bc-a0" type="number" value="0" step="1" oninput="calcBoltCircle()"></div>
+  <div><label>Span Angle (°, 360=full circle)</label><input id="bc-span" type="number" value="360" step="1" oninput="calcBoltCircle()"></div>
+</div>
+<div class="res" id="bc-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">10 · Thermal Expansion (ΔL)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Length change with temperature — assemblies across wide temp ranges</div>
+<div class="cg">
+  <div><label>Nominal Length L (mm)</label><input id="te-l" type="number" value="500" step="10" oninput="calcThermalExp()"></div>
+  <div><label>Material (α coefficient)</label><select id="te-alpha" onchange="calcThermalExp()">
+    <option value="0.0000115">Steel (α=11.5×10⁻⁶)</option>
+    <option value="0.0000165">Stainless (α=16.5×10⁻⁶)</option>
+    <option value="0.0000230" selected>Aluminum (α=23×10⁻⁶)</option>
+    <option value="0.0000090">Titanium (α=9×10⁻⁶)</option>
+    <option value="0.0000048">Invar (α=1.2×10⁻⁶)</option>
+    <option value="0.0000170">Copper (α=17×10⁻⁶)</option>
+  </select></div>
+  <div><label>ΔT — Temperature Change (°C)</label><input id="te-dt" type="number" value="60" step="5" oninput="calcThermalExp()"></div>
+</div>
+<div class="res" id="te-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">11 · Natural Frequency (Shaft/Beam)</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Simple beam — check resonance against motor speed</div>
+<div class="cg">
+  <div><label>Length L (mm)</label><input id="nf-l" type="number" value="500" step="10" oninput="calcNatFreq()"></div>
+  <div><label>Diameter ⌀ (mm)</label><input id="nf-d" type="number" value="30" step="1" oninput="calcNatFreq()"></div>
+  <div><label>E — Elastic Modulus (GPa)</label><input id="nf-e" type="number" value="200" step="5" oninput="calcNatFreq()"></div>
+  <div><label>ρ — Density (kg/m³)</label><input id="nf-rho" type="number" value="7850" step="50" oninput="calcNatFreq()"></div>
+</div>
+<div class="res" id="nf-result">—</div>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">12 · Welding Heat Input</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Reference point for WPS verification</div>
+<div class="cg">
+  <div><label>Voltage (V)</label><input id="hi-v" type="number" value="22" step="0.5" oninput="calcHeatInput()"></div>
+  <div><label>Current (A)</label><input id="hi-a" type="number" value="180" step="5" oninput="calcHeatInput()"></div>
+  <div><label>Travel Speed (mm/min)</label><input id="hi-s" type="number" value="300" step="10" oninput="calcHeatInput()"></div>
+  <div><label>Thermal Efficiency (η)</label><select id="hi-eff" onchange="calcHeatInput()">
+    <option value="0.8" selected>SMAW/GMAW (η=0.8)</option>
+    <option value="0.6">GTAW (η=0.6)</option>
+    <option value="1.0">SAW (η=1.0)</option>
+  </select></div>
+</div>
+<div class="res" id="hi-result">—</div>
 </div>
 
 </div></div>
@@ -946,6 +1021,23 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </div>
 <div class="res" id="pr-res3">—</div>
 <button class="copy-btn" onclick="copyProdToCost()">⬆ Get cost from calculator 1</button>
+</div>
+
+<div class="machine-card">
+<div class="mc-title" style="color:var(--yellow,#fde047)">4 · Coating Surface Area → Cost</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:6px">Surface area by shape → direct conversion to coating cost</div>
+<div class="cg">
+  <div><label>Shape</label><select id="ca-shape" onchange="shapeChangeCA()">
+    <option value="cyl">Cylinder (circumference + 2 ends)</option>
+    <option value="box">Box (6 faces)</option>
+    <option value="plate">Flat Plate (2 sides)</option>
+  </select></div>
+  <div id="ca-dims"><label id="ca-l1">Length (mm)</label><input id="ca-d1" type="number" value="100" oninput="calcCoatingArea()"></div>
+  <div><label id="ca-l2">Diameter (mm)</label><input id="ca-d2" type="number" value="30" oninput="calcCoatingArea()"></div>
+  <div id="ca-g3" style="display:none"><label>Height/Thickness (mm)</label><input id="ca-d3" type="number" value="20" oninput="calcCoatingArea()"></div>
+  <div><label>Price per Unit Area ($/cm²)</label><input id="ca-price" type="number" value="0.04" step="0.01" oninput="calcCoatingArea()"></div>
+</div>
+<div class="res" id="ca-result">—</div>
 </div>
 
 </div></div>
@@ -1655,6 +1747,110 @@ function calcPressFit(){
     `Minimum ΔT (interference only): <b>${dT_min.toFixed(0)}°C</b><br>`+
     `Recommended ΔT (with margin): <b style="color:var(--green);font-size:16px;font-weight:800">${dT_total.toFixed(0)}°C</b><br>`+
     `<span style="color:var(--muted);font-size:11px">Heat to ${dT_total.toFixed(0)}°C above the housing temperature before mounting</span>`;
+}
+
+function calcToolLife(){
+  const v=parseFloat(document.getElementById('tl-v').value)||120;
+  const c=parseFloat(document.getElementById('tl-c').value)||350;
+  const n=parseFloat(document.getElementById('tl-n').value)||0.25;
+  const T = Math.pow(c/v, 1/n);
+  let status, color;
+  if(T>=60){status='✅ Long life';color='var(--green)';}
+  else if(T>=15){status='⚠️ Reasonable';color='var(--yellow,#fde047)';}
+  else{status='❌ Very short — reduce Vc';color='var(--red)';}
+  document.getElementById('tl-result').innerHTML=
+    `Expected Tool Life: <b style="color:${color};font-size:16px;font-weight:800">${T.toFixed(1)} minutes</b><br>`+
+    `<span style="color:${color}">${status}</span><br>`+
+    `<span style="color:var(--muted);font-size:11px">V×T^n=C — doubling Vc drastically shortens tool life</span>`;
+}
+
+function calcBoltCircle(){
+  const d=parseFloat(document.getElementById('bc-d').value)||100;
+  const n=parseInt(document.getElementById('bc-n').value)||6;
+  const a0=parseFloat(document.getElementById('bc-a0').value)||0;
+  const span=parseFloat(document.getElementById('bc-span').value)||360;
+  const r=d/2;
+  const step = n>1 ? span/(span>=359.9?n:(n-1)) : 0;
+  let rows='';
+  for(let i=0;i<n;i++){
+    const ang = (a0 + i*step) * Math.PI/180;
+    const x = r*Math.cos(ang);
+    const y = r*Math.sin(ang);
+    rows += `<tr><td style="padding:2px 8px">#${i+1}</td><td style="padding:2px 8px">${x.toFixed(3)}</td><td style="padding:2px 8px">${y.toFixed(3)}</td></tr>`;
+  }
+  document.getElementById('bc-result').innerHTML=
+    `<b>${n} holes, radius ${r.toFixed(2)}mm, step ${step.toFixed(2)}°</b><br>`+
+    `<table style="width:100%;font-size:11px;border-collapse:collapse;margin-top:6px"><tr style="color:var(--muted)"><td style="padding:2px 8px">#</td><td style="padding:2px 8px">X (mm)</td><td style="padding:2px 8px">Y (mm)</td></tr>${rows}</table>`;
+}
+
+function calcThermalExp(){
+  const l=parseFloat(document.getElementById('te-l').value)||500;
+  const alpha=parseFloat(document.getElementById('te-alpha').value)||0.000023;
+  const dt=parseFloat(document.getElementById('te-dt').value)||60;
+  const dl = l*alpha*dt;
+  document.getElementById('te-result').innerHTML=
+    `Length Change: <b style="color:var(--green);font-size:16px;font-weight:800">${dl.toFixed(3)} mm</b> (${(dl*1000).toFixed(0)}μm)<br>`+
+    `<span style="color:var(--muted);font-size:11px">ΔL = L×α×ΔT — critical for assemblies with large temperature swings or mixed materials</span>`;
+}
+
+function calcNatFreq(){
+  const l=parseFloat(document.getElementById('nf-l').value)||500;
+  const d=parseFloat(document.getElementById('nf-d').value)||30;
+  const E=parseFloat(document.getElementById('nf-e').value)||200;
+  const rho=parseFloat(document.getElementById('nf-rho').value)||7850;
+  const L=l/1000, D=d/1000;
+  const I = Math.PI*Math.pow(D,4)/64;
+  const A = Math.PI*Math.pow(D,2)/4;
+  const EPa = E*1e9;
+  const fn = (Math.PI/2)*Math.sqrt((EPa*I)/(rho*A*Math.pow(L,4)));
+  const rpm_critical = fn*60;
+  document.getElementById('nf-result').innerHTML=
+    `Natural Frequency (f₁): <b style="color:var(--green);font-size:16px;font-weight:800">${fn.toFixed(1)} Hz</b><br>`+
+    `Equivalent Critical RPM: <b>${rpm_critical.toFixed(0)} RPM</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">Simply Supported beam — avoid operating near this RPM!</span>`;
+}
+
+function calcHeatInput(){
+  const v=parseFloat(document.getElementById('hi-v').value)||22;
+  const a=parseFloat(document.getElementById('hi-a').value)||180;
+  const s=parseFloat(document.getElementById('hi-s').value)||300;
+  const eff=parseFloat(document.getElementById('hi-eff').value)||0.8;
+  const hi = (v*a*60*eff)/(1000*s);
+  document.getElementById('hi-result').innerHTML=
+    `Heat Input: <b style="color:var(--green);font-size:16px;font-weight:800">${hi.toFixed(2)} kJ/mm</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">HI = (V×A×60×η)/(1000×speed) — compare against WPS specification</span>`;
+}
+
+function shapeChangeCA(){
+  const s=document.getElementById('ca-shape').value;
+  const l1=document.getElementById('ca-l1'), l2=document.getElementById('ca-l2'), g3=document.getElementById('ca-g3');
+  if(s==='cyl'){l1.textContent='Length (mm)';l2.textContent='Diameter (mm)';g3.style.display='none';}
+  else if(s==='box'){l1.textContent='Length (mm)';l2.textContent='Width (mm)';g3.style.display='block';}
+  else{l1.textContent='Length (mm)';l2.textContent='Width (mm)';g3.style.display='none';}
+  calcCoatingArea();
+}
+
+function calcCoatingArea(){
+  const s=document.getElementById('ca-shape').value;
+  const d1=parseFloat(document.getElementById('ca-d1').value)||100;
+  const d2=parseFloat(document.getElementById('ca-d2').value)||30;
+  const d3=parseFloat(document.getElementById('ca-d3').value)||20;
+  const price=parseFloat(document.getElementById('ca-price').value)||0.04;
+  let area_mm2=0;
+  if(s==='cyl'){
+    const r=d2/2;
+    area_mm2 = 2*Math.PI*r*d1 + 2*Math.PI*r*r;
+  }else if(s==='box'){
+    area_mm2 = 2*(d1*d2 + d1*d3 + d2*d3);
+  }else{
+    area_mm2 = 2*d1*d2;
+  }
+  const area_cm2 = area_mm2/100;
+  const cost = area_cm2*price;
+  document.getElementById('ca-result').innerHTML=
+    `Surface Area: <b>${area_cm2.toFixed(1)} cm²</b><br>`+
+    `Coating Cost: <b style="color:var(--green);font-size:16px;font-weight:800">$${cost.toFixed(2)}</b><br>`+
+    `<span style="color:var(--muted);font-size:11px">Per unit — multiply by quantity for total cost</span>`;
 }
 
 function calcPricingFull(){
