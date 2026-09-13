@@ -158,6 +158,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <a class="tab" href="https://metal.kushmar.com/en/">🏠 Home</a>
   <a class="tab" href="mfgtech.html">🏭 Technologies</a>
   <a class="tab" href="materials.html">🧱 Materials</a>
+  <a class="tab" href="metallurgy.html">🔬 Metallurgy</a>
   <a class="tab" href="coatings.html">🎨 Coatings</a>
   <a class="tab" href="heat.html">🔥 Heat Treatment</a>
   <a class="tab" href="gdt.html">⊕ GD&T</a>
@@ -173,6 +174,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <a class="tab" href="standards.html">📋 Standards</a>
   <a class="tab" href="bearings.html">⚙️ Bearings</a>
   <a class="tab" href="gears.html">⚙️ Gears</a>
+  <a class="tab" href="powertrans.html">⛓️ Power Transmission</a>
   <a class="tab" href="seals.html">🔵 Seals</a>
   <a class="tab" href="springs.html">🌀 Springs</a>
   <a class="tab" href="corrosion.html">⚡ Corrosion</a>
@@ -212,6 +214,7 @@ A complete guide to <b>surface finish</b>: <b>Ra/Rz/Rq</b> parameters, the <b>N-
 
 <div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
   <button class="srf-tab active" onclick="showSrf('params',this)">📊 Parameters</button>
+  <button class="srf-tab" onclick="showSrf('converter',this)">🔄 Finish Converter</button>
   <button class="srf-tab" onclick="showSrf('ntable',this)">📋 N-Grade Table</button>
   <button class="srf-tab" onclick="showSrf('symbols',this)">✏️ Drawing Symbols</button>
   <button class="srf-tab" onclick="showSrf('process',this)">⚙️ Process → Ra</button>
@@ -291,6 +294,41 @@ A complete guide to <b>surface finish</b>: <b>Ra/Rz/Rq</b> parameters, the <b>N-
 </div>
 
 </div></div></div>
+
+<!-- ==================== CONVERTER ==================== -->
+<div id="srf-converter" class="srf-sec">
+<div class="card"><div class="ctitle">🔄 Surface Finish Converter — All Parameters at Once</div>
+<p style="font-size:12px;color:var(--muted);margin-bottom:10px">Enter a value in any one parameter — all others are calculated automatically. Relationships are based on standard engineering approximations (see ratio table below).</p>
+
+<div class="machine-grid">
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--yellow,#fde047)">Input</div>
+<div class="cg">
+  <div><label>Convert From</label><select id="sc-from" onchange="scUpdateInput()">
+    <option value="ra_um" selected>Ra — Micrometers (μm)</option>
+    <option value="ra_uin">Ra — Microinches (μin)</option>
+    <option value="rz">Rz — Roughness Depth (μm)</option>
+    <option value="rq">Rq / RMS (μm)</option>
+    <option value="ngrade">N-Grade (N1-N12)</option>
+  </select></div>
+  <div id="sc-input-wrap"><label>Value</label><input id="sc-value" type="number" value="1.6" step="0.05" oninput="calcSurfConv()"></div>
+  <div><label>Rz/Ra Ratio (by process)</label><select id="sc-ratio" onchange="calcSurfConv()">
+    <option value="4">Grinding / Lapping (×4)</option>
+    <option value="5.5" selected>Milling / Drilling (×5.5, default)</option>
+    <option value="7">Turning (×7)</option>
+  </select></div>
+</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--green)">Results — All Equivalent Parameters</div>
+<div class="res" id="sc-result" style="font-size:13px">—</div>
+</div>
+</div>
+
+<div class="tip-box" style="margin-top:10px">▸ The Rz/Ra ratio varies from 4 (grinding/lapping, uniform profile) to 7 (turning/milling, prominent tool marks) — select by actual process for best accuracy<br>▸ Rq (RMS) is always slightly higher than Ra (ratio ~1.11) — because RMS emphasizes extreme deviations more than the arithmetic mean<br>▸ N-Grade (N1-N12) is an ISO 1302 classification that groups Ra ranges — not an exact conversion, just the nearest "bucket"</div>
+</div>
+</div>
 
 <!-- ==================== N-GRADE ==================== -->
 <div id="srf-ntable" class="srf-sec">
@@ -610,6 +648,59 @@ function showSrf(id,btn){
   if(btn)btn.classList.add('active');
 }
 
+
+const SC_NGRADE = [
+  {n:'N1',ra:0.025},{n:'N2',ra:0.05},{n:'N3',ra:0.1},{n:'N4',ra:0.2},
+  {n:'N5',ra:0.4},{n:'N6',ra:0.8},{n:'N7',ra:1.6},{n:'N8',ra:3.2},
+  {n:'N9',ra:6.3},{n:'N10',ra:12.5},{n:'N11',ra:25},{n:'N12',ra:50},
+];
+
+function scUpdateInput(){
+  const from=document.getElementById('sc-from').value;
+  const wrap=document.getElementById('sc-input-wrap');
+  if(from==='ngrade'){
+    wrap.innerHTML='<label>N-Grade</label><select id="sc-value" onchange="calcSurfConv()">'+
+      SC_NGRADE.map(g=>`<option value="${g.ra}">${g.n} (Ra ${g.ra}μm)</option>`).join('')+
+      '</select>';
+  }else{
+    const defaults={ra_um:'1.6',ra_uin:'63',rz:'8.8',rq:'1.78'};
+    wrap.innerHTML='<label>Value</label><input id="sc-value" type="number" value="'+(defaults[from]||'1.6')+'" step="0.05" oninput="calcSurfConv()">';
+  }
+  calcSurfConv();
+}
+
+function calcSurfConv(){
+  const from=document.getElementById('sc-from').value;
+  const val=parseFloat(document.getElementById('sc-value').value)||1.6;
+  const ratio=parseFloat(document.getElementById('sc-ratio').value)||5.5;
+
+  let ra_um;
+  if(from==='ra_um') ra_um=val;
+  else if(from==='ra_uin') ra_um=val/39.37;
+  else if(from==='rz') ra_um=val/ratio;
+  else if(from==='rq') ra_um=val/1.11;
+  else if(from==='ngrade') ra_um=val;
+
+  const ra_uin=ra_um*39.37;
+  const rz=ra_um*ratio;
+  const rq=ra_um*1.11;
+
+  let nearest=SC_NGRADE[0];
+  let minDiff=Infinity;
+  SC_NGRADE.forEach(g=>{
+    const diff=Math.abs(Math.log(g.ra)-Math.log(ra_um));
+    if(diff<minDiff){minDiff=diff;nearest=g;}
+  });
+
+  document.getElementById('sc-result').innerHTML=
+    `<table style="width:100%;font-size:12px;border-collapse:collapse">`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Ra (μm)</td><td style="padding:4px 8px"><b>${ra_um.toFixed(3)}</b></td></tr>`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Ra (μin)</td><td style="padding:4px 8px"><b>${ra_uin.toFixed(1)}</b></td></tr>`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Rz (μm)</td><td style="padding:4px 8px"><b>${rz.toFixed(2)}</b></td></tr>`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Rq / RMS (μm)</td><td style="padding:4px 8px"><b>${rq.toFixed(3)}</b></td></tr>`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Nearest N-Grade</td><td style="padding:4px 8px"><b style="color:var(--green)">${nearest.n}</b> (Ra ${nearest.ra}μm)</td></tr>`+
+    `</table>`;
+}
 
 function toggleTheme(){
   document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
