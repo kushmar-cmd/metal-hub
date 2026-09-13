@@ -162,6 +162,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <a class="tab" href="https://metal.kushmar.com/">🏠 בית</a>
   <a class="tab" href="mfgtech.html">🏭 טכנולוגיות</a>
   <a class="tab" href="materials.html">🧱 חומרים</a>
+  <a class="tab" href="metallurgy.html">🔬 מטלורגיה</a>
   <a class="tab" href="coatings.html">🎨 ציפויים</a>
   <a class="tab" href="heat.html">🔥 טיפולי חום</a>
   <a class="tab" href="gdt.html">⊕ GD&T</a>
@@ -177,6 +178,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <a class="tab" href="standards.html">📋 תקנים</a>
   <a class="tab" href="bearings.html">⚙️ מסבים</a>
   <a class="tab" href="gears.html">⚙️ גירים</a>
+  <a class="tab" href="powertrans.html">⛓️ העברת כוח</a>
   <a class="tab" href="seals.html">🔵 אטמים</a>
   <a class="tab" href="springs.html">🌀 קפיצים</a>
   <a class="tab" href="corrosion.html">⚡ קורוזיה</a>
@@ -216,6 +218,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
 <div style="display:flex;flex-wrap:wrap;gap:5px;margin:14px 0;background:var(--surface);padding:10px;border-radius:8px;border:1px solid var(--border)">
   <button class="srf-tab active" onclick="showSrf('params',this)">📊 פרמטרים</button>
+  <button class="srf-tab" onclick="showSrf('converter',this)">🔄 ממיר טיב שטח</button>
   <button class="srf-tab" onclick="showSrf('ntable',this)">📋 טבלת N-Grade</button>
   <button class="srf-tab" onclick="showSrf('symbols',this)">✏️ סימנים בשרטוט</button>
   <button class="srf-tab" onclick="showSrf('process',this)">⚙️ תהליך → Ra</button>
@@ -295,6 +298,41 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </div>
 
 </div></div></div>
+
+<!-- ==================== CONVERTER ==================== -->
+<div id="srf-converter" class="srf-sec">
+<div class="card"><div class="ctitle">🔄 ממיר טיב שטח — כל הפרמטרים בו-זמנית</div>
+<p style="font-size:12px;color:var(--muted);margin-bottom:10px">הזן ערך באחד הפרמטרים — כל השאר יחושבו אוטומטית. היחסים מבוססים על קירובים הנדסיים סטנדרטיים (ר' טבלת יחסים למטה).</p>
+
+<div class="machine-grid">
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--yellow,#fde047)">קלט</div>
+<div class="cg">
+  <div><label>המר מתוך</label><select id="sc-from" onchange="scUpdateInput()">
+    <option value="ra_um" selected>Ra — מיקרומטר (μm)</option>
+    <option value="ra_uin">Ra — מיקרואינץ' (μin)</option>
+    <option value="rz">Rz — עומק מחוספסות (μm)</option>
+    <option value="rq">Rq / RMS (μm)</option>
+    <option value="ngrade">דרגת N (N1-N12)</option>
+  </select></div>
+  <div id="sc-input-wrap"><label>ערך</label><input id="sc-value" type="number" value="1.6" step="0.05" oninput="calcSurfConv()"></div>
+  <div><label>יחס Rz/Ra (לפי תהליך)</label><select id="sc-ratio" onchange="calcSurfConv()">
+    <option value="4">שחיקה / ליטוש (×4)</option>
+    <option value="5.5" selected>כרסום / קידוח (×5.5, ברירת מחדל)</option>
+    <option value="7">חריטה (×7)</option>
+  </select></div>
+</div>
+</div>
+
+<div class="machine-card" style="grid-column:span 2">
+<div class="mc-title" style="color:var(--green)">תוצאות — כל הפרמטרים השווים</div>
+<div class="res" id="sc-result" style="font-size:13px">—</div>
+</div>
+</div>
+
+<div class="tip-box" style="margin-top:10px">▸ היחס Rz/Ra משתנה בין 4 (שחיקה/ליטוש, פרופיל אחיד) ל-7 (חריטה/כרסום, סימני כלי בולטים) — בחר לפי תהליך העיבוד בפועל לדיוק מרבי<br>▸ Rq (RMS) תמיד גבוה קצת מ-Ra (יחס ~1.11) — כי RMS מדגיש חריגות קיצוניות יותר מממוצע חשבוני<br>▸ דרגת N (N1-N12) היא סיווג ISO 1302 שמקבץ טווחי Ra — לא המרה מדויקת אלא "החלק" הקרוב ביותר</div>
+</div>
+</div>
 
 <!-- ==================== N-TABLE ==================== -->
 <div id="srf-ntable" class="srf-sec">
@@ -610,6 +648,59 @@ function showSrf(id,btn){
   const el=document.getElementById('srf-'+id);
   if(el)el.classList.add('active');
   if(btn)btn.classList.add('active');
+}
+
+const SC_NGRADE = [
+  {n:'N1',ra:0.025},{n:'N2',ra:0.05},{n:'N3',ra:0.1},{n:'N4',ra:0.2},
+  {n:'N5',ra:0.4},{n:'N6',ra:0.8},{n:'N7',ra:1.6},{n:'N8',ra:3.2},
+  {n:'N9',ra:6.3},{n:'N10',ra:12.5},{n:'N11',ra:25},{n:'N12',ra:50},
+];
+
+function scUpdateInput(){
+  const from=document.getElementById('sc-from').value;
+  const wrap=document.getElementById('sc-input-wrap');
+  if(from==='ngrade'){
+    wrap.innerHTML='<label>דרגת N</label><select id="sc-value" onchange="calcSurfConv()">'+
+      SC_NGRADE.map(g=>`<option value="${g.ra}">${g.n} (Ra ${g.ra}μm)</option>`).join('')+
+      '</select>';
+  }else{
+    const defaults={ra_um:'1.6',ra_uin:'63',rz:'8.8',rq:'1.78'};
+    wrap.innerHTML='<label>ערך</label><input id="sc-value" type="number" value="'+(defaults[from]||'1.6')+'" step="0.05" oninput="calcSurfConv()">';
+  }
+  calcSurfConv();
+}
+
+function calcSurfConv(){
+  const from=document.getElementById('sc-from').value;
+  const val=parseFloat(document.getElementById('sc-value').value)||1.6;
+  const ratio=parseFloat(document.getElementById('sc-ratio').value)||5.5;
+
+  let ra_um;
+  if(from==='ra_um') ra_um=val;
+  else if(from==='ra_uin') ra_um=val/39.37;
+  else if(from==='rz') ra_um=val/ratio;
+  else if(from==='rq') ra_um=val/1.11;
+  else if(from==='ngrade') ra_um=val;
+
+  const ra_uin=ra_um*39.37;
+  const rz=ra_um*ratio;
+  const rq=ra_um*1.11;
+
+  let nearest=SC_NGRADE[0];
+  let minDiff=Infinity;
+  SC_NGRADE.forEach(g=>{
+    const diff=Math.abs(Math.log(g.ra)-Math.log(ra_um));
+    if(diff<minDiff){minDiff=diff;nearest=g;}
+  });
+
+  document.getElementById('sc-result').innerHTML=
+    `<table style="width:100%;font-size:12px;border-collapse:collapse">`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Ra (μm)</td><td style="padding:4px 8px"><b>${ra_um.toFixed(3)}</b></td></tr>`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Ra (μin)</td><td style="padding:4px 8px"><b>${ra_uin.toFixed(1)}</b></td></tr>`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Rz (μm)</td><td style="padding:4px 8px"><b>${rz.toFixed(2)}</b></td></tr>`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">Rq / RMS (μm)</td><td style="padding:4px 8px"><b>${rq.toFixed(3)}</b></td></tr>`+
+    `<tr><td style="padding:4px 8px;color:var(--muted)">דרגת N הקרובה</td><td style="padding:4px 8px"><b style="color:var(--green)">${nearest.n}</b> (Ra ${nearest.ra}μm)</td></tr>`+
+    `</table>`;
 }
 
 const NAV_PAGES = ['index.html','mfgtech.html','materials.html','coatings.html','heat.html','gdt.html','inspection.html','pricing.html','tol.html','surface.html','threads.html','welding.html','machining.html','fasteners.html','inserts.html','standards.html','bearings.html','gears.html','seals.html','springs.html','corrosion.html','hydraulics.html','stress.html','fmea.html','changes.html','chem.html','dfm.html','pressure.html','calc.html','glossary.html'];
