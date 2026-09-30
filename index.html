@@ -3089,7 +3089,7 @@ async function _loadTab(id) {
   const url = _lazyTabs[id];
   if (!url) return;
   try {
-    const r = await fetch(url + '?v=7');
+    const r = await fetch(url + '?v=8');
     if (!r.ok) throw new Error(r.status);
     const html = await r.text();
     // Regex-based extraction: get everything between outer div tags
