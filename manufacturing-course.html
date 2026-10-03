@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>טכנולוגיות ייצור ועיבוד · קורס וידאו | METAL HUB</title>
+<meta name="description" content="קורס וידאו מונפש בעברית על תהליכי ייצור ועיבוד: יציקה, חישול, חריטה, כרסום, עיבוד פח, EDM, לייזר, כרסום 5 צירים וייצור תוספתי. 25 פרקים, כשעתיים צפייה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ---- tokens: the same palette as the videos ---- */
+:root{
+  --bg:#0d1420; --bg2:#132036; --panel:#17263d; --line:#2a3b55; --ink:#eef3fa; --dim:#9fb3cc; --steel:#c9d6e6;
+  --g0:#9fb3cc; --gA:#ff8a5c; --gB:#35c6f4; --gC:#7fd1b9; --gD:#c59bff; --gE:#ffd166;
+  --r-tile:10px; --r-card:16px;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){ --bg:#f3f6fb; --bg2:#e6edf6; --panel:#ffffff; --line:#cdd8e6; --ink:#0f1b2d; --dim:#4b5f7a; --steel:#3b4a60;
+  --g0:#5d708a; --gA:#d9622e; --gB:#0b8fc2; --gC:#2f9e80; --gD:#7e4fd6; --gE:#b8860b; } }
+:root[data-theme="light"]{ --bg:#f3f6fb; --bg2:#e6edf6; --panel:#ffffff; --line:#cdd8e6; --ink:#0f1b2d; --dim:#4b5f7a; --steel:#3b4a60;
+  --g0:#5d708a; --gA:#d9622e; --gB:#0b8fc2; --gC:#2f9e80; --gD:#7e4fd6; --gE:#b8860b; }
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:"Heebo","Arial Hebrew","Segoe UI",Arial,sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gB); outline-offset:3px; border-radius:6px}
+.wrap{max-width:1200px; margin:0 auto; padding:0 24px}
+
+/* ---- hero ---- */
+.hero{position:relative; overflow:hidden; padding:64px 0 56px;
+  background:radial-gradient(1200px 500px at 85% -10%, rgba(53,198,244,.10), transparent 60%), var(--bg)}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:15px; color:var(--dim); text-decoration:none}
+.brand b{color:var(--ink); letter-spacing:.02em}
+.hero h1{font-size:clamp(40px,6.4vw,78px); line-height:1.02; font-weight:900; margin:28px 0 18px; letter-spacing:-.01em}
+.hero p.lead{font-size:clamp(18px,2vw,21px); color:var(--dim); max-width:640px; margin:0 0 28px}
+.facts{display:flex; flex-wrap:wrap; gap:10px 26px; margin:0 0 30px; padding:0; list-style:none; color:var(--steel); font-weight:500}
+.facts strong{color:var(--ink); font-weight:800}
+.cta{display:flex; flex-wrap:wrap; gap:12px}
+.btn{appearance:none; border:0; cursor:pointer; font:inherit; font-weight:700; font-size:17px; padding:14px 26px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; gap:10px}
+.btn.primary{background:var(--gB); color:#06121f}
+.btn.ghost{background:transparent; color:var(--ink); box-shadow:inset 0 0 0 2px var(--line)}
+.btn .tri{width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid currentColor}
+
+/* ---- the process map (hero centrepiece) ---- */
+.map{margin-top:48px; display:grid; grid-template-columns:repeat(6,1fr); gap:14px; direction:rtl}
+.grp h2{font-size:15px; font-weight:800; margin:0 0 10px; color:var(--c)}
+.grp ol{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+.tile{width:100%; display:flex; align-items:center; gap:10px; text-align:right; cursor:pointer; font:inherit; font-size:15px; font-weight:500; color:var(--ink);
+  background:var(--panel); border:1.5px solid color-mix(in srgb, var(--c) 45%, var(--line)); border-radius:var(--r-tile); padding:9px 11px; min-height:44px}
+.tile .n{font-weight:900; color:var(--c); min-width:1.6em}
+.tile:hover{border-color:var(--c); background:color-mix(in srgb, var(--c) 12%, var(--panel))}
+.tile.seen::after{content:""; margin-inline-start:auto; width:8px; height:8px; border-radius:50%; background:var(--c)}
+.map.boot .tile{opacity:.18}
+.map .tile{transition:opacity .35s ease, background .2s, border-color .2s}
+@media (prefers-reduced-motion: reduce){ .map .tile{transition:none} html{scroll-behavior:auto} }
+
+/* ---- sections ---- */
+section{padding:72px 0}
+.sec-h{font-size:clamp(28px,3.4vw,40px); font-weight:900; margin:0 0 10px; line-height:1.15}
+.sec-p{color:var(--dim); max-width:640px; margin:0 0 34px}
+.band{background:var(--bg2)}
+
+/* structure of each chapter: a real sequence -> numbered */
+.steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); gap:0; counter-reset:s; position:relative}
+.steps li{counter-increment:s; padding:0 16px 0 0; position:relative}
+.steps li::before{content:counter(s); display:grid; place-items:center; width:46px; height:46px; border-radius:50%; background:var(--panel); border:2px solid var(--gB); color:var(--gB); font-weight:900; font-size:20px; margin-bottom:14px; position:relative; z-index:1}
+.steps::before{content:""; position:absolute; top:23px; right:23px; left:23px; height:2px; background:var(--line)}
+.steps h3{margin:0 0 6px; font-size:19px; font-weight:800}
+.steps p{margin:0; color:var(--dim); font-size:15.5px; padding-left:12px}
+.steps li:last-child::before{border-color:var(--gE); color:var(--gE)}
+
+/* chapter list */
+.group{margin-bottom:46px}
+.group-h{display:flex; align-items:baseline; gap:14px; border-bottom:3px solid var(--c); padding-bottom:10px; margin-bottom:6px}
+.group-h h3{margin:0; font-size:24px; font-weight:900; color:var(--c)}
+.group-h span{color:var(--dim); font-size:15px}
+.ch{display:grid; grid-template-columns:64px 1fr auto auto; align-items:center; gap:18px; padding:16px 4px; border-bottom:1px solid var(--line)}
+.ch .num{font-size:30px; font-weight:900; color:var(--c); line-height:1}
+.ch h4{margin:0; font-size:19px; font-weight:800}
+.ch p{margin:2px 0 0; color:var(--dim); font-size:15.5px; max-width:62ch}
+.ch .dur{color:var(--steel); font-variant-numeric:tabular-nums; font-weight:500}
+.play{appearance:none; cursor:pointer; border:2px solid var(--c); background:transparent; color:var(--c); width:46px; height:46px; border-radius:50%; display:grid; place-items:center}
+.play:hover{background:var(--c); color:var(--bg)}
+.play .tri{width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid currentColor; margin-left:3px}
+.ch.seen h4::after{content:"נצפה"; font-size:12px; font-weight:700; margin-inline-start:10px; padding:2px 8px; border-radius:999px; background:color-mix(in srgb, var(--c) 18%, transparent); color:var(--c); vertical-align:middle}
+
+/* audience */
+.aud{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+.aud div{border-top:3px solid var(--line); padding-top:16px}
+.aud h3{margin:0 0 6px; font-size:20px; font-weight:800}
+.aud p{margin:0; color:var(--dim)}
+
+footer{padding:40px 0 56px; color:var(--dim); font-size:15px; border-top:1px solid var(--line)}
+footer a{color:var(--gB)}
+
+/* modal player */
+dialog{border:0; padding:0; background:var(--bg); color:var(--ink); width:min(1100px,96vw); border-radius:var(--r-card); box-shadow:0 30px 80px rgba(0,0,0,.55)}
+dialog::backdrop{background:rgba(5,10,18,.78)}
+.pl-top{display:flex; align-items:center; gap:12px; padding:14px 18px; border-bottom:1px solid var(--line)}
+.pl-top .n{font-weight:900; color:var(--c); font-size:22px}
+.pl-top h3{margin:0; font-size:19px; font-weight:800; flex:1}
+.x{appearance:none; border:0; background:transparent; color:var(--dim); font-size:30px; line-height:1; cursor:pointer; width:44px; height:44px; border-radius:50%}
+.x:hover{color:var(--ink); background:var(--panel)}
+video{display:block; width:100%; aspect-ratio:16/9; background:#000}
+video[hidden],.err[hidden]{display:none}
+.pl-bot{display:flex; justify-content:space-between; gap:10px; padding:12px 18px}
+.pl-bot button{appearance:none; cursor:pointer; font:inherit; font-weight:700; color:var(--ink); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:9px 18px}
+.pl-bot button:disabled{opacity:.35; cursor:default}
+.err{padding:24px 18px; color:var(--gA)}
+
+/* responsive */
+@media (max-width:1000px){ .map{grid-template-columns:repeat(3,1fr)} .steps{grid-template-columns:1fr; gap:22px} .steps::before{display:none}
+  .steps li{display:grid; grid-template-columns:46px 1fr; gap:4px 14px; padding:0} .steps li::before{grid-row:span 2; margin:0} .steps p{padding:0} }
+@media (max-width:640px){ .wrap{padding:0 16px} .hero{padding:40px 0} .map{grid-template-columns:1fr 1fr; gap:12px} .aud{grid-template-columns:1fr}
+  .ch{grid-template-columns:44px 1fr auto; gap:12px} .ch .dur{grid-column:2; grid-row:2; font-size:14px} .ch .play{grid-column:3; grid-row:1 / span 2} .ch .num{font-size:24px} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="brand" href="/"><b>METAL HUB</b> קורסי וידאו</a>
+    <h1>טכנולוגיות ייצור ועיבוד</h1>
+    <p class="lead">קורס וידאו מונפש בעברית, מיציקה ועד הדפסה במתכת. כל פרק מסביר איך התהליך עובד, איך מתכננים לו חלק, מה משתבש, ומה מייקר אותו.</p>
+    <ul class="facts">
+      <li><strong>25</strong> פרקים</li>
+      <li><strong>כשעתיים</strong> של צפייה</li>
+      <li><strong>6</strong> משפחות של תהליכים</li>
+      <li>קריינות וכתוביות בעברית</li>
+    </ul>
+    <div class="cta">
+      <button class="btn primary" type="button" data-open="0"><span class="tri" aria-hidden="true"></span>להתחיל מהמבוא</button>
+      <a class="btn ghost" href="#chapters">לרשימת הפרקים</a>
+    </div>
+    <nav class="map boot" id="map" aria-label="מפת הקורס"></nav>
+  </div>
+</header>
+
+<section class="band" aria-labelledby="h-struct">
+  <div class="wrap">
+    <h2 class="sec-h" id="h-struct">כל פרק בנוי באותו סדר</h2>
+    <p class="sec-p">כך קל להשוות בין תהליכים ולבחור את הנכון לחלק שלך.</p>
+    <ol class="steps">
+      <li><h3>איך זה עובד</h3><p>המכונה, הכלי והעיקרון הפיזיקלי, באנימציה.</p></li>
+      <li><h3>פרמטרים ומספרים</h3><p>מהירויות, עוביים, טולרנסים וחספוס, עם דוגמאות מספריות.</p></li>
+      <li><h3>תכנון חלק</h3><p>כללי תכנון שחוסכים זמן, כלים ופסילות.</p></li>
+      <li><h3>בעיות נפוצות</h3><p>מה משתבש בייצור, ולמה.</p></li>
+      <li><h3>מה מייקר</h3><p>מה באמת קובע את מחיר החלק.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="chapters" aria-labelledby="h-ch">
+  <div class="wrap">
+    <h2 class="sec-h" id="h-ch">כל הפרקים</h2>
+    <p class="sec-p">אפשר לצפות לפי הסדר, או לקפוץ ישר לתהליך שמעניין אותך.</p>
+    <div id="list"></div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-aud">
+  <div class="wrap">
+    <h2 class="sec-h" id="h-aud">למי הקורס מתאים</h2>
+    <div class="aud" style="margin-top:28px">
+      <div><h3>עובדי ייצור</h3><p>להבין מה קורה במכונה, למה מגדירים פרמטרים מסוימים, ומאיפה באות התקלות.</p></div>
+      <div><h3>מהנדסים ומתכננים</h3><p>לתכנן חלקים שקל ונכון לייצר, ולבחור תהליך לפי צורה, חומר, דיוק וכמות.</p></div>
+      <div><h3>רכש ותמחור</h3><p>להבין מה מייקר כל תהליך, ולשאול את הספק את השאלות הנכונות.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">חלק מ-<a href="/">METAL HUB</a>, מאגר הידע ההנדסי בעברית.</div>
+</footer>
+
+<dialog id="player" aria-labelledby="pl-title">
+  <div class="pl-top"><span class="n" id="pl-n"></span><h3 id="pl-title"></h3><button class="x" type="button" id="pl-x" aria-label="סגירה">×</button></div>
+  <video id="pl-v" controls playsinline preload="metadata"></video>
+  <div class="err" id="pl-err" hidden>הסרטון לא נמצא. ודאו שקובץ הווידאו הועלה לתיקייה videos באתר.</div>
+  <div class="pl-bot"><button type="button" id="pl-prev">הפרק הקודם</button><button type="button" id="pl-next">הפרק הבא</button></div>
+</dialog>
+
+<script>
+/* ===== settings: folder where the MP4 files are uploaded (relative to this page) ===== */
+const VIDEO_DIR = "videos/";
+
+const GROUPS = [
+  { id:"g0", name:"מבוא", sub:"איך מחולקים תהליכי הייצור", c:"--g0", ch:[0] },
+  { id:"gA", name:"עיצוב חם ויציקה", sub:"מתכת שמקבלת צורה בחום ובלחץ", c:"--gA", ch:[1,2,3] },
+  { id:"gB", name:"שבבי ושוחק", sub:"הסרת חומר בכלי חיתוך ובאבנים", c:"--gB", ch:[4,5,6,7,8,9,10] },
+  { id:"gC", name:"עיבוד פח", sub:"מלוח שטוח לחלק", c:"--gC", ch:[11,12,13,14,15] },
+  { id:"gD", name:"לא קונבנציונלי", sub:"ניצוצות, אור, מים ופלזמה", c:"--gD", ch:[16,17,18,19,20] },
+  { id:"gE", name:"מתקדם", sub:"מכונות מורכבות, גימור עדין והדפסה", c:"--gE", ch:[21,22,23,24] }
+];
+const CH = [
+  ["מבוא: המפה","איך מחולקים תהליכי הייצור, ואיך בוחרים ביניהם.","פרק00_מבוא_המפה.mp4",300],
+  ["יציקה","מתכת נוזלית בתבנית: חול, יציקה מדויקת, יציקת לחץ, ופגמים נפוצים.","פרק01_יציקה.mp4",415],
+  ["חישול","עיצוב מתכת בכוח ובחום: תבנית פתוחה וסגורה, סיבים, הבזק ואי התאמה.","פרק02_חישול.mp4",366],
+  ["שיחול","דחיפת מתכת דרך תבנית: פרופילים מלאים וחלולים, וקווי ריתוך.","פרק03_שיחול.mp4",323],
+  ["חריטה","המחרטה, הכלים והסימות, פרמטרי חיתוך, תפיסה ודיוק.","פרק04_חריטה.mp4",402],
+  ["כרסום","כרסומות ומרכזי עיבוד, כרסמים, הזנה לשן, וכרסום עם ונגד הכיוון.","פרק05_כרסום.mp4",332],
+  ["קידוח","מקדחים, רימר, ראש בורינג ושיקוע, ואיך מגיעים לקדח מדויק.","פרק06_קידוח.mp4",276],
+  ["הברגה","תבריגים, מברזים, כרסום וגלגול הברגה, ובדיקה במדים.","פרק07_הברגה.mp4",319],
+  ["השחזה","אבני השחזה, סוגי השחזה, דרסינג, ושריפת השחזה.","פרק08_השחזה.mp4",263],
+  ["ברוצ'ינג (חיטוט)","broach עם שיניים מדורגות: חריצי שגם וספליינים במעבר אחד.","פרק09_ברוצינג_חיטוט.mp4",210],
+  ["גלגלי שיניים","מודול, hobbing ו-gear shaping, צמנטציה ובדיקה.","פרק10_גלגלי_שיניים.mp4",216],
+  ["זיווד","כל עולם הפח: חיתוך, ניקוב, כיפוף, חיבורים וגימור.","פרק11_זיווד.mp4",351],
+  ["ניקוב","סכין ומטריצה, מרווח, מכונת צריח ו-nibbling.","פרק12_ניקוב.mp4",217],
+  ["כיפוף","מכבש כיפוף, air bending, קפיצה חוזרת ורצף כיפופים.","פרק13_כיפוף.mp4",227],
+  ["ערגול","גלילים וקונוסים מלוח שטוח, כיפוף קצוות וערגול חוזר.","פרק14_ערגול.mp4",149],
+  ["כבישה והטבעה","תבניות progressive ו-transfer, משיכה עמוקה ו-coining.","פרק15_כבישה_והטבעה.mp4",319],
+  ["EDM חוט","חיתוך בניצוצות בכל חומר מוליך, בדיוק של מיקרונים.","פרק16_EDM_חוט.mp4",303],
+  ["EDM שיקוע","אלקטרודה בצורת החלל: כיסים עיוורים ופינות חדות בחומר מוקשה.","פרק17_EDM_שיקוע.mp4",244],
+  ["לייזר","fiber ו-CO2, גזי עזר, nesting ואיכות השפה.","פרק18_לייזר.mp4",243],
+  ["חיתוך במים","תהליך קר שחותך כמעט כל חומר, בעזרת garnet.","פרק19_חיתוך_במים.mp4",216],
+  ["פלזמה","לוחות פלדה עבים, מהר ובזול.","פרק20_פלזמה.mp4",193],
+  ["כרסום 5 צירים","תצורות מכונה, 3+2 וסימולטני, TCP, CAM ותפיסה.","פרק21_כרסום_5_צירים.mp4",457],
+  ["מחרטה מכרסמת ו-Swiss type","live tools, ציר נגדי, וחלקים ארוכים ודקים.","פרק22_מחרטה_מכרסמת_ו-Swiss_type.mp4",321,"מחרטה מכרסמת, Swiss"],
+  ["הונינג ולאפינג","גימור קדחים ומשטחים, עד שברירי מיקרון.","פרק23_הונינג_ולאפינג.mp4",250],
+  ["ייצור תוספתי","היתוך במיטת אבקה, DED, binder jetting, ותכנון להדפסה.","פרק24_ייצור_תוספתי.mp4",387]
+];
+const groupOf = n => GROUPS.find(g => g.ch.includes(n));
+const mmss = s => Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+const bidi = s => esc(s).replace(/([A-Za-z0-9][A-Za-z0-9+\- ]*[A-Za-z0-9]|[A-Za-z0-9])/g, '<bdi>$1</bdi>');
+
+/* watched state (per viewer, optional) */
+let seen = {};
+try { seen = JSON.parse(localStorage.getItem("mh-course-seen") || "{}"); } catch (e) { seen = {}; }
+function markSeen(n) { seen[n] = 1; try { localStorage.setItem("mh-course-seen", JSON.stringify(seen)); } catch (e) {} paintSeen(); }
+function paintSeen() { document.querySelectorAll("[data-n]").forEach(el => el.classList.toggle("seen", !!seen[el.dataset.n])); }
+
+/* process map */
+const map = document.getElementById("map");
+map.innerHTML = GROUPS.map(g => `<div class="grp" style="--c:var(${g.c})"><h2>${esc(g.name)}</h2><ol>${g.ch.map(n =>
+  `<li><button class="tile" type="button" data-open="${n}" data-n="${n}"><span class="n">${n}</span><span>${bidi(CH[n][4] || CH[n][0])}</span></button></li>`).join("")}</ol></div>`).join("");
+
+/* chapter list */
+document.getElementById("list").innerHTML = GROUPS.map(g => {
+  const tot = g.ch.reduce((a, n) => a + CH[n][3], 0);
+  return `<div class="group" style="--c:var(${g.c})"><div class="group-h"><h3>${esc(g.name)}</h3><span>${esc(g.sub)}. ${g.ch.length === 1 ? "פרק אחד" : g.ch.length + " פרקים"}, ${Math.round(tot / 60)} דקות</span></div>` +
+    g.ch.map(n => `<div class="ch" data-n="${n}"><div class="num">${n}</div><div><h4>${bidi(CH[n][0])}</h4><p>${bidi(CH[n][1])}</p></div><div class="dur" aria-label="אורך">${mmss(CH[n][3])}</div>` +
+      `<button class="play" type="button" data-open="${n}" aria-label="לצפייה בפרק ${n}: ${esc(CH[n][0])}"><span class="tri"></span></button></div>`).join("") + `</div>`;
+}).join("");
+paintSeen();
+
+/* one orchestrated moment: the map lights up group by group */
+(function boot() {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tiles = [...map.querySelectorAll(".tile")];
+  if (reduce) { map.classList.remove("boot"); return; }
+  tiles.forEach((t, i) => setTimeout(() => { t.style.opacity = 1; }, 250 + i * 55));
+  setTimeout(() => { map.classList.remove("boot"); tiles.forEach(t => t.style.opacity = ""); }, 250 + tiles.length * 55 + 400);
+})();
+
+/* player */
+const dlg = document.getElementById("player"), vid = document.getElementById("pl-v"), err = document.getElementById("pl-err");
+let cur = 0;
+function openCh(n) {
+  cur = n; const g = groupOf(n);
+  dlg.style.setProperty("--c", `var(${g.c})`);
+  document.getElementById("pl-n").textContent = n;
+  document.getElementById("pl-title").innerHTML = bidi(CH[n][0]);
+  err.hidden = true; vid.hidden = false;
+  vid.src = VIDEO_DIR + encodeURIComponent(CH[n][2]);
+  document.getElementById("pl-prev").disabled = n === 0;
+  document.getElementById("pl-next").disabled = n === CH.length - 1;
+  if (!dlg.open) dlg.showModal();
+  vid.play().catch(() => {});
+}
+vid.addEventListener("error", () => { vid.hidden = true; err.hidden = false; });
+vid.addEventListener("timeupdate", () => { if (vid.duration && vid.currentTime / vid.duration > .9 && !seen[cur]) markSeen(cur); });
+vid.addEventListener("ended", () => { markSeen(cur); });
+document.addEventListener("click", e => { const b = e.target.closest("[data-open]"); if (b) openCh(+b.dataset.open); });
+document.getElementById("pl-x").onclick = () => dlg.close();
+document.getElementById("pl-prev").onclick = () => cur > 0 && openCh(cur - 1);
+document.getElementById("pl-next").onclick = () => cur < CH.length - 1 && openCh(cur + 1);
+dlg.addEventListener("close", () => { vid.pause(); vid.removeAttribute("src"); vid.load(); });
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+</script>
+</body>
+</html>
