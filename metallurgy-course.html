@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<script>if(localStorage.getItem('mh-theme')==='light'){document.documentElement.classList.add('light-mode');}</script>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://metal.kushmar.com/metallurgy-course.html">
+<link rel="alternate" hreflang="he" href="https://metal.kushmar.com/metallurgy.html">
+<link rel="alternate" hreflang="en" href="https://metal.kushmar.com/en/metallurgy.html">
+<link rel="alternate" hreflang="x-default" href="https://metal.kushmar.com/metallurgy.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>קורס וידאו: חומרים ומטלורגיה | METAL HUB</title>
+<meta name="description" content="קורס וידאו מונפש בעברית בחומרים ומטלורגיה: 24 פרקים, מהמבנה הגבישי ועד בחירת חומר, הזמנה ותעודות.">
+<meta name="keywords" content="מטלורגיה, דיאגרמת פאזות, ברזל פחמן, מבנה גבישי, BCC FCC HCP, גודל גרגיר, ASTM E112, דיאגרמת TTT, CCT, פרקטוגרפיה, ניתוח כשל, מארטנזיט, אוסטניט, פרליט">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --blue:#58a6ff;--green:#3fb950;--red:#f85149;--yellow:#d29922;
+  --purple:#bc8cff;--text:#e6edf3;--muted:#8b949e;--orange:#ffa657;
+  --teal:#39d353;--font:'Segoe UI',system-ui,sans-serif;
+}
+html.light-mode,body.light-mode{
+  --bg:#f5f7fa;--surface:#ffffff;--card:#eef1f5;--border:#d0d7de;
+  --text:#1a1a2e;--muted:#57606a;--font:"Segoe UI",Arial,sans-serif;
+}
+.night-toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:16px;padding:6px 10px;line-height:1}
+.night-toggle:hover{border-color:var(--blue)}
+
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;direction:rtl;text-align:right}
+#engBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#engBgGrid{position:absolute;inset:-50%;width:200%;height:200%;
+  background-image:repeating-linear-gradient(45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px),
+                    repeating-linear-gradient(-45deg,rgba(88,166,255,0.05) 0,rgba(88,166,255,0.05) 1px,transparent 1px,transparent 34px);
+  animation:engGridPan 60s linear infinite}
+@keyframes engGridPan{from{transform:translate(0,0)}to{transform:translate(34px,34px)}}
+.engGear{position:absolute;color:var(--blue);opacity:0.05;width:340px;height:340px}
+.engGear1{top:-60px;right:-80px;animation:engSpin 90s linear infinite}
+.engGear2{bottom:-100px;left:-100px;width:440px;height:440px;color:var(--orange);opacity:0.045;animation:engSpinRev 130s linear infinite}
+.engGear3{top:38%;left:-60px;width:220px;height:220px;opacity:0.04;animation:engSpin 70s linear infinite}
+.engGear4{top:50%;left:44%;width:260px;height:260px;margin-top:-130px;color:var(--blue);opacity:0.045;animation:engSpinRev 100s linear infinite}
+.engGear5{top:20%;left:58%;width:180px;height:180px;color:var(--orange);opacity:0.04;animation:engSpin 80s linear infinite}
+@keyframes engSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes engSpinRev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.engSpark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 8px 2px var(--orange);animation:engTwinkle 4s ease-in-out infinite}
+.s1{top:18%;left:22%;animation-delay:0s}
+.s2{top:64%;left:78%;animation-delay:1.1s}
+.s3{top:82%;left:35%;animation-delay:2.3s}
+.s4{top:30%;left:68%;animation-delay:3.1s}
+.s5{top:50%;left:12%;animation-delay:1.8s}
+@keyframes engTwinkle{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.8;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){#engBgGrid,.engGear,.engSpark{animation:none}}
+a.home-link{color:var(--muted);font-size:12px;text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+a.home-link:hover{color:var(--text);border-color:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:17px;font-weight:800;color:var(--blue);white-space:nowrap}.logo span{color:var(--orange)}
+#main{max-width:1100px;width:100%;margin:0 auto;padding:20px 16px 60px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.ctitle{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px}
+.machine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.machine-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s;min-width:0}
+.machine-card:hover{border-color:var(--blue)}
+.mc-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:1px 2px;unicode-bidi:plaintext}
+.b-blue{background:#1f6feb;color:#fff}
+.b-green{background:#2ea44f;color:#fff}
+.b-orange{background:#d97706;color:#000}
+.b-red{background:#cf222e;color:#fff}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px}
+.spec-key{color:var(--muted);flex-shrink:0;max-width:45%}
+.spec-val{color:var(--orange);text-align:left;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border);unicode-bidi:plaintext}
+th{color:var(--blue);font-weight:700;background:var(--surface)}
+.cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.cg label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.cg input,.cg select{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:5px;padding:6px 8px;font-size:12px;font-family:inherit}
+.res{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+.gear-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.gear-tab:hover,.gear-tab.active{background:var(--green);color:#000;border-color:var(--green);font-weight:700}
+.gear-sec{display:none}.gear-sec.active{display:block}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+.yt-btn{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#ff0000;color:#fff;text-decoration:none;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:700}
+#topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;gap:12px;height:52px;position:fixed;top:0;left:0;right:0;z-index:100}
+#gsearch{flex:1;max-width:340px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text);font-size:13px}
+#gsearch:focus{outline:none;border-color:var(--blue)}
+.nav-arrow{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 13px;color:var(--text);cursor:pointer;font-size:18px;font-weight:700;line-height:1;flex-shrink:0;transition:all .15s}
+.nav-arrow:hover{background:var(--blue);color:#000;border-color:var(--blue)}
+.nav-arrow:active{transform:scale(.92)}
+#soverlay{display:none;position:fixed;top:96px;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:90;padding:20px;overflow-y:auto}
+#soverlay.active{display:block}
+.sri{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:8px}
+.sri:hover{border-color:var(--blue)}
+#nav{background:var(--surface);border-bottom:2px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px;position:sticky;top:52px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4);margin-top:52px}
+.tab{padding:8px 13px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
+.tab:hover{color:var(--text);background:var(--border)}.tab.active{color:#fff;background:var(--blue)}
+.met-tab{padding:9px 14px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s}
+.met-tab:hover{color:var(--text);background:var(--border)}.met-tab.active{color:#fff;background:var(--blue)}
+.met-sec{display:none}.met-sec.active{display:block}
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:12px}
+.mc-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px}
+.mc-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:6px}
+.mc-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin:2px}
+.b-green{background:#1a3a1a;color:var(--green)}.b-orange{background:#3a2a0a;color:var(--orange)}.b-red{background:#3a1a1a;color:var(--red)}.b-blue{background:#1a1a3a;color:var(--blue)}.b-purple{background:#2a1a3a;color:var(--purple)}
+.info-box{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
+
+
+.mc-wrap{--mc-steel:#9fb0c3;position:relative}
+.mc-hero{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:34px 30px 30px;margin-bottom:18px;min-height:300px}
+.mc-hero svg.mc-grains{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.mc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to left,var(--surface) 0%,var(--surface) 38%,transparent 85%);pointer-events:none}
+.mc-hero-in{position:relative;max-width:640px;z-index:1}
+.mc-hero h2{font-size:38px;line-height:1.15;font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-.3px}
+.mc-hero p{font-size:15px;line-height:1.85;color:var(--muted);max-width:56ch}
+.mc-facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 20px;font-size:13px;color:var(--muted)}
+.mc-facts b{color:var(--text);font-size:15px}
+.mc-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mc-btn{border:0;border-radius:10px;padding:11px 20px;font:700 15px var(--font);cursor:pointer}
+.mc-btn-main{background:var(--orange);color:#1a1206}
+.mc-btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.mc-btn:focus-visible,.mc-card:focus-visible,.mc-jump button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.mc-progress{font-size:13px;color:var(--muted)}
+.mc-jump{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 18px}
+.mc-jump button{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:999px;padding:6px 12px;font:600 13px var(--font);cursor:pointer;display:flex;align-items:center;gap:7px}
+.mc-jump i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.mc-info{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.mc-info>div{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;line-height:1.85;color:var(--muted)}
+.mc-info h3{font-size:15px;color:var(--text);margin-bottom:6px}
+.mc-group{margin:26px 0 10px;display:flex;align-items:center;gap:12px}
+.mc-sym{width:46px;height:46px;border-radius:8px;display:flex;align-items:center;justify-content:center;font:800 19px var(--font);color:#0d1117;flex:none}
+.mc-group h3{font-size:19px;color:var(--text)}
+.mc-group span{font-size:12px;color:var(--muted)}
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.mc-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;text-align:right;color:var(--text);font-family:var(--font);padding:0;display:flex;flex-direction:column}
+.mc-card:hover{border-color:var(--gc)}
+.mc-thumb{position:relative;aspect-ratio:16/9;background:#0d1117;overflow:hidden}
+.mc-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mc-num{position:absolute;top:8px;right:8px;background:var(--gc);color:#0d1117;font:800 13px var(--font);border-radius:6px;padding:2px 8px}
+.mc-dur{position:absolute;bottom:8px;left:8px;background:rgba(13,17,23,.85);color:#e6edf3;font:600 12px var(--font);border-radius:6px;padding:2px 7px;direction:ltr}
+.mc-seen{position:absolute;bottom:8px;right:8px;background:rgba(63,185,80,.92);color:#0d1117;font:700 12px var(--font);border-radius:6px;padding:2px 8px;display:none}
+.mc-card.seen .mc-seen{display:block}
+.mc-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:5px}
+.mc-body b{font-size:15px;line-height:1.35}
+.mc-body small{font-size:12.5px;color:var(--muted);line-height:1.6}
+.mc-modal{position:fixed;inset:0;background:rgba(5,8,12,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}
+.mc-modal.open{display:flex}
+.mc-player{width:min(1100px,100%);background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.mc-player video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+.mc-pbar{display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap}
+.mc-ptitle{flex:1;min-width:200px;font-weight:700;color:var(--text);font-size:15px}
+.mc-pbar button{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 12px;font:600 13px var(--font);cursor:pointer}
+.mc-pbar button:disabled{opacity:.4;cursor:default}
+.mc-note{font-size:12px;color:var(--muted);padding:0 14px 12px}
+@media (max-width:700px){.mc-hero{padding:24px 18px}.mc-hero h2{font-size:28px}.mc-info{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.mc-hero svg.mc-grains *{animation:none!important}}
+.mc-top{display:flex;justify-content:space-between;align-items:center;gap:10px;max-width:1200px;margin:0 auto;padding:16px 18px 0;position:relative;z-index:1}
+.mc-top a{color:var(--blue);text-decoration:none;font-weight:600}
+.mc-page{max-width:1200px;margin:0 auto;padding:16px 18px 40px;position:relative;z-index:1}
+</style>
+</head>
+<body>
+<div class="mc-top"><a href="metallurgy.html">חזרה לעמוד המטלורגיה</a><button class="night-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="מצב תצוגה">☀️</button></div>
+<div class="mc-page">
+<div class="mc-wrap" id="mcWrap">
+<div class="mc-hero">
+<svg class="mc-grains" id="mcGrains" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+<div class="mc-hero-in">
+<h2>חומרים ומטלורגיה</h2>
+<p>קורס וידאו מונפש בעברית: מהגרעין שבתוך המתכת ועד ההחלטה איזה חומר להזמין. כל פרק מסביר מה קורה בחומר, איך זה משפיע על העיבוד בבית המלאכה, ומה מייקר.</p>
+<div class="mc-facts"><span><b>24</b> פרקים</span><span><b>2.8</b> שעות</span><span><b>7</b> קבוצות נושא</span><span>קריינות וכתוביות בעברית</span></div>
+<div class="mc-actions"><button class="mc-btn mc-btn-main" id="mcStart">להתחיל מהמבוא</button><button class="mc-btn mc-btn-ghost" id="mcResume" hidden></button><span class="mc-progress" id="mcProg"></span></div>
+</div></div>
+<div class="mc-jump" id="mcJump"></div>
+<div class="mc-info">
+<div><h3>כל פרק בנוי באותו סדר</h3>מה קורה בחומר ולמה, המספרים החשובים, דוגמאות מהשטח, מה זה אומר בבית המלאכה, ובסוף: מה מייקר.</div>
+<div><h3>למי הקורס מתאים</h3>מהנדסים, מתכננים, אנשי ייצור ורכש, טכנאים ומפעילים שרוצים להבין למה חומר מתנהג כמו שהוא מתנהג, ואיך לבחור ולהזמין נכון.</div>
+</div>
+<div id="mcGroups"></div>
+<div class="mc-modal" id="mcModal" role="dialog" aria-modal="true" aria-label="נגן הקורס">
+<div class="mc-player">
+<video id="mcVideo" controls playsinline preload="metadata"></video>
+<div class="mc-pbar"><button id="mcPrev">הפרק הקודם</button><div class="mc-ptitle" id="mcPTitle"></div><button id="mcNext">הפרק הבא</button><button id="mcClose">סגירה</button></div>
+<div class="mc-note">בסוף כל פרק הנגן עובר לפרק הבא.</div>
+</div></div>
+</div>
+</div>
+<script>
+if(localStorage.getItem('mh-theme')==='light'){document.body.classList.add('light-mode');document.getElementById('theme-btn').textContent='🌙';}
+function toggleTheme(){document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');var l=document.body.classList.contains('light-mode');document.getElementById('theme-btn').textContent=l?'🌙':'☀️';localStorage.setItem('mh-theme',l?'light':'dark');}
+const MC_CH=[{"n": 0, "t": "מפת עולם החומרים", "d": "מתכות, פולימרים, קרמיקה ומרוכבים, ואיך בוחרים ביניהם", "f": "פרק00_מפת_עולם_החומרים.mp4", "s": 495.9}, {"n": 1, "t": "מבנה גבישי וגרעינים", "d": "BCC, FCC ו-HCP, נקעים, גרעינים וגבולות גרעינים", "f": "פרק01_מבנה_גבישי_וגרעינים.mp4", "s": 487.4}, {"n": 2, "t": "תכונות מכניות ובדיקות", "d": "מתיחה, קשיות, הלם, עייפות וזחילה", "f": "פרק02_תכונות_מכניות_ובדיקות.mp4", "s": 545.6}, {"n": 3, "t": "סגסוגות ודיאגרמות פאזה", "d": "תמיסה מוצקה, נקודה אוטקטית ודיאגרמת ברזל פחמן", "f": "פרק03_סגסוגות_ודיאגרמות_פאזה.mp4", "s": 468.8}, {"n": 4, "t": "מנגנוני חיזוק", "d": "עיבוד קר, עידון גרעין, הקשחת משקע ומרטנזיט", "f": "פרק04_מנגנוני_חיזוק.mp4", "s": 354.3}, {"n": 5, "t": "פלדות פחמן", "d": "נמוך, בינוני וגבוה, שיטות הסימון ופלדות לעיבוד קל", "f": "פרק05_פלדות_פחמן.mp4", "s": 316.6}, {"n": 6, "t": "טיפולי חום בפלדה", "d": "ריכוך, נרמול, הקשיה, הרפיה והשבחה", "f": "פרק06_טיפולי_חום_בפלדה.mp4", "s": 276.3}, {"n": 7, "t": "הקשיית פני שטח", "d": "צמנטציה, ניטרידציה, אינדוקציה ולהבה", "f": "פרק07_הקשיית_פני_שטח.mp4", "s": 240.4}, {"n": 8, "t": "פלדות סגסוגת", "d": "4140 ו-4340, יכולת הקשיה ותפקיד כל יסוד", "f": "פרק08_פלדות_סגסוגת.mp4", "s": 467.8}, {"n": 9, "t": "פלדות כלים", "d": "O1, A2, D2, H13, M2 ופלדות אבקה", "f": "פרק09_פלדות_כלים.mp4", "s": 422.1}, {"n": 10, "t": "פלדות אל חלד", "d": "אוסטניטית, פריטית, מרטנזיטית, דופלקס ו-PH", "f": "פרק10_פלדות_אל_חלד.mp4", "s": 469.3}, {"n": 11, "t": "ברזל יצוק", "d": "אפור, נודולרי, לבן ו-CGI", "f": "פרק11_ברזל_יצוק.mp4", "s": 367.0}, {"n": 12, "t": "אלומיניום", "d": "הסדרות, הטמפרים, ומתי אפשר לטפל בחום", "f": "פרק12_אלומיניום.mp4", "s": 447.9}, {"n": 13, "t": "נחושת וסגסוגותיה", "d": "פליז, ברונזה ונחושת בריליום", "f": "פרק13_נחושת_וסגסוגותיה.mp4", "s": 466.9}, {"n": 14, "t": "טיטניום", "d": "Grade 2 ו-Grade 5, עיבוד ובטיחות", "f": "פרק14_טיטניום.mp4", "s": 459.6}, {"n": 15, "t": "סגסוגות ניקל ומתכות מיוחדות", "d": "Inconel, Monel, Invar, קובלט ומגנזיום", "f": "פרק15_סגסוגות_ניקל_ומתכות_מיוחדות.mp4", "s": 440.6}, {"n": 16, "t": "טונגסטן", "d": "סגסוגות כבדות וקרביד צמנטי", "f": "פרק16_טונגסטן.mp4", "s": 429.0}, {"n": 17, "t": "קורוזיה", "d": "גלוונית, נקודתית, סדיקה תחת מאמץ ושבירות מימן", "f": "פרק17_קורוזיה.mp4", "s": 443.5}, {"n": 18, "t": "בלאי וחיכוך", "d": "מנגנוני בלאי, סיכה וזוגות חומרים", "f": "פרק18_בלאי_וחיכוך.mp4", "s": 445.6}, {"n": 19, "t": "עיבודיות", "d": "מדד העיבודיות, שבבים, חומרי כלים ונוזל קירור", "f": "פרק19_עיבודיות.mp4", "s": 440.2}, {"n": 20, "t": "ריתוך והשפעתו על החומר", "d": "האזור המושפע מחום, פחמן אקוויוולנטי ועיוות", "f": "פרק20_ריתוך_והשפעתו_על_החומר.mp4", "s": 439.2}, {"n": 21, "t": "צורות אספקה", "d": "מוטות, פחים, חישולים, יציקות וצינורות", "f": "פרק21_צורות_אספקה.mp4", "s": 417.1}, {"n": 22, "t": "תקנים, תעודות ובדיקות קבלה", "d": "EN 10204, קריאת תעודה ועקיבות", "f": "פרק22_תקנים_תעודות_ובדיקות_קבלה.mp4", "s": 443.1}, {"n": 23, "t": "בחירת חומר", "d": "דרישות, מטריצת החלטה ועלות כוללת", "f": "פרק23_בחירת_חומר.mp4", "s": 461.1}];
+const MC_GR=[{"name": "מבוא", "ch": [0], "col": "#58a6ff", "sym": "Fe"}, {"name": "יסודות המטלורגיה", "ch": [1, 2, 3, 4], "col": "#bc8cff", "sym": "α"}, {"name": "פלדות וברזל יצוק", "ch": [5, 6, 7, 8, 9, 10, 11], "col": "#ffa657", "sym": "C"}, {"name": "מתכות לא ברזליות", "ch": [12, 13, 14, 15, 16], "col": "#3fb950", "sym": "Al"}, {"name": "התנהגות בשירות", "ch": [17, 18], "col": "#f85149", "sym": "O₂"}, {"name": "החומר בייצור", "ch": [19, 20, 21], "col": "#d29922", "sym": "Δ"}, {"name": "הזמנה ובחירה", "ch": [22, 23], "col": "#79c0ff", "sym": "✓"}];
+
+(function(){
+const VD='videos/metallurgy/', KS='mh-met-course-seen', KL='mh-met-course-last';
+const $=id=>document.getElementById(id);
+let seen=[];try{seen=JSON.parse(localStorage.getItem(KS)||'[]')}catch(e){seen=[]}
+const save=()=>{try{localStorage.setItem(KS,JSON.stringify(seen))}catch(e){}};
+const fmt=s=>{s=Math.round(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+const colOf=n=>MC_GR.find(g=>g.ch.includes(n)).col;
+// micrograph background
+(function(){const svg=$('mcGrains');if(!svg)return;const W=1200,H=420;svg.setAttribute('viewBox','0 0 '+W+' '+H);
+ let seed=7;const r=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+ const pts=[];for(let i=0;i<90;i++)pts.push([r()*W,r()*H]);
+ const ns='http://www.w3.org/2000/svg';let out='';
+ for(let i=0;i<pts.length;i++){let poly=[[0,0],[W,0],[W,H],[0,H]];const a=pts[i];
+  for(let j=0;j<pts.length;j++){if(i===j)continue;const b=pts[j],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,nx=b[0]-a[0],ny=b[1]-a[1],np=[];
+   for(let k=0;k<poly.length;k++){const p=poly[k],q=poly[(k+1)%poly.length],fp=(p[0]-mx)*nx+(p[1]-my)*ny,fq=(q[0]-mx)*nx+(q[1]-my)*ny;
+    if(fp<=0)np.push(p);if((fp<0)!==(fq<0)){const t=fp/(fp-fq);np.push([p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t])}}poly=np;if(!poly.length)break}
+  if(poly.length>2){const shade=Math.round(r()*14);out+='<polygon points="'+poly.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ')+'" fill="rgba(159,176,195,'+(0.03+shade/400).toFixed(3)+'" stroke="rgba(159,176,195,.22)" stroke-width="1.2"/>'}}
+ svg.innerHTML=out;})();
+// groups + cards
+const G=$('mcGroups'),J=$('mcJump');
+MC_GR.forEach((g,gi)=>{const id='mcg'+gi;
+ const jb=document.createElement('button');jb.innerHTML='<i style="background:'+g.col+'"></i>'+g.name;jb.onclick=()=>$(id).scrollIntoView({behavior:'smooth',block:'start'});J.appendChild(jb);
+ const mins=Math.round(g.ch.reduce((a,n)=>a+MC_CH[n].s,0)/60);
+ const h=document.createElement('div');h.className='mc-group';h.id=id;
+ h.innerHTML='<div class="mc-sym" style="background:'+g.col+'">'+g.sym+'</div><div><h3>'+g.name+'</h3><span>'+(g.ch.length===1?'פרק '+g.ch[0]:'פרקים '+g.ch[0]+' עד '+g.ch[g.ch.length-1])+' · כ-'+mins+' דקות</span></div>';G.appendChild(h);
+ const grid=document.createElement('div');grid.className='mc-grid';
+ g.ch.forEach(n=>{const c=MC_CH[n];const b=document.createElement('button');b.className='mc-card';b.style.setProperty('--gc',g.col);b.dataset.n=n;
+  b.setAttribute('aria-label','פרק '+n+': '+c.t);
+  b.innerHTML='<div class="mc-thumb"><img loading="lazy" src="'+VD+'thumbs/ch'+String(n).padStart(2,'0')+'.jpg" alt=""><span class="mc-num">'+n+'</span><span class="mc-dur">'+fmt(c.s)+'</span><span class="mc-seen">נצפה</span></div><div class="mc-body"><b>'+c.t+'</b><small>'+c.d+'</small></div>';
+  b.onclick=()=>openCh(n);grid.appendChild(b)});G.appendChild(grid)});
+function refresh(){document.querySelectorAll('.mc-card').forEach(b=>b.classList.toggle('seen',seen.includes(+b.dataset.n)));
+ const P=$('mcProg'),R=$('mcResume');if(seen.length){P.textContent='צפית ב-'+seen.length+' מתוך '+MC_CH.length+' פרקים';
+  const nx=MC_CH.find(c=>!seen.includes(c.n));if(nx){R.hidden=false;R.textContent='להמשיך מפרק '+nx.n;R.onclick=()=>openCh(nx.n)}else{R.hidden=true}}else{P.textContent='';R.hidden=true}}
+let cur=0;const V=$('mcVideo'),M=$('mcModal');
+function openCh(n){cur=n;const c=MC_CH[n];V.src=VD+encodeURIComponent(c.f);$('mcPTitle').textContent='פרק '+n+': '+c.t;
+ $('mcPrev').disabled=n===0;$('mcNext').disabled=n===MC_CH.length-1;M.classList.add('open');try{localStorage.setItem(KL,String(n))}catch(e){}
+ const p=V.play();if(p&&p.catch)p.catch(()=>{});$('mcClose').focus()}
+function close(){V.pause();M.classList.remove('open');refresh()}
+V.addEventListener('timeupdate',()=>{if(V.duration&&V.currentTime>V.duration*0.9&&!seen.includes(cur)){seen.push(cur);save()}});
+V.addEventListener('ended',()=>{if(!seen.includes(cur)){seen.push(cur);save()}if(cur<MC_CH.length-1)openCh(cur+1);else close()});
+$('mcPrev').onclick=()=>{if(cur>0)openCh(cur-1)};$('mcNext').onclick=()=>{if(cur<MC_CH.length-1)openCh(cur+1)};$('mcClose').onclick=close;
+M.addEventListener('click',e=>{if(e.target===M)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&M.classList.contains('open'))close()});
+$('mcStart').onclick=()=>openCh(0);refresh();
+})();
+</script>
+</body>
+</html>
