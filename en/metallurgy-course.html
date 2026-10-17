@@ -186,7 +186,7 @@ const MC_CH=[{"n": 0, "t": "Map of the World of Materials", "d": "Metals, polyme
 const MC_GR=[{"name": "Introduction", "ch": [0], "col": "#58a6ff", "sym": "Fe"}, {"name": "Fundamentals of Metallurgy", "ch": [1, 2, 3, 4], "col": "#bc8cff", "sym": "α"}, {"name": "Steels and Cast Iron", "ch": [5, 6, 7, 8, 9, 10, 11], "col": "#ffa657", "sym": "C"}, {"name": "Non-Ferrous Metals", "ch": [12, 13, 14, 15, 16], "col": "#3fb950", "sym": "Al"}, {"name": "Behavior in Service", "ch": [17, 18], "col": "#f85149", "sym": "O₂"}, {"name": "The Material in Manufacturing", "ch": [19, 20, 21], "col": "#d29922", "sym": "Δ"}, {"name": "Ordering and Selection", "ch": [22, 23], "col": "#79c0ff", "sym": "✓"}];
 
 (function(){
-const VD='/videos/metallurgy-en/', KS='mh-met-course-en-seen', KL='mh-met-course-en-last';
+let VD='videos/metallurgy-en/', VT=VD; const VBASES=['videos/metallurgy-en/','/en/videos/metallurgy-en/','/videos/metallurgy-en/','/en/videos/metallurgy-en/','/videos/en/','/videos/metallurgy/en/','/en/videos/'], KS='mh-met-course-en-seen', KL='mh-met-course-en-last';
 const $=id=>document.getElementById(id);
 let seen=[];try{seen=JSON.parse(localStorage.getItem(KS)||'[]')}catch(e){seen=[]}
 const save=()=>{try{localStorage.setItem(KS,JSON.stringify(seen))}catch(e){}};
@@ -213,7 +213,7 @@ MC_GR.forEach((g,gi)=>{const id='mcg'+gi;
  const grid=document.createElement('div');grid.className='mc-grid';
  g.ch.forEach(n=>{const c=MC_CH[n];const b=document.createElement('button');b.className='mc-card';b.style.setProperty('--gc',g.col);b.dataset.n=n;
   b.setAttribute('aria-label','Chapter '+n+': '+c.t);
-  b.innerHTML='<div class="mc-thumb"><img loading="lazy" src="'+VD+'thumbs/ch'+String(n).padStart(2,'0')+'.jpg" alt=""><span class="mc-num">'+n+'</span><span class="mc-dur">'+fmt(c.s)+'</span><span class="mc-seen">Watched</span></div><div class="mc-body"><b>'+c.t+'</b><small>'+c.d+'</small></div>';
+  b.innerHTML='<div class="mc-thumb"><img loading="lazy" data-t="ch'+String(n).padStart(2,'0')+'.jpg" alt=""><span class="mc-num">'+n+'</span><span class="mc-dur">'+fmt(c.s)+'</span><span class="mc-seen">Watched</span></div><div class="mc-body"><b>'+c.t+'</b><small>'+c.d+'</small></div>';
   b.onclick=()=>openCh(n);grid.appendChild(b)});G.appendChild(grid)});
 function refresh(){document.querySelectorAll('.mc-card').forEach(b=>b.classList.toggle('seen',seen.includes(+b.dataset.n)));
  const P=$('mcProg'),R=$('mcResume');if(seen.length){P.textContent='Watched '+seen.length+' of '+MC_CH.length+' chapters';
@@ -228,6 +228,13 @@ V.addEventListener('ended',()=>{if(!seen.includes(cur)){seen.push(cur);save()}if
 $('mcPrev').onclick=()=>{if(cur>0)openCh(cur-1)};$('mcNext').onclick=()=>{if(cur<MC_CH.length-1)openCh(cur+1)};$('mcClose').onclick=close;
 M.addEventListener('click',e=>{if(e.target===M)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&M.classList.contains('open'))close()});
 $('mcStart').onclick=()=>openCh(0);refresh();
+(async function(){
+ const ok=async u=>{try{const r=await fetch(u,{method:'HEAD',cache:'no-store'});return r.ok}catch(e){return false}};
+ for(const b of VBASES){if(await ok(b+encodeURIComponent(MC_CH[0].f))){VD=b;break}}
+ VT=null;for(const b of [VD,...VBASES]){if(await ok(b+'thumbs/ch00.jpg')){VT=b;break}}
+ document.querySelectorAll('.mc-thumb img[data-t]').forEach(i=>{if(VT)i.src=VT+'thumbs/'+i.dataset.t;else i.style.visibility='hidden'});
+ if(!(await ok(VD+encodeURIComponent(MC_CH[0].f))))console.warn('Course videos not found under',VBASES.join(', '));
+})();
 })();
 </script>
 </body>
