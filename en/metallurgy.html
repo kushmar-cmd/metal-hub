@@ -99,6 +99,56 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 .b-green{background:#1a3a1a;color:var(--green)}.b-orange{background:#3a2a0a;color:var(--orange)}.b-red{background:#3a1a1a;color:var(--red)}.b-blue{background:#1a1a3a;color:var(--blue)}.b-purple{background:#2a1a3a;color:var(--purple)}
 .info-box{background:var(--surface);border:1px solid var(--green);border-radius:7px;padding:10px 14px;margin-top:8px;font-size:13px;color:var(--green)}
 
+
+.mc-wrap{--mc-steel:#9fb0c3;position:relative}
+.mc-hero{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:34px 30px 30px;margin-bottom:18px;min-height:300px}
+.mc-hero svg.mc-grains{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.mc-hero-in{position:relative;max-width:640px}
+.mc-hero h2{font-size:38px;line-height:1.15;font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-.3px}
+.mc-hero p{font-size:15px;line-height:1.85;color:var(--muted);max-width:56ch}
+.mc-facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 20px;font-size:13px;color:var(--muted)}
+.mc-facts b{color:var(--text);font-size:15px}
+.mc-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mc-btn{border:0;border-radius:10px;padding:11px 20px;font:700 15px var(--font);cursor:pointer}
+.mc-btn-main{background:var(--orange);color:#1a1206}
+.mc-btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.mc-btn:focus-visible,.mc-card:focus-visible,.mc-jump button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.mc-progress{font-size:13px;color:var(--muted)}
+.mc-jump{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 18px}
+.mc-jump button{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:999px;padding:6px 12px;font:600 13px var(--font);cursor:pointer;display:flex;align-items:center;gap:7px}
+.mc-jump i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.mc-info{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.mc-info>div{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;line-height:1.85;color:var(--muted)}
+.mc-info h3{font-size:15px;color:var(--text);margin-bottom:6px}
+.mc-group{margin:26px 0 10px;display:flex;align-items:center;gap:12px}
+.mc-sym{width:46px;height:46px;border-radius:8px;display:flex;align-items:center;justify-content:center;font:800 19px var(--font);color:#0d1117;flex:none}
+.mc-group h3{font-size:19px;color:var(--text)}
+.mc-group span{font-size:12px;color:var(--muted)}
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.mc-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;color:var(--text);font-family:var(--font);padding:0;display:flex;flex-direction:column}
+.mc-card:hover{border-color:var(--gc)}
+.mc-thumb{position:relative;aspect-ratio:16/9;background:#0d1117;overflow:hidden}
+.mc-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mc-num{position:absolute;top:8px;left:8px;background:var(--gc);color:#0d1117;font:800 13px var(--font);border-radius:6px;padding:2px 8px}
+.mc-dur{position:absolute;bottom:8px;right:8px;background:rgba(13,17,23,.85);color:#e6edf3;font:600 12px var(--font);border-radius:6px;padding:2px 7px;direction:ltr}
+.mc-seen{position:absolute;bottom:8px;left:8px;background:rgba(63,185,80,.92);color:#0d1117;font:700 12px var(--font);border-radius:6px;padding:2px 8px;display:none}
+.mc-card.seen .mc-seen{display:block}
+.mc-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:5px}
+.mc-body b{font-size:15px;line-height:1.35}
+.mc-body small{font-size:12.5px;color:var(--muted);line-height:1.6}
+.mc-modal{position:fixed;inset:0;background:rgba(5,8,12,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}
+.mc-modal.open{display:flex}
+.mc-player{width:min(1100px,100%);background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.mc-player video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+.mc-pbar{display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap}
+.mc-ptitle{flex:1;min-width:200px;font-weight:700;color:var(--text);font-size:15px}
+.mc-pbar button{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 12px;font:600 13px var(--font);cursor:pointer}
+.mc-pbar button:disabled{opacity:.4;cursor:default}
+.mc-note{font-size:12px;color:var(--muted);padding:0 14px 12px}
+.mc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--surface) 0%,var(--surface) 38%,transparent 85%);pointer-events:none}
+.mc-hero-in{position:relative;max-width:640px;z-index:1}
+@media (max-width:700px){.mc-hero{padding:24px 18px}.mc-hero h2{font-size:28px}.mc-info{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.mc-hero svg.mc-grains *{animation:none!important}}
 </style>
 
 </head>
@@ -176,7 +226,8 @@ The science behind the engineering: <b>phase diagrams</b> (Fe-C, Al-Cu), <b>crys
 </div>
 
 <div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
-  <button class="met-tab active" onclick="showMet('phase',this)">📊 Phase Diagrams</button>
+  <button class="met-tab active" onclick="showMet('course',this)">🎬 Video Course</button>
+  <button class="met-tab" onclick="showMet('phase',this)">📊 Phase Diagrams</button>
   <button class="met-tab" onclick="showMet('crystal',this)">💎 Crystal Structure</button>
   <button class="met-tab" onclick="showMet('grain',this)">🔍 Grain Size</button>
   <button class="met-tab" onclick="showMet('ttt',this)">📈 TTT / CCT</button>
@@ -186,7 +237,32 @@ The science behind the engineering: <b>phase diagrams</b> (Fe-C, Al-Cu), <b>crys
 </div>
 
 <!-- ═══ PHASE DIAGRAMS ═══ -->
-<div class="met-sec active" id="met-phase">
+<!-- ═══ VIDEO COURSE ═══ -->
+<div class="met-sec active" id="met-course"><div class="mc-wrap" id="mcWrap">
+<div class="mc-hero">
+<svg class="mc-grains" id="mcGrains" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+<div class="mc-hero-in">
+<h2>Materials and Metallurgy</h2>
+<p>An animated video course: from the grain inside the metal to the decision of which material to order. Every chapter explains what happens in the material, how it affects work in the shop, and what drives the cost.</p>
+<div class="mc-facts"><span><b>24</b> chapters</span><span><b>2.7</b> hours</span><span><b>7</b> topic groups</span><span>English narration and subtitles</span></div>
+<div class="mc-actions"><button class="mc-btn mc-btn-main" id="mcStart">Start with the introduction</button><button class="mc-btn mc-btn-ghost" id="mcResume" hidden></button><a class="mc-btn mc-btn-ghost" href="metallurgy-course.html" style="text-decoration:none">Open full page</a><span class="mc-progress" id="mcProg"></span></div>
+</div></div>
+<div class="mc-jump" id="mcJump"></div>
+<div class="mc-info">
+<div><h3>Every chapter follows the same structure</h3>What happens in the material and why, the key numbers, real examples, what it means in the shop, and finally: what drives the cost.</div>
+<div><h3>Who the course is for</h3>Engineers, designers, production and purchasing staff, technicians and operators who want to understand why a material behaves the way it does, and how to choose and order it correctly.</div>
+</div>
+<div id="mcGroups"></div>
+<div class="mc-modal" id="mcModal" role="dialog" aria-modal="true" aria-label="Course player">
+<div class="mc-player">
+<video id="mcVideo" controls playsinline preload="metadata"></video>
+<div class="mc-pbar"><button id="mcPrev">Previous chapter</button><div class="mc-ptitle" id="mcPTitle"></div><button id="mcNext">Next chapter</button><button id="mcClose">Close</button></div>
+<div class="mc-note">At the end of each chapter the player moves on to the next one.</div>
+</div></div>
+</div>
+</div>
+
+<div class="met-sec" id="met-phase">
 <div class="card"><div class="ctitle">📊 Phase Diagrams — The Foundation of Metallurgy</div>
 <p style="font-size:13px;line-height:1.8;color:var(--muted)">A phase diagram maps the stable phases of a material at each temperature and composition. Every heat treatment decision starts here.</p>
 
@@ -620,6 +696,56 @@ function toggleTheme(){
   document.getElementById('theme-btn').textContent = isLight ? '🌙' : '☀️';
   localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
 }
+
+const MC_CH=[{"n": 0, "t": "Map of the World of Materials", "d": "Metals, polymers, ceramics and composites, and how to choose between them", "f": "Ch00_Map_of_the_World_of_Materials.mp4", "s": 479.3}, {"n": 1, "t": "Crystal Structure and Grains", "d": "BCC, FCC and HCP, dislocations, grains and grain boundaries", "f": "Ch01_Crystal_Structure_and_Grains.mp4", "s": 482.4}, {"n": 2, "t": "Mechanical Properties and Testing", "d": "Tensile, hardness, impact, fatigue and creep", "f": "Ch02_Mechanical_Properties_and_Testing.mp4", "s": 523.0}, {"n": 3, "t": "Alloys and Phase Diagrams", "d": "Solid solution, the eutectic point and the iron carbon diagram", "f": "Ch03_Alloys_and_Phase_Diagrams.mp4", "s": 450.0}, {"n": 4, "t": "Strengthening Mechanisms", "d": "Cold work, grain refinement, precipitation hardening and martensite", "f": "Ch04_Strengthening_Mechanisms.mp4", "s": 339.9}, {"n": 5, "t": "Carbon Steels", "d": "Low, medium and high carbon, designations and free-machining steels", "f": "Ch05_Carbon_Steels.mp4", "s": 291.0}, {"n": 6, "t": "Heat Treatment of Steel", "d": "Annealing, normalizing, hardening, tempering, quench and temper", "f": "Ch06_Heat_Treatment_of_Steel.mp4", "s": 265.8}, {"n": 7, "t": "Surface Hardening", "d": "Carburizing, nitriding, induction and flame hardening", "f": "Ch07_Surface_Hardening.mp4", "s": 226.4}, {"n": 8, "t": "Alloy Steels", "d": "4140 and 4340, hardenability and what each element does", "f": "Ch08_Alloy_Steels.mp4", "s": 436.6}, {"n": 9, "t": "Tool Steels", "d": "O1, A2, D2, H13, M2 and powder metallurgy steels", "f": "Ch09_Tool_Steels.mp4", "s": 395.9}, {"n": 10, "t": "Stainless Steels", "d": "Austenitic, ferritic, martensitic, duplex and PH", "f": "Ch10_Stainless_Steels.mp4", "s": 445.9}, {"n": 11, "t": "Cast Iron", "d": "Gray, ductile, white and CGI", "f": "Ch11_Cast_Iron.mp4", "s": 352.0}, {"n": 12, "t": "Aluminum", "d": "The series, the tempers, and which alloys can be heat treated", "f": "Ch12_Aluminum.mp4", "s": 427.2}, {"n": 13, "t": "Copper and Its Alloys", "d": "Brass, bronze and beryllium copper", "f": "Ch13_Copper_and_Its_Alloys.mp4", "s": 449.3}, {"n": 14, "t": "Titanium", "d": "Grade 2 and Grade 5, machining and safety", "f": "Ch14_Titanium.mp4", "s": 437.2}, {"n": 15, "t": "Nickel Alloys and Special Metals", "d": "Inconel, Monel, Invar, cobalt alloys and magnesium", "f": "Ch15_Nickel_Alloys_and_Special_Metals.mp4", "s": 411.8}, {"n": 16, "t": "Tungsten", "d": "Heavy alloys and cemented carbide", "f": "Ch16_Tungsten.mp4", "s": 408.4}, {"n": 17, "t": "Corrosion", "d": "Galvanic, pitting, stress corrosion cracking and hydrogen embrittlement", "f": "Ch17_Corrosion.mp4", "s": 418.3}, {"n": 18, "t": "Wear and Friction", "d": "Wear mechanisms, lubrication and material pairs", "f": "Ch18_Wear_and_Friction.mp4", "s": 426.3}, {"n": 19, "t": "Machinability", "d": "Machinability rating, chips, tool materials and coolant", "f": "Ch19_Machinability.mp4", "s": 414.5}, {"n": 20, "t": "Welding and Its Effect on the Material", "d": "The heat-affected zone, carbon equivalent and distortion", "f": "Ch20_Welding_and_Its_Effect_on_the_Material.mp4", "s": 409.3}, {"n": 21, "t": "Supply Forms", "d": "Bars, plate, forgings, castings and tubes", "f": "Ch21_Supply_Forms.mp4", "s": 383.7}, {"n": 22, "t": "Standards, Certificates and Receiving Inspection", "d": "EN 10204, reading a certificate and traceability", "f": "Ch22_Standards_Certificates_and_Receiving_Inspection.mp4", "s": 429.0}, {"n": 23, "t": "Material Selection", "d": "Requirements, decision matrix and total cost", "f": "Ch23_Material_Selection.mp4", "s": 429.0}];
+const MC_GR=[{"name": "Introduction", "ch": [0], "col": "#58a6ff", "sym": "Fe"}, {"name": "Fundamentals of Metallurgy", "ch": [1, 2, 3, 4], "col": "#bc8cff", "sym": "α"}, {"name": "Steels and Cast Iron", "ch": [5, 6, 7, 8, 9, 10, 11], "col": "#ffa657", "sym": "C"}, {"name": "Non-Ferrous Metals", "ch": [12, 13, 14, 15, 16], "col": "#3fb950", "sym": "Al"}, {"name": "Behavior in Service", "ch": [17, 18], "col": "#f85149", "sym": "O₂"}, {"name": "The Material in Manufacturing", "ch": [19, 20, 21], "col": "#d29922", "sym": "Δ"}, {"name": "Ordering and Selection", "ch": [22, 23], "col": "#79c0ff", "sym": "✓"}];
+
+(function(){
+const VD='/videos/metallurgy-en/', KS='mh-met-course-en-seen', KL='mh-met-course-en-last';
+const $=id=>document.getElementById(id);
+let seen=[];try{seen=JSON.parse(localStorage.getItem(KS)||'[]')}catch(e){seen=[]}
+const save=()=>{try{localStorage.setItem(KS,JSON.stringify(seen))}catch(e){}};
+const fmt=s=>{s=Math.round(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+const colOf=n=>MC_GR.find(g=>g.ch.includes(n)).col;
+// micrograph background
+(function(){const svg=$('mcGrains');if(!svg)return;const W=1200,H=420;svg.setAttribute('viewBox','0 0 '+W+' '+H);
+ let seed=7;const r=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+ const pts=[];for(let i=0;i<90;i++)pts.push([r()*W,r()*H]);
+ const ns='http://www.w3.org/2000/svg';let out='';
+ for(let i=0;i<pts.length;i++){let poly=[[0,0],[W,0],[W,H],[0,H]];const a=pts[i];
+  for(let j=0;j<pts.length;j++){if(i===j)continue;const b=pts[j],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,nx=b[0]-a[0],ny=b[1]-a[1],np=[];
+   for(let k=0;k<poly.length;k++){const p=poly[k],q=poly[(k+1)%poly.length],fp=(p[0]-mx)*nx+(p[1]-my)*ny,fq=(q[0]-mx)*nx+(q[1]-my)*ny;
+    if(fp<=0)np.push(p);if((fp<0)!==(fq<0)){const t=fp/(fp-fq);np.push([p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t])}}poly=np;if(!poly.length)break}
+  if(poly.length>2){const shade=Math.round(r()*14);out+='<polygon points="'+poly.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ')+'" fill="rgba(159,176,195,'+(0.03+shade/400).toFixed(3)+'" stroke="rgba(159,176,195,.22)" stroke-width="1.2"/>'}}
+ svg.innerHTML=out;})();
+// groups + cards
+const G=$('mcGroups'),J=$('mcJump');
+MC_GR.forEach((g,gi)=>{const id='mcg'+gi;
+ const jb=document.createElement('button');jb.innerHTML='<i style="background:'+g.col+'"></i>'+g.name;jb.onclick=()=>$(id).scrollIntoView({behavior:'smooth',block:'start'});J.appendChild(jb);
+ const mins=Math.round(g.ch.reduce((a,n)=>a+MC_CH[n].s,0)/60);
+ const h=document.createElement('div');h.className='mc-group';h.id=id;
+ h.innerHTML='<div class="mc-sym" style="background:'+g.col+'">'+g.sym+'</div><div><h3>'+g.name+'</h3><span>'+(g.ch.length===1?'Chapter '+g.ch[0]:'Chapters '+g.ch[0]+' to '+g.ch[g.ch.length-1])+' · about '+mins+' min</span></div>';G.appendChild(h);
+ const grid=document.createElement('div');grid.className='mc-grid';
+ g.ch.forEach(n=>{const c=MC_CH[n];const b=document.createElement('button');b.className='mc-card';b.style.setProperty('--gc',g.col);b.dataset.n=n;
+  b.setAttribute('aria-label','Chapter '+n+': '+c.t);
+  b.innerHTML='<div class="mc-thumb"><img loading="lazy" src="'+VD+'thumbs/ch'+String(n).padStart(2,'0')+'.jpg" alt=""><span class="mc-num">'+n+'</span><span class="mc-dur">'+fmt(c.s)+'</span><span class="mc-seen">Watched</span></div><div class="mc-body"><b>'+c.t+'</b><small>'+c.d+'</small></div>';
+  b.onclick=()=>openCh(n);grid.appendChild(b)});G.appendChild(grid)});
+function refresh(){document.querySelectorAll('.mc-card').forEach(b=>b.classList.toggle('seen',seen.includes(+b.dataset.n)));
+ const P=$('mcProg'),R=$('mcResume');if(seen.length){P.textContent='Watched '+seen.length+' of '+MC_CH.length+' chapters';
+  const nx=MC_CH.find(c=>!seen.includes(c.n));if(nx){R.hidden=false;R.textContent='Continue from chapter '+nx.n;R.onclick=()=>openCh(nx.n)}else{R.hidden=true}}else{P.textContent='';R.hidden=true}}
+let cur=0;const V=$('mcVideo'),M=$('mcModal');
+function openCh(n){cur=n;const c=MC_CH[n];V.src=VD+encodeURIComponent(c.f);$('mcPTitle').textContent='Chapter '+n+': '+c.t;
+ $('mcPrev').disabled=n===0;$('mcNext').disabled=n===MC_CH.length-1;M.classList.add('open');try{localStorage.setItem(KL,String(n))}catch(e){}
+ const p=V.play();if(p&&p.catch)p.catch(()=>{});$('mcClose').focus()}
+function close(){V.pause();M.classList.remove('open');refresh()}
+V.addEventListener('timeupdate',()=>{if(V.duration&&V.currentTime>V.duration*0.9&&!seen.includes(cur)){seen.push(cur);save()}});
+V.addEventListener('ended',()=>{if(!seen.includes(cur)){seen.push(cur);save()}if(cur<MC_CH.length-1)openCh(cur+1);else close()});
+$('mcPrev').onclick=()=>{if(cur>0)openCh(cur-1)};$('mcNext').onclick=()=>{if(cur<MC_CH.length-1)openCh(cur+1)};$('mcClose').onclick=close;
+M.addEventListener('click',e=>{if(e.target===M)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&M.classList.contains('open'))close()});
+$('mcStart').onclick=()=>openCh(0);refresh();
+})();
+
+(function(){const m=location.hash.match(/sub=([a-z]+)/);if(!m)return;const id=m[1];const btn=[...document.querySelectorAll('.met-tab')].find(b=>(b.getAttribute('onclick')||'').includes("'"+id+"'"));if(document.getElementById('met-'+id))showMet(id,btn);})();
 </script>
 </body>
 </html>
