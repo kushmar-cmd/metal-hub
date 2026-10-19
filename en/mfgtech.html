@@ -211,6 +211,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
 <!-- SUB-NAV -->
 <div id="mfg-nav" style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="mfg-tab" onclick="showMfg('course',this)">🎬 Video Course</button>
   <button class="mfg-tab active" onclick="showMfg('machining',this)">⚙️ Machining</button>
   <button class="mfg-tab" onclick="showMfg('cutting',this)">✂️ Cutting</button>
   <button class="mfg-tab" onclick="showMfg('bending',this)">🔨 Bending & Forming</button>
@@ -245,6 +246,19 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </style>
 
 <!-- ═══ MACHINING ═══ -->
+
+<!-- VIDEO COURSE TAB -->
+<div id="mfg-course" class="mfg-sec">
+  <div class="vc-hero">
+    <div>
+      <div class="vc-title">Manufacturing Processes · Video Course</div>
+      <div class="vc-sub">25 animated chapters, from casting to metal 3D printing: how each process works, how to design for it, what goes wrong, and what makes it expensive.</div>
+      <div class="vc-stats"><span><b>25</b> chapters</span><span><b>114</b> min</span><span><b>6</b> process families</span><span>English narration and subtitles</span></div>
+    </div>
+    <div class="vc-actions"><button class="vc-btn vc-primary" type="button" onclick="vcOpen(0)">▶ Start with the introduction</button><a class="vc-btn" href="manufacturing-course-en.html" target="_blank" rel="noopener">⤢ Open in full window</a></div>
+  </div>
+  <div id="vc-groups"></div>
+</div>
 
 <div id="mfg-machining" class="mfg-sec active">
 
@@ -1193,6 +1207,73 @@ function toggleTheme(){
   }
 })();
 
+</script>
+
+<!-- VIDEO COURSE PLAYER -->
+<div id="vc-modal" class="vc-modal" hidden onclick="if(event.target===this)vcClose()">
+  <div class="vc-box" role="dialog" aria-modal="true" aria-labelledby="vc-ptitle">
+    <div class="vc-top"><span id="vc-pn" class="vc-pn"></span><span id="vc-ptitle" class="vc-ptitle"></span><button type="button" class="vc-x" onclick="vcClose()" aria-label="Close">×</button></div>
+    <video id="vc-video" controls playsinline preload="metadata"></video>
+    <div id="vc-err" class="vc-err" hidden>Video not found. Make sure the video files were uploaded to the videos folder next to this page.</div>
+    <div class="vc-bot"><button type="button" class="vc-btn" id="vc-prev" onclick="vcStep(-1)">‹ Previous chapter</button><button type="button" class="vc-btn" id="vc-next" onclick="vcStep(1)">Next chapter ›</button></div>
+  </div>
+</div>
+<style>
+.vc-hero{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.vc-title{font-size:20px;font-weight:800;color:var(--green);margin-bottom:6px}
+.vc-sub{font-size:13px;color:var(--muted);max-width:720px;line-height:1.55}
+.vc-stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12px;color:var(--muted)}.vc-stats b{color:var(--text)}
+.vc-actions{display:flex;flex-wrap:wrap;gap:8px}
+.vc-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--border);border-radius:20px;background:var(--card);color:var(--text);font:inherit;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap}
+.vc-btn:hover{border-color:var(--green)}.vc-btn:disabled{opacity:.4;cursor:default}
+.vc-primary{background:var(--green);border-color:var(--green);color:#000}
+.vc-group{margin-bottom:16px}
+.vc-gh{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin:0 0 8px;padding-left:10px;border-left:4px solid var(--c)}
+.vc-gh h3{margin:0;font-size:15px;color:var(--c)}.vc-gh span{font-size:12px;color:var(--muted)}
+.vc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.vc-ch{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer;font:inherit;color:var(--text);width:100%}
+.vc-ch:hover{border-color:var(--c)}
+.vc-num{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--c);border:2px solid var(--c)}
+.vc-ch h4{margin:0 0 3px;font-size:13.5px}.vc-ch p{margin:0;font-size:11.5px;color:var(--muted);line-height:1.45}
+.vc-dur{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.vc-ch.seen .vc-num{background:var(--c);color:#000}
+.vc-ch.seen h4::after{content:"Watched";font-size:10px;font-weight:700;margin-left:8px;padding:1px 7px;border-radius:999px;border:1px solid var(--c);color:var(--c);vertical-align:middle}
+.vc-modal{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.vc-modal[hidden]{display:none}
+.vc-box{width:min(1100px,100%);background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.vc-top{display:flex;align-items:center;gap:10px;padding:10px 14px}
+.vc-pn{font-weight:800;color:var(--green)}.vc-ptitle{flex:1;font-weight:700;color:var(--text)}
+.vc-x{border:none;background:none;color:var(--muted);font-size:26px;line-height:1;cursor:pointer}
+#vc-video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.vc-err{padding:12px 14px;color:var(--red);font-size:13px}
+.vc-bot{display:flex;justify-content:space-between;gap:8px;padding:10px 14px}
+@media (max-width:600px){.vc-grid{grid-template-columns:1fr}.vc-hero{padding:14px}.vc-title{font-size:17px}}
+</style>
+<script>
+(function(){
+var CH=[["Introduction: the map", "How manufacturing processes are grouped, and how to choose between them.", "Ch00_Introduction.mp4", 285], ["Casting", "Liquid metal in a mold: sand, investment and die casting, and common defects.", "Ch01_Casting.mp4", 387], ["Forging", "Shaping metal by force and heat: open and closed dies, grain flow, flash and mismatch.", "Ch02_Forging.mp4", 357], ["Extrusion", "Pushing metal through a die: solid and hollow profiles, and weld lines.", "Ch03_Extrusion.mp4", 317], ["Turning", "The lathe, tools and inserts, cutting parameters, workholding and accuracy.", "Ch04_Turning.mp4", 377], ["Milling", "Mills and machining centers, end mills, feed per tooth, climb and conventional milling.", "Ch05_Milling.mp4", 309], ["Drilling", "Drills, reamers, boring heads and counterbores, and how to get a precise hole.", "Ch06_Drilling.mp4", 256], ["Threading", "Threads, taps, thread milling and rolling, and gauge inspection.", "Ch07_Threading.mp4", 304], ["Grinding", "Grinding wheels, types of grinding, dressing, and grinding burn.", "Ch08_Grinding.mp4", 247], ["Broaching", "A broach with stepped teeth: keyways and splines in a single pass.", "Ch09_Broaching.mp4", 196], ["Gears", "Module, hobbing and gear shaping, carburizing and inspection.", "Ch10_Gears.mp4", 195], ["Sheet metal fabrication", "The whole world of sheet metal: cutting, punching, bending, joining and finishing.", "Ch11_Sheet_Metal_Fabrication.mp4", 329], ["Punching", "Punch and die, clearance, turret punch presses and nibbling.", "Ch12_Punching.mp4", 202], ["Bending", "The press brake, air bending, springback and bend sequence.", "Ch13_Bending.mp4", 208], ["Plate rolling", "Cylinders and cones from flat plate, pre-bending and re-rolling.", "Ch14_Plate_Rolling.mp4", 140], ["Stamping", "Progressive and transfer dies, deep drawing and coining.", "Ch15_Stamping.mp4", 299], ["EDM wire", "Cutting with sparks in any conductive material, to micron accuracy.", "Ch16_EDM_Wire.mp4", 284], ["EDM sinker", "An electrode shaped like the cavity: blind pockets and sharp corners in hardened material.", "Ch17_EDM_Sinker.mp4", 234], ["Laser", "Fiber and CO2, assist gases, nesting and edge quality.", "Ch18_Laser.mp4", 236], ["Waterjet cutting", "A cold process that cuts almost any material, with garnet.", "Ch19_Waterjet_Cutting.mp4", 204], ["Plasma", "Thick steel plate, fast and cheap.", "Ch20_Plasma.mp4", 176], ["5-axis milling", "Machine configurations, 3+2 and simultaneous, TCP, CAM and workholding.", "Ch21_5-Axis_Milling.mp4", 427], ["Mill-turn and Swiss-type", "Live tools, sub spindle, and long, slender parts.", "Ch22_Mill-Turn_and_Swiss-Type.mp4", 291], ["Honing and lapping", "Finishing bores and surfaces, down to fractions of a micron.", "Ch23_Honing_and_Lapping.mp4", 236], ["Additive manufacturing", "Powder bed fusion, DED, binder jetting, and designing for printing.", "Ch24_Additive_Manufacturing.mp4", 363]], G=[["Introduction", "How manufacturing processes are grouped", "#8b949e", [0]], ["Hot forming and casting", "Metal shaped by heat and pressure", "#ffa657", [1, 2, 3]], ["Machining and grinding", "Removing material with cutting tools and wheels", "#58a6ff", [4, 5, 6, 7, 8, 9, 10]], ["Sheet metal", "From a flat sheet to a part", "#3fb950", [11, 12, 13, 14, 15]], ["Non-conventional", "Sparks, light, water and plasma", "#bc8cff", [16, 17, 18, 19, 20]], ["Advanced", "Complex machines, fine finishing and printing", "#d29922", [21, 22, 23, 24]]];
+var DIRS=["videos/","../videos/"], dirIx=0, cur=-1, seen={};
+try{seen=JSON.parse(localStorage.getItem("mh-course-seen-en")||"{}")}catch(e){seen={}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function mmss(s){s=Math.round(s);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function render(){var h="";G.forEach(function(g){var t=g[3].reduce(function(a,n){return a+CH[n][3]},0);
+ h+='<div class="vc-group" style="--c:'+g[2]+'"><div class="vc-gh"><h3>'+esc(g[0])+'</h3><span>'+esc(g[1])+' · '+(g[3].length===1?"1 chapter":g[3].length+" chapters")+', '+Math.round(t/60)+' min</span></div><div class="vc-grid">';
+ g[3].forEach(function(n){h+='<button type="button" class="vc-ch'+(seen[n]?' seen':'')+'" data-n="'+n+'" onclick="vcOpen('+n+')" aria-label="Watch chapter '+n+': '+esc(CH[n][0])+'"><span class="vc-num">'+n+'</span><span><h4>'+esc(CH[n][0])+'</h4><p>'+esc(CH[n][1])+'</p></span><span class="vc-dur">'+mmss(CH[n][3])+'</span></button>'});
+ h+='</div></div>'});document.getElementById("vc-groups").innerHTML=h}
+var V=function(){return document.getElementById("vc-video")};
+function load(n){var v=V();document.getElementById("vc-err").hidden=true;v.src=DIRS[dirIx]+encodeURIComponent(CH[n][2]);v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}
+window.vcOpen=function(n){cur=n;document.getElementById("vc-pn").textContent=n;document.getElementById("vc-ptitle").textContent=CH[n][0];
+ document.getElementById("vc-prev").disabled=n===0;document.getElementById("vc-next").disabled=n===CH.length-1;
+ document.getElementById("vc-modal").hidden=false;document.body.style.overflow="hidden";load(n)};
+window.vcClose=function(){var v=V();v.pause();v.removeAttribute("src");v.load();document.getElementById("vc-modal").hidden=true;document.body.style.overflow=""};
+window.vcStep=function(d){var n=cur+d;if(n>=0&&n<CH.length)vcOpen(n)};
+document.addEventListener("keydown",function(e){if(!document.getElementById("vc-modal").hidden&&e.key==="Escape")vcClose()});
+document.addEventListener("DOMContentLoaded",function(){var v=V();
+ v.addEventListener("error",function(){if(cur<0||!v.getAttribute("src"))return;if(dirIx<DIRS.length-1){dirIx++;load(cur)}else{document.getElementById("vc-err").hidden=false}});
+ v.addEventListener("ended",function(){seen[cur]=1;try{localStorage.setItem("mh-course-seen-en",JSON.stringify(seen))}catch(e){}render();if(cur<CH.length-1)vcOpen(cur+1)});
+ render();
+ if(/sub=course/.test(location.hash)){var b=document.querySelector('#mfg-nav .mfg-tab[onclick*="course"]');showMfg("course",b)}});
+})();
 </script>
 </body>
 </html>
