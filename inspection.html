@@ -119,6 +119,50 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 #nav{background:var(--surface);border-bottom:2px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px;position:sticky;top:52px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4);margin-top:52px}
 .tab{padding:8px 13px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
 .tab:hover{color:var(--text);background:var(--border)}.tab.active{color:#fff;background:var(--blue)}
+
+/* ===== drawing course (video) ===== */
+.dc-wrap{--dc-acc:var(--orange);position:relative}
+.dc-head{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin-bottom:14px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.dc-head h2{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px}
+.dc-head p{font-size:14px;color:var(--muted);max-width:640px;line-height:1.6}
+.dc-stats{display:flex;gap:18px;margin-top:10px;font-size:13px;color:var(--muted)}
+.dc-stats b{color:var(--dc-acc);font-size:18px;margin-left:4px}
+.dc-actions{display:flex;flex-direction:column;gap:8px;min-width:200px}
+.dc-btn{font-family:inherit;font-size:14px;font-weight:700;padding:10px 16px;border-radius:8px;border:1px solid var(--dc-acc);background:var(--dc-acc);color:#111;cursor:pointer;text-align:center;text-decoration:none}
+.dc-btn.ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.dc-btn:hover{filter:brightness(1.08)}
+.dc-btn:focus-visible,.dc-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.dc-progress{height:6px;background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:12px;max-width:420px}
+.dc-progress i{display:block;height:100%;background:var(--green);width:0}
+.dc-part{margin:18px 0 8px;display:flex;align-items:baseline;gap:10px}
+.dc-part .pl{font-size:13px;color:var(--dc-acc);font-weight:800}
+.dc-part .pn{font-size:17px;font-weight:800;color:var(--text)}
+.dc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.dc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;text-align:right;font-family:inherit;color:var(--text);padding:0;display:block;width:100%}
+.dc-card:hover{border-color:var(--blue)}
+.dc-thumb{position:relative;aspect-ratio:16/9;background:#0d1117}
+.dc-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.dc-dur{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.75);color:#fff;font-size:12px;padding:2px 7px;border-radius:4px;direction:ltr}
+.dc-seen{position:absolute;right:8px;top:8px;background:var(--green);color:#000;font-size:11px;font-weight:800;padding:2px 8px;border-radius:10px;display:none}
+.dc-card.seen .dc-seen{display:block}
+.dc-meta{padding:10px 12px}
+.dc-meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.dc-meta .ok{color:var(--green);font-weight:700;display:none}
+.dc-card.seen .dc-meta .ok{display:inline}
+.dc-modal{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:1000;display:none;align-items:center;justify-content:center;padding:16px}
+.dc-modal.open{display:flex}
+.dc-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;width:min(1100px,100%);max-height:100%;overflow:auto}
+.dc-box video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+.dc-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:12px 14px}
+.dc-bar .ttl{font-size:16px;font-weight:800;color:var(--text)}
+.dc-bar .ttl small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.dc-nav{display:flex;gap:8px}
+.dc-nav button{font-family:inherit;font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer}
+.dc-nav button:disabled{opacity:.4;cursor:default}
+.dc-close{font-size:20px !important;line-height:1}
+.dc-full{display:inline-block;margin-top:2px;font-size:13px;color:var(--blue);text-decoration:none}
+@media (max-width:640px){.dc-head{padding:16px}.dc-head h2{font-size:19px}.dc-actions{width:100%}.dc-grid{grid-template-columns:1fr 1fr;gap:8px}.dc-meta{font-size:12px;padding:8px 10px}.dc-bar{padding:10px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -220,6 +264,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </div>
 
 <div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0">
+  <button class="insp-tab" onclick="showInsp('drawcourse',this)">🎬 שרטוט טכני קורס וידאו</button>
   <button class="insp-tab active" onclick="showInsp('gauges',this)">📏 כלי מדידה ידניים</button>
   <button class="insp-tab" onclick="showInsp('cmm',this)">🤖 CMM ומדידה מרחבית</button>
   <button class="insp-tab" onclick="showInsp('surface_meas',this)">✦ מדידת גימור משטח</button>
@@ -233,6 +278,38 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
   <button class="insp-tab" onclick="showInsp('incoming',this)">📦 QC קבלת סחורה</button>
   <button class="insp-tab" onclick="showInsp('qstandards',this)">🏆 תקני איכות</button>
   <button class="insp-tab" onclick="showInsp('calc_qc',this)">🧮 מחשבונים</button>
+</div>
+
+<!-- ===== DRAWING COURSE (VIDEO) ===== -->
+<div id="insp-drawcourse" class="insp-sec">
+<div class="dc-wrap" id="dcWrap">
+  <div class="dc-head">
+    <div>
+      <h2>קריאת שרטוט · קורס וידאו</h2>
+      <p>קורס מקיף לקריאת שרטוטים הנדסיים: מבטים וחתכים, מידות וסבולות, GD&amp;T, פני שטח, ריתוך, חומרים והברגות, ועד השרטוט כמסמך ופרוטוקול קריאה מלא. מתאים לעובדי ייצור, בקרי איכות, מהנדסים ואנשי רכש.</p>
+      <div class="dc-stats"><span><b>25</b>פרקים</span><span><b>3.0</b>שעות</span><span><b>6</b>חלקים</span></div>
+      <div class="dc-progress" aria-hidden="true"><i id="dcProg"></i></div>
+    </div>
+    <div class="dc-actions">
+      <button class="dc-btn" id="dcGo" type="button">התחלה מפרק 0</button>
+      <a class="dc-btn ghost" href="drawing-course.html" target="_blank" rel="noopener">פתיחה בחלון מלא</a>
+    </div>
+  </div>
+  <div id="dcList"></div>
+  <div class="dc-modal" id="dcModal" role="dialog" aria-modal="true" aria-label="נגן הקורס">
+    <div class="dc-box">
+      <video id="dcVideo" controls playsinline preload="metadata"></video>
+      <div class="dc-bar">
+        <div class="ttl" id="dcTitle"></div>
+        <div class="dc-nav">
+          <button type="button" id="dcPrev">פרק קודם</button>
+          <button type="button" id="dcNext">פרק הבא</button>
+          <button type="button" id="dcClose" class="dc-close" aria-label="סגירה">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- ===== GAUGES ===== -->
@@ -2054,6 +2131,59 @@ function toggleTheme(){
     var btn = document.getElementById('theme-btn');
     if(btn) btn.textContent = '🌙';
   }
+})();
+</script>
+<script>
+/* drawing course player */
+(function(){
+var DC=[{"p": "א׳", "name": "ייצוג וחשיבה מרחבית", "ch": [{"n": 0, "t": "השרטוט כחוזה", "d": 402}, {"n": 1, "t": "מערכות היטל", "d": 439}, {"n": 2, "t": "חתכים מתקדמים", "d": 381}, {"n": 3, "t": "מוסכמות ופישוטים", "d": 478}]}, {"p": "ב׳", "name": "מידות וסבולות, שפת ההגדרה", "ch": [{"n": 4, "t": "פילוסופיית המידות", "d": 432}, {"n": 5, "t": "סבולות ברירת מחדל", "d": 444}, {"n": 6, "t": "עקרון המעטפת מול עקרון העצמאות", "d": 448}, {"n": 7, "t": "התאמות ISO 286", "d": 512}, {"n": 8, "t": "שרשרת סבולות", "d": 435}]}, {"p": "ג׳", "name": "GD&T בתוך השרטוט", "ch": [{"n": 9, "t": "מערכת המשטחים", "d": 434}, {"n": 10, "t": "גאומטריה ומידות יחד", "d": 487}]}, {"p": "ד׳", "name": "פני שטח, חומר ומפרטים", "ch": [{"n": 11, "t": "מרקם פני שטח", "d": 433}, {"n": 12, "t": "סימוני ריתוך", "d": 468}, {"n": 13, "t": "חומר, טיפול חום וציפוי", "d": 446}, {"n": 14, "t": "הברגות לעומק", "d": 455}, {"n": 15, "t": "אלמנטים מיוחדים", "d": 414}]}, {"p": "ה׳", "name": "השרטוט כמסמך", "ch": [{"n": 16, "t": "אזור הכותרת וההערות", "d": 376}, {"n": 17, "t": "שרטוטי הרכבה", "d": 472}, {"n": 18, "t": "יציקה, חישול, פח ופלסטיק", "d": 491}, {"n": 19, "t": "מאפיינים קריטיים ובדיקה", "d": 466}, {"n": 20, "t": "הגדרה מבוססת מודל · MBD", "d": 438}, {"n": 21, "t": "ניהול שינויים", "d": 434}]}, {"p": "ו׳", "name": "סינתזה", "ch": [{"n": 22, "t": "קריאה מעיני היצרן", "d": 414}, {"n": 23, "t": "סדנת אבחון", "d": 384}, {"n": 24, "t": "פרוטוקול קריאה מלא", "d": 354}]}];
+var CH=[];DC.forEach(function(p){p.ch.forEach(function(c){CH.push({n:c.n,t:c.t,d:c.d,p:p.p})})});
+var KW='mh-dc-watched',KL='mh-dc-last',cur=-1;
+function lsGet(k,d){try{var v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function pad(n){return (n<10?'0':'')+n}
+function fmt(s){return Math.floor(s/60)+':'+pad(s%60)}
+function src(n){return 'videos/drawing/ch'+pad(n)+'.mp4'}
+function render(){
+  var w=lsGet(KW,[]),h='';
+  DC.forEach(function(p){
+    h+='<div class="dc-part"><span class="pl">חלק '+p.p+'</span><span class="pn">'+p.name.replace(/&/g,'&amp;')+'</span></div><div class="dc-grid">';
+    p.ch.forEach(function(c){
+      h+='<button type="button" class="dc-card'+(w.indexOf(c.n)>=0?' seen':'')+'" data-n="'+c.n+'" aria-label="פרק '+c.n+': '+c.t.replace(/"/g,'')+'"><div class="dc-thumb"><img loading="lazy" src="videos/drawing/thumbs/ch'+pad(c.n)+'.jpg" alt=""></div><div class="dc-meta"><span>'+fmt(c.d)+' דקות</span><span class="ok">✓ נצפה</span></div></button>';
+    });
+    h+='</div>';
+  });
+  document.getElementById('dcList').innerHTML=h;
+  document.getElementById('dcProg').style.width=(w.length/CH.length*100)+'%';
+  var last=lsGet(KL,null),go=document.getElementById('dcGo');
+  go.textContent=(last===null)?'התחלה מפרק 0':'המשך מפרק '+last;
+  go.dataset.n=(last===null)?0:last;
+}
+function idx(n){for(var i=0;i<CH.length;i++)if(CH[i].n===n)return i;return 0}
+function open(n){
+  cur=idx(n);var c=CH[cur],v=document.getElementById('dcVideo');
+  v.src=src(c.n);
+  document.getElementById('dcTitle').innerHTML='פרק '+c.n+' · '+c.t.replace(/&/g,'&amp;')+'<small>חלק '+c.p+' · '+fmt(c.d)+' דקות</small>';
+  document.getElementById('dcPrev').disabled=(cur===0);
+  document.getElementById('dcNext').disabled=(cur===CH.length-1);
+  document.getElementById('dcModal').classList.add('open');
+  lsSet(KL,c.n);
+  var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});
+}
+function close(){var v=document.getElementById('dcVideo');v.pause();document.getElementById('dcModal').classList.remove('open');render()}
+function mark(n){var w=lsGet(KW,[]);if(w.indexOf(n)<0){w.push(n);lsSet(KW,w)}}
+document.addEventListener('click',function(e){
+  var card=e.target.closest&&e.target.closest('.dc-card');if(card){open(+card.dataset.n);return}
+  if(e.target.id==='dcGo'){open(+e.target.dataset.n);return}
+  if(e.target.id==='dcPrev'&&cur>0){open(CH[cur-1].n);return}
+  if(e.target.id==='dcNext'&&cur<CH.length-1){open(CH[cur+1].n);return}
+  if(e.target.id==='dcClose'||e.target.id==='dcModal'){close()}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('dcModal').classList.contains('open'))close()});
+var vid=document.getElementById('dcVideo');
+vid.addEventListener('timeupdate',function(){if(cur>=0&&vid.duration&&vid.currentTime/vid.duration>0.9)mark(CH[cur].n)});
+vid.addEventListener('ended',function(){mark(CH[cur].n);if(cur<CH.length-1){var nx=CH[cur+1].n;lsSet(KL,nx);open(nx)}else render()});
+render();
 })();
 </script>
 </body>
