@@ -237,7 +237,7 @@ html.light-mode #coat-course,body.light-mode #coat-course{--g0:#5d708a;--g1:#c95
 
 <div class="cc-hero">
   <span class="cc-kick">Video course · METAL HUB</span>
-  <h2>Coatings, Finishes &amp; Paint</h2>
+  <h2 role="heading" aria-level="1">Coatings, Finishes &amp; Paint</h2>
   <p>An animated course on everything that happens to a part after machining: from surface preparation, through conversion coatings, metallic coatings and paint, to thermal spray, PVD and testing. Each chapter explains how the process works, what it gives you, how to design a part for it, what goes wrong, and what drives the cost.</p>
   <div class="cc-facts"><span><b>21</b> chapters</span><span><b>About 2 hours</b> of viewing</span><span><b>6</b> coating families</span><span>English narration and subtitles</span></div>
   <div class="cc-cta"><button class="cc-btn" type="button" data-cc="0"><span class="cc-tri" aria-hidden="true"></span>Start with the introduction</button><button class="cc-btn2" type="button" id="cc-resume" hidden></button><span class="cc-prog" id="cc-prog"></span></div>
@@ -271,7 +271,7 @@ html.light-mode #coat-course,body.light-mode #coat-course{--g0:#5d708a;--g1:#c95
 </div>
 
 <dialog id="cc-dlg" aria-labelledby="cc-title">
-  <div class="cc-pt"><span class="n" id="cc-n"></span><h3 id="cc-title"></h3><button class="cc-x" type="button" id="cc-x" aria-label="Close">×</button></div>
+  <div class="cc-pt"><span class="n" id="cc-n"></span><h3 role="heading" aria-level="2" id="cc-title"></h3><button class="cc-x" type="button" id="cc-x" aria-label="Close">×</button></div>
   <video id="cc-v" controls playsinline preload="metadata"></video>
   <div id="cc-err" hidden>Video not found. Make sure the video file was uploaded to the videos/coatings folder on the site.</div>
   <div class="cc-pb"><button type="button" id="cc-prev">Previous chapter</button><button type="button" id="cc-next">Next chapter</button></div>
@@ -314,12 +314,12 @@ html.light-mode #coat-course,body.light-mode #coat-course{--g0:#5d708a;--g1:#c95
   GROUPS.forEach(function(g,gi){
     var tot=0; g.ch.forEach(function(n){tot+=CH[n][3];});
     nav+='<button type="button" style="--c:var('+g.c+')" data-ccg="'+gi+'">'+esc(g.name)+'</button>';
-    list+='<section class="cc-group" id="cc-g'+gi+'" style="--c:var('+g.c+')"><div class="cc-gh"><h3>'+esc(g.name)+'</h3><span>'+esc(g.sub)+' · '+(g.ch.length===1?'1 chapter':g.ch.length+' chapters')+' · '+Math.round(tot/60)+' min</span></div><div class="cc-grid">';
+    list+='<section class="cc-group" id="cc-g'+gi+'" style="--c:var('+g.c+')"><div class="cc-gh"><h3 role="heading" aria-level="2">'+esc(g.name)+'</h3><span>'+esc(g.sub)+' · '+(g.ch.length===1?'1 chapter':g.ch.length+' chapters')+' · '+Math.round(tot/60)+' min</span></div><div class="cc-grid">';
     g.ch.forEach(function(n){
       var nn=(n<10?"0":"")+n;
       list+='<button class="cc-card" type="button" data-cc="'+n+'" data-ccn="'+n+'" aria-label="Watch chapter '+n+': '+esc(CH[n][0])+'">'+
         '<div class="cc-th"><img src="'+THUMB_DIR+'ch'+nn+'.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="num">Chapter '+n+'</span><span class="dur">'+mmss(CH[n][3])+'</span><span class="pl"><span class="cc-tri"></span></span></div>'+
-        '<div class="cc-body"><h4>'+bidi(CH[n][0])+'</h4><p>'+bidi(CH[n][1])+'</p></div></button>';
+        '<div class="cc-body"><h4 role="heading" aria-level="3">'+bidi(CH[n][0])+'</h4><p>'+bidi(CH[n][1])+'</p></div></button>';
     });
     list+='</div></section>';
   });
@@ -366,5 +366,6 @@ function toggleTheme(){
 }
 (function(){try{if(localStorage.getItem('mh-theme')==='light'){document.body.classList.add('light-mode');document.getElementById('theme-btn').textContent='🌙';}}catch(e){}})();
 </script>
+<script src="/a11y-fix.js?v=1" defer></script>
 </body>
 </html>

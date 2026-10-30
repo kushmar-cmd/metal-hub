@@ -75,6 +75,7 @@ body.embed header,body.embed footer{display:none}
 @media (min-width:1001px){body.embed .list{max-height:calc(100vh - 36px);overflow:auto;padding-inline-start:4px}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
+<style id="mh-course-a11y">.sub,.std,.num,h3,footer{color:#585654!important}</style>
 </head>
 <body>
 <div class="wrap">
@@ -148,5 +149,6 @@ v.addEventListener("timeupdate", () => {
 addEventListener("hashchange", () => { const i = parseInt(location.hash.slice(1), 10); if (!isNaN(i) && i !== cur) go(i, false); });
 const h = parseInt(location.hash.slice(1), 10); go(isNaN(h) ? 0 : Math.min(Math.max(h, 0), CH.length - 1), false);
 </script>
+<script src="/a11y-fix.js?v=1" defer></script>
 </body>
 </html>

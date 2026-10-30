@@ -160,20 +160,20 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </style>
 </head>
 <body>
-<div class="mc-top"><a href="metallurgy.html">חזרה לעמוד המטלורגיה</a><button class="night-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="מצב תצוגה">☀️</button></div>
-<div class="mc-page">
+<div class="mc-top" role="banner"><a href="metallurgy.html">חזרה לעמוד המטלורגיה</a><button class="night-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="מצב תצוגה">☀️</button></div>
+<div class="mc-page" role="main">
 <div class="mc-wrap" id="mcWrap">
 <div class="mc-hero">
 <svg class="mc-grains" id="mcGrains" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
 <div class="mc-hero-in">
-<h2>חומרים ומטלורגיה</h2>
+<h2 role="heading" aria-level="1">חומרים ומטלורגיה</h2>
 <p>קורס וידאו מונפש בעברית: מהגרעין שבתוך המתכת ועד ההחלטה איזה חומר להזמין. כל פרק מסביר מה קורה בחומר, איך זה משפיע על העיבוד בבית המלאכה, ומה מייקר.</p>
 <div class="mc-facts"><span><b>24</b> פרקים</span><span><b>2.8</b> שעות</span><span><b>7</b> קבוצות נושא</span><span>קריינות וכתוביות בעברית</span></div>
 <div class="mc-actions"><button class="mc-btn mc-btn-main" id="mcStart">להתחיל מהמבוא</button><button class="mc-btn mc-btn-ghost" id="mcResume" hidden></button><span class="mc-progress" id="mcProg"></span></div>
 </div></div>
 <div class="mc-jump" id="mcJump"></div>
 <div class="mc-info">
-<div><h3>כל פרק בנוי באותו סדר</h3>מה קורה בחומר ולמה, המספרים החשובים, דוגמאות מהשטח, מה זה אומר בבית המלאכה, ובסוף: מה מייקר.</div>
+<div><h3 role="heading" aria-level="2">כל פרק בנוי באותו סדר</h3>מה קורה בחומר ולמה, המספרים החשובים, דוגמאות מהשטח, מה זה אומר בבית המלאכה, ובסוף: מה מייקר.</div>
 <div><h3>למי הקורס מתאים</h3>מהנדסים, מתכננים, אנשי ייצור ורכש, טכנאים ומפעילים שרוצים להבין למה חומר מתנהג כמו שהוא מתנהג, ואיך לבחור ולהזמין נכון.</div>
 </div>
 <div id="mcGroups"></div>
@@ -236,5 +236,6 @@ M.addEventListener('click',e=>{if(e.target===M)close()});document.addEventListen
 $('mcStart').onclick=()=>openCh(0);refresh();
 })();
 </script>
+<script src="/a11y-fix.js?v=1" defer></script>
 </body>
 </html>

@@ -68,7 +68,7 @@
       '#mh-menu-panel .mhm-x{flex:0 0 auto;width:34px;height:34px;border-radius:8px;border:1px solid var(--border,#30363d);background:var(--card,#1c2128);color:var(--text,#e6edf3);font-size:15px;line-height:1;cursor:pointer}',
       '#mh-menu-panel .mhm-x:hover{border-color:var(--blue,#58a6ff)}',
       '#mh-menu-panel .mhm-x:focus-visible{outline:2px solid var(--blue,#58a6ff);outline-offset:2px}',
-      '@media(max-width:700px){#mh-menu-btn .mhm-tx{display:none}#mh-menu-btn{padding:7px 10px}#mh-menu-panel{inset-inline-start:8px;inset-inline-end:8px;width:auto;top:56px;padding:10px 10px 12px;max-height:calc(100vh - 124px)}#mh-menu-panel .mhm-cols{column-width:150px;column-gap:10px}#mh-menu-panel a{font-size:13px;padding:7px 6px;gap:7px}#mh-menu-panel .mhm-grp{margin-bottom:10px}}',
+      '@media(max-width:700px){#mh-menu-btn .mhm-tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}#mh-menu-btn{padding:7px 10px}#mh-menu-panel{inset-inline-start:8px;inset-inline-end:8px;width:auto;top:56px;padding:10px 10px 12px;max-height:calc(100vh - 124px)}#mh-menu-panel .mhm-cols{column-width:150px;column-gap:10px}#mh-menu-panel a{font-size:13px;padding:7px 6px;gap:7px}#mh-menu-panel .mhm-grp{margin-bottom:10px}}',
       '@media print{#mh-menu-btn,#mh-menu-panel{display:none!important}}'
     ].join('\n');
     var st = doc.createElement('style'); st.id = 'mh-menu-css'; st.appendChild(doc.createTextNode(css)); (doc.head || html).appendChild(st);
@@ -87,7 +87,7 @@
       return a;
     }
 
-    var btn = el('button', { id: 'mh-menu-btn', type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false', 'aria-controls': 'mh-menu-panel', 'aria-label': T.title, title: T.title });
+    var btn = el('button', { id: 'mh-menu-btn', type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false', 'aria-controls': 'mh-menu-panel', title: T.title });
     btn.appendChild(el('span', { 'class': 'mhm-bars', 'aria-hidden': 'true' }, '\u2630'));
     btn.appendChild(el('span', { 'class': 'mhm-tx' }, T.btn));
 

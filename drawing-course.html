@@ -84,9 +84,10 @@ footer a{color:var(--blue);text-decoration:none}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 
 </style>
+<style id="mh-course-a11y">footer a{text-decoration:underline}</style>
 </head>
 <body>
-<div class="pg-top">
+<div class="pg-top" role="banner">
   <a class="logo" href="https://metal.kushmar.com/">METAL <span>HUB</span></a>
   <div class="links">
     <a href="inspection.html">בדיקה ואיכות</a>
@@ -98,7 +99,7 @@ footer a{color:var(--blue);text-decoration:none}
 <div class="dc-wrap" id="dcWrap">
   <div class="dc-head">
     <div>
-      <h2>קריאת שרטוט · קורס וידאו</h2>
+      <h2 role="heading" aria-level="1">קריאת שרטוט · קורס וידאו</h2>
       <p>קורס מקיף לקריאת שרטוטים הנדסיים: מבטים וחתכים, מידות וסבולות, GD&amp;T, פני שטח, ריתוך, חומרים והברגות, ועד השרטוט כמסמך ופרוטוקול קריאה מלא. מתאים לעובדי ייצור, בקרי איכות, מהנדסים ואנשי רכש.</p>
       <div class="dc-stats"><span><b>25</b>פרקים</span><span><b>3.0</b>שעות</span><span><b>6</b>חלקים</span></div>
       <div class="dc-progress" aria-hidden="true"><i id="dcProg"></i></div>
@@ -186,5 +187,6 @@ function toggleTheme(){
 }
 (function(){if(localStorage.getItem('mh-theme')==='light'){document.body.classList.add('light-mode');var b=document.getElementById('theme-btn');if(b)b.textContent='🌙';}})();
 </script>
+<script src="/a11y-fix.js?v=1" defer></script>
 </body>
 </html>

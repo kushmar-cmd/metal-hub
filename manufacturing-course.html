@@ -115,6 +115,7 @@ video[hidden],.err[hidden]{display:none}
 @media (max-width:640px){ .wrap{padding:0 16px} .hero{padding:40px 0} .map{grid-template-columns:1fr 1fr; gap:12px} .aud{grid-template-columns:1fr}
   .ch{grid-template-columns:44px 1fr auto; gap:12px} .ch .dur{grid-column:2; grid-row:2; font-size:14px} .ch .play{grid-column:3; grid-row:1 / span 2} .ch .num{font-size:24px} }
 </style>
+<style id="mh-course-a11y">footer a{color:#066a94}</style>
 </head>
 <body>
 
@@ -136,6 +137,7 @@ video[hidden],.err[hidden]{display:none}
     <nav class="map boot" id="map" aria-label="מפת הקורס"></nav>
   </div>
 </header>
+<main id="main">
 
 <section class="band" aria-labelledby="h-struct">
   <div class="wrap">
@@ -170,6 +172,7 @@ video[hidden],.err[hidden]{display:none}
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">חלק מ-<a href="/">METAL HUB</a>, מאגר הידע ההנדסי בעברית.</div>
 </footer>
@@ -279,5 +282,6 @@ document.getElementById("pl-next").onclick = () => cur < CH.length - 1 && openCh
 dlg.addEventListener("close", () => { vid.pause(); vid.removeAttribute("src"); vid.load(); });
 dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
 </script>
+<script src="/a11y-fix.js?v=1" defer></script>
 </body>
 </html>

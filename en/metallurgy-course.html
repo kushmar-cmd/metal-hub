@@ -155,19 +155,19 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </style>
 </head>
 <body>
-<div class="mc-top"><a href="metallurgy.html">Back to Metallurgy</a><button class="night-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="Display mode">☀️</button></div>
-<div class="mc-page"><div class="mc-wrap" id="mcWrap">
+<div class="mc-top" role="banner"><a href="metallurgy.html">Back to Metallurgy</a><button class="night-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="Display mode">☀️</button></div>
+<div class="mc-page" role="main"><div class="mc-wrap" id="mcWrap">
 <div class="mc-hero">
 <svg class="mc-grains" id="mcGrains" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
 <div class="mc-hero-in">
-<h2>Materials and Metallurgy</h2>
+<h2 role="heading" aria-level="1">Materials and Metallurgy</h2>
 <p>An animated video course: from the grain inside the metal to the decision of which material to order. Every chapter explains what happens in the material, how it affects work in the shop, and what drives the cost.</p>
 <div class="mc-facts"><span><b>24</b> chapters</span><span><b>2.7</b> hours</span><span><b>7</b> topic groups</span><span>English narration and subtitles</span></div>
 <div class="mc-actions"><button class="mc-btn mc-btn-main" id="mcStart">Start with the introduction</button><button class="mc-btn mc-btn-ghost" id="mcResume" hidden></button><span class="mc-progress" id="mcProg"></span></div>
 </div></div>
 <div class="mc-jump" id="mcJump"></div>
 <div class="mc-info">
-<div><h3>Every chapter follows the same structure</h3>What happens in the material and why, the key numbers, real examples, what it means in the shop, and finally: what drives the cost.</div>
+<div><h3 role="heading" aria-level="2">Every chapter follows the same structure</h3>What happens in the material and why, the key numbers, real examples, what it means in the shop, and finally: what drives the cost.</div>
 <div><h3>Who the course is for</h3>Engineers, designers, production and purchasing staff, technicians and operators who want to understand why a material behaves the way it does, and how to choose and order it correctly.</div>
 </div>
 <div id="mcGroups"></div>
@@ -237,5 +237,6 @@ $('mcStart').onclick=()=>openCh(0);refresh();
 })();
 })();
 </script>
+<script src="/a11y-fix.js?v=1" defer></script>
 </body>
 </html>

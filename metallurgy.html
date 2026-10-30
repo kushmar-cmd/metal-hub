@@ -736,7 +736,8 @@ $('mcStart').onclick=()=>openCh(0);refresh();
 (function(){const m=location.hash.match(/sub=([a-z]+)/);if(!m)return;const id=m[1];const btn=[...document.querySelectorAll('.met-tab')].find(b=>(b.getAttribute('onclick')||'').includes("'"+id+"'"));if(document.getElementById('met-'+id))showMet(id,btn);})();
 </script>
 <script src="/analytics.js" defer></script>
-<script src="/menu.js?v=2" defer></script>
+<script src="/menu.js?v=3" defer></script>
 <script src="/a11y.js?v=2" defer></script>
+<script src="/a11y-fix.js?v=1" defer></script>
 </body>
 </html>
