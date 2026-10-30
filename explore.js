@@ -21,7 +21,7 @@
       eq: '\u05e9\u05e7\u05d9\u05dc\u05d5\u05ea \u05d1\u05ea\u05e7\u05e0\u05d9\u05dd (\u05dc\u05d7\u05e5 \u05db\u05d3\u05d9 \u05dc\u05d7\u05e4\u05e9 \u05d0\u05ea \u05d4\u05e1\u05d9\u05de\u05d5\u05df)', stds: '\u05ea\u05e7\u05e0\u05d9\u05dd: ', topics: '\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd \u05e7\u05e9\u05d5\u05e8\u05d9\u05dd \u05d1\u05d0\u05ea\u05e8', heat: '\u05d8\u05d9\u05e4\u05d5\u05dc \u05d7\u05d5\u05dd', weld: '\u05e8\u05d9\u05ea\u05d5\u05da', mach: '\u05e2\u05d9\u05d1\u05d5\u05d3 \u05de\u05db\u05e0\u05d9', corr: '\u05e7\u05d5\u05e8\u05d5\u05d6\u05d9\u05d4', coat: '\u05e6\u05d9\u05e4\u05d5\u05d9\u05d9\u05dd', std: '\u05ea\u05e7\u05e0\u05d9\u05dd',
       termsIn: '\u05de\u05d5\u05e0\u05d7\u05d9\u05dd \u05e9\u05de\u05d5\u05e4\u05d9\u05e2\u05d9\u05dd \u05d1\u05d7\u05d5\u05de\u05e8', similar: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05d3\u05d5\u05de\u05d9\u05dd', videos: '\u05e1\u05e8\u05d8\u05d5\u05e0\u05d9 \u05d4\u05d3\u05e8\u05db\u05d4', calc: '\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05de\u05d4\u05d9\u05e8 \u05e2\u05dd \u05e0\u05ea\u05d5\u05e0\u05d9 \u05d4\u05d7\u05d5\u05de\u05e8', calcNote: '(Vc \u05de\u05d4\u05e8\u05e9\u05d5\u05de\u05d4: ', calcFull: '\u05d4\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d4\u05de\u05dc\u05d0 \u05d1\u05d0\u05ea\u05e8',
       seeAlso: '\u05e8\u05d0\u05d4 \u05d2\u05dd (\u05de\u05d5\u05e9\u05d2\u05d9\u05dd \u05e9\u05d4\u05d4\u05d2\u05d3\u05e8\u05d4 \u05e0\u05e9\u05e2\u05e0\u05ea \u05e2\u05dc\u05d9\u05d4\u05dd)', inDefs: '\u05de\u05d5\u05e4\u05d9\u05e2 \u05d1\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05e9\u05dc', matsMention: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05e9\u05de\u05d5\u05d6\u05db\u05e8 \u05d1\u05d4\u05dd', topicOf: '\u05e0\u05d5\u05e9\u05d0 \u05d1\u05d0\u05ea\u05e8 (', pageOf: ' \u2014 \u05d4\u05d3\u05e3 \u05d1\u05d0\u05ea\u05e8',
-      gCalc: '\u05de\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05dd', gVid: '\u05e1\u05e8\u05d8\u05d5\u05e0\u05d9 \u05d4\u05d3\u05e8\u05db\u05d4', calcSub: '\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d1\u05d0\u05ea\u05e8 (\u05e0\u05e4\u05ea\u05d7 \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)', vidSub: '\u05e1\u05d3\u05e8\u05ea \u05d4\u05d3\u05e8\u05db\u05d4 (\u05e0\u05e4\u05ea\u05d7\u05ea \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)', relaxed: '\u05dc\u05d0 \u05e0\u05de\u05e6\u05d0\u05d4 \u05d4\u05ea\u05d0\u05de\u05d4 \u05de\u05dc\u05d0\u05d4 \u05dc\u05db\u05dc \u05d4\u05de\u05d9\u05dc\u05d9\u05dd. \u05de\u05d5\u05e6\u05d2\u05d5\u05ea \u05d4\u05ea\u05d5\u05e6\u05d0\u05d5\u05ea \u05d4\u05e7\u05e8\u05d5\u05d1\u05d5\u05ea \u05d1\u05d9\u05d5\u05ea\u05e8.', didYou: '\u05d4\u05d0\u05dd \u05d4\u05ea\u05db\u05d5\u05d5\u05e0\u05ea \u05dc:', noneHelp: '\u05e0\u05e1\u05d4 \u05de\u05d9\u05dc\u05d4 \u05d0\u05d7\u05e8\u05ea, \u05d0\u05d5 \u05d0\u05d7\u05ea \u05de\u05d4\u05d3\u05d5\u05d2\u05de\u05d0\u05d5\u05ea.',
+      more: function (n) { return '\u05d4\u05e6\u05d2 \u05e2\u05d5\u05d3 (' + n + ')'; }, weak: function (n) { return '\u05d4\u05e6\u05d2 \u05d2\u05dd ' + n + ' \u05d4\u05ea\u05d0\u05de\u05d5\u05ea \u05d7\u05dc\u05e9\u05d5\u05ea \u05d9\u05d5\u05ea\u05e8 (\u05d4\u05de\u05d9\u05dc\u05d4 \u05de\u05d5\u05e4\u05d9\u05e2\u05d4 \u05e8\u05e7 \u05d1\u05ea\u05d5\u05da \u05d4\u05d8\u05e7\u05e1\u05d8)'; }, gCalc: '\u05de\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05dd', gVid: '\u05e1\u05e8\u05d8\u05d5\u05e0\u05d9 \u05d4\u05d3\u05e8\u05db\u05d4', calcSub: '\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d1\u05d0\u05ea\u05e8 (\u05e0\u05e4\u05ea\u05d7 \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)', vidSub: '\u05e1\u05d3\u05e8\u05ea \u05d4\u05d3\u05e8\u05db\u05d4 (\u05e0\u05e4\u05ea\u05d7\u05ea \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)', relaxed: '\u05dc\u05d0 \u05e0\u05de\u05e6\u05d0\u05d4 \u05d4\u05ea\u05d0\u05de\u05d4 \u05de\u05dc\u05d0\u05d4 \u05dc\u05db\u05dc \u05d4\u05de\u05d9\u05dc\u05d9\u05dd. \u05de\u05d5\u05e6\u05d2\u05d5\u05ea \u05d4\u05ea\u05d5\u05e6\u05d0\u05d5\u05ea \u05d4\u05e7\u05e8\u05d5\u05d1\u05d5\u05ea \u05d1\u05d9\u05d5\u05ea\u05e8.', didYou: '\u05d4\u05d0\u05dd \u05d4\u05ea\u05db\u05d5\u05d5\u05e0\u05ea \u05dc:', noneHelp: '\u05e0\u05e1\u05d4 \u05de\u05d9\u05dc\u05d4 \u05d0\u05d7\u05e8\u05ea, \u05d0\u05d5 \u05d0\u05d7\u05ea \u05de\u05d4\u05d3\u05d5\u05d2\u05de\u05d0\u05d5\u05ea.',
       eqIs: '\u05e9\u05e7\u05d5\u05dc \u05dc-', eqOpen: '\u05e4\u05ea\u05d7 \u05d0\u05ea \u05d4\u05db\u05e8\u05d8\u05d9\u05e1', eqNote: '\u05dc\u05e4\u05d9 \u05e0\u05ea\u05d5\u05e0\u05d9 \u05d4\u05d0\u05ea\u05e8. \u05dc\u05e4\u05e0\u05d9 \u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05d1\u05d3\u05d5\u05e7 \u05de\u05d5\u05dc \u05d4\u05ea\u05e7\u05df.', cmpVs: ' \u05de\u05d5\u05dc ', cmpNote: '\u05d4\u05e2\u05e8\u05db\u05d9\u05dd \u05d4\u05dd \u05d8\u05d5\u05d5\u05d7\u05d9\u05dd \u05d5\u05ea\u05dc\u05d5\u05d9\u05d9\u05dd \u05d1\u05de\u05e6\u05d1 \u05d4\u05d8\u05d9\u05e4\u05d5\u05dc. \u05de\u05d5\u05d3\u05d2\u05e9 = \u05d4\u05e2\u05e8\u05da \u05d4\u05d2\u05d1\u05d5\u05d4 \u05d9\u05d5\u05ea\u05e8.', cmpGroup: '\u05e1\u05d5\u05d2', cmpEq: '\u05e9\u05e7\u05d9\u05dc\u05d5\u05d9\u05d5\u05ea', cmpUse: '\u05e9\u05d9\u05de\u05d5\u05e9', cmpStd: '\u05ea\u05e7\u05e0\u05d9\u05dd', cmpOpen: '\u05e4\u05ea\u05d7 \u05d0\u05ea \u05d4\u05db\u05e8\u05d8\u05d9\u05e1 \u05e9\u05dc ',
       fltTitle: '\u05e1\u05d9\u05e0\u05d5\u05df \u05dc\u05e4\u05d9 \u05ea\u05db\u05d5\u05e0\u05d4', fltCount: function (n, shown) { return '\u05e0\u05de\u05e6\u05d0\u05d5 ' + n + ' \u05d7\u05d5\u05de\u05e8\u05d9\u05dd' + (n > shown ? ' (\u05de\u05d5\u05e6\u05d2\u05d9\u05dd ' + shown + ')' : ''); }, fltMore: '\u05d4\u05d8\u05d5\u05d5\u05d7 \u05e9\u05dc \u05d4\u05d7\u05d5\u05de\u05e8 \u05de\u05d2\u05d9\u05e2 \u05dc\u05e4\u05d7\u05d5\u05ea \u05dc-', fltLess: '\u05d4\u05d8\u05d5\u05d5\u05d7 \u05e9\u05dc \u05d4\u05d7\u05d5\u05de\u05e8 \u05de\u05ea\u05d7\u05d9\u05dc \u05dc\u05db\u05dc \u05d4\u05d9\u05d5\u05ea\u05e8 \u05d1-', fltNone: '\u05d0\u05d9\u05df \u05d7\u05d5\u05de\u05e8 \u05e9\u05e2\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d4\u05ea\u05e0\u05d0\u05d9.', cmpBtn: '\u21c4 \u05d4\u05e9\u05d5\u05d5\u05d4: ',
       mach2: '\u05e2\u05d9\u05d1\u05d5\u05d3\u05d9\u05d5\u05ea', weld2: '\u05e8\u05d9\u05ea\u05d5\u05db\u05d9\u05d5\u05ea', ph: '\u05d7\u05e4\u05e9 \u05d7\u05d5\u05de\u05e8, \u05de\u05d5\u05e0\u05d7 \u05d0\u05d5 \u05e0\u05d5\u05e9\u05d0... (\u05dc\u05de\u05e9\u05dc: C45, \u05de\u05e1\u05d1, 4140 \u05e8\u05d9\u05ea\u05d5\u05da)',
@@ -33,7 +33,7 @@
       eq: 'Equivalents in other standards (click to search the designation)', stds: 'Standards: ', topics: 'Related topics on the site', heat: 'Heat treatment', weld: 'Welding', mach: 'Machining', corr: 'Corrosion', coat: 'Coatings', std: 'Standards',
       termsIn: 'Terms that appear in this material', similar: 'Similar materials', videos: 'Video courses', calc: 'Quick calculator fed by the material', calcNote: '(Vc from the record: ', calcFull: 'Full calculator on the site',
       seeAlso: 'See also (concepts the definition relies on)', inDefs: 'Appears in the definitions of', matsMention: 'Materials that mention it', topicOf: 'Topic on the site (', pageOf: ' \u2014 page on the site',
-      gCalc: 'Calculators', gVid: 'Video courses', calcSub: 'Calculator on the site (opens in a new tab)', vidSub: 'Video series (opens in a new tab)', relaxed: 'No exact match for all the words. Showing the closest results.', didYou: 'Did you mean:', noneHelp: 'Try another word, or one of the examples.',
+      more: function (n) { return 'Show more (' + n + ')'; }, weak: function (n) { return 'Also show ' + n + ' weaker matches (the word appears only inside the text)'; }, gCalc: 'Calculators', gVid: 'Video courses', calcSub: 'Calculator on the site (opens in a new tab)', vidSub: 'Video series (opens in a new tab)', relaxed: 'No exact match for all the words. Showing the closest results.', didYou: 'Did you mean:', noneHelp: 'Try another word, or one of the examples.',
       eqIs: 'is equivalent to ', eqOpen: 'Open the card', eqNote: 'Per the site data. Check against the standard before using in a project.', cmpVs: ' vs ', cmpNote: 'Values are ranges and depend on the heat-treatment condition. Bold = the higher value.', cmpGroup: 'Type', cmpEq: 'Equivalents', cmpUse: 'Use', cmpStd: 'Standards', cmpOpen: 'Open the card of ',
       fltTitle: 'Filter by property', fltCount: function (n, shown) { return n + ' materials found' + (n > shown ? ' (showing ' + shown + ')' : ''); }, fltMore: 'the material range reaches at least ', fltLess: 'the material range starts at or below ', fltNone: 'No material meets the condition.', cmpBtn: '\u21c4 Compare: ',
       mach2: 'Machinability', weld2: 'Weldability', ph: 'Search a material, term or topic... (e.g. C45, bearing, 4140 welding)',
@@ -256,10 +256,11 @@
       return best;
     }
     function groupBest(d, g) { var b = 0, k, s; for (k = 0; k < g.alts.length; k++) { s = tokScore(d, g.alts[k]); if (s > b) { b = s; } } return b; }
+    var WEAK = false;
     function cutResults(out) {
       out.sort(function (a, b) { return b.s - a.s; });
-      if (out.length && out[0].s >= 70) { var cut = Math.max(15, out[0].s * 0.25); out = out.filter(function (r) { return r.s >= cut; }); }
-      return out;
+      if (!WEAK && out.length && out[0].s >= 70) { var cut = Math.max(15, out[0].s * 0.25), kept = out.filter(function (r) { return r.s >= cut; }); kept.hidden = out.length - kept.length; return kept; }
+      out.hidden = 0; return out;
     }
     function runGroups(groups, soft, hint, onlyType, nq, relaxed) {
       var softG = soft.map(function (t) { return { alts: alts(t) }; }), out = [], i, d, gi, b, tot, matched, need = relaxed ? Math.max(1, Math.ceil(groups.length * 0.5)) : groups.length, seen = [];
@@ -326,11 +327,11 @@
         var famOf = function (i) { var d = DOCS[i]; return d.st.length && P.groups.some(function (g) { return g.alts.indexOf(d.st[0]) >= 0; }) ? 1 : 0; };
         list.forEach(function (x) { x.f = P.groups.length ? famOf(x.i) : 0; });
         list.sort(function (x, y) { return (y.f - x.f) || (F.cmp === 'more' ? y.r[1] - x.r[1] : x.r[0] - y.r[0]); });
-        R.filter = { prop: F.prop, cmp: F.cmp, num: F.num, count: list.length, items: list.slice(0, 12) };
-        R.results = list.slice(0, 12).map(function (x) { return { d: DOCS[x.i], s: 200 }; }); R.mode = 'filter'; return R;
+        R.filter = { prop: F.prop, cmp: F.cmp, num: F.num, count: list.length, items: list.slice(0, 60) };
+        R.results = list.slice(0, 60).map(function (x) { return { d: DOCS[x.i], s: 200 }; }); R.mode = 'filter'; return R;
       }
-      var res = runGroups(P.groups, P.soft, P.hint, null, P.n, false);
-      if (!res.length && P.groups.length > 1) { res = runGroups(P.groups, P.soft, P.hint, null, P.n, true); if (res.length) { R.mode = 'relaxed'; R.note = L.relaxed; } }
+      var res = runGroups(P.groups, P.soft, P.hint, null, P.n, false), hiddenCount = res.hidden || 0;
+      if (!res.length && P.groups.length > 1) { res = runGroups(P.groups, P.soft, P.hint, null, P.n, true); if (res.length) { R.mode = 'relaxed'; R.note = L.relaxed; hiddenCount = 0; } }
       else if (res.length && res.length < 5 && P.groups.length > 1) {
         var extra = runGroups(P.groups, P.soft, P.hint, null, P.n, true).filter(function (r) { return (r.d.type === 'calc' || r.d.type === 'vid') && !res.some(function (x) { return x.d === r.d; }); });
         res = res.concat(extra.slice(0, 4));
@@ -342,7 +343,7 @@
         mm.forEach(function (r, i) { r.s = 500 - i; });
         res = mm.concat(res.filter(function (r) { return mm.indexOf(r) < 0; }));
       }
-      R.results = res; R.answer = eqAnswer(P, res, q);
+      R.hidden = hiddenCount; R.results = res; R.answer = eqAnswer(P, res, q);
       return R;
     }
     function search(q) { var R = searchFull(q); return R === null ? null : R.results; }
@@ -503,19 +504,22 @@
     }
     function renderFilter(F) {
       var lab = L.pl[F.prop] || F.prop, cond = (F.cmp === 'more' ? L.fltMore : L.fltLess) + F.num;
-      var h = '<div class="xans"><h3 class="xcmph">' + L.fltTitle + ': ' + esc(lab) + '</h3><div class="xnote" style="margin:0 0 8px">' + esc(cond) + ' \u00b7 ' + L.fltCount(F.count, F.items.length) + '</div>';
+      var h = '<div class="xans"><h3 class="xcmph">' + L.fltTitle + ': ' + esc(lab) + '</h3><div class="xnote" style="margin:0 0 8px">' + esc(cond) + ' \u00b7 ' + L.fltCount(F.count, Math.min(F.count, 12)) + '</div>';
       if (!F.items.length) { return h + '<div class="xempty">' + L.fltNone + '</div></div>'; }
       F.items.forEach(function (x, ix) {
         var m = MATS[x.i];
-        h += '<button type="button" class="xrow" data-act="open" data-type="mat" data-ref="' + x.i + '" data-idx="' + ix + '"><span class="xic" style="color:' + esc(m.color || '#adb5bd') + '">\u25cf</span><span><span class="xt">' + esc(m.name) + '</span><br><span class="xs">' + esc(m.group) + ' \u00b7 ' + esc(lab) + ': <bdi>' + esc((m.props && m.props[F.prop]) || '') + '</bdi></span></span></button>';
+        h += '<button type="button" class="xrow' + (ix >= 12 ? ' xhid' : '') + '" data-act="open" data-type="mat" data-ref="' + x.i + '" data-idx="' + ix + '"><span class="xic" style="color:' + esc(m.color || '#adb5bd') + '">\u25cf</span><span><span class="xt">' + esc(m.name) + '</span><br><span class="xs">' + esc(m.group) + ' \u00b7 ' + esc(lab) + ': <bdi>' + esc((m.props && m.props[F.prop]) || '') + '</bdi></span></span></button>';
       });
+      if (F.items.length > 12) { h += '<button type="button" class="xchip xmorebtn" data-act="more">' + L.more(F.items.length - 12) + '</button>'; }
       return h + '</div>';
     }
     function calcUrl(c) { return HE ? P + 'calc.html#sub=' + c.s : P + 'calc.html'; }
 
     /* ---------- results list ---------- */
-    var activeIdx = -1;
-    function runSearch(q) {
+    var activeIdx = -1, showWeak = false;
+    function runSearch(q, keepWeak) {
+      if (!keepWeak) { showWeak = false; }
+      WEAK = showWeak;
       var R = searchFull(q), box = $('xresults'), st = $('xstatus');
       if (R === null) { box.innerHTML = ''; st.textContent = ''; return; }
       var html = '', idx = 0, by = { mat: [], term: [], cat: [], calc: [], vid: [] };
@@ -527,14 +531,16 @@
         var section = function (title, arr, lim, render) {
           if (!arr.length) { return; }
           html += '<div class="xgrp"><h3>' + title + ' <span class="xnote">(' + arr.length + ')</span></h3>';
-          arr.slice(0, lim).forEach(function (r) { html += render(r.d, idx++); });
+          arr.forEach(function (r, i) { html += render(r.d, idx++, i >= lim); });
+          if (arr.length > lim) { html += '<button type="button" class="xchip xmorebtn" data-act="more">' + L.more(arr.length - lim) + '</button>'; }
           html += '</div>';
         };
-        section(L.gMat, by.mat, 6, function (d, ix) { var m = MATS[d.ref]; return '<button type="button" class="xrow" data-act="open" data-type="mat" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic" style="color:' + esc(m.color || '#adb5bd') + '">\u25cf</span><span><span class="xt">' + hl(m.name, q) + '</span><br><span class="xs">' + esc(m.group) + ' \u00b7 <bdi>' + esc((m.props && m.props.RM) || '') + '</bdi></span></span></button>'; });
-        section(L.gTerm, by.term, 6, function (d, ix) { var g = GLOS[d.ref], a = HE ? g.he : g.en, b = HE ? g.en : g.he; return '<button type="button" class="xrow" data-act="open" data-type="term" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic">\ud83d\udcd6</span><span><span class="xt">' + hl(a, q) + ' <span class="xalt">\u00b7 ' + hl(b, q) + (g.abbr ? ' (' + hl(g.abbr, q) + ')' : '') + '</span></span><br><span class="xs">' + esc(g.cat) + ' \u00b7 ' + esc((g.def || '').slice(0, 70)) + '\u2026</span></span></button>'; });
-        section(L.gCalc, by.calc, 4, function (d, ix) { var c = CALCS[d.ref]; return '<a class="xrow" data-idx="' + ix + '" href="' + calcUrl(c) + '" target="_blank" rel="noopener"><span class="xic">\ud83e\uddee</span><span><span class="xt">' + hl(c.t, q) + '</span><br><span class="xs">' + esc(CTABS[c.s] || '') + (c.d ? ' \u00b7 ' + esc(c.d) : '') + '</span></span></a>'; });
-        section(L.gVid, by.vid, 3, function (d, ix) { var v = VIDS[d.ref]; return '<a class="xrow" data-idx="' + ix + '" href="' + v.u[HE ? 0 : 1] + '" target="_blank" rel="noopener"><span class="xic">\ud83c\udfac</span><span><span class="xt">' + esc(HE ? v.he : v.en) + '</span><br><span class="xs">' + L.vidSub + '</span></span></a>'; });
-        section(L.gCat, by.cat, 3, function (d, ix) { var c = CATS[d.ref]; return '<a class="xrow" data-idx="' + ix + '" href="' + pageUrl(c.k) + '" target="_blank" rel="noopener"><span class="xic">' + c.i + '</span><span><span class="xt">' + esc(cname(c)) + '</span><br><span class="xs">' + L.catSub + '</span></span></a>'; });
+        section(L.gMat, by.mat, 6, function (d, ix, hid) { var m = MATS[d.ref]; return '<button type="button" class="xrow' + (hid ? ' xhid' : '') + '" data-act="open" data-type="mat" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic" style="color:' + esc(m.color || '#adb5bd') + '">\u25cf</span><span><span class="xt">' + hl(m.name, q) + '</span><br><span class="xs">' + esc(m.group) + ' \u00b7 <bdi>' + esc((m.props && m.props.RM) || '') + '</bdi></span></span></button>'; });
+        section(L.gTerm, by.term, 6, function (d, ix, hid) { var g = GLOS[d.ref], a = HE ? g.he : g.en, b = HE ? g.en : g.he; return '<button type="button" class="xrow' + (hid ? ' xhid' : '') + '" data-act="open" data-type="term" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic">\ud83d\udcd6</span><span><span class="xt">' + hl(a, q) + ' <span class="xalt">\u00b7 ' + hl(b, q) + (g.abbr ? ' (' + hl(g.abbr, q) + ')' : '') + '</span></span><br><span class="xs">' + esc(g.cat) + ' \u00b7 ' + esc((g.def || '').slice(0, 70)) + '\u2026</span></span></button>'; });
+        section(L.gCalc, by.calc, 4, function (d, ix, hid) { var c = CALCS[d.ref]; return '<a class="xrow' + (hid ? ' xhid' : '') + '" data-idx="' + ix + '" href="' + calcUrl(c) + '" target="_blank" rel="noopener"><span class="xic">\ud83e\uddee</span><span><span class="xt">' + hl(c.t, q) + '</span><br><span class="xs">' + esc(CTABS[c.s] || '') + (c.d ? ' \u00b7 ' + esc(c.d) : '') + '</span></span></a>'; });
+        section(L.gVid, by.vid, 3, function (d, ix, hid) { var v = VIDS[d.ref]; return '<a class="xrow' + (hid ? ' xhid' : '') + '" data-idx="' + ix + '" href="' + v.u[HE ? 0 : 1] + '" target="_blank" rel="noopener"><span class="xic">\ud83c\udfac</span><span><span class="xt">' + esc(HE ? v.he : v.en) + '</span><br><span class="xs">' + L.vidSub + '</span></span></a>'; });
+        section(L.gCat, by.cat, 3, function (d, ix, hid) { var c = CATS[d.ref]; return '<a class="xrow' + (hid ? ' xhid' : '') + '" data-idx="' + ix + '" href="' + pageUrl(c.k) + '" target="_blank" rel="noopener"><span class="xic">' + c.i + '</span><span><span class="xt">' + esc(cname(c)) + '</span><br><span class="xs">' + L.catSub + '</span></span></a>'; });
+        if (R.hidden > 0 && !showWeak) { html += '<div class="xgrp"><button type="button" class="xchip" data-act="weak">' + L.weak(R.hidden) + '</button></div>'; }
         if (!R.results.length) {
           html += '<div class="xempty">' + L.noRes + ' ' + L.noneHelp + (R.suggestion ? '<div style="margin-top:10px">' + L.didYou + ' <button type="button" class="xchip" data-act="search" data-q="' + esc(R.suggestion) + '">' + esc(R.suggestion) + '</button></div>' : '') + '</div>';
         }
@@ -544,7 +550,7 @@
       activeIdx = -1;
     }
     function setActive(n) {
-      var rows = document.querySelectorAll('#xresults .xrow'); if (!rows.length) { return; }
+      var rows = document.querySelectorAll('#xresults .xrow:not(.xhid)'); if (!rows.length) { return; }
       activeIdx = (n + rows.length) % rows.length; Array.prototype.forEach.call(rows, function (r, i) { r.classList.toggle('xact', i === activeIdx); });
       if (rows[activeIdx].scrollIntoView) { rows[activeIdx].scrollIntoView({ block: 'nearest' }); }
     }
@@ -556,13 +562,15 @@
     q.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowDown') { e.preventDefault(); setActive(activeIdx + 1); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(activeIdx - 1); }
-      else if (e.key === 'Enter') { var rows = document.querySelectorAll('#xresults .xrow'), r = rows[activeIdx >= 0 ? activeIdx : 0]; if (r) { r.click(); } }
+      else if (e.key === 'Enter') { var rows = document.querySelectorAll('#xresults .xrow:not(.xhid)'), r = rows[activeIdx >= 0 ? activeIdx : 0]; if (r) { r.click(); } }
       else if (e.key === 'Escape') { q.value = ''; runSearch(''); }
     });
     function onAct(e) {
       var el = e.target.closest ? e.target.closest('[data-act]') : null; if (!el) { return; } var a = el.getAttribute('data-act');
       if (a === 'open') { openItem(el.getAttribute('data-type'), +el.getAttribute('data-ref')); }
       else if (a === 'search') { q.value = el.getAttribute('data-q'); runSearch(q.value); q.focus(); window.scrollTo(0, 0); }
+      else if (a === 'more') { var grp = el.parentNode, hid = grp.querySelectorAll('.xhid'), k; for (k = 0; k < hid.length && k < 20; k++) { hid[k].classList.remove('xhid'); } var left = grp.querySelectorAll('.xhid').length; if (left) { el.textContent = L.more(left); } else { grp.removeChild(el); } }
+      else if (a === 'weak') { showWeak = true; runSearch(q.value, true); }
       else if (a === 'trail') { var s = trail[+el.getAttribute('data-i')]; if (s) { openItem(s.type, s.ref, +el.getAttribute('data-i')); } }
     }
     ['xresults', 'xdetail', 'xtrail'].forEach(function (id) { $(id).addEventListener('click', onAct); });
