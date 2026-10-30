@@ -16,7 +16,7 @@
     var origin = cfg.origin || '';
     var base = origin + (HE ? '/' : '/en/');
     var cur = cfg.current || (function () { var m = location.pathname.match(/([^\/]+)\.html$/); return m ? m[1] : 'index'; })();
-    var T = HE ? { btn: '\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd', title: '\u05db\u05dc \u05d4\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd', home: '\u05e2\u05de\u05d5\u05d3 \u05d4\u05d1\u05d9\u05ea', close: '\u05e1\u05d2\u05d9\u05e8\u05d4', newtab: ' (\u05e0\u05e4\u05ea\u05d7 \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)' } : { btn: 'Topics', title: 'All topics', home: 'Home', close: 'Close', newtab: ' (opens in a new tab)' };
+    var T = HE ? { btn: '\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd', title: '\u05db\u05dc \u05d4\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd', home: '\u05e2\u05de\u05d5\u05d3 \u05d4\u05d1\u05d9\u05ea', smart: '\u05d7\u05d9\u05e4\u05d5\u05e9 \u05d7\u05db\u05dd', close: '\u05e1\u05d2\u05d9\u05e8\u05d4', newtab: ' (\u05e0\u05e4\u05ea\u05d7 \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)' } : { btn: 'Topics', title: 'All topics', home: 'Home', smart: 'Smart Search', close: 'Close', newtab: ' (opens in a new tab)' };
     var G = [
       { he: '\u05e1\u05e8\u05d8\u05d5\u05e0\u05d9 \u05d4\u05d3\u05e8\u05db\u05d4', en: 'Video Courses', v: 1, i: [
         ['gdt-video', '\ud83c\udfac', '\u05e1\u05d5\u05d1\u05dc\u05e0\u05d5\u05ea \u05d2\u05d9\u05d0\u05d5\u05de\u05d8\u05e8\u05d9\u05ea (GD&T)', 'Geometric Tolerancing (GD&T)', '/gdt-video/', '/en/gdt-video-en/'],
@@ -62,7 +62,9 @@
       '#mh-menu-panel .mhm-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}',
       '#mh-menu-panel .mhm-ic{width:22px;flex:0 0 22px;text-align:center;font-size:16px}',
       '#mh-menu-panel .mhm-top{display:flex;align-items:center;justify-content:space-between;gap:10px}',
-      '#mh-menu-panel .mhm-home{flex:0 1 240px}',
+      '#mh-menu-panel .mhm-home{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 auto}',
+      '#mh-menu-panel .mhm-home li{flex:0 1 auto}',
+      '#mh-menu-panel .mhm-home a{white-space:nowrap}',
       '#mh-menu-panel .mhm-x{flex:0 0 auto;width:34px;height:34px;border-radius:8px;border:1px solid var(--border,#30363d);background:var(--card,#1c2128);color:var(--text,#e6edf3);font-size:15px;line-height:1;cursor:pointer}',
       '#mh-menu-panel .mhm-x:hover{border-color:var(--blue,#58a6ff)}',
       '#mh-menu-panel .mhm-x:focus-visible{outline:2px solid var(--blue,#58a6ff);outline-offset:2px}',
@@ -92,7 +94,8 @@
     var panel = el('nav', { id: 'mh-menu-panel', 'aria-label': T.title });
     panel.hidden = true;
     var topRow = el('div', { 'class': 'mhm-top' }), homeUl = el('ul', { 'class': 'mhm-home' }), homeLi = el('li');
-    homeLi.appendChild(link(base, '\ud83c\udfe0', T.home, 'index')); homeUl.appendChild(homeLi); topRow.appendChild(homeUl);
+    homeLi.appendChild(link(base, '\ud83c\udfe0', T.home, 'index')); homeUl.appendChild(homeLi);
+    var smartLi = el('li'); smartLi.appendChild(link(base + 'explore.html', '\ud83e\udded', T.smart, 'explore')); homeUl.appendChild(smartLi); topRow.appendChild(homeUl);
     var xBtn = el('button', { type: 'button', 'class': 'mhm-x', 'aria-label': T.close }, '\u2715'); topRow.appendChild(xBtn); panel.appendChild(topRow);
     var cols = el('div', { 'class': 'mhm-cols' });
     G.forEach(function (g, gi) {
