@@ -152,6 +152,15 @@ details.xrel>summary{cursor:pointer;font-weight:800;color:var(--blue)}
 .xcalc input{width:74px;font:inherit;padding:4px 6px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text)}.xcalc output{font-weight:800;color:var(--green)}
 .xempty{color:var(--muted);padding:18px 4px}.xhint{color:var(--muted);padding:26px 6px;text-align:center}
 @media(max-width:640px){#xq{font-size:16px}.xcard{padding:14px}}
+.xans{background:rgba(56,139,253,.07);border:1px solid rgba(88,166,255,.4);border-radius:12px;padding:12px 14px;margin:10px 0}
+.xansl{margin-top:6px;color:var(--text);line-height:1.8}
+.xcmph{margin:0 0 8px;font-size:16px;color:var(--text)}
+.xscroll{overflow-x:auto}
+table.xcmp{width:100%;border-collapse:collapse;font-size:13px}
+table.xcmp th,table.xcmp td{border:1px solid var(--border);padding:6px 9px;text-align:start;vertical-align:top}
+table.xcmp thead th{background:var(--card)}table.xcmp tbody th{background:var(--card);color:var(--muted);font-weight:600;white-space:nowrap}
+table.xcmp td.xhi{font-weight:800;color:var(--green)}
+
 </style>
 
 </head>
@@ -184,6 +193,7 @@ details.xrel>summary{cursor:pointer;font-weight:800;color:var(--blue)}
 <li><b>Type</b> in the box, in English or Hebrew. A typo does not matter. Try the examples under the box.</li>
 <li><b>Click a result</b> (a material or a term) to open its card.</li>
 <li>In the card open <b>"Linked to..."</b>. Every button there is a link: an equivalent in another standard, a topic on the site, a term, a similar material or a video. <b>Click a link to go to it</b>, and you move from idea to idea and learn. Materials with a recorded cutting speed (for example <b>1018</b>) also show a quick RPM calculator already fed with the material's data.</li>
+<li>You can also ask in <b>plain language</b> ("steel for shaft", "corrosion resistant material"), <b>compare</b> ("4140 vs 4340"), <b>filter by property</b> ("tensile over 800") and ask for an <b>equivalent</b> ("equivalent of 316L"). Calculators and video courses appear in the results too.</li>
 <li>The <b>learning trail</b> shows the path you took. Click a step to go back to it.</li>
 <li>Buttons with 🎬 or 🔗 open the video or the page on the site, in a new tab.</li>
 </ol></details>
@@ -207,8 +217,8 @@ function toggleTheme(){
   localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
 }
 </script>
-<script src="/en/explore-data.js?v=1" defer></script>
-<script src="/explore.js?v=1" defer></script>
+<script src="/en/explore-data.js?v=2" defer></script>
+<script src="/explore.js?v=2" defer></script>
 <script src="/analytics.js" defer></script>
 <script src="/menu.js?v=2" defer></script>
 <script src="/a11y.js?v=2" defer></script>

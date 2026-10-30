@@ -158,6 +158,15 @@ details.xrel>summary{cursor:pointer;font-weight:800;color:var(--blue)}
 .xcalc input{width:74px;font:inherit;padding:4px 6px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text)}.xcalc output{font-weight:800;color:var(--green)}
 .xempty{color:var(--muted);padding:18px 4px}.xhint{color:var(--muted);padding:26px 6px;text-align:center}
 @media(max-width:640px){#xq{font-size:16px}.xcard{padding:14px}}
+.xans{background:rgba(56,139,253,.07);border:1px solid rgba(88,166,255,.4);border-radius:12px;padding:12px 14px;margin:10px 0}
+.xansl{margin-top:6px;color:var(--text);line-height:1.8}
+.xcmph{margin:0 0 8px;font-size:16px;color:var(--text)}
+.xscroll{overflow-x:auto}
+table.xcmp{width:100%;border-collapse:collapse;font-size:13px}
+table.xcmp th,table.xcmp td{border:1px solid var(--border);padding:6px 9px;text-align:start;vertical-align:top}
+table.xcmp thead th{background:var(--card)}table.xcmp tbody th{background:var(--card);color:var(--muted);font-weight:600;white-space:nowrap}
+table.xcmp td.xhi{font-weight:800;color:var(--green)}
+
 </style>
 
 </head>
@@ -191,6 +200,7 @@ details.xrel>summary{cursor:pointer;font-weight:800;color:var(--blue)}
 <li><b>הקלד</b> בתיבה, בעברית או באנגלית. שגיאת כתיב לא מפריעה. נסה את הדוגמאות שמתחת לתיבה.</li>
 <li><b>לחץ על תוצאה</b> (חומר או מונח), ונפתח כרטיס עם הנתונים שלו.</li>
 <li>בכרטיס פתח <b>"מקושר ל..."</b>. כל כפתור שם הוא קשר: שקילות בתקן, נושא באתר, מונח, חומר דומה או סרטון. <b>לחץ על קשר כדי לעבור אליו</b>. כך עוברים מרעיון לרעיון ולומדים. בחומרים שיש להם מהירות חיתוך רשומה (למשל <b>1018</b>) מופיע גם מחשבון סל"ד מהיר שכבר מוזן בנתוני החומר.</li>
+<li>אפשר לשאול גם <b>בשפה חופשית</b> ("פלדה לציר", "חומר עמיד בקורוזיה"), <b>להשוות</b> ("4140 מול 4340"), <b>לסנן לפי תכונה</b> ("חוזק מעל 800") ולבקש <b>שקילות</b> ("מה השקול של 316L"). גם המחשבונים והסרטונים מופיעים בתוצאות.</li>
 <li><b>נתיב הלימוד</b> מראה את הדרך שעברת. לחץ על שלב כדי לחזור אליו.</li>
 <li>כפתורים עם 🎬 או 🔗 פותחים את הסרטון או הדף באתר, בלשונית חדשה.</li>
 </ol></details>
@@ -214,8 +224,8 @@ function toggleTheme(){
   localStorage.setItem('mh-theme', isLight ? 'light' : 'dark');
 }
 </script>
-<script src="/explore-data.js?v=1" defer></script>
-<script src="/explore.js?v=1" defer></script>
+<script src="/explore-data.js?v=2" defer></script>
+<script src="/explore.js?v=2" defer></script>
 <script src="/analytics.js" defer></script>
 <script src="/menu.js?v=2" defer></script>
 <script src="/a11y.js?v=2" defer></script>

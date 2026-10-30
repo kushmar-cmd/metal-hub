@@ -1,4 +1,4 @@
-/*! METAL HUB - smart search and concept links (explore.js).
+/*! METAL HUB - smart search and concept links (explore.js) - search engine v2.
  *  Loaded by /explore.html and /en/explore.html together with the data file (explore-data.js). Self-contained.
  *  Language comes from <html lang>. Every link between concepts is computed here from the existing texts. */
 (function () {
@@ -11,7 +11,7 @@
   function init() {
     var D = window.MH_EXPLORE, root = document.getElementById('xroot');
     if (!D || !root) { return; }
-    var MATS = D.mats, GLOS = D.glos;
+    var MATS = D.mats, GLOS = D.glos, CALCS = D.calcs || [], CTABS = D.ctabs || {};
     var HE = (document.documentElement.getAttribute('lang') || 'he').toLowerCase().indexOf('he') === 0;
     var P = HE ? '/' : '/en/';
     var L = HE ? {
@@ -21,6 +21,9 @@
       eq: '\u05e9\u05e7\u05d9\u05dc\u05d5\u05ea \u05d1\u05ea\u05e7\u05e0\u05d9\u05dd (\u05dc\u05d7\u05e5 \u05db\u05d3\u05d9 \u05dc\u05d7\u05e4\u05e9 \u05d0\u05ea \u05d4\u05e1\u05d9\u05de\u05d5\u05df)', stds: '\u05ea\u05e7\u05e0\u05d9\u05dd: ', topics: '\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd \u05e7\u05e9\u05d5\u05e8\u05d9\u05dd \u05d1\u05d0\u05ea\u05e8', heat: '\u05d8\u05d9\u05e4\u05d5\u05dc \u05d7\u05d5\u05dd', weld: '\u05e8\u05d9\u05ea\u05d5\u05da', mach: '\u05e2\u05d9\u05d1\u05d5\u05d3 \u05de\u05db\u05e0\u05d9', corr: '\u05e7\u05d5\u05e8\u05d5\u05d6\u05d9\u05d4', coat: '\u05e6\u05d9\u05e4\u05d5\u05d9\u05d9\u05dd', std: '\u05ea\u05e7\u05e0\u05d9\u05dd',
       termsIn: '\u05de\u05d5\u05e0\u05d7\u05d9\u05dd \u05e9\u05de\u05d5\u05e4\u05d9\u05e2\u05d9\u05dd \u05d1\u05d7\u05d5\u05de\u05e8', similar: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05d3\u05d5\u05de\u05d9\u05dd', videos: '\u05e1\u05e8\u05d8\u05d5\u05e0\u05d9 \u05d4\u05d3\u05e8\u05db\u05d4', calc: '\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05de\u05d4\u05d9\u05e8 \u05e2\u05dd \u05e0\u05ea\u05d5\u05e0\u05d9 \u05d4\u05d7\u05d5\u05de\u05e8', calcNote: '(Vc \u05de\u05d4\u05e8\u05e9\u05d5\u05de\u05d4: ', calcFull: '\u05d4\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d4\u05de\u05dc\u05d0 \u05d1\u05d0\u05ea\u05e8',
       seeAlso: '\u05e8\u05d0\u05d4 \u05d2\u05dd (\u05de\u05d5\u05e9\u05d2\u05d9\u05dd \u05e9\u05d4\u05d4\u05d2\u05d3\u05e8\u05d4 \u05e0\u05e9\u05e2\u05e0\u05ea \u05e2\u05dc\u05d9\u05d4\u05dd)', inDefs: '\u05de\u05d5\u05e4\u05d9\u05e2 \u05d1\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05e9\u05dc', matsMention: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05e9\u05de\u05d5\u05d6\u05db\u05e8 \u05d1\u05d4\u05dd', topicOf: '\u05e0\u05d5\u05e9\u05d0 \u05d1\u05d0\u05ea\u05e8 (', pageOf: ' \u2014 \u05d4\u05d3\u05e3 \u05d1\u05d0\u05ea\u05e8',
+      gCalc: '\u05de\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05dd', gVid: '\u05e1\u05e8\u05d8\u05d5\u05e0\u05d9 \u05d4\u05d3\u05e8\u05db\u05d4', calcSub: '\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d1\u05d0\u05ea\u05e8 (\u05e0\u05e4\u05ea\u05d7 \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)', vidSub: '\u05e1\u05d3\u05e8\u05ea \u05d4\u05d3\u05e8\u05db\u05d4 (\u05e0\u05e4\u05ea\u05d7\u05ea \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)', relaxed: '\u05dc\u05d0 \u05e0\u05de\u05e6\u05d0\u05d4 \u05d4\u05ea\u05d0\u05de\u05d4 \u05de\u05dc\u05d0\u05d4 \u05dc\u05db\u05dc \u05d4\u05de\u05d9\u05dc\u05d9\u05dd. \u05de\u05d5\u05e6\u05d2\u05d5\u05ea \u05d4\u05ea\u05d5\u05e6\u05d0\u05d5\u05ea \u05d4\u05e7\u05e8\u05d5\u05d1\u05d5\u05ea \u05d1\u05d9\u05d5\u05ea\u05e8.', didYou: '\u05d4\u05d0\u05dd \u05d4\u05ea\u05db\u05d5\u05d5\u05e0\u05ea \u05dc:', noneHelp: '\u05e0\u05e1\u05d4 \u05de\u05d9\u05dc\u05d4 \u05d0\u05d7\u05e8\u05ea, \u05d0\u05d5 \u05d0\u05d7\u05ea \u05de\u05d4\u05d3\u05d5\u05d2\u05de\u05d0\u05d5\u05ea.',
+      eqIs: '\u05e9\u05e7\u05d5\u05dc \u05dc-', eqOpen: '\u05e4\u05ea\u05d7 \u05d0\u05ea \u05d4\u05db\u05e8\u05d8\u05d9\u05e1', eqNote: '\u05dc\u05e4\u05d9 \u05e0\u05ea\u05d5\u05e0\u05d9 \u05d4\u05d0\u05ea\u05e8. \u05dc\u05e4\u05e0\u05d9 \u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05d1\u05d3\u05d5\u05e7 \u05de\u05d5\u05dc \u05d4\u05ea\u05e7\u05df.', cmpVs: ' \u05de\u05d5\u05dc ', cmpNote: '\u05d4\u05e2\u05e8\u05db\u05d9\u05dd \u05d4\u05dd \u05d8\u05d5\u05d5\u05d7\u05d9\u05dd \u05d5\u05ea\u05dc\u05d5\u05d9\u05d9\u05dd \u05d1\u05de\u05e6\u05d1 \u05d4\u05d8\u05d9\u05e4\u05d5\u05dc. \u05de\u05d5\u05d3\u05d2\u05e9 = \u05d4\u05e2\u05e8\u05da \u05d4\u05d2\u05d1\u05d5\u05d4 \u05d9\u05d5\u05ea\u05e8.', cmpGroup: '\u05e1\u05d5\u05d2', cmpEq: '\u05e9\u05e7\u05d9\u05dc\u05d5\u05d9\u05d5\u05ea', cmpUse: '\u05e9\u05d9\u05de\u05d5\u05e9', cmpStd: '\u05ea\u05e7\u05e0\u05d9\u05dd', cmpOpen: '\u05e4\u05ea\u05d7 \u05d0\u05ea \u05d4\u05db\u05e8\u05d8\u05d9\u05e1 \u05e9\u05dc ',
+      fltTitle: '\u05e1\u05d9\u05e0\u05d5\u05df \u05dc\u05e4\u05d9 \u05ea\u05db\u05d5\u05e0\u05d4', fltCount: function (n, shown) { return '\u05e0\u05de\u05e6\u05d0\u05d5 ' + n + ' \u05d7\u05d5\u05de\u05e8\u05d9\u05dd' + (n > shown ? ' (\u05de\u05d5\u05e6\u05d2\u05d9\u05dd ' + shown + ')' : ''); }, fltMore: '\u05d4\u05d8\u05d5\u05d5\u05d7 \u05e9\u05dc \u05d4\u05d7\u05d5\u05de\u05e8 \u05de\u05d2\u05d9\u05e2 \u05dc\u05e4\u05d7\u05d5\u05ea \u05dc-', fltLess: '\u05d4\u05d8\u05d5\u05d5\u05d7 \u05e9\u05dc \u05d4\u05d7\u05d5\u05de\u05e8 \u05de\u05ea\u05d7\u05d9\u05dc \u05dc\u05db\u05dc \u05d4\u05d9\u05d5\u05ea\u05e8 \u05d1-', fltNone: '\u05d0\u05d9\u05df \u05d7\u05d5\u05de\u05e8 \u05e9\u05e2\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d4\u05ea\u05e0\u05d0\u05d9.', cmpBtn: '\u21c4 \u05d4\u05e9\u05d5\u05d5\u05d4: ',
       mach2: '\u05e2\u05d9\u05d1\u05d5\u05d3\u05d9\u05d5\u05ea', weld2: '\u05e8\u05d9\u05ea\u05d5\u05db\u05d9\u05d5\u05ea', ph: '\u05d7\u05e4\u05e9 \u05d7\u05d5\u05de\u05e8, \u05de\u05d5\u05e0\u05d7 \u05d0\u05d5 \u05e0\u05d5\u05e9\u05d0... (\u05dc\u05de\u05e9\u05dc: C45, \u05de\u05e1\u05d1, 4140 \u05e8\u05d9\u05ea\u05d5\u05da)',
       pl: { RM: '\u05d7\u05d5\u05d6\u05e7 \u05de\u05ea\u05d9\u05d7\u05d4', Rp0: '\u05d2\u05d1\u05d5\u05dc \u05db\u05e0\u05d9\u05e2\u05d4', HB: '\u05e7\u05e9\u05d9\u05d5\u05ea HB', E: '\u05de\u05d5\u05d3\u05d5\u05dc E', A: '\u05d4\u05ea\u05d0\u05e8\u05db\u05d5\u05ea', rho: '\u05e6\u05e4\u05d9\u05e4\u05d5\u05ea', '\u03c1': '\u05e6\u05e4\u05d9\u05e4\u05d5\u05ea' }
     } : {
@@ -30,6 +33,9 @@
       eq: 'Equivalents in other standards (click to search the designation)', stds: 'Standards: ', topics: 'Related topics on the site', heat: 'Heat treatment', weld: 'Welding', mach: 'Machining', corr: 'Corrosion', coat: 'Coatings', std: 'Standards',
       termsIn: 'Terms that appear in this material', similar: 'Similar materials', videos: 'Video courses', calc: 'Quick calculator fed by the material', calcNote: '(Vc from the record: ', calcFull: 'Full calculator on the site',
       seeAlso: 'See also (concepts the definition relies on)', inDefs: 'Appears in the definitions of', matsMention: 'Materials that mention it', topicOf: 'Topic on the site (', pageOf: ' \u2014 page on the site',
+      gCalc: 'Calculators', gVid: 'Video courses', calcSub: 'Calculator on the site (opens in a new tab)', vidSub: 'Video series (opens in a new tab)', relaxed: 'No exact match for all the words. Showing the closest results.', didYou: 'Did you mean:', noneHelp: 'Try another word, or one of the examples.',
+      eqIs: 'is equivalent to ', eqOpen: 'Open the card', eqNote: 'Per the site data. Check against the standard before using in a project.', cmpVs: ' vs ', cmpNote: 'Values are ranges and depend on the heat-treatment condition. Bold = the higher value.', cmpGroup: 'Type', cmpEq: 'Equivalents', cmpUse: 'Use', cmpStd: 'Standards', cmpOpen: 'Open the card of ',
+      fltTitle: 'Filter by property', fltCount: function (n, shown) { return n + ' materials found' + (n > shown ? ' (showing ' + shown + ')' : ''); }, fltMore: 'the material range reaches at least ', fltLess: 'the material range starts at or below ', fltNone: 'No material meets the condition.', cmpBtn: '\u21c4 Compare: ',
       mach2: 'Machinability', weld2: 'Weldability', ph: 'Search a material, term or topic... (e.g. C45, bearing, 4140 welding)',
       pl: { RM: 'Tensile strength', Rp0: 'Yield strength', HB: 'Hardness HB', E: 'Modulus E', A: 'Elongation', rho: 'Density', '\u03c1': 'Density' }
     };
@@ -67,17 +73,18 @@
       ['glossary', '\ud83d\udcd6', '\u05de\u05d9\u05dc\u05d5\u05df \u05de\u05d5\u05e0\u05d7\u05d9\u05dd', 'Glossary', 'term']
     ].map(function (c) { return { k: c[0], i: c[1], he: c[2], en: c[3], kw: c[4] }; });
     var VIDS = [
-      { he: '\u05e1\u05d5\u05d1\u05dc\u05e0\u05d5\u05ea \u05d2\u05d9\u05d0\u05d5\u05de\u05d8\u05e8\u05d9\u05ea (GD&T)', en: 'Geometric Tolerancing (GD&T)', u: ['/gdt-video/', '/en/gdt-video-en/'], pages: ['gdt', 'tol'] },
-      { he: '\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05d9\u05d9\u05e6\u05d5\u05e8 \u05d5\u05e2\u05d9\u05d1\u05d5\u05d3', en: 'Manufacturing Processes', u: ['/manufacturing-course.html', '/en/manufacturing-course-en.html'], pages: ['mfgtech', 'machining', 'welding', 'threads', 'dfm'] },
-      { he: '\u05e6\u05d9\u05e4\u05d5\u05d9\u05d9\u05dd, \u05d2\u05d9\u05de\u05d5\u05e8\u05d9\u05dd \u05d5\u05e6\u05d1\u05e2', en: 'Coatings, Finishes & Paint', u: ['/coatings-course.html', '/en/coatings-course.html'], pages: ['coatings', 'surface', 'corrosion'] },
-      { he: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05d5\u05de\u05d8\u05dc\u05d5\u05e8\u05d2\u05d9\u05d4', en: 'Materials & Metallurgy', u: ['/metallurgy-course.html', '/en/metallurgy-course.html'], pages: ['materials', 'metallurgy', 'heat', 'corrosion'] },
-      { he: '\u05e7\u05e8\u05d9\u05d0\u05ea \u05e9\u05e8\u05d8\u05d5\u05d8', en: 'Drawing Reading', u: ['/drawing-course.html', '/en/drawing-course.html'], pages: ['inspection', 'standards', 'tol', 'gdt'] }
+      { he: '\u05e1\u05d5\u05d1\u05dc\u05e0\u05d5\u05ea \u05d2\u05d9\u05d0\u05d5\u05de\u05d8\u05e8\u05d9\u05ea (GD&T)', en: 'Geometric Tolerancing (GD&T)', u: ['/gdt-video/', '/en/gdt-video-en/'], pages: ['gdt', 'tol'], kw: 'gdt gd&t \u05e1\u05d5\u05d1\u05dc\u05e0\u05d5\u05ea \u05d2\u05d9\u05d0\u05d5\u05de\u05d8\u05e8\u05d9\u05ea tolerancing datum' },
+      { he: '\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05d9\u05d9\u05e6\u05d5\u05e8 \u05d5\u05e2\u05d9\u05d1\u05d5\u05d3', en: 'Manufacturing Processes', u: ['/manufacturing-course.html', '/en/manufacturing-course-en.html'], pages: ['mfgtech', 'machining', 'welding', 'threads', 'dfm'], kw: '\u05d9\u05d9\u05e6\u05d5\u05e8 \u05e2\u05d9\u05d1\u05d5\u05d3 manufacturing processes cnc machining' },
+      { he: '\u05e6\u05d9\u05e4\u05d5\u05d9\u05d9\u05dd, \u05d2\u05d9\u05de\u05d5\u05e8\u05d9\u05dd \u05d5\u05e6\u05d1\u05e2', en: 'Coatings, Finishes & Paint', u: ['/coatings-course.html', '/en/coatings-course.html'], pages: ['coatings', 'surface', 'corrosion'], kw: '\u05e6\u05d9\u05e4\u05d5\u05d9\u05d9\u05dd \u05e6\u05d1\u05e2 \u05d2\u05d9\u05de\u05d5\u05e8 coatings paint finish anodize' },
+      { he: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05d5\u05de\u05d8\u05dc\u05d5\u05e8\u05d2\u05d9\u05d4', en: 'Materials & Metallurgy', u: ['/metallurgy-course.html', '/en/metallurgy-course.html'], pages: ['materials', 'metallurgy', 'heat', 'corrosion'], kw: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05de\u05d8\u05dc\u05d5\u05e8\u05d2\u05d9\u05d4 metallurgy materials steel' },
+      { he: '\u05e7\u05e8\u05d9\u05d0\u05ea \u05e9\u05e8\u05d8\u05d5\u05d8', en: 'Drawing Reading', u: ['/drawing-course.html', '/en/drawing-course.html'], pages: ['inspection', 'standards', 'tol', 'gdt'], kw: '\u05e9\u05e8\u05d8\u05d5\u05d8 \u05e7\u05e8\u05d9\u05d0\u05ea drawing reading blueprint' }
     ];
 
     /* ---------- helpers ---------- */
     var FIN = { '\u05da': '\u05db', '\u05dd': '\u05de', '\u05df': '\u05e0', '\u05e3': '\u05e4', '\u05e5': '\u05e6' };
     function norm(s) {
       s = String(s == null ? '' : s).toLowerCase().replace(/<[^>]*>/g, ' ').replace(/&/g, '').replace(/[\u0591-\u05C7]/g, '');
+      s = s.replace(/([\u05D0-\u05EA])["'\u05F3\u05F4]([\u05D0-\u05EA])/g, '$1$2');   /* Hebrew acronyms keep together: \u05e1\u05dc"\u05d3, \u05d8"\u05d7 */
       s = s.replace(/[\u05da\u05dd\u05df\u05e3\u05e5]/g, function (c) { return FIN[c]; });
       return s.replace(/[^a-z0-9\u05D0-\u05EA.]+/g, ' ').replace(/(^|\s)\.+|\.+(\s|$)/g, ' ').replace(/\s+/g, ' ').trim();
     }
@@ -105,20 +112,27 @@
 
     /* ---------- index ---------- */
     var DOCS = [];
+    function useOf(det) { var m = /<b>(?:\u05e9\u05d9\u05de\u05d5\u05e9|Use|Uses|Applications?)[^<]*:<\/b>\s*([^<]*)/i.exec(det || ''); return m ? m[1] : ''; }
     function addDoc(d) {
       d.an = d.aliases.map(norm).filter(Boolean);
       d.at = []; d.an.forEach(function (a) { a.split(' ').forEach(function (t) { if (t) { d.at.push(t); } }); });
       d.st = norm(d.secondary || '').split(' ').filter(Boolean);
       d.tx = ' ' + norm(d.text || '') + ' ';
+      d.us = d.use ? ' ' + norm(d.use) + ' ' : '';
       DOCS.push(d);
     }
     MATS.forEach(function (m, i) {
-      var al = [m.name, m.id], k; if (m.equiv) { for (k in m.equiv) { if (m.equiv.hasOwnProperty(k)) { al.push(m.equiv[k]); } } }
-      addDoc({ type: 'mat', ref: i, aliases: al, secondary: m.group, text: strip(m.det) + ' ' + m.stds + ' ' + m.forms + ' ' + m.makers });
+      var al = [m.name, m.id], k;
+      if (m.equiv) { for (k in m.equiv) { if (m.equiv.hasOwnProperty(k)) { al.push(m.equiv[k]); al.push(k + ' ' + m.equiv[k]); } } }
+      String(m.stds || '').split(/\s*[\/\u00b7,;]\s*/).forEach(function (x) { if (x) { al.push(x); } });
+      addDoc({ type: 'mat', ref: i, aliases: al, secondary: m.group, use: useOf(m.det), text: strip(m.det) + ' ' + m.stds + ' ' + m.forms + ' ' + m.makers });
     });
     GLOS.forEach(function (g, i) { addDoc({ type: 'term', ref: i, aliases: [g.he, g.en, g.abbr], secondary: g.cat, text: (g.def || '') + ' ' + (g.expand || '') }); });
     CATS.forEach(function (c, i) { addDoc({ type: 'cat', ref: i, aliases: [c.he, c.en].concat(c.kw.split(' ')), secondary: '', text: '' }); });
+    CALCS.forEach(function (c, i) { addDoc({ type: 'calc', ref: i, aliases: [c.t], secondary: CTABS[c.s] || '', text: c.d || '' }); });
+    VIDS.forEach(function (v, i) { addDoc({ type: 'vid', ref: i, aliases: [v.he, v.en].concat(v.kw.split(' ')), secondary: '', text: '' }); });
 
+    /* bilingual expansion learned from the glossary itself (Hebrew <-> English <-> abbreviation) */
     var EXP = {}, EXPP = {};
     function addExp(a, b) {
       if (!a || !b || a === b) { return; }
@@ -130,6 +144,94 @@
       addExp(he, en); addExp(en, he); if (ab) { addExp(ab, en); addExp(en, ab); addExp(ab, he); addExp(he, ab); }
     });
     CATS.forEach(function (c) { var he = norm(c.he), en = norm(c.en); addExp(he, en); addExp(en, he); });
+
+    /* curated synonyms and Hebrew transliterations of material, application and property words */
+    var SYNSRC = [
+      ['inconel', '\u05d0\u05d9\u05e0\u05e7\u05d5\u05e0\u05dc'], ['hastelloy', '\u05d4\u05e1\u05d8\u05dc\u05d5\u05d9', '\u05d4\u05d0\u05e1\u05d8\u05dc\u05d5\u05d9'], ['monel', '\u05de\u05d5\u05e0\u05dc'], ['titanium', '\u05d8\u05d9\u05d8\u05e0\u05d9\u05d5\u05dd', '\u05d8\u05d9\u05d8\u05d0\u05e0\u05d9\u05d5\u05dd'], ['aluminum', 'aluminium', '\u05d0\u05dc\u05d5\u05de\u05d9\u05e0\u05d9\u05d5\u05dd', '\u05d0\u05dc\u05d5\u05de\u05e0\u05d9\u05d5\u05dd'],
+      ['stainless', '\u05e0\u05d9\u05e8\u05d5\u05e1\u05d8\u05d4', '\u05e0\u05d9\u05e8\u05d5\u05e1\u05d8\u05d0', 'inox'], ['brass', '\u05e4\u05dc\u05d9\u05d6'], ['bronze', '\u05d1\u05e8\u05d5\u05e0\u05d6\u05d4'], ['copper', '\u05e0\u05d7\u05d5\u05e9\u05ea'], ['steel', '\u05e4\u05dc\u05d3\u05d4', '\u05e4\u05dc\u05d3\u05ea'], ['iron', '\u05d1\u05e8\u05d6\u05dc'], ['cast', '\u05d9\u05e6\u05d9\u05e7\u05d4', '\u05d9\u05e6\u05d5\u05e7', '\u05d9\u05e6\u05d5\u05e7\u05d4'],
+      ['nylon', '\u05e0\u05d9\u05d9\u05dc\u05d5\u05df'], ['delrin', '\u05d3\u05dc\u05e8\u05d9\u05df', 'pom', 'acetal', '\u05d0\u05e6\u05d8\u05dc'], ['peek', '\u05e4\u05d9\u05e7'], ['ptfe', 'teflon', '\u05d8\u05e4\u05dc\u05d5\u05df'], ['ultem', '\u05d0\u05d5\u05dc\u05d8\u05dd', 'pei'], ['kevlar', '\u05e7\u05d1\u05dc\u05e8', '\u05e7\u05d5\u05d5\u05dc\u05e8'],
+      ['carbon', '\u05e4\u05d7\u05de\u05df', '\u05e7\u05e8\u05d1\u05d5\u05df'], ['fiber', 'fibre', '\u05e1\u05d9\u05d1\u05d9\u05dd', '\u05e1\u05d9\u05d1'], ['composite', '\u05de\u05e8\u05d5\u05db\u05d1', '\u05e7\u05d5\u05de\u05e4\u05d5\u05d6\u05d9\u05d8'], ['ceramic', '\u05e7\u05e8\u05de\u05d9\u05e7\u05d4', '\u05e7\u05e8\u05de\u05d9'], ['tungsten', '\u05d8\u05d5\u05e0\u05d2\u05e1\u05d8\u05df'], ['carbide', '\u05e7\u05e8\u05d1\u05d9\u05d3'],
+      ['magnesium', '\u05de\u05d2\u05e0\u05d6\u05d9\u05d5\u05dd'], ['beryllium', '\u05d1\u05e8\u05d9\u05dc\u05d9\u05d5\u05dd'], ['nickel', '\u05e0\u05d9\u05e7\u05dc'], ['zinc', '\u05d0\u05d1\u05e5', '\u05e6\u05d9\u05e0\u05e7'], ['zamak', '\u05d6\u05de\u05e7', '\u05d6\u05d0\u05de\u05e7'], ['maraging', '\u05de\u05e8\u05d2\u05d9\u05e0\u05d2'], ['duplex', '\u05d3\u05d5\u05e4\u05dc\u05e7\u05e1'], ['stellite', '\u05e1\u05d8\u05dc\u05d9\u05d9\u05d8'],
+      ['spring', 'springs', '\u05e7\u05e4\u05d9\u05e5', '\u05e7\u05e4\u05d9\u05e6\u05d9\u05dd'], ['bearing', 'bearings', '\u05de\u05e1\u05d1', '\u05de\u05e1\u05d1\u05d9\u05dd'], ['gear', 'gears', '\u05d2\u05d9\u05e8', '\u05d2\u05d9\u05e8\u05d9\u05dd'], ['shaft', 'shafts', '\u05e6\u05d9\u05e8', '\u05e6\u05d9\u05e8\u05d9\u05dd'], ['bolt', 'bolts', 'screw', 'screws', 'fastener', '\u05d1\u05d5\u05e8\u05d2', '\u05d1\u05e8\u05d2\u05d9\u05dd'],
+      ['nut', 'nuts', '\u05d0\u05d5\u05dd'], ['seal', 'seals', '\u05d0\u05d8\u05dd', '\u05d0\u05d8\u05de\u05d9\u05dd'], ['pipe', 'pipes', 'tube', 'tubes', '\u05e6\u05d9\u05e0\u05d5\u05e8', '\u05e6\u05d9\u05e0\u05d5\u05e8\u05d5\u05ea', '\u05e6\u05e0\u05e8\u05ea'], ['tank', 'vessel', '\u05de\u05d9\u05db\u05dc', '\u05de\u05d9\u05db\u05dc\u05d9\u05dd'], ['mold', 'mould', 'die', '\u05ea\u05d1\u05e0\u05d9\u05ea', '\u05ea\u05d1\u05e0\u05d9\u05d5\u05ea', '\u05d3\u05e4\u05d5\u05e1'],
+      ['medical', 'implant', 'implants', '\u05e8\u05e4\u05d5\u05d0\u05d9', '\u05e9\u05ea\u05dc', '\u05e9\u05ea\u05dc\u05d9\u05dd'], ['aerospace', 'aircraft', 'aviation', '\u05de\u05d8\u05d5\u05e1', '\u05ea\u05e2\u05d5\u05e4\u05d4', '\u05ea\u05e2\u05d5\u05e4\u05ea\u05d9'], ['marine', 'naval', '\u05d9\u05de\u05d9', '\u05e1\u05e4\u05d9\u05e0\u05d4'], ['automotive', '\u05e8\u05db\u05d1'],
+      ['pump', 'pumps', '\u05de\u05e9\u05d0\u05d1\u05d4', '\u05de\u05e9\u05d0\u05d1\u05d5\u05ea'], ['valve', 'valves', '\u05e9\u05e1\u05ea\u05d5\u05dd', '\u05e9\u05e1\u05ea\u05d5\u05de\u05d9\u05dd'], ['knife', 'knives', '\u05e1\u05db\u05d9\u05df', '\u05e1\u05db\u05d9\u05e0\u05d9\u05dd'], ['cutting', '\u05d7\u05d9\u05ea\u05d5\u05da'],
+      ['rpm', '\u05e1\u05dc\u05d3'], ['strength', '\u05d7\u05d5\u05d6\u05e7'], ['hardness', '\u05e7\u05e9\u05d9\u05d5\u05ea'], ['yield', '\u05db\u05e0\u05d9\u05e2\u05d4'], ['density', '\u05e6\u05e4\u05d9\u05e4\u05d5\u05ea'], ['weight', '\u05de\u05e9\u05e7\u05dc'], ['welding', 'weld', 'welds', 'weldability', '\u05e8\u05d9\u05ea\u05d5\u05da', '\u05e8\u05d9\u05ea\u05d5\u05db\u05d9\u05d5\u05ea'],
+      ['machining', 'machinability', '\u05e2\u05d9\u05d1\u05d5\u05d3', '\u05e2\u05d9\u05d1\u05d5\u05d3\u05d9\u05d5\u05ea'], ['corrosion', '\u05e7\u05d5\u05e8\u05d5\u05d6\u05d9\u05d4', '\u05d7\u05dc\u05d5\u05d3\u05d4', 'rust'], ['wear', '\u05e9\u05d7\u05d9\u05e7\u05d4', '\u05d1\u05dc\u05d0\u05d9'], ['fatigue', '\u05e2\u05d9\u05d9\u05e4\u05d5\u05ea'], ['creep', '\u05d6\u05d7\u05d9\u05dc\u05d4'], ['tolerance', '\u05e1\u05d5\u05d1\u05dc\u05e0\u05d5\u05ea'],
+      ['thread', 'threads', '\u05d4\u05d1\u05e8\u05d2\u05d4', '\u05d4\u05d1\u05e8\u05d2\u05d5\u05ea'], ['standard', 'standards', '\u05ea\u05e7\u05df', '\u05ea\u05e7\u05e0\u05d9\u05dd'], ['casting', '\u05d9\u05e6\u05d9\u05e7\u05d4'], ['forging', 'forged', '\u05e4\u05d5\u05e8\u05d2']
+    ];
+    var SYN = {};
+    SYNSRC.forEach(function (set) {
+      var n = set.map(norm).filter(function (x) { return x && x.indexOf(' ') < 0; });
+      n.forEach(function (a) { SYN[a] = SYN[a] || []; n.forEach(function (b) { if (b !== a && SYN[a].indexOf(b) < 0) { SYN[a].push(b); } }); });
+    });
+    function nre(src) { return new RegExp(src.replace(/[\u05da\u05dd\u05df\u05e3\u05e5]/g, function (c) { return FIN[c]; })); }
+    var PFX = '(?:^| )[\u05d1\u05dc\u05d4\u05d5\u05db\u05de\u05e9]?';
+    var PHRASES = [
+      { re: nre(PFX + '\u05d2\u05dc\u05d2\u05dc(?:\u05d9)? \u05e9\u05d9\u05e0\u05d9\u05d9\u05dd(?= |$)'), alts: ['\u05e9\u05d9\u05e0\u05d9\u05d9\u05dd', 'gear', 'gears', '\u05d2\u05d9\u05e8'] },
+      { re: nre(PFX + '(?:\u05e2\u05de\u05d9\u05d3\\S* (?:\u05d1|\u05dc)?\u05e7\u05d5\u05e8\u05d5\u05d6\u05d9\\S*|corrosion resist\\S*|resist\\S* (?:to )?corrosion|anti corrosion)'), alts: ['stainless', '\u05e0\u05d9\u05e8\u05d5\u05e1\u05d8\u05d4', 'titanium', '\u05d8\u05d9\u05d8\u05e0\u05d9\u05d5\u05dd', 'inconel', 'hastelloy', 'duplex', 'monel', 'corrosion', '\u05e7\u05d5\u05e8\u05d5\u05d6\u05d9\u05d4'] },
+      { re: nre(PFX + '(?:\u05e2\u05de\u05d9\u05d3\\S* (?:\u05d1|\u05dc)?(?:\u05d7\u05d5\u05dd|\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\\S*)|heat resist\\S*|high temp\\S*)'), alts: ['inconel', 'hastelloy', 'titanium', 'tungsten', 'ceramic', 'stellite', 'refractory', 'superalloy', '\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4', '\u05e1\u05d5\u05e4\u05e8'] },
+      { re: nre(PFX + '(?:\u05e2\u05de\u05d9\u05d3\\S* (?:\u05d1|\u05dc)?(?:\u05e9\u05d7\u05d9\u05e7\\S*|\u05d1\u05dc\u05d0\u05d9)|wear resist\\S*)'), alts: ['wear', '\u05e9\u05d7\u05d9\u05e7\u05d4', '\u05d1\u05dc\u05d0\u05d9', 'carbide', 'tungsten', 'stellite', 'hardened'] },
+      { re: nre(PFX + '(?:\u05e7\u05dc(?= |$)|lightweight|light weight)'), alts: ['aluminum', 'magnesium', 'titanium', 'composite', '\u05d0\u05dc\u05d5\u05de\u05d9\u05e0\u05d9\u05d5\u05dd', '\u05de\u05d2\u05e0\u05d6\u05d9\u05d5\u05dd', '\u05d8\u05d9\u05d8\u05e0\u05d9\u05d5\u05dd', '\u05de\u05e8\u05d5\u05db\u05d1'] }
+    ];
+    PHRASES.forEach(function (p) { p.alts = p.alts.map(norm); });
+    function setOf(map, words, val) { words.split(' ').forEach(function (w) { var n = norm(w); if (n) { map[n] = val === undefined ? 1 : val; } }); }
+    var STOP = {}, HINT = {}, EQW = {}, DESIG = {}, CMPSEP = {}, MORE = {}, LESS = {}, PROPW = {};
+    setOf(STOP, '\u05de\u05d4 \u05de\u05d9 \u05d0\u05d9\u05da \u05dc\u05de\u05d4 \u05d0\u05d9\u05d6\u05d4 \u05d0\u05d9\u05d6\u05d5 \u05d0\u05d9\u05e4\u05d4 \u05db\u05de\u05d4 \u05e9\u05dc \u05e2\u05dc \u05e2\u05dd \u05d1\u05d9\u05df \u05d0\u05ea \u05d6\u05d4 \u05d6\u05d5 \u05d6\u05d0\u05ea \u05d4\u05d5\u05d0 \u05d4\u05d9\u05d0 \u05d4\u05dd \u05dc\u05d9 \u05d0\u05e0\u05d9 \u05d9\u05e9 \u05d4\u05d0\u05dd \u05d0\u05d5 \u05d2\u05dd \u05db\u05dc \u05dc\u05e4\u05d9 \u05d0\u05dd \u05d0\u05d1\u05dc \u05db\u05d9 \u05e6\u05e8\u05d9\u05da \u05d0\u05e4\u05e9\u05e8 \u05d1\u05d5\u05d7\u05e8\u05d9\u05dd \u05d1\u05d5\u05d7\u05e8 \u05dc\u05d1\u05d7\u05d5\u05e8 \u05d4\u05d1\u05d3\u05dc \u05d4\u05d4\u05d1\u05d3\u05dc \u05d4\u05e9\u05d5\u05d5\u05d4 what whats how is are the of for a an to and or in on which between difference best can do does i my with be compare');
+    setOf(HINT, '\u05d7\u05d5\u05de\u05e8 \u05d7\u05d5\u05de\u05e8\u05d9\u05dd material materials', 'mat'); setOf(HINT, '\u05de\u05d5\u05e0\u05d7 \u05de\u05d5\u05e0\u05d7\u05d9\u05dd term terms', 'term'); setOf(HINT, '\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05de\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05dd calculator calculators calc \u05d7\u05d9\u05e9\u05d5\u05d1 \u05d7\u05e9\u05d1 calculate calculation compute', 'calc'); setOf(HINT, '\u05e1\u05e8\u05d8\u05d5\u05df \u05e1\u05e8\u05d8\u05d5\u05e0\u05d9\u05dd video videos \u05e7\u05d5\u05e8\u05e1 course', 'vid');
+    setOf(EQW, '\u05e9\u05e7\u05d5\u05dc \u05e9\u05e7\u05d5\u05dc\u05d9\u05dd \u05e9\u05e7\u05d9\u05dc\u05d5\u05ea \u05e9\u05e7\u05d5\u05dc\u05d4 equivalent equivalents equal equals equivalence');
+    setOf(DESIG, 'din en jis bs astm ams sae aisi iso mil gb uns gost');
+    setOf(CMPSEP, '\u05de\u05d5\u05dc vs versus \u05dc\u05e2\u05d5\u05de\u05ea against');
+    setOf(MORE, '\u05de\u05e2\u05dc \u05dc\u05e4\u05d7\u05d5\u05ea \u05d2\u05d3\u05d5\u05dc \u05d2\u05d3\u05d5\u05dc\u05d4 \u05d2\u05d1\u05d5\u05d4 \u05d2\u05d1\u05d5\u05d4\u05d4 \u05d9\u05d5\u05ea\u05e8 above over least greater higher more'); setOf(LESS, '\u05de\u05ea\u05d7\u05ea \u05e2\u05d3 \u05e7\u05d8\u05df \u05e7\u05d8\u05e0\u05d4 \u05e0\u05de\u05d5\u05da \u05e0\u05de\u05d5\u05db\u05d4 \u05e4\u05d7\u05d5\u05ea below under less most lower max maximum');
+    var PROPORDER = ['Rp0', 'HB', '\u03c1', 'E', 'A', 'RM'];
+    setOf(PROPW, '\u05db\u05e0\u05d9\u05e2\u05d4 yield rp0 rp02', 'Rp0'); setOf(PROPW, 'hb \u05d1\u05e8\u05d9\u05e0\u05dc brinell \u05e7\u05e9\u05d9\u05d5\u05ea hardness', 'HB'); setOf(PROPW, '\u05e6\u05e4\u05d9\u05e4\u05d5\u05ea density', '\u03c1'); setOf(PROPW, '\u05de\u05d5\u05d3\u05d5\u05dc modulus', 'E'); setOf(PROPW, '\u05d4\u05ea\u05d0\u05e8\u05db\u05d5\u05ea elongation', 'A'); setOf(PROPW, '\u05d7\u05d5\u05d6\u05e7 \u05de\u05ea\u05d9\u05d7\u05d4 tensile strength rm uts', 'RM');
+    var UNITW = {}; setOf(UNITW, 'mpa gpa mm kg g cm3 \u05d2\u05e8\u05dd \u05e1\u05de');
+
+    function alts(t) {
+      var set = {}, u; set[t] = 1;
+      (SYN[t] || []).forEach(function (x) { set[x] = 1; }); (EXP[t] || []).forEach(function (x) { set[x] = 1; });
+      if (/^[\u05d1\u05dc\u05d4\u05d5\u05db\u05de\u05e9][\u05D0-\u05EA]{3,}/.test(t)) { u = t.slice(1); set[u] = 1; (SYN[u] || []).forEach(function (x) { set[x] = 1; }); (EXP[u] || []).forEach(function (x) { set[x] = 1; }); }
+      return Object.keys(set);
+    }
+    function prepTokens(tokens, hasPhrase) {
+      var out = [], hint = null, eq = false, soft = [], hard = [];
+      tokens.forEach(function (t) {
+        var b = (t.length >= 4 && /^[\u05d1\u05dc\u05d4\u05d5\u05db\u05de\u05e9]/.test(t)) ? t.slice(1) : t;
+        if (EQW[t] || EQW[b]) { eq = true; return; }
+        if (HINT[t] || HINT[b]) { hint = hint || HINT[t] || HINT[b]; return; }
+        if (STOP[t] || (t.length < 2 && !/^[0-9]$/.test(t))) { return; }
+        out.push(t);
+      });
+      if (!out.length && !hasPhrase) { out = tokens.filter(function (t) { return !EQW[t]; }); hint = null; }
+      out.forEach(function (t) { if (DESIG[t] && out.length > 1) { soft.push(t); } else { hard.push(t); } });
+      if (!hard.length && !hasPhrase) { hard = out; soft = []; }
+      return { hard: hard, soft: soft, hint: hint, eq: eq };
+    }
+    function numRange(str) {
+      var m = String(str || '').replace(/(\d),(\d{3})/g, '$1$2').match(/[0-9]+(?:\.[0-9]+)?/g);
+      if (!m) { return null; } var a = parseFloat(m[0]), b = parseFloat(m[m.length - 1]); return [Math.min(a, b), Math.max(a, b)];
+    }
+    function parseQuery(q) {
+      var raw = String(q || '').replace(/>=|\u2265/g, ' \u05dc\u05e4\u05d7\u05d5\u05ea ').replace(/<=|\u2264/g, ' \u05e2\u05d3 ').replace(/>/g, ' \u05de\u05e2\u05dc ').replace(/</g, ' \u05de\u05ea\u05d7\u05ea ');
+      var n = norm(raw); if (!n) { return null; }
+      var phrase = []; PHRASES.forEach(function (p) { if (p.re.test(n)) { n = n.replace(p.re, ' ').replace(/\s+/g, ' ').trim(); phrase.push({ alts: p.alts, rank: p.rank }); } });
+      var tokens = n.split(' ').filter(Boolean), i, j;
+      var P = { n: norm(q), tokens: tokens, phrase: phrase, compare: null, filter: null, eq: false, hint: null, groups: [], soft: [] };
+      for (i = 1; i < tokens.length - 1; i++) { if (CMPSEP[tokens[i]]) { P.compare = { a: tokens.slice(0, i), b: tokens.slice(i + 1) }; break; } }
+      var use = tokens;
+      if (!P.compare) {
+        var prop = null, cmp = null, num = null;
+        for (j = 0; j < PROPORDER.length && !prop; j++) { for (i = 0; i < tokens.length; i++) { if (PROPW[tokens[i]] === PROPORDER[j]) { prop = PROPORDER[j]; break; } } }
+        for (i = 0; i < tokens.length; i++) { if (MORE[tokens[i]]) { cmp = 'more'; } else if (LESS[tokens[i]]) { cmp = 'less'; } if (num === null && /^[0-9]+(\.[0-9]+)?$/.test(tokens[i])) { num = parseFloat(tokens[i]); } }
+        if (prop && cmp && num !== null) {
+          P.filter = { prop: prop, cmp: cmp, num: num };
+          use = tokens.filter(function (t) { return !PROPW[t] && !MORE[t] && !LESS[t] && !UNITW[t] && !/^[0-9]+(\.[0-9]+)?$/.test(t); });
+        }
+      }
+      var pp = prepTokens(use, phrase.length > 0); P.eq = pp.eq; P.hint = pp.hint; P.soft = pp.soft;
+      P.groups = pp.hard.map(function (t) { return { alts: alts(t), t: t }; }).concat(phrase);
+      return P;
+    }
 
     /* ---------- search ---------- */
     function tokScore(d, t) {
@@ -143,37 +245,107 @@
       if (best >= 70) { return best; }
       for (i = 0; i < d.st.length; i++) { a = d.st[i]; if (a === t) { best = Math.max(best, 60); } else if (t.length >= 3 && a.indexOf(t) === 0) { best = Math.max(best, 42); } }
       if (best >= 42) { return best; }
+      if (d.us && t.length >= 2 && d.us.indexOf(' ' + t) >= 0) { best = Math.max(best, 30); }
       if (t.length >= 4 && !isNum) {
         var max = t.length >= 8 ? 2 : 1, dd;
         for (i = 0; i < d.at.length; i++) { a = d.at[i]; if (Math.abs(a.length - t.length) <= max && a.charAt(0) === t.charAt(0)) { dd = lev(t, a, max); if (dd <= max) { best = Math.max(best, 46 - dd * 6); } } }
         if (best >= 34) { return best; }
       }
+      if (best >= 30) { return best; }
       if (d.tx.indexOf(' ' + t) >= 0) { best = Math.max(best, 12); } else if (t.length >= 4 && d.tx.indexOf(t) >= 0) { best = Math.max(best, 8); }
       return best;
     }
-    function scoreDoc(d, groups, nq) {
-      var total = 0, gi, ti, best, s;
-      for (gi = 0; gi < groups.length; gi++) {
-        best = 0; for (ti = 0; ti < groups[gi].length; ti++) { s = tokScore(d, groups[gi][ti]); if (s > best) { best = s; } }
-        if (best <= 0) { return 0; } total += best;
-      }
-      if (d.an.indexOf(nq) >= 0) { total += 60; }
-      return total;
-    }
-    function buildGroups(n) { return n.split(' ').filter(Boolean).map(function (t) { var alts = [t]; (EXP[t] || []).forEach(function (x) { if (alts.indexOf(x) < 0) { alts.push(x); } }); return alts; }); }
-    function search(q) {
-      var n = norm(q); if (!n) { return null; }
-      var variants = [{ groups: buildGroups(n), nq: n }];
-      if (EXPP[n]) { variants.push({ groups: buildGroups(EXPP[n]), nq: EXPP[n] }); }
-      var out = [], i, v, s, best;
-      for (i = 0; i < DOCS.length; i++) {
-        best = 0; for (v = 0; v < variants.length; v++) { s = scoreDoc(DOCS[i], variants[v].groups, variants[v].nq); if (s > best) { best = s; } }
-        if (best > 0) { out.push({ d: DOCS[i], s: best }); }
-      }
+    function groupBest(d, g) { var b = 0, k, s; for (k = 0; k < g.alts.length; k++) { s = tokScore(d, g.alts[k]); if (s > b) { b = s; } } return b; }
+    function cutResults(out) {
       out.sort(function (a, b) { return b.s - a.s; });
       if (out.length && out[0].s >= 70) { var cut = Math.max(15, out[0].s * 0.25); out = out.filter(function (r) { return r.s >= cut; }); }
       return out;
     }
+    function runGroups(groups, soft, hint, onlyType, nq, relaxed) {
+      var softG = soft.map(function (t) { return { alts: alts(t) }; }), out = [], i, d, gi, b, tot, matched, need = relaxed ? Math.max(1, Math.ceil(groups.length * 0.5)) : groups.length, seen = [];
+      for (gi = 0; gi < groups.length; gi++) { seen[gi] = false; }
+      for (i = 0; i < DOCS.length; i++) {
+        d = DOCS[i]; if (onlyType && d.type !== onlyType) { continue; }
+        tot = 0; matched = 0;
+        for (gi = 0; gi < groups.length; gi++) { b = groupBest(d, groups[gi]); if (b > 0) { matched++; tot += b; seen[gi] = true; } else if (!relaxed) { break; } }
+        if (matched < need) { continue; }
+        if (relaxed) { tot = tot * matched / groups.length; }
+        softG.forEach(function (g) { if (groupBest(d, g) >= 70) { tot += 15; } });
+        if (d.type === 'mat' && d.st.length && groups.some(function (g) { return g.alts.indexOf(d.st[0]) >= 0; })) { tot += 30; }
+        if (hint && d.type === hint) { tot += 150; }
+        if (nq && d.an.indexOf(nq) >= 0) { tot += 60; }
+        if (tot > 0) { out.push({ d: d, s: tot }); }
+      }
+      out = relaxed ? (function (o) { o.sort(function (a, b2) { return b2.s - a.s; }); return o.length ? o.filter(function (r) { return r.s >= o[0].s * 0.4; }) : o; })(out) : cutResults(out);
+      out.seen = seen; return out;
+    }
+    function topMat(tokens) {
+      var pp = prepTokens(tokens, false); if (!pp.hard.length) { return null; }
+      var res = runGroups(pp.hard.map(function (t) { return { alts: alts(t), t: t }; }), pp.soft, null, 'mat', null, false); return res.length ? res[0].d : null;
+    }
+    var VOCAB = null;
+    function vocab() { if (VOCAB) { return VOCAB; } VOCAB = {}; DOCS.forEach(function (d) { d.at.forEach(function (t) { if (t.length >= 4 && /^[a-z\u05D0-\u05EA]+$/.test(t)) { VOCAB[t] = (VOCAB[t] || 0) + 1; } }); }); return VOCAB; }
+    function nearest(t) {
+      var V = vocab(), best = null, bd = 99, k, d, lim = t.length >= 6 ? 2 : 1;
+      for (k in V) { if (V.hasOwnProperty(k) && Math.abs(k.length - t.length) <= lim) { d = lev(t, k, lim); if (d < bd || (d === bd && best && V[k] > V[best])) { bd = d; best = k; } } }
+      return bd <= lim ? best : null;
+    }
+    function suggest(P) {
+      var changed = false, words = P.groups.map(function (g) {
+        if (!g.t || g.t.length < 4) { return g.t || ''; }
+        var any = false, i; for (i = 0; i < DOCS.length && !any; i++) { if (tokScore(DOCS[i], g.t) > 0) { any = true; } }
+        if (any) { return g.t; } var n = nearest(g.t); if (n) { changed = true; return n; } return g.t;
+      });
+      return changed ? words.join(' ') : '';
+    }
+    function pval(m, k) { return numRange(m.props && m.props[k]); }
+    function eqAnswer(P, res, q) {
+      if (!res.length || res[0].d.type !== 'mat') { return null; }
+      var m = MATS[res[0].d.ref], k, via = false;
+      if (!m.equiv) { return null; }
+      if (P.n !== norm(m.name) && P.n !== norm(m.id)) { for (k in m.equiv) { if (m.equiv.hasOwnProperty(k) && (P.n === norm(m.equiv[k]) || P.n === norm(k + ' ' + m.equiv[k]))) { via = true; } } }
+      if (!P.eq && !via) { return null; }
+      var parts = []; for (k in m.equiv) { if (m.equiv.hasOwnProperty(k)) { parts.push(k + ': <b>' + esc(m.equiv[k]) + '</b>'); } }
+      return '<div class="xans">\ud83d\udd01 ' + (via ? '<b>' + esc(String(q).trim()) + '</b> ' + L.eqIs + '<b>' + esc(m.name) + '</b>' : '<b>' + esc(m.name) + '</b>') + ' \u00b7 ' + esc(m.group) + '<div class="xansl">' + parts.join(' \u00b7 ') + '</div>' +
+        '<div class="xchips" style="margin-top:8px"><button type="button" class="xchip mat" data-act="open" data-type="mat" data-ref="' + res[0].d.ref + '">\ud83d\udd29 ' + L.eqOpen + '</button></div><div class="xnote">' + L.eqNote + '</div></div>';
+    }
+    function searchFull(q) {
+      var P = parseQuery(q); if (!P) { return null; }
+      var R = { results: [], answer: null, compare: null, filter: null, note: '', suggestion: '', mode: 'strict', P: P };
+      if (P.compare) {
+        var a = topMat(P.compare.a), b = topMat(P.compare.b);
+        if (a && b && a.ref !== b.ref) { R.compare = { a: a.ref, b: b.ref }; R.results = [{ d: a, s: 300 }, { d: b, s: 300 }]; R.mode = 'compare'; return R; }
+      }
+      if (P.filter) {
+        var base = P.groups.length ? runGroups(P.groups, P.soft, null, 'mat', null, false) : null, list = [], F = P.filter;
+        MATS.forEach(function (m, i) {
+          var r = pval(m, F.prop); if (!r) { return; }
+          if (base && !base.some(function (x) { return x.d.ref === i; })) { return; }
+          if (F.cmp === 'more' ? r[1] >= F.num : r[0] <= F.num) { list.push({ i: i, r: r }); }
+        });
+        var famOf = function (i) { var d = DOCS[i]; return d.st.length && P.groups.some(function (g) { return g.alts.indexOf(d.st[0]) >= 0; }) ? 1 : 0; };
+        list.forEach(function (x) { x.f = P.groups.length ? famOf(x.i) : 0; });
+        list.sort(function (x, y) { return (y.f - x.f) || (F.cmp === 'more' ? y.r[1] - x.r[1] : x.r[0] - y.r[0]); });
+        R.filter = { prop: F.prop, cmp: F.cmp, num: F.num, count: list.length, items: list.slice(0, 12) };
+        R.results = list.slice(0, 12).map(function (x) { return { d: DOCS[x.i], s: 200 }; }); R.mode = 'filter'; return R;
+      }
+      var res = runGroups(P.groups, P.soft, P.hint, null, P.n, false);
+      if (!res.length && P.groups.length > 1) { res = runGroups(P.groups, P.soft, P.hint, null, P.n, true); if (res.length) { R.mode = 'relaxed'; R.note = L.relaxed; } }
+      else if (res.length && res.length < 5 && P.groups.length > 1) {
+        var extra = runGroups(P.groups, P.soft, P.hint, null, P.n, true).filter(function (r) { return (r.d.type === 'calc' || r.d.type === 'vid') && !res.some(function (x) { return x.d === r.d; }); });
+        res = res.concat(extra.slice(0, 4));
+      }
+      if (!res.length) { R.mode = 'none'; R.suggestion = suggest(P); }
+      if (res.length && P.phrase.some(function (p) { return p.rank; })) {
+        var mm = res.filter(function (r) { return r.d.type === 'mat' && pval(MATS[r.d.ref], '\u03c1'); });
+        mm.sort(function (x, y) { return pval(MATS[x.d.ref], '\u03c1')[0] - pval(MATS[y.d.ref], '\u03c1')[0]; });
+        mm.forEach(function (r, i) { r.s = 500 - i; });
+        res = mm.concat(res.filter(function (r) { return mm.indexOf(r) < 0; }));
+      }
+      R.results = res; R.answer = eqAnswer(P, res, q);
+      return R;
+    }
+    function search(q) { var R = searchFull(q); return R === null ? null : R.results; }
     function hl(text, q) {
       var out = esc(text);
       norm(q).split(' ').filter(function (t) { return t.length >= 2; }).forEach(function (t) {
@@ -251,7 +423,9 @@
       pages.push('standards'); ch += chipLink(pageUrl('standards'), '\ud83d\udccb ' + L.std, 'cat'); count++;
       g += group(L.topics, ch);
       g += group(L.termsIn, matTerms(mi, 6).map(function (j) { count++; return chipOpen('term', j, HE ? GLOS[j].he : GLOS[j].en); }).join(''));
-      g += group(L.similar, similar(mi, 5).map(function (j) { count++; return chipOpen('mat', j, MATS[j].name); }).join(''));
+      var sims = similar(mi, 5), simHtml = sims.map(function (j) { count++; return chipOpen('mat', j, MATS[j].name); }).join('');
+      if (sims.length) { count++; simHtml += chipSearch(m.name + L.cmpVs + MATS[sims[0]].name, L.cmpBtn + MATS[sims[0]].name); }
+      g += group(L.similar, simHtml);
       g += group(L.videos, videosFor(pages, 2).map(function (v) { count++; return chipLink(v.u[HE ? 0 : 1], '\ud83c\udfac ' + esc(HE ? v.he : v.en), 'vid'); }).join(''));
       var vc = vcOf(m);
       if (vc) {
@@ -308,24 +482,66 @@
       var d = $('xdetail'); if (d.scrollIntoView) { d.scrollIntoView({ block: 'nearest' }); }
     }
 
+    /* ---------- result cards ---------- */
+    function useText(m) { return strip(useOf(m.det)); }
+    function eqStr(m) { var p = [], k; if (m.equiv) { for (k in m.equiv) { if (m.equiv.hasOwnProperty(k)) { p.push(k + ': ' + m.equiv[k]); } } } return esc(p.join(' \u00b7 ')); }
+    function renderCompare(ai, bi) {
+      var A = MATS[ai], B = MATS[bi], rows = '';
+      function mid(m, k) { var r = pval(m, k); return r ? (r[0] + r[1]) / 2 : null; }
+      function hi(va, vb) { if (va === null || vb === null || isNaN(va) || isNaN(vb) || va === vb) { return null; } return va > vb ? ['xhi', ''] : ['', 'xhi']; }
+      function row(label, ta, tb, cls) { rows += '<tr><th>' + label + '</th><td class="' + (cls ? cls[0] : '') + '"><bdi>' + ta + '</bdi></td><td class="' + (cls ? cls[1] : '') + '"><bdi>' + tb + '</bdi></td></tr>'; }
+      row(L.cmpGroup, esc(A.group), esc(B.group));
+      ['RM', 'Rp0', 'HB', 'E', 'A', '\u03c1'].forEach(function (k) {
+        var pa = A.props && A.props[k], pb = B.props && B.props[k]; if (!pa && !pb) { return; }
+        row(esc(L.pl[k] || k), esc(pa || '-'), esc(pb || '-'), k === '\u03c1' ? null : hi(mid(A, k), mid(B, k)));
+      });
+      row(L.mach2, esc(A.mach || ''), esc(B.mach || ''), hi(parseFloat(A.mach), parseFloat(B.mach)));
+      row(L.weld2, esc(A.weld || ''), esc(B.weld || ''));
+      row(L.cmpEq, eqStr(A), eqStr(B)); row(L.cmpStd, esc(A.stds || ''), esc(B.stds || '')); row(L.cmpUse, esc(useText(A)), esc(useText(B)));
+      return '<div class="xans"><h3 class="xcmph">\u21c4 ' + esc(A.name) + L.cmpVs + esc(B.name) + '</h3><div class="xscroll"><table class="xcmp"><thead><tr><th></th><th>' + esc(A.name) + '</th><th>' + esc(B.name) + '</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+        '<div class="xnote">' + L.cmpNote + '</div><div class="xchips" style="margin-top:8px"><button type="button" class="xchip mat" data-act="open" data-type="mat" data-ref="' + ai + '">\ud83d\udd29 ' + L.cmpOpen + esc(A.name) + '</button><button type="button" class="xchip mat" data-act="open" data-type="mat" data-ref="' + bi + '">\ud83d\udd29 ' + L.cmpOpen + esc(B.name) + '</button></div></div>';
+    }
+    function renderFilter(F) {
+      var lab = L.pl[F.prop] || F.prop, cond = (F.cmp === 'more' ? L.fltMore : L.fltLess) + F.num;
+      var h = '<div class="xans"><h3 class="xcmph">' + L.fltTitle + ': ' + esc(lab) + '</h3><div class="xnote" style="margin:0 0 8px">' + esc(cond) + ' \u00b7 ' + L.fltCount(F.count, F.items.length) + '</div>';
+      if (!F.items.length) { return h + '<div class="xempty">' + L.fltNone + '</div></div>'; }
+      F.items.forEach(function (x, ix) {
+        var m = MATS[x.i];
+        h += '<button type="button" class="xrow" data-act="open" data-type="mat" data-ref="' + x.i + '" data-idx="' + ix + '"><span class="xic" style="color:' + esc(m.color || '#adb5bd') + '">\u25cf</span><span><span class="xt">' + esc(m.name) + '</span><br><span class="xs">' + esc(m.group) + ' \u00b7 ' + esc(lab) + ': <bdi>' + esc((m.props && m.props[F.prop]) || '') + '</bdi></span></span></button>';
+      });
+      return h + '</div>';
+    }
+    function calcUrl(c) { return HE ? P + 'calc.html#sub=' + c.s : P + 'calc.html'; }
+
     /* ---------- results list ---------- */
     var activeIdx = -1;
     function runSearch(q) {
-      var res = search(q), box = $('xresults'), st = $('xstatus');
-      if (res === null) { box.innerHTML = ''; st.textContent = ''; return; }
-      var by = { mat: [], term: [], cat: [] }; res.forEach(function (r) { by[r.d.type].push(r); });
-      var html = '', idx = 0;
-      function section(title, arr, lim, render) {
-        if (!arr.length) { return; }
-        html += '<div class="xgrp"><h3>' + title + ' <span class="xnote">(' + arr.length + ')</span></h3>';
-        arr.slice(0, lim).forEach(function (r) { html += render(r.d, idx++); });
-        html += '</div>';
+      var R = searchFull(q), box = $('xresults'), st = $('xstatus');
+      if (R === null) { box.innerHTML = ''; st.textContent = ''; return; }
+      var html = '', idx = 0, by = { mat: [], term: [], cat: [], calc: [], vid: [] };
+      if (R.answer) { html += R.answer; }
+      if (R.mode === 'compare') { html += renderCompare(R.compare.a, R.compare.b); }
+      else if (R.mode === 'filter') { html += renderFilter(R.filter); }
+      else {
+        R.results.forEach(function (r) { by[r.d.type].push(r); });
+        var section = function (title, arr, lim, render) {
+          if (!arr.length) { return; }
+          html += '<div class="xgrp"><h3>' + title + ' <span class="xnote">(' + arr.length + ')</span></h3>';
+          arr.slice(0, lim).forEach(function (r) { html += render(r.d, idx++); });
+          html += '</div>';
+        };
+        section(L.gMat, by.mat, 6, function (d, ix) { var m = MATS[d.ref]; return '<button type="button" class="xrow" data-act="open" data-type="mat" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic" style="color:' + esc(m.color || '#adb5bd') + '">\u25cf</span><span><span class="xt">' + hl(m.name, q) + '</span><br><span class="xs">' + esc(m.group) + ' \u00b7 <bdi>' + esc((m.props && m.props.RM) || '') + '</bdi></span></span></button>'; });
+        section(L.gTerm, by.term, 6, function (d, ix) { var g = GLOS[d.ref], a = HE ? g.he : g.en, b = HE ? g.en : g.he; return '<button type="button" class="xrow" data-act="open" data-type="term" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic">\ud83d\udcd6</span><span><span class="xt">' + hl(a, q) + ' <span class="xalt">\u00b7 ' + hl(b, q) + (g.abbr ? ' (' + hl(g.abbr, q) + ')' : '') + '</span></span><br><span class="xs">' + esc(g.cat) + ' \u00b7 ' + esc((g.def || '').slice(0, 70)) + '\u2026</span></span></button>'; });
+        section(L.gCalc, by.calc, 4, function (d, ix) { var c = CALCS[d.ref]; return '<a class="xrow" data-idx="' + ix + '" href="' + calcUrl(c) + '" target="_blank" rel="noopener"><span class="xic">\ud83e\uddee</span><span><span class="xt">' + hl(c.t, q) + '</span><br><span class="xs">' + esc(CTABS[c.s] || '') + (c.d ? ' \u00b7 ' + esc(c.d) : '') + '</span></span></a>'; });
+        section(L.gVid, by.vid, 3, function (d, ix) { var v = VIDS[d.ref]; return '<a class="xrow" data-idx="' + ix + '" href="' + v.u[HE ? 0 : 1] + '" target="_blank" rel="noopener"><span class="xic">\ud83c\udfac</span><span><span class="xt">' + esc(HE ? v.he : v.en) + '</span><br><span class="xs">' + L.vidSub + '</span></span></a>'; });
+        section(L.gCat, by.cat, 3, function (d, ix) { var c = CATS[d.ref]; return '<a class="xrow" data-idx="' + ix + '" href="' + pageUrl(c.k) + '" target="_blank" rel="noopener"><span class="xic">' + c.i + '</span><span><span class="xt">' + esc(cname(c)) + '</span><br><span class="xs">' + L.catSub + '</span></span></a>'; });
+        if (!R.results.length) {
+          html += '<div class="xempty">' + L.noRes + ' ' + L.noneHelp + (R.suggestion ? '<div style="margin-top:10px">' + L.didYou + ' <button type="button" class="xchip" data-act="search" data-q="' + esc(R.suggestion) + '">' + esc(R.suggestion) + '</button></div>' : '') + '</div>';
+        }
       }
-      section(L.gMat, by.mat, 6, function (d, ix) { var m = MATS[d.ref]; return '<button type="button" class="xrow" data-act="open" data-type="mat" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic" style="color:' + esc(m.color || '#adb5bd') + '">\u25cf</span><span><span class="xt">' + hl(m.name, q) + '</span><br><span class="xs">' + esc(m.group) + ' \u00b7 <bdi>' + esc((m.props && m.props.RM) || '') + '</bdi></span></span></button>'; });
-      section(L.gTerm, by.term, 6, function (d, ix) { var g = GLOS[d.ref], a = HE ? g.he : g.en, b = HE ? g.en : g.he; return '<button type="button" class="xrow" data-act="open" data-type="term" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic">\ud83d\udcd6</span><span><span class="xt">' + hl(a, q) + ' <span class="xalt">\u00b7 ' + hl(b, q) + (g.abbr ? ' (' + hl(g.abbr, q) + ')' : '') + '</span></span><br><span class="xs">' + esc(g.cat) + ' \u00b7 ' + esc((g.def || '').slice(0, 70)) + '\u2026</span></span></button>'; });
-      section(L.gCat, by.cat, 3, function (d, ix) { var c = CATS[d.ref]; return '<a class="xrow" data-idx="' + ix + '" href="' + pageUrl(c.k) + '" target="_blank" rel="noopener"><span class="xic">' + c.i + '</span><span><span class="xt">' + esc(cname(c)) + '</span><br><span class="xs">' + L.catSub + '</span></span></a>'; });
-      box.innerHTML = html || '<div class="xempty">' + L.noRes + '</div>';
-      st.textContent = res.length ? L.found(res.length) : ''; activeIdx = -1;
+      box.innerHTML = html;
+      st.textContent = (R.mode === 'compare' || R.mode === 'filter') ? '' : (R.results.length ? (R.note ? R.note + ' ' : '') + L.found(R.results.length) : '');
+      activeIdx = -1;
     }
     function setActive(n) {
       var rows = document.querySelectorAll('#xresults .xrow'); if (!rows.length) { return; }
@@ -351,12 +567,12 @@
     }
     ['xresults', 'xdetail', 'xtrail'].forEach(function (id) { $(id).addEventListener('click', onAct); });
     $('xdetail').addEventListener('input', function (e) { if (e.target.closest && e.target.closest('.xcalc')) { calcAll(); } });
-    var EX = HE ? ['C45', '42CrMo4', '\u05de\u05e1\u05d1', 'bearing', 'inconell', 'HRC', '4140 \u05e8\u05d9\u05ea\u05d5\u05da', '1018', 'H7'] : ['C45', '42CrMo4', 'bearing', '\u05de\u05e1\u05d1', 'inconell', 'HRC', '4140 welding', '1018', 'H7'];
+    var EX = HE ? ['C45', '\u05d0\u05d9\u05e0\u05e7\u05d5\u05e0\u05dc', '\u05e4\u05dc\u05d3\u05d4 \u05dc\u05e6\u05d9\u05e8', '4140 \u05de\u05d5\u05dc 4340', '\u05d7\u05d5\u05d6\u05e7 \u05de\u05e2\u05dc 800', '\u05de\u05d4 \u05d4\u05e9\u05e7\u05d5\u05dc \u05e9\u05dc 316L', '\u05d7\u05d9\u05e9\u05d5\u05d1 \u05e1\u05dc"\u05d3', 'DIN 1.7225', 'HRC', '1018'] : ['C45', 'inconel', 'steel for shaft', '4140 vs 4340', 'tensile over 800', 'equivalent of 316L', 'rpm calculator', 'DIN 1.7225', 'HRC', '1018'];
     var exEl = $('xex');
     EX.forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.className = 'xchip'; b.textContent = x; b.addEventListener('click', function () { q.value = x; runSearch(x); q.focus(); }); exEl.appendChild(b); });
     /* deep link: /explore.html?q=C45 */
     try { var m = /[?&]q=([^&]*)/.exec(location.search); if (m) { var v = decodeURIComponent(m[1].replace(/\+/g, ' ')); if (v) { q.value = v; runSearch(v); } } } catch (e) { /* ignore */ }
     setTimeout(build, 50);
-    window.__mhExploreApi = { search: search, openItem: openItem, build: build, MATS: MATS, GLOS: GLOS, mentionsOf: mentionsOf, isGeneric: isGeneric, similar: similar, vcOf: vcOf };
+    window.__mhExploreApi = { CALCS: CALCS, VIDS: VIDS, CATS: CATS, search: search, searchFull: searchFull, parseQuery: parseQuery, openItem: openItem, build: build, MATS: MATS, GLOS: GLOS, mentionsOf: mentionsOf, isGeneric: isGeneric, similar: similar, vcOf: vcOf };
   }
 })();
