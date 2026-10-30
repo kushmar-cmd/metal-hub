@@ -11,7 +11,7 @@
   function init() {
     var D = window.MH_EXPLORE, root = document.getElementById('xroot');
     if (!D || !root) { return; }
-    var MATS = D.mats, GLOS = D.glos, CALCS = D.calcs || [], CTABS = D.ctabs || {};
+    var MATS = D.mats, GLOS = D.glos, CALCS = D.calcs || [], CTABS = D.ctabs || {}, LEARN = window.MH_LEARN || {}, lastRandom = -1;
     var HE = (document.documentElement.getAttribute('lang') || 'he').toLowerCase().indexOf('he') === 0;
     var P = HE ? '/' : '/en/';
     var L = HE ? {
@@ -21,6 +21,7 @@
       eq: '\u05e9\u05e7\u05d9\u05dc\u05d5\u05ea \u05d1\u05ea\u05e7\u05e0\u05d9\u05dd (\u05dc\u05d7\u05e5 \u05db\u05d3\u05d9 \u05dc\u05d7\u05e4\u05e9 \u05d0\u05ea \u05d4\u05e1\u05d9\u05de\u05d5\u05df)', stds: '\u05ea\u05e7\u05e0\u05d9\u05dd: ', topics: '\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd \u05e7\u05e9\u05d5\u05e8\u05d9\u05dd \u05d1\u05d0\u05ea\u05e8', heat: '\u05d8\u05d9\u05e4\u05d5\u05dc \u05d7\u05d5\u05dd', weld: '\u05e8\u05d9\u05ea\u05d5\u05da', mach: '\u05e2\u05d9\u05d1\u05d5\u05d3 \u05de\u05db\u05e0\u05d9', corr: '\u05e7\u05d5\u05e8\u05d5\u05d6\u05d9\u05d4', coat: '\u05e6\u05d9\u05e4\u05d5\u05d9\u05d9\u05dd', std: '\u05ea\u05e7\u05e0\u05d9\u05dd',
       termsIn: '\u05de\u05d5\u05e0\u05d7\u05d9\u05dd \u05e9\u05de\u05d5\u05e4\u05d9\u05e2\u05d9\u05dd \u05d1\u05d7\u05d5\u05de\u05e8', similar: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05d3\u05d5\u05de\u05d9\u05dd', videos: '\u05e1\u05e8\u05d8\u05d5\u05e0\u05d9 \u05d4\u05d3\u05e8\u05db\u05d4', calc: '\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05de\u05d4\u05d9\u05e8 \u05e2\u05dd \u05e0\u05ea\u05d5\u05e0\u05d9 \u05d4\u05d7\u05d5\u05de\u05e8', calcNote: '(Vc \u05de\u05d4\u05e8\u05e9\u05d5\u05de\u05d4: ', calcFull: '\u05d4\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d4\u05de\u05dc\u05d0 \u05d1\u05d0\u05ea\u05e8',
       seeAlso: '\u05e8\u05d0\u05d4 \u05d2\u05dd (\u05de\u05d5\u05e9\u05d2\u05d9\u05dd \u05e9\u05d4\u05d4\u05d2\u05d3\u05e8\u05d4 \u05e0\u05e9\u05e2\u05e0\u05ea \u05e2\u05dc\u05d9\u05d4\u05dd)', inDefs: '\u05de\u05d5\u05e4\u05d9\u05e2 \u05d1\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05e9\u05dc', matsMention: '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05e9\u05de\u05d5\u05d6\u05db\u05e8 \u05d1\u05d4\u05dd', topicOf: '\u05e0\u05d5\u05e9\u05d0 \u05d1\u05d0\u05ea\u05e8 (', pageOf: ' \u2014 \u05d4\u05d3\u05e3 \u05d1\u05d0\u05ea\u05e8',
+      learn: '\u05d8\u05d9\u05e4\u05ea \u05dc\u05d9\u05de\u05d5\u05d3', lWhy: '\ud83d\udca1 \u05dc\u05de\u05d4 \u05d6\u05d4 \u05d7\u05e9\u05d5\u05d1', lEx: '\ud83e\uddee \u05d3\u05d5\u05d2\u05de\u05d4', lMis: '\u26a0\ufe0f \u05d8\u05e2\u05d5\u05ea \u05e0\u05e4\u05d5\u05e6\u05d4', lNote: '\u05e0\u05d5\u05e1\u05d7 \u05d1\u05e2\u05d6\u05e8\u05ea AI \u05d5\u05e0\u05d1\u05d3\u05e7 \u05de\u05d5\u05dc \u05de\u05e7\u05d5\u05e8\u05d5\u05ea. \u05dc\u05e4\u05e0\u05d9 \u05d9\u05d9\u05e9\u05d5\u05dd \u05d1\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05d1\u05d3\u05d5\u05e7 \u05de\u05d5\u05dc \u05d4\u05ea\u05e7\u05df \u05d0\u05d5 \u05d4\u05e0\u05d5\u05d4\u05dc \u05e9\u05dc\u05da.', lRand: '\ud83c\udfb2 \u05e2\u05d5\u05d3 \u05db\u05e8\u05d8\u05d9\u05e1 \u05dc\u05d9\u05de\u05d5\u05d3', lBar: '\u05dc\u05de\u05d9\u05d3\u05d4:', galBtn: function (n) { return '\ud83d\udca1 \u05db\u05e8\u05d8\u05d9\u05e1\u05d9 \u05dc\u05d9\u05de\u05d5\u05d3 (' + n + ')'; }, randBtn: '\ud83c\udfb2 \u05d4\u05e4\u05ea\u05e2 \u05d0\u05d5\u05ea\u05d9', galTitle: function (n) { return '\ud83d\udca1 \u05db\u05e8\u05d8\u05d9\u05e1\u05d9 \u05dc\u05d9\u05de\u05d5\u05d3 (' + n + ')'; }, galSub: '\u05dc\u05d7\u05e5 \u05e2\u05dc \u05de\u05d5\u05e9\u05d2 \u05db\u05d3\u05d9 \u05dc\u05e4\u05ea\u05d5\u05d7 \u05d0\u05ea \u05d4\u05db\u05e8\u05d8\u05d9\u05e1 \u05e9\u05dc\u05d5.',
       more: function (n) { return '\u05d4\u05e6\u05d2 \u05e2\u05d5\u05d3 (' + n + ')'; }, weak: function (n) { return '\u05d4\u05e6\u05d2 \u05d2\u05dd ' + n + ' \u05d4\u05ea\u05d0\u05de\u05d5\u05ea \u05d7\u05dc\u05e9\u05d5\u05ea \u05d9\u05d5\u05ea\u05e8 (\u05d4\u05de\u05d9\u05dc\u05d4 \u05de\u05d5\u05e4\u05d9\u05e2\u05d4 \u05e8\u05e7 \u05d1\u05ea\u05d5\u05da \u05d4\u05d8\u05e7\u05e1\u05d8)'; }, gCalc: '\u05de\u05d7\u05e9\u05d1\u05d5\u05e0\u05d9\u05dd', gVid: '\u05e1\u05e8\u05d8\u05d5\u05e0\u05d9 \u05d4\u05d3\u05e8\u05db\u05d4', calcSub: '\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d1\u05d0\u05ea\u05e8 (\u05e0\u05e4\u05ea\u05d7 \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)', vidSub: '\u05e1\u05d3\u05e8\u05ea \u05d4\u05d3\u05e8\u05db\u05d4 (\u05e0\u05e4\u05ea\u05d7\u05ea \u05d1\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4)', relaxed: '\u05dc\u05d0 \u05e0\u05de\u05e6\u05d0\u05d4 \u05d4\u05ea\u05d0\u05de\u05d4 \u05de\u05dc\u05d0\u05d4 \u05dc\u05db\u05dc \u05d4\u05de\u05d9\u05dc\u05d9\u05dd. \u05de\u05d5\u05e6\u05d2\u05d5\u05ea \u05d4\u05ea\u05d5\u05e6\u05d0\u05d5\u05ea \u05d4\u05e7\u05e8\u05d5\u05d1\u05d5\u05ea \u05d1\u05d9\u05d5\u05ea\u05e8.', didYou: '\u05d4\u05d0\u05dd \u05d4\u05ea\u05db\u05d5\u05d5\u05e0\u05ea \u05dc:', noneHelp: '\u05e0\u05e1\u05d4 \u05de\u05d9\u05dc\u05d4 \u05d0\u05d7\u05e8\u05ea, \u05d0\u05d5 \u05d0\u05d7\u05ea \u05de\u05d4\u05d3\u05d5\u05d2\u05de\u05d0\u05d5\u05ea.',
       eqIs: '\u05e9\u05e7\u05d5\u05dc \u05dc-', eqOpen: '\u05e4\u05ea\u05d7 \u05d0\u05ea \u05d4\u05db\u05e8\u05d8\u05d9\u05e1', eqNote: '\u05dc\u05e4\u05d9 \u05e0\u05ea\u05d5\u05e0\u05d9 \u05d4\u05d0\u05ea\u05e8. \u05dc\u05e4\u05e0\u05d9 \u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05d1\u05d3\u05d5\u05e7 \u05de\u05d5\u05dc \u05d4\u05ea\u05e7\u05df.', cmpVs: ' \u05de\u05d5\u05dc ', cmpNote: '\u05d4\u05e2\u05e8\u05db\u05d9\u05dd \u05d4\u05dd \u05d8\u05d5\u05d5\u05d7\u05d9\u05dd \u05d5\u05ea\u05dc\u05d5\u05d9\u05d9\u05dd \u05d1\u05de\u05e6\u05d1 \u05d4\u05d8\u05d9\u05e4\u05d5\u05dc. \u05de\u05d5\u05d3\u05d2\u05e9 = \u05d4\u05e2\u05e8\u05da \u05d4\u05d2\u05d1\u05d5\u05d4 \u05d9\u05d5\u05ea\u05e8.', cmpGroup: '\u05e1\u05d5\u05d2', cmpEq: '\u05e9\u05e7\u05d9\u05dc\u05d5\u05d9\u05d5\u05ea', cmpUse: '\u05e9\u05d9\u05de\u05d5\u05e9', cmpStd: '\u05ea\u05e7\u05e0\u05d9\u05dd', cmpOpen: '\u05e4\u05ea\u05d7 \u05d0\u05ea \u05d4\u05db\u05e8\u05d8\u05d9\u05e1 \u05e9\u05dc ',
       fltTitle: '\u05e1\u05d9\u05e0\u05d5\u05df \u05dc\u05e4\u05d9 \u05ea\u05db\u05d5\u05e0\u05d4', fltCount: function (n, shown) { return '\u05e0\u05de\u05e6\u05d0\u05d5 ' + n + ' \u05d7\u05d5\u05de\u05e8\u05d9\u05dd' + (n > shown ? ' (\u05de\u05d5\u05e6\u05d2\u05d9\u05dd ' + shown + ')' : ''); }, fltMore: '\u05d4\u05d8\u05d5\u05d5\u05d7 \u05e9\u05dc \u05d4\u05d7\u05d5\u05de\u05e8 \u05de\u05d2\u05d9\u05e2 \u05dc\u05e4\u05d7\u05d5\u05ea \u05dc-', fltLess: '\u05d4\u05d8\u05d5\u05d5\u05d7 \u05e9\u05dc \u05d4\u05d7\u05d5\u05de\u05e8 \u05de\u05ea\u05d7\u05d9\u05dc \u05dc\u05db\u05dc \u05d4\u05d9\u05d5\u05ea\u05e8 \u05d1-', fltNone: '\u05d0\u05d9\u05df \u05d7\u05d5\u05de\u05e8 \u05e9\u05e2\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d4\u05ea\u05e0\u05d0\u05d9.', cmpBtn: '\u21c4 \u05d4\u05e9\u05d5\u05d5\u05d4: ',
@@ -33,6 +34,7 @@
       eq: 'Equivalents in other standards (click to search the designation)', stds: 'Standards: ', topics: 'Related topics on the site', heat: 'Heat treatment', weld: 'Welding', mach: 'Machining', corr: 'Corrosion', coat: 'Coatings', std: 'Standards',
       termsIn: 'Terms that appear in this material', similar: 'Similar materials', videos: 'Video courses', calc: 'Quick calculator fed by the material', calcNote: '(Vc from the record: ', calcFull: 'Full calculator on the site',
       seeAlso: 'See also (concepts the definition relies on)', inDefs: 'Appears in the definitions of', matsMention: 'Materials that mention it', topicOf: 'Topic on the site (', pageOf: ' \u2014 page on the site',
+      learn: 'Learning card', lWhy: '\ud83d\udca1 Why it matters', lEx: '\ud83e\uddee Example', lMis: '\u26a0\ufe0f Common mistake', lNote: 'Drafted with AI and checked against sources. Before using in a project, verify against your standard or procedure.', lRand: '\ud83c\udfb2 Another learning card', lBar: 'Learn:', galBtn: function (n) { return '\ud83d\udca1 Learning cards (' + n + ')'; }, randBtn: '\ud83c\udfb2 Surprise me', galTitle: function (n) { return '\ud83d\udca1 Learning cards (' + n + ')'; }, galSub: 'Click a term to open its card.',
       more: function (n) { return 'Show more (' + n + ')'; }, weak: function (n) { return 'Also show ' + n + ' weaker matches (the word appears only inside the text)'; }, gCalc: 'Calculators', gVid: 'Video courses', calcSub: 'Calculator on the site (opens in a new tab)', vidSub: 'Video series (opens in a new tab)', relaxed: 'No exact match for all the words. Showing the closest results.', didYou: 'Did you mean:', noneHelp: 'Try another word, or one of the examples.',
       eqIs: 'is equivalent to ', eqOpen: 'Open the card', eqNote: 'Per the site data. Check against the standard before using in a project.', cmpVs: ' vs ', cmpNote: 'Values are ranges and depend on the heat-treatment condition. Bold = the higher value.', cmpGroup: 'Type', cmpEq: 'Equivalents', cmpUse: 'Use', cmpStd: 'Standards', cmpOpen: 'Open the card of ',
       fltTitle: 'Filter by property', fltCount: function (n, shown) { return n + ' materials found' + (n > shown ? ' (showing ' + shown + ')' : ''); }, fltMore: 'the material range reaches at least ', fltLess: 'the material range starts at or below ', fltNone: 'No material meets the condition.', cmpBtn: '\u21c4 Compare: ',
@@ -458,9 +460,15 @@
       rows += '<div><b>' + L.mach2 + '</b><bdi>' + esc(m.mach || '') + '</bdi></div><div><b>' + L.weld2 + '</b><bdi>' + esc(m.weld || '') + '</bdi></div>';
       return '<div class="xcard"><h2>\ud83d\udd29 ' + esc(m.name) + '</h2><div class="xsub">' + esc(m.group) + (m.forms ? ' \u00b7 ' + esc(m.forms) : '') + '</div><div class="xprops">' + rows + '</div><div class="xdet">' + m.det + '</div>' + panel(relMat(mi)) + '</div>';
     }
+    function learnBlock(i) {
+      var c = LEARN[i]; if (!c) { return ''; }
+      return '<div class="xlearn"><div class="xlh">\ud83d\udca1 ' + L.learn + '</div>' +
+        '<div class="xlr"><b>' + L.lWhy + '</b>' + esc(c.w) + '</div><div class="xlr"><b>' + L.lEx + '</b>' + esc(c.e) + '</div><div class="xlr"><b>' + L.lMis + '</b>' + esc(c.m) + '</div>' +
+        '<div class="xchips" style="margin-top:8px"><button type="button" class="xchip" data-act="random">' + L.lRand + '</button></div><div class="xnote">' + L.lNote + '</div></div>';
+    }
     function renderTerm(i) {
       var t = GLOS[i], main = HE ? t.he : t.en, other = HE ? t.en : t.he;
-      return '<div class="xcard"><h2>\ud83d\udcd6 ' + esc(main) + ' <span class="xalt">\u00b7 ' + esc(other) + (t.abbr ? ' (' + esc(t.abbr) + ')' : '') + '</span></h2><div class="xsub">' + esc(t.cat) + '</div><div class="xdef">' + esc(t.def) + '</div>' + (t.expand ? '<div class="xexp">' + esc(t.expand) + '</div>' : '') + panel(relTerm(i)) + '</div>';
+      return '<div class="xcard"><h2>\ud83d\udcd6 ' + esc(main) + ' <span class="xalt">\u00b7 ' + esc(other) + (t.abbr ? ' (' + esc(t.abbr) + ')' : '') + '</span></h2><div class="xsub">' + esc(t.cat) + '</div><div class="xdef">' + esc(t.def) + '</div>' + (t.expand ? '<div class="xexp">' + esc(t.expand) + '</div>' : '') + learnBlock(i) + panel(relTerm(i)) + '</div>';
     }
     function labelOf(type, ref) { return type === 'mat' ? MATS[ref].name : (HE ? GLOS[ref].he : GLOS[ref].en); }
     function renderTrail() {
@@ -515,6 +523,20 @@
     }
     function calcUrl(c) { return HE ? P + 'calc.html#sub=' + c.s : P + 'calc.html'; }
 
+    function learnIds() { return Object.keys(LEARN).map(Number).filter(function (i) { return GLOS[i]; }); }
+    function showGallery() {
+      var ids = learnIds(), by = {}, order = [], html;
+      ids.forEach(function (i) { var c = GLOS[i].cat; if (!by[c]) { by[c] = []; order.push(c); } by[c].push(i); });
+      html = '<div class="xans"><h3 class="xcmph">' + L.galTitle(ids.length) + '</h3><div class="xnote" style="margin:0 0 6px">' + L.galSub + '</div>';
+      order.forEach(function (c) { html += '<div class="xrelg"><h4>' + esc(c) + '</h4><div class="xchips">' + by[c].map(function (i) { return chipOpen('term', i, HE ? GLOS[i].he : GLOS[i].en); }).join('') + '</div></div>'; });
+      $('xresults').innerHTML = html + '</div>'; $('xstatus').textContent = '';
+    }
+    function openRandom() {
+      var ids = learnIds(), id; if (!ids.length) { return; }
+      do { id = ids[Math.floor(Math.random() * ids.length)]; } while (ids.length > 1 && id === lastRandom);
+      lastRandom = id; openItem('term', id);
+    }
+
     /* ---------- results list ---------- */
     var activeIdx = -1, showWeak = false;
     function runSearch(q, keepWeak) {
@@ -536,7 +558,7 @@
           html += '</div>';
         };
         section(L.gMat, by.mat, 6, function (d, ix, hid) { var m = MATS[d.ref]; return '<button type="button" class="xrow' + (hid ? ' xhid' : '') + '" data-act="open" data-type="mat" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic" style="color:' + esc(m.color || '#adb5bd') + '">\u25cf</span><span><span class="xt">' + hl(m.name, q) + '</span><br><span class="xs">' + esc(m.group) + ' \u00b7 <bdi>' + esc((m.props && m.props.RM) || '') + '</bdi></span></span></button>'; });
-        section(L.gTerm, by.term, 6, function (d, ix, hid) { var g = GLOS[d.ref], a = HE ? g.he : g.en, b = HE ? g.en : g.he; return '<button type="button" class="xrow' + (hid ? ' xhid' : '') + '" data-act="open" data-type="term" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic">\ud83d\udcd6</span><span><span class="xt">' + hl(a, q) + ' <span class="xalt">\u00b7 ' + hl(b, q) + (g.abbr ? ' (' + hl(g.abbr, q) + ')' : '') + '</span></span><br><span class="xs">' + esc(g.cat) + ' \u00b7 ' + esc((g.def || '').slice(0, 70)) + '\u2026</span></span></button>'; });
+        section(L.gTerm, by.term, 6, function (d, ix, hid) { var g = GLOS[d.ref], a = HE ? g.he : g.en, b = HE ? g.en : g.he; return '<button type="button" class="xrow' + (hid ? ' xhid' : '') + '" data-act="open" data-type="term" data-ref="' + d.ref + '" data-idx="' + ix + '"><span class="xic">\ud83d\udcd6</span><span><span class="xt">' + hl(a, q) + (LEARN[d.ref] ? ' \ud83d\udca1' : '') + ' <span class="xalt">\u00b7 ' + hl(b, q) + (g.abbr ? ' (' + hl(g.abbr, q) + ')' : '') + '</span></span><br><span class="xs">' + esc(g.cat) + ' \u00b7 ' + esc((g.def || '').slice(0, 70)) + '\u2026</span></span></button>'; });
         section(L.gCalc, by.calc, 4, function (d, ix, hid) { var c = CALCS[d.ref]; return '<a class="xrow' + (hid ? ' xhid' : '') + '" data-idx="' + ix + '" href="' + calcUrl(c) + '" target="_blank" rel="noopener"><span class="xic">\ud83e\uddee</span><span><span class="xt">' + hl(c.t, q) + '</span><br><span class="xs">' + esc(CTABS[c.s] || '') + (c.d ? ' \u00b7 ' + esc(c.d) : '') + '</span></span></a>'; });
         section(L.gVid, by.vid, 3, function (d, ix, hid) { var v = VIDS[d.ref]; return '<a class="xrow' + (hid ? ' xhid' : '') + '" data-idx="' + ix + '" href="' + v.u[HE ? 0 : 1] + '" target="_blank" rel="noopener"><span class="xic">\ud83c\udfac</span><span><span class="xt">' + esc(HE ? v.he : v.en) + '</span><br><span class="xs">' + L.vidSub + '</span></span></a>'; });
         section(L.gCat, by.cat, 3, function (d, ix, hid) { var c = CATS[d.ref]; return '<a class="xrow' + (hid ? ' xhid' : '') + '" data-idx="' + ix + '" href="' + pageUrl(c.k) + '" target="_blank" rel="noopener"><span class="xic">' + c.i + '</span><span><span class="xt">' + esc(cname(c)) + '</span><br><span class="xs">' + L.catSub + '</span></span></a>'; });
@@ -571,6 +593,8 @@
       else if (a === 'search') { q.value = el.getAttribute('data-q'); runSearch(q.value); q.focus(); window.scrollTo(0, 0); }
       else if (a === 'more') { var grp = el.parentNode, hid = grp.querySelectorAll('.xhid'), k; for (k = 0; k < hid.length && k < 20; k++) { hid[k].classList.remove('xhid'); } var left = grp.querySelectorAll('.xhid').length; if (left) { el.textContent = L.more(left); } else { grp.removeChild(el); } }
       else if (a === 'weak') { showWeak = true; runSearch(q.value, true); }
+      else if (a === 'gallery') { showGallery(); }
+      else if (a === 'random') { openRandom(); }
       else if (a === 'trail') { var s = trail[+el.getAttribute('data-i')]; if (s) { openItem(s.type, s.ref, +el.getAttribute('data-i')); } }
     }
     ['xresults', 'xdetail', 'xtrail'].forEach(function (id) { $(id).addEventListener('click', onAct); });
@@ -580,7 +604,12 @@
     EX.forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.className = 'xchip'; b.textContent = x; b.addEventListener('click', function () { q.value = x; runSearch(x); q.focus(); }); exEl.appendChild(b); });
     /* deep link: /explore.html?q=C45 */
     try { var m = /[?&]q=([^&]*)/.exec(location.search); if (m) { var v = decodeURIComponent(m[1].replace(/\+/g, ' ')); if (v) { q.value = v; runSearch(v); } } } catch (e) { /* ignore */ }
+    if (learnIds().length) {
+      var bar = document.createElement('div'); bar.className = 'xex'; bar.id = 'xlearnbar';
+      bar.innerHTML = '<small>' + L.lBar + '</small><button type="button" class="xchip" data-act="gallery">' + L.galBtn(learnIds().length) + '</button><button type="button" class="xchip" data-act="random">' + L.randBtn + '</button>';
+      exEl.parentNode.insertBefore(bar, exEl.nextSibling); bar.addEventListener('click', onAct);
+    }
     setTimeout(build, 50);
-    window.__mhExploreApi = { CALCS: CALCS, VIDS: VIDS, CATS: CATS, search: search, searchFull: searchFull, parseQuery: parseQuery, openItem: openItem, build: build, MATS: MATS, GLOS: GLOS, mentionsOf: mentionsOf, isGeneric: isGeneric, similar: similar, vcOf: vcOf };
+    window.__mhExploreApi = { LEARN: LEARN, learnIds: learnIds, CALCS: CALCS, VIDS: VIDS, CATS: CATS, search: search, searchFull: searchFull, parseQuery: parseQuery, openItem: openItem, build: build, MATS: MATS, GLOS: GLOS, mentionsOf: mentionsOf, isGeneric: isGeneric, similar: similar, vcOf: vcOf };
   }
 })();

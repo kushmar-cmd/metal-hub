@@ -162,6 +162,9 @@ table.xcmp thead th{background:var(--card)}table.xcmp tbody th{background:var(--
 table.xcmp td.xhi{font-weight:800;color:var(--green)}
 .xhid{display:none!important}
 .xmorebtn{margin:6px 0 2px}
+.xlearn{margin:12px 0;border:1px solid rgba(63,185,80,.45);background:rgba(63,185,80,.07);border-radius:12px;padding:10px 14px}
+.xlh{font-weight:800;color:var(--green);margin-bottom:4px}
+.xlr{margin:7px 0;line-height:1.75}.xlr b{display:block;font-size:12px;color:var(--muted);margin-bottom:1px}
 
 </style>
 
@@ -196,6 +199,7 @@ table.xcmp td.xhi{font-weight:800;color:var(--green)}
 <li><b>Click a result</b> (a material or a term) to open its card.</li>
 <li>In the card open <b>"Linked to..."</b>. Every button there is a link: an equivalent in another standard, a topic on the site, a term, a similar material or a video. <b>Click a link to go to it</b>, and you move from idea to idea and learn. Materials with a recorded cutting speed (for example <b>1018</b>) also show a quick RPM calculator already fed with the material's data.</li>
 <li>You can also ask in <b>plain language</b> ("steel for shaft", "corrosion resistant material"), <b>compare</b> ("4140 vs 4340"), <b>filter by property</b> ("tensile over 800") and ask for an <b>equivalent</b> ("equivalent of 316L"). Calculators and video courses appear in the results too.</li>
+<li>Key concepts are marked with <b>💡</b> and include a <b>learning card</b>: why it matters, a worked example and a common mistake. Click <b>"Learning cards"</b> to see them all, or <b>"🎲 Surprise me"</b> for a random one.</li>
 <li>The <b>learning trail</b> shows the path you took. Click a step to go back to it.</li>
 <li>Buttons with 🎬 or 🔗 open the video or the page on the site, in a new tab.</li>
 </ol></details>
@@ -220,7 +224,8 @@ function toggleTheme(){
 }
 </script>
 <script src="/en/explore-data.js?v=2" defer></script>
-<script src="/explore.js?v=3" defer></script>
+<script src="/en/explore-learn.js?v=1" defer></script>
+<script src="/explore.js?v=4" defer></script>
 <script src="/analytics.js" defer></script>
 <script src="/menu.js?v=2" defer></script>
 <script src="/a11y.js?v=2" defer></script>
