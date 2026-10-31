@@ -5876,7 +5876,7 @@ function initGDT(){
 function initMaterials(){
 
   const catBar=document.getElementById('mat-cats');
-  const matCats=['All','Carbon Steel','Alloy Steel','Tool Steel','Structural Steel','Austenitic SS','Martensitic SS','PH SS','Duplex SS','Ferritic SS','Nickel Alloys','Titanium','Aluminum','Cast Aluminum','Copper & Brass','Bronze','Cast Iron','Magnesium','Specialty Metals','Polymers','Ceramics & Carbide','Composites'];
+  const matCats=['All','Carbon Steel','Alloy Steel','Tool Steel','Structural Steel','Austenitic SS','Martensitic SS','PH SS','Duplex SS','Ferritic SS','Nickel Alloys','Titanium','Aluminum','Cast Aluminum','Copper & Brass','Bronze','Cast Iron','Ductile Cast Iron','Magnesium','Specialty Metals','Cobalt Alloys','Elastomers','Additive Manufacturing','Polymers','Ceramics & Carbide','Composites'];
   const catMap={
   'Carbon Steel':['1018','1020','1040','1045','1060','1080','1095','1144','12l14','1010','1050','1215'],
   'Alloy Steel':['4130','4140','4340','8620','9310','4150','6150','300m','4330v','4620','4142','16mncr5','20mncr5','18crnimo76','31crmov9'],
@@ -5897,6 +5897,9 @@ function initMaterials(){
   'Ductile Cast Iron':['sgi_60_40_18','sgi_80_55_06','sgi_100_70_03'],
   'Magnesium':['az31','az91','az61','az80','zk60','we43','am60','ez33'],
   'Specialty Metals':['molybdenum','tantalum','za8','babbitt','tungsten','zirconium','beryllium','l605','niobium','zamak3','zamak5','wha','cuw','hiperco50','mumetal','ni48','pureiron','elecsteel'],
+  'Cobalt Alloys':['stellite21','mp35n'],
+  'Elastomers':['nbr','epdm','fkm','silicone','hnbr','ffkm','cr'],
+  'Additive Manufacturing':['am_ti64','am_316l','am_inconel718','am_maraging300'],
   'Polymers':['peek','pom','pa6','ptfe','pc','abs','uhmwpe','pvdf','pei','psu','pmma','hdpe','pp','torlon','pps','vespel','tpu','lcp','pvc_ind','pa66','pa12','pbt','peek_cf30','pekk','ppsu','pfa','fep','pctfe','etfe','pet','pa46','ppa'],
   'Ceramics & Carbide':['wc_co','sic','alumina','si3n4','zro2','pcd','pcbn','b4c','macor','sapphire','aln','hbn','fusedsilica','borosilicate','cermet'],
   'Composites':['cfrp-ud','cfrp-qi','gfrp-ud','gfrp-woven','aramid','ccarbon','honeycomb-al','honeycomb-nomex','mmc-alsic','basalt','cmc','kevlar_km2','g10fr4','phenolic'],
