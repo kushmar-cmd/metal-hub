@@ -188,7 +188,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <div class="card">
 <h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Engineering Materials Database</h1>
 <p style="font-size:13px;line-height:1.9;color:var(--muted)">A comprehensive reference of <b>303 engineering materials</b> — carbon and alloy steels, stainless steels (austenitic, martensitic, PH, duplex, ferritic), tool steels, nickel superalloys, titanium alloys, aluminum (wrought and cast), copper and bronze, cast iron, magnesium, polymers, and ceramics — with mechanical properties, machinability, weldability, international equivalents, and standards.</p>
-<p style="font-size:13px;line-height:1.9;color:var(--muted);margin-top:8px">&#128196; <a href="/en/materials/" style="color:var(--blue);font-weight:700">Full material pages: aluminum, stainless steel, steel, titanium and nickel alloys →</a> composition, heat treatment, machining, welding and comparisons, in English and Hebrew.</p>
+<p style="font-size:13px;line-height:1.9;color:var(--muted);margin-top:8px">&#128196; <a href="/en/materials/" style="color:var(--blue);font-weight:700">Full material pages: aluminum, stainless steel, steel, titanium, nickel and cobalt →</a> composition, heat treatment, machining, welding and comparisons, in English and Hebrew.</p>
 </div>
 
 <div id="sec-materials">
@@ -874,10 +874,10 @@ det:'<b>Composition:</b> Polyphenylene Sulfide — Fortron, Ryton<br><b>Tmax:</b
 mach:'20%',weld:'Not possible',
 equiv:{ISO:"PI",ASTM:"D5205"},stds:'ASTM D5205 / MIL-P-46179',forms:'rod · plate · molded parts',makers:'DuPont Vespel · Solvay Torlon-PI',
 det:'<b>Composition:</b> Polyimide — DuPont Vespel<br><b>Tmax:</b> 300°C continuous. 480°C briefly — unique!<br><b>Use:</b> NASA, ESA: pistons, bearings, washers in rocket engines<br><b>Friction:</b> μ=0.2 dry — excellent without lubrication<br><b>⚠️</b> Extremely expensive ($1000+/kg). DuPont only.'},
-{id:'elgiloy',name:'Elgiloy (Co-Cr-Ni) L-605',group:'Cobalt Spring Alloy',color:'#8957e5',props:{RM:'2070 MPa',Rp0:'1720 MPa',HRC:'50',E:'233 GPa',A:'8%',ρ:'9.15 g/cm³'},
+{id:'elgiloy',name:'Elgiloy (Co-Cr-Ni-Mo)',group:'Cobalt Spring Alloy',color:'#8957e5',props:{RM:'2070 MPa',Rp0:'1720 MPa',HRC:'50',E:'190 GPa',A:'8%',ρ:'8.30 g/cm³'},
 mach:'15%',weld:'Laser / EBW',
-equiv:{AMS:"5833",UNS:"R30003"},stds:'AMS 5833 / ASTM F1058',forms:'wire · strip · springs',makers:'Elgiloy Specialty Metals · Fort Wayne Metals',
-det:'<b>Composition:</b> Co-20%Cr-15%Ni-15%W-10%Fe — Elgiloy/L-605<br><b>Use:</b> medical springs (stents), luxury watches, surgical tools<br><b>E=233 GPa</b> — stiffer than steel → a small spring delivers strong force!<br><b>Corrosion:</b> resistant in the full body environment. FDA-approved biocompatible<br><b>Special:</b> RM 2070 MPa after Cold Work+Age — the pinnacle for springs!'},
+equiv:{AMS:"5833 / 5834 / 5876",UNS:"R30003",EN:"2.4711"},stds:'ASTM F1058 / AMS 5833 / AMS 5876 / NACE MR0175',forms:'wire · strip · springs',makers:'Elgiloy Specialty Metals · Fort Wayne Metals',
+det:'<b>Composition:</b> Co 39–41%, Cr 19–21%, Ni 14–16%, Mo 6–8%, Fe balance (Co-Cr-Ni-Mo). This is not L-605<br><b>Use:</b> corrosion-resistant springs, orthodontic wires and medical devices, sour oil and gas well components<br><b>E≈190 GPa</b>, density 8.30 g/cm³, non-magnetic<br><b>Corrosion:</b> highly resistant in seawater and to stress corrosion (NACE MR0175). For implants: ASTM F1058, ISO 5832-7<br><b>Special:</b> up to about 2275 MPa after cold work and aging (527 °C, 5 hours). Service up to 454 °C'},
 {id:'monelk500',name:'Monel K-500',group:'Hardened Nickel-Copper',color:'#8957e5',props:{RM:'1000–1170 MPa',Rp0:'690–830 MPa',HB:'280–330',E:'179 GPa',A:'20%',ρ:'8.44 g/cm³'},
 mach:'25%',weld:'Difficult — Age after welding',
 equiv:{EN:"2.4375",ASTM:"B865",UNS:"N05500"},stds:'ASTM B865 / AMS 4676',forms:'rod · forging · wire',makers:'Special Metals · VDM Metals',
@@ -1356,7 +1356,7 @@ equiv:{EN:"S690QL (קרוב)"},stds:'ASTM A514',forms:'plate 6-150mm',makers:'SS
 det:'<b>Composition:</b> Low C + Cr+Mo+B (varies by grade)<br><b>Use:</b> cranes, heavy mining equipment, special frames — 3x stronger than A36!<br><b>Welding:</b> Preheat 50-150°C. Low-H mandatory (E7018/FCAW). No overheating!<br><b>Disadvantage:</b> expensive, requires welding experience.'},
 {id:'stellite6',name:'Stellite 6 (Co-Cr-W)',group:'Anti-Wear Cobalt Alloy',color:'#c0c0ff',props:{RM:'890 MPa',Rp0:'550 MPa',HB:'39 HRC',E:'210 GPa',A:'1%',ρ:'8.44'},
 mach:'15%',weld:'Brazing/weld overlay',
-equiv:{EN:"CoCr28W",DIN:"—",JIS:"—",BS:"—"},stds:'AMS 5387 / AWS A5.21 ERCoCr-A',forms:'rod · powder · electrode',makers:'Kennametal Stellite · Deloro',
+equiv:{UNS:"R30006"},stds:'AMS 5387 / AMS 5788 / AWS A5.21 ERCoCr-A',forms:'rod · powder · electrode',makers:'Kennametal Stellite · Deloro',
 det:'<b>Composition:</b> Co 60% · Cr 28% · W 4.5% · C 1.2%<br><b>Use:</b> wear coating (Hardfacing) on valves, valve seats, cutting knives, bearing surfaces.<br><b>Advantage:</b> retains hardness up to 800°C! Corrosion + wear resistant simultaneously.<br><b>Machining:</b> grinding only (CBN/diamond). Very expensive.'},
 {id:'inconel600',name:'Inconel 600',group:'Heat+Corrosion Nickel Alloy',color:'#c0c0ff',props:{RM:'550-690 MPa',Rp0:'170-345 MPa',HB:'120-185',E:'214 GPa',A:'30-47%',ρ:'8.47'},
 mach:'35%',weld:'Good',
@@ -1500,7 +1500,7 @@ equiv:{ASTM:"A579 Grade 300",DIN:"1.2709"},stds:'EOS MaragingSteel MS1 / DIN 1.2
 det:'<b>Process:</b> Laser Powder Bed Fusion.<br><b>Key advantage:</b> easy to machine in the as-built (solution) state, THEN age hardens (490°C, 6h) to very high strength — ideal workflow for tooling.<br><b>Use:</b> injection mold tooling with conformal cooling channels impossible via conventional machining.'},
 {id:'stellite21',name:'Stellite 21 (Co-Cr-Mo)',group:'Anti-Wear Cobalt Alloy',color:'#c0c0ff',props:{RM:'655 MPa',Rp0:'450 MPa',HB:'30 HRC',E:'210 GPa',A:'9%',ρ:'8.30'},
 mach:'18%',weld:'Brazing / weld overlay',
-equiv:{ASTM:"F75",EN:"CoCrMo"},stds:'ASTM F75 / AMS 5385',forms:'castings · powder · rod',makers:'Kennametal Stellite · Deloro',
+equiv:{ASTM:"F75 (קרוב)"},stds:'Producer specification (Stellite / Kennametal)',forms:'castings · powder · rod',makers:'Kennametal Stellite · Deloro',
 det:'<b>Composition:</b> Co-27Cr-5.5Mo<br><b>Use:</b> valve seats, pump components, orthopedic implants (ASTM F75 medical grade).<br><b>vs Stellite 6:</b> lower hardness but higher toughness — better where impact resistance matters more than pure wear resistance.<br><b>Corrosion:</b> excellent, plus good galling resistance.'},
 {id:'mp35n',name:'MP35N (Co-Ni-Cr-Mo)',group:'Corrosion-Resistant Cobalt Alloy',color:'#c0c0ff',props:{RM:'1795-2070 MPa (CW+aged)',Rp0:'1480-1795 MPa',HB:'48-52 HRC',E:'233 GPa',A:'8-12%',ρ:'8.43'},
 mach:'20%',weld:'Resistance / laser',
