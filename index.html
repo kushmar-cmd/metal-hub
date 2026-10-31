@@ -564,7 +564,7 @@ html.light-mode .hero p{color:var(--muted)}
 <div><label>צורה</label><select id="wt-sh" onchange="shapeChange()"><option value="bar">מוט עגול</option><option value="rect">פרופיל מלבני</option><option value="tube">צינור</option><option value="plate">לוח</option><option value="hex">שישה פינות</option></select></div>
 <div><label id="wt-l1">קוטר (mm)</label><input id="wt-d1" type="number" value="50" oninput="calcWt()"></div>
 <div><label id="wt-l2">אורך (mm)</label><input id="wt-d2" type="number" value="100" oninput="calcWt()"></div>
-<div id="wt-g3" style="display:none"><label>עובי דופן (mm)</label><input id="wt-d3" type="number" value="5" oninput="calcWt()"></div>
+<div id="wt-g3" style="display:none"><label id="wt-l3">עובי דופן (mm)</label><input id="wt-d3" type="number" value="5" oninput="calcWt()"></div>
 <div><label>חומר (g/cm³)</label><select id="wt-mt" onchange="calcWt()">
 <optgroup label="── פלדות ──">
 <option value="7.85">פלדה 1018/1045 (7.85)</option>
@@ -6593,6 +6593,7 @@ function exportBomPDF(){
 }
 
 function calcTh(){
+  if(!document.getElementById('th-d'))return; // the thread calculator now lives on threads.html
   const D=parseFloat(document.getElementById('th-d').value),P=parseFloat(document.getElementById('th-p').value)||getP(D);
   if(!D)return;
   document.getElementById('th-r').innerHTML=`<b>M${D}×${P}</b> · d2(פסיעה)=${(D-0.6495*P).toFixed(3)}mm · d1(קטן)=${(D-1.2269*P).toFixed(3)}mm · <b>קידוח: ⌀${(D-P).toFixed(2)}mm</b>`;
@@ -6607,22 +6608,28 @@ function calcRpm(){
   const n=Math.round(Vc*1000/(Math.PI*D));
   document.getElementById('rpm-r').innerHTML=`<b>n = ${n.toLocaleString()} RPM</b> · Vc=${Vc} m/min · D=${D}mm`;
 }
+function wtLabel(lid,iid,txt){ // the visible label and the screen-reader name of the field change together
+  document.getElementById(lid).textContent=txt;
+  const i=document.getElementById(iid);
+  if(i&&i.hasAttribute('aria-label'))i.setAttribute('aria-label',i.getAttribute('aria-label').replace(/[^:]*$/,' '+txt));
+}
 function shapeChange(){
   const s=document.getElementById('wt-sh').value;
-  document.getElementById('wt-l1').textContent=s==='rect'||s==='plate'?'רוחב (mm)':s==='hex'?'קוטר מפתח (mm)':'קוטר (mm)';
-  document.getElementById('wt-l2').textContent=s==='plate'?'רוחב (mm)':'אורך (mm)';
-  document.getElementById('wt-g3').style.display=s==='tube'?'flex':'none';
+  wtLabel('wt-l1','wt-d1',s==='rect'||s==='plate'?'רוחב (mm)':s==='hex'?'קוטר מפתח (mm)':'קוטר (mm)');
+  wtLabel('wt-l2','wt-d2','אורך (mm)');
+  wtLabel('wt-l3','wt-d3',s==='rect'?'גובה (mm)':s==='plate'?'עובי (mm)':'עובי דופן (mm)');
+  document.getElementById('wt-g3').style.display=(s==='tube'||s==='rect'||s==='plate')?'flex':'none';
   calcWt();
 }
 function calcWt(){
   const s=document.getElementById('wt-sh').value,d1=+document.getElementById('wt-d1').value||0,d2=+document.getElementById('wt-d2').value||0,d3=+document.getElementById('wt-d3').value||5,rho=+document.getElementById('wt-mt').value||7.85;
   let v=0;
   if(s==='bar')v=Math.PI*(d1/2)**2*d2;
-  else if(s==='rect')v=d1*d2*10;
+  else if(s==='rect')v=d1*d3*d2;   // width × height × length
   else if(s==='tube')v=Math.PI*((d1/2)**2-((d1/2)-d3)**2)*d2;
-  else if(s==='plate')v=d1*d2*10;
+  else if(s==='plate')v=d1*d2*d3;  // width × length × thickness
   else if(s==='hex')v=(Math.sqrt(3)/2)*d1**2*d2;
-  const kg=(v/1e6*rho*1000);
+  const kg=v/1e6*rho;   // mm³ → dm³ (litres) × g/cm³ = kg
   document.getElementById('wt-r').innerHTML=`נפח: <b>${(v/1e3).toFixed(2)} cm³</b> · משקל: <b>${kg.toFixed(3)} ק"ג</b> (${(kg*1000).toFixed(0)}g)`;
 }
 const UC_OPTIONS = {

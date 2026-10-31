@@ -575,7 +575,7 @@ html.light-mode .hero p{color:var(--muted)}
 <div><label>Shape</label><select id="wt-sh" onchange="shapeChange()"><option value="bar">Round Bar</option><option value="rect">Rectangular Profile</option><option value="tube">Tube</option><option value="plate">Plate</option><option value="hex">Hexagon</option></select></div>
 <div><label id="wt-l1">Diameter (mm)</label><input id="wt-d1" type="number" value="50" oninput="calcWt()"></div>
 <div><label id="wt-l2">Length (mm)</label><input id="wt-d2" type="number" value="100" oninput="calcWt()"></div>
-<div id="wt-g3" style="display:none"><label>Wall Thickness (mm)</label><input id="wt-d3" type="number" value="5" oninput="calcWt()"></div>
+<div id="wt-g3" style="display:none"><label id="wt-l3">Wall Thickness (mm)</label><input id="wt-d3" type="number" value="5" oninput="calcWt()"></div>
 <div><label>Material (g/cm³)</label><select id="wt-mt" onchange="calcWt()">
 <optgroup label="── Steels ──">
 <option value="7.85">Steel 1018/1045 (7.85)</option>
@@ -790,7 +790,7 @@ const GDT_DATA=[
   {sym:"↗",name:"Runout",en:"Runout",cat:"Runout",anim:"runout",detail:"Defines maximum wobble in a single cross-section during rotation. Datum mandatory.\n\nUse: an engine shaft, a spindle axis, a gear.\n\nSimple measurement: a dial indicator on the rotating axis."},
 ];
 let GLOSSARY=[];
-fetch('data/glossary.json?v=4').then(r=>r.json()).then(d=>{GLOSSARY=d;if(document.getElementById('sec-glossary')&&document.getElementById('sec-glossary').classList.contains('active')){filterG();}}).catch(e=>console.error('glossary load failed',e));
+fetch('/en/glossary_en.json?v=1').then(r=>r.json()).then(d=>{GLOSSARY=d;if(document.getElementById('sec-glossary')&&document.getElementById('sec-glossary').classList.contains('active')){filterG();}}).catch(e=>console.error('glossary load failed',e));
 GLOSSARY.sort((a,b)=>a.he.localeCompare(b.he,'he'));
 const PITCHES={3:.5,4:.7,5:.8,6:1,8:1.25,10:1.5,12:1.75,14:2,16:2,20:2.5,24:3,27:3,30:3.5,33:3.5,36:4,39:4,42:4.5,45:4.5,48:5,52:5,56:5.5,60:5.5,64:6};
 const MATS=[
@@ -6598,6 +6598,7 @@ function exportBomPDF(){
 }
 
 function calcTh(){
+  if(!document.getElementById('th-d'))return; // the thread calculator now lives on threads.html
   const D=parseFloat(document.getElementById('th-d').value),P=parseFloat(document.getElementById('th-p').value)||getP(D);
   if(!D)return;
   document.getElementById('th-r').innerHTML=`<b>M${D}×${P}</b> · d2(pitch)=${(D-0.6495*P).toFixed(3)}mm · d1(minor)=${(D-1.2269*P).toFixed(3)}mm · <b>Drill: ⌀${(D-P).toFixed(2)}mm</b>`;
@@ -6612,22 +6613,28 @@ function calcRpm(){
   const n=Math.round(Vc*1000/(Math.PI*D));
   document.getElementById('rpm-r').innerHTML=`<b>n = ${n.toLocaleString()} RPM</b> · Vc=${Vc} m/min · D=${D}mm`;
 }
+function wtLabel(lid,iid,txt){ // the visible label and the screen-reader name of the field change together
+  document.getElementById(lid).textContent=txt;
+  const i=document.getElementById(iid);
+  if(i&&i.hasAttribute('aria-label'))i.setAttribute('aria-label',i.getAttribute('aria-label').replace(/[^:]*$/,' '+txt));
+}
 function shapeChange(){
   const s=document.getElementById('wt-sh').value;
-  document.getElementById('wt-l1').textContent=s==='rect'||s==='plate'?'Width (mm)':s==='hex'?'Wrench Size (mm)':'Diameter (mm)';
-  document.getElementById('wt-l2').textContent=s==='plate'?'Width (mm)':'Length (mm)';
-  document.getElementById('wt-g3').style.display=s==='tube'?'flex':'none';
+  wtLabel('wt-l1','wt-d1',s==='rect'||s==='plate'?'Width (mm)':s==='hex'?'Wrench Size (mm)':'Diameter (mm)');
+  wtLabel('wt-l2','wt-d2','Length (mm)');
+  wtLabel('wt-l3','wt-d3',s==='rect'?'Height (mm)':s==='plate'?'Thickness (mm)':'Wall Thickness (mm)');
+  document.getElementById('wt-g3').style.display=(s==='tube'||s==='rect'||s==='plate')?'flex':'none';
   calcWt();
 }
 function calcWt(){
   const s=document.getElementById('wt-sh').value,d1=+document.getElementById('wt-d1').value||0,d2=+document.getElementById('wt-d2').value||0,d3=+document.getElementById('wt-d3').value||5,rho=+document.getElementById('wt-mt').value||7.85;
   let v=0;
   if(s==='bar')v=Math.PI*(d1/2)**2*d2;
-  else if(s==='rect')v=d1*d2*10;
+  else if(s==='rect')v=d1*d3*d2;   // width × height × length
   else if(s==='tube')v=Math.PI*((d1/2)**2-((d1/2)-d3)**2)*d2;
-  else if(s==='plate')v=d1*d2*10;
+  else if(s==='plate')v=d1*d2*d3;  // width × length × thickness
   else if(s==='hex')v=(Math.sqrt(3)/2)*d1**2*d2;
-  const kg=(v/1e6*rho*1000);
+  const kg=v/1e6*rho;   // mm³ → dm³ (litres) × g/cm³ = kg
   document.getElementById('wt-r').innerHTML=`Volume: <b>${(v/1e3).toFixed(2)} cm³</b> · Weight: <b>${kg.toFixed(3)} kg</b> (${(kg*1000).toFixed(0)}g)`;
 }
 const UC_OPTIONS = {
