@@ -139,7 +139,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
 /* nav strip removed: keep the content clear of the fixed top bar */
 #main{padding-top:76px}
-</style>
+.mat-page-link{display:inline-block;margin-top:4px;font-size:11px;font-weight:700;color:var(--blue);text-decoration:underline}.mat-page-btn{display:inline-block;margin:12px 0 4px;padding:8px 14px;border:1px solid var(--blue);border-radius:8px;color:var(--blue);font-weight:700;font-size:13px;text-decoration:none}.mat-page-btn:hover{background:var(--blue);color:#0d1117}</style>
+<script src="/mat-pages.js?v=1"></script>
 </head>
 <body>
 <div id="engBg" aria-hidden="true">
@@ -187,6 +188,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <div class="card">
 <h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px">Engineering Materials Database</h1>
 <p style="font-size:13px;line-height:1.9;color:var(--muted)">A comprehensive reference of <b>303 engineering materials</b> — carbon and alloy steels, stainless steels (austenitic, martensitic, PH, duplex, ferritic), tool steels, nickel superalloys, titanium alloys, aluminum (wrought and cast), copper and bronze, cast iron, magnesium, polymers, and ceramics — with mechanical properties, machinability, weldability, international equivalents, and standards.</p>
+<p style="font-size:13px;line-height:1.9;color:var(--muted);margin-top:8px">&#128196; <a href="/en/materials/" style="color:var(--blue);font-weight:700">Full pages for the aluminum alloys →</a> composition, tempers, machining, welding and comparisons, in English and Hebrew.</p>
 </div>
 
 <div id="sec-materials">
@@ -1771,7 +1773,7 @@ function buildMats(){
     show.forEach(m=>{
       const d=document.createElement('div');d.className='mat-card';
       d.setAttribute('data-id',m.id);
-      d.innerHTML=`<button class="mat-compare-btn" data-cid="${m.id}" onclick="toggleCompare('${m.id}',event)">+ Compare</button><div style="font-size:13px;font-weight:700;padding-right:60px">${m.name}</div><div style="font-size:10px;color:${m.color};margin-top:2px">${m.group}</div><div style="font-size:10px;color:var(--muted);margin-top:3px;opacity:0.7">&#9660; Click for details</div>`;
+      d.innerHTML=`<button class="mat-compare-btn" data-cid="${m.id}" onclick="toggleCompare('${m.id}',event)">+ Compare</button><div style="font-size:13px;font-weight:700;padding-right:60px">${m.name}</div><div style="font-size:10px;color:${m.color};margin-top:2px">${m.group}</div>${(window.MH_MAT_URL&&MH_MAT_URL(m.id,'en'))?`<a class="mat-page-link" href="${MH_MAT_URL(m.id,'en')}" onclick="event.stopPropagation()">&#128196; Full page</a>`:''}<div style="font-size:10px;color:var(--muted);margin-top:3px;opacity:0.7">&#9660; Click for details</div>`;
       d.onclick=()=>{
         // Remove any existing inline panel
         const existing=g.querySelector('.mat-inline-det');
@@ -1800,7 +1802,7 @@ function buildMats(){
           ${m.stds?`<div style="margin:4px 0;padding:8px 12px;background:var(--card);border-radius:8px;font-size:11px"><span style="color:var(--muted);font-weight:700">&#128216; Standards: </span><span style="color:var(--text)">${m.stds}</span></div>`:''}
           ${m.forms?`<div style="margin:4px 0;padding:8px 12px;background:var(--card);border-radius:8px;font-size:11px"><span style="color:var(--muted);font-weight:700">&#128230; Available Forms: </span><span style="color:var(--text)">${m.forms}</span></div>`:''}
           ${m.makers?`<div style="margin:4px 0 8px;padding:8px 12px;background:var(--card);border-radius:8px;font-size:11px"><span style="color:var(--muted);font-weight:700">&#127981; Leading Manufacturers: </span>${m.makers.split(' · ').map(n=>makerLink(n)).join(' <span style="color:var(--muted)">·</span> ')}</div>`:''}
-          <div style="margin-top:10px;font-size:12px;line-height:1.9;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">${m.det}</div>`;
+          <div style="margin-top:10px;font-size:12px;line-height:1.9;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">${m.det}</div>${(window.MH_MAT_URL&&MH_MAT_URL(m.id,'en'))?`<a class="mat-page-btn" href="${MH_MAT_URL(m.id,'en')}">&#128196; Full material page: ${m.name} →</a>`:''}`;
         // Insert panel after the clicked card
         d.insertAdjacentElement('afterend',panel);
         panel.scrollIntoView({behavior:'smooth',block:'nearest'});
@@ -1888,7 +1890,9 @@ function closeCompareModal(){
 
 
 
+function openMat(id){var n=0;(function tryOpen(){var card=document.querySelector('.mat-card[data-id="'+id+'"]');if(!card){if(n===0){var all=[].slice.call(document.querySelectorAll('.cat-chip')).filter(function(x){return /\u05d4\u05db\u05dc|^\s*All/.test(x.textContent);})[0];if(all){all.click();}}if(n++<12){setTimeout(tryOpen,150);}return;}card.click();if(card.scrollIntoView){card.scrollIntoView({block:'center'});}})();}
 initMaterials();
+(function(){var m=/[#&]mat=([^&]+)/.exec(location.hash);if(m){setTimeout(function(){openMat(decodeURIComponent(m[1]));},200);}})();
 
 function toggleTheme(){
   document.body.classList.toggle('light-mode');document.documentElement.classList.toggle('light-mode');
