@@ -26,7 +26,9 @@
     '.mat-compare-btn,.copy-btn{min-height:24px;padding-top:4px;padding-bottom:4px}',
     'a.yt-btn{background:#c4001d!important}',
     'a[href*="youtube.com"]{min-height:24px;box-sizing:border-box}',
-    '#topbar>a,#topbar>.logo{display:inline-flex;align-items:center;min-height:24px}',
+    '#topbar>a{display:inline-flex;align-items:center;min-height:24px}',
+    /* the logo stays a plain text run (a flex box would split METAL and HUB into two items: reversed on RTL pages, and the space between them dropped) */
+    '#topbar>.logo{display:inline-block;min-height:24px;direction:ltr;unicode-bidi:isolate}',
     /* a visible keyboard focus everywhere */
     'a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--blue,#58a6ff);outline-offset:2px}',
     '#main:focus{outline:none}',
