@@ -108,7 +108,7 @@ a.home-link:hover{color:var(--text);border-color:var(--muted)}
 #gsearch{flex:1;max-width:340px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text);font-size:13px}
 #gsearch:focus{outline:none;border-color:var(--blue)}
 #gsearch::placeholder{color:var(--muted)}
-.ai-btn{background:linear-gradient(135deg,#1e3a5f,#2d1b69);border:1px solid var(--blue);border-radius:20px;padding:5px 12px;font-size:12px;color:var(--blue);cursor:pointer;white-space:nowrap}
+
 #nav{background:var(--surface);border-bottom:2px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px;position:sticky;top:52px;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4);margin-top:52px}
 .tab{padding:8px 13px;border:none;background:var(--card);border-radius:6px;color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;box-sizing:border-box}
 .tab:hover{color:var(--text);background:var(--border)}.tab.active{color:#fff;background:var(--blue)}
@@ -134,19 +134,6 @@ a.home-link:hover{color:var(--text);border-color:var(--muted)}
 .nav-arrow{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 13px;color:var(--text);cursor:pointer;font-size:18px;font-weight:700;line-height:1;flex-shrink:0;transition:all .15s}
 .nav-arrow:hover{background:var(--blue);color:#000;border-color:var(--blue)}
 .nav-arrow:active{transform:scale(.92)}
-
-/* ── Password Modal ── */
-#ai-lock-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center}
-#ai-lock-overlay.show{display:flex}
-#ai-lock-box{background:var(--card);border:1px solid var(--green);border-radius:16px;padding:32px;width:320px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-#ai-lock-box h2{font-size:22px;margin-bottom:6px;color:var(--green)}
-#ai-lock-box p{font-size:12px;color:var(--muted);margin-bottom:20px}
-#ai-pwd-input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);font-size:15px;text-align:center;letter-spacing:2px;box-sizing:border-box;margin-bottom:12px}
-#ai-pwd-input:focus{outline:none;border-color:var(--green)}
-#ai-pwd-err{color:var(--red);font-size:12px;height:16px;margin-bottom:8px}
-#ai-pwd-btn{width:100%;padding:11px;background:var(--green);color:#000;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer}
-#ai-pwd-btn:hover{opacity:.85}
-#ai-pwd-cancel{margin-top:10px;font-size:11px;color:var(--muted);cursor:pointer;text-decoration:underline}
 
 .b-blue{background:#1f6feb;color:#fff}
 .b-green{background:#2ea44f;color:#fff}
@@ -180,25 +167,25 @@ tr:hover td{background:var(--surface)}
 .gloss-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:7px}
 .gi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 14px;cursor:pointer;transition:border-color .15s;break-inside:avoid;-webkit-user-select:none;user-select:none;outline:none;-webkit-tap-highlight-color:transparent}
 .gi-he{font-size:13px;font-weight:700}.gi-en{font-size:11px;color:var(--blue)}.gi-abbr{font-size:10px;color:var(--orange)}.gi-def{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5}
-.chat-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.chat-msgs{height:400px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:9px}
-.msg{max-width:85%;padding:9px 13px;border-radius:10px;font-size:13px;line-height:1.6}
-.msg.user{background:var(--blue);color:#0d1117;margin-right:auto;border-radius:10px 10px 2px 10px}
-.msg.bot{background:var(--card);border:1px solid var(--border);margin-left:auto;border-radius:10px 10px 10px 2px}
-.chat-ir{display:flex;gap:8px;padding:10px;border-top:1px solid var(--border)}
-#ai-inp{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;color:var(--text);font-size:13px;resize:none;height:40px}
-#sec-ai,#sec-ai *{direction:ltr!important}
-#sec-ai{text-align:left}
-#sec-ai .ctitle{text-align:left}
-#sec-ai .ctitle[style*="space-between"]{flex-direction:row!important}
-#sec-ai .info{text-align:left}
-#sec-ai .chat-msgs{align-items:flex-start}
-#sec-ai .msg{text-align:left;margin-right:auto;margin-left:0}
-#sec-ai .msg.user{margin-right:auto;margin-left:0}
-#sec-ai .msg.bot{margin-right:auto;margin-left:0}
-#sec-ai #ai-inp{text-align:left}
-#sec-ai .chat-ir{flex-direction:row!important}
-#ai-inp:focus{outline:none;border-color:var(--blue)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .btn{background:var(--blue);color:#0d1117;border:none;border-radius:6px;padding:7px 16px;font-size:13px;font-weight:700;cursor:pointer}
 .btn:hover{opacity:.85}
 .cg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
@@ -455,21 +442,10 @@ html.light-mode .hero p{color:var(--muted)}
   <a href="https://metal.kushmar.com/" title="Hebrew" style="text-decoration:none;font-size:20px;line-height:1;display:flex;align-items:center;padding:0 4px" aria-label="Switch to Hebrew">🇮🇱</a>
   <a href="https://metal.kushmar.com/en/" title="English" style="text-decoration:none;font-size:20px;line-height:1;display:flex;align-items:center;padding:0 4px" aria-label="English">🇬🇧</a>
   <button class="night-toggle" onclick="toggleTheme()" title="Light/Dark mode" id="theme-btn">☀️</button>
-  <button class="ai-btn" onclick="if(aiUnlocked){showTab('ai')}else{openAiLock()}">🤖 Ask AI</button>
 </div>
 <div id="soverlay"></div>
 
-<div id="ai-lock-overlay">
-  <div id="ai-lock-box">
-    <div style="font-size:36px;margin-bottom:8px">🔐</div>
-    <h2>Ask AI</h2>
-    <p>AI access is protected.<br>Enter password to continue.</p>
-    <input id="ai-pwd-input" type="password" placeholder="••••••••" autocomplete="off" onkeydown="if(event.key==='Enter')checkAiPwd()">
-    <div id="ai-pwd-err"></div>
-    <button id="ai-pwd-btn" onclick="checkAiPwd()">🔓 Enter</button>
-    <div id="ai-pwd-cancel" onclick="closeAiLock()">Cancel</div>
-  </div>
-</div>
+
 
 
 <div id="main">
@@ -479,14 +455,14 @@ html.light-mode .hero p{color:var(--muted)}
 <div id="sec-pricing" class="section"></div>
 
 <div id="sec-home" class="section active">
-<div class="hero"><h1>METAL <span>HUB</span></h1><p>Mechanical Engineering Knowledge Portal &#8212; GD&T &#183; Materials &#183; Threads &#183; Welding &#183; Machining &#183; Inspection &#183; Calculators &#183; AI</p></div>
+<div class="hero"><h1>METAL <span>HUB</span></h1><p>Mechanical Engineering Knowledge Portal &#8212; GD&T &#183; Materials &#183; Threads &#183; Welding &#183; Machining &#183; Inspection &#183; Calculators</p></div>
 <div class="qg">
 
 <a class="qc" href="mfgtech.html"><div class="qi">&#127981;</div><div class="qn">Manufacturing Tech</div><div class="qd">Machining · Cutting · Casting · EDM</div></a>
 <a class="qc" href="materials.html"><div class="qi">&#129521;</div><div class="qn">Materials</div><div class="qd">Al · SS · Ti · Plastics · Composites</div></a><a class="qc" href="metallurgy.html"><div class="qi">&#128300;</div><div class="qn">Metallurgy</div><div class="qd">Phase Diagrams · Crystal Structure · Fractography</div></a><a class="qc" href="coatings.html"><div class="qi">&#127912;</div><div class="qn">Coatings</div><div class="qd">Anodizing · PVD · TiN · Electroless Ni</div></a><a class="qc" href="heat.html"><div class="qi">&#128293;</div><div class="qn">Heat Treatment</div><div class="qd">Hardening · Nitriding · Tempering · Coating</div></a><a class="qc" href="gdt.html"><div class="qi">&#8853;</div><div class="qn">GD&T</div><div class="qd">FCF · Datum · 13 Symbols</div></a><a class="qc" href="inspection.html"><div class="qi">&#128269;</div><div class="qn">Inspection &amp; Quality</div><div class="qd">SPC · CMM · NDT · Gauges</div></a><a class="qc" href="pricing.html"><div class="qi">&#128176;</div><div class="qn">Pricing</div><div class="qd">Machining · BOM · Formulas · Price List</div></a><a class="qc" href="tol.html"><div class="qi">&#128207;</div><div class="qn">Tolerances</div><div class="qd">IT Grades · Fits · Values</div></a><a class="qc" href="surface.html"><div class="qi">&#10022;</div><div class="qn">Surface Finish</div><div class="qd">Ra · N-grade · ASME</div></a><a class="qc" href="threads.html"><div class="qi">&#128297;</div><div class="qn">Threads &amp; Fasteners</div><div class="qd">ISO · UNC · UNF · BSP · Tr</div></a><a class="qc" href="welding.html"><div class="qi">&#9889;</div><div class="qn">Welding</div><div class="qd">Symbols · Preheat Temp · NDT</div></a><a class="qc" href="machining.html"><div class="qi">&#128295;</div><div class="qn">Machining</div><div class="qd">Speeds · Feeds · Tools</div></a><a class="qc" href="fasteners.html"><div class="qi">&#128279;</div><div class="qn">Fasteners</div><div class="qd">Bolts · Nuts · Washers · Pins · Locking · Preload</div></a><a class="qc" href="inserts.html"><div class="qi">🔩</div><div class="qn">Inserts</div><div class="qd">Helicoil · Keensert · Rivet Nut · PEM</div></a><a class="qc" href="standards.html"><div class="qi">&#128203;</div><div class="qn">Standards</div><div class="qd">ISO · ASME · MIL · DIN</div></a><a class="qc" href="bearings.html"><div class="qi">&#9881;</div><div class="qn">Bearings</div><div class="qd">L10 · Nomenclature · Selection · Lubrication</div></a><a class="qc" href="gears.html"><div class="qi">&#9881;</div><div class="qn">Gears</div><div class="qd">Module · Tooth Strength · AGMA</div></a><a class="qc" href="powertrans.html"><div class="qi">&#9939;</div><div class="qn">Power Transmission</div><div class="qd">Belts · Chains · Couplings · Splines</div></a><a class="qc" href="seals.html"><div class="qi">&#128309;</div><div class="qn">Seals</div><div class="qd">O-ring · AS568 · Groove · Materials</div></a><a class="qc" href="springs.html"><div class="qi">&#127744;</div><div class="qn">Springs</div><div class="qd">Compression · Extension · Torsion · Wahl</div></a><a class="qc" href="corrosion.html"><div class="qi">&#9889;</div><div class="qn">Corrosion</div><div class="qd">Galvanic Series · PREN · Prevention</div></a><a class="qc" href="hydraulics.html"><div class="qi">&#128167;</div><div class="qn">Hydraulics</div><div class="qd">Piston · Flow · Power</div></a><a class="qc" href="stress.html"><div class="qi">&#128202;</div><div class="qn">Stress Analysis</div><div class="qd">Bending · Torsion · Von Mises</div></a><a class="qc" href="fmea.html"><div class="qi">&#9888;</div><div class="qn">FMEA</div><div class="qd">RPN · Severity · FTA · Criticality</div></a><a class="qc" href="changes.html"><div class="qi">&#128196;</div><div class="qn">Change Management</div><div class="qd">ECO/ECN · REV · ITAR</div></a><a class="qc" href="chem.html"><div class="qi">🧪</div><div class="qn">Chemistry</div><div class="qd">Adhesives · Fuels · Sealing · MSDS</div></a>
 <a class="qc" href="dfm.html"><div class="qi">🏗️</div><div class="qn">Design for Manufacturing</div><div class="qd">DFM · DFA · Tolerance &amp; Cost</div></a>
 <a class="qc" href="pressure.html"><div class="qi">🔬</div><div class="qn">Pressure Testing</div><div class="qd">Hydrostatic · Cryogenics · Vacuum</div></a>
-<a class="qc" href="calc.html"><div class="qi">&#129518;</div><div class="qn">Calculators</div><div class="qd">RPM · Weight · Converter · Tolerance</div></a><a class="qc" href="glossary.html"><div class="qi">&#128214;</div><div class="qn">Glossary</div><div class="qd">1000 Terms · 53 Categories</div></a><div class="qc" onclick="if(aiUnlocked){showTab('ai')}else{openAiLock()}"><div class="qi">&#129302;</div><div class="qn">Ask AI</div><div class="qd">Engineering Questions · Claude Sonnet</div></div>
+<a class="qc" href="calc.html"><div class="qi">&#129518;</div><div class="qn">Calculators</div><div class="qd">RPM · Weight · Converter · Tolerance</div></a><a class="qc" href="glossary.html"><div class="qi">&#128214;</div><div class="qn">Glossary</div><div class="qd">1000 Terms · 53 Categories</div></a><a class="qc" href="explore.html"><div class="qi">&#129517;</div><div class="qn">Smart Search</div><div class="qd">Plain-language search · compare · 50 learning cards</div></a>
 </div>
 
   <div style="margin-bottom:24px;text-align:center">
@@ -792,22 +768,7 @@ html.light-mode .hero p{color:var(--muted)}
 <div style="font-size:11px;color:var(--muted);margin-bottom:8px" id="gcount"></div>
 <div id="glist" class="machine-grid"></div>
 </div></div>
-<div id="sec-ai" class="section">
-<div class="card"><div class="ctitle" style="display:flex;justify-content:space-between;align-items:center">
-  <span>🤖 Ask AI — Engineering Questions</span>
-  <div style="display:flex;gap:8px">
-    <button onclick="exportChatPDF()" style="background:var(--red);color:#fff;border:none;border-radius:6px;padding:5px 12px;color:#fff;cursor:pointer;font-size:12px;font-weight:700">📄 PDF</button>
-    <button onclick="copyChatAll()" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 10px;color:var(--muted);cursor:pointer;font-size:13px">📋 Copy All</button>
-    <button onclick="printChat()" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 10px;color:var(--muted);cursor:pointer;font-size:13px">🖨️ Print</button>
-    <button onclick="clearChat()" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 10px;color:var(--muted);cursor:pointer;font-size:13px">🗑️ Clear</button>
-  </div>
-</div>
-<div class="info">💡 Examples: "What's the difference between H7/f6 and H7/k6?" · "What coatings work for 6061 aluminum?" · "What Cpk is required for a Six Sigma process?" · "What is the Virtual Condition of a ⌀10+0.2 hole with a ⌀0.1 Position?"</div>
-<div class="chat-box">
-<div class="chat-msgs" id="chat-msgs"><div class="msg bot">Hello! I'm here to help with engineering questions — GD&T, materials, welding, machining, inspection and quality, standards, and any other engineering question. What would you like to know?</div></div>
-<div class="chat-ir">
-<textarea id="ai-inp" placeholder="Ask an engineering question..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}"></textarea>
-<button class="btn" onclick="sendMsg()">Send</button></div></div></div></div>
+
 
 </div><!-- /main -->
 
@@ -2409,43 +2370,6 @@ function show_rol(id,btn){document.querySelectorAll('.rol-sec').forEach(s=>s.cla
 function show_grd(id,btn){document.querySelectorAll('.grd-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.grd-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('grd-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function show_edm3(id,btn){document.querySelectorAll('.edm3-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.edm3-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('edm3-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function show_coat(id,btn){document.querySelectorAll('.coat-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.coat-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('coat-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
-
-const AI_HASH = '016fa6413f0c046760710be00ba8d9969d33db3382ce9720dbc0a833c29e5e93';
-let aiUnlocked = sessionStorage.getItem('aiUnlocked') === '1';
-
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
-
-function openAiLock() {
-  document.getElementById('ai-lock-overlay').classList.add('show');
-  document.getElementById('ai-pwd-input').value='';
-  document.getElementById('ai-pwd-err').textContent='';
-  setTimeout(()=>document.getElementById('ai-pwd-input').focus(),100);
-}
-
-function closeAiLock() {
-  document.getElementById('ai-lock-overlay').classList.remove('show');
-}
-
-async function checkAiPwd() {
-  const val = document.getElementById('ai-pwd-input').value;
-  const hash = await sha256(val);
-  if (hash === AI_HASH) {
-    aiUnlocked = true;
-    sessionStorage.setItem('aiUnlocked','1');
-    closeAiLock();
-    const tabBtn=document.getElementById('ai-tab-btn');
-    if(tabBtn){tabBtn.innerHTML='🤖 Ask AI';}
-    showTab('ai',tabBtn);
-  } else {
-    document.getElementById('ai-pwd-err').textContent = '❌ Incorrect password';
-    document.getElementById('ai-pwd-input').value = '';
-    document.getElementById('ai-pwd-input').focus();
-    setTimeout(()=>document.getElementById('ai-pwd-err').textContent='', 2000);
-  }
-}
 
 function show_ht(id,btn){document.querySelectorAll('.ht-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.ht-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('ht-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
 function show_wld(id,btn){document.querySelectorAll('.wld-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.wld-tab').forEach(t=>t.classList.remove('active'));var el=document.getElementById('wld-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
@@ -6146,22 +6070,6 @@ function calcRack(){
     `dp Pinion=<b>${dp}mm</b> · Linear speed=<b>${v.toFixed(3)} m/s</b> · Travel/rev=<b>${travel_per_rev.toFixed(2)}mm</b>`;
 }
 
-// ── AI CHAT FUNCTIONS ──
-function copyMsg(btn){
-  const text=btn.parentElement.querySelector('.msg-text').innerText;
-  navigator.clipboard.writeText(text).then(()=>{btn.textContent='✅';setTimeout(()=>btn.textContent='📋',1500);});
-}
-function printChat(){
-  const msgs=document.getElementById('chat-msgs').innerHTML;
-  const w=window.open('','_blank');
-  w.document.write('<html dir="ltr"><head><title>METAL HUB — AI Chat</title><style>body{font-family:sans-serif;padding:20px;direction:ltr}.msg{margin:10px 0;padding:10px;border-radius:8px}.user{background:#e3f2fd;text-align:left}.bot{background:#f5f5f5}</style></head><body><h2>METAL HUB — AI Chat</h2>'+msgs+'</body></html>');
-  w.document.close();w.print();
-}
-function clearChat(){
-  if(confirm('Clear the entire conversation?'))
-    document.getElementById('chat-msgs').innerHTML='<div class="msg bot">New conversation — ask an engineering question.</div>';
-}
-
 // ── O-RING CALCULATOR ──
 function calcOring(){
   const d2=parseFloat(document.getElementById('or-d2').value)||3.53;
@@ -6689,53 +6597,6 @@ function exportBomPDF(){
   w.document.close();
 }
 
-// ═══════════════════════════════════════════
-// AI CHAT PDF + COPY ALL
-// ═══════════════════════════════════════════
-function copyChatAll(){
-  const msgs = document.querySelectorAll('#chat-msgs .msg-text, #chat-msgs .msg');
-  let txt = 'METAL HUB — AI Chat\n' + '='.repeat(40) + '\n';
-  document.querySelectorAll('#chat-msgs .msg').forEach(m=>{
-    const isUser = m.classList.contains('user');
-    const content = (m.querySelector('.msg-text')||m).innerText.replace(/📋$/,'').trim();
-    txt += (isUser?'👤 Question: ':'🤖 Answer: ') + content + '\n\n';
-  });
-  navigator.clipboard.writeText(txt).then(()=>alert('Conversation copied to clipboard!'));
-}
-
-function exportChatPDF(){
-  const msgs = document.querySelectorAll('#chat-msgs .msg');
-  let rows = '';
-  msgs.forEach(m=>{
-    const isUser = m.classList.contains('user');
-    const content = (m.querySelector('.msg-text')||m).innerHTML.replace(/📋$/,'').trim();
-    rows += `<div class="${isUser?'user-msg':'bot-msg'}">
-      <div class="role">${isUser?'👤 Question':'🤖 Answer'}</div>
-      <div class="content">${content}</div>
-    </div>`;
-  });
-  const w = window.open('','_blank');
-  w.document.write(`<!DOCTYPE html><html dir="ltr"><head><meta charset="UTF-8">
-  <title>AI Chat — METAL HUB</title>
-  <style>
-    body{font-family:Arial,sans-serif;direction:ltr;padding:30px;color:#1a1a2e;font-size:13px;max-width:800px;margin:0 auto}
-    h1{color:#1e40af;font-size:20px}
-    .user-msg{background:#dbeafe;border-radius:10px;padding:12px 16px;margin:10px 0;border-left:4px solid #1e40af}
-    .bot-msg{background:#f1f5f9;border-radius:10px;padding:12px 16px;margin:10px 0;border-left:4px solid #059669}
-    .role{font-size:11px;font-weight:700;color:#666;margin-bottom:5px}
-    .content{font-size:13px;line-height:1.7}
-    .footer{margin-top:30px;font-size:10px;color:#999;border-top:1px solid #eee;padding-top:10px;text-align:center}
-    @media print{body{padding:10px}}
-  </style></head><body>
-  <h1>🤖 AI Chat — METAL HUB</h1>
-  <div style="font-size:11px;color:#666;margin-bottom:20px">${new Date().toLocaleString('en-US')}</div>
-  ${rows}
-  <div class="footer">METAL HUB | metal.kushmar.com</div>
-  <scr'+'ipt>window.onload=()=>setTimeout(()=>window.print(),300)</scr'+'ipt>
-  </body></html>`);
-  w.document.close();
-}
-
 function calcTh(){
   const D=parseFloat(document.getElementById('th-d').value),P=parseFloat(document.getElementById('th-p').value)||getP(D);
   if(!D)return;
@@ -6932,34 +6793,7 @@ function calcTq(){
   document.getElementById('tq-r').innerHTML=`Tightening Torque: <b>${T.toFixed(1)} N·m</b> · T = K(${K}) × D(${D}mm) × F(${F/1000}kN)`;
 }
 
-async function sendMsg(){
-  const inp=document.getElementById('ai-inp');
-  const msg=inp.value.trim();if(!msg)return;inp.value='';
-  const msgs=document.getElementById('chat-msgs');
-  msgs.innerHTML+=`<div class="msg user">${msg}</div><div class="msg bot" id="typing-ind" style="color:var(--muted)">Thinking...</div>`;
-  msgs.scrollTop=msgs.scrollHeight;
-  try{
-    const r=await fetch('https://metal-hub-ai.kushmar.workers.dev',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        system:'You are a senior mechanical engineer and manufacturing expert with 20+ years of experience in the defense industry (Rafael-level). Always answer in English, concise and clear but thorough. Specialties: GD&T (ISO 1101/ASME Y14.5), fits and ISO tolerances, metal machining (turning/milling/drilling), welding (MIG/TIG/SMAW), engineering materials (steels/Al/SS/Ti/Inconel), coatings (MIL specs), heat treatment, NDT, SPC/Cpk, FAI, and the meaning of standards (ISO/ASME/MIL/DIN). When answering a question, give a direct answer first, then elaborate if relevant. Use specific numbers and data where possible.',
-        messages:[{role:'user',content:msg}]})
-    });
-    const data=await r.json();
-    document.getElementById('typing-ind').remove();
-    if(data.error){
-      msgs.innerHTML+=`<div class="msg bot" style="color:var(--red)"><span class="msg-text">API error: ${data.error.message}</span></div>`;
-    } else {
-      const reply=(data.content?.[0]?.text||'Error in response').replace(/\n/g,'<br>');
-    msgs.innerHTML+=`<div class="msg bot" style="position:relative;padding-left:28px"><span class="msg-text">${reply}</span><button onclick="copyMsg(this)" style="position:absolute;top:5px;left:5px;background:var(--surface);border:1px solid var(--border);border-radius:4px;cursor:pointer;font-size:11px;padding:2px 5px;color:var(--muted)" title="Copy answer">📋</button></div>`;
-    }
-  }catch(e){
-    document.getElementById('typing-ind').remove();
-    msgs.innerHTML+=`<div class="msg bot" style="color:var(--red)">Network error: ${e.message}</div>`;
-  }
-  msgs.scrollTop=msgs.scrollHeight;
-}
+
 
 calcTh();calcDr();calcRpm();calcWt();updateUcOptions();calcTl();calcTq();
 document.addEventListener('DOMContentLoaded',function(){var bb=document.getElementById('back-home-btn');if(bb)bb.style.display='none';});
