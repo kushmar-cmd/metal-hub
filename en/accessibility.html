@@ -142,7 +142,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
 <div class="card">
 <h1 style="font-size:28px;font-weight:800;color:var(--text);margin-bottom:6px">Accessibility Statement</h1>
-<p style="font-size:12px;color:var(--muted)">Last updated: October 9, 2026</p>
+<p style="font-size:12px;color:var(--muted)">Last updated: October 31, 2026</p>
 </div>
 
 <div class="card">
@@ -152,16 +152,20 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
 <div class="card">
 <div class="ctitle">Accessibility level</div>
-<p style="font-size:14px;line-height:1.9">The site is in the process of being made accessible. It does not yet fully meet Israeli Standard SI 5568 (based on the WCAG guidelines, level AA), and we are working to move closer to it step by step.</p>
+<p style="font-size:14px;line-height:1.9">The site is in a continuing process of being made accessible. An automated check (axe-core) run on October 31, 2026 across all pages of the site, in Hebrew and English, found no violations of the WCAG 2.2 level AA rules. However, an automated check detects only part of the possible problems, and a full manual evaluation, including screen readers and testing with users, has not been carried out. We therefore do not claim that the site fully meets Israeli Standard SI 5568 (based on the WCAG guidelines, level AA).</p>
 </div>
 
 <div class="card">
 <div class="ctitle">What is already in place</div>
 <ul style="font-size:14px;line-height:2;padding-inline-start:22px">
-<li>An <b>accessibility toolbar</b> on every page (floating button at the bottom corner of the screen): larger/smaller text, high contrast, invert colors, grayscale, highlight links, readable font, stop animations, large cursor and a reading guide. Your settings are remembered in your browser.</li>
-<li>The site is available in Hebrew (right-to-left) and English (left-to-right), with language and direction set on every page.</li>
-<li>Light and dark display modes (the ☀️ button at the top of the page).</li>
-<li>Responsive design that adapts to different screen sizes.</li>
+<li><b>An accessibility toolbar</b> on every page (floating button at the bottom corner of the screen): larger/smaller text, high contrast, invert colors, grayscale, highlight links, readable font, stop animations, large cursor and a reading guide. Your settings are remembered in your browser.</li>
+<li><b>Keyboard navigation:</b> a "Skip to main content" link at the top of every page, marked page regions (header, main content, footer), and a visible focus outline. The topics menu and the AI window manage focus, close with the Esc key and return focus to where they were opened. Scrollable tables can be reached by keyboard.</li>
+<li><b>Screen readers:</b> every calculator field and dropdown has an accessible name that includes the calculator name. Button and link names match the text that is shown.</li>
+<li><b>Color contrast:</b> checked in dark and in light mode. Text on colored backgrounds (tabs, badges) automatically gets black or white according to the background, to stay readable.</li>
+<li><b>Target size:</b> buttons and links are at least 24 by 24 pixels.</li>
+<li><b>Videos:</b> all training videos (the five series, in Hebrew and English) have burned-in captions. There is also a transcript: an interactive transcript in the GD&T series, and in the other four series a transcript panel under the player (clicking a sentence jumps to that moment in the video) and a full transcript page for each course.</li>
+<li>The site is available in Hebrew (right-to-left) and English (left-to-right), with language and direction set on every page. Browser zoom is allowed.</li>
+<li>Light and dark display modes (the ☀️ button at the top of the page), and a responsive design that adapts to different screen sizes.</li>
 <li>Background animations stop automatically for visitors whose operating system requests reduced motion.</li>
 </ul>
 </div>
@@ -169,11 +173,13 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <div class="card">
 <div class="ctitle">Known limitations</div>
 <ul style="font-size:14px;line-height:2;padding-inline-start:22px">
-<li><b>Keyboard navigation:</b> some interactive components (tabs, pop-up windows, search results) are not yet fully adapted.</li>
-<li><b>Screen readers:</b> in some calculators the labels are not programmatically linked to their fields, and dynamically updated results are not announced automatically.</li>
-<li><b>Color contrast:</b> some text (mainly gray secondary text) may not meet the required contrast ratio.</li>
-<li><b>Videos:</b> links to explanatory videos lead to YouTube search results. Their accessibility (captions, etc.) is the responsibility of the external site.</li>
-<li><b>The AI assistant and calculators</b> are dynamic components and may be difficult to use with some assistive technologies.</li>
+<li><b>Manual testing:</b> a full evaluation with screen readers (NVDA, JAWS, VoiceOver) or with users with disabilities has not been carried out.</li>
+<li><b>Transcripts:</b> they were generated automatically from the captions in the video and may contain errors, mainly in Hebrew and in standard designations and numbers. Where recognition failed, the text is marked with "…".</li>
+<li><b>Videos:</b> the captions and the transcript reproduce the narration. There is no separate audio description of the diagrams in the videos.</li>
+<li><b>Language of parts:</b> English terms inside Hebrew text are not marked with a language attribute, so a screen reader may read them with a Hebrew pronunciation.</li>
+<li><b>Dynamic results:</b> calculator results and AI assistant answers update on the page and are not announced automatically to a screen reader. The AI assistant may be difficult to use with some assistive technologies.</li>
+<li><b>Tabs:</b> moving between tabs is done by activating each tab (Tab and Enter). Arrow-key navigation, as is customary in a tab list, has not been implemented.</li>
+<li><b>External links:</b> links to YouTube videos lead to search results on an external site, whose accessibility is its own responsibility.</li>
 </ul>
 </div>
 
