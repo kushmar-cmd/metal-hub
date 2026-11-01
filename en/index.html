@@ -465,64 +465,36 @@ html.light-mode .hero p{color:var(--muted)}
 <a class="qc" href="calc.html"><div class="qi">&#129518;</div><div class="qn">Calculators</div><div class="qd">RPM · Weight · Converter · Tolerance</div></a><a class="qc" href="glossary.html"><div class="qi">&#128214;</div><div class="qn">Glossary</div><div class="qd">1000 Terms · 53 Categories</div></a><a class="qc" href="explore.html"><div class="qi">&#129517;</div><div class="qn">Smart Search</div><div class="qd">Plain-language search · compare · 50 learning cards</div></a>
 </div>
 
-  <section class="mh-cf" dir="ltr" aria-labelledby="mh-cf-title">
-  <h2 id="mh-cf-title">&#128236; Contact</h2>
-  <p class="mh-cf-sub">A question, a comment on the site content, or an idea for a new topic? Leave a message and I will get back to you.</p>
-  <form id="mh-cf-form" method="post" action="/contact.php">
-    <div><label for="mh-cf-name">Name</label><input id="mh-cf-name" name="name" type="text" required maxlength="100" autocomplete="name" placeholder="Your name"></div>
-    <div><label for="mh-cf-email">Email</label><input id="mh-cf-email" name="email" type="email" required maxlength="200" autocomplete="email" placeholder="name@example.com"></div>
-    <div class="mh-cf-full"><label for="mh-cf-msg">Message</label><textarea id="mh-cf-msg" name="message" required minlength="5" maxlength="5000" placeholder="How can I help?"></textarea></div>
-    <div class="mh-cf-hp" aria-hidden="true"><label for="mh-cf-web">Website</label><input id="mh-cf-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-    <input type="hidden" name="ts" value="">
-    <input type="hidden" name="lang" value="en">
-    <button type="submit" class="mh-cf-full">Send</button>
-    <p class="mh-cf-status" role="status" aria-live="polite"></p>
-  </form>
-</section>
-<style>
-.mh-cf{max-width:560px;margin:0 auto 24px;padding:22px 20px;background:var(--card);border:1px solid var(--border);border-radius:14px;text-align:start}
-.mh-cf h2{margin:0 0 4px;font-size:17px;font-weight:800;color:var(--text);text-align:center}
-.mh-cf .mh-cf-sub{margin:0 0 16px;font-size:13px;line-height:1.6;color:var(--muted);text-align:center}
-.mh-cf form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.mh-cf .mh-cf-full{grid-column:1/-1}
-.mh-cf label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:5px}
-.mh-cf input,.mh-cf textarea{width:100%;box-sizing:border-box;padding:10px 12px;font:inherit;font-size:14px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:9px;outline:none;transition:border-color .15s,box-shadow .15s}
-.mh-cf textarea{min-height:120px;resize:vertical;line-height:1.5}
-.mh-cf input:focus,.mh-cf textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 25%,transparent)}
-.mh-cf input[type=email]{direction:ltr;text-align:start}
-.mh-cf .mh-cf-hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
-.mh-cf button{justify-self:center;min-width:160px;min-height:42px;padding:10px 24px;font:inherit;font-size:14px;font-weight:800;color:#0d1117;background:var(--blue);border:0;border-radius:10px;cursor:pointer;transition:filter .15s,opacity .15s}
-.mh-cf button:hover{filter:brightness(1.1)}
-.mh-cf button:disabled{opacity:.6;cursor:wait}
-.mh-cf .mh-cf-status{grid-column:1/-1;margin:0;min-height:20px;font-size:13px;font-weight:600;text-align:center}
-.mh-cf .mh-cf-status.ok{color:var(--green)}
-.mh-cf .mh-cf-status.err{color:var(--red)}
-html.light-mode .mh-cf .mh-cf-status.ok,body.light-mode .mh-cf .mh-cf-status.ok{color:#116329}
-html.light-mode .mh-cf .mh-cf-status.err,body.light-mode .mh-cf .mh-cf-status.err{color:#cf222e}
-@media (max-width:520px){.mh-cf form{grid-template-columns:1fr}.mh-cf{padding:18px 14px}}
-</style>
-<script>
-(function(){
-  var f=document.getElementById('mh-cf-form'); if(!f) return;
-  var st=f.querySelector('.mh-cf-status'), btn=f.querySelector('button[type=submit]'), ts=f.querySelector('input[name=ts]');
-  var M={"email": "The email address is not valid.", "message": "The message is too short.", "name": "Please enter your name.", "rate": "Too many messages were sent. Please try again in an hour.", "timing": "Please try sending again in a few seconds."}, OK="Your message was sent. Thank you! I will get back to you soon.", FAIL="Sending failed. Please try again later.", SEND="Send", SENDING="Sending…";
-  ts.value=Date.now();
-  function show(t,c){st.textContent=t;st.className='mh-cf-status '+(c||'');}
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!f.checkValidity()){f.reportValidity();return;}
-    btn.disabled=true; btn.textContent=SENDING; show('');
-    fetch('/contact.php',{method:'POST',body:new FormData(f),credentials:'same-origin'})
-      .then(function(r){return r.json().catch(function(){return {ok:false};});})
-      .then(function(d){
-        if(d&&d.ok){show(OK,'ok');f.reset();ts.value=Date.now();}
-        else{show((d&&M[d.error])||FAIL,'err');}
-      })
-      .catch(function(){show(FAIL,'err');})
-      .then(function(){btn.disabled=false;btn.textContent=SEND;});
-  });
-})();
-</script>
+  <div style="margin-bottom:24px;text-align:center">
+    <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:14px;letter-spacing:1px;text-align:center">&#128222; Contact — Alex Kushmar</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
+
+      <a href="mailto:alex@kushmar.com" title="Email" style="display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:var(--muted);font-size:10px">
+        <div style="width:44px;height:44px;border-radius:10px;background:#EA4335;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        Email
+      </a>
+
+      <a href="http://t.me/kushmar" target="_blank" title="Telegram" style="display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:var(--muted);font-size:10px">
+        <div style="width:44px;height:44px;border-radius:10px;background:#2CA5E0;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 7.07l-1.668 7.863c-.125.558-.459.693-.932.432l-2.57-1.894-1.24 1.195c-.137.137-.252.252-.517.252l.185-2.62 4.762-4.302c.207-.185-.045-.287-.32-.102L7.86 14.42l-2.52-.786c-.548-.171-.558-.548.115-.811l9.773-3.768c.456-.165.855.102.702.815z"/></svg></div>
+        Telegram
+      </a>
+
+      <a href="https://www.linkedin.com/in/kushmar/" target="_blank" title="LinkedIn" style="display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:var(--muted);font-size:10px">
+        <div style="width:44px;height:44px;border-radius:10px;background:#0A66C2;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        LinkedIn
+      </a>
+
+      <a href="http://m.me/kushmar" target="_blank" title="Messenger" style="display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:var(--muted);font-size:10px">
+        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0084FF,#A033FF);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.921 1.444 5.53 3.71 7.244V22l3.389-1.853C10.127 20.37 11.044 20.5 12 20.5c5.523 0 10-4.145 10-9.257C22 6.145 17.523 2 12 2zm1.018 12.471l-2.541-2.713-4.958 2.713 5.45-5.79 2.601 2.713 4.898-2.713-5.45 5.79z"/></svg></div>
+        Messenger
+      </a>
+
+      <a href="/en/contact.html" target="_blank" rel="noopener" title="Contact form" onclick="var w=window.open(this.href,'mhcontact','width=620,height=760');if(w){w.opener=null;return false;}" style="display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:var(--muted);font-size:10px">
+        <div style="width:44px;height:44px;border-radius:10px;background:#238636;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2zm3 5v2h10V9H7zm0 3.5v2h7v-2H7z"/></svg></div>
+        Contact form
+      </a>
+    </div>
+  </div>
 </div>
 <div id="sec-gdt" class="section">
 <div style="display:flex;align-items:center;justify-content:center;height:200px">
