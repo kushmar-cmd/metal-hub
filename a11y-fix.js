@@ -201,3 +201,64 @@
     }
   });
 })();
+
+/* ---------- flags: Windows has no flag emoji (it shows the letters "IL", "GB", "US"), so draw them as small SVG pictures ---------- */
+(function () {
+  'use strict';
+  if (window.__mhFlags) { return; } window.__mhFlags = true;
+  var d = document, n = 0;
+  var HE = (d.documentElement.getAttribute('lang') || 'he').toLowerCase().indexOf('he') === 0;
+  var NAME = HE ? { IL: 'ישראל', GB: 'בריטניה', US: 'ארצות הברית' } : { IL: 'Israel', GB: 'United Kingdom', US: 'United States' };
+  function svg(code) {
+    var k = ++n, s;
+    if (code === 'IL') {
+      s = '<svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid slice"><rect width="220" height="160" fill="#fff"/><rect y="15" width="220" height="25" fill="#0038b8"/><rect y="120" width="220" height="25" fill="#0038b8"/>' +
+          '<path d="M110 48 137.7 96H82.3ZM110 112 137.7 64H82.3Z" fill="none" stroke="#0038b8" stroke-width="5.5"/></svg>';
+    } else if (code === 'GB') {
+      s = '<svg viewBox="7.5 0 45 30" preserveAspectRatio="xMidYMid slice"><clipPath id="mhf' + k + '"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><rect width="60" height="30" fill="#012169"/>' +
+          '<path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#mhf' + k + ')" stroke="#c8102e" stroke-width="4"/>' +
+          '<path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></svg>';
+    } else if (code === 'US') {
+      var st = '', r, c;
+      for (r = 0; r < 13; r += 2) { st += '<rect y="' + (r * 10) + '" width="247" height="10" fill="#b22234"/>'; }
+      st += '<rect width="98.8" height="70" fill="#3c3b6e"/>';
+      for (r = 0; r < 9; r++) { for (c = 0; c < (r % 2 ? 5 : 6); c++) { st += '<circle cx="' + (8.2 + (r % 2 ? 8.2 : 0) + c * 16.4).toFixed(1) + '" cy="' + (7 + r * 7) + '" r="2.6" fill="#fff"/>'; } }
+      s = '<svg viewBox="0 0 195 130" preserveAspectRatio="xMidYMid slice"><rect width="247" height="130" fill="#fff"/>' + st + '</svg>';
+    } else { return null; }
+    return '<span class="mh-flag" role="img" aria-label="' + NAME[code] + '">' + s + '</span>';
+  }
+  var st = d.createElement('style');
+  st.textContent = '.mh-flag{display:inline-block;width:1.3em;height:.9em;vertical-align:-.1em;line-height:0;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(127,127,127,.35);flex:none}.mh-flag svg{width:100%;height:100%;display:block}';
+  (d.head || d.documentElement).appendChild(st);
+  var RE = /\uD83C([\uDDE6-\uDDFF])\uD83C([\uDDE6-\uDDFF])/g, TEST = /\uD83C[\uDDE6-\uDDFF]\uD83C[\uDDE6-\uDDFF]/;
+  var SKIP = /^(SCRIPT|STYLE|TEXTAREA|TITLE|OPTION|NOSCRIPT|SELECT|INPUT)$/;
+  function letter(ch) { return String.fromCharCode(ch.charCodeAt(0) - 0xDDE6 + 65); }
+  function fixNode(t) {
+    var p = t.parentNode; if (!p || SKIP.test(p.nodeName) || (p.closest && p.closest('svg,.mh-flag,[contenteditable="true"]'))) { return; }
+    var txt = t.nodeValue; if (!TEST.test(txt)) { return; }
+    var html = '', last = 0, m, any = false; RE.lastIndex = 0;
+    var esc = function (x) { return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+    while ((m = RE.exec(txt))) { var f = svg(letter(m[1]) + letter(m[2])); if (!f) { continue; } html += esc(txt.slice(last, m.index)) + f; last = m.index + m[0].length; any = true; }
+    if (!any) { return; }
+    html += esc(txt.slice(last));
+    var box = d.createElement('span'); box.innerHTML = html;
+    while (box.firstChild) { p.insertBefore(box.firstChild, t); }
+    p.removeChild(t);
+  }
+  function scan(root) {
+    if (!root) { return; }
+    if (root.nodeType === 3) { fixNode(root); return; }
+    if (root.nodeType !== 1 || !TEST.test(root.textContent || '')) { return; }
+    var w = d.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false), l = [], x;
+    while ((x = w.nextNode())) { if (TEST.test(x.nodeValue)) { l.push(x); } }
+    for (x = 0; x < l.length; x++) { fixNode(l[x]); }
+  }
+  function start() {
+    scan(d.body);
+    if (window.MutationObserver) {
+      new MutationObserver(function (ms) { var i, j; for (i = 0; i < ms.length; i++) { if (ms[i].type === 'characterData') { fixNode(ms[i].target); continue; } for (j = 0; j < ms[i].addedNodes.length; j++) { scan(ms[i].addedNodes[j]); } } })
+        .observe(d.body, { childList: true, subtree: true, characterData: true });
+    }
+  }
+  if (d.body) { start(); } else { d.addEventListener('DOMContentLoaded', start); }
+})();
