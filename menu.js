@@ -25,7 +25,7 @@
         ['metallurgy-course', '\ud83c\udfac', '\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05d5\u05de\u05d8\u05dc\u05d5\u05e8\u05d2\u05d9\u05d4', 'Materials & Metallurgy', '/metallurgy-course.html', '/en/metallurgy-course.html'],
         ['drawing-course', '\ud83c\udfac', '\u05e7\u05e8\u05d9\u05d0\u05ea \u05e9\u05e8\u05d8\u05d5\u05d8', 'Drawing Reading', '/drawing-course.html', '/en/drawing-course.html'],
         ['welding-course', '\ud83c\udfac', '\u05e8\u05d9\u05ea\u05d5\u05da', 'Welding', '/welding-course.html', '/en/welding-course.html'],
-        ['heat-course', '\ud83c\udfac', '\u05d8\u05d9\u05e4\u05d5\u05dc\u05d9\u05dd \u05ea\u05e8\u05de\u05d9\u05d9\u05dd', 'Heat Treatment', '/heat-course.html', '']] },
+        ['heat-course', '\ud83c\udfac', '\u05d8\u05d9\u05e4\u05d5\u05dc\u05d9\u05dd \u05ea\u05e8\u05de\u05d9\u05d9\u05dd', 'Heat Treatment', '/heat-course.html', '/en/heat-course.html']] },
       { he: '\u05d9\u05d9\u05e6\u05d5\u05e8 \u05d5\u05e2\u05d9\u05d1\u05d5\u05d3', en: 'Manufacturing', i: [
         ['mfgtech', '\ud83c\udfed', '\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05d9\u05d9\u05e6\u05d5\u05e8', 'Manufacturing Technologies'], ['machining', '\ud83d\udd27', '\u05e2\u05d9\u05d1\u05d5\u05d3 \u05de\u05db\u05e0\u05d9', 'Machining'],
         ['threads', '\ud83d\udd29', '\u05d4\u05d1\u05e8\u05d2\u05d5\u05ea', 'Threads'], ['welding', '\u26a1', '\u05e8\u05d9\u05ea\u05d5\u05da', 'Welding'], ['heat', '\ud83d\udd25', '\u05d8\u05d9\u05e4\u05d5\u05dc\u05d9 \u05d7\u05d5\u05dd', 'Heat Treatment'],
