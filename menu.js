@@ -93,7 +93,7 @@
     btn.appendChild(el('span', { 'class': 'mhm-bars', 'aria-hidden': 'true' }, '\u2630'));
     btn.appendChild(el('span', { 'class': 'mhm-tx' }, T.btn));
 
-    var panel = el('nav', { id: 'mh-menu-panel', 'aria-label': T.title });
+    var panel = el('nav', { id: 'mh-menu-panel', 'aria-label': T.title, dir: HE ? 'rtl' : 'ltr' });   /* own direction: some pages set direction on <body> */
     panel.hidden = true;
     var topRow = el('div', { 'class': 'mhm-top' }), homeUl = el('ul', { 'class': 'mhm-home' }), homeLi = el('li');
     homeLi.appendChild(link(base, '\ud83c\udfe0', T.home, 'index')); homeUl.appendChild(homeLi);
