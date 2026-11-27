@@ -157,7 +157,7 @@ html.light-mode #ht-course,body.light-mode #ht-course{--g0:#5d708a;--g1:#c9541f;
 .cc-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 15% 0%,color-mix(in srgb,var(--orange) 22%,transparent),transparent 60%),radial-gradient(ellipse at 100% 100%,color-mix(in srgb,var(--g2) 16%,transparent),transparent 55%);pointer-events:none}
 .cc-hero>*{position:relative}
 .cc-kick{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.3px;color:var(--orange);border:1px solid var(--orange);border-radius:999px;padding:3px 12px;margin-bottom:10px}
-.cc-hero h2{font-size:30px;font-weight:900;color:var(--text);margin:0 0 10px;line-height:1.2}
+.cc-hero h2,.cc-hero h1{font-size:30px;font-weight:900;color:var(--text);margin:0 0 10px;line-height:1.2}
 .cc-hero p{color:var(--muted);font-size:15.5px;line-height:1.7;max-width:720px;margin:0 0 16px}
 .cc-facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
 .cc-facts span{font-size:13px;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:5px 12px}
@@ -216,12 +216,12 @@ html.light-mode #ht-course,body.light-mode #ht-course{--g0:#5d708a;--g1:#c9541f;
 .cc-pb button:disabled{opacity:.35;cursor:default}
 #ht-course :focus-visible,#cc-dlg :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
 @media (max-width:1000px){.cc-steps{grid-template-columns:1fr 1fr}.cc-two{grid-template-columns:1fr}}
-@media (max-width:620px){.cc-who{grid-template-columns:1fr}.cc-hero{padding:20px 16px}.cc-hero h2{font-size:23px}.cc-steps{grid-template-columns:1fr}.cc-grid{grid-template-columns:1fr}}
+@media (max-width:620px){.cc-who{grid-template-columns:1fr}.cc-hero{padding:20px 16px}.cc-hero h2,.cc-hero h1{font-size:23px}.cc-steps{grid-template-columns:1fr}.cc-grid{grid-template-columns:1fr}}
 </style>
 
 <div class="cc-hero">
   <span class="cc-kick">קורס וידאו · METAL HUB</span>
-  <h2 role="heading" aria-level="1">טיפולים תרמיים</h2>
+  <h1>טיפולים תרמיים</h1>
   <p>קורס מונפש בעברית על טיפולים תרמיים: ממה שקורה בתוך הפלדה בחימום ובקירור, דרך ריכוך, נרמול, הקשיה, כיבוי והרפיה, הקשיית פני השטח וטיפול חום לפי משפחת חומר, ועד תנורים ואווירות, עיוות וסדקים, בדיקות, מפרטים ועלויות. כל פרק מסביר מה קורה בחומר, מה הפרמטרים, מה משתבש ומה מייקר.</p>
   <div class="cc-facts"><span><b>25</b> פרקים</span><span><b>כשלוש שעות</b> של צפייה</span><span><b>6</b> חלקים</span><span>קריינות וכתוביות בעברית</span></div>
   <div class="cc-cta"><button class="cc-btn" type="button" data-cc="0"><span class="cc-tri" aria-hidden="true"></span>להתחיל מהפתיחה</button><button class="cc-btn2" type="button" id="cc-resume" hidden></button><span class="cc-prog" id="cc-prog"></span></div>

@@ -104,7 +104,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 .mc-hero{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:34px 30px 30px;margin-bottom:18px;min-height:300px}
 .mc-hero svg.mc-grains{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
 .mc-hero-in{position:relative;max-width:640px}
-.mc-hero h2{font-size:38px;line-height:1.15;font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-.3px}
+.mc-hero h2,.mc-hero h1{font-size:38px;line-height:1.15;font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-.3px}
 .mc-hero p{font-size:15px;line-height:1.85;color:var(--muted);max-width:56ch}
 .mc-facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 20px;font-size:13px;color:var(--muted)}
 .mc-facts b{color:var(--text);font-size:15px}
@@ -147,7 +147,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 .mc-note{font-size:12px;color:var(--muted);padding:0 14px 12px}
 .mc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--surface) 0%,var(--surface) 38%,transparent 85%);pointer-events:none}
 .mc-hero-in{position:relative;max-width:640px;z-index:1}
-@media (max-width:700px){.mc-hero{padding:24px 18px}.mc-hero h2{font-size:28px}.mc-info{grid-template-columns:1fr}}
+@media (max-width:700px){.mc-hero{padding:24px 18px}.mc-hero h2,.mc-hero h1{font-size:28px}.mc-info{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.mc-hero svg.mc-grains *{animation:none!important}}
 .mc-top{display:flex;justify-content:space-between;align-items:center;gap:10px;max-width:1200px;margin:0 auto;padding:16px 18px 0;position:relative;z-index:1}
 .mc-top a{color:var(--blue);text-decoration:none;font-weight:600}
@@ -161,7 +161,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 <div class="mc-hero">
 <svg class="mc-grains" id="mcGrains" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
 <div class="mc-hero-in">
-<h2 role="heading" aria-level="1">Materials and Metallurgy</h2>
+<h1>Materials and Metallurgy</h1>
 <p>An animated video course: from the grain inside the metal to the decision of which material to order. Every chapter explains what happens in the material, how it affects work in the shop, and what drives the cost.</p>
 <div class="mc-facts"><span><b>24</b> chapters</span><span><b>2.7</b> hours</span><span><b>7</b> topic groups</span><span>English narration and subtitles</span></div>
 <div class="mc-actions"><button class="mc-btn mc-btn-main" id="mcStart">Start with the introduction</button><button class="mc-btn mc-btn-ghost" id="mcResume" hidden></button><span class="mc-progress" id="mcProg"></span></div>
